@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Leg Duration Type",
+  "description": "Codes for leg duration type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Near",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Far",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

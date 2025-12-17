@@ -1,0 +1,92 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-rsp-06",
+  "$metadata" : {
+    "domain" : "professional_management",
+    "schemaId" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-rsp-06"
+  },
+  "title" : "Professional Mapping Change Notification and maintenance response",
+  "description" : "Notification message for changes made to professional mappings by screen interface, by message and maintenance response",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Participant ID associated with the user"
+    },
+    "operationType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of operation to perform",
+      "$comment" : "Consult External Code List table ExternalOperationTypeCode"
+    },
+    "transactionOrigin" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of operation to perform",
+      "$comment" : "Consult External Code List table ExternalTransactionOriginTypeCode"
+    },
+    "updatedData" : {
+      "$ref" : "../../objects/business/NotificationRegistry.json",
+      "description" : "Details of the changes made to the professional mappings"
+    },
+    "professionalsMapping" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/BaseRegistrationMapping.json"
+      },
+      "minItems" : 0,
+      "maxItems" : 60,
+      "description" : "Array of mapping found (empty if none found)"
+    },
+    "statusSuccess" : {
+      "type" : "boolean",
+      "description" : "Indicates if the operation was successful (true) or not (false)"
+    },
+    "statusError" : {
+      "$ref" : "../../objects/business/RegisterStatus.json"
+    }
+  },
+  "required" : [ "participantIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "operationType" : 1,
+    "transactionOrigin" : 1,
+    "updatedData" : {
+      "eventType" : 2,
+      "eventTimestamp" : "2024-05-15T14:30:15Z",
+      "userId" : "ADMIN123",
+      "changedFields" : [ {
+        "fieldName" : "account.address.city"
+      } ]
+    },
+    "statusSuccess" : true,
+    "statusError" : {
+      "statusCode" : 1,
+      "errorIdentification" : [ {
+        "code" : 1,
+        "message" : "Error X",
+        "errorDescription" : "COD12452",
+        "refId" : "REF12345"
+      } ]
+    },
+    "professionalsMapping" : [ {
+      "relationshipProfessionalMapping" : 1,
+      "mappingType" : 1,
+      "mappingStatus" : 1,
+      "participantOriginIdentification" : {
+        "id" : 888,
+        "category" : 3
+      },
+      "participantDestinationIdentification" : {
+        "id" : 777,
+        "category" : 4
+      },
+      "operatorDocument" : {
+        "documentType" : 2,
+        "documentNumber" : "12345678900"
+      }
+    } ]
+  } ]
+}

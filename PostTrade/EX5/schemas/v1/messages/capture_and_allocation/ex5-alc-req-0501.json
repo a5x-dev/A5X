@@ -1,0 +1,58 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-alc-req-05",
+  "$metadata" : {
+    "domain" : "capture_and_allocation",
+    "schemaId" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-alc-req-05"
+  },
+  "title" : "Allocation Report Request",
+  "description" : "Allocation Report Request",
+  "type" : "object",
+  "properties" : {
+    "reportType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of report being requested",
+      "$comment" : "Consult External Code List table ExternalReportTypeCode."
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the participant using proprietary scheme"
+    },
+    "accountIdentification" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/AccountIdentification.json",
+        "description" : "Accounts"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    "tradeDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Trade date in ISO format"
+    },
+    "securityAccountType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of security account",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
+    }
+  },
+  "required" : [ "reportType", "participantIdentification", "accountIdentification", "tradeDate" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "reportType" : 3,
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "accountIdentification" : [ {
+      "id" : 7000123
+    }, {
+      "id" : 800034
+    }, {
+      "id" : 9001234
+    } ],
+    "tradeDate" : "2025-08-01",
+    "securityAccountType" : 3
+  } ]
+}

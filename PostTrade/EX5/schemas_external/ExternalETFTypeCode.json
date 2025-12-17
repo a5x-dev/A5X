@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External E T F Type",
+  "description": "Codes for e t f type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "NET",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "PIBB",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "ETF In Kind",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "ETF In Cash",
+      "const": 3
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

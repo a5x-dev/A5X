@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Market",
+  "description": "Codes for market",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "UNDEFINED",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "SPOT",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "FUTURE",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "OPTIONS ON SPOT",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "OPTIONS ON FUTURE",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "FORWARD",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "ETF PRIMARY MARKET",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "PORTFOLIO",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "CASH",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "OPTION EXERCISE (CALL)",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "OPTIONS EXERCISE (PUT)",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "AUCTION",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "ODD LOT",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "EQUITY BLOCK TRADING LOT",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "EQUITY FORWARD",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "EQUITY CALL",
+      "const": 70
+    },
+    {
+      "type": "number",
+      "description": "EQUITY PUT",
+      "const": 80
+    },
+    {
+      "type": "number",
+      "description": "SWAP",
+      "const": 81
+    },
+    {
+      "type": "number",
+      "description": "FLEXIBLE PUT OPTION",
+      "const": 82
+    },
+    {
+      "type": "number",
+      "description": "FLEXIBLE CALL OPTION",
+      "const": 83
+    },
+    {
+      "type": "number",
+      "description": "FORWARD",
+      "const": 84
+    },
+    {
+      "type": "number",
+      "description": "INDICATORS",
+      "const": 85
+    },
+    {
+      "type": "number",
+      "description": "CURVES",
+      "const": 86
+    },
+    {
+      "type": "number",
+      "description": "SURFACES",
+      "const": 87
+    },
+    {
+      "type": "number",
+      "description": "Security Lending OTC",
+      "const": 91
+    },
+    {
+      "type": "number",
+      "description": "SECURITY LENDING T0",
+      "const": 92
+    },
+    {
+      "type": "number",
+      "description": "SECURITY LENDING T1",
+      "const": 93
+    },
+    {
+      "type": "number",
+      "description": "SECURITY LENDING Gov. Bond",
+      "const": 94
+    },
+    {
+      "type": "number",
+      "description": "Gov. Bond REPO - SPECIFIC COLLATERAL",
+      "const": 95
+    },
+    {
+      "type": "number",
+      "description": "Gov. Bond REPO - GENERAL COLLATERAL",
+      "const": 96
+    },
+    {
+      "type": "number",
+      "description": "Security Lending Fixed Income ETF",
+      "const": 97
+    },
+    {
+      "type": "number",
+      "description": "OTC FIXED INCOME GOVT",
+      "const": 100
+    },
+    {
+      "type": "number",
+      "description": "OTC FIXED INCOME CORP",
+      "const": 101
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}

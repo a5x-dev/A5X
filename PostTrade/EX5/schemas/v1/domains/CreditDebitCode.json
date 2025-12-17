@@ -1,0 +1,14 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:CreditDebitCode",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:CreditDebitCode"
+  },
+  "title" : "Credit Debit Code",
+  "description" : "Code indicating whether an amount is a credit or debit",
+  "type" : "string",
+  "enum" : [ "CRDT", "DBIT" ],
+  "examples" : [ "CRDT", "DBIT" ],
+  "$comment" : "CRDT = Credit, DBIT = Debit"
+}

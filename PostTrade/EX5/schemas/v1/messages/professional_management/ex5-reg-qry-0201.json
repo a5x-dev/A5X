@@ -1,0 +1,52 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-02",
+  "$metadata" : {
+    "domain" : "professional_management",
+    "schemaId" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-02"
+  },
+  "title" : "Professional Mapping Search Message",
+  "description" : "Message for searching professional mappings. The return will be sent in the file response ex5f-reg-rpt-0201.jsonl.",
+  "$comment" : "If sent without optional filter fields, returns all mappings for the specified participant.",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Participant identification (category and participant ID)"
+    },
+    "relationshipProfessionalMapping" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Professional mapping information",
+      "$comment" : "Consult External Professional Mapping table ExternalProfessionalMappingType"
+    },
+    "mappingType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of professional mapping",
+      "$comment" : "Consult External Code List table ExternalProfessionalMappingRoleCode"
+    },
+    "operatorDocument" : {
+      "$ref" : "../../objects/business/DocumentIdentifier.json",
+      "description" : "Operator document identification (type and number)"
+    },
+    "mappingStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Status of the mapping",
+      "$comment" : "Consult External Code List table ExternalStatusCode"
+    }
+  },
+  "required" : [ "participantIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "relationshipProfessionalMapping" : 1,
+    "mappingType" : 1,
+    "operatorDocument" : {
+      "documentType" : 2,
+      "documentNumber" : "12345678900"
+    },
+    "mappingStatus" : 1
+  } ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Priority Offer Status",
+  "description": "Codes for priority offer status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Ok",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Failed",
+      "const": 3
+    }
+  ],
+  "examples": [
+    2,
+    3
+  ]
+}

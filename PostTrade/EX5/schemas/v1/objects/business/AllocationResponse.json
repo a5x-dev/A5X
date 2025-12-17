@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:AllocationResponse",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:AllocationResponse"
+  },
+  "title": "Allocation Response",
+  "description": "Flexible identification structure for allocations with multiple identifier options",
+  "$comment": "This schema defines different valid combinations of allocation identifiers that can be used across the allocation workflow",
+  "type": "object",
+  "properties": {
+    "allocationIdentification": {
+      "$ref": "../../objects/business/AllocationIdentification.json",
+      "description": "Allocation identification"
+    },
+    "allocationStatusCode": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Status information for the allocation including processing codes",
+      "$comment": "Consult table ExternalAllocationInstructionStatus. Contains status codes and optional rule identification for rejected allocations"
+    },
+    "errorReasonAllocation": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/ExternalCodeList.json",
+        "description": "Error reason information for the allocation",
+        "$comment": "Consult table ExternalErrorCodeAllocation. Contains error codes and optional rule identification for rejected allocations"
+      },
+      "minItems": 1,
+      "maxItems": 60
+    },
+    "accountOriginIdentification": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Specifies the account from which the allocation originates"
+    },
+    "accountDestinationIdentification": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Specifies the account to which the allocation is directed"
+    },
+    "quantity": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Quantity expressed as a numeric value with up to 17 decimal places"
+    }
+  },
+  "required": [
+    "allocationStatusCode"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "allocationIdentification": {
+        "allocationIdentification": "ALLOC123456",
+        "individualAllocationIdentification": "INDALLOC-001",
+        "previousAllocationIdentification": "ALLOC-PREV-123"
+      },
+      "allocationStatusCode": 1,
+      "accountOriginIdentification": {
+        "id": "123456"
+      },
+      "errorReasonAllocation": [
+        1,
+        2
+      ],
+      "accountDestinationIdentification": {
+        "id": "7891011"
+      },
+      "quantity": "1000.50"
+    }
+  ]
+}

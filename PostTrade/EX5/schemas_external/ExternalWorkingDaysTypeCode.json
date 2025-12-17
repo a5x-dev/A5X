@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Working Days Type",
+  "description": "Codes for working days type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Business",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Reserved",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

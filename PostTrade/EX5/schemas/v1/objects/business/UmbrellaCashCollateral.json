@@ -1,0 +1,39 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:UmbrellaCashCollateral",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:UmbrellaCashCollateral"
+  },
+  "title" : "Umbrella Cash Collateral",
+  "description" : "Cash collateral item for umbrella type distribution with account information",
+  "type" : "object",
+  "properties" : {
+    "collateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Collateral identifier given by the requestor participant"
+    },
+    "operationValue" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Operation value amount (currency assumed BRL)"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    }
+  },
+  "required" : [ "collateralIdentification", "operationValue" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralIdentification" : "CASH-001",
+    "operationValue" : {
+      "amount" : "1000.00",
+      "currency" : "BRL"
+    },
+    "accountIdentification" : {
+      "id" : 115
+    }
+  } ]
+}

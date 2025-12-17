@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:OptionInformation",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:OptionInformation"
+  },
+  "title": "OptionInformation",
+  "description": "Specific information for options",
+  "type": "object",
+  "properties": {
+    "optionType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "$comment": "Consult External Code List table ExternalOptionTypeCode",
+      "description": "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)"
+    },
+    "optionStyle": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Option style expressed as an ISO 20022 code (AMER or EURO)"
+    },
+    "exercisePrice": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Exercise Price"
+    },
+    "closedDueToExerciseLongQuantity": {
+      "type": "string",
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Long position closed due to exercise"
+    },
+    "closedDueToExerciseShortQuantity": {
+      "type": "string",
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Short position closed due to exercise"
+    }
+  },
+  "required": [
+    "optionType",
+    "optionStyle",
+    "exercisePrice",
+    "closedDueToExerciseLongQuantity",
+    "closedDueToExerciseShortQuantity"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "optionType": 1,
+      "optionStyle": "EURO",
+      "exercisePrice": "120.75",
+      "closedDueToExerciseLongQuantity": "50.00",
+      "closedDueToExerciseShortQuantity": "25.00"
+    }
+  ]
+}

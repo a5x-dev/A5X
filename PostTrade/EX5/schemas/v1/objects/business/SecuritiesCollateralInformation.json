@@ -1,0 +1,38 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:SecuritiesCollateralInformation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:SecuritiesCollateralInformation"
+  },
+  "title" : "Securities Collateral Information",
+  "description" : "Provides securities and gold collateral information",
+  "type" : "object",
+  "properties" : {
+    "collateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued collateral",
+      "examples" : [ "SEC-REF-001", "SECURITIES-789012" ]
+    },
+    "custodianInformation" : {
+      "$ref" : "../../objects/business/CustodianInformation.json",
+      "description" : "Custodian information details"
+    }
+  },
+  "required" : [ "collateralReference", "custodianInformation" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralReference" : "SEC-REF-001",
+    "custodianInformation" : {
+      "participantInformation" : {
+        "id" : 456,
+        "category" : 2
+      },
+      "accountIdentification" : {
+        "id" : 789012345678901
+      },
+      "subAccount" : "001"
+    }
+  } ]
+}

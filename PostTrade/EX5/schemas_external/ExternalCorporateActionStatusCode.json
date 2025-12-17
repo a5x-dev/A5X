@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Corporate Action Status",
+  "description": "Codes for corporate action status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "PROVISORIO",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "DEFINITIVO",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "CREDITADO",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "PENDENTE",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "AUTORIZADO",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "PARCELADO",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "CONFIRMADO($)",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "CANCELADO",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "LIQUIDADO",
+      "const": 9
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

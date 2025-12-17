@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Rebate Type",
+  "description": "Codes for rebate type",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Percentage",
+      "const": "P"
+    },
+    {
+      "type": "string",
+      "description": "Value",
+      "const": "V"
+    }
+  ],
+  "examples": [
+    "P",
+    "V"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:Result",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:Result"
+  },
+  "title" : "Operation Result",
+  "description" : "Operation result information with status and details",
+  "oneOf" : [ {
+    "title" : "Success Result",
+    "description" : "Result information for successful operations",
+    "type" : "object",
+    "properties" : {
+      "status" : {
+        "type" : "string",
+        "enum" : [ "SUCCESS" ],
+        "const" : "SUCCESS",
+        "description" : "Operation result status"
+      }
+    },
+    "required" : [ "status" ],
+    "additionalProperties" : false
+  }, {
+    "title" : "Error Result with Field Path",
+    "description" : "Detailed error result with field path information",
+    "type" : "object",
+    "properties" : {
+      "status" : {
+        "type" : "string",
+        "enum" : [ "ERROR" ],
+        "const" : "ERROR",
+        "description" : "Operation result status"
+      },
+      "errorCode" : {
+        "type" : "string",
+        "description" : "Error code from ExternalCadErrosCode",
+        "$comment" : "References codes from ExternalCadErrosCode",
+        "examples" : [ "E001", "E101", "E201", "E301" ]
+      },
+      "fieldPath" : {
+        "type" : "string",
+        "description" : "Path to the field that caused the error",
+        "$comment" : "Identifies the specific field that caused the error",
+        "examples" : [ "accountLinks[0].linkData.origParty.accountId", "accountLinks[1].linkedAccountType" ]
+      }
+    },
+    "required" : [ "status", "errorCode", "fieldPath" ],
+    "additionalProperties" : false
+  }, {
+    "title" : "Basic Error Result",
+    "description" : "Basic error result without field path information",
+    "type" : "object",
+    "properties" : {
+      "status" : {
+        "type" : "string",
+        "enum" : [ "ERROR" ],
+        "const" : "ERROR",
+        "description" : "Operation result status"
+      },
+      "errorCode" : {
+        "type" : "string",
+        "description" : "Error code from ExternalCadErrosCode",
+        "$comment" : "References codes from ExternalCadErrosCode",
+        "examples" : [ "E001", "E101", "E201", "E301" ]
+      }
+    },
+    "required" : [ "status", "errorCode" ],
+    "additionalProperties" : false
+  } ],
+  "examples" : [ {
+    "status" : "SUCCESS"
+  }, {
+    "status" : "ERROR",
+    "errorCode" : "E202",
+    "fieldPath" : "accountLinks[0].linkData.origParty.accountId"
+  }, {
+    "status" : "ERROR",
+    "errorCode" : "E401"
+  } ]
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Depositary",
+  "description": "Codes for depositary",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "DTCC",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "EuroClear",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "EuroClear (DTCC)",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "EuroClear (FED)",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "FED",
+      "const": 5
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:OtherCollateralMovement",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:OtherCollateralMovement"
+  },
+  "title" : "Other Collateral Information Movement",
+  "description" : "Other collateral information for movement operations with detailed value and quantity information",
+  "type" : "object",
+  "properties" : {
+    "collateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued collateral.",
+      "examples" : [ "OTHER-REF-001", "COLLATERAL-789", "COL-MOV-12345" ]
+    },
+    "collateralDetail" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides details of collateral.",
+      "examples" : [ "COMMODITY-GOLD", "REAL-ESTATE-PROP", "ARTWORK-COLLECTION" ]
+    },
+    "maturityDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Provides maturity date of collateral.",
+      "examples" : [ "2025-12-31", "2026-06-30", "2024-03-15" ]
+    }
+  },
+  "required" : [ "collateralReference" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralReference" : "OTHER-REF-001",
+    "collateralDetail" : "COMMODITY-GOLD",
+    "maturityDate" : "2025-12-31"
+  } ]
+}

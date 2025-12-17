@@ -1,0 +1,58 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:federalBondCollateral",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:federalBondCollateral"
+  },
+  "title" : "Other Collateral Transfer",
+  "description" : "Provides a description and an amount of another type of collateral",
+  "type" : "object",
+  "properties" : {
+    "collateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Collateral ID given by the requestor participant"
+    },
+    "quantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Quantity requested to collateral transfer"
+    },
+    "maturityDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Date on which the other collateral expires"
+    },
+    "selicCode" : {
+      "type" : "string",
+      "maxLength" : 50,
+      "description" : "Collateral code identification"
+    },
+    "SELICOperationCode" : {
+      "type" : "string",
+      "maxLength" : 6,
+      "description" : "Identification assigned to a SELIC Security"
+    },
+    "assignerAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides assigner account identification"
+    },
+    "assigneeAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides the assignee account identification"
+    }
+  },
+  "required" : [ "collateralIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralIdentification" : "OTHER-001",
+    "quantity" : "250.75",
+    "maturityDate" : "2025-12-31",
+    "selicCode" : "COMMODITY-001",
+    "SELICOperationCode" : "65499",
+    "assignerAccount" : "ASSIGNOR-001",
+    "assigneeAccount" : "ASSIGNEE-001"
+  } ]
+}

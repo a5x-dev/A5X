@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Deposit Asset Status",
+  "description": "Codes for deposit asset status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "LIVRE DE ÔNUS E GRAVAMES",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEIO JUDICIAL",
+      "const": 1
+    }
+  ],
+  "examples": [
+    0,
+    1
+  ]
+}

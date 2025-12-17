@@ -1,0 +1,132 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-cmd-01",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-cmd-01"
+  },
+  "title" : "Collateral Command Distribution Instruction Message",
+  "description" : "Message for collateral command distribution instruction",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "$ref" : "../../objects/business/TransactionIdentification.json",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    },
+    "distributionSide" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Distribution side indicator",
+      "$comment" : "Consult External Code List table ExternalDistributionSideCode"
+    },
+    "distributionDetails" : {
+      "$ref" : "../../objects/business/DistributionDetails.json",
+      "description" : "Provides details on the distribution with command"
+    }
+  },
+  "required" : [ "transactionIdentification", "clearingMemberIdentification", "participantIdentification", "accountIdentification", "distributionSide", "distributionDetails" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "transactionIdentification" : "COLL-CMD-11682",
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 115
+    },
+    "distributionSide" : 2,
+    "distributionDetails" : {
+      "securitiesCollateral" : [ {
+        "distributionCommandNumber" : "206",
+        "collateralIdentification" : "1",
+        "assetNumber" : "2015000000349",
+        "quantity" : "150.0"
+      } ]
+    }
+  }, {
+    "transactionIdentification" : "COLL-CMD-11682",
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 115
+    },
+    "distributionSide" : 2,
+    "distributionDetails" : {
+      "cashCollateral" : [ {
+        "distributionCommandNumber" : "206",
+        "collateralIdentification" : "1",
+        "assetNumber" : "2015000000349",
+        "operationValue" : {
+          "amount" : "1000.00",
+          "currency" : "BRL"
+        }
+      } ]
+    }
+  }, {
+    "transactionIdentification" : "COLL-CMD-11682",
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 115
+    },
+    "distributionSide" : 2,
+    "distributionDetails" : {
+      "federalBondsCollateral" : [ {
+        "distributionCommandNumber" : "206",
+        "collateralIdentification" : "1",
+        "assetNumber" : "2015000000349",
+        "quantity" : "150.0"
+      } ]
+    }
+  }, {
+    "transactionIdentification" : "COLL-CMD-11682",
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 115
+    },
+    "distributionSide" : 2,
+    "distributionDetails" : {
+      "externalCollateral" : [ {
+        "distributionCommandNumber" : "206",
+        "collateralIdentification" : "1",
+        "assetNumber" : "2015000000349",
+        "quantity" : "150.0"
+      } ]
+    }
+  } ]
+}

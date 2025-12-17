@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Compression Group Status",
+  "description": "Codes for compression group status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "New",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Updated",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Cancelled",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

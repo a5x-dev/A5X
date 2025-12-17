@@ -1,0 +1,227 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-wtd-19",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-wtd-19"
+  },
+  "title" : "Collateral Withdrawal Instruction File Schema",
+  "description" : "Collateral Withdrawal Instruction File Schema",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "pattern" : "^[A-Za-z0-9_-]+$",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "clearingMemberIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Clearing member identifier provided by A5X during the participant registration"
+    },
+    "clearingMemberIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Clearing member category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "accountIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "valuationDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Indicates the deposit date"
+    },
+    "collateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Collateral ID given by the requestor participant"
+    },
+    "securitiesCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Securities collateral identification as known by party"
+    },
+    "securitiesAssetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifies the register number of the securities collateral deposit"
+    },
+    "securitiesQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity requested to securities collateral transfer"
+    },
+    "securitiesCustodianDestinationParticipantId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Securities custodian destination participant identifier"
+    },
+    "securitiesCustodianDestinationParticipantCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Securities custodian destination participant category"
+    },
+    "securitiesCustodianDestinationAccountId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Securities custodian destination account identifier"
+    },
+    "securitiesCustodianDestinationSubAccount" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Securities custodian destination sub account identification"
+    },
+    "securitiesCentralDepositaryOperationNumber" : {
+      "type" : "string",
+      "pattern" : "^[0-9]{1,9}$",
+      "description" : "Central Depository Operation Number for securities"
+    },
+    "cashCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Cash collateral identification as known by party"
+    },
+    "cashAssetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifies the register number of the cash collateral deposit"
+    },
+    "cashOperationValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Amount requested to cash collateral transfer"
+    },
+    "cashOperationValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for cash operation value"
+    },
+    "cashExecutedMovementType" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Executed movement type for cash collateral operations",
+      "$comment" : "Consult External Code List table ExternalCollateralExecutedMovementTypeCode"
+    },
+    "federalBondsCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Federal bonds collateral identification as known by party"
+    },
+    "federalBondsAssetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifies the register number of the federal bonds collateral deposit"
+    },
+    "federalBondsQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity requested to federal bonds collateral transfer"
+    },
+    "externalSecuritiesCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "External securities collateral ID given by the requestor participant"
+    },
+    "externalSecuritiesQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity of external securities collateral"
+    },
+    "externalSecuritiesTradeDate" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Provides the date and time of external securities trade transaction"
+    },
+    "externalSecuritiesSettlementDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Settlement date of external securities collateral"
+    },
+    "externalSecuritiesCollateralCode" : {
+      "type" : "string",
+      "maxLength" : 50,
+      "description" : "External securities collateral code identification"
+    },
+    "externalSecuritiesMaturityDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Date on which the external securities collateral expires"
+    },
+    "externalSecuritiesDestinationDepositary" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "External securities destination depositary code",
+      "$comment" : "Consult External Code List table ExternalDepositaryCode"
+    },
+    "externalSecuritiesOriginDepositary" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "External securities origin depositary code",
+      "$comment" : "Consult External Code List table ExternalDepositaryCode"
+    },
+    "externalSecuritiesBICCode" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "BIC Code of the participant for external securities"
+    },
+    "externalSecuritiesAccountCentralDepositary" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "DTC/Euroclear origin account for external securities"
+    },
+    "externalSecuritiesFEDAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "FED (ABA) origin account for external securities"
+    },
+    "externalSecuritiesAccountNameSpecialInstructions" : {
+      "type" : "string",
+      "maxLength" : 20,
+      "description" : "Special instructions origin account's name for external securities"
+    },
+    "externalSecuritiesSubAccountIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Sub account identification for external securities"
+    }
+  },
+  "required" : [ "transactionIdentification", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "participantIdentificationId", "participantIdentificationCategory", "collateralIdentification" ],
+  "additionalProperties" : false
+}

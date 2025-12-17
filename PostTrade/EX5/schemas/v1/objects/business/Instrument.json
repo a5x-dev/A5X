@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:Instrument",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:Instrument"
+  },
+  "title": "Instrument",
+  "description": "Financial instrument information for trades",
+  "type": "object",
+  "properties": {
+    "financialInstrumentIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the financial instrument"
+    },
+    "isin": {
+      "$ref": "../../types/Isin.json",
+      "description": "International Securities Identification Number - Standardized international code for unique identification of financial instruments"
+    },
+    "tickerSymbol": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Letters that identify stocks traded on stock exchange"
+    },
+    "segment": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Market segment - first level of market classification in post-trading process",
+      "$comment": "Consult External Code List table ExternalSegmentCode"
+    },
+    "market": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Market type - second level of market classification in post-trading process",
+      "$comment": "Consult External Code List table ExternalMarketCode"
+    },
+    "optionType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "$comment": "Consult External Code List table ExternalOptionTypeCode",
+      "description": "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)"
+    }
+  },
+  "required": [
+    "financialInstrumentIdentification",
+    "tickerSymbol"
+  ],
+  "additionalProperties": true,
+  "examples": [
+    {
+      "financialInstrumentIdentification": {
+        "id": "100000000000001",
+        "source": "8",
+        "exchange": "A5X"
+      },
+      "isin": "US0378331005",
+      "tickerSymbol": "DFZ0001",
+      "segment": 1,
+      "market": 10,
+      "optionType": 1
+    }
+  ]
+}

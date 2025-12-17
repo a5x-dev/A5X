@@ -1,0 +1,93 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-mov-08",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-mov-08"
+  },
+  "title" : "Collateral Movement Report",
+  "description" : "Message for collateral movement report",
+  "type" : "object",
+  "properties" : {
+    "reportParameters" : {
+      "$ref" : "../../objects/business/ReportParameters.json",
+      "description" : "Provides the parameters of the report"
+    },
+    "tradeDate" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Provides date and time the movement collateral."
+    },
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "accountLevelInformation" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/AccountLevelInformation.json"
+      },
+      "minItems" : 1,
+      "maxItems" : 60,
+      "description" : "Provides account level information with collateral movement details"
+    }
+  },
+  "required" : [ "reportParameters", "tradeDate" ],
+  "additionalProperties" : true,
+  "examples" : [ {
+    "reportParameters" : {
+      "frequency" : 2,
+      "reportNumber" : "00132",
+      "reportDateAndTime" : "2024-06-15T16:40:36.51Z"
+    },
+    "tradeDate" : "2015-09-22T16:40:36.51Z",
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "accountLevelInformation" : [ {
+      "accountIdentification" : {
+        "id" : 115
+      },
+      "collateralMovementReportDetails" : [ {
+        "collateralMovementType" : 1,
+        "assetNumber" : "2015000000348",
+        "collateralCoverageType" : 1,
+        "collateralType" : 4,
+        "collateralSubType" : "ABC",
+        "operationStatus" : 1,
+        "financialInstrumentIdentification" : {
+          "id" : "100000000000001",
+          "source" : "8",
+          "exchange" : "A5X"
+        },
+        "federalBondCollateralMovement" : {
+          "collateralReference" : "FB-REF-001",
+          "maturityDate" : "2025-12-31",
+          "assignerAccount" : "ASSIGNER-ACC-001",
+          "assigneeAccount" : "ASSIGNEE-ACC-001",
+          "selicOperationCode" : "65499"
+        },
+        "collateralDetailMovement" : {
+          "operationValue" : {
+            "currency" : "BRL",
+            "amount" : "100000.00"
+          },
+          "operationAcceptValue" : {
+            "currency" : "BRL",
+            "amount" : "95000.00"
+          },
+          "operationQuantity" : "1000.50",
+          "operationAcceptQuantity" : "950.25"
+        }
+      } ]
+    } ]
+  } ]
+}

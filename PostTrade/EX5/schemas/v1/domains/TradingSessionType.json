@@ -1,0 +1,13 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:TradingSessionType",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:TradingSessionType"
+  },
+  "title" : "TradingSessionId",
+  "type" : "string",
+  "description" : "Code that indicates whether the trade was executed during regular trading session hours or after market. Refers to ExternalTradingSessionIdentificationCode from ExternalCodeLists_BVMF.xls.",
+  "enum" : [ "1-Regular_Day", "6-Non_Regular_Session" ],
+  "examples" : [ "1-Regular_Day" ]
+}

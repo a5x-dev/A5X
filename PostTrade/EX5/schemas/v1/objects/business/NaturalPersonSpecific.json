@@ -1,0 +1,85 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:NaturalPersonSpecific",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:NaturalPersonSpecific"
+  },
+  "title" : "Natural Person Specific",
+  "description" : "Specific data for natural person registration",
+  "type" : "object",
+  "properties" : {
+    "statusNIF" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "NIF status indicator",
+      "$comment" : "Consult External Code List table ExternalNIFIndicatorCode. Only filled when residenceStatus is NRES (non-resident). If set to SIM, a NIF document must be provided in the document block"
+    },
+    "birthDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Birth date"
+    },
+    "birthPlace" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Place of birth (Local de Nascimento)",
+      "$comment" : "Consult External Code List table ExternalCityCode. Required only if country is Brazil (BR). Required only if country is Brazil (BR)"
+    },
+    "nationality" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Nationality",
+      "$comment" : "Consult External code text table ExternalCountryCode"
+    },
+    "emancipated" : {
+      "type" : "boolean",
+      "description" : "Emancipated status (optional)"
+    },
+    "civilStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Civil status",
+      "$comment" : "Consult External Code List table ExternalMaritalStatusCode"
+    },
+    "occupation" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Occupation",
+      "$comment" : "Consult External Code List table ExternalProfessionCode"
+    },
+    "annualIncome" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Annual income with currency specification"
+    },
+    "patrimony" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Patrimonial situation with currency specification"
+    },
+    "simplifiedRegistrationForNonResident" : {
+      "type" : "boolean",
+      "description" : "Simplified registration for non-resident. Should only be filled when residence status = RESI",
+      "$comment" : "R4: foreignIntermediaryName is required when simplifiedRegistrationForNonResident = true"
+    },
+    "foreignIntermediaryName" : {
+      "type" : "string",
+      "maxLength" : 100,
+      "minLength" : 2,
+      "description" : "Name of the foreign intermediary. Required if simplified registration for non-resident = true"
+    }
+  },
+  "required" : [ "nationality", "occupation" ],
+  "examples" : [ {
+    "statusNIF" : 2,
+    "birthDate" : "1975-01-30",
+    "birthPlace" : "USA",
+    "nationality" : "USA",
+    "emancipated" : true,
+    "civilStatus" : 1,
+    "occupation" : 252105,
+    "annualIncome" : {
+      "amount" : "150000.00",
+      "currency" : "USD"
+    },
+    "patrimony" : {
+      "amount" : "750000.00",
+      "currency" : "USD"
+    },
+    "simplifiedRegistrationForNonResident" : false,
+    "foreignIntermediaryName" : "XPTO Bank"
+  } ]
+}

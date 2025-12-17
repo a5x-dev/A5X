@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:AllocationDistributionInstruction",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:AllocationDistributionInstruction"
+  },
+  "title": "Allocation Distribution Instruction",
+  "description": "Individual item for allocation distribution operations",
+  "type": "object",
+  "properties": {
+    "individualAllocationIdentification": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Individual allocation number assigned by the participant system",
+      "$comment": "This identifier is used by participants to track allocations in their own systems"
+    },
+    "accountOriginIdentification": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Specifies the account from which the allocation originates"
+    },
+    "accountDestinationIdentification": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Specifies the account to which the allocation is directed"
+    },
+    "quantity": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Quantity expressed as a numeric value with up to 17 decimal places"
+    }
+  },
+  "required": [
+    "accountOriginIdentification",
+    "accountDestinationIdentification",
+    "quantity"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "individualAllocationIdentification": "ALLOCINDIV0001",
+      "accountOriginIdentification": {
+        "id": 123456789012345
+      },
+      "accountDestinationIdentification": {
+        "id": 123456789012345
+      },
+      "quantity": "1000.00"
+    }
+  ]
+}

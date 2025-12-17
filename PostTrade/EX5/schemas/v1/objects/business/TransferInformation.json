@@ -1,0 +1,37 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:TransferInformation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:TransferInformation"
+  },
+  "title" : "Transfer Status Information",
+  "description" : "Status and error information for transfer requests",
+  "type" : "object",
+  "properties" : {
+    "statusCode" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Provides a proprietary status of each processing requested",
+      "$comment" : "Consult External Code List table ExternalPositionTransferRequestStatus"
+    },
+    "errorIdentification" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/tech/StatusError.json"
+      },
+      "description" : "Array of error rule identifiers when status indicates failure",
+      "maxItems" : 50
+    }
+  },
+  "required" : [ "statusCode", "errorIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "statusCode" : 1,
+    "errorIdentification" : [ {
+      "code" : 1,
+      "message" : "Error X",
+      "description" : "COD12452",
+      "refId" : "REF12345"
+    } ]
+  } ]
+}

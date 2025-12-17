@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalApprovalStatusCode",
+  "description": "Codes for approval status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Approved",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Reject",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Equity Forward Type",
+  "description": "Codes for equity forward type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Flexible",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Common",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Gold",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

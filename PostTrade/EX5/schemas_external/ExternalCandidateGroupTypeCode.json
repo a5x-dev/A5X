@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Candidate Group Type",
+  "description": "Codes for candidate group type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Conselho Adminstração",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Conselho fiscal",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Eleição em separado Conselho Adminstração",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Eleição em separado Conselho Fiscal",
+      "const": 4
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4
+  ]
+}

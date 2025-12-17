@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Share Class Type Acronym",
+  "description": "Codes for share class type acronym",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Preferencial A",
+      "const": "PNA"
+    },
+    {
+      "type": "string",
+      "description": "Preferencial B",
+      "const": "PNB"
+    },
+    {
+      "type": "string",
+      "description": "Preferencial C",
+      "const": "PNC"
+    },
+    {
+      "type": "string",
+      "description": "Preferencial D",
+      "const": "PND"
+    },
+    {
+      "type": "string",
+      "description": "Preferencial E",
+      "const": "PNE"
+    },
+    {
+      "type": "string",
+      "description": "Preferencial RR",
+      "const": "PNRR"
+    }
+  ],
+  "examples": [
+    "PNA",
+    "PNB",
+    "PNC",
+    "PND",
+    "PNE"
+  ]
+}

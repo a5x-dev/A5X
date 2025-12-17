@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Portfolio Transfer Status",
+  "description": "Codes for portfolio transfer status",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Transferencia em processamento",
+      "const": "0001"
+    },
+    {
+      "type": "string",
+      "description": "Lançado pelo ACST Origem",
+      "const": "0002"
+    },
+    {
+      "type": "string",
+      "description": "Lançado pelo ACST Destino",
+      "const": "0003"
+    },
+    {
+      "type": "string",
+      "description": "Transferido e finalizado com sucesso",
+      "const": "0004"
+    },
+    {
+      "type": "string",
+      "description": "Failed",
+      "const": "0005"
+    },
+    {
+      "type": "string",
+      "description": "Rejected",
+      "const": "0006"
+    },
+    {
+      "type": "string",
+      "description": "Entry",
+      "const": "0008"
+    },
+    {
+      "type": "string",
+      "description": "Error",
+      "const": "0009"
+    },
+    {
+      "type": "string",
+      "description": "Validado pelo ACST Origem",
+      "const": "0010"
+    },
+    {
+      "type": "string",
+      "description": "Validado pelo ACST Destino",
+      "const": "0011"
+    },
+    {
+      "type": "string",
+      "description": "Iniciado pelo Escriturador",
+      "const": "0012"
+    },
+    {
+      "type": "string",
+      "description": "Dados Cadastrais Adicionais",
+      "const": "0013"
+    },
+    {
+      "type": "string",
+      "description": "Dados Cadastrais Atualizados",
+      "const": "0014"
+    },
+    {
+      "type": "string",
+      "description": "Cancelamento Solicitado pelo Investidor",
+      "const": "0015"
+    }
+  ],
+  "examples": [
+    "0001",
+    "0002",
+    "0003",
+    "0004",
+    "0005"
+  ]
+}

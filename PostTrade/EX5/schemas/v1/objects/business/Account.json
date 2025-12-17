@@ -1,0 +1,31 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:Account",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:Account"
+  },
+  "title" : "Account",
+  "description" : "Account information",
+  "type" : "object",
+  "properties" : {
+    "accountType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of account",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
+    },
+    "id" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant",
+      "examples" : [ 987654321012345, 123456789012345 ]
+    }
+  },
+  "required" : [ "accountType", "id" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "accountType" : 1,
+    "id" : 123456789012345
+  } ]
+}

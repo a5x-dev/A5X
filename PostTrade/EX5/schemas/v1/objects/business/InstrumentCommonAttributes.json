@@ -1,0 +1,132 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:InstrumentAttributeCommon",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:InstrumentAttributeCommon"
+  },
+  "title": "InstrumentAttributeCommon",
+  "description": "Attributes and classification of a financial instrument",
+  "type": "object",
+  "properties": {
+    "asset": {
+      "type": "string",
+      "maxLength": 30,
+      "description": "Commodity associated with the instrument",
+      "examples": [
+        "FUTURE"
+      ]
+    },
+    "assetDescription": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Description of the commodity",
+      "examples": [
+        "Dollar Future Contract"
+      ]
+    },
+    "market": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Represents the second level of market classification in the post-trading process",
+      "$comment": "Consult External Code List table ExternalMarketCode"
+    },
+    "segment": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Segment represents the first level of market classification in the post-trading process",
+      "$comment": "Consult External Code List table ExternalSegmentCode"
+    },
+    "instrumentDescription": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Description of the trading instrument",
+      "examples": [
+        "DOLLAR FUTURE CONTRACT"
+      ]
+    },
+    "tickerSymbol": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Letters that identify the instrument traded on stock exchange"
+    },
+    "securityCategory": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "The security category represents the third level of market classification in the post-trading process",
+      "$comment": "Consult External Code List table ExternalSecurityCategoryCode"
+    },
+    "isin": {
+      "$ref": "../../types/Isin.json",
+      "description": "International Securities Identification Number - Standardized international code for unique identification of financial instruments"
+    },
+    "cfiCode": {
+      "type": "string",
+      "maxLength": 6,
+      "minLength": 6,
+      "pattern": "^[A-Z]{6}$",
+      "description": "Classification of Financial Instruments code - ISO 10962 standard",
+      "examples": [
+        "ESVUFR",
+        "DBXXXX",
+        "ESXXXX"
+      ]
+    },
+    "currency": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Currency code in which the amount is denominated",
+      "$comment": "Consult External Code List table ExternalCurrencyCode"
+    },
+    "expirationDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Date when the instrument expires or matures"
+    },
+    "expirationCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 6,
+      "description": "Expiration code associated with the instrument"
+    },
+    "allocationRoundLot": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Pre-defined lot size for allocation purposes"
+    },
+    "tradingStartDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Date when trading of the financial instrument begins"
+    },
+    "tradingEndDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Date when trading of the financial instrument ends"
+    }
+  },
+  "required": [
+    "asset",
+    "assetDescription",
+    "market",
+    "segment",
+    "instrumentDescription",
+    "tickerSymbol",
+    "securityCategory"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "asset": "FUTURE",
+      "assetDescription": "Dollar Future Contract",
+      "market": 2,
+      "segment": 9,
+      "instrumentDescription": "DOLLAR FUTURE CONTRACT",
+      "tickerSymbol": "DOLZ24",
+      "securityCategory": 2,
+      "isin": "BRDOLLFUT001",
+      "cfiCode": "FXXXXX",
+      "currency": "BRL",
+      "expirationDate": "2024-12-31",
+      "expirationCode": 1,
+      "allocationRoundLot": 5,
+      "tradingStartDate": "2024-01-01",
+      "tradingEndDate": "2024-12-30"
+    }
+  ]
+}

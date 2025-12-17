@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Contract Type",
+  "description": "Codes for contract type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "SWAP",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Flexible Put Option",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Flexible Call Option",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Forward",
+      "const": 4
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Brazilian Federal Government Bond Type",
+  "description": "Codes for brazilian federal government bond type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "None - None",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "BBC -  Bonus do Banco Central",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "BBCA -  Bonus do Banco Central do Brasil Serie A",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "BTNBIB -  Bonus do Tesouro Nacional  Bib",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "LBC -  Letras do Banco Central",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "LTN -  Letras do Tesouro Nacional",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "LFT -  Letras Financeiras do Tesouro",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "LFT-A -  Letras Financeiras do Tesouro Serie A",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "LFT-B -  Letras Financeiras do Tesouro Serie B",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "LFT-AX -  Letras Financeiras do Tesouro Serie AX",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "LFTX -  LTFX",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "LTNX -  LTNX",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "NBCA -  Notas do Banco Central do Brasil Serie A",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "NBCE -  Notas do Banco Central do Brasil Serie E",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "NBCF -  Notas do Banco Central do Brasil Serie F",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "NTN-F -  Notas do Tesouro Nacional  Serie F",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "NTN-A1 -  Notas do Tesouro Nacional Serie A1",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "NTNA10 -  Notas do Tesouro Nacional Série A10",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "NTN-A2 -  Notas do Tesouro Nacional Série A2",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "NTN-A3 -  Notas do Tesouro Nacional Serie A3",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "NTN-A6 -  Notas do Tesouro Nacional Serie A6",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "NTN-B -  Notas do Tesouro Nacional Serie B",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "NTNB -  Notas do Tesouro Nacional Serie B",
+      "const": 23
+    },
+    {
+      "type": "number",
+      "description": "NTN-C -  Notas do Tesouro Nacional Serie C",
+      "const": 24
+    },
+    {
+      "type": "number",
+      "description": "NTNC -  Notas do Tesouro Nacional Serie C",
+      "const": 25
+    },
+    {
+      "type": "number",
+      "description": "NTND -  Notas do Tesouro Nacional Série D",
+      "const": 26
+    },
+    {
+      "type": "number",
+      "description": "NTNE -  Notas do Tesouro Nacional Série E",
+      "const": 27
+    },
+    {
+      "type": "number",
+      "description": "NTN-I -  Notas do Tesouro Nacional Serie I",
+      "const": 28
+    },
+    {
+      "type": "number",
+      "description": "NTNI -  Notas do Tesouro Nacional Serie I",
+      "const": 29
+    },
+    {
+      "type": "number",
+      "description": "NTNL -  Notas do Tesouro Nacional Série L",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "NTNM -  Notas do Tesouro Nacional Série M",
+      "const": 31
+    },
+    {
+      "type": "number",
+      "description": "NTN-P -  Notas do Tesouro Nacional Serie P",
+      "const": 32
+    },
+    {
+      "type": "number",
+      "description": "NTNP -  Notas do Tesouro Nacional Serie P",
+      "const": 33
+    },
+    {
+      "type": "number",
+      "description": "NTN-R1 -  Notas do Tesouro Nacional Série R1",
+      "const": 34
+    },
+    {
+      "type": "number",
+      "description": "NTN-R2 -  Notas do Tesouro Nacional Série R2",
+      "const": 35
+    },
+    {
+      "type": "number",
+      "description": "NTNS -  Notas do Tesouro Nacional Série S",
+      "const": 36
+    },
+    {
+      "type": "number",
+      "description": "NTNU -  Notas do Tesouro Nacional Série U",
+      "const": 37
+    },
+    {
+      "type": "number",
+      "description": "NTN-BX -  Notas do Tesouro Nacional Serie BX",
+      "const": 38
+    },
+    {
+      "type": "number",
+      "description": "NTN-FX -  NTN FX",
+      "const": 39
+    },
+    {
+      "type": "number",
+      "description": "LTN-X -  Letra do Tesouro Nacional",
+      "const": 40
+    },
+    {
+      "type": "number",
+      "description": "LFT-X -  LFT X",
+      "const": 41
+    },
+    {
+      "type": "number",
+      "description": "BTN-BIB -  Bonus do Tesouro Nacional  Bib",
+      "const": 42
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

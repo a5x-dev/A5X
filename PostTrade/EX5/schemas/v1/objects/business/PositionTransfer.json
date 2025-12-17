@@ -1,0 +1,47 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:PositionTransfer",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:PositionTransfer"
+  },
+  "title" : "Position Transfer",
+  "description" : "Position transfer information with reference, client details and transfer configuration",
+  "type" : "object",
+  "properties" : {
+    "positionTransferReference" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "minLength" : 1,
+      "pattern" : "^[A-Z0-9]{1,15}$",
+      "description" : "Position transfer reference identifier",
+      "examples" : [ "PST123456789012", "TRANSFER001", "POS12345" ]
+    },
+    "clientReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Client reference for the transfer",
+      "examples" : [ "123456789", "CLIENT-REF-001", "TRANSFER-CLIENT-12345" ]
+    },
+    "collateralTransferIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if collateral should be transferred",
+      "examples" : [ true, false ]
+    },
+    "transferTypeCode" : {
+      "$ref" : "ExternalCodeList.json",
+      "description" : "Type of transfer being requested",
+      "$comment" : "Consult External Code List table ExternalTransferTypeCode",
+      "examples" : [ 1, 2, 3 ]
+    }
+  },
+  "required" : [ "positionTransferReference", "transferTypeCode" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "positionTransferReference" : "PST123456789012",
+    "clientReference" : "123456789",
+    "collateralTransferIndicator" : true,
+    "transferTypeCode" : 3
+  } ]
+}

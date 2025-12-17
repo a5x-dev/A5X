@@ -1,0 +1,95 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-umb-17",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-umb-17"
+  },
+  "title" : "Collateral Umbrella Distribution Instruction",
+  "description" : "Message for collateral umbrella distribution instruction",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "$ref" : "../../objects/business/TransactionIdentification.json",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "UmbrellaCollateralDetails" : {
+      "$ref" : "../../objects/business/UmbrellaDistributionDetails.json",
+      "description" : "Provides details about the umbrella type distribution."
+    }
+  },
+  "required" : [ "transactionIdentification", "clearingMemberIdentification", "participantIdentification", "UmbrellaCollateralDetails" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "transactionIdentification" : "UMB-DIST-164-001",
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "UmbrellaCollateralDetails" : {
+      "assetNumber" : "ASSET-001",
+      "securitiesCollateral" : [ {
+        "collateralIdentification" : "SEC-001",
+        "quantity" : "1000.0",
+        "accountIdentification" : {
+          "id" : 115
+        }
+      } ]
+    }
+  }, {
+    "transactionIdentification" : "UMB-DIST-164-001",
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "UmbrellaCollateralDetails" : {
+      "assetNumber" : "ASSET-001",
+      "cashCollateral" : [ {
+        "collateralIdentification" : "CASH-001",
+        "operationValue" : {
+          "amount" : "1000.00",
+          "currency" : "BRL"
+        },
+        "accountIdentification" : {
+          "id" : 115
+        }
+      } ]
+    }
+  }, {
+    "transactionIdentification" : "UMB-DIST-164-001",
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "UmbrellaCollateralDetails" : {
+      "assetNumber" : "ASSET-001",
+      "federalBonds" : [ {
+        "collateralIdentification" : "OTHER-001",
+        "quantity" : "10.5",
+        "accountIdentification" : {
+          "id" : 115
+        }
+      } ]
+    }
+  } ]
+}

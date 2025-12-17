@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Position Request Type",
+  "description": "Codes for position request type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Preview",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Claim",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

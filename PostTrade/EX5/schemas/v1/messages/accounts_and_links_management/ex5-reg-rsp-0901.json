@@ -1,0 +1,62 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-rsp-09",
+  "$metadata" : {
+    "domain" : "accounts_and_links_management",
+    "schemaId" : "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-rsp-09"
+  },
+  "title" : "Account Status Maintenance Response",
+  "description" : "Response message for ex5-reg-mnt-0301 message",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Party identification for the account(s)"
+    },
+    "updateResult" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/AccountStatusUpdateResult.json"
+      },
+      "description" : "Array of account status update results"
+    }
+  },
+  "required" : [ "participantIdentification", "updateResult" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "updateResult" : [ {
+      "account" : 51,
+      "newStatus" : 2,
+      "statusError" : {
+        "statusCode" : 1,
+        "errorIdentification" : [ {
+          "code" : 1,
+          "message" : "Error X",
+          "errorDescription" : "COD12452",
+          "refId" : "REF12345"
+        }, {
+          "code" : 1,
+          "message" : "Error X",
+          "errorDescription" : "COD12452",
+          "refId" : "REF12345"
+        } ]
+      }
+    }, {
+      "account" : 52,
+      "newStatus" : 2,
+      "statusError" : {
+        "statusCode" : 1,
+        "errorIdentification" : [ {
+          "code" : 1,
+          "message" : "Error X",
+          "errorDescription" : "COD12452",
+          "refId" : "REF12345"
+        } ]
+      }
+    } ]
+  } ]
+}

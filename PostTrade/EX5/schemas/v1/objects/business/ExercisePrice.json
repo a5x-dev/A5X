@@ -1,0 +1,33 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:ExercisePrice",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:ExercisePrice"
+  },
+  "title" : "ExercisePrice",
+  "description" : "Price at which an option can be exercised",
+  "type" : "object",
+  "properties" : {
+    "amount" : {
+      "type" : "number",
+      "multipleOf" : 1.0E-10,
+      "description" : "Monetary amount of the exercise price with high precision (up to 10 decimal places)",
+      "examples" : [ 100.0, 3500.5, 0.0125 ]
+    },
+    "currency" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Currency code in which the exercise price is denominated",
+      "$comment" : "Consult External Code List table ExternalActiveOrHistoricCurrencyCode"
+    }
+  },
+  "required" : [ "amount", "currency" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "amount" : 100.0,
+    "currency" : "BRL"
+  }, {
+    "amount" : 55.75,
+    "currency" : "USD"
+  } ]
+}

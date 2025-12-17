@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Conversion Criteria Type",
+  "description": "Codes for conversion criteria type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Linear",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Exponential",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Non available",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Status Trade Leg Notification",
+  "description": "Codes for status trade leg notification",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Novo",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Pendente Alocação",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Pendente Confirmação",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Pendente Alocação Contraparte",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Pendente Confirmação Contraparte",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Pendente Intermediação",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Alocação completa",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Cancelado",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Cancelado no sistema de negociação",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Expirado",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Pendente Número de Controle",
+      "const": 11
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

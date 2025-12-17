@@ -1,0 +1,82 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-exp-05",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-exp-05"
+  },
+  "title" : "Collateral And Exposure Request File Schema",
+  "description" : "Collateral And Exposure Request File Schema",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "pattern" : "^[A-Za-z0-9_-]+$",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "clearingMemberIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "clearingMemberIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "accountIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "collateralReportType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Provides type of requested report",
+      "$comment" : "Consult External Code List table ExternalCollateralReportTypeCode"
+    },
+    "informationType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Information regarding the party collateral position",
+      "$comment" : "Consult External Code List table ExternalInformationTypeCode"
+    },
+    "holderType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "This field has information about holder type. Indicates if the collateral information is related to the participant or to Client",
+      "$comment" : "Consult External Code List table ExternalHolderTypeCode"
+    },
+    "collateralCoverageType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Collateral coverage identification",
+      "$comment" : "Consult External Code List table ExternalCollateralCoverageTypeCode"
+    }
+  },
+  "required" : [ "transactionIdentification", "clearingMemberIdentificationId", "collateralReportType", "informationType", "holderType", "collateralCoverageType" ],
+  "additionalProperties" : false
+}

@@ -1,0 +1,132 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:investorRiskInformation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:investorRiskInformation"
+  },
+  "title" : "Investor Risk Information",
+  "description" : "Information about investor risk profile and position transfer details",
+  "type" : "object",
+  "properties" : {
+    "positionTransferReference" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "minLength" : 1,
+      "pattern" : "^[A-Z0-9]{1,15}$",
+      "description" : "Position transfer reference identifier"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    },
+    "positionDirection" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Position direction code",
+      "$comment" : "Consult External Code List table ExternalPositionDirectionCode"
+    },
+    "totalLiability" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Consolidated result of investor risk assessment"
+    },
+    "initialMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Initial margin value at account level"
+    },
+    "contingentVariationMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Contingent variation margin value at account level"
+    },
+    "netLiquidatingValue" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Net liquidity value at account level"
+    },
+    "liquidityConcentrationRiskMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Value of liquidity and concentration risk at account level"
+    },
+    "wrongWayRiskMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Value of correlation risk at account level"
+    },
+    "defaultFundAdditionalMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Value of the additional margin to the settlement fund at account level"
+    },
+    "netCollateral" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Value of the sum of all guarantees in the account level after consideration haircut"
+    },
+    "requiredCollateral" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Additional collateral required to cover the margin requirement"
+    },
+    "assessmentStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Assessment status code",
+      "$comment" : "Consult External code list table ExternalAssessmentRoleCode"
+    }
+  },
+  "required" : [
+    "positionTransferReference",
+    "accountIdentification",
+    "positionDirection",
+    "totalLiability",
+    "initialMargin",
+    "contingentVariationMargin",
+    "netLiquidatingValue",
+    "liquidityConcentrationRiskMargin",
+    "wrongWayRiskMargin",
+    "defaultFundAdditionalMargin",
+    "netCollateral",
+    "requiredCollateral",
+    "assessmentStatus"
+  ],
+  "additionalProperties" : false,
+  "examples" : [
+    {
+      "positionTransferReference" : "TRF-REF-003",
+      "accountIdentification" : {
+        "id" : 115
+      },
+      "positionDirection" : 1,
+      "totalLiability" : {
+        "currency" : "BRL",
+        "amount" : "500000.00"
+      },
+      "initialMargin" : {
+        "currency" : "BRL",
+        "amount" : "100000.25"
+      },
+      "contingentVariationMargin" : {
+        "currency" : "BRL",
+        "amount" : "75000.50"
+      },
+      "netLiquidatingValue" : {
+        "currency" : "BRL",
+        "amount" : "200000.75"
+      },
+      "liquidityConcentrationRiskMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "wrongWayRiskMargin" : {
+        "currency" : "BRL",
+        "amount" : "25000.25"
+      },
+      "defaultFundAdditionalMargin" : {
+        "currency" : "BRL",
+        "amount" : "15000.50"
+      },
+      "netCollateral" : {
+        "currency" : "BRL",
+        "amount" : "300000.00"
+      },
+      "requiredCollateral" : {
+        "currency" : "BRL",
+        "amount" : "250000.75"
+      },
+      "assessmentStatus" : 2
+    }
+  ]
+}

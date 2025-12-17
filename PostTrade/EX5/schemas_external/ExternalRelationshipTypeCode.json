@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalQualificationCode",
+  "description": "Codes for relationship type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "ADMINISTRADOR",
+      "const": 73
+    },
+    {
+      "type": "number",
+      "description": "CURADOR",
+      "const": 76
+    },
+    {
+      "type": "number",
+      "description": "INVENTARIANTE",
+      "const": 79
+    },
+    {
+      "type": "number",
+      "description": "PROCURADOR",
+      "const": 81
+    },
+    {
+      "type": "number",
+      "description": "TUTOR",
+      "const": 102
+    },
+    {
+      "type": "number",
+      "description": "MÃE/PAI",
+      "const": 123
+    },
+    {
+      "type": "number",
+      "description": "EMPRESA PARA QUAL TRABALHA",
+      "const": 144
+    },
+    {
+      "type": "number",
+      "description": "CONTROLADORA",
+      "const": 145
+    },
+    {
+      "type": "number",
+      "description": "CONTROLADA",
+      "const": 146
+    },
+    {
+      "type": "number",
+      "description": "COLIGADA",
+      "const": 147
+    },
+    {
+      "type": "number",
+      "description": "BENEFICIARIO FINAL",
+      "const": 155
+    },
+    {
+      "type": "number",
+      "description": "CUSTODIANTE DE INVESTIDOR NÃO RESIDENTE",
+      "const": 156
+    },
+    {
+      "type": "number",
+      "description": "REPRESENTANTE LEGAL DE INVESTIDOR NÃO RESIDENTE",
+      "const": 157
+    },
+    {
+      "type": "number",
+      "description": "REPRESENTANTE TRIBUTÁRIO DE INVESTIDOR NÃO RESIDENTE",
+      "const": 158
+    },
+    {
+      "type": "number",
+      "description": "ADMINISTRADOR DE CARTEIRA",
+      "const": 159
+    },
+    {
+      "type": "number",
+      "description": "REPRESENTANTE LEGAL",
+      "const": 160
+    },
+    {
+      "type": "number",
+      "description": "PESSOA AUTORIZADA A EMITIR ORDENS",
+      "const": 161
+    }
+  ],
+  "examples": [
+    73,
+    123,
+    157
+  ]
+}

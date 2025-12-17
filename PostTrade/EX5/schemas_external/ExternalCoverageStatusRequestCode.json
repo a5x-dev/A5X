@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Coverage Status Request",
+  "description": "Codes for coverage status request",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Entry",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Pending",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Cancelled",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Cancelled End of Day",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Completed",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Failed",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Approved",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Rejected",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "Failed due to nga approval error",
+      "const": 27
+    },
+    {
+      "type": "number",
+      "description": "CSD Transfer performed Partially",
+      "const": 28
+    },
+    {
+      "type": "number",
+      "description": "Completed Partially",
+      "const": 29
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

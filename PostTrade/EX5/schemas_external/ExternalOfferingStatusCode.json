@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Offering Status",
+  "description": "Codes for offering status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Oferta Cancelada",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Oferta Fechada",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Oferta Disponível",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Oferta Aguardando Autorização",
+      "const": 32
+    },
+    {
+      "type": "number",
+      "description": "Oferta Rejeitada",
+      "const": 34
+    },
+    {
+      "type": "number",
+      "description": "Aguardando autorização Carrying",
+      "const": 60
+    },
+    {
+      "type": "number",
+      "description": "Oferta em processamento pela Clearing",
+      "const": 70
+    }
+  ],
+  "examples": [
+    1,
+    9,
+    11,
+    32,
+    34
+  ]
+}

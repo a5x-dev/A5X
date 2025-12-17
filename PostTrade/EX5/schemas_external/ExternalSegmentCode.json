@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Segment",
+  "description": "Codes for segment",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "EQUITY-CASH",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "EQUITY-DERIVATE",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "FIXED INCOME",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "AGRIBUSINESS",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "FINANCIAL",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "METAL",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "ENERGY",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "GOV. BONDS",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "FX",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "OTC",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "INDICATORS",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "OTC traded Securities Lending",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "OTC FIXED INCOME",
+      "const": 13
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

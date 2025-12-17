@@ -1,0 +1,14 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:DecisionStatus",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:DecisionStatus"
+  },
+  "title" : "Decision Status",
+  "description" : "Specifies the decision status for an allocation",
+  "$comment" : "APR = Approved, REJ = Rejected, PEND = Pending",
+  "type" : "string",
+  "enum" : [ "APR", "REJ", "PEND" ],
+  "examples" : [ "APR", "REJ", "PEND" ]
+}

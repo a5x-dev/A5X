@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Balance Securities Lending Status",
+  "description": "Codes for balance securities lending status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Removed due to Position Management",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Removed due to Settlement by algo",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Removed due to Settlement by CAC",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Removed due to buyin process",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Partially removed due to Position Management",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Partially removed due to Settlement by Algo",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Partially removed due to settlement by CAC",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Partially removed due to Buyin process",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Insufficient acquisition quantity",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Invalid attribute",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Stock",
+      "const": 12
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    4,
+    5,
+    6
+  ]
+}

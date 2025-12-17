@@ -1,0 +1,171 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalStateCode",
+  "description": "Codes for state",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "ACRE",
+      "const": "AC"
+    },
+    {
+      "type": "string",
+      "description": "ALAGOAS",
+      "const": "AL"
+    },
+    {
+      "type": "string",
+      "description": "AMAPA",
+      "const": "AP"
+    },
+    {
+      "type": "string",
+      "description": "AMAZONAS",
+      "const": "AM"
+    },
+    {
+      "type": "string",
+      "description": "BAHIA",
+      "const": "BA"
+    },
+    {
+      "type": "string",
+      "description": "CEARA",
+      "const": "CE"
+    },
+    {
+      "type": "string",
+      "description": "DISTRITO FEDERAL",
+      "const": "DF"
+    },
+    {
+      "type": "string",
+      "description": "ESPIRITO SANTO",
+      "const": "ES"
+    },
+    {
+      "type": "string",
+      "description": "GOIÁS",
+      "const": "GO"
+    },
+    {
+      "type": "string",
+      "description": "MARANHÃO",
+      "const": "MA"
+    },
+    {
+      "type": "string",
+      "description": "MATO GROSSO",
+      "const": "MT"
+    },
+    {
+      "type": "string",
+      "description": "MATO GROSSO DO SUL",
+      "const": "MS"
+    },
+    {
+      "type": "string",
+      "description": "MINAS GERAIS",
+      "const": "MG"
+    },
+    {
+      "type": "string",
+      "description": "PARÁ",
+      "const": "PA"
+    },
+    {
+      "type": "string",
+      "description": "PARAÍBA",
+      "const": "PB"
+    },
+    {
+      "type": "string",
+      "description": "PARANÁ",
+      "const": "PR"
+    },
+    {
+      "type": "string",
+      "description": "PERNAMBUCO",
+      "const": "PE"
+    },
+    {
+      "type": "string",
+      "description": "PIAUÍ",
+      "const": "PI"
+    },
+    {
+      "type": "string",
+      "description": "RIO DE JANEIRO",
+      "const": "RJ"
+    },
+    {
+      "type": "string",
+      "description": "RIO GRANDE DO NORTE",
+      "const": "RN"
+    },
+    {
+      "type": "string",
+      "description": "RIO GRANDE DO SUL",
+      "const": "RS"
+    },
+    {
+      "type": "string",
+      "description": "RONDÔNIA",
+      "const": "RO"
+    },
+    {
+      "type": "string",
+      "description": "RORAIMA",
+      "const": "RR"
+    },
+    {
+      "type": "string",
+      "description": "SANTA CATARINA",
+      "const": "SC"
+    },
+    {
+      "type": "string",
+      "description": "SÃO PAULO",
+      "const": "SP"
+    },
+    {
+      "type": "string",
+      "description": "SERGIPE",
+      "const": "SE"
+    },
+    {
+      "type": "string",
+      "description": "TOCANTINS",
+      "const": "TO"
+    }
+  ],
+  "examples": [
+    "AC",
+    "AL",
+    "AP",
+    "AM",
+    "BA",
+    "CE",
+    "DF",
+    "ES",
+    "GO",
+    "MA",
+    "MT",
+    "MS",
+    "MG",
+    "PA",
+    "PB",
+    "PR",
+    "PE",
+    "PI",
+    "RJ",
+    "RN",
+    "RS",
+    "RO",
+    "RR",
+    "SC",
+    "SP",
+    "SE",
+    "TO"
+  ]
+}

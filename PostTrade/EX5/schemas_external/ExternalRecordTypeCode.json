@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Record Type Code",
+  "description": "Codes for qualified services record types",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Posição de Derivativos Fungíveis",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Liquidação na Data de Efetivação",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "Liquidação na Data de Futura",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "Garantias Aportadas",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "Margem Requerida",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "Detalhes da Carteira de Garantias",
+      "const": 31
+    }
+  ],
+  "examples": [
+    1,
+    12,
+    13,
+    18,
+    19,
+    31
+  ]
+}

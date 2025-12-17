@@ -1,0 +1,52 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:ExternalSecuritiesTransfer",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:ExternalSecuritiesTransfer"
+  },
+  "title" : "External Securities Transfer",
+  "description" : "External securities collateral transfer information",
+  "type" : "object",
+  "properties" : {
+    "collateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "ID da garantia fornecido pelo participante solicitante",
+      "examples" : [ "COL-001", "GUAR-12345", "EXT-SEC-789" ]
+    },
+    "assetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifica o número de registro do depósito de garantia atribuído pela contraparte central",
+      "examples" : [ "AST-001", "REG-98765", "DEP-456" ]
+    },
+    "quantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "maxLength" : 20,
+      "minLength" : 1,
+      "description" : "Quantidade solicitada para transferência de garantia",
+      "examples" : [ "1000.50", "25000.75", "500.00" ]
+    },
+    "collateralValue" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Valor aceito da garantia após considerar o haircut"
+    }
+  },
+  "required" : [ "collateralIdentification", "assetNumber", "quantity", "collateralValue" ],
+  "additionalProperties" : false,
+  "examples" : [
+    {
+      "collateralIdentification" : "COL-EXT-001",
+      "assetNumber" : "AST-REG-12345",
+      "quantity" : "1500.75",
+      "collateralValue" : {
+        "amount" : "150000.50",
+        "currency" : "BRL"
+      }
+    }
+  ]
+}

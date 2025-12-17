@@ -1,0 +1,143 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-ntf-03",
+  "$metadata" : {
+    "domain" : "capture_and_allocation",
+    "schemaId" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-ntf-03"
+  },
+  "title" : "Trade Capture",
+  "description" : "Trade Capture",
+  "type" : "object",
+  "properties" : {
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Identification of the account associated with the trade, using proprietary scheme"
+    },
+    "trade" : {
+      "allOf" : [ {
+        "$ref" : "../../objects/business/Trade.json"
+      }, {
+        "required" : [ "tradeDate", "buySellIndicator", "tradeIdentification", "allocationIdentification", "statusCode" ]
+      } ],
+      "description" : "Trade information including account, trade date, buy/sell indicator, and trade identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the participant using proprietary scheme"
+    },
+    "takeUpParticipantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the participant taking the allocation, using proprietary scheme"
+    },
+    "instrument" : {
+      "allOf" : [ {
+        "$ref" : "../../objects/business/Instrument.json"
+      }, {
+        "required" : [ "segment", "market" ]
+      } ],
+      "description" : "Financial instrument information, including ISIN and ticker symbol"
+    },
+    "tradeDetails" : {
+      "$ref" : "../../objects/business/TradeDetails.json",
+      "description" : "Trade execution information including quantity, value, and transaction date/time"
+    },
+    "strategyTrade" : {
+      "$ref" : "../../objects/business/StrategyTrade.json",
+      "description" : "Additional information for strategy trades, such as future prices and delta"
+    },
+    "trader" : {
+      "$ref" : "../../objects/business/Trader.json",
+      "description" : "Trader information, including desk and senderCompID"
+    },
+    "compressionGroupIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if the operation is derived from block capture",
+      "$comment" : "When true, the allocation was created as part of a block trade that was split into multiple allocations. This affects how the allocation is processed and reported."
+    },
+    "giveUpOnCaptureIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if the operation is derived from block capture."
+    },
+    "grossTradeAmount" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Gross trade value before any adjustments or deductions"
+    }
+  },
+  "required" : [ "trade", "participantIdentification", "instrument", "tradeDetails", "giveUpOnCaptureIndicator" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "accountIdentification" : {
+      "id" : 987654321012345
+    },
+    "trade" : {
+      "tradeDate" : "2023-12-15",
+      "buySellIndicator" : 1,
+      "tradeIdentification" : "TRD2023121501",
+      "allocationIdentification" : "ALLOC2023121501",
+      "statusCode" : 1
+    },
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "takeUpParticipantIdentification" : {
+      "id" : 888,
+      "category" : 3
+    },
+    "instrument" : {
+      "financialInstrumentIdentification" : {
+        "id" : "100000000000001",
+        "source" : "8",
+        "exchange" : "A5X"
+      },
+      "trade": {
+        "tradeDate": "2023-12-15",
+        "buySellIndicator": 1,
+        "tradeIdentification": "TRD2023121501",
+        "allocationIdentification": "ALLOC2023121501",
+        "statusCode": 1
+      },
+      "participantIdentification": {
+        "id": 999,
+        "category": 3
+      },
+      "takeUpParticipantIdentification": {
+        "id": 888,
+        "category": 3
+      },
+      "grossTradeAmount": "112500.00",
+      "tickerSymbol": "DFZ0001",
+      "segment": 1,
+      "market": 10
+    },
+    "tradeDetails": {
+      "transactionDateTime": "2023-12-15T10:30:00Z",
+      "tradeQuantity": "1500.00",
+      "orderIdentification": "ORD2023121501ABCDEF",
+      "tradeMatchIdentification": "MATCH001",
+      "secondaryTradeMatchIdentification": "SMATCH001",
+      "tradingSessionIdentification": 1,
+      "tradeRegistrationOrigin": "DMA1",
+      "tradingSessionSubIdentification": 10,
+      "securityTradingStatus": 1,
+      "tradeSubType": 37,
+      "sideTradeSubType": "NORMAL",
+      "tradeTransactionType": 0,
+      "dealPrice": "75000.123456",
+      "isAggressor": true
+    },
+    "strategyTrade": {
+      "shortFuturePrice": "750.122456",
+      "longFuturePrice": "850.123456",
+      "delta": "0.123456"
+    },
+    "trader": {
+      "traderIdentification": "TRADER001",
+      "tradingDeskIdentification": "EQUITY-DESK",
+      "senderCompIdentification": "COMPANY001",
+      "memo": "Strategy trade execution"
+    },
+    "compressionGroupIndicator": false,
+    "giveUpOnCaptureIndicator": true
+  } ]
+}

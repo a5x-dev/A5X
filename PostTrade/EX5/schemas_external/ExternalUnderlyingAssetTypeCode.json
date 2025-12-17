@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Underlying Asset Type",
+  "description": "Codes for underlying asset type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "FUNDO DE AÇÕES",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "FUNDO MULTIMERCADO",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "FUNDO REFERENCIADO",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "FUNDO DE CURTO PRAZO",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "FUNDO DE RENDA FIXA",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "FUNDO CAMBIAL",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "FUNDO DA DÍVIDA EXTERNA",
+      "const": 7
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

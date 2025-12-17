@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalFileModeCode",
+  "description": "Codes for status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "ON REQUEST",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "AUTOMATIC",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1
+  ]
+}

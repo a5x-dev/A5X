@@ -1,0 +1,82 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:register:ex5f-reg-rpt-03",
+  "$metadata" : {
+    "domain" : "register",
+    "schemaId" : "urn:a5x:ex5:schema:v1:register:ex5f-reg-rpt-03"
+  },
+  "title" : "Professional Registration file return",
+  "description" : "File response for professional query (ex5-reg-qry)",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Participant identification (category and participant ID)"
+    },
+    "professionals" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/BaseRegistrationProfessional.json"
+      },
+      "minItems" : 0,
+      "maxItems" : 60,
+      "description" : "Array of professionals found (empty if none found)"
+    }
+  },
+  "required" : [ "participantIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "professionals" : [ {
+      "documentIdentifier" : {
+        "documentType" : 2,
+        "documentNumber" : "12345678900"
+      },
+      "personType" : 1,
+      "relationshipStatus" : 1,
+      "professionalStatus" : 1,
+      "statusReason" : "Esse campo tem 200 caracteres no máximo.",
+      "personName" : {
+        "fullName" : "João Silva Santos",
+        "socialName" : "João Santos"
+      },
+      "birthDate" : "1985-03-15",
+      "nationality" : "BRA",
+      "relationshipType" : 1,
+      "professionalAddress" : {
+        "street" : "Rua Brasilândia",
+        "number" : "123",
+        "complement" : "Apto 101",
+        "neighborhood" : "Centro",
+        "postalCode" : "01234-567",
+        "cityName" : 3550308,
+        "state" : "SP",
+        "country" : "BRA",
+        "phoneNumber" : "+55-11-91234-5678",
+        "email" : "usuario@exemplo.com.br"
+      },
+      "professionalActivity" : {
+        "professionalRoleType" : 1,
+        "startDate" : "2023-01-15",
+        "endDate" : "2024-12-31"
+      },
+      "certificationExemption" : false,
+      "certifications" : [ {
+        "certificationType" : 1,
+        "knowledgeArea" : 2,
+        "certificationDate" : "2023-06-15",
+        "expirationDate" : "2025-06-15"
+      } ],
+      "companyAffiliation" : {
+        "companyDocument" : {
+          "documentType" : 1,
+          "documentNumber" : "12345678000190"
+        },
+        "companyName" : "Corretora XYZ S.A."
+      }
+    } ]
+  } ]
+}

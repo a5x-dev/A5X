@@ -1,0 +1,107 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-wtd-20",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-wtd-20"
+  },
+  "title" : "Collateral Withdrawal Status",
+  "description" : "Collateral Withdrawal Status",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "$ref" : "../../objects/business/TransactionIdentification.json",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    },
+    "withdrawalResponse" : {
+      "$ref" : "../../objects/business/CollateralWithdrawalResponse.json",
+      "description" : "Unique identifier for a collateral proposal assigned by the A5X"
+    }
+  },
+  "required" : [ "transactionIdentification", "clearingMemberIdentification", "participantIdentification", "accountIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "transactionIdentification" : "COLL-STA-11682",
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 115
+    },
+    "withdrawalResponse" : {
+      "collateralWithdrawalIdentification" : "TRF-REF-001",
+      "securitiesCollateral" : [ {
+        "collateralIdentification" : "CASH-REF-001",
+        "quantity" : "100.00",
+        "collateralValue" : {
+          "currency" : "BRL",
+          "amount" : "100000.00"
+        },
+        "statusCode" : 1,
+        "rejectionInformation" : "Rejection information"
+      } ],
+      "cashCollateral" : [ {
+        "collateralIdentification" : "CASH-REF-001",
+        "operationValue" : {
+          "currency" : "BRL",
+          "amount" : "100000.00"
+        },
+        "collateralValue" : {
+          "currency" : "BRL",
+          "amount" : "100000.00"
+        },
+        "statusCode" : 1,
+        "rejectionInformation" : "Rejection information"
+      } ],
+      "federalBondsResponse" : [ {
+        "collateralIdentification" : "CASH-REF-001",
+        "quantity" : "100.00",
+        "collateralValue" : {
+          "currency" : "BRL",
+          "amount" : "100000.00"
+        },
+        "selicOperationCode" : "65499",
+        "assignerAccount" : "ASSIGNER-ACC-001",
+        "assigneeAccount" : "ASSIGNEE-ACC-001",
+        "statusCode" : 1,
+        "rejectionInformation" : "Rejection information"
+      } ],
+      "collateralSubstitutionStatus" : [ {
+      "statusCode" : 1,
+      "errorIdentification" : [ {
+        "code" : 1,
+        "message" : "Error X",
+        "description" : "COD12452",
+        "refId" : "REF12345"
+      } ]
+      } ],
+      "externalSecuritiesResponse" : [ {
+      "collateralIdentification" : "CASH-REF-001",
+      "quantity" : "100.00",
+      "collateralValue" : {
+        "currency" : "BRL",
+        "amount" : "100000.00"
+      },
+      "statusCode" : 1,
+      "rejectionInformation" : "Rejection information"
+      } ]
+    }
+  } ]
+}

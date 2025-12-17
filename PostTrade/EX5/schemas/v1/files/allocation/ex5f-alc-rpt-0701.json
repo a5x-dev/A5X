@@ -1,0 +1,209 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-rpt-07",
+  "$metadata" : {
+    "domain" : "allocation",
+    "schemaId" : "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-rpt-07"
+  },
+  "title" : "AveragePriceReport",
+  "description" : "Average Price Report",
+  "type" : "object",
+  "properties" : {
+    "referenceDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Reference date of the information",
+      "examples" : [ "2017-07-21", "2023-12-31", "2024-01-15" ]
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "maximum" : 999999,
+      "minimum" : 1,
+      "description" : "Participant identifier provided by A5X during the participant registration",
+      "examples" : [ 114, 85, 123456, 789012 ]
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalParticipantCategoryCode."
+    },
+    "accountIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Number account identification"
+    },
+    "financialInstrumentIdentificationId" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Proprietary identification of an instrument",
+      "examples" : [ "10000000000000001", "10000000000000011" ]
+    },
+    "financialInstrumentIdentificationSource" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Source of the instrument identification",
+      "default" : "8",
+      "examples" : [ "8" ]
+    },
+    "financialInstrumentIdentificationCategory" : {
+      "type" : "string",
+      "pattern" : "^[A-Z0-9]{4}$",
+      "description" : "Identifier code of the exchange where the instrument is listed",
+      "examples" : [ "A5X", "XNYS" ],
+      "default" : "A5X"
+    },
+    "tickerSymbol" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Letters that identify stocks traded on stock exchange"
+    },
+    "averagePriceGroupIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identification of an average price allocation group"
+    },
+    "averagePrice" : {
+      "type" : "string",
+      "pattern" : "^-?\\d{1,5}(\\.\\d{1,13})?$",
+      "description" : "Weighted average of the prices of the trades in the average price allocation group"
+    },
+    "averagePriceQuantity" : {
+      "type" : "string",
+      "maxLength" : 20,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "examples" : [ "1000.50", "25000.75", "999999999999999.99" ],
+      "description" : "Average Price quantity"
+    },
+    "allocationGroupIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identification number of the allocation related to the group"
+    },
+    "averageExecutionTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Average execution time of the average price allocation group",
+      "examples" : [ "2023-06-15T10:30:00Z", "2023-12-31T15:45:30Z", "2024-05-20T09:15:45Z" ]
+    },
+    "averageCreationTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Average creation time of the average price allocation group",
+      "examples" : [ "2023-06-15T10:30:00Z", "2023-12-31T15:45:30Z", "2024-05-20T09:15:45Z" ]
+    },
+    "tradeTransactionType" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Trade transaction type code",
+      "$comment" : "Consult External Code List table ExternalTradeTransactionTypeCode"
+    },
+    "tradeDate" : {
+      "type" : "string",
+      "format" : "date",
+      "examples" : [ "2017-07-21", "2023-12-31", "2024-01-15" ],
+      "description" : "Trade date"
+    },
+    "buySellIndicator" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Indicates whether the trade is a buy or sell",
+      "$comment" : "Consult External Code List table ExternalBuySellIndicatorCode",
+      "examples" : [ "BUY", "SELL" ]
+    },
+    "tradeIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Trade identification number"
+    },
+    "tradeQuantity" : {
+      "type" : "string",
+      "maxLength" : 20,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "examples" : [ "1000.50", "25000.75", "999999999999999.99" ],
+      "description" : "Trade quantity"
+    },
+    "dealPrice" : {
+      "type" : "string",
+      "maxLength" : 22,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
+      "examples" : [ "1000.509898", "25000.757676", "999999999999999.996565" ],
+      "description" : "Price expressed as a currency and value"
+    },
+    "grossTradeAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "examples" : [ "1000.00", "15750.50", "250000" ],
+      "description" : "Gross trade value before any adjustments or deductions"
+    },
+    "tradingSessionIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Indicates if trade was executed during regular hours or after market",
+      "$comment" : "Consult External Code List table ExternalTradingSessionIdCode",
+      "examples" : [ 1, 2, 3, 4 ]
+    },
+    "securityTradingStatus" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Security trading status code",
+      "$comment" : "Consult External Code List table ExternalSecurityTradingStatusCode"
+    },
+    "tradingSessionSubIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Identifies the phase group in trading session",
+      "$comment" : "Consult External Code List table ExternalTradingSessionSubIdCode",
+      "examples" : [ 1, 2, 10, 11, 20, 21 ]
+    },
+    "strategyType" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Defines strategy type",
+      "$comment" : "Consult External Code List table ExternalStrategyTypeCode",
+      "examples" : [ "ST", "SP", "CA", "PU", "CO" ]
+    },
+    "allocationIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Primary allocation identification number assigned by the system",
+      "$comment" : "This is the main identifier used by the central system to track allocations",
+      "examples" : [ "ALLOC123456", "A5X-ALLOC-2023-001", "20230615-ALLOC-0001" ]
+    },
+    "participantOriginIdentificationId" : {
+      "type" : "integer",
+      "maximum" : 999999,
+      "minimum" : 1,
+      "examples" : [ 114, 85, 123456, 789012 ],
+      "description" : "Identification of the participant taking the allocation, using proprietary scheme"
+    },
+    "participantOriginIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalParticipantCategoryCode."
+    }
+  },
+  "required" : [ "referenceDate", "participantIdentificationId", "participantIdentificationCategory", "accountIdentification", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "tickerSymbol", "averagePriceGroupId", "averagePrice", "averagePriceQuantity", "tradeQuantity", "allocationGroupId", "averageExecutionTime", "averageCreationTime", "tradeDate", "buySellIndicator", "tradeIdentification", "dealPrice", "participantOriginIdentificationId", "participantOriginIdentificationCategory" ],
+  "additionalProperties" : false,
+  "examples" : [ ]
+}

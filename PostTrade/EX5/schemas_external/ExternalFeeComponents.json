@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Fee Components",
+  "description": "Codes for fee components",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Exchange Fee Normal Maker",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Exchange Fee Normal Taker",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Exchange Fee Daytrade Maker",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Exchange Fee Daytrade Taker",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Clearing Fee Normal Maker",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Clearing Fee Normal Taker",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Clearing Fee Daytrade Maker",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Clearing Fee Daytrade Taker",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "HFT Daytrade Percentual",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "HFT Exchange Fee Daytrade Maker",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "HFT Exchange Fee Daytrade Taker",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "HFT Clearing Fee Daytrade Maker",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "HFT Clearing Fee Daytrade Taker",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "Settlement Fee",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "Exercise Fee",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "Strategy Fee",
+      "const": 16
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ]
+}

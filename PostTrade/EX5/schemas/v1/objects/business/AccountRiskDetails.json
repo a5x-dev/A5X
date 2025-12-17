@@ -1,0 +1,155 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:AccountRiskDetails",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:AccountRiskDetails"
+  },
+  "title" : "Account Risk Details",
+  "description" : "Aggregated risk calculation details for a margin account",
+  "type" : "object",
+  "properties" : {
+    "totalAdditionalMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Summation of all the Additional Margins calculated for Margin Account."
+    },
+    "totalMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Summation of IM and Additional Margin calculated for Margin Account."
+    },
+    "initialMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Initial Margin calculated for Margin Account."
+    },
+    "contingentVariationMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Contingent Variation Margin calculated for the Margin Account."
+    },
+    "netLiquidatingValue" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Net Liquidating value for the Margin Account."
+    },
+    "liquidityConcentrationRiskMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Liquidity and Concentration Risk Margin calculated for Margin Account."
+    },
+    "wrongWayRiskMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Wrong Way Risk Margin calculated for Margin Account."
+    },
+    "defaultFundAdditionalMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Default Fund Additional Margin Calculated for Margin Account."
+    },
+    "stressTestLoss" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Stress Test Loss calculated for Margin Account."
+    },
+    "stressTestLossOverInitialMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Stress Test Loss Over Initial Margin calculated for Margin Account."
+    },
+    "primaryInitialMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Primary Initial Margin calculated for Margin Account."
+    },
+    "flatRateInitialMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Flat Rate Initial Margin for Margin Account."
+    },
+    "netInitialMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Net Initial Margin for Margin Account."
+    },
+    "grossInitialMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Gross Initial Margin for Margin Account."
+    },
+    "netCollateral" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Value of the summation of all collateral for the selected Collateral Account after haircut calculation in the base currency of the Collateral Account."
+    }
+  },
+  "required" : [
+    "totalAdditionalMargin",
+    "totalMargin",
+    "initialMargin",
+    "contingentVariationMargin",
+    "netLiquidatingValue",
+    "liquidityConcentrationRiskMargin",
+    "wrongWayRiskMargin",
+    "defaultFundAdditionalMargin",
+    "stressTestLoss",
+    "stressTestLossOverInitialMargin",
+    "primaryInitialMargin",
+    "flatRateInitialMargin",
+    "netInitialMargin",
+    "grossInitialMargin",
+    "netCollateral"
+  ],
+  "additionalProperties" : false,
+  "examples" : [
+    {
+      "totalAdditionalMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "totalMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "initialMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "contingentVariationMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "netLiquidatingValue" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "liquidityConcentrationRiskMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "wrongWayRiskMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "defaultFundAdditionalMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "stressTestLoss" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "stressTestLossOverInitialMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "primaryInitialMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "flatRateInitialMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "netInitialMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "grossInitialMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "netCollateral" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      }
+    }
+  ]
+}

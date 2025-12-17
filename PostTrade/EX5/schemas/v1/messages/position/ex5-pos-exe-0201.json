@@ -1,0 +1,61 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-exe-02",
+  "$metadata" : {
+    "domain" : "position",
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-exe-02"
+  },
+  "title" : "Block Exercise Request",
+  "description" : "Message for block exercise request",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    },
+    "blockExerciseIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Unique transaction identifier for the block exercise instruction",
+      "examples" : [ "10", "TXN123456789", "BLKEXRC001" ]
+    },
+    "financialInstrumentIdentification" : {
+      "$ref" : "../../objects/business/InstrumentIdentification.json",
+      "description" : "Financial instruments information"
+    },
+    "blockExerciseQuantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Quantity of units to be blocked for exercise expressed as decimal number"
+    },
+    "exerciseBlockType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of exercise block being applied",
+      "$comment" : "Consult External Code List table ExternalExerciseBlockTypeCode",
+      "examples" : [ 4 ]
+    }
+  },
+  "required" : [ "participantIdentification", "accountIdentification", "blockExerciseIdentification", "financialInstrumentIdentification", "blockExerciseQuantity", "exerciseBlockType" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 987654321012345
+    },
+    "blockExerciseIdentification" : "10",
+    "financialInstrumentIdentification" : {
+      "id" : "123456",
+      "source" : "8",
+      "exchange" : "A5X"
+    },
+    "blockExerciseQuantity" : "100.00",
+    "exerciseBlockType" : 4
+  } ]
+}

@@ -1,0 +1,301 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:allocation:ex5f-trd-ntf-03",
+  "$metadata" : {
+    "domain" : "allocation",
+    "schemaId" : "urn:a5x:ex5:schema:v1:allocation:ex5f-trd-ntf-03"
+  },
+  "title" : "TradeCapture",
+  "description" : "Trade Capture",
+  "type" : "object",
+  "properties" : {
+    "referenceDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Reference date of the information"
+    },
+    "accountIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "tradeDate" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Trade date"
+    },
+    "buySellIndicator" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Indicates whether the trade is a buy or sell",
+      "$comment" : "Consult External Code List table ExternalBuySellIndicatorCode"
+    },
+    "tradeIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Trade identification number"
+    },
+    "allocationIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Allocation identification number"
+    },
+    "allocationStatus" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Trade status code",
+      "$comment" : "Consult External Code List table ExternalTradeStatusCode"
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "maximum" : 999999,
+      "minimum" : 1,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalParticipantCategoryCode."
+    },
+    "participantDestinationIdentificationId" : {
+      "type" : "integer",
+      "maximum" : 999999,
+      "minimum" : 1,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantDestinationIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalParticipantCategoryCode."
+    },
+    "isin" : {
+      "type" : "string",
+      "pattern" : "^BR[A-Z0-9]{4}[A-Z0-9]{3}[A-Z0-9]{2}\\d$",
+      "minLength" : 12,
+      "maxLength" : 12,
+      "$comment" : "Structure BR AAAA BBB CC D where: BR=Brazil country code, AAAA=issuer identification (alphanumeric), BBB=asset type (alphanumeric), CC=species or sequence (alphanumeric), D=check digit (numeric)",
+      "description" : "International Securities Identification Number - Standardized international code for unique identification of financial instruments"
+    },
+    "financialInstrumentIdentificationId" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Proprietary identification of an instrument"
+    },
+    "financialInstrumentIdentificationSource" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Source of the instrument identification"
+    },
+    "financialInstrumentIdentificationExchange" : {
+      "type" : "string",
+      "pattern" : "^[A-Z0-9]{4}$",
+      "description" : "Identifier code of the exchange where the instrument is listed"
+    },
+    "tickerSymbol" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Letters that identify stocks traded on stock exchange"
+    },
+    "segment" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Market segment - first level of market classification in post-trading process",
+      "$comment" : "Consult External Code List table ExternalSegmentCode"
+    },
+    "market" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Market type - second level of market classification in post-trading process",
+      "$comment" : "Consult External Code List table ExternalMarketCode"
+    },
+    "optionType" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)",
+      "$comment" : "Consult External Code List table ExternalOptionTypeCode"
+    },
+    "transactionDateTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Transaction date and time"
+    },
+    "quantity" : {
+      "type" : "string",
+      "maxLength" : 20,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Trade quantity"
+    },
+    "orderIdentification" : {
+      "type" : "string",
+      "maxLength" : 26,
+      "minLength" : 1,
+      "description" : "Order identification number"
+    },
+    "tradeMatchIdentification" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Trade match identification"
+    },
+    "secondaryTradeMatchIdentification" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Secondary trade match identification"
+    },
+    "tradingSessionIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Indicates if trade was executed during regular hours or after market",
+      "$comment" : "Consult External Code List table ExternalTradingSessionIdCode"
+    },
+    "tradeRegistrationOrigin" : {
+      "type" : "string",
+      "maxLength" : 50,
+      "minLength" : 1,
+      "description" : "Origin session code for the trade"
+    },
+    "tradingSessionSubIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Identifies the phase group in trading session",
+      "$comment" : "Consult External Code List table ExternalTradingSessionSubIdCode"
+    },
+    "securityTradingStatus" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Identifies the instrument phase in trading",
+      "$comment" : "Consult External Code List table ExternalSecurityTradingStatusCode"
+    },
+    "tradeSubType" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Additional qualification for trade type",
+      "$comment" : "Consult External Code List table ExternalTradeSubTypeCode"
+    },
+    "sideTradeSubType" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Identifies strategy subtype"
+    },
+    "tradeTransactionType" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Trade transaction type code",
+      "$comment" : "Consult External Code List table ExternalTradeTransactionTypeCode"
+    },
+    "strategySymbol" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Strategy symbol identifier. Letters that identify stocks traded on stock exchange"
+    },
+    "strategyType" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 35,
+      "description" : "Defines strategy type",
+      "$comment" : "Consult External Code List table ExternalStrategyTypeCode"
+    },
+    "dealPrice" : {
+      "description" : "Decimal number with up to 6 decimal places",
+      "type" : "string",
+      "maxLength" : 22,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$"
+    },
+    "isAggressor" : {
+      "type" : "boolean",
+      "description" : "Indicates if the trade is aggressor. Yes-No Indicator"
+    },
+    "shortFuturePrice" : {
+      "type" : "string",
+      "maxLength" : 22,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
+      "description" : "Short future value with up to 6 decimal places",
+      "$comment" : "Represents the price of the short future leg in the strategy"
+    },
+    "longFuturePrice" : {
+      "type" : "string",
+      "maxLength" : 22,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
+      "description" : "Long future value with up to 6 decimal places",
+      "$comment" : "Represents the price of the long future leg in the strategy"
+    },
+    "delta" : {
+      "type" : "string",
+      "maxLength" : 22,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
+      "description" : "Delta value with up to 6 decimal places",
+      "$comment" : "Represents the rate of change between the derivative price and the underlying asset price"
+    },
+    "traderIdentification" : {
+      "type" : "string",
+      "maxLength" : 50,
+      "minLength" : 1,
+      "description" : "Trader code information"
+    },
+    "tradingDeskIdentification" : {
+      "type" : "string",
+      "maxLength" : 50,
+      "minLength" : 1,
+      "description" : "Identifies trading desk or strategy"
+    },
+    "senderCompIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Sender company ID"
+    },
+    "memo" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Free text field for memo"
+    },
+    "compressionGroupIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if the operation is derived from block capture",
+      "$comment" : "When true, the trade was part of a block trade"
+    },
+    "giveUpOnCaptureIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates that the captured account has a give-up link",
+      "$comment" : "When true, the account has a give-up link to another participant"
+    },
+    "grossTradeAmount" : {
+      "type" : "string",
+      "maxLength" : 20,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Gross trade value before any adjustments or deductions"
+    }
+  },
+  "required" : [ "referenceDate", "accountIdentification", "tradeDate", "buySellIndicator", "tradeIdentification", "allocationIdentification", "allocationStatus", "participantDestinationIdentificationId", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "tickerSymbol", "segment", "market", "transactionDateTime", "quantity", "orderIdentification", "tradeMatchIdentification", "tradeTransactionType", "dealPrice" ],
+  "additionalProperties" : false,
+  "examples" : [ ]
+}

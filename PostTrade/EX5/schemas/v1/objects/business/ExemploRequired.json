@@ -1,0 +1,36 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:ExemploRequired",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:ExemploRequired"
+  },
+  "title" : "ExemploRequired",
+  "description" : "Account information",
+  "type" : "object",
+  "properties" : {
+    "campoUm" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "First Field",
+      "examples" : [ 987654321012345, 123456789012345 ]
+    },
+    "campoDois" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Second Field",
+      "examples" : [ 987654321012345, 123456789012345 ]
+    },
+    "campoTres" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Third field",
+      "examples" : [ 987654321012345, 123456789012345 ]
+    }
+  },
+  "required" : [ ],
+  "additionalProperties" : false
+}

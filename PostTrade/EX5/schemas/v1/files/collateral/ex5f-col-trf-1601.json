@@ -1,0 +1,48 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-trf-16",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-trf-16"
+  },
+  "title" : "Collateral Approval Transfer Response File Schema",
+  "description" : "Collateral Approval Transfer Response File Schema",
+  "type" : "object",
+  "properties" : {
+    "collateralTransferIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "pattern" : "^[A-Za-z0-9_-]+$",
+      "description" : "Unique identifier for financial transactions with alphanumeric pattern validation"
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalParticipantCategoryCode."
+    },
+    "collateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Collateral ID given by the requestor participant"
+    },
+    "affirmationStatus" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "This block contains information about approval or rejection of the collateral transfer",
+      "$comment" : "Consult the external table ExternalAffirmationStatus1Code"
+    }
+  },
+  "required" : [ "collateralTransferIdentification", "participantIdentificationId", "participantIdentificationCategory", "collateralIdentification", "affirmationStatus" ],
+  "additionalProperties" : false
+}

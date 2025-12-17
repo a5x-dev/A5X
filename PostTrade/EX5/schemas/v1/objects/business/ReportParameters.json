@@ -1,0 +1,34 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:ReportParameters",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:ReportParameters"
+  },
+  "title" : "Report Parameters",
+  "description" : "Report parameters information with frequency, number, date and control fields",
+  "type" : "object",
+  "properties" : {
+    "frequency" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Frequency of the report",
+      "$comment" : "Consult External Code List table EventFrequency6Code"
+    },
+    "reportNumber" : {
+      "type" : "string",
+      "pattern" : "^[0-9]{5}$",
+      "description" : "Sequential number of the report"
+    },
+    "reportDateAndTime" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Reference date of the information"
+    }
+  },
+  "required" : [ "frequency", "reportDateAndTime" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "frequency" : 2,
+    "reportNumber" : "00132",
+    "reportDateAndTime" : "2015-09-18"
+  } ]
+}

@@ -1,0 +1,112 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-umb-17",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-umb-17"
+  },
+  "title" : "Collateral Umbrella Distribution Instruction File Schema",
+  "description" : "Collateral Umbrella Distribution Instruction File Schema",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "pattern" : "^[A-Za-z0-9_-]+$",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "clearingMemberIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Clearing member identifier provided by A5X during the participant registration"
+    },
+    "clearingMemberIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Clearing member category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "assetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Asset number registered in the central depository"
+    },
+    "securitiesCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Securities collateral identifier given by the requestor participant"
+    },
+    "securitiesQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity requested for securities umbrella type distribution"
+    },
+    "securitiesAccountIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Securities account identifier defined by the participant"
+    },
+    "cashCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Cash collateral identifier given by the requestor participant"
+    },
+    "cashOperationValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Cash operation value amount"
+    },
+    "cashOperationValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for cash operation value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "cashAccountIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Cash account identifier defined by the participant"
+    },
+    "federalBondsCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Federal bonds collateral identifier given by the requestor participant"
+    },
+    "federalBondsQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity requested for federal bonds umbrella type distribution"
+    },
+    "federalBondsAccountIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Federal bonds account identifier defined by the participant"
+    }
+  },
+  "required" : [ "transactionIdentification", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "participantIdentificationId", "participantIdentificationCategory", "assetNumber" ],
+  "additionalProperties" : false
+}

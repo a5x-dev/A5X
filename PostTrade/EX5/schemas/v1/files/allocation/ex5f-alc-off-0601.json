@@ -1,0 +1,235 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-off-06",
+  "$metadata" : {
+    "domain" : "allocation",
+    "schemaId" : "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-off-06"
+  },
+  "title" : "BreakingRulesReport",
+  "description" : "Breaking Rules Report",
+  "type" : "object",
+  "properties" : {
+    "reportDateAndTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "The date and time when the report was generated"
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "maximum" : 999999,
+      "minimum" : 1,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalParticipantCategoryCode."
+    },
+    "tradeIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Trade identification number"
+    },
+    "buySellIndicator" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Indicates whether the trade is a buy or sell",
+      "$comment" : "Consult External Code List table ExternalBuySellIndicatorCode"
+    },
+    "tradeDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Trade date"
+    },
+    "financialInstrumentIdentificationId" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Proprietary identification of an instrument"
+    },
+    "financialInstrumentIdentificationSource" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Source of the instrument identification"
+    },
+    "financialInstrumentIdentificationExchange" : {
+      "type" : "string",
+      "pattern" : "^[A-Z0-9]{4}$",
+      "description" : "Identifier code of the exchange where the instrument is listed"
+    },
+    "tickerSymbol" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Letters that identify stocks traded on stock exchange"
+    },
+    "segment" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Market segment - first level of market classification in post-trading process",
+      "$comment" : "Consult External Code List table ExternalSegmentCode"
+    },
+    "dealPrice" : {
+      "type" : "string",
+      "maxLength" : 22,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
+      "description" : "Traded volume with 6 decimal places"
+    },
+    "quantity" : {
+      "type" : "string",
+      "maxLength" : 20,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity expressed as a number"
+    },
+    "participantPreviousIdentificationId" : {
+      "type" : "integer",
+      "maximum" : 999999,
+      "minimum" : 1,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantPreviousIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalParticipantCategoryCode."
+    },
+    "accountPreviousIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "accountPreviousType" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Account type identification that will be registered",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
+    },
+    "participantOriginIdentificationId" : {
+      "type" : "integer",
+      "maximum" : 999999,
+      "minimum" : 1,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantOriginIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalParticipantCategoryCode."
+    },
+    "accountOriginIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "accountOriginMasterIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "accountOriginType" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Account type identification that will be registered",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
+    },
+    "participantDestinationIdentificationId" : {
+      "type" : "integer",
+      "maximum" : 999999,
+      "minimum" : 1,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantDestinationIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalParticipantCategoryCode."
+    },
+    "accountDestinationIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "accountDestinationMasterIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "accountDestinationType" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Account type identification that will be registered",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
+    },
+    "breakingRuleType" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Breaking rule type code",
+      "$comment" : "Consult External Code List table ExternalBreakingRulesTypeCode"
+    },
+    "breakingRuleDelayResponsibility" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Breaking rule delay responsibility code",
+      "$comment" : "Consult External Code List table ExternalBreakingRulesResponsibilityCode"
+    },
+    "breakingRuleReason" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Breaking rule reason code",
+      "$comment" : "Consult External Code List table ExternalBreakingRulesReasonCode"
+    },
+    "breakingRuleDateTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Breaking Rule Date and Time in ISO format"
+    },
+    "allocationStatus" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Processing status of the allocation instruction",
+      "$comment" : "Consult External Code List table ExternalAllocationInstruction"
+    },
+    "compressionGroupIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if the operation is derived from block capture",
+      "$comment" : "When true, the allocation was created as part of a block trade that was split into multiple allocations. This affects how the allocation is processed and reported."
+    },
+    "averagePriceGroupIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if the operation is derived from an average price allocation group",
+      "$comment" : "When true, the trade was part of an average price group"
+    },
+    "averageExecutionTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Average execution time of the average price allocation group",
+      "$comment" : "Required when averagePriceGroupIndicator is true"
+    }
+  },
+  "required" : [ "reportDateAndTime", "participantIdentificationId", "participantIdentificationCategory", "tradeIdentification", "buySellIndicator", "tradeDate", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "tickerSymbol", "segment", "dealPrice", "quantity", "participantOriginIdentification", "participantOriginIdentificationCategory", "accountOriginIdentification", "participantDestinationIdentificationId", "participantDestinationIdentificationCategory", "accountDestinationIdentification", "accountDestinationMasterIdentification", "accountDestinationType", "breakingRuleType", "breakingRuleReason", "allocationStatus" ],
+  "additionalProperties" : false,
+  "examples" : [ ]
+}

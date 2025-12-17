@@ -1,0 +1,93 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:Address",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:Address"
+  },
+  "title" : "Address Info",
+  "description" : "Address information. Fields neighborhood, city, and state are conditionally required when country is Brazil (BR)",
+  "type" : "object",
+  "properties" : {
+    "street" : {
+      "type" : "string",
+      "maxLength" : 70,
+      "minLength" : 3,
+      "pattern" : "^[A-Za-zÀ-ÿ0-9\\s'-\\.\\,]+$",
+      "description" : "Street address (Logradouro)",
+      "examples" : [ "Rua Augusta", "Avenida Paulista", "Rua Dr. João Silva", "Alameda Santos" ]
+    },
+    "number" : {
+      "type" : "string",
+      "maxLength" : 6,
+      "minLength" : 1,
+      "pattern" : "^[0-9A-Za-z\\s\\-\\/]+$",
+      "description" : "Street number",
+      "examples" : [ "123", "456A", "12/14", "S/N" ]
+    },
+    "complement" : {
+      "type" : "string",
+      "maxLength" : 70,
+      "minLength" : 1,
+      "pattern" : "^[A-Za-zÀ-ÿ0-9\\s'-\\.\\,\\/\\(\\)]+$",
+      "description" : "Address complement (apartment, suite, etc.)",
+      "examples" : [ "Apto 101", "Bloco A", "Casa 2", "Sala 1205", "Sobreloja" ]
+    },
+    "neighborhood" : {
+      "type" : "string",
+      "maxLength" : 70,
+      "minLength" : 2,
+      "pattern" : "^[A-Za-zÀ-ÿ0-9\\s'-\\.\\,]+$",
+      "description" : "Neighborhood/district name. Required only if country is Brazil (BR)",
+      "examples" : [ "Centro", "Vila Madalena", "Copacabana", "Jardim Paulista" ]
+    },
+    "postalCode" : {
+      "type" : "string",
+      "maxLength" : 16,
+      "minLength" : 3,
+      "pattern" : "^[A-Za-z0-9\\s\\-]+$",
+      "description" : "Postal code (CEP), required only if country is Brazil (BR)",
+      "examples" : [ "01234-567", "01234567", "SW1A 1AA", "10001", "H3Z 2Y7" ]
+    },
+    "cityName" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 9999999,
+      "description" : "City name based on IBGE list. Required only if country is Brazil (BR)",
+      "examples" : [ 3550308, 3304557, 3106200, 4314902 ]
+    },
+    "state" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Consult External Text List table ExternalStateCode. Required only if country is Brazil (BR)"
+    },
+    "country" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Consult External Text List table ExternalCountryCode"
+    },
+    "phoneNumber" : {
+      "type" : "string",
+      "pattern" : "\\+[0-9]{1,3}-[0-9()+\\-]{1,30}",
+      "description" : "Phone number with country code",
+      "examples" : [ "+55-11-91234-5678" ]
+    },
+    "email" : {
+      "format" : "email",
+      "description" : "Email address",
+      "examples" : [ "usuario@exemplo.com.br", "contato@empresa.com", "john.doe@company.org" ]
+    }
+  },
+  "required" : [ "street", "number", "postalCode", "country", "phoneNumber", "email" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "street" : "Rua Brasilândia",
+    "number" : "123",
+    "complement" : "Apto 101",
+    "neighborhood" : "Centro",
+    "postalCode" : "01234-567",
+    "cityName" : 3550308,
+    "state" : "SP",
+    "country" : "BRA",
+    "phoneNumber" : "+55-11-91234-5678",
+    "email" : "usuario@exemplo.com.br"
+  } ]
+}

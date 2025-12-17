@@ -1,0 +1,223 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-wtd-20",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-wtd-20"
+  },
+  "title" : "Collateral Withdrawal Status File Schema",
+  "description" : "Collateral Withdrawal Status File Schema",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "pattern" : "^[A-Za-z0-9_-]+$",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "clearingMemberIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Clearing member identifier provided by A5X during the participant registration"
+    },
+    "clearingMemberIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Clearing member category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "accountIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "collateralWithdrawalIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Unique collateral withdrawal identification assigned by the A5X"
+    },
+    "securitiesCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Securities collateral identification as known by party"
+    },
+    "securitiesQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity requested to securities distribution with command"
+    },
+    "securitiesCollateralValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Securities collateral value amount in active currency"
+    },
+    "securitiesCollateralValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for securities collateral value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "securitiesStatusCode" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Securities collateral status code",
+      "$comment" : "Consult External Code List table ExternalCollateralStatusCode"
+    },
+    "securitiesRejectionInformation" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Additional information regarding why the securities collateral proposal has a rejected status"
+    },
+    "cashCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Cash collateral identification as known by party"
+    },
+    "cashOperationValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Amount requested to cash distribution with command"
+    },
+    "cashOperationValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for cash operation value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "cashCollateralValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Cash collateral value amount in active currency"
+    },
+    "cashCollateralValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for cash collateral value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "cashStatusCode" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Cash collateral status code",
+      "$comment" : "Consult External Code List table ExternalCollateralStatusCode"
+    },
+    "cashRejectionInformation" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Additional information regarding why the cash collateral proposal has a rejected status"
+    },
+    "federalBondsCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Federal bonds collateral identification as known by party"
+    },
+    "federalBondsQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity requested to federal bonds collateral transfer"
+    },
+    "federalBondsCollateralValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Federal bonds collateral value amount in active currency"
+    },
+    "federalBondsCollateralValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for federal bonds collateral value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "federalBondsSelicOperationCode" : {
+      "type" : "string",
+      "maxLength" : 6,
+      "minLength" : 1,
+      "description" : "SELIC operation code for federal bond transactions"
+    },
+    "federalBondsAssignerAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides federal bonds assigner account identification"
+    },
+    "federalBondsAssigneeAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides identification about federal bonds assignee account"
+    },
+    "federalBondsStatusCode" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Federal bonds collateral status code",
+      "$comment" : "Consult External Code List table ExternalCollateralStatusCode"
+    },
+    "federalBondsRejectionInformation" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Additional information regarding why the federal bonds collateral proposal has a rejected status"
+    },
+    "federalBondsSubstitutionStatusCode" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Federal bonds collateral substitution status code",
+      "$comment" : "Consult External Code List table ExternalCollateralStatusCode"
+    },
+    "federalBondsSubstitutionErrorCode" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Federal bonds substitution error code",
+      "$comment" : "Consult External Code List table ExternalErrorCollateralCode, ExternalErrorRegistrationCode, ExternalAllocationErrorCode"
+    },
+    "federalBondsSubstitutionErrorDescription" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Federal bonds substitution error description"
+    },
+    "federalBondsSubstitutionErrorMessage" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Federal bonds substitution error message"
+    },
+    "federalBondsSubstitutionErrorRefId" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Federal bonds substitution error reference ID"
+    }
+  },
+  "required" : [ "transactionIdentification", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory" ],
+  "additionalProperties" : false
+}

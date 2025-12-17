@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Securities Lending Type",
+  "description": "Codes for securities lending type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "MANUAL",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "DOADORA",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "TOMADORA",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "AUTOMÁTICO",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "RENOVAÇÃO",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "RENOVAÇÃO PARCIAL",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "ORIGINADO POR PROVENTO",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "CARGA",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "ASSEMBLÉIA",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "DIFERENCIADO",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "LIQUIDAÇÃO DOADOR",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "SUBSCRIÇÃO",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "SUBSTITUIÇÃO",
+      "const": 16
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

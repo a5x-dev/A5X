@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Investor Reason Exclusion Corporate Event",
+  "description": "Codes for investor reason exclusion corporate event",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Ações em tesouraria",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Pagamento efetuado pelo emissor",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Ativo não elegível ao provento (Stock Option)",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Retirada por Encerramento da Conta de Custódia",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Retirada por Liquidação da Corretora",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Retirada por Cancelamento do Registro do Ativo",
+      "const": 6
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

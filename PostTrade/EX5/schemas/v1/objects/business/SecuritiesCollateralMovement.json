@@ -1,0 +1,52 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:SecuritiesCollateralMovement",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:SecuritiesCollateralMovement"
+  },
+  "title" : "Securities And Gold Collateral Information",
+  "description" : "Provides securities and gold collateral information with custody movement details",
+  "type" : "object",
+  "properties" : {
+    "collateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued collateral",
+      "examples" : [ "FB-REF-001", "BOND-123456" ]
+    },
+    "custodianInformation" : {
+      "$ref" : "../../objects/business/CustodianInformation.json",
+      "description" : "Custodian information details"
+    },
+    "subAccountDestination" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "description" : "Identification of the sub account",
+      "examples" : [ "12345", "SUB01", "PORT1" ]
+    },
+    "centralDepositaryOperationNumber" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "description" : "Provides the movement number of custody system",
+      "examples" : [ "12345", "MOV01", "OP123" ]
+    }
+  },
+  "required" : [ "collateralReference", "custodianInformation", "subAccountDestination", "centralDepositaryOperationNumber" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralReference" : "FB-REF-001",
+    "custodianInformation" : {
+      "participantInformation" : {
+        "id" : 456,
+        "category" : 2
+      },
+      "accountIdentification" : {
+        "id" : 789012345678901
+      },
+      "subAccount" : "001"
+    },
+    "subAccountDestination" : "SUB01",
+    "centralDepositaryOperationNumber" : "MOV01"
+  } ]
+}

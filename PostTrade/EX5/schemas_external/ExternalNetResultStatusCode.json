@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Net Result Status",
+  "description": "Codes for net result status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Accepted",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Rejected",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

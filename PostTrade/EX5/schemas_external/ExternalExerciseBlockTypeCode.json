@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Exercise Block Type",
+  "description": "Codes for exercise block type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Block exercise (ATM - At the money)",
+      "const": 4
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    }
+  ],
+  "examples": [
+    4,
+    null
+  ]
+}

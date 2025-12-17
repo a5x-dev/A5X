@@ -1,0 +1,209 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Asset Group",
+  "description": "Codes for asset group",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Grupo Taxa de Juros em Reais",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Grupo Taxa de Juros em dólares",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Grupo Taxa de Juros indexada à inflação",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Índice de Inflação - IGP-M",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Índice de Inflação - IPCA",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Ouro",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Índice de ações",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Dívida Soberana",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Taxa de câmbio - DÓLAR",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Taxa de câmbio - EURO",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Taxa de câmbio - DÓLAR AUSTRALIANO",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Taxa de câmbio - DÓLAR CANADENSE",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "Taxa de câmbio - LIBRA ESTERLINA",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "Taxa de câmbio - IENE",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "Taxa de câmbio - PESO MEXICANO",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "Taxa de câmbio - DÓLAR DA NOVA ZELÂNDIA",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "Taxa de câmbio - FRANCO SUÍÇO",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "Taxa de câmbio - IUAN",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "Taxa de câmbio - LIRA TURCA",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "Taxa de câmbio - PESO CHILENO",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "Taxa de câmbio - RANDE DA ÁFRICA DO SUL",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "Boi Gordo",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "Etanol Hidratado",
+      "const": 23
+    },
+    {
+      "type": "number",
+      "description": "Milho",
+      "const": 24
+    },
+    {
+      "type": "number",
+      "description": "Açúcar Cristal Especial",
+      "const": 25
+    },
+    {
+      "type": "number",
+      "description": "Café Arábica",
+      "const": 26
+    },
+    {
+      "type": "number",
+      "description": "Etanol",
+      "const": 27
+    },
+    {
+      "type": "number",
+      "description": "Soja Financeira",
+      "const": 28
+    },
+    {
+      "type": "number",
+      "description": "S&P 500",
+      "const": 29
+    },
+    {
+      "type": "number",
+      "description": "BRICS - Índice SENSEX 30",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "BRICS - Índice Hang Seng",
+      "const": 31
+    },
+    {
+      "type": "number",
+      "description": "BRICS - Índice FTSE/JSE",
+      "const": 32
+    },
+    {
+      "type": "number",
+      "description": "BRICS - Índice MICEX",
+      "const": 33
+    },
+    {
+      "type": "number",
+      "description": "Mini de Soja CME",
+      "const": 34
+    },
+    {
+      "type": "number",
+      "description": "Mini de Petroleo CME",
+      "const": 35
+    },
+    {
+      "type": "number",
+      "description": "Grupo Operações Compromissadas",
+      "const": 36
+    },
+    {
+      "type": "number",
+      "description": "DI Longo",
+      "const": 37
+    },
+    {
+      "type": "number",
+      "description": "Mini de IGP-M",
+      "const": 38
+    },
+    {
+      "type": "number",
+      "description": "Taxa de juros referenciada em OC1",
+      "const": 39
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

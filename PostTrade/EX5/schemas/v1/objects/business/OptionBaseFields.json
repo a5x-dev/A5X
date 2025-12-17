@@ -1,0 +1,66 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:OptionBaseFields",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:OptionBaseFields"
+  },
+  "title" : "OptionBaseFields",
+  "description" : "Base fields common to all option instruments, extending base instrument fields",
+  "allOf" : [ {
+    "$ref" : "../../objects/business/InstrumentBaseFields.json"
+  }, {
+    "type" : "object",
+    "properties" : {
+      "exercisePrice" : {
+        "$ref" : "../../objects/business/ExercisePrice.json",
+        "description" : "Price at which the option can be exercised"
+      },
+      "optionType" : {
+        "$ref" : "../../domains/OptionType.json",
+        "description" : "Specifies whether the option is a call (right to buy) or put (right to sell)",
+        "examples" : [ "CALL", "PUT" ]
+      },
+      "premiumUpfrontIndicator" : {
+        "type" : "boolean",
+        "description" : "Indicates if the option premium is paid upfront",
+        "examples" : [ true, false ]
+      }
+    },
+    "required" : [ "exercisePrice", "optionType" ],
+    "additionalProperties" : false
+  } ],
+  "examples" : [ {
+    "instrumentData" : {
+      "tickerSymbol" : "DFZ0001"
+    },
+    "securityCategory" : 3,
+    "tradingCurrency" : "BRL",
+    "expirationDate" : "2024-10-31",
+    "exercisePrice" : {
+      "amount" : 35.5,
+      "currency" : "BRL"
+    },
+    "optionType" : "CALL",
+    "premiumUpfrontIndicator" : true
+  }, {
+    "instrumentData" : {
+      "InstrumentIdentification" : {
+        "securityID" : "10000000000000002",
+        "securitySource" : "8",
+        "securityExchange" : "A5X"
+      },
+      "ISIN" : "XPTON0DFZ0001",
+      "tickerSymbol" : "DFZ0001"
+    },
+    "securityCategory" : 3,
+    "tradingCurrency" : "BRL",
+    "expirationDate" : "2024-10-31",
+    "exercisePrice" : {
+      "amount" : 35.5,
+      "currency" : "BRL"
+    },
+    "optionType" : "PUT",
+    "premiumUpfrontIndicator" : false
+  } ]
+}

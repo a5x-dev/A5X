@@ -1,0 +1,30 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CashOrCurrencyCollateralInformation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CashOrCurrencyCollateralInformation"
+  },
+  "title" : "Cash Or Currency Collateral Information",
+  "description" : "Provides information cash collateral valuation",
+  "type" : "object",
+  "properties" : {
+    "collateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued collateral",
+      "examples" : [ "CASH-REF-001", "CURRENCY-456789" ]
+    },
+    "executedMovementType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Executed movement type for collateral operations",
+      "$comment" : "Consult External Code List table ExternalCollateralExecutedMovementTypeCode"
+    }
+  },
+  "required" : [ ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralReference" : "CASH-REF-001",
+    "executedMovementType" : 1
+  } ]
+}

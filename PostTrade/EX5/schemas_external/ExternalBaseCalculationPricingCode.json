@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Base Calculation Pricing",
+  "description": "Codes for base calculation pricing",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Preço Preliminar",
+      "const": "P"
+    },
+    {
+      "type": "string",
+      "description": "Preço Final",
+      "const": "F"
+    }
+  ],
+  "examples": [
+    "P",
+    "F"
+  ]
+}

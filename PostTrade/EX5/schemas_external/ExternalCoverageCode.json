@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Coverage",
+  "description": "Codes for coverage",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Portfolio Coverage",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Operational Limit",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Derivatives Binomial",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Settlement Fund -  Treading Participant/ Direct Participant",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Settlement Fund -  Clearing Member",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Settlement Fund – Clearinghouse",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Settlement Fund -  Equities and ETF ",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Settlement Fund -  Listed Derivatives and securities lending and borrowing",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "Settlement Fund -  OTC Derivatives",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "Settlement Fund -  Spot Exchange",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "Settlement Fund -  Public and Private Fixed Income ",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "Extended Settlement Fund – Clearinghouse",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "Extended Settlement Fund -  Equities and ETF",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "Extended Settlement Fund -  Listed Derivatives and securities lending and borrowing",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "Extended Settlement Fund -  OTC Derivatives",
+      "const": 23
+    },
+    {
+      "type": "number",
+      "description": "Extended Settlement Fund -  Public and Private Fixed Income",
+      "const": 25
+    },
+    {
+      "type": "number",
+      "description": "Extended Settlement Fund - Collateral utilization",
+      "const": 30
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    4,
+    8,
+    9
+  ]
+}

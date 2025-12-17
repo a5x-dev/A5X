@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Origin Position Type",
+  "description": "Codes for origin position type",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Position",
+      "const": "P"
+    },
+    {
+      "type": "string",
+      "description": "Reallocation",
+      "const": "R"
+    },
+    {
+      "type": "string",
+      "description": "Collateral",
+      "const": "C "
+    },
+    {
+      "type": "string",
+      "description": "Netting",
+      "const": "E"
+    },
+    {
+      "type": "string",
+      "description": "Netting Short",
+      "const": "V"
+    },
+    {
+      "type": "string",
+      "description": "Netting Long",
+      "const": "O"
+    },
+    {
+      "type": "string",
+      "description": "Security Lending Delivery Failure",
+      "const": "B"
+    },
+    {
+      "type": "string",
+      "description": "Cash Market Delivery Failure",
+      "const": "D"
+    },
+    {
+      "type": "string",
+      "description": "Buy-in",
+      "const": "I"
+    },
+    {
+      "type": "string",
+      "description": "Security Lending Corporate Event",
+      "const": "S"
+    },
+    {
+      "type": "string",
+      "description": "Forward Settlement Cash Market",
+      "const": "T"
+    },
+    {
+      "type": "string",
+      "description": "Delivered",
+      "const": "L"
+    },
+    {
+      "type": "string",
+      "description": "Strategy",
+      "const": "K"
+    },
+    {
+      "type": "string",
+      "description": "Hedge",
+      "const": "H"
+    }
+  ],
+  "examples": [
+    "P",
+    "R",
+    "C ",
+    "E",
+    "V"
+  ]
+}

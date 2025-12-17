@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Cover Uncover Request Type",
+  "description": "Codes for cover uncover request type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Coverage Request",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Cancelation",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-pos-01",
+  "$metadata" : {
+    "domain" : "qualifiedServices",
+    "schemaId" : "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-pos-01"
+  },
+  "title" : "Position Qualified Services File Schema",
+  "description" : "Qualified Services File Schema",
+  "type" : "object",
+  "properties" : {
+    "recordType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description" : "Fixed value '01'",
+      "$comment" : "Consult External Code List table ExternalRecordTypeCode"
+    },
+    "requestingParticipantCode" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "description" : "Requesting participant code"
+    },
+    "requestingInvestorCode" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "description" : "Requesting investor code"
+    },
+    "requestedParticipantCode" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "description" : "Requested participant code"
+    },
+    "requestedInvestorCode" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "description" : "Requested investor code"
+    },
+    "instrumentCode" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Security ID"
+    },
+    "instrumentIdentificationOriginCode" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Security Source"
+    },
+    "exchangeCode" : {
+      "type" : "string",
+      "maxLength" : 4,
+      "description" : "Security Exchange"
+    },
+    "tradingCode" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Trading code"
+    },
+    "isin" : {
+      "type" : "string",
+      "maxLength" : 12,
+      "description" : "ISIN"
+    },
+    "market" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999,
+      "description" : "Market",
+      "$comment" : "Consult External Code List table ExternalMarketCode"
+    },
+    "standardLotContractSize" : {
+      "type" : "number",
+      "multipleOf" : 0.00001,
+      "description" : "Standard lot/contract size"
+    },
+    "commodity" : {
+      "type" : "string",
+      "maxLength" : 30,
+      "description" : "Commodity"
+    },
+    "expirationCode" : {
+      "type" : "string",
+      "minLength": 1,
+      "maxLength": 6,
+      "description" : "Expiration code"
+    },
+    "seriesTypeIndicator" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 9999999999,
+      "description" : "Series type indicator",
+      "$comment" : "Consult External Code List table ExpirationIndicatorTypeCode"
+    },
+    "optionDistribution" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 9999999999,
+      "description" : "Option distribution"
+    },
+    "underlyingAssetIsin" : {
+      "type" : "string",
+      "maxLength" : 12,
+      "description" : "Underlying asset ISIN"
+    },
+    "exercisePrice" : {
+      "type" : "number",
+      "multipleOf" : 0.0000001,
+      "description" : "Exercise price"
+    },
+    "optionType" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Option type",
+      "$comment" : "Consult External Code List table ExternalOptionTypeCode"
+    },
+    "quotationFactor" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 9999999999,
+      "description" : "Quotation factor"
+    },
+    "optionStyle" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Option style",
+      "$comment" : "Consult External Code List table ExternalOptionTypeCode"
+    },
+    "expirationDate" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "pattern" : "^\\d{4}-\\d{2}-\\d{2}$",
+      "description" : "Expiration date (YYYY-MM-DD format)"
+    },
+    "positionDate" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "pattern" : "^\\d{4}-\\d{2}-\\d{2}$",
+      "description" : "Position date (YYYY-MM-DD format)"
+    },
+    "initialPositionNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Initial position nature",
+      "$comment" : "Consult External Code List table ExternalSideTypeCode"
+    },
+    "initialPositionValue" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "Initial position value"
+    },
+    "expiredPositionNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Expired position nature",
+      "$comment" : "Consult External Code List table ExternalSideTypeCode"
+    },
+    "expiredPositionValue" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "Expired position value"
+    },
+    "exerciseClosedPositionNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Exercise closed position nature",
+      "$comment" : "Consult External Code List table ExternalSideTypeCode"
+    },
+    "exerciseClosedPositionValue" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "Exercise closed position value"
+    },
+    "dayBoughtQuantity" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "Day bought quantity"
+    },
+    "daySoldQuantity" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "Day sold quantity"
+    },
+    "transferSentPositionNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Transfer sent position nature",
+      "$comment" : "Consult External Code List table ExternalSideTypeCode"
+    },
+    "transferSentPositionValue" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "Transfer sent position value"
+    },
+    "transferReceivedBoughtPosition" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "Transfer received bought position"
+    },
+    "transferReceivedSoldPosition" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "Transfer received sold position"
+    },
+    "currentPositionNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Current position nature",
+      "$comment" : "Consult External Code List table ExternalSideTypeCode"
+    },
+    "currentPositionValue" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "Current position value"
+    },
+    "exerciseBlockedBoughtPosition" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "Exercise blocked bought position"
+    },
+    "corporateEventsCurrentPositionNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Corporate events current position nature",
+      "$comment" : "Consult External Code List table ExternalSideTypeCode"
+    },
+    "corporateEventsCurrentPosition" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "Corporate events current position"
+    },
+    "boxPosition" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "BOX position"
+    },
+    "closedPositionNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Closed position nature",
+      "$comment" : "Consult External Code List table ExternalSideTypeCode"
+    },
+    "closedPositionValue" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "Closed position value"
+    },
+    "currentBoughtPositionValue" : {
+      "type" : "number",
+      "multipleOf" : 0.01,
+      "description" : "Current bought position value"
+    },
+    "currentSoldPositionValue" : {
+      "type" : "number",
+      "multipleOf" : 0.01,
+      "description" : "Current sold position value"
+    },
+    "dailyAdjustmentNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Daily adjustment nature",
+      "$comment" : "Consult External Code List table LaunchType"
+    },
+    "dailyAdjustmentValue" : {
+      "type" : "number",
+      "multipleOf" : 0.01,
+      "description" : "Daily adjustment value"
+    },
+    "initialPositionDailyAdjustmentNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Initial position daily adjustment nature",
+      "$comment" : "Consult External Code List table LaunchType"
+    },
+    "initialPositionDailyAdjustmentValue" : {
+      "type" : "number",
+      "multipleOf" : 0.01,
+      "description" : "Initial position daily adjustment value"
+    },
+    "transferReceivedPositionDailyAdjustmentNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Transfer received position daily adjustment nature",
+      "$comment" : "Consult External Code List table LaunchType"
+    },
+    "transferReceivedPositionDailyAdjustment" : {
+      "type" : "number",
+      "multipleOf" : 0.01,
+      "description" : "Transfer received position daily adjustment"
+    },
+    "dayTradesDailyAdjustmentNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Day trades daily adjustment nature",
+      "$comment" : "Consult External Code List table LaunchType"
+    },
+    "dayTradesDailyAdjustmentValue" : {
+      "type" : "number",
+      "multipleOf" : 0.01,
+      "description" : "Day trades daily adjustment value"
+    },
+    "closedPositionAccumulatedAdjustmentNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Closed position accumulated adjustment nature",
+      "$comment" : "Consult External Code List table LaunchType"
+    },
+    "closedPositionAccumulatedAdjustmentValue" : {
+      "type" : "number",
+      "multipleOf" : 0.01,
+      "description" : "Closed position accumulated adjustment value"
+    },
+    "optionPremiumNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Option premium nature",
+      "$comment" : "Consult External Code List table LaunchType"
+    },
+    "optionPremiumValue" : {
+      "type" : "number",
+      "multipleOf" : 0.01,
+      "description" : "Option premium value"
+    },
+    "settlementValueNature" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Settlement value nature",
+      "$comment" : "Consult External Code List table LaunchType"
+    },
+    "settlementValue" : {
+      "type" : "number",
+      "multipleOf" : 0.01,
+      "description" : "Settlement value"
+    }
+  },
+  "required" : [ "recordType", "requestingParticipantCode", "requestingInvestorCode", "requestedParticipantCode", "requestedInvestorCode" ],
+  "additionalProperties" : false
+}

@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Justification",
+  "description": "Codes for justification",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "ADR Arbitrage",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Allocation Error Same Document ID",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "BDR Arbitrage",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "BVMF ETF Arbitrage",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Cash Sale with Securities Lending",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Customer Allocation Error",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Equity Index Futures Arbitrage",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Equity Market Maker Trades",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Equity Option Market Maker Trades",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Other ETF Arbitrage",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Follow on",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "No justification assigned",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "Third Party T+3",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "Third Party T+4",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "Automatic",
+      "const": 15
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

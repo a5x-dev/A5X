@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Compression Trade Status",
+  "description": "Codes for compression trade status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Added",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Removed",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

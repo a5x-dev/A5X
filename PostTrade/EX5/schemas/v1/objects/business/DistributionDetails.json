@@ -1,0 +1,112 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:DistributionDetails",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:DistributionDetails"
+  },
+  "title" : "Distribution Details",
+  "description" : "Distribution details with different types of collateral using anyOf pattern",
+  "type" : "object",
+  "properties" : {
+    "securitiesCollateral" : {
+      "type" : "array",
+      "description" : "Securities collateral items for distribution command",
+      "items" : {
+        "$ref" : "../../objects/business/SecuritiesCollateralDistribution.json"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    "cashCollateral" : {
+      "type" : "array",
+      "description" : "Cash collateral items for distribution command",
+      "items" : {
+        "$ref" : "../../objects/business/CashCollateralDistribution.json"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    "federalBondsCollateral" : {
+      "type" : "array",
+      "description" : "Other types of collateral for distribution command",
+      "items" : {
+        "$ref" : "../../objects/business/OtherCollateralDistribution.json"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    "externalCollateral" : {
+      "type" : "array",
+      "description" : "Other types of collateral for transfer approval",
+      "items" : {
+        "allOf" : [ {
+          "$ref" : "../../objects/business/OtherCollateralDistribution.json"
+        }, {
+          "properties" : {
+            "distributionCommandNumber" : true,
+            "collateralIdentification" : true,
+            "collateralType" : false,
+            "assetNumber" : true,
+            "quantity" : true
+          },
+          "required" : [ "collateralIdentification", "assetNumber", "quantity" ]
+        } ]
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    }
+  },
+  "anyOf" : [ {
+    "properties" : {
+      "securitiesCollateral" : true
+    },
+    "required" : [ "securitiesCollateral" ]
+  }, {
+    "properties" : {
+      "cashCollateral" : true
+    },
+    "required" : [ "cashCollateral" ]
+  }, {
+    "properties" : {
+      "federalBondsCollateral" : true
+    },
+    "required" : [ "federalBondsCollateral" ]
+  }, {
+    "properties" : {
+      "externalCollateral" : true
+    },
+    "required" : [ "externalCollateral" ]
+  } ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "securitiesCollateral" : [ {
+      "distributionCommandNumber" : "206",
+      "collateralIdentification" : "1",
+      "assetNumber" : "2015000000349",
+      "quantity" : "150.0"
+    } ]
+  }, {
+    "cashCollateral" : [ {
+      "distributionCommandNumber" : "206",
+      "collateralIdentification" : "1",
+      "assetNumber" : "2015000000349",
+      "operationValue" : "75.12345"
+    } ]
+  }, {
+    "federalBondsCollateral" : [ {
+      "distributionCommandNumber" : "206",
+      "collateralIdentification" : "1",
+      "assetNumber" : "2015000000349",
+      "collateralType" : 2,
+      "quantity" : "150.0"
+    } ]
+  }, {
+    "externalCollateral" : [ {
+      "distributionCommandNumber" : "206",
+      "collateralIdentification" : "1",
+      "assetNumber" : "2015000000349",
+      "quantity" : "150.0"
+    } ]
+  } ]
+}

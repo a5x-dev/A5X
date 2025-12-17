@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:public:ex5f-pub-pos-01",
+  "$metadata": {
+    "domain": "public",
+    "schemaId": "urn:a5x:ex5:schema:v1:public:ex5f-pub-pos-01"
+  },
+  "title": "Public Position Limits File Schema",
+  "description": "Schema for public position limits file containing position limits information for listed markets",
+  "type": "object",
+  "properties": {
+    "positionLimitTypeCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "description": "Position Limit Type Code (Example: FUTURO, OPCAO FINANCEIRA CALL, OPCAO FINANCEIRA PUT)"
+    },
+    "tickerSymbol": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "description": "Object Asset Code"
+    },
+    "expirationDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Aggregation Expiration Date"
+    },
+    "positionLimitDescription": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Nature of Position (Example: COMPRADO, VENDIDO, POTENCIAL ENTREGA E POTENCIAL RECEBIMENTO)"
+    },
+    "aggregationLevelCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "description": "Aggregation Level (Example: AG1, AG2, AG3, INTERMEDIAÇÃO, MERCADO)"
+    },
+    "l1LimitQuantity": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999999999999,
+      "description": "Limit1 Value"
+    },
+    "l2LimitQuantity": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999999999999,
+      "description": "Limit2 Value"
+    },
+    "freeFloatQuantity": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999999999999,
+      "description": "Free Float Value"
+    }
+  },
+  "required": [
+    "positionLimitTypeCode",
+    "tickerSymbol",
+    "positionLimitDescription",
+    "aggregationLevelCode",
+    "l1LimitQuantity",
+    "l2LimitQuantity"
+  ],
+  "additionalProperties": false
+}

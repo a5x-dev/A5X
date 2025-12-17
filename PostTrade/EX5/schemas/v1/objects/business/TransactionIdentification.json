@@ -1,0 +1,15 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:TransactionIdentification",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:TransactionIdentification"
+  },
+  "title" : "Transaction Identification",
+  "description" : "Unique identifier for financial transactions with alphanumeric pattern validation",
+  "type" : "string",
+  "maxLength" : 35,
+  "minLength" : 1,
+  "pattern" : "^[A-Za-z0-9_-]+$",
+  "examples" : [ "UMB-DIST-164-001", "COLL-UMB-11682", "TXN-164-789", "TRD-2024-001", "SETTLE-12345" ]
+}

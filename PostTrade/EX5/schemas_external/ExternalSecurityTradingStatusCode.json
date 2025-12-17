@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Security Trading Status",
+  "description": "Codes for security trading status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Trading Halt (Pause)",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "No-Open (Close)",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Ready to trade (Open)",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "Not available for trading (Forbidden)",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "Unknown or invalid",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "Pre-Open",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "Final Closing Call",
+      "const": 101
+    },
+    {
+      "type": "number",
+      "description": "Reserved",
+      "const": 110
+    }
+  ],
+  "examples": [
+    2,
+    4,
+    17,
+    18,
+    20
+  ]
+}

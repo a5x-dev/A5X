@@ -1,0 +1,13 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:Occupation",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:Occupation"
+  },
+  "title" : "Occupation",
+  "description" : "CBO codes for Brazilian occupational classification (6-digit codes) - ExternalProfessionCode",
+  "type" : "string",
+  "pattern" : "^[0-9]{6}$",
+  "examples" : [ "214105", "252515", "142105", "331105", "111110", "621005", "241205", "322230" ]
+}

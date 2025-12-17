@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Asset Subordinated Type",
+  "description": "Codes for asset subordinated type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Subordinada",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Não subordinada",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

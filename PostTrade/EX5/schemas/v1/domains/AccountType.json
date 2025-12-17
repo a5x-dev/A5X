@@ -1,0 +1,14 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:AccountType",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:AccountType"
+  },
+  "title" : "AccountType",
+  "description" : "Name that defines the type of account - ExternalSecurityAccountTypeCode",
+  "allOf" : [ {
+    "$ref" : "../objects/business/ExternalCodeList.json"
+  } ],
+  "examples" : [ "Consult External Code List table ExternalSecurityAccountTypeCode" ]
+}

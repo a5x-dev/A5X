@@ -1,0 +1,36 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-rpt-06",
+  "$metadata" : {
+    "domain" : "technical",
+    "schemaId" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-rpt-06"
+  },
+  "title" : "File Generation Report",
+  "description" : "Generic response message for queries that generate files",
+  "$comment" : "This schema can be used for any query that results in file generation",
+  "type" : "object",
+  "properties" : {
+    "techreport" : {
+      "$ref" : "../../objects/tech/TechBaseFields.json"
+    }
+  },
+  "required" : [ "techreport" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "techreport" : {
+      "status" : 2,
+      "error" : {
+        "code" : 1,
+        "message" : "Error X",
+        "errorDescription" : "COD12452",
+        "refId" : "REF12345"
+      },
+      "fileName" : "EX5F-COL-MRG-0101-20250101-1.csv",
+      "filelink" : "http://example.com/EX5F-COL-MRG-0101-20250101-1.csv.csv",
+      "filePath" : "/home/user/documents/EX5F-COL-MRG-0101-20250101-1.csv.csv",
+      "timestamp" : "2024-01-15T14:30:15Z",
+      "reportName" : "EX5F-COL-MRG-0101",
+      "quantityOfRows" : 1000
+    }
+  } ]
+}

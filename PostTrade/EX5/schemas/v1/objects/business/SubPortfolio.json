@@ -1,0 +1,67 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:SubPortfolio",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:SubPortfolio"
+  },
+  "title" : "Subportfolio margin calculation",
+  "description" : "Details of a subportfolio margin calculation",
+  "type" : "object",
+  "properties" : {
+    "currency" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Currency code in which the amount is denominated",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "riskMeasure" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Request type code",
+      "$comment" : "Consult External Code List table ExternalRiskMeasure"
+    },
+    "holdingPeriod" : {
+      "type" : "integer",
+      "description" : "Holding Period of the sub-portfolio"
+    },
+    "initialMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "The Initial Margin of the sub-portfolio. This could be either Net IM of SP or Gross IM of SP or even a combination of Net IM and Gross IM."
+    },
+    "netInitialMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "The Net Initial Margin of the sub-portfolio"
+    },
+    "grossInitialMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "The Gross Initial Margin of the sub-portfolio."
+    }
+  },
+  "required" : [
+    "currency",
+    "riskMeasure",
+    "holdingPeriod",
+    "initialMargin",
+    "netInitialMargin",
+    "grossInitialMargin"
+  ],
+  "additionalProperties" : false,
+  "examples" : [
+    {
+      "currency" : "BRL",
+      "riskMeasure" : 2,
+      "holdingPeriod" : 2,
+      "initialMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "netInitialMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "grossInitialMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      }
+    }
+  ]
+}

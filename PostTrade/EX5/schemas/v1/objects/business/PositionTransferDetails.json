@@ -1,0 +1,45 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:PositionTransferDetails",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:PositionTransferDetails"
+  },
+  "title" : "Position Transfer Details",
+  "description" : "Details of financial instruments and quantities for position transfer",
+  "type" : "object",
+  "properties" : {
+    "instrumentIdentification" : {
+      "$ref" : "../../objects/business/InstrumentIdentification.json",
+      "description" : "Financial instrument identification"
+    },
+    "shortLongIndicator" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Indicates whether the position is long or short",
+      "$comment" : "Consult External Code List table ExternalShortLongCode"
+    },
+    "quantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Decimal number with up to 2 decimal places"
+    }
+  },
+  "required" : [ "instrumentIdentification", "shortLongIndicator", "quantity" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "instrumentIdentification" : {
+      "id" : "7685349",
+      "source" : "8",
+      "exchange" : "A5X"
+    },
+    "shortLongIndicator" : 2,
+    "quantity" : "200.00"
+  }, {
+    "instrumentIdentification" : {
+      "id" : "2648579",
+      "source" : "8",
+      "exchange" : "A5X"
+    },
+    "shortLongIndicator" : 1,
+    "quantity" : "100.00"
+  } ]
+}

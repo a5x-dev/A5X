@@ -1,0 +1,144 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-inv-01",
+  "$metadata" : {
+    "domain" : "risk",
+    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-inv-01"
+  },
+  "title" : "Investor Risk Calculation Response",
+  "description" : "Message providing aggregated account risk details and sub-portfolio breakdown",
+  "type" : "object",
+  "properties" : {
+    "triggerResult" : {
+      "$ref" : "../../objects/business/TriggerResult.json",
+      "description" : "Details of the trigger result for the risk position."
+    },
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    },
+    "accountRiskDetails" : {
+      "$ref" : "../../objects/business/AccountRiskDetails.json",
+      "description" : "Aggregated account risk details"
+    },
+    "subPortfolios" : {
+      "type" : "array",
+      "description" : "List of sub-portfolio margin calculations for the account",
+      "items" : {
+        "$ref" : "../../objects/business/SubPortfolio.json",
+        "description" : "Provides details about the subportfolio calculation"
+      }
+    }
+  },
+   "required" : [ "triggerResult", "clearingMemberIdentification", "participantIdentification", "accountIdentification", "accountRiskDetails", "subPortfolios" ],
+  "additionalProperties" : false,
+  "examples" : [
+    {
+      "triggerResult" : {
+        "marginRunId" : "MR-20251003-001",
+        "timeStamp" : "2025-10-03T12:00:00Z",
+        "calculationType" : "HF"
+      },
+      "clearingMemberIdentification" : {
+        "id" : 123456,
+        "category" : 2
+      },
+      "participantIdentification" : {
+        "id" : 123456,
+        "category" : 3
+      },
+      "accountIdentification" : {
+        "id" : 123456
+      },
+      "accountRiskDetails" : {
+        "totalAdditionalMargin" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "totalMargin" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "initialMargin" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "contingentVariationMargin" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "netLiquidatingValue" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "liquidityConcentrationRiskMargin" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "wrongWayRiskMargin" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "defaultFundAdditionalMargin" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "stressTestLoss" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "stressTestLossOverInitialMargin" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "primaryInitialMargin" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "flatRateInitialMargin" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "netInitialMargin" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "grossInitialMargin" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        },
+        "netCollateral" : {
+          "currency" : "BRL",
+          "amount" : "50000.00"
+        }
+      },
+      "subPortfolios" : [
+        {
+          "currency" : "BRL",
+          "riskMeasure" : 2,
+          "holdingPeriod" : 2,
+          "initialMargin" : {
+            "amount" : "120000.00",
+            "currency" : "BRL"
+          },
+          "netInitialMargin" : {
+            "amount" : "120000.00",
+            "currency" : "BRL"
+          },
+          "grossInitialMargin" : {
+            "amount" : "120000.00",
+            "currency" : "BRL"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Payment Periodicity Type",
+  "description": "Codes for payment periodicity type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Mensal",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Bimestral",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Trimestral",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Quadrimestral",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Semestral",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Anual",
+      "const": 6
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

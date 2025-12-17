@@ -1,0 +1,195 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralReport",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralReport"
+  },
+  "title" : "Collateral Report",
+  "description" : "Report collateral information for a specific account",
+  "type" : "object",
+  "properties" : {
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    },
+    "documentInformation" : {
+      "allOf" : [
+        {
+          "$ref" : "../../objects/business/DocumentIdentifier.json"
+        },
+        {
+          "$ref" : "../../objects/business/DocumentIdentifier.json",
+          "properties" : {
+            "country" : {
+              "$ref" : "../../objects/business/ExternalCodeTextList.json",
+              "description" : "Bank country",
+              "$comment" : "ISO 3166-1 alpha-3 country code, Consult ExternalCodeList table ExternalCountryCode"
+            }
+          }
+        },
+        {
+          "required" : [
+            "documentType",
+            "documentNumber",
+            "country"
+          ]
+        }
+      ]
+    },
+    "personType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of person",
+      "$comment" : "Consult External Code List table ExternalPersonTypeCode"
+    },
+    "residenceStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Professional's residence status",
+      "$comment" : "Consult External Code List table ExternalResidenceStatusCode"
+    },
+    "collateralClientCategory" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Provides client category",
+      "$comment" : "Consult External Code List table CollateralClientCategoryCode"
+    },
+    "valuationDateTime" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Indicates the deposit date and time"
+    },
+    "marginDetails" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/MarginDetails.json",
+        "description" : "Provides details about the collateral margin."
+      }
+    },
+    "collateralDetails" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/CollateralInformationResponse.json"
+      },
+      "description" : "Provides details about the collateral",
+      "minItems" : 1,
+      "maxItems" : 60
+    }
+  },
+  "required" : [
+    "documentInformation",
+    "personType",
+    "residenceStatus",
+    "collateralClientCategory",
+    "valuationDateTime",
+    "marginDetails",
+    "collateralDetails"
+  ],
+  "additionalProperties" : true,
+  "examples" : [
+    {
+      "accountIdentification" : {
+        "id" : 987654321012345
+      },
+      "documentInformation" : {
+        "documentType" : 5,
+        "documentNumber" : "12345678901",
+        "country" : "BRA "
+      },
+      "personType" : 1,
+      "residenceStatus" : "NRES",
+      "collateralClientCategory" : 2,
+      "valuationDateTime" : "2017-07-21T17:32:28Z",
+      "marginDetails" : [
+        {
+          "collateralCoverageType" : 2,
+          "totalValueOfCollateral" : "750000.00",
+          "riskWithoutCollateral" : "300000.00",
+          "additionalMargin" : "15000.00",
+          "toBeSettledValue" : "5000.00",
+          "marginCall" : "25000.00",
+          "collateralBalance" : "50000.00",
+          "informationType" : 2,
+          "additionalInformationOfficialCollCall" : {
+            "totalMargin" : {
+              "currency" : "BRL",
+              "amount" : "150000.50"
+            },
+            "initialMargin" : {
+              "currency" : "BRL",
+              "amount" : "100000.25"
+            },
+            "totalAdditionalMargin" : {
+              "currency" : "BRL",
+              "amount" : "50000.25"
+            },
+            "realizedVariationMargin" : {
+              "currency" : "BRL",
+              "amount" : "25000.00"
+            },
+            "netLiquidityValue" : {
+              "currency" : "BRL",
+              "amount" : "200000.75"
+            }
+          },
+          "additionalInformationIntradayCollCall" : {
+            "totalMargin" : {
+              "currency" : "BRL",
+              "amount" : "150000.50"
+            },
+            "initialMargin" : {
+              "currency" : "BRL",
+              "amount" : "100000.25"
+            },
+            "totalAdditionalMargin" : {
+              "currency" : "BRL",
+              "amount" : "50000.25"
+            },
+            "realizedVariationMargin" : {
+              "currency" : "BRL",
+              "amount" : "25000.00"
+            },
+            "netLiquidityValue" : {
+              "currency" : "BRL",
+              "amount" : "200000.75"
+            },
+            "intradayRiskLimitAssigned" : "1000000.12",
+            "riskWithoutCollateralIntraday" : "500000.25"
+          }
+        }
+      ],
+      "collateralDetails" : [
+        {
+          "collateralCoverageType" : 1,
+          "assetNumber" : "2015000000348",
+          "holderIndicator" : true,
+          "coverageMarginIndicator" : true,
+          "collateralType" : 2,
+          "collateralSubType" : "ABC",
+          "financialInstrumentIdentification" : {
+            "id" : "100000000000001",
+            "source" : "8",
+            "exchange" : "A5X"
+          },
+          "federalBondCollateralInformation" : {
+            "collateralReference" : "FB-REF-001",
+            "maturityDate" : "2025-12-31",
+            "assignerAccount" : "ASSIGNER-ACC-001",
+            "assigneeAccount" : "ASSIGNEE-ACC-001"
+          },
+          "collateralDetailInformation" : {
+            "depositedQuantity" : "1000.50",
+            "valuedQuantity" : "950.25",
+            "deliveryQuantity" : "100.00",
+            "blockedQuantity" : "50.25",
+            "collateralValue" : {
+              "currency" : "BRL",
+              "amount" : "95000.50"
+            },
+            "withdrawalBlockedValue" : {
+              "currency" : "BRL",
+              "amount" : "5000.00"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

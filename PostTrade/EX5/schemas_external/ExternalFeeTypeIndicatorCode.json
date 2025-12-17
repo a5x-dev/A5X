@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Fee Type Indicator",
+  "description": "Codes for fee type indicator",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Valor em Reais",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Valor Percentual",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

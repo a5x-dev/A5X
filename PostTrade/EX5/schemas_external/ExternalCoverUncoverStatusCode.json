@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Cover Uncover Status",
+  "description": "Codes for cover uncover status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "CST",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Risk",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Collateral",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Product Type",
+  "description": "Codes for product type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Agency",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Commodity",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Corporate",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Currency",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Equity",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Government",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Index",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Loan",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Money Market",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Mortgage",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Municipal",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Other",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "Financing",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "Carbon Credit",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "Economic Indicator",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "Multileg",
+      "const": 16
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Allocated Balance",
+  "description": "Codes for allocated balance",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "CREDOR",
+      "const": "CR"
+    },
+    {
+      "type": "string",
+      "description": "DEVEDOR",
+      "const": "DE"
+    }
+  ],
+  "examples": [
+    "CR",
+    "DE"
+  ]
+}

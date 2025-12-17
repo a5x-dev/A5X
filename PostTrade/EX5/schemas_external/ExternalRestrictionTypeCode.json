@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Restriction Type",
+  "description": "Codes for restriction type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "INADIMPLÊNCIA",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEIO CVM",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "FALECIDO",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "INTERDIÇÃO",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "CPF E CNPJ IRREGULAR NA SECRETARIA DA RECEITA FEDERAL",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "RESTRIÇÃO",
+      "const": 20
+    }
+  ],
+  "examples": [
+    2,
+    4,
+    16,
+    17,
+    18
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Contract Update Type",
+  "description": "Codes for contract update type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Change request.",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Renew request.",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Early settlement request - lender initiated.",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Early settlement request - borrower initiated.",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Expiration gross settlement request.",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Expiration net settlement request.",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "A Corporate Action updates the position.",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "An update of certain securities lending attributes.",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "An update of intermediary and intermediary account.",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Cancel of an early settlement request.",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Position transfer.",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Automatic Renewal",
+      "const": 12
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

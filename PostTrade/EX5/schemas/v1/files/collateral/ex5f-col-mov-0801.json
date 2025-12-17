@@ -1,0 +1,273 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-mov-08",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-mov-08"
+  },
+  "title" : "Collateral Movement Report File Schema",
+  "description" : "Collateral Movement Report File Schema",
+  "type" : "object",
+  "properties" : {
+    "frequency" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Frequency of the report",
+      "$comment" : "Consult External Code List table EventFrequency6Code"
+    },
+    "reportNumber" : {
+      "type" : "string",
+      "pattern" : "^[0-9]{5}$",
+      "description" : "Sequential number of the report"
+    },
+    "reportDateAndTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Reference date of the information"
+    },
+    "tradeDate" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Provides date and time the movement collateral."
+    },
+    "clearingMemberIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Clearing member identifier provided by A5X during the participant registration"
+    },
+    "clearingMemberIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Clearing member category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "accountIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "collateralMovementType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Provides information about the type collateral movement",
+      "$comment" : "Consult External Code List table ExternalCollateralMovementTypeCode"
+    },
+    "assetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "A number that unambiguously identifies the collateral"
+    },
+    "collateralCoverageType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Collateral coverage identification",
+      "$comment" : "Consult External Code List table ExternalCollateralCoverageTypeCode"
+    },
+    "collateralType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Provides collateral type code",
+      "$comment" : "Consult External Code List table ExternalCollateralTypeCode"
+    },
+    "collateralSubType" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides collateral sub type"
+    },
+    "operationStatus" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Provides operation status of collateral",
+      "$comment" : "Consult External Code List table ExternalApprovalStatusCode"
+    },
+    "financialInstrumentIdentificationId" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Proprietary identification of an instrument"
+    },
+    "financialInstrumentIdentificationSource" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Source of the instrument identification"
+    },
+    "financialInstrumentIdentificationExchange" : {
+      "type" : "string",
+      "description" : "Identifier code of the exchange where the instrument is listed"
+    },
+    "federalBondCollateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued federal bond collateral"
+    },
+    "federalBondMaturityDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Provides maturity date of federal bond collateral"
+    },
+    "federalBondAssignerAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides assigner account identification for federal bond"
+    },
+    "federalBondAssigneeAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides identification about assignee account for federal bond"
+    },
+    "federalBondSelicOperationCode" : {
+      "type" : "string",
+      "maxLength" : 6,
+      "minLength" : 1,
+      "description" : "SELIC operation code"
+    },
+    "securitiesCollateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued securities collateral"
+    },
+    "securitiesCustodianParticipantId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Custodian participant identifier provided by A5X"
+    },
+    "securitiesCustodianParticipantCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Custodian participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "securitiesCustodianAccountId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Custodian account identifier"
+    },
+    "securitiesCustodianSubAccount" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Custodian sub account identification"
+    },
+    "securitiesSubAccountDestination" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "description" : "Identification of the sub account destination"
+    },
+    "securitiesCentralDepositaryOperationNumber" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "description" : "Provides the movement number of custody system"
+    },
+    "cashCollateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued cash collateral"
+    },
+    "cashExecutedMovementType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Executed movement type for cash collateral operations",
+      "$comment" : "Consult External Code List table ExternalCollateralExecutedMovementTypeCode"
+    },
+    "investmentFundCollateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued investment fund collateral"
+    },
+    "investmentFundExecutedMovementType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Executed movement type for investment fund operations",
+      "$comment" : "Consult External Code List table ExternalCollateralExecutedMovementTypeCode"
+    },
+    "externalSecuritiesCollateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued external securities collateral"
+    },
+    "externalSecuritiesMaturityDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Provides maturity date of Treasury collateral"
+    },
+    "otherCollateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued other collateral"
+    },
+    "otherCollateralDetail" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides details of other collateral"
+    },
+    "otherCollateralMaturityDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Provides maturity date of other collateral"
+    },
+    "operationValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Initial value amount of a transaction"
+    },
+    "operationValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for initial value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "operationAcceptValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Accepted value amount in the transaction"
+    },
+    "operationAcceptValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for accepted value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "operationQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Initial quantity of a transaction"
+    },
+    "operationAcceptQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity accepts in the transaction"
+    }
+  },
+  "required" : [ "frequency", "reportDateAndTime", "tradeDate" ],
+  "additionalProperties" : false
+}

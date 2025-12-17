@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Private Bond Sub Type",
+  "description": "Codes for private bond sub type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "CDB",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "LCI",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "LCA",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "DEB",
+      "const": 4
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4
+  ]
+}

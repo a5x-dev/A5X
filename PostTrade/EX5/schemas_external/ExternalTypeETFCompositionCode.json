@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Type E T F Composition",
+  "description": "Codes for type e t f composition",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "In Cash",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "In Kind",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

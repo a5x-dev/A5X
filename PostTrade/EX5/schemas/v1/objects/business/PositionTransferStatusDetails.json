@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:PositionTransferStatusDetails",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:PositionTransferStatusDetails"
+  },
+  "title": "Position Transfer Status Details",
+  "description": "Enhanced position transfer details for status advice messages",
+  "type": "object",
+  "properties": {
+    "instrument": {
+      "$ref": "../../objects/business/Instrument.json",
+      "description": "Financial instrument information, including ISIN and ticker symbol"
+    },
+    "settlementDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Settlement date for the position transfer"
+    },
+    "shortLongIndicator": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Indicates whether the position is long or short",
+      "$comment": "Consult External Code List table ExternalShortLongCode"
+    },
+    "quantity": {
+      "$ref": "../../types/DecimalNumber.json"
+    }
+  },
+  "required": [
+    "instrument",
+    "settlementDate",
+    "shortLongIndicator",
+    "quantity"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "instrument": {
+        "financialInstrumentIdentification": {
+          "id": "100000000000001",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "isin": "ZZZZZ2322322",
+        "tickerSymbol": "DFZ0001"
+      },
+      "settlementDate": "2024-01-15",
+      "shortLongIndicator": 1,
+      "quantity": "1000.50"
+    }
+  ]
+}

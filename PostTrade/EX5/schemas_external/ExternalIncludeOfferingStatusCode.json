@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Include Offering Status",
+  "description": "Codes for include offering status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Oferta Cancelada",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Pré-Contrato / Intenção de Pré-Contrato fechado",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Pré-Contrato rejeitado",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Oferta Fechada",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Oferta Disponível",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Oferta Aguardando Autorização",
+      "const": 32
+    },
+    {
+      "type": "number",
+      "description": "Oferta Rejeitada",
+      "const": 34
+    },
+    {
+      "type": "number",
+      "description": "Pré-Contrato aguardando autorização",
+      "const": 48
+    },
+    {
+      "type": "number",
+      "description": "Aguardando autorização Carrying",
+      "const": 60
+    },
+    {
+      "type": "number",
+      "description": "Em processamento pela Clearing",
+      "const": 62
+    },
+    {
+      "type": "number",
+      "description": "Pré-Contrato aguardando validação de risco  ",
+      "const": 63
+    },
+    {
+      "type": "number",
+      "description": "Pré-Contrato rejeitado pelo risco",
+      "const": 64
+    },
+    {
+      "type": "number",
+      "description": "Pré-Contrato aguardando validação clearing",
+      "const": 65
+    },
+    {
+      "type": "number",
+      "description": "Oferta em processamento pela Clearing",
+      "const": 70
+    },
+    {
+      "type": "number",
+      "description": "Negócio Cancelado",
+      "const": 71
+    },
+    {
+      "type": "number",
+      "description": "Negócio fechado - Cancelamento Rejeitado",
+      "const": 72
+    },
+    {
+      "type": "number",
+      "description": "Aceita pela Clearing",
+      "const": 73
+    },
+    {
+      "type": "number",
+      "description": "Oferta rejeitada pelo risco.",
+      "const": 74
+    }
+  ],
+  "examples": [
+    1,
+    4,
+    7,
+    9,
+    11
+  ]
+}

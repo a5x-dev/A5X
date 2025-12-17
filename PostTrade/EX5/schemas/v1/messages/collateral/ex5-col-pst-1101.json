@@ -1,0 +1,49 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-pst-11",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-pst-11"
+  },
+  "title" : "Posted Collateral Request",
+  "description" : "Message for posted collateral requests",
+  "type" : "object",
+  "properties" : {
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    },
+    "collateralCoverageInformation" : {
+      "$ref" : "../../objects/business/CollateralCoverageInformation.json",
+      "description" : "Collateral coverage information details"
+    }
+  },
+  "required" : [ "clearingMemberIdentification", "collateralCoverageInformation" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 115
+    },
+    "collateralCoverageInformation" : {
+      "informationType" : 2,
+      "holderType" : 2,
+      "collateralCoverageType" : 11
+    }
+  } ]
+}

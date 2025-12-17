@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Certificate Status",
+  "description": "Codes for certificate status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Aprovado",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Pendente Feito Conferido",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Pendente Aprovação Escriturador",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Reprovado",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Pendente de Aprovação do ADM",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Incluído",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Pendente Aceite do Custodiante",
+      "const": 7
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

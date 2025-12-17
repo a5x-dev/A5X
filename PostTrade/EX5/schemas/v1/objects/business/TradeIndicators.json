@@ -1,0 +1,95 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:TradeIndicators",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:TradeIndicators"
+  },
+  "title" : "Trade Indicators",
+  "description" : "Collection of boolean indicators related to trade operations",
+  "$comment" : "This component groups various boolean flags that provide additional information about a trade",
+  "oneOf" : [ {
+    "title" : "Complete Trade Indicators",
+    "description" : "Full set of trade indicators with all possible flags",
+    "type" : "object",
+    "properties" : {
+      "compressionGroupIndicator" : {
+        "type" : "boolean",
+        "description" : "Indicates if the operation is derived from block capture",
+        "$comment" : "When true, the trade was part of a block trade"
+      },
+      "averagePriceGroupIndicator" : {
+        "type" : "boolean",
+        "description" : "Indicates if the operation is derived from an average price allocation group",
+        "$comment" : "When true, the trade was part of an average price group"
+      },
+      "giveUpOnCaptureIndicator" : {
+        "type" : "boolean",
+        "description" : "Indicates that the captured account has a give-up link",
+        "$comment" : "When true, the account has a give-up link to another participant"
+      },
+      "averageExecutionTime" : {
+        "$ref" : "../../types/ISODateTime.json",
+        "description" : "Average execution time of the average price allocation group",
+        "$comment" : "Required when averagePriceGroupIndicator is true"
+      }
+    },
+    "if" : {
+      "properties" : {
+        "averagePriceGroupIndicator" : {
+          "const" : true
+        }
+      }
+    },
+    "then" : {
+      "required" : [ "averageExecutionTime" ]
+    },
+    "additionalProperties" : false
+  }, {
+    "title" : "Basic Trade Indicators",
+    "description" : "Basic set of trade indicators without conditional fields",
+    "type" : "object",
+    "properties" : {
+      "compressionGroupIndicator" : {
+        "type" : "boolean",
+        "description" : "Indicates if the operation is derived from block capture",
+        "$comment" : "When true, the trade was part of a block trade"
+      },
+      "averagePriceGroupIndicator" : {
+        "type" : "boolean",
+        "description" : "Indicates if the operation is derived from an average price allocation group",
+        "$comment" : "When true, the trade was part of an average price group"
+      },
+      "giveUpOnCaptureIndicator" : {
+        "type" : "boolean",
+        "description" : "Indicates that the captured account has a give-up link",
+        "$comment" : "When true, the account has a give-up link to another participant"
+      }
+    },
+    "additionalProperties" : false
+  }, {
+    "title" : "Minimal Trade Indicators",
+    "description" : "Minimal set of trade indicators with only essential flags",
+    "type" : "object",
+    "properties" : {
+      "compressionGroupIndicator" : {
+        "type" : "boolean",
+        "description" : "Indicates if the operation is derived from block capture",
+        "$comment" : "When true, the trade was part of a block trade"
+      }
+    },
+    "additionalProperties" : false
+  } ],
+  "examples" : [ {
+    "compressionGroupIndicator" : true,
+    "averagePriceGroupIndicator" : true,
+    "averageExecutionTime" : "2023-06-15T10:30:00Z",
+    "giveUpOnCaptureIndicator" : false
+  }, {
+    "compressionGroupIndicator" : false,
+    "averagePriceGroupIndicator" : false,
+    "giveUpOnCaptureIndicator" : true
+  }, {
+    "compressionGroupIndicator" : true
+  } ]
+}

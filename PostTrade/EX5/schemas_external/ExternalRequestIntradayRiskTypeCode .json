@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Request Intraday Risk Type ",
+  "description": "Codes for request intraday risk type ",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Participant´s Intraday Risk",
+      "const": "PR"
+    },
+    {
+      "type": "string",
+      "description": "Equities Cash Market Risk",
+      "const": "CM"
+    },
+    {
+      "type": "string",
+      "description": "Non Allocated Consolidated Closeout Strategy",
+      "const": "NA"
+    },
+    {
+      "type": "string",
+      "description": "Non Allocated Segregated Closeout Strategy",
+      "const": "NS"
+    },
+    {
+      "type": "string",
+      "description": "Operation Limit Closeout Strategy",
+      "const": "OL"
+    },
+    {
+      "type": "string",
+      "description": "Collateral for Cash Market Closeout Strategy",
+      "const": "CC"
+    },
+    {
+      "type": "string",
+      "description": "Investor´s Intraday Risk",
+      "const": "IR"
+    },
+    {
+      "type": "string",
+      "description": "Investor´s Closeout Strategy",
+      "const": "CS"
+    },
+    {
+      "type": "string",
+      "description": "Cash Market Closeout Strategy",
+      "const": "CE"
+    }
+  ],
+  "examples": [
+    "PR",
+    "CM",
+    "NA",
+    "NS",
+    "OL"
+  ]
+}

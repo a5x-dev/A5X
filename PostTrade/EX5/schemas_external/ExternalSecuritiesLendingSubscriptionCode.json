@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Securities Lending Subscription",
+  "description": "Codes for securities lending subscription",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Failed",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Ok",
+      "const": 2
+    }
+  ],
+  "examples": [
+    3,
+    2
+  ]
+}

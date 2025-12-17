@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Modification Intraday Risk Limit Status ",
+  "description": "Codes for modification intraday risk limit status ",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "OK",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Erro",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

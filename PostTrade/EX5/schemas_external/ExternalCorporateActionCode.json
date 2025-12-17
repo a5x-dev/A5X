@@ -1,0 +1,204 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Corporate Action",
+  "description": "Codes for corporate action",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "DIVIDENDO",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "RESTITUIÇÃO DE CAPITAL",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "BONIFICAÇÃO EM DINHEIRO",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "JUROS SOBRE CAPITAL PRÓPRIO",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "RENDIMENTO",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "JUROS",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "AMORTIZAÇÃO",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "PRÊMIO",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "ATUALIZAÇÃO MONETÁRIA",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "BONIFICAÇÃO EM ATIVOS",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "RESTITUIÇÃO CAPITAL EM AÇÕES",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "RESTITUIÇÃO CAPITAL COM REDUÇÃO DO NÚMERO DE AÇÕES",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "DESDOBRAMENTO DE AÇÕES",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "GRUPAMENTO",
+      "const": 40
+    },
+    {
+      "type": "number",
+      "description": "SUBSCRIÇÃO",
+      "const": 50
+    },
+    {
+      "type": "number",
+      "description": "PRIORIDADE DE SUBSCRIÇÃO",
+      "const": 51
+    },
+    {
+      "type": "number",
+      "description": "EXERCÍCIO DE SUBSCRIÇÃO",
+      "const": 52
+    },
+    {
+      "type": "number",
+      "description": "SUBSCRIÇÃO COM RENÚNCIA DO DIREITO DE PREFERÊNCIA",
+      "const": 53
+    },
+    {
+      "type": "number",
+      "description": "INCORPORAÇÃO",
+      "const": 60
+    },
+    {
+      "type": "number",
+      "description": "FUSÃO",
+      "const": 70
+    },
+    {
+      "type": "number",
+      "description": "CANCELAMENTO DE FRAÇÕES",
+      "const": 71
+    },
+    {
+      "type": "number",
+      "description": "LEILÃO DE FRAÇÕES",
+      "const": 72
+    },
+    {
+      "type": "number",
+      "description": "DOAÇÃO DE FRAÇÕES",
+      "const": 73
+    },
+    {
+      "type": "number",
+      "description": "ADMINISTRAÇÃO DE FRAÇÕES",
+      "const": 74
+    },
+    {
+      "type": "number",
+      "description": "COMPRA DE FRAÇÕES",
+      "const": 75
+    },
+    {
+      "type": "number",
+      "description": "VENDA DE FRAÇÕES",
+      "const": 76
+    },
+    {
+      "type": "number",
+      "description": "CISÃO COM REDUÇÃO DE CAPITAL",
+      "const": 80
+    },
+    {
+      "type": "number",
+      "description": "CISÃO COM REDUÇÃO DE CAPITAL E QUANTIDADE",
+      "const": 81
+    },
+    {
+      "type": "number",
+      "description": "ATUALIZAÇÃO",
+      "const": 90
+    },
+    {
+      "type": "number",
+      "description": "RETRATAÇÃO",
+      "const": 92
+    },
+    {
+      "type": "number",
+      "description": "RESGATE PARCIAL RENDA FIXA",
+      "const": 93
+    },
+    {
+      "type": "number",
+      "description": "RESGATE RENDA FIXA",
+      "const": 94
+    },
+    {
+      "type": "number",
+      "description": "CONVERSÃO DE ATIVOS",
+      "const": 95
+    },
+    {
+      "type": "number",
+      "description": "DISSIDÊNCIA",
+      "const": 96
+    },
+    {
+      "type": "number",
+      "description": "RESGATE RENDA VARIÁVEL",
+      "const": 97
+    },
+    {
+      "type": "number",
+      "description": "RENDIMENTO LÍQUIDO",
+      "const": 98
+    },
+    {
+      "type": "number",
+      "description": "SOBRAS DE SUBSCRIÇÃO",
+      "const": 99
+    },
+    {
+      "type": "number",
+      "description": "OUTROS",
+      "const": 999
+    }
+      ],
+  "examples": [
+    10,
+    11,
+    12,
+    13,
+    14
+  ]
+}

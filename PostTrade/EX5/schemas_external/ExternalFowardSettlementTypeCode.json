@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Foward Settlement Type",
+  "description": "Codes for foward settlement type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "LA",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "LPDE",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "LPD",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "LPDP (custodian indication for the expiration)",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Netting",
+      "const": 0
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    0
+  ]
+}

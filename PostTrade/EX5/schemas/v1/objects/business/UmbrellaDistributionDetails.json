@@ -1,0 +1,90 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:UmbrellaDistributionDetails",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:UmbrellaDistributionDetails"
+  },
+  "title" : "Umbrella Distribution Details",
+  "description" : "Umbrella distribution details with different types of collateral using oneOf pattern",
+  "type" : "object",
+  "properties" : {
+    "assetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Asset number registered in the central depository"
+    },
+    "securitiesCollateral" : {
+      "type" : "array",
+      "description" : "Securities collateral items",
+      "items" : {
+        "$ref" : "../../objects/business/UmbrellaSecuritiesCollateral.json"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    "cashCollateral" : {
+      "type" : "array",
+      "description" : "Cash collateral items",
+      "items" : {
+        "$ref" : "../../objects/business/UmbrellaCashCollateral.json"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    "federalBonds" : {
+      "type" : "array",
+      "description" : "Federal bonds collateral items",
+      "items" : {
+        "$ref" : "../../objects/business/UmbrellaFederalCollateral.json"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    }
+  },
+  "oneOf" : [ {
+    "required" : [ "assetNumber", "securitiesCollateral" ]
+  }, {
+    "required" : [ "assetNumber", "cashCollateral" ]
+  }, {
+    "required" : [ "assetNumber", "federalBonds" ]
+  } ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "assetNumber" : "ASSET-001",
+    "securitiesCollateral" : [ {
+      "collateralIdentification" : "SEC-001",
+      "quantity" : "1000.0",
+      "accountIdentification" : {
+        "id" : 115
+      }
+    } ]
+  }, {
+    "assetNumber" : "ASSET-001",
+    "cashCollateral" : [ {
+      "collateralIdentification" : "2",
+      "quantity" : "2000.0000000000",
+      "operationValue" : {
+        "amount" : "1000.00",
+        "currency" : "BRL"
+      },
+      "collateralValue" : {
+        "amount" : "75000.00",
+        "currency" : "BRL"
+      },
+      "collateralUmbrellaTypeDistributionStatus" : {
+        "statusCode" : "4"
+      }
+    } ]
+  }, {
+    "assetNumber" : "ASSET-001",
+    "federalBonds" : [ {
+      "collateralIdentification" : "OTHER-001",
+      "quantity" : "10.5",
+      "accountIdentification" : {
+        "id" : 115
+      }
+    } ]
+  } ]
+}

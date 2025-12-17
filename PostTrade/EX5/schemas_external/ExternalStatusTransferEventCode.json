@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Status Transfer Event",
+  "description": "Codes for status transfer event",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Destination Clearing Member",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Origin Clearing Member",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "ClearingHouse",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Collateral System",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Destination Participant",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Origin Participant",
+      "const": 6
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:DateRange",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:DateRange"
+  },
+  "title" : "Date range",
+  "description" : "Date range filter",
+  "type" : "object",
+  "properties" : {
+    "start" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Start date (inclusive)"
+    },
+    "end" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "End date (inclusive)"
+    }
+  },
+  "required" : [ "start", "end" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "start" : "2023-01-01",
+    "end" : "2023-01-31"
+  } ]
+}

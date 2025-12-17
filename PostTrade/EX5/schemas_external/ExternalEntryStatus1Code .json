@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Entry Status1 ",
+  "description": "Codes for entry status1 ",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Booked",
+      "const": "BOOK"
+    },
+    {
+      "type": "string",
+      "description": "Future",
+      "const": "FUTR"
+    },
+    {
+      "type": "string",
+      "description": "Information",
+      "const": "INFO"
+    },
+    {
+      "type": "string",
+      "description": "Pending",
+      "const": "PDNG"
+    }
+  ],
+  "examples": [
+    "BOOK",
+    "FUTR",
+    "INFO",
+    "PDNG"
+  ]
+}

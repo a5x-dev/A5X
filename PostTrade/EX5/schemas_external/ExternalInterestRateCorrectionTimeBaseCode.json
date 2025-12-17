@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Interest Rate Correction Time Base",
+  "description": "Codes for interest rate correction time base",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "252 dias",
+      "const": 252
+    },
+    {
+      "type": "number",
+      "description": "360 dias",
+      "const": 360
+    },
+    {
+      "type": "number",
+      "description": "365 dias",
+      "const": 365
+    }
+  ],
+  "examples": [
+    252,
+    360,
+    365
+  ]
+}

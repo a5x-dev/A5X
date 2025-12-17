@@ -1,0 +1,1329 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Country Code",
+  "description": "Codes for country",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "AFEGANISTÃO",
+      "const": "AFG"
+    },
+    {
+      "type": "string",
+      "description": "AFRICA DO SUL",
+      "const": "ZAF"
+    },
+    {
+      "type": "string",
+      "description": "ALBÂNIA",
+      "const": "ALB"
+    },
+    {
+      "type": "string",
+      "description": "ALDENEY",
+      "const": "ALD"
+    },
+    {
+      "type": "string",
+      "description": "ALEMANHA",
+      "const": "DEU"
+    },
+    {
+      "type": "string",
+      "description": "ANDORRA",
+      "const": "AND"
+    },
+    {
+      "type": "string",
+      "description": "ANGOLA",
+      "const": "AGO"
+    },
+    {
+      "type": "string",
+      "description": "ANGUILLA",
+      "const": "AIA"
+    },
+    {
+      "type": "string",
+      "description": "ANTARCTICA",
+      "const": "ATA"
+    },
+    {
+      "type": "string",
+      "description": "ANTÍGUA E BARBUDA",
+      "const": "ATG"
+    },
+    {
+      "type": "string",
+      "description": "ANTILHAS FRANCESAS",
+      "const": "BLM"
+    },
+    {
+      "type": "string",
+      "description": "ANTILHAS HOLANDESAS",
+      "const": "ANT"
+    },
+    {
+      "type": "string",
+      "description": "ARÁBIA SAUDITA",
+      "const": "SAU"
+    },
+    {
+      "type": "string",
+      "description": "ARGÉLIA",
+      "const": "DZA"
+    },
+    {
+      "type": "string",
+      "description": "ARGENTINA",
+      "const": "ARG"
+    },
+    {
+      "type": "string",
+      "description": "ARMÊNIA",
+      "const": "ARM"
+    },
+    {
+      "type": "string",
+      "description": "ARUBA",
+      "const": "ABW"
+    },
+    {
+      "type": "string",
+      "description": "AUSTRÁLIA",
+      "const": "AUS"
+    },
+    {
+      "type": "string",
+      "description": "ÁUSTRIA",
+      "const": "AUT"
+    },
+    {
+      "type": "string",
+      "description": "AZERBAIJÃO",
+      "const": "AZE"
+    },
+    {
+      "type": "string",
+      "description": "BAHAMAS",
+      "const": "BHS"
+    },
+    {
+      "type": "string",
+      "description": "BAHREIN",
+      "const": "BHR"
+    },
+    {
+      "type": "string",
+      "description": "BANGLADESH",
+      "const": "BGD"
+    },
+    {
+      "type": "string",
+      "description": "BARBADOS",
+      "const": "BRB"
+    },
+    {
+      "type": "string",
+      "description": "BELARUS",
+      "const": "BLR"
+    },
+    {
+      "type": "string",
+      "description": "BÉLGICA",
+      "const": "BEL"
+    },
+    {
+      "type": "string",
+      "description": "BELIZE",
+      "const": "BLZ"
+    },
+    {
+      "type": "string",
+      "description": "BENIN",
+      "const": "BEN"
+    },
+    {
+      "type": "string",
+      "description": "BERMUDAS",
+      "const": "BMU"
+    },
+    {
+      "type": "string",
+      "description": "BOLÍVIA",
+      "const": "BOL"
+    },
+    {
+      "type": "string",
+      "description": "BONAIRE",
+      "const": "BES"
+    },
+    {
+      "type": "string",
+      "description": "BÓSNIA E HERZEGOVINA",
+      "const": "BIH"
+    },
+    {
+      "type": "string",
+      "description": "BOTSWANA",
+      "const": "BWA"
+    },
+    {
+      "type": "string",
+      "description": "BRASIL",
+      "const": "BRA"
+    },
+    {
+      "type": "string",
+      "description": "BRUNEI DARUSSALAM",
+      "const": "BRN"
+    },
+    {
+      "type": "string",
+      "description": "BULGÁRIA",
+      "const": "BGR"
+    },
+    {
+      "type": "string",
+      "description": "BURKINA FASO",
+      "const": "BFA"
+    },
+    {
+      "type": "string",
+      "description": "BURUNDI",
+      "const": "BDI"
+    },
+    {
+      "type": "string",
+      "description": "BUTÃO",
+      "const": "BTN"
+    },
+    {
+      "type": "string",
+      "description": "CABO VERDE",
+      "const": "CPV"
+    },
+    {
+      "type": "string",
+      "description": "CAMARÕES",
+      "const": "CMR"
+    },
+    {
+      "type": "string",
+      "description": "CAMBOJA",
+      "const": "KHM"
+    },
+    {
+      "type": "string",
+      "description": "CANADÁ",
+      "const": "CAN"
+    },
+    {
+      "type": "string",
+      "description": "CATAR",
+      "const": "QAT"
+    },
+    {
+      "type": "string",
+      "description": "CAZAQUISTÃO",
+      "const": "KAZ"
+    },
+    {
+      "type": "string",
+      "description": "CENTRAL AFRICANO REPÚBLICA",
+      "const": "CAF"
+    },
+    {
+      "type": "string",
+      "description": "CHADE",
+      "const": "TCD"
+    },
+    {
+      "type": "string",
+      "description": "CHILE",
+      "const": "CHL"
+    },
+    {
+      "type": "string",
+      "description": "CHINA",
+      "const": "CHN"
+    },
+    {
+      "type": "string",
+      "description": "CHIPRE",
+      "const": "CYP"
+    },
+    {
+      "type": "string",
+      "description": "CHRISTMAS ISLAND",
+      "const": "CXR"
+    },
+    {
+      "type": "string",
+      "description": "CINGAPURA",
+      "const": "SGP"
+    },
+    {
+      "type": "string",
+      "description": "COLÔMBIA",
+      "const": "COL"
+    },
+    {
+      "type": "string",
+      "description": "COMORES",
+      "const": "COM"
+    },
+    {
+      "type": "string",
+      "description": "CONGO",
+      "const": "COG"
+    },
+    {
+      "type": "string",
+      "description": "CORÉIA DO NORTE",
+      "const": "PRK"
+    },
+    {
+      "type": "string",
+      "description": "CORÉIA DO SUL",
+      "const": "KOR"
+    },
+    {
+      "type": "string",
+      "description": "COSTA DO MARFIM",
+      "const": "CIV"
+    },
+    {
+      "type": "string",
+      "description": "COSTA RICA",
+      "const": "CRI"
+    },
+    {
+      "type": "string",
+      "description": "COVEITE (KUWAIT)",
+      "const": "KWT"
+    },
+    {
+      "type": "string",
+      "description": "CROÁCIA",
+      "const": "HRV"
+    },
+    {
+      "type": "string",
+      "description": "CUBA",
+      "const": "CUB"
+    },
+    {
+      "type": "string",
+      "description": "CURAÇAO",
+      "const": "CUW"
+    },
+    {
+      "type": "string",
+      "description": "DINAMARCA",
+      "const": "DNK"
+    },
+    {
+      "type": "string",
+      "description": "DJIBOUTI",
+      "const": "DJI"
+    },
+    {
+      "type": "string",
+      "description": "DOMINICA",
+      "const": "DMA"
+    },
+    {
+      "type": "string",
+      "description": "EGITO",
+      "const": "EGY"
+    },
+    {
+      "type": "string",
+      "description": "EL SALVADOR",
+      "const": "SLV"
+    },
+    {
+      "type": "string",
+      "description": "EMIRADOS ÁRABES UNIDOS",
+      "const": "ARE"
+    },
+    {
+      "type": "string",
+      "description": "EQUADOR",
+      "const": "ECU"
+    },
+    {
+      "type": "string",
+      "description": "ERITREIA",
+      "const": "ERI"
+    },
+    {
+      "type": "string",
+      "description": "ESLOVÁQUIA",
+      "const": "SVK"
+    },
+    {
+      "type": "string",
+      "description": "ESLOVÉNIA",
+      "const": "SVN"
+    },
+    {
+      "type": "string",
+      "description": "ESPANHA",
+      "const": "ESP"
+    },
+    {
+      "type": "string",
+      "description": "ESTADOS UNIDOS DA AMÉRICA",
+      "const": "USA"
+    },
+    {
+      "type": "string",
+      "description": "ESTÔNIA",
+      "const": "EST"
+    },
+    {
+      "type": "string",
+      "description": "ETIÓPIA",
+      "const": "ETH"
+    },
+    {
+      "type": "string",
+      "description": "FEDERAÇÃO RUSSA",
+      "const": "RUS"
+    },
+    {
+      "type": "string",
+      "description": "FIJI",
+      "const": "FJI"
+    },
+    {
+      "type": "string",
+      "description": "FILIPINAS",
+      "const": "PHL"
+    },
+    {
+      "type": "string",
+      "description": "FINLÂNDIA",
+      "const": "FIN"
+    },
+    {
+      "type": "string",
+      "description": "FORMOSA (TAIWAN)",
+      "const": "TWN"
+    },
+    {
+      "type": "string",
+      "description": "FRANÇA",
+      "const": "FRA"
+    },
+    {
+      "type": "string",
+      "description": "GABÃO",
+      "const": "GAB"
+    },
+    {
+      "type": "string",
+      "description": "GÂMBIA",
+      "const": "GMB"
+    },
+    {
+      "type": "string",
+      "description": "GANA",
+      "const": "GHA"
+    },
+    {
+      "type": "string",
+      "description": "GEÓRGIA",
+      "const": "GEO"
+    },
+    {
+      "type": "string",
+      "description": "GIBRALTAR",
+      "const": "GIB"
+    },
+    {
+      "type": "string",
+      "description": "GRANADA",
+      "const": "GRD"
+    },
+    {
+      "type": "string",
+      "description": "GRÉCIA",
+      "const": "GRC"
+    },
+    {
+      "type": "string",
+      "description": "GROENLÂNDIA",
+      "const": "GRL"
+    },
+    {
+      "type": "string",
+      "description": "GUADALUPE",
+      "const": "GLP"
+    },
+    {
+      "type": "string",
+      "description": "GUAM",
+      "const": "GUM"
+    },
+    {
+      "type": "string",
+      "description": "GUATEMALA",
+      "const": "GTM"
+    },
+    {
+      "type": "string",
+      "description": "GUERNSEY",
+      "const": "GGY"
+    },
+    {
+      "type": "string",
+      "description": "GUIANA",
+      "const": "GUY"
+    },
+    {
+      "type": "string",
+      "description": "GUIANA FRANCESA",
+      "const": "GUF"
+    },
+    {
+      "type": "string",
+      "description": "GUINÉ",
+      "const": "GIN"
+    },
+    {
+      "type": "string",
+      "description": "GUINÉ EQUATORIAL",
+      "const": "GNQ"
+    },
+    {
+      "type": "string",
+      "description": "GUINÉ-BISSAU",
+      "const": "GNB"
+    },
+    {
+      "type": "string",
+      "description": "HAITI",
+      "const": "HTI"
+    },
+    {
+      "type": "string",
+      "description": "HOLANDA",
+      "const": "NLD"
+    },
+    {
+      "type": "string",
+      "description": "HONDURAS",
+      "const": "HND"
+    },
+    {
+      "type": "string",
+      "description": "HONG KONG",
+      "const": "HKG"
+    },
+    {
+      "type": "string",
+      "description": "HUNGRIA",
+      "const": "HUN"
+    },
+    {
+      "type": "string",
+      "description": "IEMEN",
+      "const": "YEM"
+    },
+    {
+      "type": "string",
+      "description": "ILHA BOUVET",
+      "const": "BVT"
+    },
+    {
+      "type": "string",
+      "description": "ILHA DA MADEIRA",
+      "const": "MAD"
+    },
+    {
+      "type": "string",
+      "description": "ILHA DE MAN",
+      "const": "IMN"
+    },
+    {
+      "type": "string",
+      "description": "ILHA QUESHM",
+      "const": "IQU"
+    },
+    {
+      "type": "string",
+      "description": "ILHA TRISTÃO DA CUNHA",
+      "const": "ITT"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS ÅLAND",
+      "const": "ALA"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS ASCENSÃO",
+      "const": "IAS"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS CAYMAN",
+      "const": "CYM"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS COCOS (KEELING)",
+      "const": "CCK"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS COOK",
+      "const": "COK"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS DO CANAL DA MANCHA",
+      "const": "ICM"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS FAROÉ",
+      "const": "FRO"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS GEORGIA E ILHAS SANDWICH (SUL)",
+      "const": "SGS"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS HERDE MAC DONALD",
+      "const": "HMD"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS MALVINAS (FALKLAND)",
+      "const": "FLK"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS MARIANAS DO NORTE",
+      "const": "MNP"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS MARSHALL",
+      "const": "MHL"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS MAURÍCIO",
+      "const": "MUS"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS NORFOLK",
+      "const": "NFK"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS SALOMÃO",
+      "const": "SLB"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS SAMOA",
+      "const": "ISA"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS SARK",
+      "const": "SRA"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS TURCAS E CAICOS",
+      "const": "TCA"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS VIRGENS AMERICANAS",
+      "const": "VIR"
+    },
+    {
+      "type": "string",
+      "description": "ILHAS VIRGENS BRITÂNICAS",
+      "const": "VGB"
+    },
+    {
+      "type": "string",
+      "description": "ÍNDIA",
+      "const": "IND"
+    },
+    {
+      "type": "string",
+      "description": "INDONÉSIA",
+      "const": "IDN"
+    },
+    {
+      "type": "string",
+      "description": "IRÃ",
+      "const": "IRN"
+    },
+    {
+      "type": "string",
+      "description": "IRAQUE",
+      "const": "IRQ"
+    },
+    {
+      "type": "string",
+      "description": "IRLANDA",
+      "const": "IRL"
+    },
+    {
+      "type": "string",
+      "description": "ISLÂNDIA",
+      "const": "ISL"
+    },
+    {
+      "type": "string",
+      "description": "ISRAEL",
+      "const": "ISR"
+    },
+    {
+      "type": "string",
+      "description": "ITÁLIA",
+      "const": "ITA"
+    },
+    {
+      "type": "string",
+      "description": "IUGOSLÁVIA",
+      "const": "YUG"
+    },
+    {
+      "type": "string",
+      "description": "JAMAICA",
+      "const": "JAM"
+    },
+    {
+      "type": "string",
+      "description": "JAPÃO",
+      "const": "JPN"
+    },
+    {
+      "type": "string",
+      "description": "JERSEY",
+      "const": "JEY"
+    },
+    {
+      "type": "string",
+      "description": "JORDÂNIA",
+      "const": "JOR"
+    },
+    {
+      "type": "string",
+      "description": "KIRIBATI",
+      "const": "KIR"
+    },
+    {
+      "type": "string",
+      "description": "LAOS",
+      "const": "LAO"
+    },
+    {
+      "type": "string",
+      "description": "LEBUAN",
+      "const": "LAB"
+    },
+    {
+      "type": "string",
+      "description": "LESOTO",
+      "const": "LSO"
+    },
+    {
+      "type": "string",
+      "description": "LETÔNIA",
+      "const": "LVA"
+    },
+    {
+      "type": "string",
+      "description": "LÍBANO",
+      "const": "LBN"
+    },
+    {
+      "type": "string",
+      "description": "LIBÉRIA",
+      "const": "LBR"
+    },
+    {
+      "type": "string",
+      "description": "LÍBIA",
+      "const": "LBY"
+    },
+    {
+      "type": "string",
+      "description": "LIECHTENSTEIN",
+      "const": "LIE"
+    },
+    {
+      "type": "string",
+      "description": "LITUÂNIA",
+      "const": "LTU"
+    },
+    {
+      "type": "string",
+      "description": "LUXEMBURGO",
+      "const": "LUX"
+    },
+    {
+      "type": "string",
+      "description": "MACAU",
+      "const": "MAC"
+    },
+    {
+      "type": "string",
+      "description": "MACEDÔNIA",
+      "const": "MKD"
+    },
+    {
+      "type": "string",
+      "description": "MADAGASCAR",
+      "const": "MDG"
+    },
+    {
+      "type": "string",
+      "description": "MALÁSIA",
+      "const": "MYS"
+    },
+    {
+      "type": "string",
+      "description": "MALAVI",
+      "const": "MWI"
+    },
+    {
+      "type": "string",
+      "description": "MALDIVAS",
+      "const": "MDV"
+    },
+    {
+      "type": "string",
+      "description": "MALI",
+      "const": "MLI"
+    },
+    {
+      "type": "string",
+      "description": "MALTA",
+      "const": "MLT"
+    },
+    {
+      "type": "string",
+      "description": "MARROCOS",
+      "const": "MAR"
+    },
+    {
+      "type": "string",
+      "description": "MARTINIQUE",
+      "const": "MTQ"
+    },
+    {
+      "type": "string",
+      "description": "MAURITÂNIA",
+      "const": "MRT"
+    },
+    {
+      "type": "string",
+      "description": "MAYOTTE",
+      "const": "MYT"
+    },
+    {
+      "type": "string",
+      "description": "MÉXICO",
+      "const": "MEX"
+    },
+    {
+      "type": "string",
+      "description": "MIANMAR (BIRMÂNIA)",
+      "const": "MMR"
+    },
+    {
+      "type": "string",
+      "description": "MICRONÉSIA (ESTADOS FEDERADOS DA)",
+      "const": "FSM"
+    },
+    {
+      "type": "string",
+      "description": "MOÇAMBIQUE",
+      "const": "MOZ"
+    },
+    {
+      "type": "string",
+      "description": "MONACO",
+      "const": "MCO"
+    },
+    {
+      "type": "string",
+      "description": "MONGÓLIA",
+      "const": "MNG"
+    },
+    {
+      "type": "string",
+      "description": "MONTENEGRO",
+      "const": "MNE"
+    },
+    {
+      "type": "string",
+      "description": "MONTSERRAT",
+      "const": "MSR"
+    },
+    {
+      "type": "string",
+      "description": "NAMÍBIA",
+      "const": "NAM"
+    },
+    {
+      "type": "string",
+      "description": "NASSAU",
+      "const": "NAS"
+    },
+    {
+      "type": "string",
+      "description": "NAURU",
+      "const": "NRU"
+    },
+    {
+      "type": "string",
+      "description": "NEPAL",
+      "const": "NPL"
+    },
+    {
+      "type": "string",
+      "description": "NEVIS",
+      "const": "NEV"
+    },
+    {
+      "type": "string",
+      "description": "NEW CALEDONIA",
+      "const": "NCL"
+    },
+    {
+      "type": "string",
+      "description": "NICARÁGUA",
+      "const": "NIC"
+    },
+    {
+      "type": "string",
+      "description": "NÍGER",
+      "const": "NER"
+    },
+    {
+      "type": "string",
+      "description": "NIGÉRIA",
+      "const": "NGA"
+    },
+    {
+      "type": "string",
+      "description": "NIUE",
+      "const": "NIU"
+    },
+    {
+      "type": "string",
+      "description": "NORUEGA",
+      "const": "NOR"
+    },
+    {
+      "type": "string",
+      "description": "NOVA ZELÂNDIA",
+      "const": "NZL"
+    },
+    {
+      "type": "string",
+      "description": "OMÃ",
+      "const": "OMN"
+    },
+    {
+      "type": "string",
+      "description": "PAÍSES BAIXOS",
+      "const": "PBA"
+    },
+    {
+      "type": "string",
+      "description": "PALAU",
+      "const": "PLW"
+    },
+    {
+      "type": "string",
+      "description": "PALESTINA",
+      "const": "PSE"
+    },
+    {
+      "type": "string",
+      "description": "PANAMÁ",
+      "const": "PAN"
+    },
+    {
+      "type": "string",
+      "description": "PAPUA NOVA GUINÉ",
+      "const": "PNG"
+    },
+    {
+      "type": "string",
+      "description": "PAQUISTÃO",
+      "const": "PAK"
+    },
+    {
+      "type": "string",
+      "description": "PARAGUAI",
+      "const": "PRY"
+    },
+    {
+      "type": "string",
+      "description": "PERU",
+      "const": "PER"
+    },
+    {
+      "type": "string",
+      "description": "PITCAIRN",
+      "const": "PCN"
+    },
+    {
+      "type": "string",
+      "description": "POLINÉSIA FRANCESA",
+      "const": "PYF"
+    },
+    {
+      "type": "string",
+      "description": "POLÔNIA",
+      "const": "POL"
+    },
+    {
+      "type": "string",
+      "description": "PORTO RICO",
+      "const": "PRI"
+    },
+    {
+      "type": "string",
+      "description": "PORTUGAL",
+      "const": "PRT"
+    },
+    {
+      "type": "string",
+      "description": "QUÊNIA",
+      "const": "KEN"
+    },
+    {
+      "type": "string",
+      "description": "QUIRGUISTÃO",
+      "const": "KGZ"
+    },
+    {
+      "type": "string",
+      "description": "REINO UNIDO DA GRÃ-BRETANHA E IRLANDA DO NORTE",
+      "const": "GBR"
+    },
+    {
+      "type": "string",
+      "description": "REPÚBLICA ÁRABE DA SÍRIA",
+      "const": "SYR"
+    },
+    {
+      "type": "string",
+      "description": "REPÚBLICA DA MOLDÁVIA",
+      "const": "MDA"
+    },
+    {
+      "type": "string",
+      "description": "REPÚBLICA DEMOCRÁTICA DO CONGO",
+      "const": "COD"
+    },
+    {
+      "type": "string",
+      "description": "REPÚBLICA DOMINICANA",
+      "const": "DOM"
+    },
+    {
+      "type": "string",
+      "description": "REPÚBLICA TCHECA",
+      "const": "CZE"
+    },
+    {
+      "type": "string",
+      "description": "REUNIÃO",
+      "const": "REU"
+    },
+    {
+      "type": "string",
+      "description": "ROMÊNIA",
+      "const": "ROU"
+    },
+    {
+      "type": "string",
+      "description": "RUANDA",
+      "const": "RWA"
+    },
+    {
+      "type": "string",
+      "description": "RÚSSIA",
+      "const": "CIR"
+    },
+    {
+      "type": "string",
+      "description": "SAARA OCIDENTAL",
+      "const": "ESH"
+    },
+    {
+      "type": "string",
+      "description": "SAINT KITTS",
+      "const": "KIT"
+    },
+    {
+      "type": "string",
+      "description": "SAINT PIERRE E MIQUELON",
+      "const": "SPM"
+    },
+    {
+      "type": "string",
+      "description": "SAINT-MARTIN (SÃO MARTINHO - PARTE FRANCESA)",
+      "const": "MAF"
+    },
+    {
+      "type": "string",
+      "description": "SAMOA AMERICANA",
+      "const": "ASM"
+    },
+    {
+      "type": "string",
+      "description": "SAMOA OCIDENTAL",
+      "const": "WSM"
+    },
+    {
+      "type": "string",
+      "description": "SAN MARINO",
+      "const": "SMR"
+    },
+    {
+      "type": "string",
+      "description": "SANTA HELENA",
+      "const": "SHN"
+    },
+    {
+      "type": "string",
+      "description": "SANTA LÚCIA",
+      "const": "LCA"
+    },
+    {
+      "type": "string",
+      "description": "SÃO CRISTÓVÃO E NEVIS",
+      "const": "KNA"
+    },
+    {
+      "type": "string",
+      "description": "SÃO TOMÉ E PRÍNCIPE",
+      "const": "STP"
+    },
+    {
+      "type": "string",
+      "description": "SÃO VICENTE E GRANADINAS",
+      "const": "VCT"
+    },
+    {
+      "type": "string",
+      "description": "SENEGAL",
+      "const": "SEN"
+    },
+    {
+      "type": "string",
+      "description": "SERRA LEOA",
+      "const": "SLE"
+    },
+    {
+      "type": "string",
+      "description": "SÉRVIA",
+      "const": "SRB"
+    },
+    {
+      "type": "string",
+      "description": "SEYCHELLES",
+      "const": "SYC"
+    },
+    {
+      "type": "string",
+      "description": "SINT MAARTEN (SÃO MARTINHO - PARTE HOLANDESA)",
+      "const": "SXM"
+    },
+    {
+      "type": "string",
+      "description": "SOMÁLIA",
+      "const": "SOM"
+    },
+    {
+      "type": "string",
+      "description": "SRI LANKA",
+      "const": "LKA"
+    },
+    {
+      "type": "string",
+      "description": "SUAZILÂNDIA",
+      "const": "SWZ"
+    },
+    {
+      "type": "string",
+      "description": "SUDÃO",
+      "const": "SDN"
+    },
+    {
+      "type": "string",
+      "description": "SUDÃO SUL",
+      "const": "SSD"
+    },
+    {
+      "type": "string",
+      "description": "SUÉCIA",
+      "const": "SWE"
+    },
+    {
+      "type": "string",
+      "description": "SUÍÇA",
+      "const": "CHE"
+    },
+    {
+      "type": "string",
+      "description": "SURINAME",
+      "const": "SUR"
+    },
+    {
+      "type": "string",
+      "description": "SVALBARD E JAN MAYEN",
+      "const": "SJM"
+    },
+    {
+      "type": "string",
+      "description": "TAILÂNDIA",
+      "const": "THA"
+    },
+    {
+      "type": "string",
+      "description": "TAJIQUISTÃO",
+      "const": "TJK"
+    },
+    {
+      "type": "string",
+      "description": "TANZÂNIA",
+      "const": "TZA"
+    },
+    {
+      "type": "string",
+      "description": "TERRITÓRIOS FRANCESES MERIDIONAIS",
+      "const": "ATF"
+    },
+    {
+      "type": "string",
+      "description": "TIMOR-LESTE",
+      "const": "TLS"
+    },
+    {
+      "type": "string",
+      "description": "TOGO",
+      "const": "TGO"
+    },
+    {
+      "type": "string",
+      "description": "TOKELAU",
+      "const": "TKL"
+    },
+    {
+      "type": "string",
+      "description": "TONGA",
+      "const": "TON"
+    },
+    {
+      "type": "string",
+      "description": "TRINIDAD E TOBAGO",
+      "const": "TTO"
+    },
+    {
+      "type": "string",
+      "description": "TUNÍSIA",
+      "const": "TUN"
+    },
+    {
+      "type": "string",
+      "description": "TURCOMENISTÃO",
+      "const": "TKM"
+    },
+    {
+      "type": "string",
+      "description": "TURQUIA",
+      "const": "TUR"
+    },
+    {
+      "type": "string",
+      "description": "TUVALU",
+      "const": "TUV"
+    },
+    {
+      "type": "string",
+      "description": "UCRÂNIA",
+      "const": "UKR"
+    },
+    {
+      "type": "string",
+      "description": "UGANDA",
+      "const": "UGA"
+    },
+    {
+      "type": "string",
+      "description": "URUGUAI",
+      "const": "URY"
+    },
+    {
+      "type": "string",
+      "description": "UZBEQUISTÃO",
+      "const": "UZB"
+    },
+    {
+      "type": "string",
+      "description": "VANUATU",
+      "const": "VUT"
+    },
+    {
+      "type": "string",
+      "description": "VATICANO",
+      "const": "VAT"
+    },
+    {
+      "type": "string",
+      "description": "VENEZUELA",
+      "const": "VEN"
+    },
+    {
+      "type": "string",
+      "description": "VIETNÃ",
+      "const": "VNM"
+    },
+    {
+      "type": "string",
+      "description": "WALLIS E FUTUNA",
+      "const": "WLF"
+    },
+    {
+      "type": "string",
+      "description": "ZÂMBIA",
+      "const": "ZMB"
+    },
+    {
+      "type": "string",
+      "description": "ZIMBÁBUE",
+      "const": "ZWE"
+    }
+  ],
+  "examples": [
+    "AFG",
+    "ZAF",
+    "ALB",
+    "DEU",
+    "BRA"
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:FutureContractsInformation",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:FutureContractsInformation"
+  },
+  "title": "FutureContractsInformation",
+  "description": "Information specific to future contracts, extending derivative common fields",
+  "type": "object",
+  "properties": {
+    "valueTypeCode": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Identifier code for the presentation form of the economic indicator",
+      "$comment": "Consult External Code List table ExternalValueTypeCode"
+    },
+    "baseCode": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Number of days in the period used for price calculation or interest correction, e.g., 252, 360, 365"
+    },
+    "conversionCriteria": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of conversion criteria, for example, linear, exponential, not available",
+      "$comment": "Consult External Code List table ExternalConversionCriteriaTypeCode"
+    },
+    "maturityDateTargetPoint": {
+      "type": "integer",
+      "maximum": 999999999999999,
+      "description": "This field is used in conjunction with the previous 2 fields (Base and Required Conversion) to allow conversion from rate to price, providing the number of points at maturity for contracts traded in rate"
+    },
+    "requiredConversionIndicator": {
+      "type": "boolean",
+      "description": "Indicates if a contract traded in rate should be converted to price"
+    },
+    "deliveryType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 6,
+      "description": "Delivery type identification number"
+    },
+    "paymentType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Identifies the settlement method for the trade",
+      "$comment": "Consult External Code List table ExternalPaymentTypeCode"
+    },
+    "contractMultiplier": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Ratio between contract size and commodity quotation quantity"
+    },
+    "assetQuotationQuantity": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Indicates the quantity of the commodity on which the trade price is based"
+    },
+    "assetSettlementIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the financial instrument"
+    },
+    "underlyingInstrumentIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the financial instrument"
+    },
+    "targetIdentification": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/InstrumentIdentification.json",
+        "description": "Identification of the financial instrument"
+      },
+      "minItems": 1,
+      "maxItems": 60
+    },
+    "openingPositionLimitDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Open position deadline date for the instrument"
+    },
+    "withdrawalDays": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Number of withdrawal days, considering the trading date until the contract maturity date (inclusive)"
+    },
+    "workingDays": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Number of business days, considering the trading date until the contract maturity date (inclusive)"
+    },
+    "calendarDays": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Number of calendar days, considering the trading date until the contract maturity date (inclusive)"
+    }
+  },
+  "required": [
+    "valueTypeCode",
+    "deliveryType",
+    "paymentType",
+    "withdrawalDays",
+    "workingDays",
+    "calendarDays"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "valueTypeCode": 1,
+      "baseCode": 252,
+      "conversionCriteria": 1,
+      "maturityDateTargetPoint": 100000,
+      "requiredConversionIndicator": true,
+      "deliveryType": "DEL001",
+      "paymentType": 2,
+      "contractMultiplier": "10,00",
+      "assetQuotationQuantity": "10,00",
+      "assetSettlementIdentification": {
+        "id": "10000000000000002",
+        "Source": "8",
+        "Exchange": "A5X"
+      },
+      "underlyingInstrumentIdentification": {
+        "id": "10000000000000002",
+        "Source": "8",
+        "Exchange": "A5X"
+      },
+      "targetIdentification": [
+        {
+          "id": "10000000000000002",
+          "Source": "8",
+          "Exchange": "A5X"
+        },{
+          "id": "10000000000000002",
+          "Source": "8",
+          "Exchange": "A5X"
+        }
+      ],
+      "openingPositionLimitDate": "2020-01-01",
+      "withdrawalDays": 90,
+      "workingDays": 63,
+      "calendarDays": 90
+    }
+  ]
+}

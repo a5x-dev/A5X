@@ -1,0 +1,42 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:UmbrellaOtherCollateral",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:UmbrellaOtherCollateral"
+  },
+  "title" : "Umbrella Other Collateral",
+  "description" : "Other collateral item for umbrella type distribution with optional quantity, value and account",
+  "type" : "object",
+  "properties" : {
+    "collateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Collateral identifier given by the requestor participant"
+    },
+    "collateralType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Collateral type",
+      "$comment" : "Consult External Code List table ExternalCollateralTypeCode"
+    },
+    "quantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Quantity requested to umbrella type distribution."
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    }
+  },
+  "required" : [ "collateralIdentification", "collateralType" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralIdentification" : "OTHER-001",
+    "collateralType" : 2,
+    "quantity" : "10.5",
+    "accountIdentification" : {
+      "id" : 115
+    }
+  } ]
+}

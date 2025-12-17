@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Fungibility Type",
+  "description": "Codes for fungibility type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Fungible",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Not Fungible",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

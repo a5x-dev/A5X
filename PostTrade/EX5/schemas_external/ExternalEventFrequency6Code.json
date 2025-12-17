@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Event Frequency 6 Code",
+  "description": "Informa a regularidade em que o relatório é enviado",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Daily Event",
+      "const": "DAIL"
+    },
+    {
+      "type": "string",
+      "description": "Event Requested On Demand",
+      "const": "ONDE"
+    }
+  ],
+  "examples": [
+    "DAIL",
+    "ONDE"
+  ]
+}

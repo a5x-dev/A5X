@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Expiration Type Indicator",
+  "description": "Codes for expiration type indicator",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Normal",
+      "const": "0"
+    },
+    {
+      "type": "string",
+      "description": "Dólar Desprotegido",
+      "const": "1"
+    },
+    {
+      "type": "string",
+      "description": "Dólar Protegido",
+      "const": "5"
+    },
+    {
+      "type": "number",
+      "description": "Séries de Índices",
+      "const": 6
+    }
+  ],
+  "examples": [
+    "0",
+    "1",
+    "5",
+    6
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:ErrorDetail",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:ErrorDetail"
+  },
+  "title" : "Error Detail",
+  "description" : "Detailed error information with support for multiple messages per error code",
+  "type" : "object",
+  "properties" : {
+    "errorCode" : {
+      "$ref" : "ExternalErrorCodeList.json",
+      "description" : "Error code from external error code table",
+      "$comment" : "Consult External Code List table ExternalErrorCode"
+    },
+    "errorMessages" : {
+      "type" : "array",
+      "description" : "List of human-readable error messages for this error code",
+      "items" : {
+        "type" : "string",
+        "minLength" : 1,
+        "maxLength" : 500
+      },
+      "minItems" : 1,
+      "maxItems" : 10,
+      "examples" : [ [ "Required field missing: participantInformation" ], [ "Invalid document format", "Document must be PDF or DOCX" ], [ "Account not found", "Please verify account number", "Contact support if issue persists" ] ]
+    },
+    "fieldPath" : {
+      "type" : "string",
+      "description" : "Path to the field that caused the error",
+      "$comment" : "Identifies the specific field that caused the error",
+      "minLength" : 1,
+      "maxLength" : 300,
+      "examples" : [ "accountLinks[0].linkData.origParty.accountId", "accountLinks[1].linkedAccountType" ]
+    }
+  },
+  "required" : [ "errorCode", "errorMessages" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "errorCode" : 101,
+    "errorMessages" : [ "Required field missing: participantInformation" ],
+    "fieldPath" : "participantInformation"
+  }, {
+    "errorCode" : 102,
+    "errorMessages" : [ "Invalid data format for field 'account.id'", "Expected numeric value, received text" ],
+    "fieldPath" : "account.id"
+  }, {
+    "errorCode" : 103,
+    "errorMessages" : [ "Duplicate request index found", "Index must be unique across all requests", "Please review and correct duplicate entries" ],
+    "fieldPath" : "linkData[1].requestIndex"
+  } ]
+}

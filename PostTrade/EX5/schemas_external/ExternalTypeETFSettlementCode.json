@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Type E T F Settlement",
+  "description": "Codes for type e t f settlement",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Liquidação D+2",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Bruto D+1",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Bruto D+2",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Bruto D+3",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Bruto D+4",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Bruto D+5",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Bruto D+6",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Bruto D+7",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Bruto D+8",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Bruto D+9",
+      "const": 10
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

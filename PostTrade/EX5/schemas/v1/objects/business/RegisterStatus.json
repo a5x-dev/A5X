@@ -1,0 +1,37 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:RegisterStatus",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:RegisterStatus"
+  },
+  "title" : "Registration Status",
+  "description" : "Status information with codes and optional error details",
+  "type" : "object",
+  "properties" : {
+    "statusCode" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Provides a proprietary status of each processing requested",
+        "$comment" : "Consult External Code List table ExternalStatusCode"
+    },
+    "errorIdentification" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/tech/StatusError.json"
+      },
+      "description" : "Array of error rule identifiers when status indicates failure",
+      "maxItems" : 50
+    }
+  },
+  "required" : [ "statusCode", "errorIdentification" ],
+  "additionalProperties" : true,
+  "examples" : [ {
+    "statusCode" : 1,
+    "errorIdentification" : [ {
+      "code" : 1,
+      "message" : "Error X",
+      "errorDescription" : "COD12452",
+      "refId" : "REF12345"
+    } ]
+  } ]
+}

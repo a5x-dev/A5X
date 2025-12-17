@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Barrier Type",
+  "description": "Codes for barrier type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Knock-out up",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Knock-out down",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Knock-in up",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Knock-in down",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Limit",
+      "const": 4
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}

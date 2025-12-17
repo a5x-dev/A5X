@@ -1,0 +1,38 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CreditDebitAmount",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CreditDebitAmount"
+  },
+  "title" : "Credit Debit Amount",
+  "description" : "Monetary amount with credit or debit indicator",
+  "type" : "object",
+  "properties" : {
+    "value" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Monetary amount value"
+    },
+    "creditDebit" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Credit or debit indicator",
+      "$comment" : "CRDT = Credit, DBIT = Debit"
+    }
+  },
+  "required" : [ "amount" ],
+  "additionalProperties" : false,
+  "$comment" : "Credit/Debit amount value object",
+  "examples" : [ {
+    "value" : {
+      "amount" : "1500.75",
+      "currency" : "USD"
+    },
+    "creditDebit" : "CRDT"
+  }, {
+    "value" : {
+      "amount" : "750.25",
+      "currency" : "EUR"
+    },
+    "creditDebit" : "DBIT"
+  } ]
+}

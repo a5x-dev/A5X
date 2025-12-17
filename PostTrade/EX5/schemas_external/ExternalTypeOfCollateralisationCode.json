@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Type Of Collateralisation",
+  "description": "Codes for type of collateralisation",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Participante",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Investidor",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

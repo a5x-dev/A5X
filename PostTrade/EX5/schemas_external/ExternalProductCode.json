@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Product",
+  "description": "Codes for product",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Café Arábica",
+      "const": 1
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    }
+  ],
+  "examples": [
+    1,
+    null,
+    null,
+    null
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:InternationalCollateral",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:InternationalCollateral"
+  },
+  "title" : "International Guarantees",
+  "description" : "International guarantee information for account registration",
+  "type" : "object",
+  "properties" : {
+    "jurisdictionOfOrigin" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Consult External Code Text List table ExternalCountryCode. Jurisdiction of origin (optional)"
+    },
+    "legalForm" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Consult External Code Text List table ExternalLegalStructureCode. Legal entity formation type (optional)"
+    },
+    "beneficiaryBankDetails" : {
+      "$ref" : "../../objects/business/BankingDetails.json",
+      "description" : "Beneficiary bank details"
+    },
+    "transferCurrency" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Transfer currency. Consult External Code List table - ExternalCurrencyCode"
+    },
+    "intermediaryBankDetails" : {
+      "$ref" : "../../objects/business/BankingDetails.json",
+      "description" : "Intermediary bank details (optional)"
+    }
+  },
+  "required" : [ "jurisdictionOfOrigin" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "jurisdictionOfOrigin" : "USA",
+    "legalForm" : "LLC",
+    "beneficiaryBankDetails" : {
+      "accountNumber" : "DE89370400440532013000",
+      "iban" : "DE89370400440532013000",
+      "swiftCode" : "DXXXXXXF",
+      "bankName" : "Banco do XPTO S.A.",
+      "bankCountry" : "BRA"
+    },
+    "transferCurrency" : 220,
+    "intermediaryBankDetails" : {
+      "accountNumber" : "DE89370400440532013000",
+      "iban" : "DE89370400440532013000",
+      "swiftCode" : "DXXXXXXF",
+      "bankName" : "Banco do XPTO S.A.",
+      "bankCountry" : "BRA"
+    }
+  } ]
+}

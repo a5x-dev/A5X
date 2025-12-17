@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Voting Status",
+  "description": "Codes for voting status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Provisório",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Definitivo",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

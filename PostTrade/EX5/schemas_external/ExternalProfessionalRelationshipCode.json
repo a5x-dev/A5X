@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Professional Relationship Code",
+  "description": "Codes for professional relationship",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Empregado",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Estagiário",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Sócio",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Terceirizado",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Agente Autônomo de Investimento",
+      "const": 5
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

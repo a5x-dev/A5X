@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalStatusCode",
+  "description": "Codes for status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "EM APROVAÇÃO",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "NÃO APROVADO",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "ATIVO",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "SUSPENSO PARCIAL PELA A5X",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "SUSPENSO PELA A5X",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "INATIVO",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "SUSPENSO PARCIAL PELO PARTICIPANTE",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "SUSPENSO PELO PARTICIPANTE",
+      "const": 12
+    }
+
+  ],
+  "examples": [
+    2,
+    6,
+    10
+  ]
+}

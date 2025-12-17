@@ -1,0 +1,90 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-exe-04",
+  "$metadata" : {
+    "domain" : "position",
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-exe-04"
+  },
+  "title" : "Position Closed",
+  "description" : "Closed positions resulting from the exercise of options or the expiration of futures contracts",
+  "type" : "object",
+  "properties" : {
+    "PositionDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Reference date of the information."
+    },
+    "clearingmemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the clearing member"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the participant"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Account identification"
+    },
+    "instrument" : {
+      "allOf" : [ {
+        "$ref" : "../../objects/business/Instrument.json"
+      }, {
+        "expiryDate": {
+          "type": "string",
+          "format": "localDate"
+        }
+      } ],
+      "description" : "Financial instrument information, including ISIN and ticker symbol"
+    },
+    "OptionInformation" : {
+      "allOf" : [ {
+        "$ref" : "../../objects/business/OptionInformation.json"
+      }, {
+        "required" : [ "optionType", "optionStyle", "exercisePrice", "closedDueToExerciseLongQuantity", "closedDueToExerciseShortQuantity" ]
+      } ],
+      "description" : "Specific information for options"
+    },
+    "FutureInformation" : {
+      "allOf" : [ {
+        "$ref" : "../../objects/business/FutureInformation.json"
+      }, {
+        "required" : [ "ExpiredLongQuantity", "ExpiredShortQuantity", "VariationMarginCredit", "VariationMarginDebit" ]
+      } ],
+      "description" : "Specific information for futures"
+    }
+  },
+  "required" : [ "PositionDate", "clearingmemberIdentification", "participantIdentification", "accountIdentification", "instrument" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "PositionDate" : "2024-01-15",
+    "clearingmemberIdentification" : {
+      "id" : 888,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 123467
+    },
+    "instrument" : {
+
+      "financialInstrumentIdentification": {
+        "id": "100000000000001",
+        "source": "8",
+        "exchange": "A5X"
+      },
+      "tickerSymbol" : "DFZ0001",
+      "expireDate": "2025-11-23"
+    },
+    "OptionInformation" : {
+      "optionType" : 1,
+      "optionStyle" : "EURO",
+      "exercisePrice" : "25.5",
+      "closedDueToExerciseLongQuantity" : "100",
+      "closedDueToExerciseShortQuantity" : "0"
+    }
+  } ]
+}

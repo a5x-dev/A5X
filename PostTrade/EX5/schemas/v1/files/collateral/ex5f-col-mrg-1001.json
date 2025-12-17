@@ -1,0 +1,233 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-mrg-10",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-mrg-10"
+  },
+  "title" : "Collateral Margin Response File Schema",
+  "description" : "Collateral Margin Response File Schema",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "pattern" : "^[A-Za-z0-9_-]+$",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "tradeDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Provides the trade date"
+    },
+    "clearingMemberIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Clearing member identifier provided by A5X during the participant registration"
+    },
+    "clearingMemberIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Clearing member category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "accountIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "collateralCoverageType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Collateral coverage identification",
+      "$comment" : "Consult External Code List table ExternalCollateralCoverageTypeCode"
+    },
+    "totalValueOfCollateral" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Total value of the collateral (post-haircut) held by the exposed party"
+    },
+    "riskWithoutCollateral" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Risk Exposure without collaterals at EoD"
+    },
+    "additionalMargin" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Additional Margin based on positions limit"
+    },
+    "toBeSettledValue" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "To be settled value"
+    },
+    "marginCall" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Margin Call"
+    },
+    "collateralBalance" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Remaining value (positive value) or debit (negative value) of collateral"
+    },
+    "informationType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Information regarding the party collateral position",
+      "$comment" : "Consult External Code List table ExternalInformationTypeCode"
+    },
+    "officialTotalMarginAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Summation of IM and Additional Margin calculated for Margin Account"
+    },
+    "officialTotalMarginCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for official total margin",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "officialInitialMarginAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Initial Margin calculated for Margin Account"
+    },
+    "officialInitialMarginCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for official initial margin",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "officialTotalAMAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Summation of all the Additional Margins calculated for Margin Account except for Concentration Position Limit"
+    },
+    "officialTotalAMCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for official total AM",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "officialRealizedVariationMarginAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Realized Variation Margin calculated for the Margin Account"
+    },
+    "officialRealizedVariationMarginCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for official realized variation margin",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "officialNetLiquidityValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Net Liquidating value for the Margin Account"
+    },
+    "officialNetLiquidityValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for official net liquidity value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "intradayTotalMarginAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Summation of IM and Additional Margin calculated for Margin Account (intraday)"
+    },
+    "intradayTotalMarginCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for intraday total margin",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "intradayInitialMarginAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Initial Margin calculated for Margin Account (intraday)"
+    },
+    "intradayInitialMarginCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for intraday initial margin",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "intradayTotalAMAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Summation of all the Additional Margins calculated for Margin Account except for Concentration Position Limit (intraday)"
+    },
+    "intradayTotalAMCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for intraday total AM",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "intradayRealizedVariationMarginAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Realized Variation Margin calculated for the Margin Account (intraday)"
+    },
+    "intradayRealizedVariationMarginCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for intraday realized variation margin",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "intradayNetLiquidityValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Net Liquidating value for the Margin Account (intraday)"
+    },
+    "intradayNetLiquidityValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for intraday net liquidity value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "intradayRiskLimitAssigned" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "This block contains the value of the intraday risk limit determined by the responsible in the chain of responsibility"
+    },
+    "riskWithoutCollateralIntraday" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Risk Exposure without collaterals at EoD (intraday)"
+    }
+  },
+  "required" : [ "transactionIdentification", "tradeDate", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "collateralCoverageType", "totalValueOfCollateral", "riskWithoutCollateral", "additionalMargin", "toBeSettledValue", "marginCall", "collateralBalance", "informationType" ],
+  "additionalProperties" : false
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Allocation Request Type",
+  "description": "Codes for allocation request type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Inclusion",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Exclusion",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

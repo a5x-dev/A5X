@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External C S D Fee",
+  "description": "Codes for c s d fee",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Tarifa de manutenção de conta com saldo ou movimento",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Tarifa de manutenção de monta sem saldo ou movimento",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Tarifa sobre volume em custódia",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Tarifa sobre processamento de proventos financeiros",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Tarifa de custódia de ouro",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Tarifa de transferência com troca de titularidade",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Tarifa de voto à distância",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Tarifa de retirada",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Tarifa de informativos impressos",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Tarifa de protocolo de ETF",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Tarifa de registro de gravame",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Tarifa de permanência de gravame",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "Tarifa outros",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "Provento",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "Estorno de tarifa de manutenção de conta com saldo ou movimento",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "Estorno de tarifa de manutenção de monta sem saldo ou movimento",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "Estorno de tarifa sobre volume em custódia",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "Estorno de tarifa sobre processamento de proventos financeiros",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "Estorno de tarifa de custódia de ouro",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "Estorno de tarifa de transferência com troca de titularidade",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "Estorno de tarifa de voto à distância",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "Estorno de tarifa de retirada",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "Estorno de tarifa de informativos impressos",
+      "const": 23
+    },
+    {
+      "type": "number",
+      "description": "Estorno de tarifa de protocolo de ETF",
+      "const": 24
+    },
+    {
+      "type": "number",
+      "description": "Estorno de tarifa de registro de gravame",
+      "const": 25
+    },
+    {
+      "type": "number",
+      "description": "Estorno de tarifa de permanência de gravame",
+      "const": 26
+    },
+    {
+      "type": "number",
+      "description": "Estorno de tarifa outros",
+      "const": 27
+    },
+    {
+      "type": "number",
+      "description": "Estorno de Provento",
+      "const": 28
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

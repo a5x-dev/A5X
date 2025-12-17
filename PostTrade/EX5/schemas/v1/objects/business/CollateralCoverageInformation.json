@@ -1,0 +1,34 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralCoverageInformation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralCoverageInformation"
+  },
+  "title" : "Collateral Coverage Information",
+  "description" : "Information about collateral coverage including type, holder and information type details",
+  "type" : "object",
+  "properties" : {
+    "informationType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Information regarding the party collateral position",
+      "$comment" : "Consult External Code List table ExternalInformationTypeCode"
+    },
+    "holderType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "This field has information about holder type. Indicates if the collateral information is related to the participant or to Client"
+    },
+    "collateralCoverageType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Collateral coverage identification",
+      "$comment" : "Consult External Code List table ExternalCollateralCoverageTypeCode"
+    }
+  },
+  "required" : [ "informationType", "holderType", "collateralCoverageType" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "informationType" : 2,
+    "holderType" : 2,
+    "collateralCoverageType" : 11
+  } ]
+}

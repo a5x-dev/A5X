@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Settlement Agreement Status",
+  "description": "Codes for settlement agreement status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "PENDENTE DE PROCESSAMENTO",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "PROCESSADO",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "REJEITADO",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

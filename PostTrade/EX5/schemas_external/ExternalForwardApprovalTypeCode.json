@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Forward Approval Type",
+  "description": "Codes for forward approval type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Request",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Cancellation",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

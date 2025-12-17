@@ -1,0 +1,67 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:FileInfo",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:FileInfo"
+  },
+  "title" : "NotificationFileInfo",
+  "description" : "Schema defining the structure for notification file information",
+  "type" : "object",
+  "properties" : {
+    "status" : {
+      "$ref" : "../../../../schemas_external/ExternalFileStatusCode.json",
+      "description" : "Processing status of the file (e.g., RECEIVED, PROCESSING, GENERATED, ERROR)"
+    },
+    "mode" : {
+      "$ref" : "../../../../schemas_external/ExternalFileModeCode.json",
+      "description" : "Type of file generation (e.g., ON REQUEST, AUTOMATIC)"
+    },
+    "fileType" : {
+      "type" : "string",
+      "description" : "Name of the type file",
+      "examples" : [ "EX5F-COL-EXP-0101" ]
+    },
+    "fileName" : {
+      "type" : "string",
+      "description" : "Name of the generated file",
+      "minLength" : 1,
+      "maxLength" : 255,
+      "examples" : [ "EX5F-COL-EXP-0101.zip" ]
+    },
+    "fileLink" : {
+      "type" : "string",
+      "description" : "URL to access the generated file",
+      "format" : "uri",
+      "examples" : [ "https://nome-do-bucket.s3.amazonaws.com/EX5F-COL-EXP-0101.zip?AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Expires=1697059200&Signature=abc123xyz789EXAMPLE%3D" ]
+    },
+    "filePath" : {
+      "type" : "string",
+      "description" : "File system path to the file, used when an error occurs",
+      "minLength" : 1,
+      "maxLength" : 500,
+      "examples" : [ "/out/EX5F-COL-EXP-0101.zip" ]
+    },
+    "countLines" : {
+      "type" : "integer",
+      "description" : "Number of lines in the file, excluding the header",
+      "minimum" : 0,
+      "examples" : [ 1, 100 ]
+    },
+    "timestamp" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Timestamp of the file processing event"
+    }
+  },
+  "required" : [ "status", "timestamp" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "status" : 2,
+    "type" : 1,
+    "fileName" : "EX5F-COL-EXP-0101.zip",
+    "fileLink" : "https://nome-do-bucket.s3.amazonaws.com/EX5F-COL-EXP-0101.zip?AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Expires=1697059200&Signature=abc123xyz789EXAMPLE%3D",
+    "filePath" : "/out/EX5F-COL-EXP-0101.zip",
+    "countLines" : 1,
+    "timestamp" : "2024-01-15T14:30:15Z"
+  } ]
+}

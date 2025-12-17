@@ -1,0 +1,31 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:ApprovalStatus",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:ApprovalStatus"
+  },
+  "title" : "Approval Status",
+  "description" : "This block contains information about approval or rejection of the collateral transfer. Este bloco contém informações sobre a aprovação ou rejeição da transferência de garantias",
+  "type" : "object",
+  "properties" : {
+    "collateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Collateral ID given by the requestor participant",
+      "examples" : [ "COLL-001", "TRANSFER-12345", "GUARANTEE-789" ]
+    },
+    "affirmationStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "This block contains information about approval or rejection of the collateral transfer.",
+      "$comment" : "Consult the external table ExternalAffirmationStatus1Code."
+    }
+  },
+  "required" : [ "collateralIdentification", "affirmationStatus" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralIdentification" : "COLL-001",
+    "affirmationStatus" : 2
+  } ]
+}

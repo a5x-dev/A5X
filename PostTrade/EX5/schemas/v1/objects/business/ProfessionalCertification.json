@@ -1,0 +1,43 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:ProfessionalCertification",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:ProfessionalCertification"
+  },
+  "title" : "Professional Certification",
+  "description" : "Professional certification information including type, knowledge area, dates and exemption status",
+  "type" : "object",
+  "properties" : {
+    "certificationType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of professional certification",
+      "$comment" : "Consult External Code List table ExternalCertificationTypeCode"
+    },
+    "knowledgeArea" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Knowledge area of the certification",
+      "$comment" : "Consult External Code List table ExternalKnowledgeAreaCertificationCode"
+    },
+    "certificationDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Date when the certification was obtained"
+    },
+    "expirationDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Certification expiration date"
+    }
+  },
+  "required" : [ "knowledgeArea" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "certificationType" : 1,
+    "knowledgeArea" : 2,
+    "certificationDate" : "2023-06-15",
+    "expirationDate" : "2025-06-15"
+  }, {
+    "certificationType" : 3,
+    "knowledgeArea" : 1,
+    "certificationDate" : "2022-03-10"
+  } ]
+}

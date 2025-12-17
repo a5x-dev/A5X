@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Securities Settlement Finality",
+  "description": "Codes for securities settlement finality",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Livre",
+      "const": "0021"
+    },
+    {
+      "type": "string",
+      "description": "Cobertura",
+      "const": "0022"
+    },
+    {
+      "type": "string",
+      "description": "Cancelamento de Recompra",
+      "const": "0025"
+    },
+    {
+      "type": "string",
+      "description": "Bloqueio de Oferta",
+      "const": "0028"
+    },
+    {
+      "type": "string",
+      "description": "Bloqueio de Generica",
+      "const": "0071"
+    }
+  ],
+  "examples": [
+    "0021",
+    "0022",
+    "0025",
+    "0028",
+    "0071"
+  ]
+}

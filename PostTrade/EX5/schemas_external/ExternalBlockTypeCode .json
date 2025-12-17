@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Block Type ",
+  "description": "Codes for block type ",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "DEPOSITO",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "TRANSF CEDENTE",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "LIQ COMPRA",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "SUBSCRICAO",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "BLQ.OPC.",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "RETIRADA",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "TRANSF CES",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "LIQ VENDA",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "CESSAO DIR",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "TRANSF EVEN DIN",
+      "const": 10
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

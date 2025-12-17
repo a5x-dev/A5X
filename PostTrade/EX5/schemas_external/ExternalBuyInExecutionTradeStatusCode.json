@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Buy In Execution Trade Status",
+  "description": "Codes for buy in execution trade status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Ok",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Erro",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

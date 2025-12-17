@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalStrategyStatus",
+  "description": "Codes for strategy status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "No",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Buy",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Yes",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

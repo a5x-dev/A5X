@@ -1,0 +1,33 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CompanyAffiliation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CompanyAffiliation"
+  },
+  "title" : "Company Affiliation",
+  "description" : "Professional's affiliation with a company including company identification and corporate name",
+  "type" : "object",
+  "properties" : {
+    "companyDocument" : {
+      "$ref" : "../../objects/business/DocumentIdentifier.json",
+      "description" : "Company document identification (type and number)"
+    },
+    "companyName" : {
+      "type" : "string",
+      "maxLength" : 100,
+      "minLength" : 2,
+      "description" : "Corporate name (Denominação Social) of the company",
+      "examples" : [ "Empresa XPTO Ltda", "XPTO Investimentos S.A.", "Corretora de Valores Mobiliários XPTO" ]
+    }
+  },
+  "required" : [ "companyDocument", "companyName" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "companyDocument" : {
+      "documentType" : 1,
+      "documentNumber" : "12345678000190"
+    },
+    "companyName" : "Empresa ABC Ltda"
+  } ]
+}

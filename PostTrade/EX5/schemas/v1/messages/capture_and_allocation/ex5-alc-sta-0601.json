@@ -1,0 +1,135 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-alc-sta-06",
+  "$metadata" : {
+    "domain" : "capture_and_allocation",
+    "schemaId" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-alc-sta-06"
+  },
+  "title" : "Allocation Status",
+  "description" : "Allocation Status",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the participant using proprietary scheme"
+    },
+    "trade" : {
+      "$ref" : "../../objects/business/Trade.json",
+      "description" : "Trade information"
+    },
+    "instrument" : {
+      "$ref" : "../../objects/business/Instrument.json",
+      "description" : "Financial instrument information, including ISIN and ticker symbol"
+    },
+    "compressionGroupIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if the operation is derived from block capture",
+      "$comment" : "When true, the allocation was created as part of a block trade that was split into multiple allocations. This affects how the allocation is processed and reported."
+    },
+    "allocationResponse" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/AllocationResponse.json",
+        "description" : "Allocation response"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    "allocationStatus" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/AllocationStatus.json",
+        "description" : "Status of the allocation"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    "averagePriceIndicator" : {
+      "$ref" : "../../objects/business/AveragePriceIndicator.json",
+      "description" : "Average price indicator"
+    }
+  },
+  "required" : [ "participantIdentification", "trade", "instrument", "allocationStatus" ],
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "trade" : {
+      "tradeDate" : "2025-08-15",
+      "buySellIndicator" : 1,
+      "tradeIdentification" : "TRD123456"
+    },
+    "instrument" : {
+      "financialInstrumentIdentification" : {
+        "id" : "100000000000001",
+        "source" : "8",
+        "exchange" : "A5X"
+      },
+      "trade": {
+        "tradeDate": "2025-08-15",
+        "buySellIndicator": 1,
+        "tradeIdentification": "TRD123456"
+      },
+      "instrument": {
+        "financialInstrumentIdentification": {
+          "id": "100000000000001",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "tickerSymbol": "VALE3"
+      },
+      "compressionGroupIndicator": true,
+      "allocationResponse": [
+        {
+          "allocationIdentification": {
+            "allocationIdentification": "ALLOC123456",
+            "individualAllocationIdentification": "INDALLOC-001",
+            "previousAllocationIdentification": "ALLOC-PREV-123"
+          },
+          "allocationStatusCode": 1,
+          "accountOriginIdentification": {
+            "id": "123456"
+          },
+          "errorReasonAllocation": [
+            1,
+            2
+          ],
+          "accountDestinationIdentification": {
+            "id": "7891011"
+          },
+          "quantity": "1000.50"
+        }
+      ],
+      "allocationStatus": {
+        "allocationStatusCode": 1,
+        "statusCode": 1,
+        "errorIdentification": [
+          {
+            "code": 1,
+            "message": "Error X",
+            "errorDescription": "COD12452",
+            "refId": "REF12345"
+          }
+        ]
+      },
+      "averagePriceIndicator": {
+        "averagePriceGroupIndicator": true,
+        "averageExecutionTime": "2025-08-15T10:30:00Z"
+      },
+      "tickerSymbol": "VALE3"
+    },
+    "allocationStatus": [{
+      "allocationStatusCode": 1,
+      "statusCode": 1,
+      "errorIdentification": [
+        {
+          "code": 1,
+          "message": "Error X",
+          "errorDescription": "COD12452",
+          "refId": "REF12345"
+        }
+      ]
+    }]
+  } ]
+}

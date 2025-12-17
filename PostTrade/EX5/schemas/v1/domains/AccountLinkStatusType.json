@@ -1,0 +1,12 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:AccountLinkStatusType",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:AccountLinkStatusType"
+  },
+  "title" : "AccountLinkStatusType",
+  "description" : "Name that defines the status of an account link",
+  "enum" : [ "ACTIVE", "INACTIVE", "PENDING", "REJECTED" ],
+  "examples" : [ "ACTIVE" ]
+}

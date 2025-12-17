@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Acquisition List Status",
+  "description": "Codes for acquisition list status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Processado com Sucesso",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Parcialmente Processado",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Erro Total",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

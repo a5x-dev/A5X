@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:BaseRegistrationLink",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:BaseRegistrationLink"
+  },
+  "title": "Fields base to link register",
+  "description": "Fields to link composition message",
+  "type": "object",
+  "properties": {
+    "linkType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of link between accounts",
+      "$comment": "Consult External Code List table ExternalLinkedAccountTypeCode"
+    },
+    "linkStatus": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Status filter for account links",
+      "$comment": "Consult External Code List table ExternalStatusCode. If not provided, default is 6 (ATIVO)"
+    },
+    "participantOriginIdentification": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Provides details about the origin participant and account identification"
+    },
+    "accountOriginIdentification": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Provides details about the account identification"
+    },
+    "participantDestinationIdentification": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Provides details about the destination participant and account identification"
+    },
+    "accountDestinationIdentification": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Provides details about the account identification"
+    },
+    "managementGroup": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Management group for the link",
+      "$comment": "Consult External Code List table ExternalFeeManagementGroupCode."
+    },
+    "positionConsolidation": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enables position consolidation between linked accounts",
+      "$comment": "Optional field. When true, positions will be consolidated across the linked accounts."
+    },
+    "automaticAcceptance": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enables automatic approval of transfer requests"
+    }
+  },
+  "required": [
+    "linkType",
+    "participantOriginIdentification",
+    "participantDestinationIdentification"
+  ],
+  "additionalProperties": true,
+  "examples": [
+    {
+      "linkType": 1,
+      "linkStatus": 6,
+      "participantOriginIdentification": {
+        "id": 789012,
+        "category": 3
+      },
+      "accountOriginIdentification": {
+        "id": 115
+      },
+      "participantDestinationIdentification": {
+        "id": 789012,
+        "category": 3
+      },
+      "accountDestinationIdentification": {
+        "id": 115
+      },
+      "managementGroup": 1,
+      "positionConsolidation": true,
+      "automaticAcceptance": true
+    }
+  ]
+}

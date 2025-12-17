@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:FutureInformation",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:FutureInformation"
+  },
+  "title": "FutureInformation",
+  "description": "Specific information for futures",
+  "type": "object",
+  "properties": {
+    "expiredLongQuantity": {
+      "type": "string",
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Quantity of long positions that have expired"
+    },
+    "expiredShortQuantity": {
+      "type": "string",
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Quantity of short positions that have expired"
+    },
+    "variationMarginCredit": {
+      "type": "string",
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Variation Margin"
+    },
+    "variationMarginDebit": {
+      "type": "string",
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Variation Margin"
+    }
+  },
+  "required": [
+    "expiredLongQuantity",
+    "expiredShortQuantity",
+    "variationMarginCredit",
+    "variationMarginDebit"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "expiredLongQuantity": "100.00",
+      "expiredShortQuantity": "75.00",
+      "variationMarginCredit": "1250.75",
+      "variationMarginDebit": "850.25"
+    }
+  ]
+}

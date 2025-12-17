@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Payment Transaction Status1",
+  "description": "Codes for payment transaction status1",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "AcceptedSettlementCompleted",
+      "const": "ACCC"
+    },
+    {
+      "type": "string",
+      "description": "Rejected",
+      "const": "RJCT"
+    }
+  ],
+  "examples": [
+    "ACCC",
+    "RJCT"
+  ]
+}

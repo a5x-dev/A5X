@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Billing Type",
+  "description": "Codes for billing type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Emolumentos",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Taxa de liquidação",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Taxa de registro",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Taxa de permanência",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "CCP",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "TTA",
+      "const": 6
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

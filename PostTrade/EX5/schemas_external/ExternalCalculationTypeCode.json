@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalCalculationTypeCode",
+  "description": "Codes for calculation type",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Official Risk Calculation",
+      "const": "OF"
+    },
+    {
+      "type": "string",
+      "description": "High Frequency Risk Calculation",
+      "const": "HF"
+    }
+  ],
+  "examples": [
+    "OF",
+    "HF"
+  ]
+}

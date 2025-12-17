@@ -1,0 +1,35 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralMovementInformation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralMovementInformation"
+  },
+  "title" : "Collateral Movement Information",
+  "description" : "Information about collateral movement including holder type, coverage type and movement type",
+  "type" : "object",
+  "properties" : {
+    "holderType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Provides Holder type information",
+      "$comment" : "Consult External Code List table ExternalHolderTypeCode"
+    },
+    "collateralCoverageType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Provides Collateral coverage type information",
+      "$comment" : "Consult External Code List table ExternalCollateralCoverageTypeCode"
+    },
+    "collateralMovementType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Provides Collateral movement type information",
+      "$comment" : "Consult External Code List table ExternalCollateralMovementTypeCode"
+    }
+  },
+  "required" : [ "holderType", "collateralCoverageType", "collateralMovementType" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "holderType" : 2,
+    "collateralCoverageType" : 1,
+    "collateralMovementType" : 0
+  } ]
+}

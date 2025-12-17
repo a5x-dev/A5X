@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-alc-apr-01",
+  "$metadata": {
+    "domain": "capture_and_allocation",
+    "schemaId": "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-alc-apr-01"
+  },
+  "title": "GiveUp Acceptance or Rejection",
+  "description": "GiveUp Acceptance or Rejection",
+  "type": "object",
+  "properties": {
+    "participantIdentification": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Participant identification",
+      "$comment": "Specifies the participant from which the allocation originates"
+    },
+    "accountIdentification": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Account information",
+      "$comment": "Specifies the account to which the allocation is directed"
+    },
+    "trade": {
+      "$ref": "../../objects/business/Trade.json",
+      "description": "Trade information"
+    },
+    "instrument": {
+      "$ref": "../../objects/business/Instrument.json",
+      "description": "Financial instrument information, including ISIN and ticker symbol"
+    },
+    "allocationIdentification": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/AllocationIdentification.json"
+        },
+        {
+          "required": [
+            "allocationIdentification",
+            "individualAllocationIdentification"
+          ]
+        }
+      ],
+      "description": "Allocation identification information",
+      "$comment": "Contains the allocation identifiers that will be used to reference this allocation in the system"
+    },
+    "affirmationStatus": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Information about acceptance or rejection of the transaction",
+      "$comment": "Consult External Code List table ExternalAffirmationStatusCode"
+    },
+    "additionalReasonInformation": {
+      "type": "string",
+      "maxLength": 210,
+      "minLength": 1,
+      "description": "Reason for rejection",
+      "$comment": "Informs the reason for rejection related to financial value"
+    },
+    "breakingRules": {
+      "$ref": "../../objects/business/BreakingRules.json",
+      "description": "Breaking rules information",
+      "$comment": "Optional field. Required only when the allocation maintenance is being performed outside regular trading hours"
+    }
+  },
+  "required": [
+    "participantIdentification",
+    "trade",
+    "instrument",
+    "allocationIdentification",
+    "affirmationStatus"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "participantIdentification": {
+        "id": 999,
+        "category": 3
+      },
+      "accountIdentification": {
+        "id": 123456789012345
+      },
+      "trade": {
+        "tradeDate": "2025-08-15",
+        "buySellIndicator": 1,
+        "tradeIdentification": "TRADE123456"
+      },
+      "instrument": {
+        "financialInstrumentIdentification": {
+          "id": "100000000000001",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "tickerSymbol": "DFZ0001"
+      },
+      "allocationIdentification": {
+        "individualAllocationIdentification": "ALLOC123",
+        "allocationIdentification": "ALLOC20230615001"
+      },
+      "affirmationStatus": 1,
+      "breakingRules": {
+        "breakingRuleIndicator": true,
+        "breakingRuleDelayResponsibility": true,
+        "breakingRuleReason": 1
+      }
+    }
+  ]
+}

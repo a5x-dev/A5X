@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:AccountStatusUpdateResult",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:AccountStatusUpdateResult"
+  },
+  "title": "Account Status Update Result",
+  "description": "Result of account status update operation",
+  "type": "object",
+  "properties": {
+    "accountIdentification": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Accounts that updated"
+    },
+    "newStatus": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "New status applied to the account",
+      "$comment": "Consult External Code List table ExternalStatusCode"
+    },
+    "statusError": {
+      "$ref": "../../objects/business/RegisterStatus.json"
+    }
+  },
+  "required": [
+    "account",
+    "newStatus"
+  ],
+  "additionalProperties": true,
+  "examples": [
+    {
+      "accountIdentification": {
+        "id": 52
+      },
+      "newStatus": 2,
+      "statusError": {
+        "statusCode": 1,
+        "errorIdentification": [
+          {
+            "code": 1,
+            "message": "Error X",
+            "errorDescription": "COD12452",
+            "refId": "REF12345"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Corporate Action State",
+  "description": "Codes for corporate action state",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Provisional",
+      "const": "P"
+    },
+    {
+      "type": "string",
+      "description": "Definitive",
+      "const": "D"
+    }
+  ],
+  "examples": [
+    "P",
+    "D"
+  ]
+}

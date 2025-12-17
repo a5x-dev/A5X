@@ -1,0 +1,209 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Event Type",
+  "description": "Codes for event type",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "CONVERSÃO EVENTUAL DE ATIVOS",
+      "const": "0195"
+    },
+    {
+      "type": "string",
+      "description": "DIVIDENDO",
+      "const": "0010"
+    },
+    {
+      "type": "string",
+      "description": "RESTITUIÇÃO DE CAPITAL",
+      "const": "0011"
+    },
+    {
+      "type": "string",
+      "description": "BONIFICAÇÃO EM DINHEIRO",
+      "const": "0012"
+    },
+    {
+      "type": "string",
+      "description": "JUROS SOBRE CAPITAL PRÓPRIO",
+      "const": "0013"
+    },
+    {
+      "type": "string",
+      "description": "RENDIMENTO",
+      "const": "0014"
+    },
+    {
+      "type": "string",
+      "description": "JUROS",
+      "const": "0016"
+    },
+    {
+      "type": "string",
+      "description": "AMORTIZAÇÃO",
+      "const": "0017"
+    },
+    {
+      "type": "string",
+      "description": "PREMIO",
+      "const": "0018"
+    },
+    {
+      "type": "string",
+      "description": "ATUALIZAÇÃO MONETÁRIA",
+      "const": "0019"
+    },
+    {
+      "type": "string",
+      "description": "BONIFICAÇÃO EM ATIVOS",
+      "const": "0020"
+    },
+    {
+      "type": "string",
+      "description": "RESTITUIÇÃO CAPITAL EM AÇÕES",
+      "const": "0021"
+    },
+    {
+      "type": "string",
+      "description": "RESTITUIÇÃO CAPITALCOM REDUÇÃO DO NÚMERO DE AÇÕES",
+      "const": "0022"
+    },
+    {
+      "type": "string",
+      "description": "DESDOBRAMENTO DE AÇÕES",
+      "const": "0030"
+    },
+    {
+      "type": "string",
+      "description": "GRUPAMENTO",
+      "const": "0040"
+    },
+    {
+      "type": "string",
+      "description": "SUBSCRIÇÃO",
+      "const": "0050"
+    },
+    {
+      "type": "string",
+      "description": "PRIORIDADE DE SUBSCRICAO",
+      "const": "0051"
+    },
+    {
+      "type": "string",
+      "description": "EXERCICIO DE SUBSCRICAO",
+      "const": "0052"
+    },
+    {
+      "type": "string",
+      "description": "SUBSCRICAO COM RENUNCIA DO DIREITO DE PREFERENCIA",
+      "const": "0053"
+    },
+    {
+      "type": "string",
+      "description": "INCORPORAÇÃO",
+      "const": "0060"
+    },
+    {
+      "type": "string",
+      "description": "FUSÃO",
+      "const": "0070"
+    },
+    {
+      "type": "string",
+      "description": "CANCELAMENTO DE FRAÇÕES",
+      "const": "0071"
+    },
+    {
+      "type": "string",
+      "description": "LEILÃO DE FRAÇÕES",
+      "const": "0072"
+    },
+    {
+      "type": "string",
+      "description": "DOAÇÃO DE FRAÇÕES",
+      "const": "0073"
+    },
+    {
+      "type": "string",
+      "description": "ADMINISTRAÇÃO DE FRAÇÕES",
+      "const": "0074"
+    },
+    {
+      "type": "string",
+      "description": "COMPRA DE FRAÇÕES",
+      "const": "0075"
+    },
+    {
+      "type": "string",
+      "description": "VENDA DE FRAÇÕES",
+      "const": "0076"
+    },
+    {
+      "type": "string",
+      "description": "CISÃO COM RED. DE CAPITAL",
+      "const": "0080"
+    },
+    {
+      "type": "string",
+      "description": "CISÃO COM RED. DE CAPITAL E QTDE",
+      "const": "0081"
+    },
+    {
+      "type": "string",
+      "description": "ATUALIZACAO",
+      "const": "0090"
+    },
+    {
+      "type": "string",
+      "description": "EVENTO COM MÚLTIPLOS REQUISITOS E RESULTADOS",
+      "const": "0091"
+    },
+    {
+      "type": "string",
+      "description": "RETRATAÇÃO",
+      "const": "0092"
+    },
+    {
+      "type": "string",
+      "description": "RESGATE PARCIAL RENDA FIXA",
+      "const": "0093"
+    },
+    {
+      "type": "string",
+      "description": "RESGATE RENDA FIXA",
+      "const": "0094"
+    },
+    {
+      "type": "string",
+      "description": "CONVERSÃO DE ATIVOS",
+      "const": "0095"
+    },
+    {
+      "type": "string",
+      "description": "DISSIDÊNCIA",
+      "const": "0096"
+    },
+    {
+      "type": "string",
+      "description": "RESGATE RENDA VARIÁVEL",
+      "const": "0097"
+    },
+    {
+      "type": "string",
+      "description": "RENDIMENTO LÍQUIDO",
+      "const": "0098"
+    },
+    {
+      "type": "string",
+      "description": "SOBRAS DE SUBSCRIÇÃO",
+      "const": "0099"
+    }
+  ],
+  "examples": [
+    "0195",
+    "0010",
+    "0011",
+    "0012",
+    "0013"
+  ]
+}

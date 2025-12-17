@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Tax Type",
+  "description": "Codes for tax type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "RV",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "ETF RF longo",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "ETF RF médio",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "ETF RF curto",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "ETF RF desenquadrou",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "RF padrão (22,5%)",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "RF 12.431 Art 1º",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "RF 12.431 Art 2º",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "RF 12.431 Art 3º",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "RF 12.431 Art 1º e 2º",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "RF 12.431 Art 1º e 3º",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "RF 12.431 Art 2º e 3º",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "RF 12.431 Art 1º, 2º e 3º",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "RF 15%",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "Isento",
+      "const": 15
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

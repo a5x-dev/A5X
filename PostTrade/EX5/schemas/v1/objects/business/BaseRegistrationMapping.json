@@ -1,0 +1,59 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:BaseRegistrationMapping",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:BaseRegistrationMapping"
+  },
+  "title" : "Base Registration Mapping",
+  "description" : "Base professional mapping information containing all core fields for mapping management",
+  "type" : "object",
+  "properties" : {
+    "relationshipProfessionalMapping" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Professional mapping information",
+      "$comment" : "Consult External Professional Mapping table ExternalRelationshipMappingTypeCode"
+    },
+    "mappingType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of professional mapping",
+      "$comment" : "Consult External Code List table ExternalMappingTypeCode"
+    },
+    "mappingStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Status of the mapping",
+      "$comment" : "Consult External Code List table ExternalStatusCode"
+    },
+    "participantOriginIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Origin participant (category and operational code)"
+    },
+    "participantDestinationIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Destination participant (category and operational code)"
+    },
+    "operatorDocument" : {
+      "$ref" : "../../objects/business/DocumentIdentifier.json",
+      "description" : "Operator document identification (type and number)"
+    }
+  },
+  "required" : [ "relationshipProfessionalMapping", "mappingType", "participantOriginIdentification", "participantDestinationIdentification", "operatorDocument" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "relationshipProfessionalMapping" : 1,
+    "mappingType" : 1,
+    "mappingStatus" : 1,
+    "participantOriginIdentification" : {
+      "id" : 888,
+      "category" : 3
+    },
+    "participantDestinationIdentification" : {
+      "id" : 777,
+      "category" : 4
+    },
+    "operatorDocument" : {
+      "documentType" : 2,
+      "documentNumber" : "12345678900"
+    }
+  } ]
+}

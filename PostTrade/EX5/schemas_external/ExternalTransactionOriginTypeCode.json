@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalTransactionOriginTypeCode",
+  "description": "Codes for transaction origin types",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Tela",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Mensageria",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

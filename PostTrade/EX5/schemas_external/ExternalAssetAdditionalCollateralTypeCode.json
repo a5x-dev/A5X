@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Asset Additional Collateral Type",
+  "description": "Codes for asset additional collateral type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Garantia Fidejussória",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Covenants",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

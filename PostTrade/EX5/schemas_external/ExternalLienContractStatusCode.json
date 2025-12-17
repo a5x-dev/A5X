@@ -1,0 +1,149 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Lien Contract Status",
+  "description": "Codes for lien contract status",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Registro aguardando confirmação do Agente de Custódia",
+      "const": "S1"
+    },
+    {
+      "type": "string",
+      "description": "Registro rejeitado pelo agente de custódia",
+      "const": "S2"
+    },
+    {
+      "type": "string",
+      "description": "Aguardando confirmação de alterações na solicitação de registro",
+      "const": "S3"
+    },
+    {
+      "type": "string",
+      "description": "Alteração de registro rejeitada pelo agente de custódia",
+      "const": "S4"
+    },
+    {
+      "type": "string",
+      "description": "Registro aguardando confirmação",
+      "const": "S5"
+    },
+    {
+      "type": "string",
+      "description": "Ativo",
+      "const": "S6"
+    },
+    {
+      "type": "string",
+      "description": "Registro rejeitado",
+      "const": "S7"
+    },
+    {
+      "type": "string",
+      "description": "Aguardando confirmação de alteração pelo agente de custódia",
+      "const": "S8"
+    },
+    {
+      "type": "string",
+      "description": "Alteração do contrato rejeitada pelo agente de custódia",
+      "const": "S9"
+    },
+    {
+      "type": "string",
+      "description": "Alteração aguardando confirmação",
+      "const": "S10"
+    },
+    {
+      "type": "string",
+      "description": "Alteração rejeitada",
+      "const": "S11"
+    },
+    {
+      "type": "string",
+      "description": "Aguardando confirmação de extinção pelo agente de custódia",
+      "const": "S12"
+    },
+    {
+      "type": "string",
+      "description": "Extinção rejeitada pelo agente de custódia",
+      "const": "S13"
+    },
+    {
+      "type": "string",
+      "description": "Extinção aguardando confirmação",
+      "const": "S14"
+    },
+    {
+      "type": "string",
+      "description": "Extinto",
+      "const": "S15"
+    },
+    {
+      "type": "string",
+      "description": "Extinção rejeitada",
+      "const": "S16"
+    },
+    {
+      "type": "string",
+      "description": "Execução aguardando confirmação",
+      "const": "S17"
+    },
+    {
+      "type": "string",
+      "description": "Executado",
+      "const": "S18"
+    },
+    {
+      "type": "string",
+      "description": "Execução rejeitada",
+      "const": "S19"
+    },
+    {
+      "type": "string",
+      "description": "Atualizado por evento de custódia",
+      "const": "S20"
+    },
+    {
+      "type": "string",
+      "description": "Aguardando manutenção de evento",
+      "const": "S21"
+    },
+    {
+      "type": "string",
+      "description": "Cancelado por evento de custódia",
+      "const": "S22"
+    },
+    {
+      "type": "string",
+      "description": "Registro de instrumento – pendente movimentação do ativo.",
+      "const": "S23"
+    },
+    {
+      "type": "string",
+      "description": "Registro de instrumento excluído.",
+      "const": "S24"
+    },
+    {
+      "type": "string",
+      "description": "Execução parcial aguardando confirmação",
+      "const": "S25"
+    },
+    {
+      "type": "string",
+      "description": "Cancelado - Instrumento não incluído no prazo",
+      "const": "S26"
+    },
+    {
+      "type": "string",
+      "description": "Pré-registro - pendente de contrato",
+      "const": "S27"
+    }
+  ],
+  "examples": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5"
+  ]
+}

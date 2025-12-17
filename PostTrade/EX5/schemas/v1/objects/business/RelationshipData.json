@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:RelationshipData",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:RelationshipData"
+  },
+  "title": "Relationship Data",
+  "description": "Relationship Data of Natural Person",
+  "type": "object",
+  "properties": {
+    "relationshipTypeNaturalPerson": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of professional relationship",
+      "$comment": "Consult External Code List table ExternalProfessionalRelationshipCode"
+    },
+    "addressNaturalPerson": {
+      "$ref": "../../objects/business/Address.json"
+    },
+    "naturalPersonRelationship": {
+      "$ref": "../../objects/business/NaturalPersonRelationship.json"
+    },
+    "relationshipTypeLegalPerson": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of professional relationship",
+      "$comment": "Consult External Code List table ExternalProfessionalRelationshipCode"
+    },
+    "addressLegalPerson": {
+      "$ref": "../../objects/business/Address.json"
+    },
+    "legalPersonRelationship": {
+      "$ref": "../../objects/business/LegalPersonRelationship.json"
+    }
+  },
+  "additionalProperties": false,
+  "examples": [
+    {
+      "relationshipTypeNaturalPerson": 1,
+      "addressNaturalPerson": {
+        "street": "Rua Brasilândia",
+        "number": "123",
+        "complement": "Apto 101",
+        "neighborhood": "Centro",
+        "postalCode": "01234-567",
+        "cityName": 3550308,
+        "state": "SP",
+        "country": "BRA",
+        "phoneNumber": "+55-11-91234-5678",
+        "email": "usuario@exemplo.com.br"
+      },
+      "naturalPersonRelationship": {
+        "name": {
+          "fullName": "João Oliveira Santos",
+          "socialName": "Maria Oliveira Santos",
+          "motherOrGuardian": "Ana Maria de Souza"
+        },
+        "personBase": {
+          "principalDocument": {
+            "documentType": 2,
+            "documentNumber": "12345678900"
+          },
+          "politicallyExposedPerson": false,
+          "usPerson": false,
+          "relatedPerson": true,
+          "countryOfResidence": "BRA",
+          "registrationUpdateDate": "2024-01-15"
+        }
+      }
+    },
+    {
+      "relationshipTypeLegalPerson": 1,
+      "addressLegalPerson": {
+        "street": "Rua Brasilândia",
+        "number": "123",
+        "complement": "Apto 101",
+        "neighborhood": "Centro",
+        "postalCode": "01234-567",
+        "cityName": 3550308,
+        "state": "SP",
+        "country": "BRA",
+        "phoneNumber": "+55-11-91234-5678",
+        "email": "usuario@exemplo.com.br"
+      },
+      "legalPersonRelationship": {
+        "name": {
+          "corporateName": "Empresa XPTO Ltda"
+        },
+        "personBase": {
+          "principalDocument": {
+            "documentType": 2,
+            "documentNumber": "12345678900"
+          },
+          "politicallyExposedPerson": false,
+          "usPerson": false,
+          "relatedPerson": true,
+          "countryOfResidence": "BRA",
+          "registrationUpdateDate": "2024-01-15"
+        }
+      }
+    }
+  ]
+}

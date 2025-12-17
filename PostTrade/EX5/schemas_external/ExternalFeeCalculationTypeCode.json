@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Fee Calculation Type",
+  "description": "Codes for fee calculation type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Progressivo",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Regressivo",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

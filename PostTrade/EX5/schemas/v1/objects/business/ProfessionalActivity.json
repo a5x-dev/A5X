@@ -1,0 +1,36 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:ProfessionalActivity",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:ProfessionalActivity"
+  },
+  "title" : "Professional Activity",
+  "description" : "Professional activity information including role type and period of activity",
+  "type" : "object",
+  "properties" : {
+    "professionalRoleType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of professional role or activity",
+      "$comment" : "Consult External Code List table ExternalProfessionalRoleTypeCode "
+    },
+    "startDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Start date of the professional activity"
+    },
+    "endDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "End date of the professional activity"
+    }
+  },
+  "required" : [ "professionalRoleType", "startDate" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "professionalRoleType" : 1,
+    "startDate" : "2023-01-15",
+    "endDate" : "2024-12-31"
+  }, {
+    "professionalRoleType" : 2,
+    "startDate" : "2022-06-01"
+  } ]
+}

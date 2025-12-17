@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Cancel Request Type",
+  "description": "Codes for cancel request type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Change request",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Renew request",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Early settlement (lender)",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Early settlement (borrower)",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Early Settlement Cancellation",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Position Transfer – Custody Change",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Automatic Renew",
+      "const": 12
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    10
+  ]
+}

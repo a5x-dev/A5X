@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Settlement Frequency",
+  "description": "Codes for settlement frequency",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Diária",
+      "const": "D"
+    },
+    {
+      "type": "string",
+      "description": "Periódica",
+      "const": "P"
+    }
+  ],
+  "examples": [
+    "D",
+    "P"
+  ]
+}

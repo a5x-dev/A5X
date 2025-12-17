@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Transfer Reasons",
+  "description": "Codes for transfer reasons",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "DOAÇÃO",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "ORDEM JUDICIAL",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "HERANÇA",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "CONV. ADR",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "EMPRET. PARTES",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "SUCES. SOCIET.",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "DETERM.REGUL",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "INTEG. COTAS C F",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "CONV. DE UNITS",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "VENDA PRIVADA",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "GAR. DE OFERTAS",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "FALHA ALOCAÇÃO",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "FALHA DE LIQUID",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "EST. PREC. P/OFERTA",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "CES. PROVENTOS",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "PROG.BEN.PREMI",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "RES.COTAS.CL.FI",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "TRNSF.MSM.T.INR",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "LIQ DERIV.B COE",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "DOAÇÃO PULV.",
+      "const": 21
+    }
+  ],
+  "examples": [
+    1,
+    3,
+    4,
+    5,
+    6
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Cash Account Type1",
+  "description": "Codes for cash account type1",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Current",
+      "const": "CACC"
+    },
+    {
+      "type": "string",
+      "description": "Savings",
+      "const": "SVGS"
+    }
+  ],
+  "examples": [
+    "CACC",
+    "SVGS"
+  ]
+}

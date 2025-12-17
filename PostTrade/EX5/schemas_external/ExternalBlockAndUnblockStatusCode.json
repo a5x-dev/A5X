@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Block And Unblock Status",
+  "description": "Codes for block and unblock status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Bloqueado com sucesso",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Desbloqueado com sucesso",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Erro",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

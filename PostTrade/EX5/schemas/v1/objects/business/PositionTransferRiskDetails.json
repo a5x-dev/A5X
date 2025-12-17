@@ -1,0 +1,46 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:PositionTransferRiskDetails",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:PositionTransferRiskDetails"
+  },
+  "title" : "Position Transfer Risk Details",
+  "description" : "Risk assessment details for position transfers",
+  "type" : "object",
+  "properties" : {
+    "positionTransferReference" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "minLength" : 1,
+      "description" : "Reference identifier for the position transfer"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the participant"
+    },
+    "transferRoleInformation" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Role in the transfer process",
+      "$comment" : "Consult External Code List table ExternalTransferRoleCode"
+    },
+    "approvalStatus" : {
+      "$ref" : "../../objects/business/RiskApprovalStatus.json",
+      "description" : "Risk approval status information"
+    }
+  },
+  "required" : [ "positionTransferReference", "participantIdentification", "transferRoleInformation", "approvalStatus" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "positionTransferReference" : "113624876548555",
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "transferRoleInformation" : 1,
+    "approvalStatus" : {
+      "riskApprovalType" : 5,
+      "riskAssessmentApprovalStatus" : 1
+    }
+  } ]
+}

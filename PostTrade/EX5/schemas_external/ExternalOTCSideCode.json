@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External O T C Side",
+  "description": "Codes for o t c side",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "None",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Buy",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Sell",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Both",
+      "const": 3
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

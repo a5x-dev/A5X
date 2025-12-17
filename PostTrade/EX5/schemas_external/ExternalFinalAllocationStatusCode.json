@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Final Allocation Status",
+  "description": "Codes for final allocation status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Confirmado",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Confirmado Fora da Grade",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Não Confirmado",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Intermediação Parcialmente Confirmado",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Intermediação Totalmente Confirmado",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Intermediação Parcialmente Confirmado Fora da Grade",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Intermediação Totalmente Confirmado Fora da Grade",
+      "const": 7
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

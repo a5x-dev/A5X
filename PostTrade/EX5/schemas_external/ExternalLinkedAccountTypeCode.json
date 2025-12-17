@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalLinkedAccountTypeCode",
+  "description": "Codes for linked account type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "MÁSTER",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "REPASSE COM APROVAÇÃO MANUAL",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "CONSOLIDAÇÃO DE MARGEM",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "POR CONTA E ORDEM",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "REPASSE COM APROVAÇÃO AUTOMÁTICA",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "CONSOLIDAÇÃO DE TARIFAÇÃO",
+      "const": 12
+    }
+  ],
+  "examples": [
+    1,
+    5,
+    3,
+    4,
+    5
+  ]
+}

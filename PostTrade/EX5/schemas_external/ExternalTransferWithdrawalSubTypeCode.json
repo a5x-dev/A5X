@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Transfer Withdrawal Sub Type",
+  "description": "Codes for transfer withdrawal sub type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Herança",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Doação",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Venda Privada",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Sucessão Societária",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Empréstimo Privado",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Retirada de Ouro para o Escriturador",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Outros",
+      "const": 7
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

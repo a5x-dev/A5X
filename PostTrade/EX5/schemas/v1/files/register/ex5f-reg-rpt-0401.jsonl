@@ -1,0 +1,51 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:register:ex5f-reg-rpt-04",
+  "$metadata" : {
+    "domain" : "register",
+    "schemaId" : "urn:a5x:ex5:schema:v1:register:ex5f-reg-rpt-04"
+  },
+  "title" : "Professional Mapping file return",
+  "description" : "File response for Mapping query (ex5-reg-qry)",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Participant identification (category and participant ID)"
+    },
+    "mapping" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/BaseRegistrationMapping.json"
+      },
+      "minItems" : 0,
+      "maxItems" : 60,
+      "description" : "Array of mappings found (empty if none found)"
+    }
+  },
+  "required" : [ "participantIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "mapping" : [ {
+      "relationshipProfessionalMapping" : 1,
+      "mappingType" : 1,
+      "mappingStatus" : 1,
+      "participantOriginIdentification" : {
+        "id" : 888,
+        "category" : 3
+      },
+      "participantDestinationIdentification" : {
+        "id" : 777,
+        "category" : 4
+      },
+      "operatorDocument" : {
+        "documentType" : 2,
+        "documentNumber" : "12345678900"
+      }
+    } ]
+  } ]
+}

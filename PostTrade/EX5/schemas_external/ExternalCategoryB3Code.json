@@ -1,0 +1,249 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Category B3",
+  "description": "Codes for category b3",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "A",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "B",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "BDR1",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "BDR2",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "BDR3",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "BDRN",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "FII",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "FIA",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "FIP",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "FIDC",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "INCENT FINAM",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "CUST INFUNGIVEL",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "LEILOES",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "FINAM",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "FINOR",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "FUNDES",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "FISET",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "CEPAC",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "ETF R FIXA",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "ETF R VARIAVEL",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "FIP EE",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "FIP IE",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "FIP PDI",
+      "const": 23
+    },
+    {
+      "type": "number",
+      "description": "FIP CS",
+      "const": 24
+    },
+    {
+      "type": "number",
+      "description": "FIP MT",
+      "const": 25
+    },
+    {
+      "type": "number",
+      "description": "FIA MERC ACESSO",
+      "const": 26
+    },
+    {
+      "type": "number",
+      "description": "FI INFRA",
+      "const": 27
+    },
+    {
+      "type": "number",
+      "description": "BDR ETF RF",
+      "const": 28
+    },
+    {
+      "type": "number",
+      "description": "BDR ETF RV",
+      "const": 29
+    },
+    {
+      "type": "number",
+      "description": "BDR ETF COMM",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "FIM RV S REND",
+      "const": 32
+    },
+    {
+      "type": "number",
+      "description": "FIAGRO-FIDC",
+      "const": 33
+    },
+    {
+      "type": "number",
+      "description": "FIAGRO-FII",
+      "const": 34
+    },
+    {
+      "type": "number",
+      "description": "FIAGRO-FIP",
+      "const": 35
+    },
+    {
+      "type": "number",
+      "description": "FIM RF C REND",
+      "const": 36
+    },
+    {
+      "type": "number",
+      "description": "FIM RF S REND",
+      "const": 37
+    },
+    {
+      "type": "number",
+      "description": "FIM Infra",
+      "const": 38
+    },
+    {
+      "type": "number",
+      "description": "Fundo RF",
+      "const": 39
+    },
+    {
+      "type": "number",
+      "description": "ETF INT RF",
+      "const": 40
+    },
+    {
+      "type": "number",
+      "description": "ETF MOEDA",
+      "const": 41
+    },
+    {
+      "type": "number",
+      "description": "BDR de Divida",
+      "const": 42
+    },
+    {
+      "type": "number",
+      "description": "BDR ETF Moeda",
+      "const": 43
+    },
+    {
+      "type": "number",
+      "description": "ETF de FII",
+      "const": 44
+    },
+    {
+      "type": "number",
+      "description": "ETF Cripto",
+      "const": 45
+    },
+    {
+      "type": "number",
+      "description": "Fundo de Moeda",
+      "const": 46
+    },
+    {
+      "type": "number",
+      "description": "FIM RV C REND",
+      "const": 47
+    },
+    {
+      "type": "number",
+      "description": "OUTROS",
+      "const": 99
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

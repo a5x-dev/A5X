@@ -1,0 +1,209 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-trf-13",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-trf-13"
+  },
+  "title" : "Collateral Transfer Instruction File Schema",
+  "description" : "Collateral Transfer Instruction File Schema",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "pattern" : "^[A-Za-z0-9_-]+$",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "clearingMemberOriginIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Origin clearing member identifier provided by A5X during the participant registration"
+    },
+    "clearingMemberOriginIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Origin clearing member category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "participantOriginIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Origin participant identifier provided by A5X during the participant registration"
+    },
+    "participantOriginIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Origin participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "accountOriginIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Origin account identifier defined by the participant"
+    },
+    "clearingMemberDestinationIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Destination clearing member identifier provided by A5X during the participant registration"
+    },
+    "clearingMemberDestinationIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Destination clearing member category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "participantDestinationIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Destination participant identifier provided by A5X during the participant registration"
+    },
+    "participantDestinationIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Destination participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "accountDestinationIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Destination account identifier defined by the participant"
+    },
+    "positionTransferReference" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "minLength" : 1,
+      "description" : "The field PositionTransferReference is used to identify a position transfer"
+    },
+    "securitiesCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Securities collateral identification as known by party"
+    },
+    "securitiesAssetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifies the register number of the securities collateral deposit"
+    },
+    "securitiesQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity requested to securities collateral transfer"
+    },
+    "securitiesCustodianParticipantId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Securities custodian participant identifier provided by A5X"
+    },
+    "securitiesCustodianParticipantCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Securities custodian participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "securitiesCustodianAccountId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Securities custodian account identifier"
+    },
+    "securitiesCustodianSubAccount" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Securities custodian sub account identification"
+    },
+    "securitiesCentralDepositaryOperationNumber" : {
+      "type" : "string",
+      "pattern" : "^[0-9]{1,9}$",
+      "description" : "Central Depository Operation Number for securities"
+    },
+    "cashCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Cash collateral identification as known by party"
+    },
+    "cashAssetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifies the register number of the cash collateral deposit"
+    },
+    "cashOperationValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Amount requested to cash collateral transfer"
+    },
+    "cashOperationValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for cash operation value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "federalBondsCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Federal bonds collateral ID given by the requestor participant"
+    },
+    "federalBondsAssetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifies the register number of the federal bonds collateral deposit"
+    },
+    "federalBondsAssignerAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Provides assigner account identification for federal bonds"
+    },
+    "federalBondsAssigneeAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Provides the assignee account identification for federal bonds"
+    },
+    "federalBondsQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity requested to federal bonds collateral transfer"
+    },
+    "externalSecuritiesCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "External securities collateral identification as known by party"
+    },
+    "externalSecuritiesAssetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifies the register number of the external securities collateral deposit"
+    },
+    "externalSecuritiesQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity requested to external securities collateral transfer"
+    }
+  },
+  "required" : [ "transactionIdentification", "clearingMemberOriginIdentificationId", "clearingMemberOriginIdentificationCategory", "participantOriginIdentificationId", "participantOriginIdentificationCategory", "accountOriginIdentificationId", "clearingMemberDestinationIdentificationId", "clearingMemberDestinationIdentificationCategory", "participantDestinationIdentificationId", "participantDestinationIdentificationCategory", "accountDestinationIdentificationId" ],
+  "additionalProperties" : false
+}

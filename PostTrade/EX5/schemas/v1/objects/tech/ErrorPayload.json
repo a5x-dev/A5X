@@ -1,0 +1,33 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:tech:ErrorPayload",
+  "$metadata" : {
+    "domain" : "tech",
+    "schemaId" : "urn:a5x:ex5:schema:v1:tech:ErrorPayload"
+  },
+  "type" : "object",
+  "description" : "Error Payload description",
+  "properties" : {
+    "Code" : {
+      "type" : "string",
+      "description" : "AlphaNumeric code that identifies the error",
+      "examples" : [ "EDB001" ]
+    },
+    "Description" : {
+      "type" : "string",
+      "description" : "Description of the error",
+      "examples" : [ "Error inserting message into database" ]
+    },
+    "Rule" : {
+      "type" : "string",
+      "description" : "Technical rule that was violated",
+      "examples" : [ "Rule 1.2.3" ]
+    },
+    "RuleDescription" : {
+      "type" : "string",
+      "description" : "Description of the rule that was violated",
+      "examples" : [ "Rule 1.2.3 - Message not found in database" ]
+    }
+  },
+  "required" : [ ]
+}

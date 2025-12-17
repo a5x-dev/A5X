@@ -1,0 +1,25 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:RelationshipType",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:RelationshipType"
+  },
+  "title" : "Relationship Type",
+  "description" : "Relationship type with simplified structure - ExternalQualificationCode",
+  "type" : "object",
+  "properties" : {
+    "relationshipType" : {
+      "$ref" : "../objects/business/ExternalCodeList.json",
+      "description" : "Relationship type - ExternalQualificationCode"
+    },
+    "relationshipData" : {
+      "type" : "object",
+      "description" : "Relationship data - validation done in application code. Based on Relationshiptype the NaturalPersonRelationship.json or LegalEntityRelationship.json will be used"
+    },
+    "relationshipAddress" : {
+      "$ref" : "../objects/business/Address.json"
+    }
+  },
+  "required" : [ "relationshipType", "relationshipData" ]
+}

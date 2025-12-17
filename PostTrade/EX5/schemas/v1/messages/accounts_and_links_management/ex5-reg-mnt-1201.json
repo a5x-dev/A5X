@@ -1,0 +1,38 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-mnt-12",
+  "$metadata" : {
+    "domain" : "accounts_and_links_management",
+    "schemaId" : "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-mnt-12"
+  },
+  "title" : "Account Status Maintenance Request",
+  "description" : "Request message for updating account status for single account, multiple accounts, or range of accounts",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Party identification for the account(s)"
+    },
+    "accountIdRange" : {
+      "$ref" : "../../objects/business/AccountIdRange.json"
+    },
+    "newStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "New status to apply to the account(s)",
+      "$comment" : "Consult External Code List table ExternalAccountStatusCode"
+    }
+  },
+  "required" : [ "participantIdentification", "accountIdRange", "newStatus" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "accountIdRange" : {
+      "start" : 1,
+      "end" : 999999999999999
+    },
+    "newStatus" : 2
+  } ]
+}

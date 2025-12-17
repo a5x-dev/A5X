@@ -1,0 +1,419 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Sub Account Type",
+  "description": "Codes for sub account type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "PROPRIA LIVRE",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "REPASSE LIVRE",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "RECOMPRA",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEADA",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "SORTEIO",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "CONFIRMADA",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "NAO REPACTUADA",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "CAUCIONADA",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "CEDIDA",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "A RETROCEDER",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "TRANSFERIDA",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "FUTURA",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "DISTRIBUICAO LIVRE",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "ESPECIFICADA",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "DISPONIVEL",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "RESERVA TECNICA",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "VENDA DA CONSIGNADA",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "DESCOBERTA A NOVAR",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "PROPRIA BLOQUEADA",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "DISPONIVEL DESBLOQUEIO",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "CENTRAL BLOQUEADA",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "CENTRAL REPASSE LIVRE",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "CENTRAL REPASSE BLOQUEADA",
+      "const": 23
+    },
+    {
+      "type": "number",
+      "description": "RECOMPRA BLOQUEADA",
+      "const": 24
+    },
+    {
+      "type": "number",
+      "description": "CENTRAL RECOMPRA",
+      "const": 25
+    },
+    {
+      "type": "number",
+      "description": "RECOMPRA CONSIGNADA BLOQUEADA",
+      "const": 26
+    },
+    {
+      "type": "number",
+      "description": "DESCOBERTA",
+      "const": 27
+    },
+    {
+      "type": "number",
+      "description": "REPASSE BLOQUEADA",
+      "const": 28
+    },
+    {
+      "type": "number",
+      "description": "DISTRIBUIÇÃO MULTILATERAL LIVRE",
+      "const": 29
+    },
+    {
+      "type": "number",
+      "description": "DISTRIBUIÇÃO MULTILATERAL BLOQUEADA",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "PROPRIA NEGOCIACAO",
+      "const": 31
+    },
+    {
+      "type": "number",
+      "description": "DISTRIBUICAO BLOQUEADA",
+      "const": 33
+    },
+    {
+      "type": "number",
+      "description": "VINCULADA A DERIVATIVO",
+      "const": 34
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEADA PARA DERIVATIVO",
+      "const": 35
+    },
+    {
+      "type": "number",
+      "description": "RETROCESSIONARIA",
+      "const": 36
+    },
+    {
+      "type": "number",
+      "description": "RETROCEDENTE LIVRE",
+      "const": 37
+    },
+    {
+      "type": "number",
+      "description": "RETROCEDENTE BLOQUEADA",
+      "const": 38
+    },
+    {
+      "type": "number",
+      "description": "CLS",
+      "const": 39
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEADA INADIMPLENTE",
+      "const": 40
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEADA VENDA WA",
+      "const": 41
+    },
+    {
+      "type": "number",
+      "description": "GARANTIA PENHOR",
+      "const": 42
+    },
+    {
+      "type": "number",
+      "description": "GARANTIA CESSAO FIDUCIARIA",
+      "const": 43
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT PENHOR",
+      "const": 44
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT CS.FID",
+      "const": 45
+    },
+    {
+      "type": "number",
+      "description": "GARANTIDA",
+      "const": 46
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT CS FID CL1",
+      "const": 47
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT CS FID CL2",
+      "const": 48
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT PENHOR CL1",
+      "const": 49
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT PENHOR CL2",
+      "const": 50
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT CS.FID P/C AT.GRTDO",
+      "const": 51
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT PENHOR P/C AT.GRTDO",
+      "const": 52
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT CS.FID P/C AT.GRTDO C.CLIENTE1",
+      "const": 53
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT PENHOR P/C AT.GRTDO C.CLIENTE1",
+      "const": 54
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT CS.FID P/C AT.GRTDO C.CLIENTE2",
+      "const": 55
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT PENHOR P/C AT.GRTDO C.CLIENTE2",
+      "const": 56
+    },
+    {
+      "type": "number",
+      "description": "RECOMPRA PELO EMISSOR",
+      "const": 57
+    },
+    {
+      "type": "number",
+      "description": "RESGATE PARCIAL",
+      "const": 58
+    },
+    {
+      "type": "number",
+      "description": "A ESPECIFICAR",
+      "const": 59
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEIO CUSTODIA SDT",
+      "const": 60
+    },
+    {
+      "type": "number",
+      "description": "GARANTIA PENHOR EMISSOR",
+      "const": 61
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT PENHOR EMISSOR CL1",
+      "const": 62
+    },
+    {
+      "type": "number",
+      "description": "CESTA GRT PENHOR EMISSOR CL2",
+      "const": 63
+    },
+    {
+      "type": "number",
+      "description": "GARANTIA PENHOR EMISSOR 2 NIVEL",
+      "const": 64
+    },
+    {
+      "type": "number",
+      "description": "GARANTIA PENHOR EMISSOR CL1 2 NIVEL",
+      "const": 65
+    },
+    {
+      "type": "number",
+      "description": "GARANTIA PENHOR EMISSOR CL2 2 NIVEL",
+      "const": 66
+    },
+    {
+      "type": "number",
+      "description": "Qtd. Bloq. Dep. mês de TDAD/TDAH",
+      "const": 67
+    },
+    {
+      "type": "number",
+      "description": "REAIS EM GARANTIA",
+      "const": 68
+    },
+    {
+      "type": "number",
+      "description": "NAO PROCESSADA",
+      "const": 69
+    },
+    {
+      "type": "number",
+      "description": "NEGOCIACAO A TERMO",
+      "const": 70
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEADA EVENTOS",
+      "const": 71
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEADA DEPOSITO",
+      "const": 72
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEADA EMPRESTIMO",
+      "const": 75
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEADA GARANTIA EMPRESTIMO",
+      "const": 76
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEIO COLATERAL",
+      "const": 77
+    },
+    {
+      "type": "number",
+      "description": "A MIGRAR",
+      "const": 78
+    },
+    {
+      "type": "number",
+      "description": "REPASSE CORRENTISTA",
+      "const": 80
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEIO CONVERSAO RESGATE",
+      "const": 81
+    },
+    {
+      "type": "number",
+      "description": "NAO INTEGRALIZADA",
+      "const": 82
+    },
+    {
+      "type": "number",
+      "description": "MARGEM",
+      "const": 83
+    },
+    {
+      "type": "number",
+      "description": "BLOQUEIO JUDICIAL",
+      "const": 84
+    },
+    {
+      "type": "number",
+      "description": "GARANTIA FIRME",
+      "const": 85
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

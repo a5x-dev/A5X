@@ -1,0 +1,44 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:NaturalPersonName",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:NaturalPersonName"
+  },
+  "title" : "Name Information",
+  "description" : "Name information for persons or entities",
+  "type" : "object",
+  "properties" : {
+    "fullName" : {
+      "type" : "string",
+      "maxLength" : 60,
+      "minLength" : 2,
+      "pattern" : "^[A-Za-zÀ-ÿ\\s'-]+$",
+      "description" : "Complete name of the person",
+      "examples" : [ "João Oliveira Santos" ]
+    },
+    "socialName" : {
+      "type" : "string",
+      "maxLength" : 60,
+      "minLength" : 2,
+      "pattern" : "^[A-Za-zÀ-ÿ\\s'-]+$",
+      "description" : "Social name or preferred name of the person",
+      "examples" : [ "Maria Oliveira Santos" ]
+    },
+    "motherOrGuardian" : {
+      "type" : "string",
+      "maxLength" : 60,
+      "minLength" : 2,
+      "pattern" : "^[A-Za-zÀ-ÿ\\s'-]+$",
+      "description" : "Social name or preferred name of the person",
+      "examples" : [ "Maria Oliveira Santos" ]
+    }
+  },
+  "required" : [ "fullName" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "fullName" : "João Oliveira Santos",
+    "socialName" : "Maria Oliveira Santos",
+    "motherOrGuardian" : "Ana Maria de Souza"
+  } ]
+}

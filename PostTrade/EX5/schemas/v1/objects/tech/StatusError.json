@@ -1,0 +1,44 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:tech:StatusError",
+  "$metadata" : {
+    "domain" : "tech",
+    "schemaId" : "urn:a5x:ex5:schema:v1:tech:StatusError"
+  },
+  "title" : "Status Error",
+  "description" : "Status information",
+  "type" : "object",
+  "properties" : {
+    "code" : {
+      "$ref" : "../../objects/business/ExternalErrorCodeList.json",
+      "description" : "Provides a proprietary status of each processing requested",
+      "$comment" : "Consult External Code List table ExternalErrorCollateralCode, ExternalErrorRegistrationCode, ExternalErrorAllocationCode, ExternalAllocationInstruction"
+    },
+    "errorDescription" : {
+      "type" : "string",
+      "maxLength" : 250,
+      "minLength" : 1,
+      "description" : "Error description"
+    },
+    "message" : {
+      "type" : "string",
+      "maxLength" : 250,
+      "minLength" : 1,
+      "description" : "Message"
+    },
+    "refId" : {
+      "type" : "string",
+      "maxLength" : 100,
+      "minLength" : 1,
+      "description" : "Reference ID"
+    }
+  },
+  "required" : [ "code" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "code" : 1,
+    "message" : "Error X",
+    "errorDescription" : "COD12452",
+    "refId" : "REF12345"
+  } ]
+}

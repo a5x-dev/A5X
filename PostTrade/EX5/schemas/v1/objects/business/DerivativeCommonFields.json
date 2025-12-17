@@ -1,0 +1,68 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:DerivativeCommonFields",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:DerivativeCommonFields"
+  },
+  "title" : "DerivativeCommonFields",
+  "description" : "Common fields for all derivative instruments, extending base instrument fields",
+  "allOf" : [ {
+    "$ref" : "../../objects/business/InstrumentBaseFields.json"
+  }, {
+    "type" : "object",
+    "properties" : {
+      "allocationRoundLot" : {
+        "type" : "integer",
+        "minimum" : 1,
+        "maximum" : 999999,
+        "description" : "Pre-defined lot size for allocation purposes",
+        "examples" : [ 100, 1000, 5000 ]
+      },
+      "contractMultiplier" : {
+        "$ref" : "../../types/DecimalNumber.json",
+        "description" : "Ratio between contract size and commodity quotation quantity"
+      },
+      "assetQuotationQuantity" : {
+        "$ref" : "../../types/DecimalNumber.json",
+        "description" : "Indicates the quantity of the commodity on which the trade price is based"
+      }
+    },
+    "required" : [ "contractMultiplier", "assetQuotationQuantity" ],
+    "additionalProperties" : false
+  }, {
+    "$ref" : "../../objects/business/TradingDaysInfo.json"
+  } ],
+  "examples" : [ {
+    "instrumentData" : {
+      "tickerSymbol" : "DFZ0001"
+    },
+    "securityCategory" : 2,
+    "tradingCurrency" : "BRL",
+    "expirationDate" : "2024-12-31",
+    "allocationRoundLot" : 5,
+    "contractMultiplier" : "1000",
+    "assetQuotationQuantity" : "1000",
+    "withdrawalDays" : 90,
+    "workingDays" : 63,
+    "calendarDays" : 90
+  }, {
+    "instrumentData" : {
+      "InstrumentIdentification" : {
+        "securityID" : "10000000000000001",
+        "securitySource" : "8",
+        "securityExchange" : "A5X"
+      },
+      "ISIN" : "BRZZZZFUT001",
+      "tickerSymbol" : "DFZ0001"
+    },
+    "securityCategory" : 2,
+    "tradingCurrency" : "BRL",
+    "expirationDate" : "2024-06-30",
+    "contractMultiplier" : "1000",
+    "assetQuotationQuantity" : "1000",
+    "withdrawalDays" : 60,
+    "workingDays" : 42,
+    "calendarDays" : 60
+  } ]
+}

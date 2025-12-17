@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Certification Type Code",
+  "description": "Codes for certification type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "PQO - Operações",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "PQO - Comercial",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "PQO - Compliance",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "PQO - Risco",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "PQO - Back Office",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "PQO - Cadastro de Clientes",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "PQO - Custódia",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "PQO - Liquidação",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Assessor de Investimentos – Ancord",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "CPA-20 – Anbima",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "CEA – Anbima",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "CFP (Certified Financial Planner)",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "Programa Formação de Brokers nos Mercados – FIA, B3 e Ancord",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "Programa de Formação em Supervisão de Mercados – Ibmec",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "PRM-IA (Professional Risk Manager – International Association)",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "GARP (Global Association of Risk Professionals)",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "FRM (Financial Risk Manager)",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "Certificação de Serviços Qualificados - Módulo 1 – Anbima",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "Certificação de Serviços Qualificados - Módulo 2 – Anbima",
+      "const": 19
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ]
+}

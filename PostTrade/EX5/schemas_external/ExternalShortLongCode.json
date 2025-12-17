@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Short or Long Code",
+  "description": "Codes for short or sell",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Short",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Long",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

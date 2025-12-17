@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Information Type",
+  "description": "Codes for information type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Positions and collaterals at the EoD (Batch)",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "(I) - Positions and collaterals up-to date (intraday)",
+      "const": 1
+    }
+  ],
+  "examples": [
+    0,
+    1
+  ]
+}

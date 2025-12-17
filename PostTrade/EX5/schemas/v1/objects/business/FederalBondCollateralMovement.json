@@ -1,0 +1,44 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:FederalBondCollateralMovement",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:FederalBondCollateralMovement"
+  },
+  "title" : "Federal Bond Collateral Movement",
+  "description" : "This block provides information about federal bond collateral valuation",
+  "type" : "object",
+  "properties" : {
+    "collateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued collateral",
+      "examples" : [ "FB-REF-001", "BOND-123456" ]
+    },
+    "maturityDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Provides maturity date of federal bond collateral",
+      "examples" : [ "2025-12-31", "2026-06-30" ]
+    },
+    "assignerAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides assigner account identification",
+      "examples" : [ "ASSIGNER-ACC-001", "ACC123456789" ]
+    },
+    "assigneeAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides identification about assignee account",
+      "examples" : [ "ASSIGNEE-ACC-001", "ACC987654321" ]
+    }
+  },
+  "required" : [ "collateralReference", "maturityDate", "assignerAccount", "assigneeAccount" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralReference" : "FB-REF-001",
+    "maturityDate" : "2025-12-31",
+    "assignerAccount" : "ASSIGNER-ACC-001",
+    "assigneeAccount" : "ASSIGNEE-ACC-001"
+  } ]
+}

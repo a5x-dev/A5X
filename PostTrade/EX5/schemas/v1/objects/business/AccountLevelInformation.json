@@ -1,0 +1,65 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:AccountLevelInformation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:AccountLevelInformation"
+  },
+  "title" : "Account Level Information",
+  "description" : "Account level information containing account identification and collateral movement report details",
+  "type" : "object",
+  "properties" : {
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    },
+    "collateralMovementReportDetails" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/CollateralMovement.json"
+      },
+      "minItems" : 1,
+      "maxItems" : 60,
+      "description" : "This block contains information about participant collateral movement."
+    }
+  },
+  "required" : [ "collateralMovementReportDetails" ],
+  "additionalProperties" : true,
+  "examples" : [ {
+    "accountIdentification" : {
+      "id" : 115
+    },
+    "collateralMovementReportDetails" : [ {
+      "collateralMovementType" : 1,
+      "assetNumber" : "2015000000348",
+      "collateralCoverageType" : 1,
+      "collateralType" : 4,
+      "collateralSubType" : "ABC",
+      "operationStatus" : 1,
+      "financialInstrumentIdentification" : {
+        "id" : "100000000000001",
+        "source" : "8",
+        "exchange" : "A5X"
+      },
+      "federalBondCollateralMovement" : {
+        "collateralReference" : "FB-REF-001",
+        "maturityDate" : "2025-12-31",
+        "assignerAccount" : "ASSIGNER-ACC-001",
+        "assigneeAccount" : "ASSIGNEE-ACC-001",
+        "selicOperationCode" : "65499"
+      },
+      "collateralDetailMovement" : {
+        "operationValue" : {
+          "currency" : "BRL",
+          "amount" : "100000.00"
+        },
+        "operationAcceptValue" : {
+          "currency" : "BRL",
+          "amount" : "95000.00"
+        },
+        "operationQuantity" : "1000.50",
+        "operationAcceptQuantity" : "950.25"
+      }
+    } ]
+  } ]
+}

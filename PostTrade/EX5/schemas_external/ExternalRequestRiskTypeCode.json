@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalRequestRiskTypeCode",
+  "description": "Codes for request risk type",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Participant´s Operational Limit",
+      "const": "PR"
+    },
+    {
+      "type": "string",
+      "description": "Investor´s Risk Position",
+      "const": "RP"
+    },
+    {
+      "type": "string",
+      "description": "Investor´s Risk",
+      "const": "IR"
+    }
+  ],
+  "examples": [
+    "PR",
+    "RP",
+    "IR"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Trade Sub Type",
+  "description": "Codes for trade sub type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Implied",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Cross trade",
+      "const": 37
+    },
+    {
+      "type": "number",
+      "description": "Auction Trade",
+      "const": 43
+    },
+    {
+      "type": "number",
+      "description": "Trade was inserted by market ops on-behalf of firm",
+      "const": 1000
+    },
+    {
+      "type": "number",
+      "description": "Termo Vista",
+      "const": 1001
+    },
+    {
+      "type": "number",
+      "description": "Termo Vista Registered",
+      "const": 1002
+    },
+    {
+      "type": "number",
+      "description": "Midpoint Order",
+      "const": 1003
+    },
+    {
+      "type": "number",
+      "description": "Point in Time Auction",
+      "const": 1004
+    },
+    {
+      "type": "number",
+      "description": "Request For Quote",
+      "const": 1005
+    },
+    {
+      "type": "number",
+      "description": "RLP (Retail Liquidity Provider)",
+      "const": 1006
+    }
+  ],
+  "examples": [
+    8,
+    37,
+    43,
+    1000,
+    1001
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-11",
+  "$metadata" : {
+    "domain" : "position",
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-11"
+  },
+  "title" : "Position Transfer Status",
+  "description" : "Message providing status for position transfer requests following ISO 20022 structure",
+  "type" : "object",
+  "properties" : {
+    "PaginationInformation" : {
+      "$ref" : "../../objects/business/Pagination.json",
+      "description" : "Pagination control information for large result sets"
+    },
+    "PositionTransferInformation" : {
+      "$ref" : "../../objects/business/PositionTransfer.json",
+      "description" : "Position transfer information with reference and configuration details"
+    },
+    "sameOwnership" : {
+      "type" : "boolean",
+      "description" : "Indicates if ownership remains the same",
+      "examples" : [ true ]
+    },
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Party identification"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Account identification"
+    },
+    "transferRole" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Role in the transfer process",
+      "$comment" : "Consult External Code List table ExternalTransferRoleCode",
+      "examples" : [ 1 ]
+    },
+      "PositionTransferDetails" : {
+        "type": "array",
+        "items": {
+          "$ref": "../../objects/business/PositionTransferStatusDetails.json",
+          "description": "Array of position transfer status details"
+        }
+      },
+      "positionTransferRequestStatus" : {
+        "$ref" : "../../objects/tech/StatusError.json",
+        "description" : "Status of the position transfer request"
+      },
+      "TransferEventDetails" : {
+        "$ref" : "../../objects/business/TransferEventDetails.json",
+        "description" : "Details about transfer events"
+      },
+      "PendingApprovalDetails" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "../../objects/business/PendingApprovalDetails.json"
+        },
+        "minItems" : 0,
+        "maxItems" : 60,
+        "description" : "Array of pending approval details"
+      },
+      "RollbackPositionDetails" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "../../objects/business/RollbackPositionDetails.json"
+        },
+        "minItems" : 0,
+        "maxItems" : 60,
+        "description" : "Array of rollback position details"
+      }
+  },
+  "required" : [ "PaginationInformation", "positionTransferRequestStatus" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "PaginationInformation" : {
+      "paginationId" : "EEFGH",
+      "pageNumber" : "1",
+      "lastPageIndicator" : true
+    },
+    "PositionTransferInformation" : {
+      "positionTransferReference" : "PST123456789012",
+      "clientReference" : "123456789",
+      "collateralTransferIndicator" : true,
+      "transferTypeCode" : 3
+    },
+    "sameOwnership" : true,
+    "clearingMemberIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "transferRole" : 1,
+    "PositionTransferDetails" : [ {
+      "instrument" : {
+        "financialInstrumentIdentification" : {
+          "id" : "100000000000001",
+          "source" : "8",
+          "exchange" : "A5X"
+        },
+        "isin" : "BRPETRTNP524",
+        "tickerSymbol" : "PETR4T"
+      },
+      "settlementDate" : "2025-08-15",
+      "shortLongIndicator" : 1,
+      "quantity" : "200.00"
+    } ],
+    "positionTransferRequestStatus" : {
+      "code" : 1
+    },
+    "TransferEventDetails" : {
+      "transferEventCode" : 1
+    },
+    "PendingApprovalDetails" : [ {
+      "pendingApprovalCode" : 1
+    } ],
+    "RollbackPositionDetails" : [ {
+      "instrumentIdentification" : {
+        "id" : "100000000000001",
+        "source" : "8",
+        "exchange" : "A5X"
+      },
+      "executedQuantity" : "150.00",
+      "availableQuantity" : "50.00"
+    } ]
+  } ]
+}

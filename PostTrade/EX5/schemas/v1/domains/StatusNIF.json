@@ -1,0 +1,34 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:StatusNIF",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:StatusNIF"
+  },
+  "title" : "Status NIF",
+  "description" : "NIF (Tax Identification Number) status classification - ExternalNIFIndicatorCode",
+  "type" : "object",
+  "properties" : {
+    "code" : {
+      "type" : "string",
+      "enum" : [ "0", "1", "2" ],
+      "description" : "NIF status code"
+    },
+    "name" : {
+      "type" : "string",
+      "enum" : [ "Sim", "Não - investidor isento de identificação fiscal", "Não - Jurisdição não exige identificação fiscal" ],
+      "description" : "NIF status description"
+    }
+  },
+  "required" : [ "code", "name" ],
+  "examples" : [ {
+    "code" : "0",
+    "name" : "Sim"
+  }, {
+    "code" : "1",
+    "name" : "Não - investidor isento de identificação fiscal"
+  }, {
+    "code" : "2",
+    "name" : "Não - Jurisdição não exige identificação fiscal"
+  } ]
+}

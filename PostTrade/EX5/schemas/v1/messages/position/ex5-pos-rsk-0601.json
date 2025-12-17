@@ -1,0 +1,46 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-rsk-06",
+  "$metadata" : {
+    "domain" : "position",
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-rsk-06"
+  },
+  "title" : "Position Transfer Risk Assessment Confirmation Response Message",
+  "description" : "Message confirming risk assessment for position transfer requests following ISO 20022 structure",
+  "type" : "object",
+  "properties" : {
+    "pagination" : {
+      "$ref" : "../../objects/business/Pagination.json",
+      "description" : "Pagination control information for large result sets"
+    },
+    "positionTransferDetails" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/PositionTransferRiskDetails.json"
+      },
+      "minItems" : 1,
+      "description" : "Array of position transfer risk assessment details"
+    }
+  },
+  "required" : [ "pagination", "positionTransferDetails" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "pagination" : {
+      "paginationId" : "XXFGH",
+      "pageNumber" : "1",
+      "lastPageIndicator" : true
+    },
+    "positionTransferDetails" : [ {
+      "positionTransferReference" : "113624876548555",
+      "participantIdentification" : {
+        "id" : 777,
+        "category" : 3
+      },
+      "transferRoleInformation" : 1,
+      "approvalStatus" : {
+        "riskApprovalType" : 5,
+        "riskAssessmentApprovalStatus" : 1
+      }
+    } ]
+  } ]
+}

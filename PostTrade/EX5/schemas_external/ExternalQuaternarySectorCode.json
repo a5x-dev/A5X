@@ -1,0 +1,689 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Quaternary Sector",
+  "description": "Codes for quaternary sector",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Exploração e/ou Refino",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Exploração, Refino e Distribuição",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Equipamentos e Serviços",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Distribuição de Combustíveis",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Minerais Metálicos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Minerais Não Metálicos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Siderurgia",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Artefatos de Ferro e Aço",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Artefatos de Cobre",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Petroquímicos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Fertilizantes e Defensivos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Químicos Diversos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Madeira",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Papel e Celulose",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Embalagens",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Materiais Diversos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Produtos para Construção",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Construção Pesada",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Engenharia Consultiva",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Serviços Diversos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Material Aeronáutico e de Defesa",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Material Ferroviário",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Material Rodoviário",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Equipamentos Elétricos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Motores , Compressores e Outros",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Máq. e Equip. Industriais",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Máq. e Equip. Construção e Agrícolas",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Máq. e Equip. Hospitalares",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Armas e Munições",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Transporte Aéreo",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Transporte Metroviário",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Transporte Ferroviário",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Transporte Hidroviário",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Transporte Rodoviário",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Exploração de Rodovias",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Serviços de Apoio e Armazenagem",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Computadores e Equipamentos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Programas e Serviços",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Serviços Diversos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Material de Transporte",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Máquinas e Equipamentos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Materiais de Construção",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Construção Civil",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Construção Pesada",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Engenharia Consultiva",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Serviços Diversos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Intermediação Imobiliária",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Com de Material de Construção",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Transporte Aéreo",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Transporte Metroviário",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Transporte Ferroviário",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Transporte Hidroviário",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Transporte Rodoviário",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Exploração de Rodovias",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Serviços de Apoio e Armazenagem",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Agricultura",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Açucar e Alcool",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Café",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Grãos e Derivados",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Carnes e Derivados",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Laticínios",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Alimentos Diversos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Cervejas e Refrigerantes",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Cigarros e Fumo",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Produtos de Uso Pessoal",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Produtos de Limpeza",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Medicamentos e Outros Produtos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Serv.Méd.Hospit.,Análises e Diagnósticos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Produtos Diversos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Alimentos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Medicamentos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Incorporações",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Fios e Tecidos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Couro",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Vestuário",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Calçados",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Acessórios",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Eletrodomésticos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Móveis",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Utensílios Domésticos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Automóveis e Motocicletas",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Produção e Difusão de Filmes e Programas",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Jornais, Livros e Revistas",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Publicidade e Propaganda",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Hotelaria",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Restaurante e Similares",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Bicicletas",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Brinquedos e Jogos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Parques de Diversão",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Produção de Eventos e Shows",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Viagens e Turismo",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Atividades Esportivas",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Serviços Educacionais",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Aluguel de carros",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Programas de Fidelização",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Tecidos, Vestuário e Calçados",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Eletrodomésticos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Livrarias e Papelarias",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Produtos Diversos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Medicamentos e Outros Produtos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Serv.Méd.Hospit.,Análises e Diagnósticos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Equipamentos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Medicamentos e Outros Produtos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Computadores e Equipamentos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Programas e Serviços",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Telefonia Fixa",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Telecomunicações",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Telefonia móvel",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Energia Elétrica",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Água e Saneamento",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Gás",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Bancos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Soc. Crédito e Financiamento",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Soc. Arrendamento Mercantil",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Outros Intermediarios Financeiros",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Securitizadoras de Recebíveis",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Gestão de Recursos e Investimentos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Serviços Financeiros Diversos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Seguradoras",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Soc. de Capitalização",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Corretoras de Seguros",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Exploração de Imóveis",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Intermediação Imobiliária",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Holdings Diversificadas",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Serviços Diversos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Outros",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Fundos Imobiliários",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Fundos de Ações",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Fundos de Direitos Creditórios",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Fundos Multimercado",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Fundos de Incentivo Setorial",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Outros Títulos",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Outros",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Não Classificado",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Não Classificados",
+      "const": 0
+    }
+  ],
+  "examples": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

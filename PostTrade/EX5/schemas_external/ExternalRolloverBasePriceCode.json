@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Rollover Base Price",
+  "description": "Codes for rollover base price",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Last Price",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Settlement price",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

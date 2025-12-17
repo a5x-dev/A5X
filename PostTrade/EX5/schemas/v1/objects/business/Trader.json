@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:Trader",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:Trader"
+  },
+  "title": "Trader",
+  "description": "trader information including trading desk and trader identification",
+  "type": "object",
+  "properties": {
+    "traderIdentification": {
+      "type": "string",
+      "maxLength": 50,
+      "minLength": 1,
+      "description": "Trader code information"
+    },
+    "tradingDeskIdentification": {
+      "type": "string",
+      "maxLength": 50,
+      "minLength": 1,
+      "description": "Identifies trading desk or strategy"
+    },
+    "senderCompIdentification": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Sender company ID"
+    },
+    "memo": {
+      "type": "string",
+      "maxLength": 35,
+      "description": "Free text field for memo"
+    }
+  },
+  "required": [],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "traderIdentification": "TRADER001",
+      "tradingDeskIdentification": "DESK001",
+      "senderCompIdentification": "COMPANY123",
+      "memo": "Initial trade setup"
+    }
+  ]
+}

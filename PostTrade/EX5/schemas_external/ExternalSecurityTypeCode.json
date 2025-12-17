@@ -1,0 +1,519 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Security Type",
+  "description": "Codes for security type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "EUSUPRA EUROSUPRANATIONALCOUPONS",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "FAC FEDERALAGENCYCOUPON",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "FADN FEDERALAGENCYDISCOUNTNOTE",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "PEF PRIVATEEXPORTFUNDING",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "SUPRA USDSUPRANATIONALCOUPONS",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "FUT FUTURE",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "OPT OPTION",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "CORP CORPORATEBOND",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "CPP CORPORATEPRIVATEPLACEMENT",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "CB CONVERTIBLEBOND",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "DUAL DUALCURRENCY",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "EUCORP EUROCORPORATEBOND",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "XLINKD INDEXEDLINKED",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "STRUCT STRUCTUREDNOTES",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "YANK YANKEECORPORATEBOND",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "FOR FOREIGNEXCHANGECONTRACT",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "CS COMMONSTOCK",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "PS PREFERREDSTOCK",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "BRADY BRADYBOND",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "EUSOV EUROSOVEREIGNS",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "TBOND USTREASURYBOND",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "TINT INTERESTSTRIPFROMANYBONDORNOTE",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "TIPS TREASURYINFLATIONPROTECTEDSECURITIES",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "TCAL PRINCIPALSTRIPOFACALLABLEBONDORNOTE",
+      "const": 23
+    },
+    {
+      "type": "number",
+      "description": "TPRN PRINCIPALSTRIPFROMANONCALLABLEBONDORNOTE",
+      "const": 24
+    },
+    {
+      "type": "number",
+      "description": "TNOTE USTREASURYNOTE",
+      "const": 25
+    },
+    {
+      "type": "number",
+      "description": "TBILL USTREASURYBILL",
+      "const": 26
+    },
+    {
+      "type": "number",
+      "description": "REPO REPURCHASE",
+      "const": 27
+    },
+    {
+      "type": "number",
+      "description": "FXFWD FORWARD",
+      "const": 28
+    },
+    {
+      "type": "number",
+      "description": "BUYSELL BUYSELLBACK",
+      "const": 29
+    },
+    {
+      "type": "number",
+      "description": "SECLOAN SECURITIESLOAN",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "SECPLEDGE SECURITIESPLEDGE",
+      "const": 31
+    },
+    {
+      "type": "number",
+      "description": "TERM TERMLOAN",
+      "const": 32
+    },
+    {
+      "type": "number",
+      "description": "RVLV REVOLVERLOAN",
+      "const": 33
+    },
+    {
+      "type": "number",
+      "description": "RVLVTRM REVOLVERTERMLOAN",
+      "const": 34
+    },
+    {
+      "type": "number",
+      "description": "BRIDGE BRIDGELOAN",
+      "const": 35
+    },
+    {
+      "type": "number",
+      "description": "LOFC LETTEROFCREDIT",
+      "const": 36
+    },
+    {
+      "type": "number",
+      "description": "SWING SWINGLINEFACILITY",
+      "const": 37
+    },
+    {
+      "type": "number",
+      "description": "DINP DEBTORINPOSSESSION",
+      "const": 38
+    },
+    {
+      "type": "number",
+      "description": "DEFLTED DEFAULTED",
+      "const": 39
+    },
+    {
+      "type": "number",
+      "description": "WITHDRN WITHDRAWN",
+      "const": 40
+    },
+    {
+      "type": "number",
+      "description": "REPLACD REPLACED",
+      "const": 41
+    },
+    {
+      "type": "number",
+      "description": "MATURED MATURED",
+      "const": 42
+    },
+    {
+      "type": "number",
+      "description": "AMENDED AMENDEDRESTATED",
+      "const": 43
+    },
+    {
+      "type": "number",
+      "description": "RETIRED RETIRED",
+      "const": 44
+    },
+    {
+      "type": "number",
+      "description": "BA BANKERSACCEPTANCE",
+      "const": 45
+    },
+    {
+      "type": "number",
+      "description": "BN BANKNOTES",
+      "const": 46
+    },
+    {
+      "type": "number",
+      "description": "BOX BILLOFEXCHANGES",
+      "const": 47
+    },
+    {
+      "type": "number",
+      "description": "CERTIFICA CERTIFICATEOFDEPOSIT",
+      "const": 48
+    },
+    {
+      "type": "number",
+      "description": "CALLLOANS CALLLOANS",
+      "const": 49
+    },
+    {
+      "type": "number",
+      "description": "COMMERCIA COMMERCIALPAPER",
+      "const": 50
+    },
+    {
+      "type": "number",
+      "description": "DEPOSITNO DEPOSITNOTES",
+      "const": 51
+    },
+    {
+      "type": "number",
+      "description": "EUROCERTI EUROCERTIFICATEOFDEPOSIT",
+      "const": 52
+    },
+    {
+      "type": "number",
+      "description": "EUROCOMME EUROCOMMERCIALPAPER",
+      "const": 53
+    },
+    {
+      "type": "number",
+      "description": "LIQUIDITY LIQUIDITYNOTE",
+      "const": 54
+    },
+    {
+      "type": "number",
+      "description": "MEDIUMTER MEDIUMTERMNOTES",
+      "const": 55
+    },
+    {
+      "type": "number",
+      "description": "OVERNIGHT OVERNIGHT",
+      "const": 56
+    },
+    {
+      "type": "number",
+      "description": "PROMISSOR PROMISSORYNOTE",
+      "const": 57
+    },
+    {
+      "type": "number",
+      "description": "PLAZOSFIJ PLAZOSFIJOS",
+      "const": 58
+    },
+    {
+      "type": "number",
+      "description": "SHORTTERM SHORTTERMLOANNOTE",
+      "const": 59
+    },
+    {
+      "type": "number",
+      "description": "TIMEDEPOS TIMEDEPOSIT",
+      "const": 60
+    },
+    {
+      "type": "number",
+      "description": "EXTENDEDC EXTENDEDCOMMNOTE",
+      "const": 61
+    },
+    {
+      "type": "number",
+      "description": "YANKEECER YANKEECERTIFICATEOFDEPOSIT",
+      "const": 62
+    },
+    {
+      "type": "number",
+      "description": "ASSETBACK ASSETBACKEDSECURITIES",
+      "const": 63
+    },
+    {
+      "type": "number",
+      "description": "CORPMORTG CORPMORTGAGEBACKEDSECURITIES",
+      "const": 64
+    },
+    {
+      "type": "number",
+      "description": "COLLATERA COLLATERALIZEDMORTGAGEOBLIGATION",
+      "const": 65
+    },
+    {
+      "type": "number",
+      "description": "IOETTEMOR IOETTEMORTGAGE",
+      "const": 66
+    },
+    {
+      "type": "number",
+      "description": "MORTGAGEB MORTGAGEBACKEDSECURITIES",
+      "const": 67
+    },
+    {
+      "type": "number",
+      "description": "MORTGAGEI MORTGAGEINTERESTONLY",
+      "const": 68
+    },
+    {
+      "type": "number",
+      "description": "MORTGAGEP MORTGAGEPRINCIPALONLY",
+      "const": 69
+    },
+    {
+      "type": "number",
+      "description": "MISCELLAN MISCELLANEOUSPASSTHROUGH",
+      "const": 71
+    },
+    {
+      "type": "number",
+      "description": "TBA TOBEANNOUNCED",
+      "const": 73
+    },
+    {
+      "type": "number",
+      "description": "OTHERANTI OTHERANTICIPATIONNOTESBANGAN",
+      "const": 74
+    },
+    {
+      "type": "number",
+      "description": "GENERALOB GENERALOBLIGATIONBONDS",
+      "const": 77
+    },
+    {
+      "type": "number",
+      "description": "MANDATORY MANDATORYTENDER",
+      "const": 78
+    },
+    {
+      "type": "number",
+      "description": "REVENUEAN REVENUEANTICIPATIONNOTE",
+      "const": 79
+    },
+    {
+      "type": "number",
+      "description": "REVENUEBO REVENUEBONDS",
+      "const": 80
+    },
+    {
+      "type": "number",
+      "description": "SPECIALAS SPECIALASSESSMENT",
+      "const": 81
+    },
+    {
+      "type": "number",
+      "description": "SPECIALOB SPECIALOBLIGATION",
+      "const": 82
+    },
+    {
+      "type": "number",
+      "description": "SPECIALTA SPECIALTAX",
+      "const": 83
+    },
+    {
+      "type": "number",
+      "description": "TAXANTICI TAXANTICIPATIONNOTE",
+      "const": 84
+    },
+    {
+      "type": "number",
+      "description": "TAXALLOCA TAXALLOCATION",
+      "const": 85
+    },
+    {
+      "type": "number",
+      "description": "TAXEXEMPT TAXEXEMPTCOMMERCIALPAPER",
+      "const": 86
+    },
+    {
+      "type": "number",
+      "description": "TAXREVENU TAXREVENUEANTICIPATIONNOTE",
+      "const": 87
+    },
+    {
+      "type": "number",
+      "description": "VARIABLER VARIABLERATEDEMANDNOTE",
+      "const": 88
+    },
+    {
+      "type": "number",
+      "description": "WARRANT WARRANT",
+      "const": 89
+    },
+    {
+      "type": "number",
+      "description": "MF MUTUALFUND",
+      "const": 90
+    },
+    {
+      "type": "number",
+      "description": "MULTILEGI MULTILEGINSTRUMENT",
+      "const": 91
+    },
+    {
+      "type": "number",
+      "description": "NONE NOSECURITYTYPE",
+      "const": 92
+    },
+    {
+      "type": "number",
+      "description": "FXSPOT DISPONÍVEL",
+      "const": 93
+    },
+    {
+      "type": "number",
+      "description": "SOPT OPÇÃO SOBRE DISPONÍVEL",
+      "const": 94
+    },
+    {
+      "type": "number",
+      "description": "FOPT OPÇÃO SOBRE FUTURO",
+      "const": 95
+    },
+    {
+      "type": "number",
+      "description": "DTERM TERMO",
+      "const": 96
+    },
+    {
+      "type": "number",
+      "description": "CASH CASH",
+      "const": 97
+    },
+    {
+      "type": "number",
+      "description": "CASHOPT CASHOPT",
+      "const": 98
+    },
+    {
+      "type": "number",
+      "description": "FORWARD FORWARD EQ",
+      "const": 99
+    },
+    {
+      "type": "number",
+      "description": "OPTEXER OPTEXER",
+      "const": 100
+    },
+    {
+      "type": "number",
+      "description": "INDEX INDEX",
+      "const": 101
+    },
+    {
+      "type": "number",
+      "description": "ETF ETF",
+      "const": 102
+    },
+    {
+      "type": "number",
+      "description": "INDEXOPT INDEXOPT",
+      "const": 103
+    },
+    {
+      "type": "number",
+      "description": "TB Non US Treasury Bill",
+      "const": 104
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}

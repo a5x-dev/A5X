@@ -1,0 +1,38 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:TradingDaysInfo",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:TradingDaysInfo"
+  },
+  "title" : "TradingDaysInfo",
+  "description" : "Information about different day count calculations for a financial instrument",
+  "type" : "object",
+  "properties" : {
+    "withdrawalDays" : {
+      "$ref" : "../../types/DaysRange.json",
+      "description" : "Number of withdrawal days, considering the trading date until the contract maturity date (inclusive)"
+    },
+    "workingDays" : {
+      "$ref" : "../../types/DaysRange.json",
+      "description" : "Number of business days, considering the trading date until the contract maturity date (inclusive)",
+      "examples" : [ 21, 63, 126 ]
+    },
+    "calendarDays" : {
+      "$ref" : "../../types/DaysRange.json",
+      "description" : "Number of calendar days, considering the trading date until the contract maturity date (inclusive)",
+      "examples" : [ 30, 90, 180 ]
+    }
+  },
+  "required" : [ "withdrawalDays", "workingDays", "calendarDays" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "withdrawalDays" : 90,
+    "workingDays" : 63,
+    "calendarDays" : 90
+  }, {
+    "withdrawalDays" : 180,
+    "workingDays" : 126,
+    "calendarDays" : 180
+  } ]
+}

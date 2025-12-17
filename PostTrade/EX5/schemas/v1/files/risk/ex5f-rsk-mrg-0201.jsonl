@@ -1,0 +1,51 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-mrg-02",
+  "$metadata" : {
+    "domain" : "risk",
+    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-mrg-02"
+  },
+  "title" : "Instrument Margin Rate",
+  "description" : "Margin or rate calculated for an instrument",
+  "type" : "object",
+  "properties" : {
+    "financialInstrumentIdentificationId" : {
+      "type" : "string",
+      "description" : "Proprietary identification of the instrument"
+    },
+    "financialInstrumentIdentificationSource" : {
+      "type" : "string",
+      "description" : "Source of instrument identification"
+    },
+    "financialInstrumentIdentificationExchange" : {
+      "type" : "string",
+      "description" : "MIC code of the exchange/market where the instrument is listed"
+    },
+    "tickerSymbol" : {
+      "type" : "string",
+      "description" : "Symbol of the instrument"
+    },
+    "currency" : {
+      "type" : "string",
+      "description" : "Currency for which the fee is calculated (ex: BRL, USD)"
+    },
+    "marketPrice" : {
+      "type" : "string",
+      "description" : "Market price of the instrument (amount in 'currency', up to 2 decimal places)"
+    },
+    "collateralMarginRate" : {
+      "type" : "string",
+      "description" : "Margin rate in percentage (0-100), up to 4 decimal places. Ex.: '7', '7.1253', '100.0000"
+    },
+    "riskPositionValueLong" : {
+      "type" : "string",
+      "description" : "Value of the purchased position considered for risk (in 'currency' currency)"
+    },
+    "riskPositionValueShort" : {
+      "type" : "string",
+      "description" : "Value of the position sold considered for risk (in 'currency')"
+    }
+  },
+  "required" : [ "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "tickerSymbol", "currency" ],
+  "additionalProperties" : false
+}

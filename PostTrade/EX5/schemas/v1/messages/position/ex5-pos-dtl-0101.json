@@ -1,0 +1,62 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-dtl-01",
+  "$metadata" : {
+    "domain" : "position",
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-dtl-01"
+  },
+  "title" : "Position Report Request",
+  "description" : "Message for position Report Request",
+  "type" : "object",
+  "properties" : {
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantInformation" : {
+      "$ref" : "../../objects/business/ParticipantAndAccount.json",
+      "description" : "Provides details about the origin participant and account identification"
+    },
+    "financialInstruments" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/InstrumentIdentification.json"
+      },
+      "minItems" : 1,
+      "description" : "Array of financial instruments"
+    },
+    "reportType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of report being requested",
+      "$comment" : "Consult External Code List table ExternalReportTypeCode.",
+      "examples" : [ 1, 2 ]
+    }
+  },
+  "required" : [ "participantInformation", "financialInstruments", "reportType" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "clearingMemberIdentification" : {
+      "id" : 999,
+      "category" : 2
+    },
+    "participantInformation" : {
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
+      "accountIdentification" : {
+        "id" : 987654321012345
+      }
+    },
+    "financialInstruments" : [ {
+      "id" : "100000000000001",
+      "source" : "8",
+      "exchange" : "A5X"
+    }, {
+      "id" : "100000000000002",
+      "source" : "8",
+      "exchange" : "A5X"
+    } ],
+    "reportType" : 1
+  } ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Trading Session Identification",
+  "description": "Codes for trading session identification",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Regular Day Session phases.",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Used for both Before and After Hours Market phases (Non Regular Session)",
+      "const": 6
+    }
+  ],
+  "examples": [
+    1,
+    6
+  ]
+}

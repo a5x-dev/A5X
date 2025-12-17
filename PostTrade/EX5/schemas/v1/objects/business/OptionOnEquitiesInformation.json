@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:OptionOnEquitiesInformation",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:OptionOnEquitiesInformation"
+  },
+  "title": "OptionOnEquitiesInformation",
+  "description": "Information specific to options on equities",
+  "type": "object",
+  "properties": {
+    "exercisePrice": {
+      "$ref": "../../objects/business/ExercisePrice.json",
+      "description": "Price at which the option can be exercised"
+    },
+    "exerciseStyle": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Style of the option exercise (e.g., American, European)",
+      "$comment": "Consult External Code List table ExternalOptionExerciseStyleCode"
+    },
+    "optionType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)",
+      "$comment": "Consult External Code List table ExternalOptionTypeCode"
+    },
+    "underlyingInstrumentIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the financial instrument"
+    },
+    "targetIdentification": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/InstrumentIdentification.json",
+        "description": "Identification of the financial instrument"
+      },
+      "minItems": 1,
+      "maxItems": 60
+    },
+    "protectionFlag": {
+      "type": "boolean",
+      "description": "Indicates if the option has protection"
+    },
+    "premiumUpfrontIndicator": {
+      "type": "boolean",
+      "description": "Indicates if the option premium is paid upfront"
+    },
+    "paymentType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Identifies the settlement method for the trade",
+      "$comment": "Consult External Code List table ExternalPaymentTypeCode"
+    },
+    "priceFactor": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Factor that indicates the number of shares used for price formation"
+    },
+    "daysToSettlement": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "Number of days to settlement"
+    },
+    "deliveryType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 6,
+      "description": "Delivery type identification number"
+    },
+    "openingPositionLimitDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Open position deadline date for the instrument"
+    },
+    "automaticExerciseIndicator": {
+      "type": "boolean",
+      "description": "Indicates if the option is automatically exercised at expiration if in-the-money"
+    }
+  },
+  "required": [
+    "exercisePrice",
+    "exerciseStyle",
+    "optionType",
+    "underlyingInstrumentIdentification",
+    "protectionFlag",
+    "premiumUpfrontIndicator",
+    "paymentType",
+    "priceFactor",
+    "daysToSettlement",
+    "deliveryType",
+    "automaticExerciseIndicator"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "exercisePrice": {
+        "amount": 35.5,
+        "currency": "BRL"
+      },
+      "exerciseStyle": "EURO",
+      "optionType": 1,
+      "underlyingInstrumentIdentification": {
+        "id": "100000000000001",
+        "source": "8",
+        "exchange": "A5X"
+      },
+      "targetIdentification": {
+        "id": "100000000000001",
+        "source": "8",
+        "exchange": "A5X"
+      },
+      "protectionFlag": false,
+      "premiumUpfrontIndicator": true,
+      "paymentType": 2,
+      "priceFactor": 100,
+      "daysToSettlement": 3,
+      "deliveryType": "CASH",
+      "openingPositionLimitDate": "2024-10-25",
+      "automaticExerciseIndicator": true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalPositionDirectionCode",
+  "description": "Codes for position direction",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Source",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Destination",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

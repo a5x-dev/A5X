@@ -1,0 +1,64 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-alc-can-02",
+  "$metadata" : {
+    "domain" : "capture_and_allocation",
+    "schemaId" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-alc-can-02"
+  },
+  "title" : "Allocation Exclusion Request",
+  "description" : "Allocation Exclusion Request",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the participant using proprietary scheme"
+    },
+    "instrument" : {
+      "$ref" : "../../objects/business/Instrument.json",
+      "description" : "Financial instrument information, including ISIN and ticker symbol"
+    },
+    "trade" : {
+      "$ref" : "../../objects/business/Trade.json",
+      "description" : "Trade information"
+    },
+    "allocationDistribution" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/AllocationDistributionCancelation.json",
+        "description" : "Allocation distribution information"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    }
+  },
+  "required" : [ "participantIdentification", "instrument", "trade", "allocationDistribution" ],
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "instrument" : {
+      "financialInstrumentIdentification" : {
+        "id" : "100000000000001",
+        "source" : "8",
+        "exchange" : "A5X1"
+      },
+      "tickerSymbol" : "DFZ0001"
+    },
+    "trade" : {
+      "tradeDate" : "2025-08-15",
+      "buySellIndicator" : 1,
+      "tradeIdentification" : "TRD2023121501"
+    },
+    "allocationDistribution" : [
+      {
+      "allocationIdentification" : "ALC001",
+      "accountIdentification" : {
+        "id": 123
+      },
+      "quantity" : "1000.00",
+      "individualAllocationIdentification": "123143"
+      }
+    ]
+  } ]
+}

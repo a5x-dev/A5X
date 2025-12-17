@@ -1,0 +1,14 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:RiskProfile",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:RiskProfile"
+  },
+  "title" : "Risk Profile",
+  "description" : "Risk profile classification - ExternalCustomerClassificationRiskCode",
+  "allOf" : [ {
+    "$ref" : "../objects/business/ExternalCodeList.json"
+  } ],
+  "examples" : [ "Consult External Code List table ExternalCustomerClassificationRiskCode" ]
+}

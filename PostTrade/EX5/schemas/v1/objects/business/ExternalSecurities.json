@@ -1,0 +1,91 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:ExternalSecurities",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:ExternalSecurities"
+  },
+  "title" : "External Securities Information",
+  "description" : "This block provides information about external securities collateral valuation",
+  "type" : "object",
+  "properties" : {
+    "collateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Collateral ID given by the requestor participant",
+      "examples" : [ "EXT-SEC-REF-001", "EXTERNAL-789012" ]
+    },
+    "quantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Quantity of other collateral"
+    },
+    "tradeDate" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Provides the date and time of trade transaction."
+    },
+    "settlementDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Settlement date of collateral."
+    },
+    "collateralCode" : {
+      "type" : "string",
+      "maxLength" : 50,
+      "description" : "Collateral code identification"
+    },
+    "maturityDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Date on which the other collateral expires"
+    },
+    "destinationDepositary" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Destination depositary code",
+      "$comment" : "Consult External Code List table ExternalDepositaryCode"
+    },
+    "originDepositary" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Origin depositary code",
+      "$comment" : "Consult External Code List table ExternalDepositaryCode"
+    },
+    "BICCode" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "BIC Code of the participant"
+    },
+    "accountCentralDepositary" : {
+      "type" : "string",
+      "description" : "DTC/Euroclear origin account"
+    },
+    "FEDAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "FED (ABA) origin account"
+    },
+    "accountNameSpecialInstructions" : {
+      "type" : "string",
+      "maxLength" : 20,
+      "description" : "Special instructions origin account's name"
+    },
+    "subAccountIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Unique and unambiguous identification for the account between the account owner and the account servicer"
+    }
+  },
+  "required" : [ "collateralIdentification", "quantity", "tradeDate", "settlementDate", "collateralCode", "maturityDate", "destinationDepositary", "originDepositary", "BICCode", "accountCentralDepositary" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralIdentification" : "EXT-SEC-REF-001",
+    "quantity" : "500.0",
+    "tradeDate" : "2024-06-15T10:30:00",
+    "settlementDate" : "2024-06-20",
+    "collateralCode" : "COLL-12345",
+    "maturityDate" : "2026-01-15",
+    "destinationDepositary" : 2,
+    "originDepositary" : 1,
+    "BICCode" : "BANKUS33XXX",
+    "accountCentralDepositary" : "123456",
+    "FEDAccount" : "021000021",
+    "accountNameSpecialInstructions" : "SPECIAL-INST-001",
+    "subAccountIdentification" : "SUB-ACC-001"
+  } ]
+}

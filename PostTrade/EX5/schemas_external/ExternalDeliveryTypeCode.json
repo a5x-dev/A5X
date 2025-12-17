@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Delivery Type",
+  "description": "Codes for delivery type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Physical Delivery",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Financial",
+      "const": 1
+    }
+  ],
+  "examples": [
+    0,
+    1
+  ]
+}

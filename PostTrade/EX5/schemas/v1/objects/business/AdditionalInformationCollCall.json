@@ -1,0 +1,65 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:AdditionalInformationCollCall",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:AdditionalInformationCollCall"
+  },
+  "title" : "Additional Information Collateral Call",
+  "description" : "Additional information about the participant's Margin and provides accurate information to assess portfolio risk. Informações adicionais sobre a margem do participante e fornece informações precisas para avaliar o risco do portfólio",
+  "type" : "object",
+  "properties" : {
+    "totalMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Summation of IM and Additional Margin calculated for Margin Account. Soma de IM e Margem Adicional calculada para Conta de Margem"
+    },
+    "initialMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Initial Margin calculated for Margin Account. Margem inicial calculada para conta de margem"
+    },
+    "totalAdditionalMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Summation of all the Additional Margins calculated for Margin Account except for Concentration Position Limit. Soma de todas as Margens Adicionais calculadas para a Conta de Margem, exceto para o Limite de Posição de Concentração"
+    },
+    "realizedVariationMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Realized Variation Margin calculated for the Margin Account. Margem de Variação Realizada calculada para a Conta de Margem"
+    },
+    "netLiquidityValue" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Net Liquidating value for the Margin Account. Valor líquido de liquidação da conta de margem"
+    }
+  },
+  "required" : [
+    "totalMargin",
+    "initialMargin",
+    "totalAdditionalMargin",
+    "realizedVariationMargin",
+    "netLiquidityValue"
+  ],
+  "additionalProperties" : true,
+  "examples" : [
+    {
+      "totalMargin" : {
+        "currency" : "BRL",
+        "amount" : "150000.50"
+      },
+      "initialMargin" : {
+        "currency" : "BRL",
+        "amount" : "100000.25"
+      },
+      "totalAdditionalMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.25"
+      },
+      "realizedVariationMargin" : {
+        "currency" : "BRL",
+        "amount" : "25000.00"
+      },
+      "netLiquidityValue" : {
+        "currency" : "BRL",
+        "amount" : "200000.75"
+      }
+    }
+  ]
+}

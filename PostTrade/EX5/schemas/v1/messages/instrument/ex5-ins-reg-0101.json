@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:instrument:ex5-ins-reg-01",
+  "$metadata": {
+    "domain": "instrument",
+    "schemaId": "urn:a5x:ex5:schema:v1:instrument:ex5-ins-reg-01"
+  },
+  "title": "InstrumentsMessage",
+  "description": "Message for registering financial instruments in the A5X system",
+  "type": "object",
+  "properties": {
+    "financialInstrumentIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the financial instrument"
+    },
+    "instrumentCommonAttributes": {
+      "$ref": "../../objects/business/InstrumentCommonAttributes.json",
+      "description": "Attributes and classification of the financial instrument"
+    },
+    "optionOnEquitiesInformation": {
+      "$ref": "../../objects/business/OptionOnEquitiesInformation.json",
+      "description": "This block contains information specific to options on equities"
+    },
+    "futureContractsInformation": {
+      "$ref": "../../objects/business/FutureContractsInformation.json",
+      "description": "This block contains information specific to future contracts"
+    },
+    "optionOnFuturesInformation": {
+      "$ref": "../../objects/business/OptionOnFuturesInformation.json",
+      "description": "This block contains information specific to options on futures"
+    }
+  },
+  "oneOf": [
+    {
+      "required": [
+        "financialInstrumentIdentification",
+        "instrumentCommonAttributes",
+        "optionOnEquitiesInformation"
+      ]
+    },
+    {
+      "required": [
+        "financialInstrumentIdentification",
+        "instrumentCommonAttributes",
+        "futureContractsInformation"
+      ]
+    },
+    {
+      "required": [
+        "financialInstrumentIdentification",
+        "instrumentCommonAttributes",
+        "optionOnFuturesInformation"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "financialInstrumentIdentification": {
+        "id": "10000000000000001",
+        "source": "8",
+        "exchange": "A5X"
+      },
+      "optionOnEquitiesInformation": {
+        "exercisePrice": {
+          "amount": 35.5,
+          "currency": "BRL"
+        },
+        "exerciseStyle": "EURO",
+        "optionType": 1,
+        "deliveryType": "CASH",
+        "priceFactor": 10,
+        "protectionFlag": true,
+        "daysToSettlement": 3,
+        "paymentType": 1,
+        "underlyingInstrumentIdentification":
+          {
+            "id": "10000000000000001",
+            "source": "8",
+            "exchange": "A5X"
+          },
+        "premiumUpfrontIndicator": true,
+        "openingPositionLimitDate": "2024-12-31",
+        "automaticExerciseIndicator": true
+      },
+      "instrumentCommonAttributes": {
+        "asset": "FUTURE",
+        "assetDescription": "Dollar Future Contract",
+        "market": 2,
+        "segment": 9,
+        "instrumentDescription": "DOLLAR FUTURE CONTRACT",
+        "tickerSymbol": "DOLZ24",
+        "securityCategory": 2,
+        "isin": "BRDOLLFUT001",
+        "cfiCode": "FXXXXX",
+        "currency": "BRL",
+        "expirationDate": "2024-12-31",
+        "expirationCode": "1",
+        "allocationRoundLot": 5,
+        "tradingStartDate": "2024-01-01",
+        "tradingEndDate": "2024-12-30"
+      }
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Issuer",
+  "description": "Codes for issuer",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "RECEITA FEDERAL",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "SECRETARIA DE SEGURANÇA PÚBLICA",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "POLÍCIA FEDERAL",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "DETRAN",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "MINISTÉRIO DA AERONÁUTICA",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "FORÇAS ARMADAS",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "MINISTÉRIO DO EXÉRCITO",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "MINISTÉRIO DAS RELACÕES EXTERIORES",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "MINISTÉRIO PÚBLICO",
+      "const": 27
+    },
+    {
+      "type": "number",
+      "description": "MINISTÉRIO DA MARINHA",
+      "const": 28
+    },
+    {
+      "type": "number",
+      "description": "OUTROS ORGAOS",
+      "const": 32
+    },
+    {
+      "type": "number",
+      "description": "TRIBUNAL REGIONAL ELEITORAL",
+      "const": 36
+    },
+    {
+      "type": "number",
+      "description": "COMISSÃO DE VALORES MOBILIÁRIOS",
+      "const": 37
+    },
+    {
+      "type": "number",
+      "description": "B3",
+      "const": 40
+    },
+    {
+      "type": "number",
+      "description": "BANCO CENTRAL DO BRASIL",
+      "const": 41
+    },
+    {
+      "type": "number",
+      "description": "POLÍCIA CIVIL",
+      "const": 62
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    6
+  ]
+}

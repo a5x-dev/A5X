@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Pre Contract Type",
+  "description": "Codes for pre contract type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Regular - oferta doadora",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Regular - oferta tomadora",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Regular - direto",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Compulsório",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Diferenciado",
+      "const": 5
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Request Type",
+  "description": "Codes for request type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Custo Unitário",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Custo Unitário Taxa de Juros",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Tarifas Calculadas",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

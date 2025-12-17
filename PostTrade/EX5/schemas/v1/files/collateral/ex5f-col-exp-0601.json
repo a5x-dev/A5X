@@ -1,0 +1,420 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-exp-06",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-exp-06"
+  },
+  "title" : "Collateral And Exposure Report File Schema",
+  "description" : "Collateral And Exposure Report File Schema",
+  "type" : "object",
+  "properties" : {
+    "frequency" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Frequency of the report",
+      "$comment" : "Consult External Code List table EventFrequency6Code"
+    },
+    "reportNumber" : {
+      "type" : "string",
+      "pattern" : "^[0-9]{5}$",
+      "description" : "Sequential number of the report"
+    },
+    "reportDateAndTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Reference date of the information"
+    },
+    "paginationId" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Unique identifier for the pagination set"
+    },
+    "pageNumber" : {
+      "type" : "string",
+      "pattern" : "^[0-9]{1,5}$",
+      "description" : "Current page number"
+    },
+    "lastPageIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if this is the last page"
+    },
+    "clearingMemberIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Clearing member identifier provided by A5X during the participant registration"
+    },
+    "clearingMemberIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Clearing member category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "valuationDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Indicates the deposit date. Indica a data de depósito de garantias"
+    },
+    "accountIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "documentType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Document type code",
+      "$comment" : "Consult External Code List table ExternalIdentificationTypeCode"
+    },
+    "documentNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "pattern" : "^[A-Za-z0-9]+$",
+      "description" : "Document number (alphanumeric characters only, no special characters)"
+    },
+    "country" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Bank country",
+      "$comment" : "ISO 3166-1 alpha-3 country code, Consult ExternalCodeList table ExternalCountryCode"
+    },
+    "personType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Type of person",
+      "$comment" : "Consult External Code List table ExternalPersonTypeCode"
+    },
+    "residenceStatus" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Professional's residence status",
+      "$comment" : "Consult External Code List table ExternalResidenceStatusCode"
+    },
+    "collateralClientCategory" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Provides client category",
+      "$comment" : "Consult External Code List table CollateralClientCategoryCode"
+    },
+    "valuationDateTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Indicates the deposit date and time"
+    },
+    "marginCollateralCoverageType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Margin collateral coverage identification",
+      "$comment" : "Consult External Code List table ExternalCollateralCoverageTypeCode"
+    },
+    "marginTotalValueOfCollateral" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Total value of the collateral (post-haircut) held by the exposed party"
+    },
+    "marginRiskWithoutCollateral" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Risk Exposure without collaterals at EoD"
+    },
+    "marginAdditionalMargin" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Additional Margin based on positions limit"
+    },
+    "marginToBeSettledValue" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "To be settled value"
+    },
+    "marginCall" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Margin Call"
+    },
+    "marginCollateralBalance" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Remaining value (positive value) or debit (negative value) of collateral"
+    },
+    "marginInformationType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Information regarding the party collateral position",
+      "$comment" : "Consult External Code List table ExternalInformationTypeCode"
+    },
+    "officialTotalMarginAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Summation of IM and Additional Margin calculated for Margin Account"
+    },
+    "officialTotalMarginCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for official total margin",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "officialInitialMarginAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Initial Margin calculated for Margin Account"
+    },
+    "officialInitialMarginCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for official initial margin",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "officialTotalAMAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Summation of all the Additional Margins calculated for Margin Account except for Concentration Position Limit"
+    },
+    "officialTotalAMCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for official total AM",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "officialRealizedVariationMarginAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Realized Variation Margin calculated for the Margin Account"
+    },
+    "officialRealizedVariationMarginCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for official realized variation margin",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "officialNetLiquidityValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Net Liquidating value for the Margin Account"
+    },
+    "officialNetLiquidityValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for official net liquidity value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "intradayTotalMarginAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Summation of IM and Additional Margin calculated for Margin Account (intraday)"
+    },
+    "intradayTotalMarginCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for intraday total margin",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "intradayInitialMarginAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Initial Margin calculated for Margin Account (intraday)"
+    },
+    "intradayInitialMarginCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for intraday initial margin",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "intradayTotalAMAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Summation of all the Additional Margins calculated for Margin Account except for Concentration Position Limit (intraday)"
+    },
+    "intradayTotalAMCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for intraday total AM",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "intradayRealizedVariationMarginAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Realized Variation Margin calculated for the Margin Account (intraday)"
+    },
+    "intradayRealizedVariationMarginCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for intraday realized variation margin",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "intradayNetLiquidityValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Net Liquidating value for the Margin Account (intraday)"
+    },
+    "intradayNetLiquidityValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for intraday net liquidity value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "intradayRiskLimitAssigned" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "This block contains the value of the intraday risk limit determined by the responsible in the chain of responsibility"
+    },
+    "riskWithoutCollateralIntraday" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Risk Exposure without collaterals at EoD (intraday)"
+    },
+    "collateralCoverageType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Collateral coverage identification",
+      "$comment" : "Consult External Code List table ExternalCollateralCoverageTypeCode"
+    },
+    "assetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "A number that unambiguously identifies the collateral. Provides the deposit record number"
+    },
+    "holderIndicator" : {
+      "type" : "boolean",
+      "description" : "Identifies if the deposit was made by the collateral holder"
+    },
+    "coverageMarginIndicator" : {
+      "type" : "boolean",
+      "description" : "Identifies if the collateral covers the margin"
+    },
+    "collateralType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Provides collateral type code",
+      "$comment" : "Consult External Code List table ExternalCollateralTypeCode"
+    },
+    "collateralSubType" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides collateral sub type"
+    },
+    "financialInstrumentId" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Proprietary identification of an instrument"
+    },
+    "financialInstrumentSource" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Source of the instrument identification"
+    },
+    "financialInstrumentExchange" : {
+      "type" : "string",
+      "maxLength" : 4,
+      "minLength" : 4,
+      "description" : "Identifier code of the exchange where the instrument is listed"
+    },
+    "federalBondCollateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued collateral"
+    },
+    "federalBondMaturityDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Provides maturity date of federal bond collateral"
+    },
+    "federalBondAssignerAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides assigner account identification"
+    },
+    "federalBondAssigneeAccount" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides identification about assignee account"
+    },
+    "depositedQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Deposited quantity"
+    },
+    "valuedQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Accepted collateral quantity"
+    },
+    "deliveryQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Distributed collateral quantity to another account"
+    },
+    "blockedQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Blocked quantity by clearing"
+    },
+    "collateralValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Collateral accepted value amount after taking into account the haircut"
+    },
+    "collateralValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for collateral value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "withdrawalBlockedValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Blocked value amount by clearing"
+    },
+    "withdrawalBlockedValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for withdrawal blocked value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    }
+  },
+  "required" : [ "frequency", "reportDateAndTime", "paginationId", "pageNumber", "lastPageIndicator", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "valuationDate" ],
+  "additionalProperties" : false
+}

@@ -1,0 +1,30 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:ExternalSecuritiesMovement",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:ExternalSecuritiesMovement"
+  },
+  "title" : "External Securities Information Movement",
+  "description" : "External securities information for movement operations with collateral reference and maturity date",
+  "type" : "object",
+  "properties" : {
+    "collateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued collateral",
+      "examples" : [ "EXT-SEC-REF-001", "EXTERNAL-789012", "COL-REF-12345" ]
+    },
+    "maturityDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Provides maturity date of Treasury collateral",
+      "examples" : [ "2025-12-31", "2026-06-30", "2024-03-15" ]
+    }
+  },
+  "required" : [ "collateralReference", "maturityDate" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralReference" : "EXT-SEC-REF-001",
+    "maturityDate" : "2025-12-31"
+  } ]
+}

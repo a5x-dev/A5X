@@ -1,0 +1,40 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-rsp-07",
+  "$metadata" : {
+    "domain" : "technical",
+    "schemaId" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-rsp-07"
+  },
+  "title" : "Session Details Response",
+  "description" : "Response message for ex5-tec-req-0501 with details about the response to the session details request, including the configured messages and throttling in the sessions",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "throttling" : {
+      "type" : "integer",
+      "description" : "Maximum number of incoming messages configured within a especific interval",
+      "minimum" : 0
+    },
+    "messages" : {
+      "type" : "array",
+      "description" : "List of response messages related to the registration operation",
+      "items" : {
+        "type" : "string",
+        "description" : "A single response message"
+      }
+    }
+  },
+  "required" : [ "participantIdentification", "throttling", "messages" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "throttling" : 100,
+    "messages" : [ "ex5-reg-rsp-0301", "ex5-reg-src-0101" ]
+  } ]
+}

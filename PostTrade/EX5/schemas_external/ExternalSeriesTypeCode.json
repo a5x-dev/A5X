@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Series Type",
+  "description": "Codes for series type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "SEM CORRECAO",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "CORRECAO PELA TAXA DO DOLAR (NAO PROTEGIDA)",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "CORRECAO PELA TJLP",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "CORRECAO PELA TR",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "CORRECAO PELO IPCR",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "OPCOES DE TROCA - SWOPTIONS",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "OPCOES EM PONTOS DE INDICES",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "CORRECAO PELA TAXA DO DOLAR (PROTEGIDA)",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "CORRECAO PELO IGP-M - OPCOES PROTEGIDAS",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "CORRECAO PELA URV",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "CORRECAO PELO DI",
+      "const": 234
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}

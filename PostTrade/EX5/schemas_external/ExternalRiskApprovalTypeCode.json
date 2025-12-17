@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalRiskApprovalTypeCode",
+  "description": "Codes for risk approval type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Risk",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Cancellation",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Position",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

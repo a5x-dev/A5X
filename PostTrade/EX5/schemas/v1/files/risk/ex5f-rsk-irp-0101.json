@@ -1,0 +1,185 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-irp-01",
+  "$metadata" : {
+    "domain" : "risk",
+    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-irp-01"
+  },
+  "title" : "Risk Position Calculation Response",
+  "description" : "Risk Position Calculation Response",
+  "type" : "object",
+  "properties" : {
+    "triggerResultMarginRunId" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 35,
+      "description" : "Run ID of the margin calculation instance"
+    },
+    "triggerResultTimeStamp" : {
+      "type" : "string",
+      "description" : "Time and Date when the calculation occurred, in YYYY-MM-DD HH:MM:SS format"
+    },
+    "triggerResultCalculationType" : {
+      "type" : "string",
+      "description" : "Calculation Type code",
+      "$comment" : "Consult External Code List table ExternalCalculationTypeCode"
+    },
+    "clearingMemberIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "clearingMemberIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode."
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode."
+    },
+    "accountIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "currency" : {
+      "type" : "string",
+      "description" : "Currency code in which the amount is denominated",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "collateralPositionFinancialInstrumentIdentificationId" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Proprietary identification of an instrument"
+    },
+    "collateralPositionFinancialInstrumentIdentificationSource" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Source of the instrument identification"
+    },
+    "collateralPositionFinancialInstrumentIdentificationExchange" : {
+      "type" : "string",
+      "description" : "Identifier code of the exchange where the instrument is listed"
+    },
+    "collateralPositionTickerSymbol" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Letters that identify stocks traded on stock exchange"
+    },
+    "collateralPositionQuantity" : {
+      "type" : "string",
+      "description" : "Quantity of the Collateral Position"
+    },
+    "collateralPositionCollateralValueAmount" : {
+      "type" : "string",
+      "pattern" : "^-?\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Monetary amount with up to 2 decimal places"
+    },
+    "collateralPositionCollateralValueCurrency" : {
+      "type" : "string",
+      "description" : "Currency code in which the amount is denominated",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "marginPositionFinancialInstrumentIdentificationId" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Proprietary identification of an instrument"
+    },
+    "marginPositionFinancialInstrumentIdentificationSource" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Source of the instrument identification"
+    },
+    "marginPositionFinancialInstrumentIdentificationExchange" : {
+      "type" : "string",
+      "description" : "Identifier code of the exchange where the instrument is listed"
+    },
+    "marginPositionTickerSymbol" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Letters that identify stocks traded on stock exchange"
+    },
+    "marginPositionExpiryDate" : {
+      "type" : "string",
+      "description" : "Expiry date of the instrument for the margin position, in YYYY-MM-DD format"
+    },
+    "marginPositionNetPosition" : {
+      "type" : "string",
+      "description" : "Value of the Net Position for the margin position (Long Position - Short Position)"
+    },
+    "marginPositionNetValueAmount" : {
+      "type" : "string",
+      "pattern" : "^-?\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Monetary amount with up to 2 decimal places"
+    },
+    "marginPositionNetValueCurrency" : {
+      "type" : "string",
+      "description" : "Currency code in which the amount is denominated",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "marginPositionBroughtForwardNetValueAmount" : {
+      "type" : "string",
+      "pattern" : "^-?\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Monetary amount with up to 2 decimal places"
+    },
+    "marginPositionBroughtForwardNetValueCurrency" : {
+      "type" : "string",
+      "description" : "Currency code in which the amount is denominated",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "marginPositionImSubPortfolio" : {
+      "type" : "string",
+      "description" : "IM sub portfolio of the instrument for the margin position"
+    },
+    "marginPositionLongPosition" : {
+      "type" : "string",
+      "description" : "Amount of Long Position for the margin position"
+    },
+    "marginPositionShortPosition" : {
+      "type" : "string",
+      "description" : "Amount of Short Position for the margin position"
+    },
+    "marginPositionLongValueAmount" : {
+      "type" : "string",
+      "pattern" : "^-?\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Monetary amount with up to 2 decimal places"
+    },
+    "marginPositionLongValueCurrency" : {
+      "type" : "string",
+      "description" : "Currency code in which the amount is denominated",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "marginPositionShortValueAmount" : {
+      "type" : "string",
+      "pattern" : "^-?\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Monetary amount with up to 2 decimal places"
+    },
+    "marginPositionShortValueCurrency" : {
+      "type" : "string",
+      "description" : "Currency code in which the amount is denominated",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    }
+  },
+  "required" : [ "triggerResultMarginRunId", "triggerResultTimeStamp", "triggerResultCalculationType", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "participantIdentificationId", "participantIdentificationCategory", "accountIdentificationId" ],
+  "additionalProperties" : false
+}

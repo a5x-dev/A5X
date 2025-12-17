@@ -1,0 +1,27 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-err-02",
+  "$metadata" : {
+    "domain" : "technical",
+    "schemaId" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-err-02"
+  },
+  "title" : "Technical Error Response",
+  "description" : "Response message for technical and business error",
+  "type" : "object",
+  "properties" : {
+    "error" : {
+      "$ref" : "../../objects/tech/StatusError.json",
+      "description" : "Technical error details"
+    }
+  },
+  "required" : [ "error" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "error" : {
+      "code" : 1,
+      "message" : "Error X",
+      "errorDescription" : "COD12452",
+      "refId" : "REF12345"
+    }
+  } ]
+}

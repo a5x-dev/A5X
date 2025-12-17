@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:BreakingRules",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:BreakingRules"
+  },
+  "title": "Breaking rules information",
+  "description": "Information about operations performed outside regular trading hours",
+  "$comment": "This schema captures details about operations that occur outside the defined trading hours, including responsibility and justification for such operations",
+  "type": "object",
+  "properties": {
+    "breakingRuleIndicator": {
+      "type": "boolean",
+      "description": "Indicates if the operation was requested outside the time limit",
+      "$comment": "When true, indicates a breaking rule that requires justification"
+    },
+    "breakingRuleDelayResponsibility": {
+      "type": "boolean",
+      "description": "Indicates which participant is responsible for the breaking rule operation",
+      "$comment": "Required when breakingRuleIndicator is true. True indicates the current participant is responsible, false indicates the counterparty is responsible"
+    },
+    "breakingRuleReason": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Justification for the breaking rule operation",
+      "$comment": "Consult External Code List table ExternalBreakingRuleReasonCode. Required when breakingRuleIndicator is true"
+    }
+  },
+  "required": [],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "breakingRuleIndicator": true,
+      "breakingRuleDelayResponsibility": true,
+      "breakingRuleReason": 1
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Penalty Type",
+  "description": "Codes for penalty type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "A – Multa D+3",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "B – Multa D+4",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "C – Multa adicional de D+3 (não justificada)",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "D – Multa adicional de D+4 (não justificada)",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "E – Multa adicional de D+3 (justificada e não aceita pela BVMF)",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "F – Multa adicional de D+4 (justificada e não aceita pela BVMF)",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "G – Multa por Follow on",
+      "const": 7
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

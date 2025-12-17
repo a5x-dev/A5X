@@ -1,0 +1,13 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:SegmentType",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:SegmentType"
+  },
+  "title" : "Segment",
+  "type" : "string",
+  "description" : "Code_that_identifies_a_traded/registered_instrument_on_a_stock_exchange.",
+  "enum" : [ "1-EQT_CASH", "2-EQT_DRV", "3-FXD_INC", "4-AGRO", "5-FIN", "6-METAL", "7-ENERGY", "8-GOV_BONDS", "9-FX", "10-OTC", "11-INDI", "12-OTC_TSECL", "13-OTC_FXD_INC" ],
+  "examples" : [ "7-ENERGY" ]
+}

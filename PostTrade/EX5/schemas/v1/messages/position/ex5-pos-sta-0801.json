@@ -1,0 +1,40 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-sta-08",
+  "$metadata" : {
+    "domain" : "position",
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-sta-08"
+  },
+  "title" : "Position Status Request",
+  "description" : "Message for position status request",
+  "type" : "object",
+  "properties" : {
+    "positionTransferReference" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "minLength" : 1,
+      "pattern" : "^[A-Z0-9]{1,15}$",
+      "description" : "Position transfer reference identifier",
+      "examples" : [ "PST123456789012", "TRANSFER001", "POS12345" ]
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "transferRole" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Transfer role code",
+      "$comment" : "Consult External Code List table ExternalTransferRoleCode"
+    }
+  },
+  "required" : [ "positionTransferReference", "participantIdentification", "transferRole" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "positionTransferReference" : "PST123456789012",
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "transferRole" : 1
+  } ]
+}

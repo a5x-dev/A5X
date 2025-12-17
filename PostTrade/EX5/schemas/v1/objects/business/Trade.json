@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:Trade",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:Trade"
+  },
+  "title": "Trade Capture",
+  "description": "Trade information including account details, trade date, buy/sell indicator, and trade identification",
+  "type": "object",
+  "properties": {
+    "tradeDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Trade date in ISO format"
+    },
+    "buySellIndicator": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Indicates whether the trade is a buy or sell",
+      "$comment": "Consult External Code List table ExternalBuySellIndicatorCode"
+    },
+    "tradeIdentification": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Trade identification number"
+    },
+    "allocationIdentification": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Allocation identification number"
+    },
+    "statusCode": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Trade status code",
+      "$comment": "Consult External Code List table ExternalTradeStatusCode"
+    }
+  },
+  "required": [
+    "tradeDate",
+    "buySellIndicator",
+    "tradeIdentification"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "tradeDate": "2023-06-15",
+      "buySellIndicator": 1,
+      "tradeIdentification": "TRADE123456",
+      "allocationIdentification": "ALLOC123456",
+      "statusCode": 1
+    }
+  ]
+}

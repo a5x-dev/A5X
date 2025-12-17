@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Collateral Executed Movement Type",
+  "description": "Codes for collateral executed movement type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Instituição Financeira",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Janela de Liquidação",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Outros",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Mensagem LDL",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Janela de Liquidação - Margem",
+      "const": 5
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Pending Approval",
+  "description": "Codes for pending approval",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Destination Clearing Member",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Origin Clearing Member",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Clearing House",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Collateral System",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Destination TP DP",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Origin TP DP",
+      "const": 6
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

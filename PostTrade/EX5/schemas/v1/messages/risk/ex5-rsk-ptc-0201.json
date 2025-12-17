@@ -1,0 +1,95 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-ptc-02",
+  "$metadata" : {
+    "domain" : "risk",
+    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-ptc-02"
+  },
+  "title" : "Participant Risk Calculation Response",
+  "description" : "Operational limit calculation details for a participant, including participant identification, trade date, trigger information, individual components, and the total consolidated value.",
+  "type" : "object",
+  "properties" : {
+    "triggerResult" : {
+      "$ref" : "../../objects/business/TriggerResult.json",
+      "description" : "Details of the trigger result for the risk position, including the margin run ID, timestamp, and calculation type."
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification."
+    },
+    "tradeDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Trade date associated with the operational limit calculation, in ISO format (YYYY-MM-DD)."
+    },
+    "intradayRiskLimitAssigned" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Intraday risk limit assigned to the intermediary full or settlement participant."
+    },
+    "operationalLimitCollateral" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Collateral value deposited to cover the intraday risk exposure of the intermediary full or settlement participant."
+    },
+    "riskExposure" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Intraday risk exposure calculated for the intermediary full or settlement participant."
+    },
+    "nonAllocatedRisk" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Portion of the intraday risk exposure that has not yet been allocated."
+    },
+    "residualRiskInvestor" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Residual risk per investor after all applicable allocations."
+    },
+    "additionalMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Additional margin required to cover the residual exposure."
+    },
+    "operationalLimit" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Total operational limit calculated as the sum of all related risk components."
+    }
+  },
+  "required" : [ "triggerResult", "participantIdentification", "tradeDate", "intradayRiskLimitAssigned", "operationalLimitCollateral", "riskExposure", "nonAllocatedRisk", "residualRiskInvestor", "additionalMargin", "operationalLimit" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "triggerResult" : {
+      "marginRunId" : "MR-20251003-001",
+      "timeStamp" : "2025-10-03T12:00:00Z",
+      "calculationType" : "HF"
+    },
+    "participantIdentification" : {
+      "id" : 123456,
+      "category" : 3
+    },
+    "tradeDate" : "2025-10-03",
+    "intradayRiskLimitAssigned" : {
+      "amount" : "250000.00",
+      "currency" : "BRL"
+    },
+    "operationalLimitCollateral" : {
+      "amount" : "200000.00",
+      "currency" : "BRL"
+    },
+    "riskExposure" : {
+      "amount" : "180000.00",
+      "currency" : "BRL"
+    },
+    "nonAllocatedRisk" : {
+      "amount" : "20000.00",
+      "currency" : "BRL"
+    },
+    "residualRiskInvestor" : {
+      "amount" : "5000.00",
+      "currency" : "BRL"
+    },
+    "additionalMargin" : {
+      "amount" : "3000.00",
+      "currency" : "BRL"
+    },
+    "operationalLimit" : {
+      "amount" : "658000.00",
+      "currency" : "BRL"
+    }
+  } ]
+}

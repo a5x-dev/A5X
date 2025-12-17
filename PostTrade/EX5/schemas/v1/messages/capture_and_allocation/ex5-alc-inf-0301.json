@@ -1,0 +1,168 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-alc-inf-03",
+  "$metadata" : {
+    "domain" : "capture_and_allocation",
+    "schemaId" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-alc-inf-03"
+  },
+  "title" : "Inform Give Up Pending Approval",
+  "description" : "Inform Give Up Pending Approval",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the participant."
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Identification of the account associated with the trade."
+    },
+    "participantDestinationIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the participant taking the allocation."
+    },
+    "accountDestinationIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Identification of the account associated with the trade."
+    },
+    "giveUp" : { 
+        "$ref" : "../../objects/business/GiveUp.json",
+      "description" : "Information about the give-up allocation."
+    },
+    "instrument" : {
+      "allOf" : [ {
+        "$ref" : "../../objects/business/Instrument.json"
+      }, {
+        "required" : [ "financialInstrumentIdentification", "tickerSymbol", "segment", "market" ]
+      } ],
+      "description" : "Financial instrument information."
+    },
+    "trade" : {
+      "$ref" : "../../objects/business/Trade.json",
+      "description" : "Trade information"
+    },
+    "tradeDetails" : {
+      "$ref" : "../../objects/business/TradeDetails.json",
+      "description" : "Trade execution information including quantity, value, and transaction date/time"
+    },
+    "strategyTrade" : {
+      "$ref" : "../../objects/business/StrategyTrade.json",
+      "description" : "Additional information for strategy trades, such as future prices and delta"
+    },
+    "trader" : {
+      "$ref" : "../../objects/business/Trader.json",
+      "description" : "Trader information, including desk and senderCompID"
+    },
+    "compressionGroupIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if the operation is derived from block capture",
+      "$comment" : "When true, the allocation was created as part of a block trade that was split into multiple allocations. This affects how the allocation is processed and reported."
+    },
+    "allocationIdentification": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Primary allocation identification number assigned by the system",
+      "$comment": "This is the main identifier used by the central system to track allocations"
+    },
+    "allocationStatus" : {
+      "$ref" : "../../objects/business/AllocationStatus.json",
+      "description" : "Status information for the allocation including processing codes"
+    },
+    "breakingRules" : {
+      "$ref" : "../../objects/business/BreakingRules.json",
+      "description" : "Breaking rules information",
+      "$comment" : "Optional field. Required only when the allocation maintenance is being performed outside regular trading hours"
+    },
+    "tradeParticipantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the participant using proprietary scheme"
+    },
+    "averagePriceAllocation" : {
+      "$ref" : "../../objects/business/AveragePriceIndicator.json",
+      "description" : "Average price group and execution time information"
+    }
+  },
+  "required" : [ "participantIdentification", "accountIdentification", "participantDestinationIdentification", "accountDestinationIdentification", "giveUp", "instrument", "trade", "tradeDetails", "allocationIdentification", "allocationStatus" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 987654321012345
+    },
+    "participantDestinationIdentification" : {
+      "id" : 998,
+      "category" : 3
+    },
+    "accountDestinationIdentification" : {
+      "id" : 987654321012341
+    },
+    "giveUp" : {
+      "giveUpQuantity" : "1000",
+      "giveUpDateAndTime" : "2025-08-28T15:00:00Z"
+    },
+    "instrument" : {
+      "financialInstrumentIdentification" : {
+        "id" : "100000000000001",
+        "source" : "8",
+        "exchange" : "A5X"
+      },
+      "tickerSymbol" : "DFZ0001",
+      "segment" : 1,
+      "market" : 1,
+      "optionType" : 1
+    },
+    "trade" : {
+      "tradeDate" : "2025-08-27",
+      "buySellIndicator" : 1,
+      "tradeIdentification" : "TRD2023121501"
+    },
+    "tradeDetails" : {
+      "transactionDateTime" : "2025-08-27T14:00:00Z",
+      "tradeQuantity" : "1500.00",
+      "orderIdentification" : "ORD2025082701ABCDEF",
+      "tradeMatchIdentification" : "MATCH20250",
+      "secondaryTradeMatchIdentification" : "SMATCH2025",
+      "tradingSessionIdentification" : 1,
+      "securityTradingStatus" : 1,
+      "tradeSubType" : 37,
+      "sideTradeSubType" : "NORMAL",
+      "tradeTransactionType" : 0,
+      "strategySymbol" : "DFZ0001",
+      "strategyType" : "ST",
+      "dealPrice" : "10000.123456",
+      "isAggressor" : true
+    },
+    "strategyTrade" : {
+      "shortFuturePrice" : "750.123456",
+      "longFuturePrice" : "850.123456",
+      "delta" : "0.123456"
+    },
+    "trader" : {
+      "traderIdentification" : "TRADER001",
+      "tradingDeskIdentification" : "DESK001",
+      "senderCompIdentification" : "COMPANY123",
+      "memo" : "Initial trade setup"
+    },
+    "allocationIdentification" : "ALCXPTO21230001",
+    "allocationStatus" : {
+      "allocationStatusCode" : 1
+    },
+    "breakingRules" : {
+      "breakingRuleIndicator" : true,
+      "breakingRuleDelayResponsibility" : true,
+      "breakingRuleReason" : 1
+    },
+    "tradeParticipantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "averagePriceAllocation" : {
+      "averagePriceGroupIndicator" : true,
+      "averageExecutionTime" : "2025-08-27T14:30:00Z"
+    }
+  } ]
+}

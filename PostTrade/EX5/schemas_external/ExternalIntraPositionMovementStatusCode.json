@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Intra Position Movement Status",
+  "description": "Codes for intra position movement status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Recebido",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Pendente",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Rejeitado",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Cancelado",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Erro",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Aprovado pelo PNP/PNL",
+      "const": 6
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

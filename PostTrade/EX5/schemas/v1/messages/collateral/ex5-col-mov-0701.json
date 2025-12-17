@@ -1,0 +1,49 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-mov-07",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-mov-07"
+  },
+  "title" : "Collateral Movement Request",
+  "description" : "Message for collateral movement request",
+  "type" : "object",
+  "properties" : {
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    },
+    "collateralMovementInformation" : {
+      "$ref" : "../../objects/business/CollateralMovementInformation.json",
+      "description" : "Contains the query about the collateral movement done during the day"
+    }
+  },
+  "required" : [ "clearingMemberIdentification", "collateralMovementInformation" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 115
+    },
+    "collateralMovementInformation" : {
+      "holderType" : 2,
+      "collateralCoverageType" : 1,
+      "collateralMovementType" : 0
+    }
+  } ]
+}

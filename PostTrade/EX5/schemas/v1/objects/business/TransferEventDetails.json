@@ -1,0 +1,38 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:TransferEventDetails",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:TransferEventDetails"
+  },
+  "title" : "Transfer Event Details",
+  "description" : "Information about transfer events and approval status",
+  "type" : "object",
+  "properties" : {
+    "transferEventCode" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Code identifying the transfer event",
+      "$comment" : "Consult External Code List table ExternalTransferEventCode",
+      "examples" : [ 1, 2 ]
+    },
+    "approvalCode" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Code for approval status",
+      "$comment" : "Consult External Code List table ExternalStatusTransferEventCode",
+      "examples" : [ 1 ]
+    },
+    "rejectionCode" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Code for rejection status",
+      "$comment" : "Consult External Code List table ExternalStatusTransferEventCode",
+      "examples" : [ 2 ]
+    }
+  },
+  "required" : [ "transferEventCode" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "transferEventCode" : 2,
+    "approvalCode" : 1,
+    "rejectionCode" : 2
+  } ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalPersonTypeCode",
+  "description": "Codes for person type classification",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "PF - Pessoa Física",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "PJ - Pessoa Jurídica",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

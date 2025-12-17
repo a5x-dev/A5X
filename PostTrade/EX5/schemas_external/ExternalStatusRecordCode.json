@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Status Record",
+  "description": "Codes for status record",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Pendente Confirmação Custodiante",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Pendente Confirmação Contraparte Custodiante",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Rejeitado pelo Custodiante",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Rejeitado pela Contraparte Custodiante",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Confirmado pelo Custodiante",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Disponível para Registro",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Pendente de Realocação da Contraparte",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Realocado",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Pendente de Realocação",
+      "const": 9
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

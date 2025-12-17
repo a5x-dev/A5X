@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Exercise Block Status",
+  "description": "Codes for exercise block status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Bloqueado",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Erro",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Securities Lending Contract Type",
+  "description": "Codes for securities lending contract type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Regular Lender Offer",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Regular Borrower Offer",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Regular Direct",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "mandatory loan (due to delivery failure)",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Non-standard",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Renew",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Corporate Action",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Sec Lending Settlement Failure",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Automatic Renew",
+      "const": 9
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

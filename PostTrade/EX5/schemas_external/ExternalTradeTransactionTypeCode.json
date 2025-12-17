@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Trade Transaction Type",
+  "description": "Codes for trade transaction type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Regular Trade",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Cash Settlement (Exercise Complement)",
+      "const": 29
+    },
+    {
+      "type": "number",
+      "description": "Block Trade (BTF)",
+      "const": 38
+    },
+    {
+      "type": "number",
+      "description": "Options Exercise",
+      "const": 45
+    },
+    {
+      "type": "number",
+      "description": "Opening Trade",
+      "const": 56
+    },
+    {
+      "type": "number",
+      "description": "Aggregated Trade",
+      "const": 80
+    }
+  ],
+  "examples": [
+    0,
+    29,
+    38,
+    45,
+    56
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralStatusItem",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralStatusItem"
+  },
+  "title" : "Umbrella Collateral Status Item",
+  "description" : "Collateral item with umbrella distribution status information including values and quantities",
+  "type" : "object",
+  "properties" : {
+    "collateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Collateral ID given by the requestor participant."
+    },
+    "quantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Quantity request to collateral transfer."
+    },
+    "operationValue" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Amount requested to umbrella type distribution."
+    },
+    "collateralValue" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Collateral accepted value after taking into account the haircut."
+    },
+    "collateralStatus" : {
+      "$ref" : "../../objects/business/CollateralStatus.json",
+      "description" : "This block contains information on the status of each type of collateral used in the umbrella distribution."
+    }
+  },
+  "required" : [ "collateralIdentification", "collateralStatus" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralIdentification" : "2",
+    "quantity" : "2000.00",
+    "operationValue" : {
+      "amount" : "1000.00",
+      "currency" : "BRL"
+    },
+    "collateralValue" : {
+      "amount" : "75000.00",
+      "currency" : "BRL"
+    },
+    "collateralStatus" : {
+      "statusCode" : 1,
+      "errorIdentification" : [ {
+        "code" : 1,
+        "message" : "Error X",
+        "description" : "COD12452",
+        "refId" : "REF12345"
+      } ]
+    }
+  } ]
+}

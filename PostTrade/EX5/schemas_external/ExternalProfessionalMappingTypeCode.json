@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Professional Mapping Type Code",
+  "description": "Codes for professional mapping type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Operador Hibrido",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Mapeamento Por Conta",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

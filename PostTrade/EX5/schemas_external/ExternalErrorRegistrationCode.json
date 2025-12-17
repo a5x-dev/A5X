@@ -1,0 +1,166 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Cadastro Errors Code",
+  "description": "Códigos de erro para operações de cadastro de contas e vínculos",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Erro interno do sistema",
+      "const": "E001"
+    },
+    {
+      "type": "string",
+      "description": "Serviço temporariamente indisponível",
+      "const": "E002"
+    },
+    {
+      "type": "string",
+      "description": "Timeout na operação",
+      "const": "E003"
+    },
+    {
+      "type": "string",
+      "description": "Dados obrigatórios ausentes",
+      "const": "E101"
+    },
+    {
+      "type": "string",
+      "description": "Formato de dados inválido",
+      "const": "E102"
+    },
+    {
+      "type": "string",
+      "description": "Índice de requisição inválido ou duplicado",
+      "const": "E103"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de vínculo inválido ou não suportado",
+      "const": "E201"
+    },
+    {
+      "type": "string",
+      "description": "Conta de origem não encontrada",
+      "const": "E202"
+    },
+    {
+      "type": "string",
+      "description": "Conta de destino não encontrada",
+      "const": "E203"
+    },
+    {
+      "type": "string",
+      "description": "Conta bloqueada ou inativa",
+      "const": "E204"
+    },
+    {
+      "type": "string",
+      "description": "Vínculo já existe entre as contas",
+      "const": "E205"
+    },
+    {
+      "type": "string",
+      "description": "Vínculo circular detectado",
+      "const": "E206"
+    },
+    {
+      "type": "string",
+      "description": "Limite de vínculos excedido",
+      "const": "E207"
+    },
+    {
+      "type": "string",
+      "description": "Incompatibilidade de tipos de conta para o vínculo solicitado",
+      "const": "E208"
+    },
+    {
+      "type": "string",
+      "description": "Conta já existe",
+      "const": "E301"
+    },
+    {
+      "type": "string",
+      "description": "Identificador duplicado",
+      "const": "E302"
+    },
+    {
+      "type": "string",
+      "description": "Participante não encontrado",
+      "const": "E303"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de conta inválido",
+      "const": "E304"
+    },
+    {
+      "type": "string",
+      "description": "Perfil de risco inválido",
+      "const": "E305"
+    },
+    {
+      "type": "string",
+      "description": "Participante não autorizado para a operação",
+      "const": "E401"
+    },
+    {
+      "type": "string",
+      "description": "Participante não tem permissão para vincular estas contas",
+      "const": "E402"
+    },
+    {
+      "type": "string",
+      "description": "Operação não permitida para o tipo de conta",
+      "const": "E403"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de conta não permitido para este participante",
+      "const": "E404"
+    },
+    {
+      "type": "string",
+      "description": "Limite de contas excedido",
+      "const": "E405"
+    },
+    {
+      "type": "string",
+      "description": "Violação de regras de cadastro",
+      "const": "E501"
+    },
+    {
+      "type": "string",
+      "description": "Documentação insuficiente",
+      "const": "E502"
+    },
+    {
+      "type": "string",
+      "description": "Restrições regulatórias",
+      "const": "E503"
+    },
+    {
+      "type": "string",
+      "description": "Operação de atualização sem identificador",
+      "const": "E601"
+    },
+    {
+      "type": "string",
+      "description": "Registro não encontrado para atualização",
+      "const": "E602"
+    },
+    {
+      "type": "string",
+      "description": "Registro não encontrado para exclusão",
+      "const": "E603"
+    }
+  ],
+  "examples": [
+    "E001",
+    "E101",
+    "E201",
+    "E301",
+    "E401",
+    "E501",
+    "E601"
+  ]
+}

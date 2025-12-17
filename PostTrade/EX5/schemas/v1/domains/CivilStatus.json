@@ -1,0 +1,31 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:CivilStatus",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:CivilStatus"
+  },
+  "title" : "Civil Status",
+  "description" : "Civil status classification with code and name - ExternalMaritalStatusCode",
+  "type" : "object",
+  "properties" : {
+    "code" : {
+      "type" : "string",
+      "enum" : [ "1", "2", "3", "4", "5", "6" ],
+      "description" : "Civil status code"
+    },
+    "name" : {
+      "type" : "string",
+      "enum" : [ "SOLTEIRO(A)", "CASADO(A)", "SEPARADO(A) JUDICIALMENTE", "DIVORCIADO(A)", "VIÚVO(A)", "UNIÃO ESTÁVEL" ],
+      "description" : "Civil status name"
+    }
+  },
+  "required" : [ "code", "name" ],
+  "examples" : [ {
+    "code" : "1",
+    "name" : "SOLTEIRO(A)"
+  }, {
+    "code" : "6",
+    "name" : "UNIÃO ESTÁVEL"
+  } ]
+}

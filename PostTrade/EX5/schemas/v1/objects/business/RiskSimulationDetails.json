@@ -1,0 +1,109 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:RiskSimulationDetails",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:RiskSimulationDetails"
+  },
+  "title" : "Simulation Investor Risk Information",
+  "description" : "Risk Simulation Details",
+  "type" : "object",
+  "properties" : {
+    "riskSimulationId" : {
+      "type" : "string",
+      "description" : "ID sent by A5X regarding the Simulation Request"
+    },
+    "timestamp" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Timestamp of the risk simulation result"
+    },
+    "totalLiability" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Consolidated result of investor risk assessment"
+    },
+    "initialMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Initial margin value at account level"
+    },
+    "contingentVariationMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Contingent variation margin value at account level"
+    },
+    "netLiquidatingValue" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Net liquidity value at account level"
+    },
+    "liquidityConcentrationRiskMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Value of liquidity and concentration risk at account level"
+    },
+    "wrongWayRiskMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Value of correlation risk at account level"
+    },
+    "defaultFundAdditionalMargin" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Value of the additional margin to the settlement fund at account level"
+    },
+    "stressTestLoss" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Stress test loss at account level"
+    },
+    "userComment" : {
+      "type" : "string",
+      "description" : "Free text wrote by the requestor"
+    }
+  },
+  "required" : [
+    "riskSimulationId",
+    "timestamp",
+    "initialMargin",
+    "contingentVariationMargin",
+    "netLiquidatingValue",
+    "liquidityConcentrationRiskMargin",
+    "wrongWayRiskMargin",
+    "defaultFundAdditionalMargin",
+    "stressTestLoss"
+  ],
+  "additionalProperties" : false,
+  "examples" : [
+    {
+      "riskSimulationId" : "Simulation123",
+      "timestamp" : "2025-10-02T12:34:56Z",
+      "totalLiability" : {
+        "currency" : "BRL",
+        "amount" : "500000.00"
+      },
+      "initialMargin" : {
+        "currency" : "BRL",
+        "amount" : "100000.25"
+      },
+      "contingentVariationMargin" : {
+        "currency" : "BRL",
+        "amount" : "75000.50"
+      },
+      "netLiquidatingValue" : {
+        "currency" : "BRL",
+        "amount" : "200000.75"
+      },
+      "liquidityConcentrationRiskMargin" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "wrongWayRiskMargin" : {
+        "currency" : "BRL",
+        "amount" : "25000.25"
+      },
+      "defaultFundAdditionalMargin" : {
+        "currency" : "BRL",
+        "amount" : "15000.50"
+      },
+      "stressTestLoss" : {
+        "currency" : "BRL",
+        "amount" : "500.00"
+      },
+      "userComment" : "Result under base scenario; revise foreign exchange exposure"
+    }
+  ]
+}

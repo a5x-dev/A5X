@@ -1,0 +1,14 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:EconomicActivity",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:EconomicActivity"
+  },
+  "title" : "Atividade Econômica",
+  "description" : "CNAE codes for economic activities (4th level) - ExternalPurposeCode",
+  "allOf" : [ {
+    "$ref" : "../objects/business/ExternalCodeList.json"
+  } ],
+  "examples" : [ "Consult External Code List table ExternalPurposeCode" ]
+}

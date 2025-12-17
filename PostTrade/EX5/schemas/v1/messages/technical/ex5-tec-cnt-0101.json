@@ -1,0 +1,25 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-cnt-01",
+  "$metadata" : {
+    "domain" : "technical",
+    "schemaId" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-cnt-01"
+  },
+  "title" : "Connectivity Test Request",
+  "description" : "Message for testing connectivity",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    }
+  },
+  "required" : [ "participantIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    }
+  } ]
+}

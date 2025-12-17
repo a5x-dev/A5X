@@ -1,0 +1,55 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-hsh-04",
+  "$metadata" : {
+    "domain" : "allocation",
+    "schemaId" : "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-hsh-04"
+  },
+  "title" : "GiveUpHASH",
+  "description" : "GiveUp Hash",
+  "type" : "object",
+  "properties" : {
+    "referenceDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Reference date of the information",
+      "examples" : [ "2017-07-21", "2023-12-31", "2024-01-15" ]
+    },
+    "tradeDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Trade date",
+      "examples" : [ "2017-07-21", "2023-12-31", "2024-01-15" ]
+    },
+    "segment" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "$comment" : "Consult External Code List table ExternalSegmentCode",
+      "examples" : [ 1 ]
+    },
+    "market" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Market type - second level of market classification in post-trading process",
+      "$comment" : "Consult External Code List table ExternalMarketCode",
+      "examples" : [ 10 ]
+    },
+    "accountOriginIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Number account identification"
+    },
+    "hashCode64" : {
+      "type" : "string",
+      "maxLength" : 64,
+      "minLength" : 1,
+      "description" : "Concatenates specific information from each give up account to be used for reconciliation"
+    }
+  },
+  "required" : [ "referenceDate", "tradeDate", "segment", "market", "accountOriginIdentification", "hashCode64" ],
+  "additionalProperties" : false,
+  "examples" : [ ]
+}

@@ -1,0 +1,98 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-set-02",
+  "$metadata" : {
+    "domain" : "qualifiedServices",
+    "schemaId" : "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-set-02"
+  },
+  "title" : "Settlement Qualified Services File Schema",
+  "description" : "Settlement Qualified Services File Schema",
+  "type" : "object",
+    "properties" : {
+     "recordType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description" : "Fixed value '12'",
+      "$comment": "Consult External Code List table ExternalRecordTypeCode"
+    },
+    "requestingParticipantCode" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "description" : "Requesting participant code"
+    },
+    "requestingInvestorCode" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "description" : "Requesting investor code"
+    },
+    "requestedParticipantCode" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "description" : "Requested participant code"
+    },
+    "requestedInvestorCode" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "description" : "Requested investor code"
+    },
+    "onBehalfParticipantCode" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "description" : "On behalf participant code"
+    },
+    "commodity" : {
+      "type" : "string",
+      "maxLength" : 30,
+      "description" : "Commodity"
+    },
+    "isin" : {
+      "type" : "string",
+      "maxLength" : 12,
+      "description" : "ISIN - Also provided for launch codes 12112, 12113, 12234, 12235, 12304 and 12305"
+    },
+    "movementReferenceDate" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "pattern" : "^\\d{4}-\\d{2}-\\d{2}$",
+      "description" : "Movement reference date (YYYY-MM-DD format)"
+    },
+    "settlementDate" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "pattern" : "^\\d{4}-\\d{2}-\\d{2}$",
+      "description" : "Settlement date (YYYY-MM-DD format)"
+    },
+    "financialLaunchCode" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99999,
+      "description" : "Financial launch code",
+      "$comment" : "Consult External Code List table CashEntryCode"
+    },
+    "financialLaunchCodeDescription" : {
+      "type" : "string",
+      "maxLength" : 60,
+      "description" : "Financial launch code description"
+    },
+    "launchType" : {
+      "type" : "string",
+      "maxLength" : 1,
+      "description" : "Launch type",
+      "$comment" : "Consult External Code List table LaunchType"
+    },
+    "launchFinancialValue" : {
+      "type" : "number",
+      "multipleOf" : 0.01,
+      "description" : "Launch financial value"
+    },
+    "quantity" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999999999999,
+      "description" : "Quantity"
+    }
+  },
+  "required" : [ "recordType", "requestingParticipantCode", "requestingInvestorCode", "requestedParticipantCode", "requestedInvestorCode" ],
+  "additionalProperties" : false
+}

@@ -1,0 +1,87 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-rsk-05",
+  "$metadata" : {
+    "domain" : "position",
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-rsk-05"
+  },
+  "title" : "Risk Assessment Status",
+  "description" : "Message for risk assessment status",
+  "type" : "object",
+  "properties" : {
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "investorRiskInformation" : {
+      "$ref" : "../../objects/business/investorRiskInformation.json",
+      "description" : "Collateral coverage information details"
+    }
+  },
+  "required" : [
+    "clearingMemberIdentification",
+    "participantIdentification",
+    "investorRiskInformation"
+  ],
+  "additionalProperties" : true,
+  "examples": [
+    {
+      "clearingMemberIdentification": {
+        "id": 123456,
+        "category": 2
+      },
+      "participantIdentification": {
+        "id": 789012,
+        "category": 3
+      },
+      "investorRiskInformation": {
+        "positionTransferReference": "A1B2C3D4E5F6G7H",
+        "accountIdentification": {
+          "id": 115
+        },
+        "positionDirection": 1,
+        "totalLiability": {
+          "currency": "BRL",
+          "amount": "500000.00"
+        },
+        "initialMargin": {
+          "currency": "BRL",
+          "amount": "100000.25"
+        },
+        "contingentVariationMargin": {
+          "currency": "BRL",
+          "amount": "75000.50"
+        },
+        "netLiquidatingValue": {
+          "currency": "BRL",
+          "amount": "200000.75"
+        },
+        "liquidityConcentrationRiskMargin": {
+          "currency": "BRL",
+          "amount": "50000.00"
+        },
+        "wrongWayRiskMargin": {
+          "currency": "BRL",
+          "amount": "25000.25"
+        },
+        "defaultFundAdditionalMargin": {
+          "currency": "BRL",
+          "amount": "15000.50"
+        },
+        "netCollateral": {
+          "currency": "BRL",
+          "amount": "300000.00"
+        },
+        "requiredCollateral": {
+          "currency": "BRL",
+          "amount": "250000.75"
+        },
+        "assessmentStatus": 2
+      }
+    }
+  ]
+}

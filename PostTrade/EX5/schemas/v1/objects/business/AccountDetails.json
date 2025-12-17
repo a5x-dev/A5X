@@ -1,0 +1,83 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:AccountDetails",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:AccountDetails"
+  },
+  "title" : "Fields base to account register",
+  "description" : "Fields to Natural Person and Legal entity composition message",
+  "type" : "object",
+  "properties" : {
+    "accountData" : {
+      "$ref" : "../../objects/business/AccountData.json",
+      "description" : "Account data information"
+    },
+    "internationalCollateral" : {
+      "$ref" : "../../objects/business/InternationalCollateral.json",
+      "description" : "International collateral (optional)"
+    },
+    "documents" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/Document.json"
+      },
+      "description" : "Document collection, additional optional documents allowed"
+    }
+  },
+  "required" : [ ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "accountData" : {
+      "profile" : 1,
+      "riskProfile" : 1,
+      "status" : 1,
+      "onBehalfOf" : true,
+      "openedOnBehalf" : false,
+      "intermediaryCode" : false,
+      "modifyAddressforAllAccounts" : true,
+      "address" : {
+        "street" : "Rua Brasilândia",
+        "number" : "123",
+        "complement" : "Apto 101",
+        "neighborhood" : "Centro",
+        "postalCode" : "01234-567",
+        "cityName" : 3550308,
+        "state" : "SP",
+        "country" : "BRA",
+        "phoneNumber" : "+55-11-91234-5678",
+        "email" : "usuario@exemplo.com.br"
+      }
+    },
+    "internationalCollateral" : {
+      "jurisdictionOfOrigin" : "USA",
+      "legalForm" : "LLC",
+      "beneficiaryBankDetails" : {
+        "accountNumber" : "DE89370400440532013000",
+        "iban" : "DE89370400440532013000",
+        "swiftCode" : "DXXXXXXF",
+        "bankName" : "Banco do XPTO S.A.",
+        "bankCountry" : "BRA"
+      },
+      "transferCurrency" : 220,
+      "intermediaryBankDetails" : {
+        "accountNumber" : "DE89370400440532013000",
+        "iban" : "DE89370400440532013000",
+        "swiftCode" : "DXXXXXXF",
+        "bankName" : "Banco do XPTO S.A.",
+        "bankCountry" : "BRA"
+      }
+    },
+    "documents" : [ {
+      "documentIdentifier" : {
+        "documentType" : 2,
+        "documentNumber" : "12345678900"
+      },
+      "issueDate" : "2018-05-15",
+      "expirationDate" : "2028-05-14",
+      "country" : "BRA",
+      "issuingAuthority" : 2,
+      "state" : "SP"
+    } ]
+  } ]
+}

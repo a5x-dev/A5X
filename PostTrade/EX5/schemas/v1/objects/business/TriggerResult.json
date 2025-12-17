@@ -1,0 +1,35 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:TriggerResult",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:TriggerResult"
+  },
+  "title" : "Trigger Result",
+  "description" : "Details of the trigger the risk calculation.",
+  "type" : "object",
+  "properties" : {
+    "marginRunId" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 35,
+      "description" : "Run ID of the margin calculation instance."
+    },
+    "timeStamp" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Time and Date when the calculation occurred, in YYYY-MM-DD HH:MM:SS format."
+    },
+    "calculationType" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Calculation Type code",
+      "$comment" : "Consult External Code List table ExternalCalculationTypeCode"
+    }
+  },
+  "required" : [ "marginRunId", "timeStamp", "calculationType" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "marginRunId" : "MR-20251003-001",
+    "timeStamp" : "2025-10-03 12:00:00",
+    "calculationType" : "HF"
+  } ]
+}

@@ -1,0 +1,146 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralTransferDetails",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralTransferDetails"
+  },
+  "title" : "Collateral Transfer Details",
+  "description" : "Collateral transfer details with different types of collateral using anyOf pattern",
+  "type" : "object",
+  "properties" : {
+    "positionTransferReference" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "minLength" : 1,
+      "description" : "The field PositionTransferReference is used to identify a position transfer"
+    },
+    "securitiesCollateral" : {
+      "type" : "array",
+      "description" : "Securities collateral items for transfer approval",
+      "items" : {
+        "allOf" : [ {
+          "$ref" : "../../objects/business/SecuritiesCollateralTransfer.json"
+        }, {
+          "properties" : {
+            "activeCurrencyAndAmount" : {
+              "$ref" : "../../objects/business/MonetaryValue.json",
+              "description" : "Collateral accepted value after taking into account the haircut"
+            }
+          }
+        }, {
+          "required" : [ "collateralIdentification", "assetNumber", "quantity", "custodianInformationDestination", "centralDepositaryOperationNumber", "activeCurrencyAndAmount" ]
+        } ]
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    "cashCollateral" : {
+      "type" : "array",
+      "description" : "Cash collateral items for transfer approval",
+      "items" : {
+        "allOf" : [ {
+          "$ref" : "../../objects/business/CashCollateralTransfer.json"
+        }, {
+          "required" : [ "collateralValue" ]
+        } ]
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    "federalBonds" : {
+      "type" : "array",
+      "description" : "Other types of collateral for transfer approval",
+      "items" : {
+        "allOf" : [ {
+          "$ref" : "../../objects/business/FederalBondsTransfer.json"
+        }, {
+          "required" : [ "collateralIdentification", "assetNumber", "collateralValue" ]
+        } ]
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    
+    "externalSecuritiesCollateral" : {
+      "type" : "array",
+      "description" : "Other types of collateral for transfer approval",
+      "items" : 
+        {
+          "$ref" : "../../objects/business/ExternalSecuritiesTransfer.json",
+          "description": "External securities collateral transfer"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    }
+  },
+  "required" : [ "positionTransferReference" ],
+  "anyOf" : [ {
+    "required" : [ "securitiesCollateral" ]
+  }, {
+    "required" : [ "cashCollateral" ]
+  }, {
+    "required" : [ "federalBonds" ]
+  } ],
+  "additionalProperties" : true,
+  "examples" : [ {
+    "positionTransferReference" : "TRF-REF-001",
+    "securitiesCollateral" : [ {
+      "collateralIdentification" : "1",
+      "assetNumber" : "2015000000349",
+      "quantity" : "1000.0",
+      "custodianInformationDestination" : {
+        "participantInformation" : {
+          "id" : 456,
+          "category" : 2
+        },
+        "accountIdentification" : {
+          "id" : 789012345678901
+        },
+        "subAccount" : "001"
+      },
+      "centralDepositaryOperationNumber" : "123456789",
+      "activeCurrencyAndAmount" : {
+        "amount" : "1000.00",
+        "currency" : "BRL"
+      }
+    } ]
+  }, {
+    "positionTransferReference" : "TRF-REF-002",
+    "cashCollateral" : [ {
+      "collateralIdentification" : "1",
+      "assetNumber" : "2015000000349",
+      "operationValue" : {
+        "amount" : "25000.00",
+        "currency" : "BRL"
+      },
+      "collateralValue" : {
+        "amount" : "24000.00",
+        "currency" : "BRL"
+      }
+    } ]
+  }, {
+    "positionTransferReference" : "TRF-REF-003",
+    "federalBonds" : [ {
+      "collateralIdentification" : "OTHER-001",
+      "assetNumber" : "GOV-123456",
+      "assignerAccount" : "ASSIGNOR-001",
+      "assigneeAccount" : "ASSIGNEE-001",
+      "quantity" : "250.75",
+      "collateralValue" : {
+        "amount" : "24000.00",
+        "currency" : "BRL"
+      }
+    } ]
+  } ],
+ "positionTransferReference" : "TRF-REF-003",
+    "externalSecuritiesCollateral" : [ {
+      "collateralIdentification" : "COL-EXT-001",
+      "assetNumber" : "AST-REG-12345",
+      "quantity" : "1500.75",
+      "collateralValue" : {
+        "amount" : "150000.50",
+        "currency" : "BRL"
+        }
+    } ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:Pagination",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:Pagination"
+  },
+  "title" : "Pagination Information",
+  "description" : "Pagination control information for large result sets",
+  "type" : "object",
+  "properties" : {
+    "paginationId" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Unique identifier for the pagination set",
+      "examples" : [ "ABCDD", "PG001", "BATCH123" ]
+    },
+    "pageNumber" : {
+      "type" : "string",
+      "pattern" : "^[0-9]{1,5}$",
+      "description" : "Current page number",
+      "examples" : [ "1", "2", "100" ]
+    },
+    "lastPageIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if this is the last page",
+      "examples" : [ true, false ]
+    }
+  },
+  "required" : [ "paginationId", "pageNumber", "lastPageIndicator" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "paginationId" : "ABCDD",
+    "pageNumber" : "1",
+    "lastPageIndicator" : true
+  } ]
+}

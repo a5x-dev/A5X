@@ -1,0 +1,269 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Strategy Type",
+  "description": "Codes for strategy type",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Box",
+      "const": "BX"
+    },
+    {
+      "type": "string",
+      "description": "3 Way",
+      "const": "3W"
+    },
+    {
+      "type": "string",
+      "description": "3 Way Straddle vs. Call",
+      "const": "3C"
+    },
+    {
+      "type": "string",
+      "description": "3 Way Straddle vs. Put",
+      "const": "3P"
+    },
+    {
+      "type": "string",
+      "description": "Butterfly",
+      "const": "BO"
+    },
+    {
+      "type": "string",
+      "description": "Xmas tree",
+      "const": "XT"
+    },
+    {
+      "type": "string",
+      "description": "Conditional curve",
+      "const": "CC"
+    },
+    {
+      "type": "string",
+      "description": "Condor",
+      "const": "CO"
+    },
+    {
+      "type": "string",
+      "description": "Double",
+      "const": "DB"
+    },
+    {
+      "type": "string",
+      "description": "Horizontal",
+      "const": "HO"
+    },
+    {
+      "type": "string",
+      "description": "Horizontal straddle",
+      "const": "HS"
+    },
+    {
+      "type": "string",
+      "description": "Iron Condor",
+      "const": "IC"
+    },
+    {
+      "type": "number",
+      "description": "Ratio 1x2",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "Ratio 1x3",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "Ratio 2x3",
+      "const": 23
+    },
+    {
+      "type": "string",
+      "description": "Risk reversal",
+      "const": "RR"
+    },
+    {
+      "type": "string",
+      "description": "Straddle strip",
+      "const": "SS"
+    },
+    {
+      "type": "string",
+      "description": "Straddle",
+      "const": "ST"
+    },
+    {
+      "type": "string",
+      "description": "Strangle",
+      "const": "SG"
+    },
+    {
+      "type": "string",
+      "description": "Strip",
+      "const": "SR"
+    },
+    {
+      "type": "string",
+      "description": "Vertical",
+      "const": "VT"
+    },
+    {
+      "type": "string",
+      "description": "Jelly Roll",
+      "const": "JR"
+    },
+    {
+      "type": "string",
+      "description": "Iron Butterfly",
+      "const": "IB"
+    },
+    {
+      "type": "string",
+      "description": "Guts",
+      "const": "GT"
+    },
+    {
+      "type": "string",
+      "description": "Generic",
+      "const": "GN"
+    },
+    {
+      "type": "string",
+      "description": "Calendar Spread",
+      "const": "SP"
+    },
+    {
+      "type": "string",
+      "description": "FX Calendar Spread",
+      "const": "FX"
+    },
+    {
+      "type": "string",
+      "description": "Reduced Tick Calendar Spread",
+      "const": "RT"
+    },
+    {
+      "type": "string",
+      "description": "Equity Calendar Spread",
+      "const": "EQ"
+    },
+    {
+      "type": "string",
+      "description": "Butterfly",
+      "const": "BF"
+    },
+    {
+      "type": "string",
+      "description": "Condor",
+      "const": "CF"
+    },
+    {
+      "type": "string",
+      "description": "Strip",
+      "const": "FS"
+    },
+    {
+      "type": "string",
+      "description": "Intercommodity Spread",
+      "const": "IS"
+    },
+    {
+      "type": "string",
+      "description": "Pack",
+      "const": "PK"
+    },
+    {
+      "type": "string",
+      "description": "Month Pack",
+      "const": "MP"
+    },
+    {
+      "type": "string",
+      "description": "Pack Butterfly",
+      "const": "PB"
+    },
+    {
+      "type": "string",
+      "description": "Double Butterfly",
+      "const": "DF"
+    },
+    {
+      "type": "string",
+      "description": "Pack Spread",
+      "const": "PS"
+    },
+    {
+      "type": "string",
+      "description": "Crack 1:1",
+      "const": "C1"
+    },
+    {
+      "type": "string",
+      "description": "Bundle",
+      "const": "FB"
+    },
+    {
+      "type": "string",
+      "description": "Bundle Spread",
+      "const": "BS"
+    },
+    {
+      "type": "string",
+      "description": "Implied Treasury Intercommodity Spread",
+      "const": "IV"
+    },
+    {
+      "type": "string",
+      "description": "TAS Calendar Spread",
+      "const": "EC"
+    },
+    {
+      "type": "string",
+      "description": "Commodities Intercommodity Spread",
+      "const": "SI"
+    },
+    {
+      "type": "string",
+      "description": "Bond Index Spread",
+      "const": "SD"
+    },
+    {
+      "type": "string",
+      "description": "Cash/Cash",
+      "const": "VV"
+    },
+    {
+      "type": "string",
+      "description": "Cash/ Options",
+      "const": "VO"
+    },
+    {
+      "type": "string",
+      "description": "Single Stock Futures/ Options",
+      "const": "FO"
+    },
+    {
+      "type": "string",
+      "description": "Single Stock Futures/ Single Stock Futures",
+      "const": "FF"
+    },
+    {
+      "type": "string",
+      "description": "Cash / Single Stock Future",
+      "const": "FV"
+    },
+    {
+      "type": "string",
+      "description": "Calendar Spreads",
+      "const": "CS"
+    }
+  ],
+  "examples": [
+    "BX",
+    "3W",
+    "3C",
+    "3P",
+    "BO"
+  ]
+}

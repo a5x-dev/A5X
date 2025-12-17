@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Professional Role Code",
+  "description": "Codes for professional role",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Operador Supervisor",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Operador",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Assessor",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Assessor Bancário Responsável",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Assessor Bancário",
+      "const": 5
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

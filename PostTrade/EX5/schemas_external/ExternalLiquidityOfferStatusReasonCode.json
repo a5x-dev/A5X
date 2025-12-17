@@ -1,0 +1,244 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Liquidity Offer Status Reason",
+  "description": "Codes for liquidity offer status reason",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Em análise B3",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Validando cadastro",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Validando dados da oferta",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Validando Garantia",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Rejeitada por insuficiência de garantias",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Valor superior a oferta",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Bloqueio cadastral",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Oferta cancelada",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Prazo de Oferta Expirado",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Valor não transferido",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Aguardando Inicio",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Procurando Doadores",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "Em seleção de doadores",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "Aguardando Lastro",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "Aguardando transf PI-Tomador",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "Oferta concluída",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "Bloqueando garantias",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "Problema bloqueio garantias",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "Situação anormal",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "Cancelado pelo participante",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "Participante possuí uma oferta em andamento.",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "Taxa fora do valor máximo",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "Situação do MCPI inválida",
+      "const": 23
+    },
+    {
+      "type": "number",
+      "description": "Situação do vínculo do MCPI inválida",
+      "const": 24
+    },
+    {
+      "type": "number",
+      "description": "Situação do LIPI inválida",
+      "const": 25
+    },
+    {
+      "type": "number",
+      "description": "Doadores não encontrados",
+      "const": 26
+    },
+    {
+      "type": "number",
+      "description": "Rejeitada por violação do limite L2",
+      "const": 27
+    },
+    {
+      "type": "number",
+      "description": "Validando doador",
+      "const": 28
+    },
+    {
+      "type": "number",
+      "description": "Falta de preenchimento de campo",
+      "const": 29
+    },
+    {
+      "type": "number",
+      "description": "Inconsistência cadastral",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "Valor transferido a menor",
+      "const": 31
+    },
+    {
+      "type": "number",
+      "description": "Aguardando devolução",
+      "const": 32
+    },
+    {
+      "type": "number",
+      "description": "Valor devolvido",
+      "const": 33
+    },
+    {
+      "type": "number",
+      "description": "Não atende o critério FIFO",
+      "const": 34
+    },
+    {
+      "type": "number",
+      "description": "Agressão realizada fora do ciclo",
+      "const": 35
+    },
+    {
+      "type": "number",
+      "description": "Participante inválido para operação",
+      "const": 36
+    },
+    {
+      "type": "number",
+      "description": "Valores menor ou igual a zero",
+      "const": 37
+    },
+    {
+      "type": "number",
+      "description": "Código oferta tomadora não existe.",
+      "const": 38
+    },
+    {
+      "type": "number",
+      "description": "Valor superior as demais ofertas",
+      "const": 39
+    },
+    {
+      "type": "number",
+      "description": "Oferta cancelada pelo tomador",
+      "const": 40
+    },
+    {
+      "type": "number",
+      "description": "Atividade econômica não permitida",
+      "const": 41
+    },
+    {
+      "type": "number",
+      "description": "Taxa Superior a informada pelo tomador",
+      "const": 42
+    },
+    {
+      "type": "number",
+      "description": "Agressão em Andamento",
+      "const": 43
+    },
+    {
+      "type": "number",
+      "description": "Código Oferta Tomadora não existe",
+      "const": 44
+    },
+    {
+      "type": "number",
+      "description": "Valor menor que o mínimo permitido",
+      "const": 45
+    },
+    {
+      "type": "number",
+      "description": "Liquidado Parcial",
+      "const": 46
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

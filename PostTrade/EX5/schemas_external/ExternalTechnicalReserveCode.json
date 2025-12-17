@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Technical Reserve",
+  "description": "Codes for technical reserve",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "NONE",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "LINK",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "UNLINK",
+      "const": 2
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2
+  ]
+}

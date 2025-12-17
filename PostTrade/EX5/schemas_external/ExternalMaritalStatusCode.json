@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalMaritalStatusCode",
+  "description": "Codes for marital status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "SOLTEIRO(A)",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "CASADO(A)",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "SEPARADO(A) JUDICIALMENTE",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "DIVORCIADO(A)",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "VIÚVO(A)",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "UNIÃO ESTÁVEL",
+      "const": 6
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ]
+}

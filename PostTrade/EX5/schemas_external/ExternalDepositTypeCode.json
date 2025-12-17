@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Deposit Type",
+  "description": "Codes for deposit type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Janela de Liquidação",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Mensagem LDL",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Janela de Liquidação - Margem",
+      "const": 5
+    }
+  ],
+  "examples": [
+    2,
+    4,
+    5
+  ]
+}

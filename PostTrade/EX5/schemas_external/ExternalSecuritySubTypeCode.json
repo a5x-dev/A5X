@@ -1,0 +1,384 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Security Sub Type",
+  "description": "Codes for security sub type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "FX SPOT",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "GOLD",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "INDEX",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "INTEREST RATE",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "FX RATE",
+      "const": 40
+    },
+    {
+      "type": "number",
+      "description": "FOREIGN DEBT",
+      "const": 50
+    },
+    {
+      "type": "number",
+      "description": "AGRICULTURAL",
+      "const": 60
+    },
+    {
+      "type": "number",
+      "description": "ENERGY",
+      "const": 70
+    },
+    {
+      "type": "number",
+      "description": "INDICATOR",
+      "const": 80
+    },
+    {
+      "type": "number",
+      "description": "STRATEGY",
+      "const": 90
+    },
+    {
+      "type": "number",
+      "description": "FUTURES STYLE OPTIONS",
+      "const": 100
+    },
+    {
+      "type": "number",
+      "description": "VOLATILITY",
+      "const": 110
+    },
+    {
+      "type": "number",
+      "description": "SWAP",
+      "const": 120
+    },
+    {
+      "type": "number",
+      "description": "MINI CONTRACT",
+      "const": 130
+    },
+    {
+      "type": "number",
+      "description": "ROLLOVER",
+      "const": 140
+    },
+    {
+      "type": "number",
+      "description": "AGRICUTURAL ROLLOVER",
+      "const": 141
+    },
+    {
+      "type": "number",
+      "description": "STOCK ROLLOVER ",
+      "const": 142
+    },
+    {
+      "type": "number",
+      "description": "TARGET RATE",
+      "const": 150
+    },
+    {
+      "type": "number",
+      "description": "CARBON",
+      "const": 190
+    },
+    {
+      "type": "number",
+      "description": "ORDINARY RIGHTS (DO)",
+      "const": 1001
+    },
+    {
+      "type": "number",
+      "description": "PREFERRED RIGHTS (DP)",
+      "const": 1002
+    },
+    {
+      "type": "number",
+      "description": "COMMON SHARES (ON)",
+      "const": 1003
+    },
+    {
+      "type": "number",
+      "description": "PREFERRED SHARES (PN)",
+      "const": 1004
+    },
+    {
+      "type": "number",
+      "description": "CLASS A PREFERRED SHARES (PNA)",
+      "const": 1005
+    },
+    {
+      "type": "number",
+      "description": "CLASS B PREFERRED SHARES (PNB)",
+      "const": 1006
+    },
+    {
+      "type": "number",
+      "description": "CLASS C PREFERRED SHARES (PNC)",
+      "const": 1007
+    },
+    {
+      "type": "number",
+      "description": "CLASS D PREFERRED SHARES (PND)",
+      "const": 1008
+    },
+    {
+      "type": "number",
+      "description": "ORDINARY RECEIPTS (ON REC)",
+      "const": 1009
+    },
+    {
+      "type": "number",
+      "description": "PREFERRED RECEIPTS (PN REC)",
+      "const": 1010
+    },
+    {
+      "type": "number",
+      "description": "COMMON FORWARD",
+      "const": 1100
+    },
+    {
+      "type": "number",
+      "description": "FLEXIBLE FORWARD",
+      "const": 1101
+    },
+    {
+      "type": "number",
+      "description": "DOLLAR FORWARD",
+      "const": 1102
+    },
+    {
+      "type": "number",
+      "description": "INDEX POINTS FORWARD",
+      "const": 1103
+    },
+    {
+      "type": "number",
+      "description": "NONTRADABLE ETF INDEX",
+      "const": 1104
+    },
+    {
+      "type": "number",
+      "description": "PREDEFINED COVERED SPREAD (POP)",
+      "const": 1105
+    },
+    {
+      "type": "number",
+      "description": "TRADABLE ETF",
+      "const": 1106
+    },
+    {
+      "type": "number",
+      "description": "NONTRADABLE INDEX",
+      "const": 1107
+    },
+    {
+      "type": "number",
+      "description": "USER DEFINED SPREAD",
+      "const": 1108
+    },
+    {
+      "type": "number",
+      "description": "EXCHANGE DEFINED SPREAD (NOT CURRENTLY IN USE)",
+      "const": 1109
+    },
+    {
+      "type": "number",
+      "description": "SECURITY LOAN (BTC)",
+      "const": 1110
+    },
+    {
+      "type": "number",
+      "description": "TRADABLE INDEX",
+      "const": 1111
+    },
+    {
+      "type": "number",
+      "description": "BRAZILIAN DEPOSITARY RECEIPT",
+      "const": 1112
+    },
+    {
+      "type": "number",
+      "description": "FUNDS",
+      "const": 1113
+    },
+    {
+      "type": "number",
+      "description": "OTHER RECEIPTS",
+      "const": 1114
+    },
+    {
+      "type": "number",
+      "description": "OTHER RIGHTS",
+      "const": 1115
+    },
+    {
+      "type": "number",
+      "description": "UNITS",
+      "const": 1116
+    },
+    {
+      "type": "number",
+      "description": "CLASS E PREFERRED SHARE (PNE )",
+      "const": 1117
+    },
+    {
+      "type": "number",
+      "description": "CLASS F PREFERRED SHARE (PNF )",
+      "const": 1118
+    },
+    {
+      "type": "number",
+      "description": "CLASS G PREFERRED SHARE(PNG)",
+      "const": 1119
+    },
+    {
+      "type": "number",
+      "description": "WARRANTS",
+      "const": 1120
+    },
+    {
+      "type": "number",
+      "description": "NON  TREADABLE SECURITY LENDING",
+      "const": 1121
+    },
+    {
+      "type": "number",
+      "description": "TRADABLE SECURITY LENDING",
+      "const": 1122
+    },
+    {
+      "type": "number",
+      "description": "FOREIGN INDEX ETF",
+      "const": 1123
+    },
+    {
+      "type": "number",
+      "description": "FIXED INCOME ETF",
+      "const": 1124
+    },
+    {
+      "type": "number",
+      "description": "GOVT ETF",
+      "const": 1125
+    },
+    {
+      "type": "number",
+      "description": "COLLATERAL",
+      "const": 1200
+    },
+    {
+      "type": "number",
+      "description": "OUTRIGHT T0",
+      "const": 1300
+    },
+    {
+      "type": "number",
+      "description": "REPO T0",
+      "const": 1301
+    },
+    {
+      "type": "number",
+      "description": "DEBENTURE",
+      "const": 1302
+    },
+    {
+      "type": "number",
+      "description": "REAL STATE RECEIVABLES CERTIFICATES",
+      "const": 1303
+    },
+    {
+      "type": "number",
+      "description": "AGRIBUSINESS RECEIVABLES CERTIFICATES",
+      "const": 1304
+    },
+    {
+      "type": "number",
+      "description": "PROMISSORY NOTES",
+      "const": 1305
+    },
+    {
+      "type": "number",
+      "description": "LETRAS FINANCEIRAS",
+      "const": 1306
+    },
+    {
+      "type": "number",
+      "description": "AMERICAN DEPOSITARY RECEIPTS",
+      "const": 1307
+    },
+    {
+      "type": "number",
+      "description": "UNITS INVESTMENT FUNDS",
+      "const": 1308
+    },
+    {
+      "type": "number",
+      "description": "RECEIVABLE INVESTMENT FUNDS",
+      "const": 1309
+    },
+    {
+      "type": "number",
+      "description": "OUTRIGHT T+1",
+      "const": 1310
+    },
+    {
+      "type": "number",
+      "description": "REPO T+1",
+      "const": 1311
+    },
+    {
+      "type": "number",
+      "description": "NON TRADABLE GROSS SETTLEMENT",
+      "const": 1312
+    },
+    {
+      "type": "number",
+      "description": "NOM TRADABLE NET SETTLEMENT",
+      "const": 1313
+    },
+    {
+      "type": "number",
+      "description": "OTHER EQUITY TYPE",
+      "const": 1999
+    },
+    {
+      "type": "number",
+      "description": "Banking term deposit",
+      "const": 2000
+    },
+    {
+      "type": "number",
+      "description": "BRAZILLIAN PUBLIC DEBTS",
+      "const": 2001
+    },
+    {
+      "type": "number",
+      "description": "TESTE",
+      "const": 2345
+    }
+  ],
+  "examples": [
+    4,
+    10,
+    20,
+    30,
+    40
+  ]
+}

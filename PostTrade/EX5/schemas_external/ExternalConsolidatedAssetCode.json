@@ -1,0 +1,344 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Consolidated Asset",
+  "description": "Codes for consolidated asset",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "ACOES",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "DIREITO DE SUBSCRICAO",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "RECIBO DE SUBSCRICAO",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "BONUS DE SUBSCRICAO",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "UNITS",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "CESTA DE ACOES",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "CERTIFICADO DE DEPOSITOS DE ACOES",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "CERT DE DEP DE VALORES MOBILIARIOS - BDR",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "DEBENTURES",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "CERTIFICADO DE RECEBIVEIS IMOBILIARIOS",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "NOTA PROMISSORIA",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "COTAS DE FUNDO IMOBILIARIO",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "COTAS DE FUNDO DE INVESTIMENTO EM ACOES",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "COTAS DE FDO DE INV EM DIR CREDITORIOS",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "COTAS DE FDO DE INV EM PARTICIPACOES",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "COTAS DE FINAM",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "COTAS DE FINOR",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "COTAS DE FISET",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "COTAS DE FUNRES",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "COTAS DE FDO INV EM COTAS DE FDO DE TVM",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "CERT DE POT AD DE CONSTRUCAO E OPERACAO",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "CERT PRIV-CETIP",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "CERT PRIV-BACEN",
+      "const": 23
+    },
+    {
+      "type": "number",
+      "description": "BONUS DO TESOURO NACIONAL",
+      "const": 24
+    },
+    {
+      "type": "number",
+      "description": "BONUS DO BANCO CENTRAL",
+      "const": 25
+    },
+    {
+      "type": "number",
+      "description": "LETRA FINANCEIRA DO TESOURO",
+      "const": 26
+    },
+    {
+      "type": "number",
+      "description": "TITULO DE DIVIDA EXTERNA",
+      "const": 27
+    },
+    {
+      "type": "number",
+      "description": "POSICAO CONSOLIDADA DE DIVIDA",
+      "const": 28
+    },
+    {
+      "type": "number",
+      "description": "INCIDES CALC PELA BOVESPA E TX DE TERMO",
+      "const": 29
+    },
+    {
+      "type": "number",
+      "description": "PRECATORIO",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "WARRANTS",
+      "const": 31
+    },
+    {
+      "type": "number",
+      "description": "PROTECAO INVESTIMENTO PARTICIPACAO",
+      "const": 32
+    },
+    {
+      "type": "number",
+      "description": "COTAS DE FDO INV EM COTAS DE FIDC",
+      "const": 33
+    },
+    {
+      "type": "number",
+      "description": "NOTAS IFC",
+      "const": 34
+    },
+    {
+      "type": "number",
+      "description": "CERTIFICADO AUDIOVISUAL",
+      "const": 35
+    },
+    {
+      "type": "number",
+      "description": "TIT. PERPETUOS REM. VAR. EM ROYALTIES",
+      "const": 36
+    },
+    {
+      "type": "number",
+      "description": "CERTIFICADO DE RECEBIVEIS AGRICOLAS",
+      "const": 37
+    },
+    {
+      "type": "number",
+      "description": "LETRAS FINANCEIRAS",
+      "const": 38
+    },
+    {
+      "type": "number",
+      "description": "OURO PURO",
+      "const": 39
+    },
+    {
+      "type": "number",
+      "description": "RECIBO DE SUBSCRICAO - FUNDO IMOBILIARIO",
+      "const": 40
+    },
+    {
+      "type": "number",
+      "description": "ETF RENDA FIXA",
+      "const": 41
+    },
+    {
+      "type": "number",
+      "description": "FUNDO DE INVEST. DE EMPRESAS EMERGENTES",
+      "const": 42
+    },
+    {
+      "type": "number",
+      "description": "FIP INFRAESTRUTURA",
+      "const": 43
+    },
+    {
+      "type": "number",
+      "description": "FIP PESQUISA DESENV INOVACAO",
+      "const": 44
+    },
+    {
+      "type": "number",
+      "description": "FIP CAPITAL SEMENTE",
+      "const": 45
+    },
+    {
+      "type": "number",
+      "description": "FIP MULTIESTRATEGIA",
+      "const": 46
+    },
+    {
+      "type": "number",
+      "description": "FIA MERCADO DE ACESSO",
+      "const": 47
+    },
+    {
+      "type": "number",
+      "description": "BDR ETF RV",
+      "const": 48
+    },
+    {
+      "type": "number",
+      "description": "BDR ETF RF",
+      "const": 49
+    },
+    {
+      "type": "number",
+      "description": "BDR ETF COMM",
+      "const": 50
+    },
+    {
+      "type": "number",
+      "description": "ETF FUNDO IMOB ETF FUNDO IMOBILIARIO",
+      "const": 51
+    },
+    {
+      "type": "number",
+      "description": "FI Infra FI Infra",
+      "const": 52
+    },
+    {
+      "type": "number",
+      "description": "FIM RV c/ rend. FIM RV com rendimentos",
+      "const": 53
+    },
+    {
+      "type": "number",
+      "description": "FIM RV s/ rend. FIM RV sem rendimentos",
+      "const": 54
+    },
+    {
+      "type": "number",
+      "description": "FIM RF c/ rend. FIM RF com rendimentos",
+      "const": 55
+    },
+    {
+      "type": "number",
+      "description": "FIM RF s/ rend. FIM RF sem rendimentos",
+      "const": 56
+    },
+    {
+      "type": "number",
+      "description": "FIM Infra FIM Infra",
+      "const": 57
+    },
+    {
+      "type": "number",
+      "description": "Fundo RF Fundo RF",
+      "const": 58
+    },
+    {
+      "type": "number",
+      "description": "ETF Inter. RF ETF Internacional de RF",
+      "const": 59
+    },
+    {
+      "type": "number",
+      "description": "ETF de Moeda ETF de Moeda",
+      "const": 60
+    },
+    {
+      "type": "number",
+      "description": "FIDC não isento FIDC não isento",
+      "const": 61
+    },
+    {
+      "type": "number",
+      "description": "BDR ETF Moedas BDR de ETF de Moedas",
+      "const": 62
+    },
+    {
+      "type": "number",
+      "description": "BDR Dívida BDR de Dívida",
+      "const": 63
+    },
+    {
+      "type": "number",
+      "description": "Recibo com Tributação Regressiva.",
+      "const": 64
+    },
+    {
+      "type": "number",
+      "description": "ETF AÇÕES LOCAL COM PROVENTOS",
+      "const": 65
+    },
+    {
+      "type": "number",
+      "description": "ETF AÇÕES INTERNACIONAL COM PROVENTOS",
+      "const": 66
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

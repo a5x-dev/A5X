@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Breaking Rules Type",
+  "description": "Codes for Breaking Rules type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Allocation",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Give Up ",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Master",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

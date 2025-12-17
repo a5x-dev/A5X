@@ -1,0 +1,61 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-req-03",
+  "$metadata" : {
+    "domain" : "risk",
+    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-req-03"
+  },
+  "title" : "Risk Calculation Details Request",
+  "description" : "Message for intraday risk request",
+  "type" : "object",
+  "properties" : {
+    "requestType" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "requestType code",
+      "$comment" : "Consult External Code List table ExternalRequestRiskTypeCode"
+    },
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    },
+    "validityPeriod" : {
+      "$ref" : "../../objects/business/ValidityDateTimeRange.json",
+      "description" : "Period of validity for the collateral information"
+    },
+    "marginRunId" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 35,
+      "description" : "Run ID of the margin calculation instance."
+    }
+  },
+  "required" : [ "requestType", "clearingMemberIdentification", "participantIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "requestType" : "PR",
+    "clearingMemberIdentification" : {
+      "id" : 12345,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 12345,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 12345
+    },
+    "validityPeriod" : {
+      "fromDateTime" : "2025-09-01T09:00:00Z",
+      "toDateTime" : "2025-09-30T17:00:00Z"
+    },
+    "marginRunId" : "MR-20251003-001"
+  } ]
+}

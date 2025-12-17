@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Position Limit Violation Level",
+  "description": "Codes for position limit violation level",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Level 1",
+      "const": "L1"
+    },
+    {
+      "type": "string",
+      "description": "Level 2",
+      "const": "L2"
+    }
+  ],
+  "examples": [
+    "L1",
+    "L2"
+  ]
+}

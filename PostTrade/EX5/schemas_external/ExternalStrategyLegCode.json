@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Strategy Leg",
+  "description": "Codes for strategy leg",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "outright",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "0,01 a 1,99 pernas",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "2 a 2,99 pernas",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "3 a 3,99 pernas",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "4 a 4,99 pernas",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "5 a 5,99 pernas",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "acima de 6 pernas",
+      "const": 6
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}

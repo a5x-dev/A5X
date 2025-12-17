@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Position Transfer Request Status",
+  "description": "Codes for position transfer request status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Not Initiated",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Entry",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Pending",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Cancelled",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Cancelled End of Day",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Completed",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Failed",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Waiting for what-if collateral",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Waiting for collateral",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Completed with rollback",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Pending Unwind",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Completed Unwind Rejected",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Unwind Accepted",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "Rejected",
+      "const": 13
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}

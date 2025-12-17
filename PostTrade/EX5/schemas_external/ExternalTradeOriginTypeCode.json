@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Trade Origin Type",
+  "description": "Codes for trade origin type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Trading Floor",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "OTC",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:CompressionGroup",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:CompressionGroup"
+  },
+  "title": "Compression Group",
+  "description": "Informs the deatils of Compression Group",
+  "type": "object",
+  "properties": {
+    "compressionGroupIdentification": {
+      "type": "string",
+      "maxLength": 17,
+      "minLength": 1,
+      "description": "Compression Group identification number"
+    },
+    "compressionGroupStatus": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Compression Group status code",
+      "$comment": "Consult External Code List table External Compression Group Status Code"
+    },
+    "compressionGroupReason": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Compression Group reason",
+      "$comment": "Consult External Code List table External Compression Group Reason Code"
+    },
+    "previousCompressionTradeIdentification": {
+      "type": "string",
+      "maxLength": 17,
+      "minLength": 1,
+      "description": "Previous Compression Trade identification number"
+    },
+    "compressionGroupDatetime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Compression Group date and time"
+    }
+  },
+  "required": [
+    "compressionGroupIdentification",
+    "compressionGroupStatus",
+    "compressionGroupDatetime"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "compressionGroupIdentification": "CG123456789012345",
+      "compressionGroupStatus": 2,
+      "compressionGroupReason": 1,
+      "previousCompressionTradeIdentification": "TRD20250815001",
+      "compressionGroupDatetime": "2025-08-28T13:45:00Z"
+    }
+  ]
+}

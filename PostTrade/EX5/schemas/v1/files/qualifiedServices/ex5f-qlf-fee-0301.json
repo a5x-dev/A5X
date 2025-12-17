@@ -1,0 +1,230 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-fee-03",
+  "$metadata": {
+    "domain": "qualifiedServices",
+    "schemaId": "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-fee-03"
+  },
+  "title": "Fee Calculation Qualified Services File Schema",
+  "description": "Fee Calculation Qualified Services File Schema",
+  "type": "object",
+  "properties": {
+    "recordType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Record type for fee calculation",
+      "$comment": "Consult External Code List table ExternalRecordTypeCode"
+    },
+    "referenceDate": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{3})?Z?$",
+      "description": "Reference date of the information (ISO DateTime format)"
+    },
+    "requestingParticipantCode": {
+      "type": "string",
+      "maxLength": 15,
+      "description": "Requesting participant code"
+    },
+    "requestingInvestorCode": {
+      "type": "string",
+      "maxLength": 15,
+      "description": "Requesting investor code"
+    },
+    "requestedParticipantCode": {
+      "type": "string",
+      "maxLength": 15,
+      "description": "Requested participant code"
+    },
+    "requestedInvestorCode": {
+      "type": "string",
+      "maxLength": 15,
+      "description": "Requested investor code"
+    },
+    "marketMakerIndicator": {
+      "type": "boolean",
+      "description": "Indicates if the informed account belongs to a market maker"
+    },
+    "tradingCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "description": "Code that identifies an instrument (ticker symbol)"
+    },
+    "instrumentCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "description": "Proprietary identification of an instrument (Security ID)"
+    },
+    "instrumentIdentificationOriginCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "description": "Source of instrument identification (Security Source)"
+    },
+    "exchangeCode": {
+      "type": "string",
+      "pattern": "^[A-Z0-9]+$",
+      "description": "Exchange identifier code where the instrument was traded"
+    },
+    "market": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Market type - second level market classification in post-trading process",
+      "$comment": "Consult External Code List table ExternalMarketCode"
+    },
+    "commodity": {
+      "type": "string",
+      "maxLength": 30,
+      "description": "Commodity associated with the instrument (Asset)"
+    },
+    "securityCategoryCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 6,
+      "description": "Instrument type identifier",
+      "$comment": "Consult External Code List table SecurityCategory"
+    },
+    "quantity": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Component quantity (allocated, exercised, or settled by maturity)"
+    },
+    "grossFinancialAmount": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Total component amount (allocated, exercised, or settled by maturity)"
+    },
+    "spreadValue": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "For option exercise: difference between exercise price and market price. For maturity settlement: difference between settlement price and adjustment price"
+    },
+    "feeProductGroup": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Fee family code",
+      "$comment": "Consult External Code List table ExternalFeeProductGroup"
+    },
+    "feeComponent": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Calculated fee component code",
+      "$comment": "Consult External Code List table ExternalFeeComponent"
+    },
+    "baseFeeValue": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Base financial volume for fee calculation"
+    },
+    "quantityFeeValue": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Base quantity for fee calculation"
+    },
+    "feeTier": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Tier used for fee calculation",
+      "$comment": "Consult fee parameter file"
+    },
+    "feeProductSubgroup": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Second level of fee family, when applicable",
+      "$comment": "Consult External Code List table ExternalFeeProductGroup"
+    },
+    "contractFactor": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Factor applied in fee calculation"
+    },
+    "unitCostPercentage": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Unit cost value in percentage"
+    },
+    "financialUnitCost": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Unit cost value in financial terms"
+    },
+    "calculationType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Indicates if calculation is Progressive or Regressive",
+      "$comment": "Consult External Code List table ExternalCalcType"
+    },
+    "additionalValueType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Additional value type indicator",
+      "$comment": "Consult External Code List table ExternalFeetypeindicator"
+    },
+    "additionalValue": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Additional value"
+    },
+    "feeSettlementDate": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{3})?Z?$",
+      "description": "Fee settlement date (ISO DateTime format)"
+    },
+    "payableAmount": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Financial amount to be paid"
+    }
+  },
+  "required": [
+    "recordType",
+    "referenceDate",
+    "requestingParticipantCode",
+    "requestingInvestorCode",
+    "requestedParticipantCode",
+    "requestedInvestorCode",
+    "tradingCode",
+    "instrumentCode",
+    "instrumentIdentificationOriginCode",
+    "exchangeCode",
+    "market",
+    "commodity",
+    "securityCategoryCode",
+    "quantity",
+    "grossFinancialAmount",
+    "spreadValue",
+    "feeProductGroup",
+    "feeComponent",
+    "feeTier",
+    "feeProductSubgroup",
+    "financialUnitCost",
+    "feeSettlementDate",
+    "payableAmount"
+  ],
+  "additionalProperties": false
+}

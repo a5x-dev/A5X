@@ -1,0 +1,30 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:DocumentIdentifier",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:DocumentIdentifier"
+  },
+  "title" : "Document Identifier",
+  "description" : "Core document identification information with type and number",
+  "type" : "object",
+  "properties" : {
+    "documentType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Consult External Code List table ExternalIdentificationTypeCode. IMMUTABLE: Can only be set during creation (OperationType=1). Prohibited in update operations (OperationType=2)"
+    },
+    "documentNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "pattern" : "^[A-Za-z0-9]+$",
+      "description" : "Document number (alphanumeric characters only, no special characters)",
+      "examples" : [ "12345678900", "12345678000190", "AB123456", "123456789" ]
+    }
+  },
+  "required" : [ "documentType", "documentNumber" ],
+  "examples" : [ {
+    "documentType" : 5,
+    "documentNumber" : "12345678901"
+  } ]
+}

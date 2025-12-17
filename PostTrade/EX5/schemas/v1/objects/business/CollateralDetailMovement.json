@@ -1,0 +1,43 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralDetailMovement",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralDetailMovement"
+  },
+  "title" : "Collateral Detail Information Movement",
+  "description" : "This block provides summary information about the collateral. Este bloco fornece informações sobre valores e quantidades das garantias",
+  "type" : "object",
+  "properties" : {
+    "operationValue" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Initial value of a transaction"
+    },
+    "operationAcceptValue" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Value accept in the transaction"
+    },
+    "operationQuantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Initial quantity of a transaction"
+    },
+    "operationAcceptQuantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Quantity accepts in the transaction"
+    }
+  },
+  "required" : [ "operationAcceptValue" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "operationValue" : {
+      "currency" : "BRL",
+      "amount" : "100000.00"
+    },
+    "operationAcceptValue" : {
+      "currency" : "BRL",
+      "amount" : "95000.00"
+    },
+    "operationQuantity" : "1000.50",
+    "operationAcceptQuantity" : "950.25"
+  } ]
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:Status",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:Status"
+  },
+  "title": "Status",
+  "description": "Status information for allocations with different combinations of status codes and reasons",
+  "$comment": "This schema defines different valid combinations of status information used in allocation status messages",
+  "type": "object",
+  "properties": {
+    "allocationStatusCode": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Status of the allocation processing in the central system",
+      "$comment": "Consult External Code List table ExternalStatusAllocationAdviceCode."
+    },
+    "statusCode": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Processing status of the allocation instruction",
+      "$comment": "Consult External Code List table ExternalAllocationInstruction"
+    },
+    "errorIdentification": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/tech/StatusError.json"
+      },
+      "description": "Array of error rule identifiers when status indicates failure",
+      "maxItems": 50
+    }
+  },
+  "required": [
+    "allocationStatusCode"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "allocationStatusCode": 1,
+      "statusCode": 1,
+      "errorIdentification": [
+        {
+          "code": 1,
+          "message": "Error X",
+          "errorDescription": "COD12452",
+          "refId": "REF12345"
+        }
+      ]
+    }
+  ]
+}

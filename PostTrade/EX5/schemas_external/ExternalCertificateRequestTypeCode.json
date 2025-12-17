@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Certificate Request Type",
+  "description": "Codes for certificate request type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Emissão",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Cancelamento",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

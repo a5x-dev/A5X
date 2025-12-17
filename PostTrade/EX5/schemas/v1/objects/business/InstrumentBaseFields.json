@@ -1,0 +1,102 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:InstrumentBaseFields",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:InstrumentBaseFields"
+  },
+  "title" : "Instrument Base Fields",
+  "description" : "Base fields common to all financial instruments",
+  "type" : "object",
+  "properties" : {
+    "securityCategory" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "The security category represents the third level of market classification in the post-trading process",
+      "$comment" : "Consult External Code List table ExternalSecurityCategoryCode"
+    },
+    "instrumentData" : {
+      "$ref" : "../../objects/business/TradeInstrument.json",
+      "description" : "Core instrument identification data"
+    },
+    "cfiCode" : {
+      "type" : "string",
+      "maxLength" : 6,
+      "minLength" : 6,
+      "pattern" : "^[A-Z]{6}$",
+      "description" : "Classification of Financial Instruments code - ISO 10962 standard",
+      "examples" : [ "ESVUFR", "DBXXXX", "ESXXXX" ]
+    },
+    "paymentType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Identifies the settlement method for the trade",
+      "$comment" : "Consult External Code List table ExternalPaymentTypeCode"
+    },
+    "tradingStartDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Date when trading of the financial instrument begins"
+    },
+    "tradingEndDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Date when trading of the financial instrument ends"
+    },
+    "tradingCurrency" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Currency code in which the instrument is traded",
+      "$comment" : "Consult External Code List table ExternalActiveOrHistoricCurrencyCode"
+    },
+    "expirationDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Date when the instrument expires or matures"
+    },
+    "valueTypeCode" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Identifier code for the presentation form of the economic indicator",
+      "$comment" : "Consult External Code List table ExternalValueTypeCode"
+    },
+    "conversionCriteria" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of conversion criteria, for example, linear, exponential, not available",
+      "$comment" : "Consult External Code List table ExternalConversionCriteriaTypeCode"
+    },
+    "optionStyle" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Specifies how an option can be exercised (American, European, etc.)",
+      "$comment" : "Consult External Code List table ExternalOptionStyle"
+    },
+    "optionType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Specifies whether the option is a call or put",
+      "$comment" : "Consult External Code List table ExternalOptionType"
+    }
+  },
+  "required" : [ "instrumentData", "tradingCurrency" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "securityCategory" : 1,
+    "instrumentData" : {
+      "InstrumentIdentification" : {
+        "securityID" : "10000000000000001",
+        "securitySource" : "8",
+        "securityExchange" : "A5X"
+      },
+      "ISIN" : "BRALPAACNOR0",
+      "tickerSymbol" : "DFZ0001"
+    },
+    "cfiCode" : "ESVUFR",
+    "paymentType" : 1,
+    "tradingStartDate" : "2023-01-15",
+    "tradingEndDate" : "2025-12-31",
+    "tradingCurrency" : "BRL",
+    "expirationDate" : "2025-12-31"
+  }, {
+    "securityCategory" : 2,
+    "instrumentData" : {
+      "tickerSymbol" : "DFZ0001"
+    },
+    "tradingCurrency" : "BRL",
+    "valueTypeCode" : 1,
+    "conversionCriteria" : 1,
+    "optionStyle" : 1,
+    "optionType" : 1
+  } ]
+}

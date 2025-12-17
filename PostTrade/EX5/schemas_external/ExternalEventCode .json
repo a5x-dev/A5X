@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Event ",
+  "description": "Codes for event ",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "No Registered Assembly",
+      "const": "NORA"
+    },
+    {
+      "type": "string",
+      "description": "No Registered Vote",
+      "const": "NORV"
+    },
+    {
+      "type": "string",
+      "description": "No Registered Information",
+      "const": "NORI"
+    },
+    {
+      "type": "string",
+      "description": "Início da janela de entrega dos ativos (SPB11)",
+      "const": "0001"
+    },
+    {
+      "type": "string",
+      "description": "Fim da janela de entrega dos ativos  (SPB11)",
+      "const": "0002"
+    },
+    {
+      "type": "string",
+      "description": "Início da janela de recebimento dos ativos (SPB15)",
+      "const": "0003"
+    },
+    {
+      "type": "string",
+      "description": "Fim da janela de recebimento dos ativos (SPB15)",
+      "const": "0004"
+    },
+    {
+      "type": "string",
+      "description": "Início da Janela Diluída de Entrega de Ativos",
+      "const": "0005"
+    },
+    {
+      "type": "string",
+      "description": "Fim da Janela Diluída de Entrega de Ativos",
+      "const": "0006"
+    }
+  ],
+  "examples": [
+    "NORA",
+    "NORV",
+    "NORI",
+    "0001",
+    "0002"
+  ]
+}

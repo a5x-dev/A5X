@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Index Type",
+  "description": "Codes for index type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "SELIC",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "DI",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "IGP-M",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "IPCA",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "TR",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "TJLP",
+      "const": 23
+    },
+    {
+      "type": "number",
+      "description": "TBF",
+      "const": 24
+    },
+    {
+      "type": "number",
+      "description": "IPC-FIPE",
+      "const": 26
+    }
+  ],
+  "examples": [
+    1,
+    3,
+    9,
+    18,
+    20
+  ]
+}

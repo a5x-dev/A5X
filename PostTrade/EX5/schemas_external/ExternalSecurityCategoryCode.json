@@ -1,0 +1,294 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Security Category",
+  "description": "Codes for security category",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "undefined",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "BDR",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "COMMON EQUITIES FORWARD",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "ETF EQUITIES",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "FORWARD POINTS",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "FORWARD RATE AGREEMENT",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "FUNDS",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "OPTION ON EQUITIES",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "OPTION ON INDEX",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "RECEIPTS",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "ROLLOVER",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "SHARES",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "RIGHTS",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "UNIT",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "UNIT RECEIPTS",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "VOLATILITY",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "INDEX",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "EXERCISE",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "FORW/FUT GOLD",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "FX SWAP",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "ETF FOREIGN INDEX",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "ETF FIXED INCOME",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "WARRANT",
+      "const": 23
+    },
+    {
+      "type": "number",
+      "description": "IPO - FOLLOW ON",
+      "const": 25
+    },
+    {
+      "type": "number",
+      "description": "AUCTIONS",
+      "const": 26
+    },
+    {
+      "type": "number",
+      "description": "BANK CD",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "LETTER OF CREDIT",
+      "const": 31
+    },
+    {
+      "type": "number",
+      "description": "CPR",
+      "const": 32
+    },
+    {
+      "type": "number",
+      "description": "BONDS",
+      "const": 33
+    },
+    {
+      "type": "number",
+      "description": "PURE GOLD",
+      "const": 34
+    },
+    {
+      "type": "number",
+      "description": "FIC",
+      "const": 35
+    },
+    {
+      "type": "number",
+      "description": "INTERNATIONAL BONDS",
+      "const": 36
+    },
+    {
+      "type": "number",
+      "description": "CASH",
+      "const": 37
+    },
+    {
+      "type": "number",
+      "description": "DEBENTURES",
+      "const": 38
+    },
+    {
+      "type": "number",
+      "description": "ADR",
+      "const": 39
+    },
+    {
+      "type": "number",
+      "description": "CRI (Real state receivable certificates)",
+      "const": 40
+    },
+    {
+      "type": "number",
+      "description": "CRA (Agribusiness receivable certificates)",
+      "const": 41
+    },
+    {
+      "type": "number",
+      "description": "LETRAS FINANCEIRAS",
+      "const": 42
+    },
+    {
+      "type": "number",
+      "description": "PROMISSORY NOTES",
+      "const": 43
+    },
+    {
+      "type": "number",
+      "description": "ECONOMIC INDICATORS",
+      "const": 50
+    },
+    {
+      "type": "number",
+      "description": "PRICING CURVES",
+      "const": 51
+    },
+    {
+      "type": "number",
+      "description": "PRICING SURFACES",
+      "const": 52
+    },
+    {
+      "type": "number",
+      "description": "Tradable Sec Lending",
+      "const": 53
+    },
+    {
+      "type": "number",
+      "description": "Sec lending OTC",
+      "const": 54
+    },
+    {
+      "type": "number",
+      "description": "ETF GOVT BONDS",
+      "const": 55
+    },
+    {
+      "type": "number",
+      "description": "ETF PRIMARY MARKET  GROSS SETTLEMENT",
+      "const": 56
+    },
+    {
+      "type": "number",
+      "description": "ETF PRIMARY MARKET NET SETTLEMENT",
+      "const": 57
+    },
+    {
+      "type": "number",
+      "description": "FLEXIBLE EQUITIES FORWARD",
+      "const": 60
+    },
+    {
+      "type": "number",
+      "description": "FIXED INCOME TRADABLE INSTRUMENT T0",
+      "const": 70
+    },
+    {
+      "type": "number",
+      "description": "FIXED INCOME TRADABLE INSTRUMENT T1",
+      "const": 71
+    },
+    {
+      "type": "number",
+      "description": "STOCK FUTURE",
+      "const": 80
+    },
+    {
+      "type": "number",
+      "description": "STOCK ROLLOVER",
+      "const": 81
+    },
+    {
+      "type": "number",
+      "description": "DIGITAL",
+      "const": 90
+    },
+    {
+      "type": "number",
+      "description": "EDS DV01",
+      "const": 93
+    },
+    {
+      "type": "number",
+      "description": "EDS PU NTR",
+      "const": 94
+    },
+    {
+      "type": "number",
+      "description": "FRACTIONAL SHARES",
+      "const": 95
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}

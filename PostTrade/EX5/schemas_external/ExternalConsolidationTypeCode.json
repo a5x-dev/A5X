@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Consolidation Type",
+  "description": "Codes for consolidation type",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Geral",
+      "const": "G"
+    },
+    {
+      "type": "string",
+      "description": "Participante Negociação",
+      "const": "C"
+    }
+  ],
+  "examples": [
+    "G",
+    "C"
+  ]
+}

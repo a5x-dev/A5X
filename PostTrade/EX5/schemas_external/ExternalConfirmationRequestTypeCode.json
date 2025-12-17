@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Confirmation Request Type",
+  "description": "Codes for confirmation request type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "NotConfirmed",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "PartialIntermConfirmed",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "FullIntermConfirmed",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

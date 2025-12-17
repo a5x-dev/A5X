@@ -1,0 +1,53 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-03",
+  "$metadata" : {
+    "domain" : "risk",
+    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-03"
+  },
+  "title" : "Risk Simulation Query Request",
+  "description" : "Query for requesting historical collateral margin simulation",
+  "type" : "object",
+  "properties" : {
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    },
+    "validityPeriod" : {
+      "$ref" : "../../objects/business/ValidityDateTimeRange.json",
+      "description" : "Period of validity for the collateral information"
+    },
+    "riskSimulationId" : {
+      "type" : "string",
+      "description" : "ID sent by A5X regarding the Simulation Request"
+    }
+  },
+  "required" : [ "clearingMemberIdentification", "participantIdentification", "accountIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 115
+    },
+    "validityPeriod" : {
+      "fromDateTime" : "2025-09-01T09:00:00Z",
+      "toDateTime" : "2025-09-30T17:00:00Z"
+    },
+    "riskSimulationId" : "Simulation123"
+  } ]
+}

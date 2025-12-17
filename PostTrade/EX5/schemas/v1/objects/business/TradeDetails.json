@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:TradeDetails",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:TradeDetails"
+  },
+  "title": "Trade details",
+  "description": "Trade data containing order identification, trade match details, and trading session information",
+  "type": "object",
+  "properties": {
+    "transactionDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Transaction date and time"
+    },
+    "tradeQuantity": {
+      "type": "string",
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Trade quantity"
+    },
+    "orderIdentification": {
+      "type": "string",
+      "maxLength": 26,
+      "minLength": 1,
+      "description": "Order identification number"
+    },
+    "tradeMatchIdentification": {
+      "type": "string",
+      "maxLength": 10,
+      "minLength": 1,
+      "description": "Trade match identification"
+    },
+    "secondaryTradeMatchIdentification": {
+      "type": "string",
+      "maxLength": 10,
+      "minLength": 1,
+      "description": "Secondary trade match identification"
+    },
+    "tradingSessionIdentification": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Indicates if trade was executed during regular hours or after market",
+      "$comment": "Consult External Code List table ExternalTradingSessionIdCode"
+    },
+    "tradeRegistrationOrigin": {
+      "type": "string",
+      "maxLength": 50,
+      "minLength": 1,
+      "description": "Origin session code for the trade"
+    },
+    "tradingSessionSubIdentification": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Identifies the phase group in trading session",
+      "$comment": "Consult External Code List table ExternalTradingSessionSubIdCode"
+    },
+    "securityTradingStatus": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Identifies the instrument phase in trading",
+      "$comment": "Consult External Code List table ExternalSecurityTradingStatusCode"
+    },
+    "tradeSubType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Additional qualification for trade type",
+      "$comment": "Consult External Code List table ExternalTradeSubTypeCode"
+    },
+    "sideTradeSubType": {
+      "type": "string",
+      "maxLength": 10,
+      "minLength": 1,
+      "description": "Identifies strategy subtype"
+    },
+    "tradeTransactionType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Trade transaction type code",
+      "$comment": "Consult External Code List table ExternalTradeTransactionTypeCode"
+    },
+    "strategySymbol": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Strategy symbol identifier. Letters that identify stocks traded on stock exchange"
+    },
+    "strategyType": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Defines strategy type",
+      "$comment": "Consult External Code List table ExternalStrategyTypeCode"
+    },
+    "dealPrice": {
+      "$ref": "../../types/DecimalNumber6Decimais.json",
+      "description": "Traded volume with 6 decimal places"
+    },
+    "isAggressor": {
+      "type": "boolean",
+      "description": "Indicates if the trade is aggressor"
+    }
+  },
+  "required" : [ "transactionDateTime", "tradeQuantity", "dealPrice" ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "transactionDateTime": "2023-06-15T10:00:00Z",
+      "tradeQuantity": "1000.000",
+      "orderIdentification": "ORD12345678901234567890123456",
+      "tradeMatchIdentification": "TMATCH01",
+      "secondaryTradeMatchIdentification": "STMATCH01",
+      "tradingSessionIdentification": 1,
+      "tradeRegistrationOrigin": "DMA1",
+      "tradingSessionSubIdentification": 10,
+      "securityTradingStatus": 1,
+      "tradeSubType": 37,
+      "sideTradeSubType": "NORMAL",
+      "tradeTransactionType": 0,
+      "strategySymbol": "DFZ0001",
+      "strategyType": "ST",
+      "dealPrice": "10000.123456",
+      "isAggressor": true
+    }
+  ]
+}

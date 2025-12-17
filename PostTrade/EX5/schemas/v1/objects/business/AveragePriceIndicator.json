@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:AveragePriceIndicator",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:AveragePriceIndicator"
+  },
+  "title": "Group Indicators",
+  "description": "Indicators for different types of allocation groups and their specific attributes",
+  "$comment": "This schema defines different valid combinations of group indicators used in allocation messages",
+  "type": "object",
+  "properties": {
+    "averagePriceGroupIndicator": {
+      "type": "boolean",
+      "description": "Indicates if the allocation is part of an average price allocation group"
+    },
+    "averageExecutionTime": {
+      "$ref": "../../types/ISODateTime.json",
+      "description": "Average execution time of the average price allocation group"
+    }
+  },
+  "required": [],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "averagePriceGroupIndicator": true,
+      "averageExecutionTime": "2023-06-15T10:30:00Z"
+    }
+  ]
+}

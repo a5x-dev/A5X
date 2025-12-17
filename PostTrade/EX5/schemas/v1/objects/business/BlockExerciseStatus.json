@@ -1,0 +1,36 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:BlockExerciseStatus",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:BlockExerciseStatus"
+  },
+  "title" : "Block Exercise Status",
+  "description" : "Status information with proprietary codes and optional error details",
+  "type" : "object",
+  "properties" : {
+    "statusCode" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Block exercise status code",
+      "$comment" : "Consult External Code List table ExternalExerciseBlockStatusCode."
+    },
+    "errorIds" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string",
+        "maxLength" : 10,
+        "minLength" : 1,
+        "description" : "Business error rule identifier"
+      },
+      "description" : "Array of error rule identifiers when status indicates failure"
+    }
+  },
+  "required" : [ "statusCode" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "statusCode" : "1"
+  }, {
+    "statusCode" : "0",
+    "errorIds" : [ "RULE001", "RULE002" ]
+  } ]
+}

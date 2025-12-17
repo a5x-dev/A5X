@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Movement Type",
+  "description": "Codes for movement type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Provisory",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Final",
+      "const": 3
+    }
+  ],
+  "examples": [
+    2,
+    3
+  ]
+}

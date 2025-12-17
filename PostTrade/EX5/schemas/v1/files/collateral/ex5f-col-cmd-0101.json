@@ -1,0 +1,156 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-cmd-01",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-cmd-01"
+  },
+  "title" : "Collateral Command Distribution Instruction File Schema",
+  "description" : "Collateral Command Distribution Instruction File Schema",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "pattern" : "^[A-Za-z0-9_-]+$",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "clearingMemberIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Clearing member identifier provided by A5X during the participant registration"
+    },
+    "clearingMemberIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Clearing member category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "accountIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "distributionSide" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Distribution side indicator",
+      "$comment" : "Consult External Code List table ExternalDistributionSideCode"
+    },
+    "securitiesDistributionCommandNumber" : {
+      "type" : "string",
+      "pattern" : "^[0-9]{1,13}$",
+      "description" : "Number assigned by the Central Depository for each type of collateral"
+    },
+    "securitiesCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Securities collateral identification as known by party"
+    },
+    "securitiesAssetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifies the register number of the securities collateral deposit"
+    },
+    "securitiesQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity requested to securities distribution with command"
+    },
+    "cashDistributionCommandNumber" : {
+      "type" : "string",
+      "pattern" : "^[0-9]{1,13}$",
+      "description" : "Number assigned by the Central Depository for each type of collateral"
+    },
+    "cashCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Cash collateral identification as known by party"
+    },
+    "cashAssetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifies the register number of the cash collateral deposit"
+    },
+    "cashOperationValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Amount requested to cash distribution with command"
+    },
+    "cashOperationValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for cash operation value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "federalBondsDistributionCommandNumber" : {
+      "type" : "string",
+      "pattern" : "^[0-9]{1,13}$",
+      "description" : "Number assigned by the Central Depository for each type of collateral"
+    },
+    "federalBondsCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Federal bonds collateral identification as known by party"
+    },
+    "federalBondsAssetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifies the register number of the federal bonds collateral deposit"
+    },
+    "federalBondsQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity requested to federal bonds distribution with command"
+    },
+    "externalDistributionCommandNumber" : {
+      "type" : "string",
+      "pattern" : "^[0-9]{1,13}$",
+      "description" : "Number assigned by the Central Depository for each type of collateral"
+    },
+    "externalCollateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "External collateral identification as known by party"
+    },
+    "externalAssetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifies the register number of the external collateral deposit"
+    },
+    "externalQuantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity requested to external distribution with command"
+    }
+  },
+  "required" : [ "transactionIdentification", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "participantIdentificationId", "participantIdentificationCategory", "accountIdentificationId", "distributionSide" ],
+  "additionalProperties" : false
+}

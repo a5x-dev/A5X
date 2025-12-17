@@ -1,0 +1,14 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:LinkedAccountType",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:LinkedAccountType"
+  },
+  "title" : "Linked Account Type",
+  "description" : "Type of account link relationship - ExternalLinkedAccountTypeCode",
+  "allOf" : [ {
+    "$ref" : "../objects/business/ExternalCodeList.json"
+  } ],
+  "examples" : [ "Consult External Code List table ExternalLinkedAccountTypeCode" ]
+}

@@ -1,0 +1,219 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#", 
+  "$id" : "urn:a5x:ex5:schema:v1:positions:ex5f-pos-evt-01",
+  "$metadata" : {
+    "domain" : "positions",
+    "schemaId" : "urn:a5x:ex5:schema:v1:positions:ex5f-pos-evt-01"
+  }, 
+  "title" : "CorporateActionPositionReport", 
+  "description" : "Corporate Action Position Report", 
+  "type" : "object", 
+  "properties" : {
+    "referenceDate" : {
+      "type" : "string", 
+      "format" : "date", 
+      "description" : "Reference date of the information."
+    }, 
+    "positionDate" : {
+      "type" : "string", 
+      "format" : "date", 
+      "description" : "Initial position date with corporate action effects applied."
+    }, 
+    "eventUpdateDate" : {
+      "type" : "string", 
+      "format" : "date", 
+      "description" : "Date the application of the events in custody will be made by (used in batch this day)."
+    }, 
+    "clearingMemberIdentificationId" : {
+      "type" : "integer", 
+      "maximum" : 999999, 
+      "minimum" : 1, 
+      "description" : "Clearing Member identifier provided by A5X"
+    }, 
+    "clearingMemberIdentificationCategory" : {
+      "type" : "integer", 
+      "minimum" : 1, 
+      "maximum" : 99, 
+      "description" : "Participant category code", 
+      "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalParticipantCategoryCode."
+    }, 
+    "participantIdentificationId" : {
+      "type" : "integer", 
+      "maximum" : 999999, 
+      "minimum" : 1, 
+      "description" : "Participant identifier provided by A5X"
+    }, 
+    "participantIdentificationCategory" : {
+      "type" : "integer", 
+      "minimum" : 1, 
+      "maximum" : 99, 
+      "description" : "Participant category code", 
+      "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalParticipantCategoryCode."
+    }, 
+    "accountIdentification" : {
+      "type" : "integer", 
+      "minimum" : 1, 
+      "maximum" : 999999999999999, 
+      "description" : "Account identifier defined by the participant"
+    }, 
+    "tickerSymbol" : {
+      "type" : "string", 
+      "maxLength" : 35, 
+      "minLength" : 1, 
+      "description" : "Letters that identify stocks traded on stock exchange"
+    }, 
+    "financialInstrumentIdentificationId" : {
+      "type" : "string", 
+      "maxLength" : 35, 
+      "minLength" : 1, 
+      "description" : "Proprietary identification of an instrument"
+    }, 
+    "financialInstrumentIdentificationSource" : {
+      "type" : "string", 
+      "maxLength" : 35, 
+      "minLength" : 1, 
+      "description" : "Source of the instrument identification", 
+      "default" : "8"
+    }, 
+    "financialInstrumentIdentificationExchange" : {
+      "type" : "string", 
+      "pattern" : "^[A-Z0-9]{4}$", 
+      "description" : "Identifier code of the exchange where the instrument is listed"
+    }, 
+    "market" : {
+      "type" : "integer", 
+      "minimum" : 0, 
+      "maximum" : 999999, 
+      "description" : "Market type - second level of market classification in post-trading process", 
+      "$comment" : "Consult External Code List table ExternalMarketCode"
+    }, 
+    "asset" : {
+      "type" : "string", 
+      "maxLength" : 30, 
+      "description" : "Commodity associated with the instrument"
+    }, 
+    "corporateActionType" : {
+      "type" : "integer", 
+      "minimum" : 0, 
+      "maximum" : 999999, 
+      "description" : "Contains the description of the corporate action to be applied", 
+      "$comment" : "Consult External Code List table ExternalCorporateActionsTypeCode"
+    }, 
+    "corporateActionIdentification" : {
+      "type" : "integer", 
+      "minimum" : 0, 
+      "maximum" : 999999, 
+      "description" : "Corporate Action Code", 
+      "$comment" : "Consult External Code List table ExternalCorporateActionCode"
+    }, 
+    "afterApplyingCorporateActionsIsin" : {
+      "type" : "string", 
+      "pattern" : "^[A-Z]{2}[A-Z0-9]{9}[0-9]$", 
+      "minLength" : 12, 
+      "maxLength" : 12, 
+      "description" : "International Securities Identification Number - Standardized international code for unique identification of financial instruments", 
+      "$comment" : "ISIN after applying corporate actions."
+    }, 
+    "afterApplyingCorporateActionsTickerSymbol" : {
+      "type" : "string", 
+      "maxLength" : 35, 
+      "minLength" : 1, 
+      "$comment" : "Ticker Symbol after applying corporate actions.", 
+      "description" : "Letters that identify stocks traded on stock exchange"
+    }, 
+    "afterApplyingCorporateActionsUnderlyingIsin" : {
+      "type" : "string", 
+      "pattern" : "^[A-Z]{2}[A-Z0-9]{9}[0-9]$", 
+      "minLength" : 12, 
+      "maxLength" : 12, 
+      "description" : "Underlying ISIN after applying corporate actions"
+    }, 
+    "afterApplyingCorporateActionsLongQuantity" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Long position after applying corporate actions"
+    }, 
+    "afterApplyingCorporateActionsShortQuantity" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Short position after applying corporate actions"
+    }, 
+    "afterApplyingCorporateActionsExercisePrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Exercise Price after applying corporate actions"
+    }, 
+    "afterApplyingCorporateActionsVolume" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Volume after applying corporate actions"
+    }, 
+    "beforeApplyingCorporateActionsISIN" : {
+      "type" : "string", 
+      "pattern" : "^[A-Z]{2}[A-Z0-9]{9}[0-9]$", 
+      "minLength" : 12, 
+      "maxLength" : 12, 
+      "description" : "International Securities Identification Number - Standardized international code for unique identification of financial instruments", 
+      "$comment" : "ISIN before applying corporate actions."
+    }, 
+    "beforeApplyingCorporateActionsTickerSymbol" : {
+      "type" : "string", 
+      "maxLength" : 35, 
+      "minLength" : 1, 
+      "$comment" : "Ticker Symbol before applying corporate actions.", 
+      "description" : "Ticker Symbol before applying corporate actions"
+    }, 
+    "beforeApplyingCorporateActionsUnderlyingISIN" : {
+      "type" : "string", 
+      "pattern" : "^[A-Z]{2}[A-Z0-9]{9}[0-9]$", 
+      "minLength" : 12, 
+      "maxLength" : 12, 
+      "description" : "Underlying ISIN before applying corporate actions"
+    }, 
+    "beforeApplyingCorporateActionsLongQuantity" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Long position before applying corporate actions"
+    }, 
+    "beforeApplyingCorporateActionsShortQuantity" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Short position before applying corporate actions"
+    }, 
+    "beforeApplyingCorporateActionsExercisePrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Exercise Price before applying corporate actions"
+    }, 
+    "beforeApplyingCorporateActionsVolume" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Volume before applying corporate actions"
+    }
+  }, 
+  "required" : [
+    "referenceDate", 
+    "positionDate", 
+    "eventUpdateDate", 
+    "clearingMemberIdentificationId", 
+    "clearingMemberIdentificationCategory", 
+    "participantIdentificationId", 
+    "participantIdentificationCategory", 
+    "accountIdentification", 
+    "tickerSymbol", 
+    "financialInstrumentIdentificationId", 
+    "financialInstrumentIdentificationSource", 
+    "financialInstrumentIdentificationExchange", 
+    "market", 
+    "asset", 
+    "corporateActionCode", 
+    "corporateActionIdentification", 
+    "afterApplyingCorporateActionsTickerSymbol", 
+    "afterApplyingCorporateActionsLongQuantity", 
+    "afterApplyingCorporateActionsShortQuantity", 
+    "beforeApplyingCorporateActionsTickerSymbol", 
+    "beforeApplyingCorporateActionsLongQuantity", 
+    "beforeApplyingCorporateActionsShortQuantity"
+  ], 
+  "additionalProperties" : false
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Auction Instrument Type",
+  "description": "Codes for auction instrument type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Leilão de Não Cotados",
+      "const": 46
+    },
+    {
+      "type": "number",
+      "description": "Leilão de Privatização",
+      "const": 48
+    },
+    {
+      "type": "number",
+      "description": "FUNRES",
+      "const": 49
+    },
+    {
+      "type": "number",
+      "description": "Leilão",
+      "const": 50
+    },
+    {
+      "type": "number",
+      "description": "Leilão FINOR",
+      "const": 51
+    },
+    {
+      "type": "number",
+      "description": "Leilão FINAM",
+      "const": 52
+    },
+    {
+      "type": "number",
+      "description": "Leilão FISET",
+      "const": 53
+    },
+    {
+      "type": "number",
+      "description": "Leilão Ações MORA",
+      "const": 54
+    }
+  ],
+  "examples": [
+    46,
+    48,
+    49,
+    50,
+    51
+  ]
+}

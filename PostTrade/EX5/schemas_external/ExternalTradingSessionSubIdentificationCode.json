@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Trading Session Sub Identification",
+  "description": "Codes for trading session sub identification",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Pause",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Close",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Open",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "Pre-Close",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "Pre-Open",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "Final Closing Call",
+      "const": 101
+    }
+  ],
+  "examples": [
+    2,
+    4,
+    17,
+    18,
+    21
+  ]
+}

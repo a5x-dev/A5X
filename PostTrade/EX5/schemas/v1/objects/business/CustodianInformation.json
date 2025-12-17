@@ -1,0 +1,40 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CustodianInformation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CustodianInformation"
+  },
+  "title" : "Custodian Information",
+  "description" : "Custodian information containing participant and account identification",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides account identification"
+    },
+    "subAccount" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Sub account identification",
+      "examples" : [ "001", "SUB01", "12345" ]
+    }
+  },
+  "required" : [ "participantIdentification", "accountIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 456,
+      "category" : 2
+    },
+    "accountIdentification" : {
+      "id" : 789012345678901
+    },
+    "subAccount" : "001"
+  } ]
+}

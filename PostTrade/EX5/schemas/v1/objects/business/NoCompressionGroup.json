@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:NoCompressionGroup",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:NoCompressionGroup"
+  },
+  "title": "No Compression Group Item",
+  "description": "Individual compression group item containing trade and order information for compression operations",
+  "type": "object",
+  "properties": {
+    "orderIdentification": {
+      "type": "string",
+      "maxLength": 26,
+      "minLength": 1,
+      "description": "Order identification number",
+      "examples": ["ORD20250101001", "ORDER-123456"]
+    },
+    "tradeIdentification": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Trade identification number",
+      "examples": ["TRD20250101001", "TRADE-ABC-123456"]
+    },
+    "transactionDateTime": {
+      "$ref": "../../types/ISODateTime.json",
+      "description": "Transaction date and time in ISO format",
+      "examples": ["2025-01-15T10:30:00Z", "2025-12-31T23:59:59Z"]
+    },
+    "tradeQuantity": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Trade quantity for compression operation",
+      "examples": ["1000.50", "2500.75"]
+    },
+    "enteringTrade": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Entering trade quantity",
+      "examples": ["500.25", "1250.00"]
+    },
+    "tradingDeskIdentification": {
+      "type": "string",
+      "maxLength": 50,
+      "minLength": 1,
+      "description": "Identifies trading desk or strategy",
+      "examples": ["DESK-001", "STRATEGY-ALPHA"]
+    },
+    "compressionTradeStatusCode": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Status code for compression trade operation",
+      "$comment": "Consult External Code List table ExternalCompressionTradeStatusCode",
+      "examples": [1, 2, 3]
+    }
+  },
+  "required": [
+    "tradeIdentification",
+    "transactionDateTime",
+    "tradeQuantity",
+    "compressionTradeStatusCode"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "orderIdentification": "ORD20250101001",
+      "tradeIdentification": "TRD20250101001",
+      "transactionDateTime": "2025-01-15T10:30:00Z",
+      "tradeQuantity": "1000.50",
+      "enteringTrade": "500.25",
+      "tradingDeskIdentification": "DESK-001",
+      "compressionTradeStatusCode": 1
+    },
+    {
+      "tradeIdentification": "TRADE-ABC-123456",
+      "transactionDateTime": "2025-12-31T14:45:30Z",
+      "tradeQuantity": "2500.75",
+      "compressionTradeStatusCode": 2
+    }
+  ]
+}

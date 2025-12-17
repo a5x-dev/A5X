@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Execution Permission Type",
+  "description": "Codes for execution permission type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Execução Restrita Clearing",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Execução Liberada Participante",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

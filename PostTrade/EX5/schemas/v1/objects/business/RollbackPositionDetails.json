@@ -1,0 +1,44 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:RollbackPositionDetails",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:RollbackPositionDetails"
+  },
+  "title" : "Rollback Position Details",
+  "description" : "Details about rollback position with quantities",
+  "type" : "object",
+  "properties" : {
+    "instrumentIdentification" : {
+      "$ref" : "../../objects/business/InstrumentIdentification.json",
+      "description" : "Financial instrument identification"
+    },
+    "executedQuantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Executed quantity for rollback"
+    },
+    "availableQuantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Available quantity for rollback"
+    }
+  },
+  "required" : [ "instrumentIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "instrumentIdentification" : {
+      "id" : "100000000000001",
+      "source" : "8",
+      "exchange" : "A5X"
+    },
+    "executedQuantity" : "150.00",
+    "availableQuantity" : "50.00"
+  }, {
+    "instrumentIdentification" : {
+      "id" : "200000000000002",
+      "source" : "8",
+      "exchange" : "A5X"
+    },
+    "executedQuantity" : "500.00",
+    "availableQuantity" : "100.00"
+  } ]
+}

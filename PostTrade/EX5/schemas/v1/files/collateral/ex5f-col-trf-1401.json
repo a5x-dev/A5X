@@ -1,0 +1,147 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-trf-14",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-trf-14"
+  },
+  "title" : "Collateral Transfer Status File Schema",
+  "description" : "Collateral Transfer Status File Schema",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "pattern" : "^[A-Za-z0-9_-]+$",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "accountServicerTransactionIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "pattern" : "^[A-Za-z0-9_-]+$",
+      "description" : "Provides details about unique transaction identification known by the account servicer"
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X during the participant registration"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "accountIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "collateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Collateral ID given by the requestor participant"
+    },
+    "quantity" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Quantity request to collateral transfer"
+    },
+    "operationValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Amount requested to umbrella type distribution"
+    },
+    "operationValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code in which the amount is denominated",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "collateralValueAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Collateral accepted value amount after taking into account the haircut"
+    },
+    "collateralValueCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for collateral value",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "collateralStatusCode" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Provides a proprietary status of each processing requested",
+      "$comment" : "Consult External Code List table ExternalCollateralStatusCode"
+    },
+    "collateralStatusErrorCode" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Error code for collateral status",
+      "$comment" : "Consult External Code List table ExternalErrorCollateralCode, ExternalErrorRegistrationCode, ExternalAllocationErrorCode"
+    },
+    "collateralStatusErrorDescription" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Error description for collateral status"
+    },
+    "collateralStatusErrorMessage" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Error message for collateral status"
+    },
+    "collateralStatusErrorRefId" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Reference ID for collateral status error"
+    },
+    "collateralTransferInstructionStatusCode" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Overall status code of the collateral transfer instruction",
+      "$comment" : "Consult External Code List table ExternalCollateralStatusCode"
+    },
+    "collateralTransferInstructionStatusErrorCode" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Error code for transfer instruction status",
+      "$comment" : "Consult External Code List table ExternalErrorCollateralCode, ExternalErrorRegistrationCode, ExternalAllocationErrorCode"
+    },
+    "collateralTransferInstructionStatusErrorDescription" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Error description for transfer instruction status"
+    },
+    "collateralTransferInstructionStatusErrorMessage" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Error message for transfer instruction status"
+    },
+    "collateralTransferInstructionStatusErrorRefId" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Reference ID for transfer instruction status error"
+    }
+  },
+  "required" : [ "accountServicerTransactionIdentification", "participantIdentificationId", "participantIdentificationCategory", "accountIdentificationId" ],
+  "additionalProperties" : false
+}

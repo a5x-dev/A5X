@@ -1,0 +1,53 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:Document",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:Document"
+  },
+  "title" : "Document",
+  "description" : "Document information with type, number, dates and issuing details",
+  "type" : "object",
+  "properties" : {
+    "documentIdentifier" : {
+      "$ref" : "../../objects/business/DocumentIdentifier.json",
+      "description" : "Core document identification information"
+    },
+    "issueDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Document issue date"
+    },
+    "expirationDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Document expiration date"
+    },
+    "country" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Bank country",
+      "$comment" : "ISO 3166-1 alpha-3 country code, Consult ExternalCodeList table ExternalCountryCode"
+    },
+    "issuingAuthority" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Issuing authorities that issued the document.",
+      "$comment" : "Consult the ExternalCodeList table ExternalIssuerCode for valid codes."
+    },
+    "state" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "State code",
+      "$comment" : "Consult ExternalCodeList table ExternalStateCode. Required only if country is Brazil (BR)"
+    }
+  },
+  "required" : [ "documentIdentifier", "country" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "documentIdentifier" : {
+      "documentType" : 2,
+      "documentNumber" : "12345678900"
+    },
+    "issueDate" : "2018-05-15",
+    "expirationDate" : "2028-05-14",
+    "country" : "BRA",
+    "issuingAuthority" : 2,
+    "state" : "SP"
+  } ]
+}

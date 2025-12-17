@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Lien Report Type",
+  "description": "Codes for lien report type",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "ADMINISTRADOR DIRETO",
+      "const": "AD"
+    },
+    {
+      "type": "string",
+      "description": "AGENTE DE CUSTÓDIA",
+      "const": "AC"
+    },
+    {
+      "type": "string",
+      "description": "CENTRAL DEPOSITÁRIA",
+      "const": "CD"
+    },
+    {
+      "type": "string",
+      "description": "ADMINISTRADOR DE PAPEL",
+      "const": "AP"
+    }
+  ],
+  "examples": [
+    "AD",
+    "AC",
+    "CD",
+    "AP"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:ValidityPeriod",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:ValidityPeriod"
+  },
+  "title" : "Validity Period",
+  "description" : "Defines a period of validity with start and end date/time",
+  "type" : "object",
+  "properties" : {
+    "fromDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Date at which the range starts",
+      "examples" : [ "2024-01-15", "2024-03-01" ]
+    },
+    "toDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Date at which the range ends",
+      "examples" : [ "2024-01-15", "2024-03-01" ]
+    }
+  },
+  "additionalProperties" : false,
+  "required" : [ "fromDate", "toDate" ],
+  "examples" : [ {
+    "fromDate" : "2024-01-15",
+    "toDate" : "2024-01-15"
+  } ]
+}

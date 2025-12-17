@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Retraction Participation Type",
+  "description": "Codes for retraction participation type",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Não Retrata",
+      "const": "N"
+    },
+    {
+      "type": "string",
+      "description": "Retratação Parcial",
+      "const": "P"
+    },
+    {
+      "type": "string",
+      "description": "Retratação Total",
+      "const": "T"
+    }
+  ],
+  "examples": [
+    "N",
+    "P",
+    "T"
+  ]
+}

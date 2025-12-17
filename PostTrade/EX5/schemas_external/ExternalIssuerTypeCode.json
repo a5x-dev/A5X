@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Issuer Type",
+  "description": "Codes for issuer type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Estatal",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Estatal Holding",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Estrangeiro",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Estrangeiro Holding",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Privado",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Privado Holding",
+      "const": 6
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

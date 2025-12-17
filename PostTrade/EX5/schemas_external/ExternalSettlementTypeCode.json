@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Settlement Type",
+  "description": "Codes for settlement type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Parcial",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Total",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

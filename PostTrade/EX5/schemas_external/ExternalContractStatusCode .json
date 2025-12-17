@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Contract Status ",
+  "description": "Codes for contract status ",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Borrower CST",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Lender CST",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Borrower TP/DP",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Lender TP/DP",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Clearing Risk",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Borrower Intermediary",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Clearing",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Lender Intermediary",
+      "const": 8
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

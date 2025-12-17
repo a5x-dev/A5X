@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Buy In Request Type",
+  "description": "Codes for buy in request type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Buy-in execution request",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Buy-in execution simulation",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

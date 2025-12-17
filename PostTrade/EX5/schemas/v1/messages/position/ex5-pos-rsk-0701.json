@@ -1,0 +1,44 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-rsk-07",
+  "$metadata" : {
+    "domain" : "position",
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-rsk-07"
+  },
+  "title" : "Position Transfer Risk Assessment Status Request Message",
+  "description" : "Request message for querying risk assessment status of position transfer operations",
+  "type" : "object",
+  "properties" : {
+    "positionTransferReference" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "minLength" : 1,
+      "description" : "Unique reference identifying the position transfer"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the requesting participant"
+    },
+    "transferRoleInformation" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Role of the participant in the transfer process",
+      "$comment" : "Consult External Code List table ExternalTransferRoleCode"
+    },
+    "riskAssessmentInformation" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Risk assessment information type code",
+      "$comment" : "Consult External Code List table ExternalAssessmentInformationTypeCode"
+    }
+  },
+  "required" : [ "positionTransferReference", "participantIdentification", "transferRoleInformation" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "positionTransferReference" : "113624876548555",
+    "participantIdentification" : {
+      "id" : 489,
+      "category" : 3
+    },
+    "transferRoleInformation" : 1,
+    "riskAssessmentInformation" : 2
+  } ]
+}

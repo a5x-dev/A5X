@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Share Control Type",
+  "description": "Codes for share control type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Adm. Esp. Raet",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Intervenção",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Não",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Outras Condições",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Recup. Extrajudic.",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Recup. Judicial",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Sanção Reg. B3",
+      "const": 6
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Deposit Status",
+  "description": "Codes for deposit status",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Finalizado com Sucesso",
+      "const": "0001"
+    },
+    {
+      "type": "string",
+      "description": "Rejeitado",
+      "const": "0002"
+    },
+    {
+      "type": "string",
+      "description": "Pendente de Aprovação Custodiante",
+      "const": "0003"
+    },
+    {
+      "type": "string",
+      "description": "Pendente de Aprovação Escriturador",
+      "const": "0004"
+    },
+    {
+      "type": "string",
+      "description": "Erro",
+      "const": "0005"
+    },
+    {
+      "type": "string",
+      "description": "Efetivada atualização no livro",
+      "const": "0006"
+    },
+    {
+      "type": "string",
+      "description": "Aprovado",
+      "const": "0007"
+    }
+  ],
+  "examples": [
+    "0001",
+    "0002",
+    "0003",
+    "0004",
+    "0005"
+  ]
+}

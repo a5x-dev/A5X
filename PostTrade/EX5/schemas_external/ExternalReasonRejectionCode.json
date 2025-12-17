@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Reason Rejection",
+  "description": "Codes for reason rejection",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Investidor com pendência cadastral",
+      "const": "0001"
+    },
+    {
+      "type": "string",
+      "description": "Ativos indisponíveis para transferência",
+      "const": "0002"
+    },
+    {
+      "type": "string",
+      "description": "Divergência na confirmação com o investidor",
+      "const": "0003"
+    },
+    {
+      "type": "string",
+      "description": "Desistência do investidor (retenção)",
+      "const": "0004"
+    },
+    {
+      "type": "string",
+      "description": "Outros",
+      "const": "0005"
+    }
+  ],
+  "examples": [
+    "0001",
+    "0002",
+    "0003",
+    "0004",
+    "0005"
+  ]
+}

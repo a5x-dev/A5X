@@ -1,0 +1,74 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:tech:TechBaseFields",
+  "$metadata" : {
+    "domain" : "tech",
+    "schemaId" : "urn:a5x:ex5:schema:v1:tech:TechBaseFields"
+  },
+  "title" : "Elements to create notication message of error",
+  "description" : "Elements to create notication message of error",
+  "type" : "object",
+  "properties" : {
+    "status" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Processing status",
+      "$comment" : "Consult External Code List table ExternalReportStatusCode"
+    },
+    "error" : {
+      "$ref" : "../../objects/tech/StatusError.json",
+      "description" : "Processing status"
+    },
+    "fileName" : {
+      "type" : "string",
+      "description" : "Name of the generated file",
+      "minLength" : 1,
+      "maxLength" : 255,
+      "examples" : [ "account_report_20240515_143210.csv", "links_85_20240601.csv" ]
+    },
+    "filelink" : {
+      "type" : "string",
+      "description" : "Link of the generated file",
+      "minLength" : 1,
+      "maxLength" : 255,
+      "examples" : [ "links_85_20240601.csv" ]
+    },
+    "filePath" : {
+      "type" : "string",
+      "description" : "Path to the file that caused the error",
+      "$comment" : "Identifies the specific file that has an error",
+      "minLength" : 1,
+      "maxLength" : 500,
+      "examples" : [ "/home/user/documents/EX5F-COL-MRG-0101-20250101-1.csv.csv" ]
+    },
+    "timestamp" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Timestamp when the event occurred"
+    },
+    "reportName" : {
+      "type" : "string",
+      "description" : "Name of the report",
+      "examples" : [ "EX5F-COL-MRG-0101", "EX5F-COL-MRG-0102" ]
+    },
+    "quantityOfRows" : {
+      "type" : "integer",
+      "description" : "Quantity of rows in the file"
+    }
+  },
+  "required" : [ ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "status" : 2,
+    "error" : {
+      "code" : 1,
+      "message" : "Error X",
+      "description" : "COD12452",
+      "refId" : "REF12345"
+    },
+    "fileName" : "EX5F-COL-MRG-0101-20250101-1.csv",
+    "filelink" : "http://example.com/EX5F-COL-MRG-0101-20250101-1.csv.csv",
+    "filePath" : "/home/user/documents/EX5F-COL-MRG-0101-20250101-1.csv.csv",
+    "timestamp" : "2024-01-15T14:30:15Z",
+    "reportName" : "EX5F-COL-MRG-0101",
+    "quantityOfRows" : 1000
+  } ]
+}

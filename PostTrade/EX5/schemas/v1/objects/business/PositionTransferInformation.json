@@ -1,0 +1,50 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:PositionTransferInformation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:PositionTransferInformation"
+  },
+  "title" : "Position Transfer Information",
+  "description" : "Information about position transfer request including transfer type and indicators",
+  "type" : "object",
+  "properties" : {
+    "clientReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Client reference for the transfer",
+      "examples" : [ "123456789", "REF001", "CLIENT-TRF-001" ]
+    },
+    "collateralTransferIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if collateral should be transferred",
+      "examples" : [ true, false ]
+    },
+    "transferTypeCode" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of transfer being requested",
+      "$comment" : "Consult External Code List table ExternalTransferTypeCode"
+    },
+    "positionTransferReference" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "minLength" : 1,
+      "description" : "Identify the reference given by A5X to a position transfer",
+      "examples" : [ "123456789", "REF00123" ]
+    }
+  },
+  "required" : [ "clientReference", "transferTypeCode", "collateralTransferIndicator" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "clientReference" : "123456789",
+    "collateralTransferIndicator" : true,
+    "transferTypeCode" : 3,
+    "positionTransferReference" : "123456"
+  }, {
+    "clientReference" : "REF001",
+    "collateralTransferIndicator" : false,
+    "transferTypeCode" : 1,
+    "positionTransferReference" : "9875169"
+  } ]
+}

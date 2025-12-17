@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Buyer Type",
+  "description": "Codes for buyer type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "NONE",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "OBLIGED",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "NOT OBLIGED",
+      "const": 2
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2
+  ]
+}

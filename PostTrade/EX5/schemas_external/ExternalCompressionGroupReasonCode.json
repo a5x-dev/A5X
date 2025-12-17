@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Compression Group Reason",
+  "description": "Codes for compression group reason",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Inserted",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Pending take up",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Updated due to trade cancel",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Dissolved",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Removed due last trade cancel",
+      "const": 5
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

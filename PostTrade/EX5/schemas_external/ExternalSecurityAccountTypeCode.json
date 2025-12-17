@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalSecurityAccountTypeCode",
+  "description": "Codes for security account type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "NORMAL",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "MASTER",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "ERRO",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "ERRO OPERACIONAL",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "ADMINCON",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "BROKERAGE",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "CAPTURA",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "INTERMEDIÁRIA",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "FORMADOR DE MERCADO",
+      "const": 22
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ]
+}

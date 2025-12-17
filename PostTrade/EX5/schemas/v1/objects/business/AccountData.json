@@ -1,0 +1,75 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:AccountData",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:AccountData"
+  },
+  "title" : "Account Data",
+  "description" : "Complete account information grouping with different contexts",
+  "type" : "object",
+  "properties" : {
+    "profile" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Define the account profile for PTRM setup",
+      "$comment" : "Consult External Code List table ExternalPTRMProfile"
+    },
+    "riskProfile" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Risk profile classification",
+      "$comment" : "Consult External Code List table ExternalCustomerClassificationRiskCode"
+    },
+    "status" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Account status/situation",
+      "$comment" : "Consult External Code List table ExternalStatusCode (optional - set after creation)"
+    },
+    "onBehalfOf" : {
+      "type" : "boolean",
+      "default" : false,
+      "description" : "On behalf of indicator. Default = false. Required when account is used as origin for 'On Behalf Of' relationship links"
+    },
+    "openedOnBehalf" : {
+      "type" : "boolean",
+      "default" : false,
+      "description" : "Opened on behalf of indicator",
+      "$comment" : "Default = false. Indicates if the account was opened on behalf of another person"
+    },
+    "intermediaryCode" : {
+      "type" : "boolean",
+      "description" : "Intermediary code indicator",
+      "$comment" : "Required when openedOnBehalf = true"
+    },
+    "modifyAddressforAllAccounts" : {
+      "type" : "boolean",
+      "default" : true,
+      "description" : "Update address to all user's accounts"
+    },
+    "address" : {
+      "$ref" : "../../objects/business/Address.json"
+    }
+  },
+  "required" : [ ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "profile" : 1,
+    "riskProfile" : 1,
+    "status" : 1,
+    "onBehalfOf" : true,
+    "openedOnBehalf" : false,
+    "intermediaryCode" : false,
+    "modifyAddressforAllAccounts" : true,
+    "address" : {
+      "street" : "Rua Brasilândia",
+      "number" : "123",
+      "complement" : "Apto 101",
+      "neighborhood" : "Centro",
+      "postalCode" : "01234-567",
+      "cityName" : 3550308,
+      "state" : "SP",
+      "country" : "BRA",
+      "phoneNumber" : "+55-11-91234-5678",
+      "email" : "usuario@exemplo.com.br"
+    }
+  } ]
+}

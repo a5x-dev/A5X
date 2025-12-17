@@ -1,0 +1,232 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-col-04",
+  "$metadata": {
+    "domain": "qualifiedServices",
+    "schemaId": "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-col-04"
+  },
+  "title": "Unified Qualified Services File Schema",
+  "description": "Unified schema for records 18 (Collateral), 19 (Required Margin), and 31 (Collateral Portfolio Details)",
+  "type": "object",
+  "properties": {
+    "recordType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Record type: 18 (Collateral), 19 (Required Margin), 31 (Collateral Portfolio Details)",
+      "$comment" : "Consult External Code List table ExternalRecordTypeCode"
+    },
+    "requestingParticipantCode": {
+      "type": "string",
+      "maxLength": 15,
+      "description": "Requesting participant code"
+    },
+    "requestingInvestorCode": {
+      "type": "string",
+      "maxLength": 15,
+      "description": "Requesting investor code"
+    },
+    "requestedParticipantCode": {
+      "type": "string",
+      "maxLength": 15,
+      "description": "Requested participant code"
+    },
+    "requestedInvestorCode": {
+      "type": "string",
+      "maxLength": 15,
+      "description": "Requested investor code"
+    },
+    "referenceDate": {
+      "type": "string",
+      "maxLength": 10,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Reference date (YYYY-MM-DD format) - Used in records 18 and 31"
+    },
+    "movementDate": {
+      "type": "string",
+      "maxLength": 10,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Movement date (YYYY-MM-DD format) - Used in record 19"
+    },
+    "collateralTypeCode": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Collateral type code - Used in records 18 and 31",
+      "$comment": "Consult External Code List table ExternalCollateralTypeCode"
+    },
+    "instrumentCode": {
+      "type": "string",
+      "maxLength": 35,
+      "description": "Security ID - Used in records 18 and 31"
+    },
+    "instrumentIdentificationOriginCode": {
+      "type": "string",
+      "maxLength": 35,
+      "description": "Security Source - Used in records 18 and 31"
+    },
+    "exchangeCode": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Security Exchange - Used in records 18 and 31"
+    },
+    "coveragePurpose": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9999,
+      "description": "Coverage purpose - Used in all records",
+      "$comment": "Consult External Code List table ExternalCollateralCoverageTypeCode"
+    },
+    "holderCategoryCode": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Holder category code - Used in records 18 and 31"
+    },
+    "collateralIdentifier": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "Collateral identifier - Used in records 18 and 31"
+    },
+    "collateralNumber": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9999999999999999999,
+      "description": "Collateral number - Used in records 18 and 31"
+    },
+    "coverageIdentifier": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Coverage identifier Y/N - Used in records 18 and 31",
+      "$comment": "Consult External Code List table YesOrNoIndicator"
+    },
+    "ownershipIndicator": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Ownership indicator Y/N - Used in records 18 and 31",
+      "$comment": "Consult External Code List table YesOrNoIndicator"
+    },
+    "maturityDate": {
+      "type": "string",
+      "maxLength": 10,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Maturity date (YYYY-MM-DD format) - Used in records 18 and 31"
+    },
+    "depositedQuantity": {
+      "type": "number",
+      "multipleOf": 0.0000000001,
+      "description": "Deposited quantity - Used in records 18 and 31"
+    },
+    "acceptedQuantity": {
+      "type": "number",
+      "multipleOf": 0.0000000001,
+      "description": "Accepted quantity - Used in records 18 and 31"
+    },
+    "valuedQuantity": {
+      "type": "number",
+      "multipleOf": 0.0000000001,
+      "description": "Valued quantity - Used in records 18 and 31"
+    },
+    "distributedQuantity": {
+      "type": "number",
+      "multipleOf": 0.0000000001,
+      "description": "Distributed quantity - Used in records 18 and 31"
+    },
+    "blockedQuantity": {
+      "type": "number",
+      "multipleOf": 0.0000000001,
+      "description": "Blocked quantity - Used in records 18 and 31"
+    },
+    "isin": {
+      "type": "string",
+      "maxLength": 12,
+      "description": "ISIN - Used in records 18 and 31"
+    },
+    "portfolio": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Portfolio - Used in records 18 and 31"
+    },
+    "collateralValue": {
+      "type": "number",
+      "multipleOf": 0.01,
+      "description": "Collateral value - Used in records 18 and 31"
+    },
+    "blockedWithdrawalValue": {
+      "type": "number",
+      "multipleOf": 0.0000000001,
+      "description": "Blocked withdrawal value - Used in records 18 and 31"
+    },
+    "custodianCode": {
+      "type": "string",
+      "maxLength": 15,
+      "description": "Custodian code - Used in record 18"
+    },
+    "custodianInvestorCode": {
+      "type": "string",
+      "maxLength": 15,
+      "description": "Investor code at custodian - Used in record 18"
+    },
+    "fullTradingParticipantCode": {
+      "type": "string",
+      "maxLength": 15,
+      "description": "Full Trading Participant or Settlement Participant code - Used in record 31"
+    },
+    "fullTradingParticipantInvestorCode": {
+      "type": "string",
+      "maxLength": 15,
+      "description": "Investor code at Full Trading Participant or Settlement Participant - Used in record 31"
+    },
+    "riskSign": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Risk sign (+/-) - Used in record 19"
+    },
+    "riskWithoutCollateral": {
+      "type": "number",
+      "multipleOf": 0.01,
+      "description": "Risk without collateral - Used in record 19"
+    },
+    "initialMarginCall": {
+      "type": "number",
+      "multipleOf": 0.01,
+      "description": "Initial margin call - Used in record 19"
+    },
+    "additionalMarginValue": {
+      "type": "number",
+      "multipleOf": 0.0000001,
+      "description": "Additional margin value - Used in record 19"
+    },
+    "totalCollateralValue": {
+      "type": "number",
+      "multipleOf": 0.01,
+      "description": "Total collateral value - Used in record 19"
+    },
+    "permanentLosses": {
+      "type": "number",
+      "multipleOf": 0.0000001,
+      "description": "Permanent losses - Used in record 19"
+    },
+    "transitoryLosses": {
+      "type": "number",
+      "multipleOf": 0.0000001,
+      "description": "Transitory losses - Used in record 19"
+    },
+    "collateralBalanceSign": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Collateral balance sign (+/-) - Used in record 19"
+    },
+    "collateralBalance": {
+      "type": "number",
+      "multipleOf": 0.01,
+      "description": "Collateral balance - Used in record 19"
+    }
+  },
+  "required": [
+    "recordType",
+    "requestingParticipantCode",
+    "requestingInvestorCode",
+    "requestedParticipantCode",
+    "requestedInvestorCode"
+  ],
+  "additionalProperties": false
+}

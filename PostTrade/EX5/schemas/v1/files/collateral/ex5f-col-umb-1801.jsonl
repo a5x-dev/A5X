@@ -1,0 +1,71 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-umb-18",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-umb-18"
+  },
+  "title" : "Collateral Umbrella Distribution Status",
+  "description" : "Status message for collateral umbrella type distribution operations",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "$ref" : "../../objects/business/TransactionIdentification.json",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "collateralDetails" : {
+      "type" : "array",
+      "description" : "Provides details about the umbrella type distribution.",
+      "items" : {
+        "$ref" : "../../objects/business/CollateralStatusItem.json"
+      }
+    },
+    "collateralUmbrellaStatus" : {
+      "$ref" : "../../objects/business/CollateralStatus.json",
+      "description" : "Overall status of the collateral umbrella distribution request"
+    }
+  },
+  "required" : [ "transactionIdentification", "collateralUmbrellaStatus" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "transactionIdentification" : "UMB-STA-220915-1000",
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "collateralDetails" : [ {
+      "collateralIdentification" : "2",
+      "quantity" : "2000.00",
+      "operationValue" : {
+        "amount" : "1000.00",
+        "currency" : "BRL"
+      },
+      "collateralValue" : {
+        "amount" : "75000.00",
+        "currency" : "BRL"
+      },
+      "collateralStatus" : {
+        "statusCode" : 1,
+        "errorIdentification" : [ {
+          "code" : 1,
+          "message" : "Error X",
+          "description" : "COD12452",
+          "refId" : "REF12345"
+        } ]
+      }
+    } ],
+    "collateralUmbrellaStatus" : {
+      "statusCode" : 1,
+      "errorIdentification" : [ {
+        "code" : 1,
+        "message" : "Error X",
+        "description" : "COD12452",
+        "refId" : "REF12345"
+      } ]
+    }
+  } ]
+}

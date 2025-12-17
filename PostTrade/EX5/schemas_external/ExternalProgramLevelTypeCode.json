@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Program Level Type",
+  "description": "Codes for program level type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Nível I Patrocinado",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Nível II Patrocinado",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Nível III Patrocinado",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Não Patrocinado",
+      "const": 4
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4
+  ]
+}

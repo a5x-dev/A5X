@@ -1,0 +1,93 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-ntf-04",
+  "$metadata" : {
+    "domain" : "technical",
+    "schemaId" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-ntf-04"
+  },
+  "title" : "Incident Notification",
+  "description" : "Schema for notifying incidents related to system operations, referencing external schemas for incident identification, severity, category, and status",
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "type" : "string",
+      "description" : "Identification of the incident"
+    },
+    "timestamp" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Timestamp of when the incident was detected"
+    },
+    "severity" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Severity level of the incident",
+      "$comment" : "Consult External Code List table ExternalIncidentSeverityCode"
+    },
+    "category" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Category of the incident",
+      "$comment" : "Consult External Code List table ExternalIncidentCategoryCode"
+    },
+    "system" : {
+      "type" : "string",
+      "description" : "Name of the affected system",
+      "maxLength" : 100
+    },
+    "summary" : {
+      "type" : "string",
+      "description" : "Brief of the incident",
+      "maxLength" : 200
+    },
+    "details" : {
+      "type" : "string",
+      "description" : "Detailed description of the incident",
+      "maxLength" : 1000
+    },
+    "impact" : {
+      "type" : "string",
+      "description" : "Assessment of the incident's impact on operations",
+      "maxLength" : 500
+    },
+    "impactedBusinessDomain" : {
+      "type" : "string",
+      "description" : "Business domain impacted",
+      "maxLength" : 500
+    },
+    "impactedPublic" : {
+      "type" : "string",
+      "description" : "Public impacted",
+      "maxLength" : 500
+    },
+    "currentStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Current status of the incident",
+      "$comment" : "Consult External Code List table ExternalIncidentStatusCode"
+    },
+    "previsionResolution" : {
+      "type" : "string",
+      "description" : "Expected time to resolve",
+      "maxLength" : 500
+    },
+    "resolution" : {
+      "type" : "string",
+      "description" : "Details about the resolution",
+      "maxLength" : 500
+    }
+  },
+  "required" : [ "id", "timestamp", "severity", "category", "summary", "currentStatus" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "id" : "INC001",
+    "timestamp" : "2023-05-15T14:30:00Z",
+    "severity" : "HIGH",
+    "category" : "SYSTEM_FAILURE",
+    "system" : "Main System",
+    "summary" : "System failure detected",
+    "details" : "System has experienced a critical failure",
+    "impact" : "Operations are impacted",
+    "impactedBusinessDomain" : "Business Domain A",
+    "impactedPublic" : "Public B",
+    "currentStatus" : "OPEN",
+    "previsionResolution" : "Within 1 hours",
+    "resolution" : "Error caused by ABCD and resolved after EFG"
+  } ]
+}

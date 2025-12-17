@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Buy In Cancellation Status",
+  "description": "Codes for buy in cancellation status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Acordo Aberto",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Ativo Transferido",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Acordo Concluído",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Acordo Cancelado",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Erro",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Acordo em Análise da B3",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Acordo Rejeitado",
+      "const": 7
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

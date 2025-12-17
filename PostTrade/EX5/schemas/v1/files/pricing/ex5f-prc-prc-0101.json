@@ -1,0 +1,401 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#", 
+  "$id" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-prc-01",
+  "$metadata" : {
+    "domain" : "pricing",
+    "schemaId" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-prc-01"
+  }, 
+  "title" : "PriceReport", 
+  "description" : "JSON Schema for the 'PriceReport'", 
+  "type" : "object", 
+  "properties" : {
+    "tradeDate" : {
+      "type" : "string", 
+      "format" : "date", 
+      "description" : "Trade date", 
+      "examples" : [
+        "2017-07-21", 
+        "2023-12-31", 
+        "2024-01-15"
+      ]
+    }, 
+    "tickerSymbol" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Letters that identify stocks traded on stock exchange", 
+      "examples" : [
+        "AAAA25"
+      ]
+    }, 
+    "financialInstrumentIdentificationId" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Proprietary identification of an instrument", 
+      "examples" : [
+        "10000000000000001"
+      ]
+    }, 
+    "financialInstrumentIdentificationSource" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Source of the instrument identification", 
+      "examples" : [
+        "8"
+      ]
+    }, 
+    "financialInstrumentIdentificationExchange" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Codes for exchanges and market identifications", 
+      "examples" : [
+        "A5X", 
+        "XNYS", 
+        "XNAS"
+      ]
+    }, 
+    "daysToSettlement" : {
+      "type" : "integer", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Indicates number of days to settlement.", 
+      "examples" : [
+        1
+      ]
+    }, 
+    "tradeQuantity" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Trade Quantity.", 
+      "examples" : [
+        "1000.00"
+      ]
+    }, 
+    "marketDataStreamIdentification" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "The identifier or name of the price stream.", 
+      "examples" : [
+        "Name"
+      ]
+    }, 
+    "nationalFinancialVolume" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Financial volume traded (R$).", 
+      "examples" : [
+        "1000.50"
+      ]
+    }, 
+    "internationalFinancialVolume" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Financial traded volume (U$).", 
+      "examples" : [
+        "1000.50"
+      ]
+    }, 
+    "openInterest" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Quantity of open contract.", 
+      "examples" : [
+        "1000.00"
+      ]
+    }, 
+    "financialInstrumentQuantity" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Quantity of financial instrument traded.", 
+      "examples" : [
+        "1000.00"
+      ]
+    }, 
+    "bestBidPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Best Bid Price.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "bestAskPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Best Ask Price.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "firstPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Amount of the initial value of the asset.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "minimumPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Minimum Price", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "maximumPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Maximum Price", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "tradeAveragePrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Trade Average Price", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "lastPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Last price.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "regularTransactionsQuantity" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Number of Transactions in the regular session.", 
+      "examples" : [
+        "1000.00"
+      ]
+    }, 
+    "nonRegularTransactionsQuantity" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Number of Transactions in the non-regular session.", 
+      "examples" : [
+        "1000.00"
+      ]
+    }, 
+    "regularTradedContracts" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Traded contracts/securities in the regular session.", 
+      "examples" : [
+        "1000.00"
+      ]
+    }, 
+    "nonRegularTradedContracts" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Traded contracts/securities in the non-regular session.", 
+      "examples" : [
+        "1000.00"
+      ]
+    }, 
+    "nationalRegularVolume" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Traded volume (R$) in the regular session.", 
+      "examples" : [
+        "1000.50"
+      ]
+    }, 
+    "nationalNonRegularVolume" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Traded volume (R$) in the non-regular session.", 
+      "examples" : [
+        "1000.50"
+      ]
+    }, 
+    "internationalRegularVolume" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Traded volume (U$) in the regular session.", 
+      "examples" : [
+        "1000.50"
+      ]
+    }, 
+    "internationalNonRegularVolume" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Traded volume (U$) in the non-regular session.", 
+      "examples" : [
+        "1000.50"
+      ]
+    }, 
+    "adjustedQuote" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Adjusted quote", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "adjustedQuoteTax" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Adjusted quote (in tax)", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "adjustedQuoteSituation" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Adjust quote situation.", 
+      "examples" : [
+        "F"
+      ]
+    }, 
+    "previousAdjustedQuote" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Previous session adjusted quote.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "previousAdjustedQuoteTax" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Previous session adjusted quote (in Tax).", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "previousAdjustedQuoteSituation" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Previous session adjusted quote situation.", 
+      "examples" : [
+        "F"
+      ]
+    }, 
+    "oscillationPercentage" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Rate of oscillation.", 
+      "examples" : [
+        "10.50"
+      ]
+    }, 
+    "variationPoints" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Variation in points.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "equivalentValue" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Equivalence value.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "adjustedValueContract" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Adjust value the contract.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "maximumTradeLimit" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Maximum trade limit.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "minimumTradeLimit" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Minimum trade limit.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "isFinalPrice" : {
+      "type" : "boolean", 
+      "description" : "Indicates if the price is final. Yes-No Indicator"
+    }
+  }, 
+  "required" : [
+    "tradeDate", 
+    "tickerSymbol", 
+    "financialInstrumentIdentificationId", 
+    "financialInstrumentIdentificationSource", 
+    "financialInstrumentIdentificationExchange"
+  ]
+}

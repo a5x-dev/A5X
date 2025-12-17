@@ -1,0 +1,15 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:tech:MessageIdentifier",
+  "$metadata" : {
+    "domain" : "tech",
+    "schemaId" : "urn:a5x:ex5:schema:v1:tech:MessageIdentifier"
+  },
+  "title" : "MessageIdentifier",
+  "type" : "string",
+  "description" : "Biz. Format: 8 positions for participant code + 8 positions for date (YYYYMMDD) + 30 positions for sequential number + 5 positions for pagination",
+  "examples" : [ "0000004020230815000000000000000000000000000000100001" ],
+  "pattern" : "^[0-9A-Za-z]{8}[0-9]{8}[0-9]{30}[0-9]{5}$",
+  "minLength" : 51,
+  "maxLength" : 51
+}

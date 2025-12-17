@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Distribution Side",
+  "description": "Codes for distribution side",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Origin (Distribution Release)",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Destination (Confirmation of Distribution)",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

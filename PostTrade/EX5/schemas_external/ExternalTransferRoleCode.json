@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Transfer Role",
+  "description": "Codes for transfer role",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Origin Participant",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Destination Participant",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Origin Clearing Member",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Destination Clearing Member",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Collateral System",
+      "const": 5
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

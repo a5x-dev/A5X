@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Security Transaction Type",
+  "description": "Codes for security transaction type",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "SEM TROCA DE TITULARIDADE",
+      "const": "0000"
+    },
+    {
+      "type": "string",
+      "description": "DOACAO DE ATIVOS",
+      "const": "0001"
+    },
+    {
+      "type": "string",
+      "description": "ORDEM JUDICIAL PARA TRANSFERENCIA DE ATIVOS",
+      "const": "0003"
+    },
+    {
+      "type": "string",
+      "description": "RECEBIMENTO DE ATIVOS POR HERANCA",
+      "const": "0004"
+    },
+    {
+      "type": "string",
+      "description": "CONVERSAO DE ACOES - ADR",
+      "const": "0005"
+    },
+    {
+      "type": "string",
+      "description": "EMPRESTIMO ENTRE AS PARTES",
+      "const": "0006"
+    },
+    {
+      "type": "string",
+      "description": "SUCESSAO SOCIETARIA",
+      "const": "0007"
+    },
+    {
+      "type": "string",
+      "description": "DETERMINAÇÃO REGULATÓRIA",
+      "const": "0008"
+    },
+    {
+      "type": "string",
+      "description": "INTEGRALIZACAO DE COTAS DE CLUBES OU FUNDOS DE INVESTIMENTOS",
+      "const": "0009"
+    },
+    {
+      "type": "string",
+      "description": "CONVERSAO DE UNITS",
+      "const": "0010"
+    },
+    {
+      "type": "string",
+      "description": "VENDA PRIVADA ENTRE AS PARTES",
+      "const": "0011"
+    },
+    {
+      "type": "string",
+      "description": "GARANTIAS DE OFERTAS ESPECIAIS",
+      "const": "0012"
+    },
+    {
+      "type": "string",
+      "description": "FALHA DE ALOCAÇÃO DE OPERAÇÕES",
+      "const": "0013"
+    },
+    {
+      "type": "string",
+      "description": "FALHA DE LIQUIDAÇÃO FINANCEIRA",
+      "const": "0014"
+    },
+    {
+      "type": "string",
+      "description": "ESTABILIZAÇÃO DE PREÇOS PARA OFERTAS",
+      "const": "0015"
+    },
+    {
+      "type": "string",
+      "description": "TRANSFERENCIA COM TROCA DE TITULARIDADE POR CESSAO PROVENTOS",
+      "const": "0016"
+    },
+    {
+      "type": "string",
+      "description": "PROGRAMAS DE BENEFÍCIOS OU PREMIAÇÕES",
+      "const": "0017"
+    },
+    {
+      "type": "string",
+      "description": "RESGATE DE COTAS DE CLUBES OU FUNDOS DE INVESTIMENTO",
+      "const": "0018"
+    },
+    {
+      "type": "string",
+      "description": "TRANSFERÊNCIA DE MESMA TITULARIDADE PARA INR",
+      "const": "0019"
+    },
+    {
+      "type": "string",
+      "description": "LIQUIDAÇÃO DE DERIVATIVOS DE BALCÃO OU COE",
+      "const": "0020"
+    },
+    {
+      "type": "string",
+      "description": "DOAÇÃO PULVERIZADA",
+      "const": "0021"
+    },
+    {
+      "type": "string",
+      "description": "MOVIMENTAÇÃO PARA LIQUIDAÇÃO IMF",
+      "const": "0100"
+    }
+  ],
+  "examples": [
+    "0000",
+    "0001",
+    "0003",
+    "0004",
+    "0005"
+  ]
+}

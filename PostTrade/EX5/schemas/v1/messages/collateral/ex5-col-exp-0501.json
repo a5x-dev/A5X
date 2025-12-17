@@ -1,0 +1,60 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-exp-05",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-exp-05"
+  },
+  "title" : "Collateral And Exposure Request",
+  "description" : "Message for requesting collateral and exposure information",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "$ref" : "../../objects/business/TransactionIdentification.json",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    },
+    "collateralReportType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Provides type of requested report",
+      "comment" : "Consult External Code List table ExternalCollateralReportTypeCode"
+    },
+    "collateralCoverageInformation" : {
+      "$ref" : "../../objects/business/CollateralCoverageInformation.json",
+      "description" : "Collateral coverage information details"
+    }
+  },
+  "required" : [ "transactionIdentification", "clearingMemberIdentification", "collateralReportType", "collateralCoverageInformation" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "transactionIdentification" : "COLL-MRG-11682",
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 115
+    },
+    "collateralReportType" : 1,
+    "collateralCoverageInformation" : {
+      "informationType" : 2,
+      "holderType" : 2,
+      "collateralCoverageType" : 11
+    }
+  } ]
+}

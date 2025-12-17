@@ -1,0 +1,57 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralDetailInformation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralDetailInformation"
+  },
+  "title" : "Collateral Detail Information",
+  "description" : "This block provides summary information about the collateral. Este bloco possui informações sobre os valores e quantidades das garantias",
+  "type" : "object",
+  "properties" : {
+    "depositedQuantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Deposited quantity. Quantidade depositada",
+      "examples" : [ "1000.50", "2500.75" ]
+    },
+    "valuedQuantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Accepted collateral quantity. Quantidade valorizada para garantia",
+      "examples" : [ "950.25", "2400.00" ]
+    },
+    "deliveryQuantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Distributed collateral quantity to another account. Quantidade distribuida para outra conta",
+      "examples" : [ "100.00", "0.00" ]
+    },
+    "blockedQuantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Blocked quantity by clearing. Quantidade bloqueada pela Clearing",
+      "examples" : [ "50.25", "0.00" ]
+    },
+    "collateralValue" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Collateral accepted value after taking into account the haircut. This field has 2 decimal places. Valor aceito da garantia após ser aplicado o percentual de deságio do valor de mercado. Este campo possui 2 casas decimais"
+    },
+    "withdrawalBlockedValue" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Blocked value by clearing. This field has 2 decimal places. Valor bloqueado para retirada pela clearing. Este campo possui 2 casas decimais"
+    }
+  },
+  "required" : [ "collateralValue", "withdrawalBlockedValue" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "depositedQuantity" : "1000.50",
+    "valuedQuantity" : "950.25",
+    "deliveryQuantity" : "100.00",
+    "blockedQuantity" : "50.25",
+    "collateralValue" : {
+      "currency" : "BRL",
+      "amount" : "95000.50"
+    },
+    "withdrawalBlockedValue" : {
+      "currency" : "BRL",
+      "amount" : "5000.00"
+    }
+  } ]
+}

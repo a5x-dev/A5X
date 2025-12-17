@@ -1,0 +1,14 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:State",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:State"
+  },
+  "title" : "Unidade Federativa",
+  "description" : "Brazilian states and federal district codes - ExternalStateCode",
+  "type" : "string",
+  "pattern" : "^[A-Z]{2}$",
+  "enum" : [ "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" ],
+  "examples" : [ "SP", "RJ", "MG", "RS", "DF" ]
+}

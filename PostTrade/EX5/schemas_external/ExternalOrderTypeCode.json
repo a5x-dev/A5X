@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Order Type",
+  "description": "Codes for order type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Limitada",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Tudo ou Nada",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

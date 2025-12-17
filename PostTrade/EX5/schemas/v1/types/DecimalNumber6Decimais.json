@@ -1,0 +1,15 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:types:DecimalNumber6Decimais",
+  "$metadata" : {
+    "domain" : "types",
+    "schemaId" : "urn:a5x:ex5:schema:v1:types:DecimalNumber6Decimais"
+  },
+  "title" : "DecimalNumber",
+  "description" : "Decimal number with up to 6 decimal places",
+  "type" : "string",
+  "maxLength" : 22,
+  "minLength" : 1,
+  "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
+  "examples" : [ "1000.509898", "25000.757676", "999999999999999.996565" ]
+}

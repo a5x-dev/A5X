@@ -1,0 +1,39 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:InstrumentIdentification",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:InstrumentIdentification"
+  },
+  "title" : "Instrument Identification",
+  "description" : "Identification of a financial instrument",
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Proprietary identification of an instrument",
+      "examples" : [ "10000000000000001", "10000000000000011" ]
+    },
+    "source" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Source of the instrument identification",
+      "default" : "8",
+      "examples" : [ "8" ]
+    },
+    "exchange" : {
+      "$ref" : "../../types/MICIdentifier.json",
+      "description" : "Identifier code of the exchange where the instrument is listed"
+    }
+  },
+  "required" : [ "id", "source", "exchange" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "id" : "100000000000001",
+    "source" : "8",
+    "exchange" : "A5X"
+  } ]
+}

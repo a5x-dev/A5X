@@ -1,0 +1,32 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralBalanceInformation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralBalanceInformation"
+  },
+  "title" : "Collateral Balance Information",
+  "description" : "This block provides information about collateral balance. Este bloco provê as informações de saldo das garantias",
+  "type" : "object",
+  "properties" : {
+    "totalValueOfCollateral" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Total value of the collateral (post-haircut) held by the exposed party. This field has 2 decimal places. Somatória de todas as garantias que cobrem margem. Este campo possui 2 casas decimais",
+      "examples" : [ {
+        "currency" : "BRL",
+        "amount" : "150000.75"
+      }, {
+        "currency" : "USD",
+        "amount" : "28500.50"
+      } ]
+    }
+  },
+  "required" : [ "totalValueOfCollateral" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "totalValueOfCollateral" : {
+      "currency" : "BRL",
+      "amount" : "150000.75"
+    }
+  } ]
+}

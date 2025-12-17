@@ -1,0 +1,13 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:types:PartyIdentification",
+  "$metadata" : {
+    "domain" : "types",
+    "schemaId" : "urn:a5x:ex5:schema:v1:types:PartyIdentification"
+  },
+  "title" : "Party Identification",
+  "type" : "string",
+  "pattern" : "[345]-[0-9]{3}",
+  "examples" : [ "3-114", "4-85", "5-123" ],
+  "description" : "Format: Category+ParticipantID (ex: 3-114, where 3 = INTERMEDIÁRIO FULL and 114 = participant code). Only categories 3 (Intermediário Full), 4 (Participante de Liquidação), and 5 (Intermediário Light) are allowed as they can insert accounts"
+}

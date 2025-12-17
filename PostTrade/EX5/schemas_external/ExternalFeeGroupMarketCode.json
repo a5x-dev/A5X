@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Fee Group Market",
+  "description": "Codes for fee group market",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Vista, fracionário, exercício de opções",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Opções sobre ações",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Opções sobre Índice",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Termo",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Renda Fixa",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Empréstimo de ativos",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Leilão",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Balcão",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Leilão de fechamento",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Exercício de opções sobre índice",
+      "const": 10
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

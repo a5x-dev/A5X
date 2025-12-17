@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Type Financial Report",
+  "description": "Codes for type financial report",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Lançamentos de abertura do dia",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Complementar1",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Complementar2",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Complementar3",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Complementar4",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Complementar5",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Complementar6",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Complementar7",
+      "const": 7
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}

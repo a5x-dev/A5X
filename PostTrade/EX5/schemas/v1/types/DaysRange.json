@@ -1,0 +1,14 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:types:DaysRange",
+  "$metadata" : {
+    "domain" : "types",
+    "schemaId" : "urn:a5x:ex5:schema:v1:types:DaysRange"
+  },
+  "title" : "DaysRange",
+  "description" : "Integer type for representing a range of days with specific validation constraints",
+  "type" : "integer",
+  "minimum" : 0,
+  "maximum" : 999999,
+  "examples" : [ 0, 1, 30, 90, 365, 999999 ]
+}

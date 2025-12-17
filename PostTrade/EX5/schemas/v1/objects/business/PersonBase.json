@@ -1,0 +1,63 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:PersonBase",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:PersonBase"
+  },
+  "title" : "Person Base",
+  "description" : "Base data for persons (natural and legal) that is common to both specific and relationship contexts",
+  "type" : "object",
+  "properties" : {
+    "personStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Person status for Natural Person or Legal Entity",
+      "$comment" : "Consult External Code List table ExternalStatusCode."
+    },
+    "reasonCode" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Reason code for person restriction or status change",
+      "$comment" : "Consult External Code List table ExternalRestrictionTypeCode."
+    },
+    "principalDocument" : {
+      "$ref" : "../../objects/business/DocumentIdentifier.json",
+      "description" : "Principal Document"
+    },
+    "politicallyExposedPerson" : {
+      "type" : "boolean",
+      "description" : "Politically exposed person status"
+    },
+    "usPerson" : {
+      "type" : "boolean",
+      "description" : "US Person classification"
+    },
+    "relatedPerson" : {
+      "type" : "boolean",
+      "description" : "Related person status (Pessoa Vinculada)"
+    },
+    "countryOfResidence" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Country of residence",
+      "$comment" : "Consult External Code Text List table ExternalCountryCode"
+    },
+    "registrationUpdateDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Registration update"
+    }
+  },
+  "required" : [ "principalDocument" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "personStatus" : 1,
+    "reasonCode" : 1,
+    "principalDocument" : {
+      "documentType" : 2,
+      "documentNumber" : "12345678900"
+    },
+    "politicallyExposedPerson" : false,
+    "usPerson" : false,
+    "relatedPerson" : true,
+    "countryOfResidence" : "BRA",
+    "registrationUpdateDate" : "2024-01-15"
+  } ]
+}

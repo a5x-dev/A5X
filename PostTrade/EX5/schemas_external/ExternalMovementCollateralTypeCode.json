@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Movement Collateral Type",
+  "description": "Codes for movement collateral type",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "DEPOSITO",
+      "const": "LC01"
+    },
+    {
+      "type": "string",
+      "description": "RETIRADA",
+      "const": "LC02"
+    },
+    {
+      "type": "string",
+      "description": "TRANSFERENCIA DE ACOES E DIREITOS",
+      "const": "LC03"
+    },
+    {
+      "type": "string",
+      "description": "LIQUIDACAO (COMPRAS OU VENDAS)",
+      "const": "LC04"
+    },
+    {
+      "type": "string",
+      "description": "GRUPAMENTO DE ACOES",
+      "const": "LC05"
+    },
+    {
+      "type": "string",
+      "description": "CISAO DE ACOES",
+      "const": "LC06"
+    },
+    {
+      "type": "string",
+      "description": "ATUALIZACAO DE CODIGO ISIN",
+      "const": "LC07"
+    },
+    {
+      "type": "string",
+      "description": "DIVIDENDOS E OUTROS PROVENTOS EM DINHEIRO",
+      "const": "LC09"
+    },
+    {
+      "type": "string",
+      "description": "DIREITOS DE BONIFICACAO E DESDOBRO",
+      "const": "LC10"
+    },
+    {
+      "type": "string",
+      "description": "DIREITO DE SUBSCRICAO",
+      "const": "LC11"
+    },
+    {
+      "type": "string",
+      "description": "RECIBOS DE SUBSCRICAO",
+      "const": "LC12"
+    },
+    {
+      "type": "string",
+      "description": "INCORPORACAO DE ACOES",
+      "const": "LC14"
+    },
+    {
+      "type": "string",
+      "description": "EVENTOS VOLUNTARIOS",
+      "const": "LC15"
+    },
+    {
+      "type": "string",
+      "description": "TRATAMENTO DE FRACAO",
+      "const": "LC16"
+    },
+    {
+      "type": "string",
+      "description": "LCTO FINANCEIRO NO TRATAMENTO DE FRACAO",
+      "const": "LC17"
+    },
+    {
+      "type": "string",
+      "description": "DIREITOS DE SUBSCRICAO PROVISIONADOS",
+      "const": "LC18"
+    },
+    {
+      "type": "string",
+      "description": "ATUALIZACAO DE SALDOS 'COM'",
+      "const": "LC19"
+    },
+    {
+      "type": "string",
+      "description": "ATUALIZACAO DE SALDO 'EX'",
+      "const": "LC20"
+    },
+    {
+      "type": "string",
+      "description": "TRATAMENTO DE FRACAO PARA CDS",
+      "const": "LC21"
+    }
+  ],
+  "examples": [
+    "LC01",
+    "LC02",
+    "LC03",
+    "LC04",
+    "LC05"
+  ]
+}

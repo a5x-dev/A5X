@@ -1,0 +1,76 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralDetail",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralDetail"
+  },
+  "title" : "Collateral Detail",
+  "description" : "Detailed collateral information with coverage type and financial values",
+  "type" : "object",
+  "properties" : {
+    "collateralCoverageType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Collateral coverage identification",
+      "$comment" : "Consult External Code List table ExternalCollateralCoverageTypeCode",
+      "examples" : [ 1 ]
+    },
+    "totalValueOfCollateral" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Total value of the collateral (post-haircut) held by the exposed party. This field has 2 decimal places",
+      "examples" : [ "1000000.50", "250000.00", "0.00" ]
+    },
+    "riskWithoutCollateral" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Risk Exposure without collaterals at EoD. This field has 2 decimal places",
+      "examples" : [ "500000.25", "0.00", "150000.75" ]
+    },
+    "additionalMargin" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Additional Margin based on positions limit. This field has 2 decimal places",
+      "examples" : [ "25000.00", "0.00", "75000.50" ]
+    },
+    "toBeSettledValue" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "To be settled value",
+      "examples" : [ "10000.00", "0.00", "5000.25" ]
+    },
+    "marginCall" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Margin Call",
+      "examples" : [ "50000.00", "0.00", "25000.75" ]
+    },
+    "collateralBalance" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Remaining value (positive value) or debit (negative value) of collateral. This field has 2 decimal places",
+      "examples" : [ "100000.50", "-25000.00", "0.00" ]
+    },
+    "informationType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Information regarding the party collateral position",
+      "$comment" : "Consult External Code List table ExternalInformationTypeCode",
+      "examples" : [ 1 ]
+    }
+  },
+  "required" : [ "collateralCoverageType", "totalValueOfCollateral", "riskWithoutCollateral", "additionalMargin", "toBeSettledValue", "marginCall", "collateralBalance", "informationType" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralCoverageType" : 1,
+    "totalValueOfCollateral" : "1000000.50",
+    "riskWithoutCollateral" : "500000.25",
+    "additionalMargin" : "25000.00",
+    "toBeSettledValue" : "10000.00",
+    "marginCall" : "50000.00",
+    "collateralBalance" : "100000.50",
+    "informationType" : 1
+  }, {
+    "collateralCoverageType" : 2,
+    "totalValueOfCollateral" : "750000.00",
+    "riskWithoutCollateral" : "300000.00",
+    "additionalMargin" : "15000.00",
+    "toBeSettledValue" : "5000.00",
+    "marginCall" : "25000.00",
+    "collateralBalance" : "50000.00",
+    "informationType" : 2
+  } ]
+}

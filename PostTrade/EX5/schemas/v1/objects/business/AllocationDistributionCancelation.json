@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:AllocationDistributionCancelation",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:AllocationDistributionCancelation"
+  },
+  "title": "Allocation Distribution Cancelation",
+  "description": "Individual item for allocation distribution operations",
+  "type": "object",
+  "properties": {
+    "individualAllocationIdentification": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Individual allocation number assigned by the participant system",
+      "$comment": "This identifier is used by participants to track allocations in their own systems"
+    },
+    "allocationIdentification": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Primary allocation identification number assigned by the system",
+      "$comment": "This is the main identifier used by the central system to track allocations"
+    },
+    "accountIdentification": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Specifies the account from the allocation"
+    },
+    "quantity": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Quantity expressed as a numeric value with up to 17 decimal places"
+    }
+  },
+  "required": [
+    "individualAllocationIdentification",
+    "allocationIdentification",
+    "accountIdentification",
+    "quantity"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "individualAllocationIdentification": "ALLOCINDIV0002",
+      "allocationIdentification": "ALLOC123456789012345678901234567890",
+      "accountIdentification": {
+        "id": 123456789012345
+      },
+      "quantity": "1000.00"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:NotificationRegistry",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:NotificationRegistry"
+  },
+  "title" : "Elements to create notification message",
+  "description" : "Elements to create notification message",
+  "type" : "object",
+  "properties" : {
+    "eventType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of change event that occurred",
+      "$comment" : "Consult External Code List table ExternalChangeEventTypeCode"
+    },
+    "eventTimestamp" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Timestamp when the change occurred"
+    },
+    "userId" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 20,
+      "description" : "User ID that made the change"
+    },
+    "changedFields" : {
+      "type" : "array",
+      "items" : {
+        "type": "object",
+        "properties": {
+          "fieldName" : {
+            "type" : "string",
+            "minLength" : 1,
+            "maxLength" : 60,
+            "description" : "List of fields that were changed"
+          }
+        }
+      }
+    }
+  },
+  "required" : [ "eventType", "eventTimestamp", "userId", "changedFields" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "eventType" : 2,
+    "eventTimestamp" : "2024-05-15T14:30:15Z",
+    "userId" : "ADMIN123",
+    "changedFields" : [ {
+      "fieldName" : "account.address.city"
+    } ]
+  } ]
+}

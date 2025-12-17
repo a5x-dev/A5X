@@ -1,0 +1,1754 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Movement Custody",
+  "description": "Codes for movement custody",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "D - RETIRADA",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "C - RETIRADA",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "C - CANCELAMENTO DE RETIRADA",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "D - CANCELAMENTO DE RETIRADA",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "D - TRANSFERENCIA DE ATIVOS",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "C - TRANSFERENCIA DE ATIVOS",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "D - TRANSFERENCIA DE ATIVOS CANCELADA",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "C - TRANSFERENCIA DE ATIVOS CANCELADA",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "D - TRANSFERENCIA DE ATIVOS INTERPRACA",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "C - TRANSFERENCIA DE ATIVOS INTERPRACA",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "D - CRIACAO DE CESTA DE ATIVOS",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "C - CRIACAO DE CESTA DE ATIVOS",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "D - TRANSFERENCIA DE ATIVOS INTERPRACA CANCELADA",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "C - TRANSFERENCIA DE ATIVOS INTERPRACA CANCELADA",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "D - TRANSFERENCIA DE DIREITOS",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "C - TRANSFERENCIA DE DIREITOS",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "D - TRANSFERENCIA DE DIREITOS CANCELADA",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "C - TRANSFERENCIA DE DIREITOS CANCELADA",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "D - BLOQUEIO JUDICIAL",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "C - BLOQUEIO JUDICIAL",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "D - TRANSFERENCIA COM BLOQUEIO DE COMPRA",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "C - TRANSFERENCIA COM BLOQUEIO DE COMPRA",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "D - BLOQUEIO JUDICIAL DO DIREITO",
+      "const": 23
+    },
+    {
+      "type": "number",
+      "description": "C - BLOQUEIO JUDICIAL DO DIREITO",
+      "const": 24
+    },
+    {
+      "type": "number",
+      "description": "C - DEPOSITO",
+      "const": 25
+    },
+    {
+      "type": "number",
+      "description": "D - DEPOSITO",
+      "const": 26
+    },
+    {
+      "type": "number",
+      "description": "C - ESTORNO DE DEPOSITO",
+      "const": 27
+    },
+    {
+      "type": "number",
+      "description": "D - ESTORNO DE DEPOSITO",
+      "const": 28
+    },
+    {
+      "type": "number",
+      "description": "C - DIVIDENDO PROVISIONADO",
+      "const": 29
+    },
+    {
+      "type": "number",
+      "description": "C - DIVIDENDO CREDITADO",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "C - BONIFICACAO EM ATIVOS PROVISIONADA",
+      "const": 31
+    },
+    {
+      "type": "number",
+      "description": "C - BONIFICACAO EM ATIVOS",
+      "const": 32
+    },
+    {
+      "type": "number",
+      "description": "C - DIREITO DE SUBSCRICAO",
+      "const": 33
+    },
+    {
+      "type": "number",
+      "description": "C - RECIBO DE SUBSCRICAO",
+      "const": 34
+    },
+    {
+      "type": "number",
+      "description": "C - ATUALIZACAO DE SALDO",
+      "const": 35
+    },
+    {
+      "type": "number",
+      "description": "D - DIVIDENDO EXCLUIDO",
+      "const": 36
+    },
+    {
+      "type": "number",
+      "description": "D - CONCILIACAO DE INTERFACE",
+      "const": 37
+    },
+    {
+      "type": "number",
+      "description": "C - CONCILIACAO DE INTERFACE",
+      "const": 38
+    },
+    {
+      "type": "number",
+      "description": "D - RETIRADA POR CONCILIACAO DE INTERFACE",
+      "const": 39
+    },
+    {
+      "type": "number",
+      "description": "D - DIVIDENDO CANCELADO",
+      "const": 40
+    },
+    {
+      "type": "number",
+      "description": "D - BONIFICACAO EM ATIVOS CANCELADA",
+      "const": 41
+    },
+    {
+      "type": "number",
+      "description": "D - SOLICITACAO DE SUBCRICAO CANCELADA",
+      "const": 42
+    },
+    {
+      "type": "number",
+      "description": "C - GRUPAMENTO",
+      "const": 43
+    },
+    {
+      "type": "number",
+      "description": "C - CISAO",
+      "const": 44
+    },
+    {
+      "type": "number",
+      "description": "C - DESDOBRO",
+      "const": 45
+    },
+    {
+      "type": "number",
+      "description": "C - INCORPORACAO",
+      "const": 46
+    },
+    {
+      "type": "number",
+      "description": "C - FUSAO",
+      "const": 47
+    },
+    {
+      "type": "number",
+      "description": "D - SOLICITACAO / CANCELAMENTO DE SUBSCRICAO",
+      "const": 48
+    },
+    {
+      "type": "number",
+      "description": "C - SOLICITACAO / CANCELAMENTO DE SUBSCRICAO",
+      "const": 49
+    },
+    {
+      "type": "number",
+      "description": "D - SOLICITACAO / CANCELAMENTO DE CESSAO DE DIREITOS",
+      "const": 50
+    },
+    {
+      "type": "number",
+      "description": "C - SOLICITACAO / CANCELAMENTO DE CESSAO DE DIREITOS",
+      "const": 51
+    },
+    {
+      "type": "number",
+      "description": "D - RECIBO DE SUBSCRICAO EXCLUIDO",
+      "const": 52
+    },
+    {
+      "type": "number",
+      "description": "D - FRACAO EM ATIVO",
+      "const": 53
+    },
+    {
+      "type": "number",
+      "description": "C - FRACAO EM DINHEIRO CREDITADA",
+      "const": 54
+    },
+    {
+      "type": "number",
+      "description": "C - FRACAO EM ATIVO",
+      "const": 55
+    },
+    {
+      "type": "number",
+      "description": "D - FRACAO EM DINHEIRO CREDITADA",
+      "const": 56
+    },
+    {
+      "type": "number",
+      "description": "D - LIQUIDACAO",
+      "const": 57
+    },
+    {
+      "type": "number",
+      "description": "C - LIQUIDACAO",
+      "const": 58
+    },
+    {
+      "type": "number",
+      "description": "D - FINANCEIRO DO EXERCICIO DE SUBSCRICAO",
+      "const": 59
+    },
+    {
+      "type": "number",
+      "description": "D - RETORNO DE PTA",
+      "const": 60
+    },
+    {
+      "type": "number",
+      "description": "C - ATUALIZACAO DO PTA",
+      "const": 61
+    },
+    {
+      "type": "number",
+      "description": "C - RECIBO DE SUBSCRICAO",
+      "const": 62
+    },
+    {
+      "type": "number",
+      "description": "D - DIVIDENDO TRANSFERIDO",
+      "const": 63
+    },
+    {
+      "type": "number",
+      "description": "C - DIVIDENDO TRANSFERIDO",
+      "const": 64
+    },
+    {
+      "type": "number",
+      "description": "D - DIREITOS DE SUBSCRICAO TRANSFERIDO",
+      "const": 65
+    },
+    {
+      "type": "number",
+      "description": "C - DIREITOS DE SUBSCRICAO TRANSFERIDO",
+      "const": 66
+    },
+    {
+      "type": "number",
+      "description": "D - BONIFICACAO EM ATIVOS TRANSFERIDA",
+      "const": 67
+    },
+    {
+      "type": "number",
+      "description": "C - BONIFICACAO EM ATIVOS TRANSFERIDA",
+      "const": 68
+    },
+    {
+      "type": "number",
+      "description": "D - DEBITO DO SALDO \"COM\" DIREITO",
+      "const": 69
+    },
+    {
+      "type": "number",
+      "description": "C - CREDITO DO SALDO \"EX\" DIREITO",
+      "const": 70
+    },
+    {
+      "type": "number",
+      "description": "D - CESSAO DE DIREITOS EXCLUIDA",
+      "const": 71
+    },
+    {
+      "type": "number",
+      "description": "D - DIREITOS EXERCIDOS",
+      "const": 72
+    },
+    {
+      "type": "number",
+      "description": "C - CREDITO DE RECIBO DE SUBSCRICAO PREVISTO",
+      "const": 73
+    },
+    {
+      "type": "number",
+      "description": "D - DIREITOS NAO EXERCIDOS OU CANCELADOS",
+      "const": 74
+    },
+    {
+      "type": "number",
+      "description": "D - BONIFICACAO EM ATIVOS PROVISIONADA",
+      "const": 75
+    },
+    {
+      "type": "number",
+      "description": "D - BONIFICACAO EM ATIVOS",
+      "const": 76
+    },
+    {
+      "type": "number",
+      "description": "C - CREDITO DO SALDO \"COM\" DIREITO",
+      "const": 77
+    },
+    {
+      "type": "number",
+      "description": "D - DEBITO DO SALDO \"EX\" DIREITO",
+      "const": 78
+    },
+    {
+      "type": "number",
+      "description": "D - ATUALIZACAO DE SALDO",
+      "const": 79
+    },
+    {
+      "type": "number",
+      "description": "D - GRUPAMENTO",
+      "const": 80
+    },
+    {
+      "type": "number",
+      "description": "D - CISAO",
+      "const": 81
+    },
+    {
+      "type": "number",
+      "description": "D - INCORPORACAO",
+      "const": 82
+    },
+    {
+      "type": "number",
+      "description": "D - FUSAO",
+      "const": 83
+    },
+    {
+      "type": "number",
+      "description": "D - DESDOBRO",
+      "const": 84
+    },
+    {
+      "type": "number",
+      "description": "C - DESDOBRO PROVISIONADO",
+      "const": 85
+    },
+    {
+      "type": "number",
+      "description": "D - DESDOBRO PROVISIONADO",
+      "const": 86
+    },
+    {
+      "type": "number",
+      "description": "D - DESDOBRO TRANSFERIDO",
+      "const": 87
+    },
+    {
+      "type": "number",
+      "description": "C - DESDOBRO TRANSFERIDO",
+      "const": 88
+    },
+    {
+      "type": "number",
+      "description": "D - DESDOBRO CANCELADO",
+      "const": 89
+    },
+    {
+      "type": "number",
+      "description": "C - RESTITUICAO DE CAPITAL PROVISIONADA",
+      "const": 90
+    },
+    {
+      "type": "number",
+      "description": "C - RESTITUICAO DE CAPITAL CREDITADA",
+      "const": 91
+    },
+    {
+      "type": "number",
+      "description": "D - RESTITUICAO DE CAPITAL EXCLUIDA",
+      "const": 92
+    },
+    {
+      "type": "number",
+      "description": "D - RESTITUICAO DE CAPITAL CANCELADA",
+      "const": 93
+    },
+    {
+      "type": "number",
+      "description": "D - RESTITUICAO DE CAPITAL TRANSFERIDA",
+      "const": 94
+    },
+    {
+      "type": "number",
+      "description": "C - RESTITUICAO DE CAPITAL TRANSFERIDA",
+      "const": 95
+    },
+    {
+      "type": "number",
+      "description": "C - BONIFICACAO EM DINHEIRO PROVISIONADA",
+      "const": 96
+    },
+    {
+      "type": "number",
+      "description": "C - BONIFICACAO EM DINHEIRO CREDITADA",
+      "const": 97
+    },
+    {
+      "type": "number",
+      "description": "D - BONIFICACAO EM DINHEIRO EXCLUIDA",
+      "const": 98
+    },
+    {
+      "type": "number",
+      "description": "D - BONIFICACAO EM DINHEIRO CANCELADA",
+      "const": 99
+    },
+    {
+      "type": "number",
+      "description": "D - BONIFICACAO EM DINHEIRO TRANSFERIDA",
+      "const": 100
+    },
+    {
+      "type": "number",
+      "description": "C - BONIFICACAO EM DINHEIRO TRANSFERIDA",
+      "const": 101
+    },
+    {
+      "type": "number",
+      "description": "C - JUROS SOBRE CAPITAL PROPRIO PROVISIONADO",
+      "const": 102
+    },
+    {
+      "type": "number",
+      "description": "C - JUROS SOBRE CAPITAL PROPRIO CREDITADO",
+      "const": 103
+    },
+    {
+      "type": "number",
+      "description": "D - JUROS SOBRE CAPITAL PROPRIO EXCLUIDO",
+      "const": 104
+    },
+    {
+      "type": "number",
+      "description": "D - JUROS SOBRE CAPITAL PROPRIO CANCELADO",
+      "const": 105
+    },
+    {
+      "type": "number",
+      "description": "D - JUROS SOBRE CAPITAL PROPRIO TRANSFERIDO",
+      "const": 106
+    },
+    {
+      "type": "number",
+      "description": "C - JUROS SOBRE CAPITAL PROPRIO TRANSFERIDO",
+      "const": 107
+    },
+    {
+      "type": "number",
+      "description": "C - RENDIMENTO PROVISIONADO",
+      "const": 108
+    },
+    {
+      "type": "number",
+      "description": "C - RENDIMENTO CREDITADO",
+      "const": 109
+    },
+    {
+      "type": "number",
+      "description": "D - RENDIMENTO EXCLUIDO",
+      "const": 110
+    },
+    {
+      "type": "number",
+      "description": "D - RENDIMENTO CANCELADO",
+      "const": 111
+    },
+    {
+      "type": "number",
+      "description": "D - RENDIMENTO TRANSFERIDO",
+      "const": 112
+    },
+    {
+      "type": "number",
+      "description": "C - RENDIMENTO TRANSFERIDO",
+      "const": 113
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE DE CESTA DE ATIVOS",
+      "const": 114
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE DE CESTA DE ATIVOS",
+      "const": 115
+    },
+    {
+      "type": "number",
+      "description": "D - TRANSFERENCIA PARA ATENDER LIQUIDACAO",
+      "const": 116
+    },
+    {
+      "type": "number",
+      "description": "C - TRANSFERENCIA PARA ATENDER LIQUIDACAO",
+      "const": 117
+    },
+    {
+      "type": "number",
+      "description": "D - TRANSFERENCIA DE ATIVOS POR RESTRICAO",
+      "const": 118
+    },
+    {
+      "type": "number",
+      "description": "C - TRANSFERENCIA DE ATIVOS POR RESTRICAO",
+      "const": 119
+    },
+    {
+      "type": "number",
+      "description": "D - TRANSFERENCIA DE ATIVOS DO BTC",
+      "const": 120
+    },
+    {
+      "type": "number",
+      "description": "C - TRANSFERENCIA DE ATIVOS DO BTC",
+      "const": 121
+    },
+    {
+      "type": "number",
+      "description": "D - TOMORROW TRADE",
+      "const": 122
+    },
+    {
+      "type": "number",
+      "description": "C - TOMORROW TRADE",
+      "const": 123
+    },
+    {
+      "type": "number",
+      "description": "C - EVENTO EM DINHEIRO BLOQUEIO JUDICIAL CREDITADO",
+      "const": 124
+    },
+    {
+      "type": "number",
+      "description": "C - EVENTO EM DINHEIRO ADR CREDITADO",
+      "const": 125
+    },
+    {
+      "type": "number",
+      "description": "C - EVENTO EM DINHEIRO BACK OFFICE CREDITADO",
+      "const": 126
+    },
+    {
+      "type": "number",
+      "description": "C - EVENTO EM DINHEIRO INVESTIDOR CREDITADO",
+      "const": 127
+    },
+    {
+      "type": "number",
+      "description": "C - EVENTO EM DINHEIRO CONTAS INTERNAS CREDITADO",
+      "const": 128
+    },
+    {
+      "type": "number",
+      "description": "D - INTEGRALIZACAO DE COTA DE INDICE",
+      "const": 129
+    },
+    {
+      "type": "number",
+      "description": "C - INTEGRALIZACAO DE COTA DE INDICE",
+      "const": 130
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE DE COTA DE INDICE",
+      "const": 131
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE DE COTA DE INDICE",
+      "const": 132
+    },
+    {
+      "type": "number",
+      "description": "D - CANCELAMENTO INTEGR/RESG COTA DE INDICE",
+      "const": 133
+    },
+    {
+      "type": "number",
+      "description": "C - CANCELAMENTO INTEGR/RESG COTA DE INDICE",
+      "const": 134
+    },
+    {
+      "type": "number",
+      "description": "D - BLOQUEIO DE VENDA",
+      "const": 135
+    },
+    {
+      "type": "number",
+      "description": "C - BLOQUEIO DE VENDA",
+      "const": 136
+    },
+    {
+      "type": "number",
+      "description": "C - ESTORNO DE VENDA",
+      "const": 137
+    },
+    {
+      "type": "number",
+      "description": "D - ESTORNO DE VENDA",
+      "const": 138
+    },
+    {
+      "type": "number",
+      "description": "D - RECIBO DE SUBSCRICAO",
+      "const": 139
+    },
+    {
+      "type": "number",
+      "description": "D - DIVIDENDO PROVISIONADO",
+      "const": 141
+    },
+    {
+      "type": "number",
+      "description": "D - RESTITUICAO DE CAPITAL PROVISIONADA",
+      "const": 143
+    },
+    {
+      "type": "number",
+      "description": "D - BONIFICACAO EM DINHEIRO PROVISIONADA",
+      "const": 145
+    },
+    {
+      "type": "number",
+      "description": "D - JUROS SOBRE CAPITAL PROPRIO PROVISIONADO",
+      "const": 147
+    },
+    {
+      "type": "number",
+      "description": "D - RENDIMENTO PROVISIONADO",
+      "const": 149
+    },
+    {
+      "type": "number",
+      "description": "C - JUROS PROVISIONADO",
+      "const": 150
+    },
+    {
+      "type": "number",
+      "description": "D - JUROS PROVISIONADO",
+      "const": 151
+    },
+    {
+      "type": "number",
+      "description": "C - JUROS CREDITADO",
+      "const": 152
+    },
+    {
+      "type": "number",
+      "description": "D - JUROS EXCLUIDO",
+      "const": 153
+    },
+    {
+      "type": "number",
+      "description": "D - JUROS CANCELADO",
+      "const": 154
+    },
+    {
+      "type": "number",
+      "description": "D - JUROS TRANSFERIDO",
+      "const": 155
+    },
+    {
+      "type": "number",
+      "description": "C - JUROS TRANSFERIDO",
+      "const": 156
+    },
+    {
+      "type": "number",
+      "description": "C - AMORTIZACAO PROVISIONADA",
+      "const": 157
+    },
+    {
+      "type": "number",
+      "description": "D - AMORTIZACAO PROVISIONADA",
+      "const": 158
+    },
+    {
+      "type": "number",
+      "description": "C - AMORTIZACAO CREDITADA",
+      "const": 159
+    },
+    {
+      "type": "number",
+      "description": "D - AMORTIZACAO EXCLUIDA",
+      "const": 160
+    },
+    {
+      "type": "number",
+      "description": "D - AMORTIZACAO CANCELADA",
+      "const": 161
+    },
+    {
+      "type": "number",
+      "description": "D - AMORTIZACAO TRANSFERIDA",
+      "const": 162
+    },
+    {
+      "type": "number",
+      "description": "C - AMORTIZACAO TRANSFERIDA",
+      "const": 163
+    },
+    {
+      "type": "number",
+      "description": "C - PREMIO PROVISIONADO",
+      "const": 164
+    },
+    {
+      "type": "number",
+      "description": "D - PREMIO PROVISIONADO",
+      "const": 165
+    },
+    {
+      "type": "number",
+      "description": "C - PREMIO CREDITADO",
+      "const": 166
+    },
+    {
+      "type": "number",
+      "description": "D - PREMIO EXCLUIDO",
+      "const": 167
+    },
+    {
+      "type": "number",
+      "description": "D - PREMIO CANCELADO",
+      "const": 168
+    },
+    {
+      "type": "number",
+      "description": "D - PREMIO TRANSFERIDO",
+      "const": 169
+    },
+    {
+      "type": "number",
+      "description": "C - PREMIO TRANSFERIDO",
+      "const": 170
+    },
+    {
+      "type": "number",
+      "description": "C - RENDIMENTO LIQUIDO PROVISIONADO",
+      "const": 171
+    },
+    {
+      "type": "number",
+      "description": "D - RENDIMENTO LIQUIDO PROVISIONADO",
+      "const": 172
+    },
+    {
+      "type": "number",
+      "description": "C - RENDIMENTO LIQUIDO CREDITADO",
+      "const": 173
+    },
+    {
+      "type": "number",
+      "description": "D - RENDIMENTO LIQUIDO EXCLUIDO",
+      "const": 174
+    },
+    {
+      "type": "number",
+      "description": "D - RENDIMENTO LIQUIDO CANCELADO",
+      "const": 175
+    },
+    {
+      "type": "number",
+      "description": "D - RENDIMENTO LIQUIDO TRANSFERIDO",
+      "const": 176
+    },
+    {
+      "type": "number",
+      "description": "C - RENDIMENTO LIQUIDO TRANSFERIDO",
+      "const": 177
+    },
+    {
+      "type": "number",
+      "description": "C - REST CAPITAL EM ACOES PROVISIONADO",
+      "const": 178
+    },
+    {
+      "type": "number",
+      "description": "D - REST CAPITAL EM ACOES PROVISIONADO",
+      "const": 179
+    },
+    {
+      "type": "number",
+      "description": "C - REST CAPITAL EM ACOES CREDITADO",
+      "const": 180
+    },
+    {
+      "type": "number",
+      "description": "D - REST CAPITAL EM ACOES EXCLUIDO",
+      "const": 181
+    },
+    {
+      "type": "number",
+      "description": "D - REST CAPITAL EM ACOES CANCELADO",
+      "const": 182
+    },
+    {
+      "type": "number",
+      "description": "D - REST CAPITAL EM ACOES TRANSFERIDO",
+      "const": 183
+    },
+    {
+      "type": "number",
+      "description": "C - REST CAPITAL EM ACOES TRANSFERIDO",
+      "const": 184
+    },
+    {
+      "type": "number",
+      "description": "C - REST CAPITAL COM REDUCAO DE ACOES PROVISIONADO",
+      "const": 185
+    },
+    {
+      "type": "number",
+      "description": "D - REST CAPITAL COM REDUCAO DE ACOES PROVISIONADO",
+      "const": 186
+    },
+    {
+      "type": "number",
+      "description": "C - REST CAPITAL COM REDUCAO DE ACOES CREDITADO",
+      "const": 187
+    },
+    {
+      "type": "number",
+      "description": "D - REST CAPITAL COM REDUCAO DE ACOES EXCLUIDO",
+      "const": 188
+    },
+    {
+      "type": "number",
+      "description": "D - REST CAPITAL COM REDUCAO DE ACOES CANCELADO",
+      "const": 189
+    },
+    {
+      "type": "number",
+      "description": "C - REST CAPITAL COM REDUCAO DE ACOES",
+      "const": 190
+    },
+    {
+      "type": "number",
+      "description": "D - REST CAPITAL COM REDUCAO DE ACOES",
+      "const": 191
+    },
+    {
+      "type": "number",
+      "description": "C - EVENTO EM DINHEIRO PROVISIONADO",
+      "const": 192
+    },
+    {
+      "type": "number",
+      "description": "D - EVENTO EM DINHEIRO PROVISIONADO",
+      "const": 193
+    },
+    {
+      "type": "number",
+      "description": "C - EVENTO EM DINHEIRO CREDITADO",
+      "const": 194
+    },
+    {
+      "type": "number",
+      "description": "D - EVENTO EM DINHEIRO EXCLUIDO",
+      "const": 195
+    },
+    {
+      "type": "number",
+      "description": "D - EVENTO EM DINHEIRO CANCELADO",
+      "const": 196
+    },
+    {
+      "type": "number",
+      "description": "D - EVENTO EM DINHEIRO TRANSFERIDO",
+      "const": 197
+    },
+    {
+      "type": "number",
+      "description": "C - EVENTO EM DINHEIRO TRANSFERIDO",
+      "const": 198
+    },
+    {
+      "type": "number",
+      "description": "D - DIREITO DE SUBSCRICAO",
+      "const": 199
+    },
+    {
+      "type": "number",
+      "description": "C - DIREITO DE SUBSCRICAO",
+      "const": 200
+    },
+    {
+      "type": "number",
+      "description": "D - FRACAO EVENTO EM ATIVO PREVISTO - (DEBITO)",
+      "const": 201
+    },
+    {
+      "type": "number",
+      "description": "C - FRACAO EVENTO EM ATIVO PREVISTO - (CREDITO)",
+      "const": 202
+    },
+    {
+      "type": "number",
+      "description": "D - DIREITO DE OPCAO DE COMPRA DE FRACAO CREDITADO",
+      "const": 203
+    },
+    {
+      "type": "number",
+      "description": "C - DIREITO DE OPCAO DE COMPRA DE FRACAO CREDITADO",
+      "const": 204
+    },
+    {
+      "type": "number",
+      "description": "C - FRACAO EM ATIVO",
+      "const": 205
+    },
+    {
+      "type": "number",
+      "description": "D - FRACAO EM ATIVO",
+      "const": 206
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE LEILAO DE FRACAO",
+      "const": 207
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE LEILAO DE FRACAO - CREBITO",
+      "const": 208
+    },
+    {
+      "type": "number",
+      "description": "C - DIREITO",
+      "const": 209
+    },
+    {
+      "type": "number",
+      "description": "D - CESSAO DE DIREITOS EMITIDA",
+      "const": 210
+    },
+    {
+      "type": "number",
+      "description": "C - CESSAO DE DIREITOS EMITIDA",
+      "const": 211
+    },
+    {
+      "type": "number",
+      "description": "C - DIREITOS NAO EXERCIDOS OU CANCELADOS",
+      "const": 212
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE RV PROVISIONADO",
+      "const": 213
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE RV PROVISIONADO",
+      "const": 214
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE RV CREDITADO",
+      "const": 215
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE RV EXCLUIDO",
+      "const": 216
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE RV CANCELADO",
+      "const": 217
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE RV TRANSFERIDO",
+      "const": 218
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE RV TRANSFERIDO",
+      "const": 219
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE DE EVENTO EM ATIVO",
+      "const": 220
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE DE EVENTO EM ATIVO",
+      "const": 221
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE RF PROVISIONADO",
+      "const": 222
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE RF PROVISIONADO",
+      "const": 223
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE RF CREDITADO",
+      "const": 224
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE RF EXCLUIDO",
+      "const": 225
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE RF CANCELADO",
+      "const": 226
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE RF TRANSFERIDO",
+      "const": 227
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE RF TRANSFERIDO",
+      "const": 228
+    },
+    {
+      "type": "number",
+      "description": "C - CONVERSAO DE ATIVOS",
+      "const": 229
+    },
+    {
+      "type": "number",
+      "description": "D - CONVERSAO DE ATIVOS",
+      "const": 230
+    },
+    {
+      "type": "number",
+      "description": "C - DISSIDENCIA DE ATIVOS",
+      "const": 231
+    },
+    {
+      "type": "number",
+      "description": "D - DISSIDENCIA DE ATIVOS",
+      "const": 232
+    },
+    {
+      "type": "number",
+      "description": "C - SOLICITACAO / CANCELAMENTO CONVERSAO ATIVOS",
+      "const": 233
+    },
+    {
+      "type": "number",
+      "description": "D - SOLICITACAO / CANCELAMENTO CONVERSAO ATIVOS",
+      "const": 234
+    },
+    {
+      "type": "number",
+      "description": "C - SOLICITACAO / CANCELAMENTO DISSIDENCIA ATIVOS",
+      "const": 235
+    },
+    {
+      "type": "number",
+      "description": "D - SOLICITACAO / CANCELAMENTO DISSIDENCIA ATIVOS",
+      "const": 236
+    },
+    {
+      "type": "number",
+      "description": "C - CISAO COM RED. DE CAPITAL",
+      "const": 237
+    },
+    {
+      "type": "number",
+      "description": "D - CISAO COM RED. DE CAPITAL",
+      "const": 238
+    },
+    {
+      "type": "number",
+      "description": "D - DIREITO",
+      "const": 239
+    },
+    {
+      "type": "number",
+      "description": "D - DIREITO DE SUBSCRICAO",
+      "const": 240
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE COMPRA DE FRACAO",
+      "const": 241
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE COMPRA DE FRACAO - CREBITO",
+      "const": 242
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE VENDA DE FRACAO",
+      "const": 243
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE VENDA DE FRACAO - CREBITO",
+      "const": 244
+    },
+    {
+      "type": "number",
+      "description": "C - LEILAO DE FRACAO CREDITADO",
+      "const": 245
+    },
+    {
+      "type": "number",
+      "description": "C - COMPRA DE FRACAO CREDITADO",
+      "const": 246
+    },
+    {
+      "type": "number",
+      "description": "C - VENDA DE FRACAO CREDITADO",
+      "const": 247
+    },
+    {
+      "type": "number",
+      "description": "C - ESTORNO SUBSCRICAO NAO EXERCIDA",
+      "const": 248
+    },
+    {
+      "type": "number",
+      "description": "C - LEILAO DE FRACAO PROVISIONADO",
+      "const": 249
+    },
+    {
+      "type": "number",
+      "description": "D - LEILAO DE FRACAO PROVISIONADO",
+      "const": 250
+    },
+    {
+      "type": "number",
+      "description": "C - COMPRA DE FRACAO PROVISIONADO",
+      "const": 251
+    },
+    {
+      "type": "number",
+      "description": "D - COMPRA DE FRACAO PROVISIONADO",
+      "const": 252
+    },
+    {
+      "type": "number",
+      "description": "C - VENDA DE FRACAO PROVISIONADO",
+      "const": 253
+    },
+    {
+      "type": "number",
+      "description": "D - VENDA DE FRACAO PROVISIONADO",
+      "const": 254
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE RV CREDITADO (DEBITO)",
+      "const": 255
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE RF CREDITADO (DEBITO)",
+      "const": 256
+    },
+    {
+      "type": "number",
+      "description": "C - DIVIDENDO REATIVADO",
+      "const": 258
+    },
+    {
+      "type": "number",
+      "description": "C - RESTITUICAO DE CAPITAL REATIVADA",
+      "const": 259
+    },
+    {
+      "type": "number",
+      "description": "C - BONIFICACAO EM DINHEIRO REATIVADA",
+      "const": 260
+    },
+    {
+      "type": "number",
+      "description": "C - JUROS SOBRE CAPITAL PROPRIO REATIVADO",
+      "const": 261
+    },
+    {
+      "type": "number",
+      "description": "C - RENDIMENTO REATIVADO",
+      "const": 262
+    },
+    {
+      "type": "number",
+      "description": "C - JUROS REATIVADO",
+      "const": 263
+    },
+    {
+      "type": "number",
+      "description": "C - AMORTIZACAO REATIVADA",
+      "const": 264
+    },
+    {
+      "type": "number",
+      "description": "C - PREMIO REATIVADO",
+      "const": 265
+    },
+    {
+      "type": "number",
+      "description": "C - RENDIMENTO LIQUIDO REATIVADO",
+      "const": 266
+    },
+    {
+      "type": "number",
+      "description": "C - REST CAPITAL EM ACOES REATIVADO",
+      "const": 267
+    },
+    {
+      "type": "number",
+      "description": "C - REST CAPITAL COM REDUCAO DE ACOES REATIVADO",
+      "const": 268
+    },
+    {
+      "type": "number",
+      "description": "C - EVENTO EM DINHEIRO REATIVADO",
+      "const": 269
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE RV REATIVADO",
+      "const": 270
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE RF REATIVADO",
+      "const": 271
+    },
+    {
+      "type": "number",
+      "description": "C - FINANCEIRO DO EXERCICIO DE SUBSCRICAO",
+      "const": 272
+    },
+    {
+      "type": "number",
+      "description": "D - ESTORNO SUBSCRICAO NAO EXERCIDA",
+      "const": 273
+    },
+    {
+      "type": "number",
+      "description": "D - SOLICITACAO DE OPCAO DE COMPRA DE FRACAO",
+      "const": 274
+    },
+    {
+      "type": "number",
+      "description": "C - CANCELAMENTO DE OPCAO DE COMPRA DE FRACAO",
+      "const": 275
+    },
+    {
+      "type": "number",
+      "description": "C - BONIFICACAO EM ATIVOS CANCELADA",
+      "const": 276
+    },
+    {
+      "type": "number",
+      "description": "C - DESDOBRO CANCELADO",
+      "const": 277
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE DIVIDENDO",
+      "const": 278
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE RESTITUICAO DE CAPITAL",
+      "const": 279
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE BONIFICACAO EM DINHEIRO",
+      "const": 280
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE JUROS CAPITAL PROPRIO",
+      "const": 281
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE RENDIMENTO",
+      "const": 282
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE JUROS",
+      "const": 283
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE AMORTIZACAO",
+      "const": 284
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE PREMIO",
+      "const": 285
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE RENDIMENTO LIQUIDO",
+      "const": 286
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE REST CAPITAL EM ACOES",
+      "const": 287
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE REST CAP COM REDUCAO ACOES",
+      "const": 288
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE EVENTO EM DINHEIRO",
+      "const": 289
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE RESGATE RV",
+      "const": 290
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE RESGATE RF",
+      "const": 291
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE DIVIDENDO",
+      "const": 292
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE RESTITUICAO DE CAPITAL",
+      "const": 293
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE BONIFICACAO EM DINHEIRO",
+      "const": 294
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE JUROS CAPITAL PROPRIO",
+      "const": 295
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE RENDIMENTO",
+      "const": 296
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE JUROS",
+      "const": 297
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE AMORTIZACAO",
+      "const": 298
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE PREMIO",
+      "const": 299
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE RENDIMENTO LIQUIDO",
+      "const": 300
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE REST CAPITAL EM ACOES",
+      "const": 301
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE REST CAP COM REDUCAO ACOES",
+      "const": 302
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE EVENTO EM DINHEIRO",
+      "const": 303
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE RESGATE RV",
+      "const": 304
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE RESGATE RF",
+      "const": 305
+    },
+    {
+      "type": "number",
+      "description": "C - CREDITO DE CUSTODIA",
+      "const": 306
+    },
+    {
+      "type": "number",
+      "description": "D - DEBITO DE CUSTODIA",
+      "const": 307
+    },
+    {
+      "type": "number",
+      "description": "D - RECIBO DE SUBSCRICAO",
+      "const": 308
+    },
+    {
+      "type": "number",
+      "description": "C - RECIBO DE SUBSCRICAO",
+      "const": 309
+    },
+    {
+      "type": "number",
+      "description": "C - SOLICITACAO / CANCELAMENTO SOBRAS SUBSCRICAO - CRE",
+      "const": 310
+    },
+    {
+      "type": "number",
+      "description": "D - SOLICITACAO / CANCELAMENTO SOBRAS SUBSCRICAO - DEB",
+      "const": 311
+    },
+    {
+      "type": "number",
+      "description": "C - DIREITO SOBRAS DE SUBSCRICAO",
+      "const": 312
+    },
+    {
+      "type": "number",
+      "description": "D - DIREITO SOBRAS DE SUBSCRICAO",
+      "const": 313
+    },
+    {
+      "type": "number",
+      "description": "D - DIREITOS SOBRAS NAO EXERC / CANC",
+      "const": 314
+    },
+    {
+      "type": "number",
+      "description": "C - DIREITOS SOBRAS NAO EXERC / CANC",
+      "const": 315
+    },
+    {
+      "type": "number",
+      "description": "C - CANCELAMENTO DE DIREITOS EXERCIDOS",
+      "const": 316
+    },
+    {
+      "type": "number",
+      "description": "C - ATUALIZACAO MONETARIA PROVISIONADO",
+      "const": 317
+    },
+    {
+      "type": "number",
+      "description": "D - ATUALIZACAO MONETARIA PROVISIONADO",
+      "const": 318
+    },
+    {
+      "type": "number",
+      "description": "C - ATUALIZACAO MONETARIA CREDITADO",
+      "const": 319
+    },
+    {
+      "type": "number",
+      "description": "D - ATUALIZACAO MONETARIA EXCLUIDO",
+      "const": 320
+    },
+    {
+      "type": "number",
+      "description": "D - ATUALIZACAO MONETARIA CANCELADO",
+      "const": 321
+    },
+    {
+      "type": "number",
+      "description": "D - ATUALIZACAO MONETARIA TRANSFERIDO",
+      "const": 322
+    },
+    {
+      "type": "number",
+      "description": "D - ATUALIZACAO MONETARIA CREDITADO (DEBITO)",
+      "const": 323
+    },
+    {
+      "type": "number",
+      "description": "C - ATUALIZACAO MONETARIA TRANSFERIDO",
+      "const": 324
+    },
+    {
+      "type": "number",
+      "description": "C - ATUALIZACAO MONETARIA REATIVADO",
+      "const": 325
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE ATUALIZACAO MONETARIA",
+      "const": 326
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE ATUALIZACAO MONETARIA",
+      "const": 327
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE PARCIAL PROVISIONADO",
+      "const": 328
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE PARCIAL PROVISIONADO",
+      "const": 329
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE PARCIAL CREDITADO",
+      "const": 330
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE PARCIAL EXCLUIDO",
+      "const": 331
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE PARCIAL CANCELADO",
+      "const": 332
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE PARCIAL TRANSFERIDO",
+      "const": 333
+    },
+    {
+      "type": "number",
+      "description": "D - RESGATE PARCIAL CREDITADO (DEBITO)",
+      "const": 334
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE PARCIAL TRANSFERIDO",
+      "const": 335
+    },
+    {
+      "type": "number",
+      "description": "C - RESGATE PARCIAL REATIVADO",
+      "const": 336
+    },
+    {
+      "type": "number",
+      "description": "C - PREVISAO PAGAMENTO DE RESGATE PARCIAL",
+      "const": 337
+    },
+    {
+      "type": "number",
+      "description": "D - PREVISAO PAGAMENTO DE RESGATE PARCIAL",
+      "const": 338
+    },
+    {
+      "type": "number",
+      "description": "C - CREDITO DO SALDO \"EX\" COM QUANTIDADE DIFERENTE",
+      "const": 339
+    },
+    {
+      "type": "number",
+      "description": "D - DEBITO DO SALDO \"EX\" COM QUANTIDADE DIFERENTE",
+      "const": 340
+    },
+    {
+      "type": "number",
+      "description": "D - SUBSCRICAO POR RENUNCIA",
+      "const": 341
+    },
+    {
+      "type": "number",
+      "description": "C - SUBSCRICAO POR RENUNCIA",
+      "const": 342
+    },
+    {
+      "type": "number",
+      "description": "C - EVENTO EM DINHEIRO CANCELADO",
+      "const": 343
+    },
+    {
+      "type": "number",
+      "description": "C - DIREITOS EXERCIDOS",
+      "const": 344
+    },
+    {
+      "type": "number",
+      "description": "C - REST CAPITAL EM ACOES",
+      "const": 345
+    },
+    {
+      "type": "number",
+      "description": "D - REST CAPITAL EM ACOES",
+      "const": 346
+    },
+    {
+      "type": "number",
+      "description": "C - REST CAPITAL EM ACOES PROVISIONADO",
+      "const": 347
+    },
+    {
+      "type": "number",
+      "description": "D - REST CAPITAL EM ACOES PROVISIONADO",
+      "const": 348
+    },
+    {
+      "type": "number",
+      "description": "D - REST CAPITAL EM ACOES TRANSF",
+      "const": 349
+    },
+    {
+      "type": "number",
+      "description": "C - REST CAPITAL EM ACOES TRANSF",
+      "const": 350
+    },
+    {
+      "type": "number",
+      "description": "C - RETRATACAO DE ATIVOS DE ATIVOS",
+      "const": 351
+    },
+    {
+      "type": "number",
+      "description": "D - RETRATACAO DE ATIVOS DE ATIVOS",
+      "const": 352
+    },
+    {
+      "type": "number",
+      "description": "C - CREDITO POR SOLIC/CANC DE RETRATACAO",
+      "const": 353
+    },
+    {
+      "type": "number",
+      "description": "D - DEBITO POR SOLIC/CANC DE RETRATACAO",
+      "const": 354
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

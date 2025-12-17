@@ -1,0 +1,35 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-inf-03",
+  "$metadata" : {
+    "domain" : "technical",
+    "schemaId" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-inf-03"
+  },
+  "title" : "System Status Information Message",
+  "description" : "Message for informing system and status including opening and closing information",
+  "type" : "object",
+  "properties" : {
+    "systemStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Current system status",
+      "$comment" : "Consult External Code List table ExternalSystemStatusCode"
+    },
+    "deadline" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Deadline code for status change",
+      "$comment" : "Consult External Code List table ExternalStatusDeadlineCode"
+    },
+    "businessGroup" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Business group code",
+      "$comment" : "Consult External Code List table ExternalBusinessGroupCode"
+    }
+  },
+  "required" : [ "systemStatus", "deadline" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "systemStatus" : "OPEN",
+    "deadline" : 1,
+    "businessGroup" : 1
+  } ]
+}

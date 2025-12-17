@@ -1,0 +1,106 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#", 
+  "$id" : "urn:a5x:ex5:schema:v1:settlement:ex5f-stl-ntf-02",
+  "$metadata" : {
+    "domain" : "settlement", 
+    "schemaId" : "urn:a5x:ex5:schema:v1:settlement:ex5f-stl-ntf-02"
+  }, 
+  "title" : "CashEntriesbySettlementDate", 
+  "description" : "Cash entry type with daily settlement movement", 
+  "type" : "object", 
+  "properties" : {
+    "referenceDate" : {
+      "type" : "string", 
+      "format" : "date", 
+      "description" : "Reference date for the transaction or process step"
+    }, 
+    "typeFinancialReport" : {
+      "type" : "integer", 
+      "description" : "Unique identifier for the process step or transaction record", 
+      "minimum" : 1, 
+      "maximum" : 999999999
+    }, 
+    "clearingIdentification" : {
+      "type" : "string", 
+      "description" : "Identifier for the clearing process", 
+      "minLength" : 1, 
+      "maxLength" : 35
+    }, 
+    "clearingbrazilianPaymentSystem" : {
+      "type" : "string", 
+      "description" : "Specific clearing identifier for the Brazilian Payment System (SPB) integration", 
+      "minLength" : 1, 
+      "maxLength" : 35
+    }, 
+    "clearingMemberIdentificationId" : {
+      "type" : "integer", 
+      "description" : "Unique identifier for the clearing member authorized for settlement", 
+      "minimum" : 1, 
+      "maximum" : 999999
+    }, 
+    "settlementBank" : {
+      "type" : "integer", 
+      "description" : "Informs the identification details of the Settlement Bank", 
+      "minimum" : 1, 
+      "maximum" : 999999999
+    }, 
+    "settlementDate" : {
+      "type" : "string", 
+      "format" : "date",
+      "description" : "Date when the transaction is settled"
+    }, 
+    "participantDestinationIdentificationId" : {
+      "type" : "integer", 
+      "description" : "Unique identifier for the party involved in the transaction", 
+      "minimum" : 1, 
+      "maximum" : 999999
+    }, 
+    "accountIdentification" : {
+      "type" : "integer", 
+      "description" : "Identifier for the account used in the transaction", 
+      "minimum" : 1, 
+      "maximum" : 999999999999999
+    }, 
+    "cashEntryTypeCode" : {
+      "type" : "integer", 
+      "description" : "Identifies the characteristics of the cash entry", 
+      "minimum" : 1, 
+      "maximum" : 999999
+    }, 
+    "cashEntryValue" : {
+      "type" : "number", 
+      "description" : "Monetary value of the cash entry, in BRL", 
+      "minimum" : 0,
+      "$comment": "Falta um tamanho min e max aqui?"
+    }, 
+    "asset" : {
+      "type" : "string", 
+      "description" : "Description or code of the financial asset involved", 
+      "minLength" : 1, 
+      "maxLength" : 30
+    }, 
+    "isin" : {
+      "type" : "string", 
+      "minLength" : 12, 
+      "maxLength" : 12, 
+      "pattern" : "^BR[A-Z0-9]{4}[A-Z0-9]{3}[A-Z0-9]{2}\\d$", 
+      "description" : "International Securities Identification Number - Standardized international code for unique identification of financial securities", 
+      "$comment" : "Structure BR AAAA BBB CC D where: BR=Brazil country code, AAAA=issuer identification (alphanumeric), BBB=asset type (alphanumeric), CC=species or sequence (alphanumeric), D=check digit (numeric)"
+    }
+  }, 
+  "required" : [
+    "reportDateAndTime", 
+    "typeFinancialReport", 
+    "clearingIdentification", 
+    "clearingbrazilianPaymentSystem", 
+    "clearingMemberIdentificationId", 
+    "settlementBank", 
+    "referenceDate", 
+    "settlementDate", 
+    "participantDestinationIdentificationId", 
+    "accountIdentification", 
+    "cashEntryTypeCode", 
+    "cashEntryValue"
+  ], 
+  "additionalProperties" : false
+}

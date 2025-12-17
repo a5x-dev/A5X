@@ -1,0 +1,25 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:AccountIdentification",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:AccountIdentification"
+  },
+  "title" : "Account Identification",
+  "description" : "Account identification information",
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant",
+      "examples" : [ 987654321012345, 123456789012345 ]
+    }
+  },
+  "required" : [ "id" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "id" : 987654321012345
+  } ]
+}

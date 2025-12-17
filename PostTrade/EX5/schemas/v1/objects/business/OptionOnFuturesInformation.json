@@ -1,0 +1,132 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:OptionOnFuturesInformation",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:OptionOnFuturesInformation"
+  },
+  "title": "OptionOnFuturesInformation",
+  "description": "Information specific to options on spot and futures",
+  "type": "object",
+  "properties": {
+    "exercisePrice": {
+      "$ref": "../../objects/business/ExercisePrice.json",
+      "description": "Price at which the option can be exercised"
+    },
+    "exerciseStyle": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Style of the option exercise (e.g., American, European)",
+      "$comment": "Consult External Code List table ExternalOptionExerciseStyle"
+    },
+    "optionType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "$comment": "Consult External Code List table ExternalOptionTypeCode",
+      "description": "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)"
+    },
+    "contractMultiplier": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Ratio between contract size and commodity quotation quantity"
+    },
+    "assetQuotationQuantity": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Indicates the quantity of the commodity on which the trade price is based"
+    },
+    "paymentType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Identifies the settlement method for the trade",
+      "$comment": "Consult External Code List table ExternalPaymentTypeCode"
+    },
+    "underlyingInstrumentIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the financial instrument"
+    },
+    "premiumUpfrontIndicator": {
+      "type": "boolean",
+      "description": "Indicates if the option premium is paid upfront"
+    },
+    "openingPositionLimitDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Date when the opening position limit becomes effective"
+    },
+    "assetSettlementIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the financial instrument"
+    },
+    "withdrawalDays": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Number of withdrawal days, considering the trading date until the contract maturity date (inclusive)"
+    },
+    "workingDays": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Number of business days, considering the trading date until the contract maturity date (inclusive)"
+    },
+    "calendarDays": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Number of calendar days, considering the trading date until the contract maturity date (inclusive)"
+    },
+    "automaticExerciseIndicator": {
+      "type": "boolean",
+      "description": "Indicates if the option is exercised automatically at expiration if it is in-the-money"
+    }
+  },
+  "required": [
+    "exercisePrice",
+    "exerciseStyle",
+    "optionType",
+    "paymentType",
+    "premiumUpfrontIndicator",
+    "withdrawalDays",
+    "workingDays",
+    "calendarDays"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "exercisePrice": {
+        "amount": 35.5,
+        "currency": "BRL"
+      },
+      "exerciseStyle": "EURO",
+      "optionType": 1,
+      "contractMultiplier": "10,00",
+      "assetQuotationQuantity": "10,00",
+      "paymentType": 1,
+      "underlyingInstrumentIdentification": [
+        {
+          "id": "10000000000000001",
+          "Source": "8",
+          "Exchange": "A5X"
+        },
+        {
+          "id": "10000000000000011",
+          "Source": "8",
+          "Exchange": "A5X"
+        }
+      ],
+      "premiumUpfrontIndicator": true,
+      "openingPositionLimitDate": "2024-12-31",
+      "assetSettlementIdentification": [
+        {
+          "ID": "10000000000000002",
+          "Source": "8",
+          "Exchange": "A5X"
+        },
+        {
+          "ID": "10000000000000022",
+          "Source": "8",
+          "Exchange": "A5X"
+        }
+      ],
+      "withdrawalDays": 90,
+      "workingDays": 63,
+      "calendarDays": 90,
+      "automaticExerciseIndicator": true
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-04",
+  "$metadata" : {
+    "domain" : "risk",
+    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-04"
+  },
+  "title" : "Risk Simulation Query Result",
+  "description" : "Message for Risk Simulation Query Result",
+  "type" : "object",
+  "properties" : {
+    "pagination" : {
+      "$ref" : "../../objects/business/Pagination.json",
+      "description" : "Pagination details"
+    },
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    },
+    "riskSimulationRequests" : {
+      "type" : "array",
+      "description" : "Array of risk simulation results",
+      "items" : {
+        "$ref" : "../../objects/business/RiskSimulationDetails.json",
+        "description" : "Collateral coverage information details"
+      }
+    }
+  },
+  "required" : [ "pagination", "clearingMemberIdentification", "participantIdentification", "accountIdentification", "riskSimulationRequests" ],
+
+  "additionalProperties" : false,
+  "examples" : [
+    {
+      "pagination" : {
+        "paginationId" : "ABCDD",
+        "pageNumber" : "1",
+        "lastPageIndicator" : true
+      },
+      "clearingMemberIdentification" : {
+        "id" : 123456,
+        "category" : 2
+      },
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
+      "accountIdentification" : {
+        "id" : 1234
+      },
+      "riskSimulationRequests" : [
+        {
+          "riskSimulationId" : "Simulation123",
+          "timestamp" : "2025-10-02T12:34:56Z",
+          "totalLiability" : {
+            "currency" : "BRL",
+            "amount" : "500000.00"
+          },
+          "initialMargin" : {
+            "currency" : "BRL",
+            "amount" : "100000.25"
+          },
+          "contingentVariationMargin" : {
+            "currency" : "BRL",
+            "amount" : "75000.50"
+          },
+          "netLiquidatingValue" : {
+            "currency" : "BRL",
+            "amount" : "200000.75"
+          },
+          "liquidityConcentrationRiskMargin" : {
+            "currency" : "BRL",
+            "amount" : "50000.00"
+          },
+          "wrongWayRiskMargin" : {
+            "currency" : "BRL",
+            "amount" : "25000.25"
+          },
+          "defaultFundAdditionalMargin" : {
+            "currency" : "BRL",
+            "amount" : "15000.50"
+          },
+          "stressTestLoss" : {
+            "currency" : "BRL",
+            "amount" : "500.00"
+          },
+          "userComment" : "Result under base scenario; revise foreign exchange exposure"
+        }
+      ]
+    }
+  ]
+}

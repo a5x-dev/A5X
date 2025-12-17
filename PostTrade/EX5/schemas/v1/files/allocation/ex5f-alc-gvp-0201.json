@@ -1,0 +1,325 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-gvp-02",
+  "$metadata" : {
+    "domain" : "allocation",
+    "schemaId" : "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-gvp-02"
+  },
+  "title" : "GiveUpDetails",
+  "description" : "Give Up Details",
+  "type" : "object",
+  "properties" : {
+    "referenceDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Reference date of the information"
+    },
+    "participantOriginIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "GiveUp Participant Identification"
+    },
+    "participantOriginIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "financialInstrumentIdentificationId" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Proprietary identification of an instrument"
+    },
+    "financialInstrumentIdentificationSource" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Source of the instrument identification",
+      "default" : "8"
+    },
+    "financialInstrumentIdentificationExchange" : {
+      "type" : "string",
+      "pattern" : "^[A-Z0-9]{4}$",
+      "description" : "Identifier code of the exchange where the instrument is listed"
+    },
+    "segment" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Market segment - first level of market classification in post-trading process",
+      "$comment" : "Consult External Code List table ExternalSegmentCode"
+    },
+    "market" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Market type - second level of market classification in post-trading process",
+      "$comment" : "Consult External Code List table ExternalMarketCode"
+    },
+    "isin" : {
+      "type" : "string",
+      "pattern" : "^BR[A-Z0-9]{4}[A-Z0-9]{3}[A-Z0-9]{2}\\d$",
+      "minLength" : 12,
+      "maxLength" : 12,
+      "description" : "International Securities Identification Number - Standardized international code for unique identification of financial instruments",
+      "$comment" : "Structure BR AAAA BBB CC D where: BR=Brazil country code, AAAA=issuer identification (alphanumeric), BBB=asset type (alphanumeric), CC=species or sequence (alphanumeric), D=check digit (numeric)"
+    },
+    "tickerSymbol" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Letters that identify stocks traded on stock exchange"
+    },
+    "optionType" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)",
+      "$comment" : "Consult External Code List table ExternalOptionTypeCode"
+    },
+    "expirationCode" : {
+      "type" : "string",
+      "minLength": 1,
+      "maxLength": 6,
+      "description" : "Expiration code of a Future or an Option"
+    },
+    "currentFactor" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 20,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,10})?$",
+      "description" : "Rate expressed as a decimal between 0 and 1 defining the outstanding principal of the financial instrument (for factored securities)"
+    },
+    "exercisePrice" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 22,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,10})?$",
+      "description" : "Monetary amount of the exercise price with high precision (up to 10 decimal places)"
+    },
+    "tradeDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Trade date"
+    },
+    "tradeTransactionType" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Trade transaction type code",
+      "$comment" : "Consult External Code List table ExternalTradeTransactionTypeCode"
+    },
+    "transactionDateTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Transaction date and time"
+    },
+    "tradeSubType" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Additional qualification for trade type",
+      "$comment" : "Consult External Code List table ExternalTradeSubTypeCode"
+    },
+    "sideTradeSubType" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Identifies strategy subtype"
+    },
+    "strategyType" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 35,
+      "description" : "Defines strategy type",
+      "$comment" : "Consult External Code List table ExternalStrategyTypeCode"
+    },
+    "secondaryTradeMatchIdentification" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Secondary trade match identification"
+    },
+    "tradeIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Trade identification number"
+    },
+    "dealPrice" : {
+      "type" : "string",
+      "maxLength" : 22,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
+      "description" : "Decimal number with up to 6 decimal places"
+    },
+    "buySellIndicator" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Indicates whether the trade is a buy or sell",
+      "$comment" : "Consult External Code List table ExternalBuySellIndicatorCode"
+    },
+    "tradingSessionIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Indicates if trade was executed during regular hours or after market",
+      "$comment" : "Consult External Code List table ExternalTradingSessionIdCode"
+    },
+    "tradeRegistrationOrigin" : {
+      "type" : "string",
+      "maxLength" : 50,
+      "minLength" : 1,
+      "description" : "Origin session code for the trade"
+    },
+    "tradingSessionSubIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Identifies the phase group in trading session",
+      "$comment" : "Consult External Code List table ExternalTradingSessionSubIdCode"
+    },
+    "securityTradingStatus" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Identifies the instrument phase in trading",
+      "$comment" : "Consult External Code List table ExternalSecurityTradingStatusCode"
+    },
+    "orderIdentification" : {
+      "type" : "string",
+      "maxLength" : 26,
+      "minLength" : 1,
+      "description" : "Order identification number"
+    },
+    "tradeMatchIdentification" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Trade match identification"
+    },
+    "traderIdentification" : {
+      "type" : "string",
+      "maxLength" : 50,
+      "minLength" : 1,
+      "description" : "Trader code information"
+    },
+    "strategySymbol" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Strategy symbol identifier. Letters that identify stocks traded on stock exchange"
+    },
+    "shortFuturePrice" : {
+      "type" : "string",
+      "maxLength" : 22,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
+      "description" : "Short future value with up to 6 decimal places",
+      "$comment" : "Represents the price of the short future leg in the strategy"
+    },
+    "longFuturePrice" : {
+      "type" : "string",
+      "maxLength" : 22,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
+      "description" : "Long future value with up to 6 decimal places",
+      "$comment" : "Represents the price of the long future leg in the strategy"
+    },
+    "delta" : {
+      "type" : "string",
+      "maxLength" : 22,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
+      "description" : "Delta value with up to 6 decimal places",
+      "$comment" : "Represents the rate of change between the derivative price and the underlying asset price"
+    },
+    "compressionGroupIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if the operation is derived from block capture",
+      "$comment" : "When true, the trade was part of a block trade"
+    },
+    "averagePriceGroupIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if the operation is derived from an average price allocation group",
+      "$comment" : "When true, the trade was part of an average price group"
+    },
+    "averageExecutionTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Average execution time of the average price allocation group",
+      "$comment" : "Required when averagePriceGroupIndicator is true"
+    },
+    "accountOriginIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier for give up account"
+    },
+    "participantDestinationIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier for take up participant"
+    },
+    "participantDestinationIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "accountDestinationIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "giveUpOnCaptureIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if the give up was originated due to a trade capture"
+    },
+    "quantity" : {
+      "type" : "string",
+      "maxLength" : 20,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Trade quantity"
+    },
+    "allocationIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Allocation identification number"
+    },
+    "previousAllocationIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifies the control number of a previous allocation related to this one"
+    },
+    "giveUpDateTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Give up date and time"
+    },
+    "status" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Trade status code",
+      "$comment" : "Consult External Code List table ExternalTradeStatusCode"
+    },
+    "breakingRuleIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if the operation was requested outside the time limit",
+      "$comment" : "When true, indicates a rule break that requires justification"
+    }
+  },
+  "required" : [ "referenceDate", "participantOriginIdentificationId", "participantOriginIdentificationCategory", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDate", "transactionDateTime", "tradeIdentification", "dealPrice", "buySellIndicator", "accountOriginIdentification", "participantDestinationIdentificationId", "participantDestinationIdentificationCategory", "accountDestinationIdentification", "giveUpOnCaptureIndicator", "quantity", "allocationIdentification", "giveUpDateTime", "status", "breakingRuleIndicator" ],
+  "additionalProperties" : false
+}

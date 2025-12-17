@@ -1,0 +1,45 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:BankingDetails",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:BankingDetails"
+  },
+  "title" : "Banking Details",
+  "description" : "Banking details for international guarantees",
+  "type" : "object",
+  "properties" : {
+    "accountNumber" : {
+      "$ref" : "../../objects/business/InternationalBankAccount.json",
+      "description" : "Account number (optional)"
+    },
+    "iban" : {
+      "$ref" : "../../types/Iban.json",
+      "description" : "International Bank Account Number (optional)"
+    },
+    "swiftCode" : {
+      "$ref" : "../../types/BicSwift.json",
+      "description" : "SWIFT/BIC code"
+    },
+    "bankName" : {
+      "type" : "string",
+      "maxLength" : 60,
+      "minLength" : 2,
+      "description" : "Name of company or entity"
+    },
+    "bankCountry" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Bank country",
+      "$comment" : "ISO 3166-1 alpha-3 country code, Consult ExternalCodeList table ExternalCountryCode"
+    }
+  },
+  "required" : [ "swiftCode", "bankCountry" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "accountNumber" : "DE89370400440532013000",
+    "iban" : "DE89370400440532013000",
+    "swiftCode" : "DXXXXXXF",
+    "bankName" : "Banco do XPTO S.A.",
+    "bankCountry" : "BRA"
+  } ]
+}

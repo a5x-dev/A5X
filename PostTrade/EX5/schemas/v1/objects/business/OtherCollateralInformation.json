@@ -1,0 +1,48 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:OtherCollateralInformation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:OtherCollateralInformation"
+  },
+  "title" : "Other Collateral Information",
+  "description" : "This block provides information about others collateral valuation.",
+  "type" : "object",
+  "properties" : {
+    "collateralReference" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Reference of the piece of valued collateral.",
+      "examples" : [ "OTHER-REF-001", "COLLATERAL-789" ]
+    },
+    "collateralDetail" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides details of collateral.",
+      "examples" : [ "COMMODITY-GOLD", "REAL-ESTATE-PROP" ]
+    },
+    "issueDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Provides issue date of collateral.",
+      "examples" : [ "2024-01-15", "2023-12-01" ]
+    },
+    "maturityDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Provides maturity date of collateral.",
+      "examples" : [ "2026-01-15", "2025-12-01" ]
+    }
+  },
+  "required" : [ "collateralReference", "collateralDetail", "issueDate", "maturityDate" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralReference" : "OTHER-REF-001",
+    "collateralDetail" : "COMMODITY-GOLD",
+    "issueDate" : "2024-01-15",
+    "maturityDate" : "2026-01-15"
+  }, {
+    "collateralReference" : "COLLATERAL-789",
+    "collateralDetail" : "REAL-ESTATE-PROP",
+    "issueDate" : "2023-12-01",
+    "maturityDate" : "2025-12-01"
+  } ]
+}

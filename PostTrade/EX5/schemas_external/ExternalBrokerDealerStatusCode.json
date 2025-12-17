@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Broker Dealer Status",
+  "description": "Codes for broker dealer status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Completed",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Failed",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Pendente de distribuição pelo PNP",
+      "const": 4
+    }
+  ],
+  "examples": [
+    2,
+    3,
+    4
+  ]
+}

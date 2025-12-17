@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Transfer Event",
+  "description": "Codes for transfer event",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Transfer State Change",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Transfer Approval Rejected",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Transfer Approval Received",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Transfer Approval Received Reassessed",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Transfer Approval Required",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Destination Validation Failed",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Origin Validation Failed",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Transfer Content Rolled Back",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Transfer Content  Externally Updated",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Collateral Destination Validation Failed",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Collateral Origin Validation Failed",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Position Transfer Status",
+      "const": 12
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

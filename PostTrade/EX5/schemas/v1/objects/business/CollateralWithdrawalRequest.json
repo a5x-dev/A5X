@@ -1,0 +1,135 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralWithdrawalRequest",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralWithdrawalRequest"
+  },
+  "title" : "Collateral Withdrawal Request Detail",
+  "description" : "Provides details about the collateral withdrawal request",
+  "type" : "object",
+  "properties" : {
+    "collateralIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Collateral ID given by the requestor participant"
+    },
+    "securitiesCollateral" : {
+      "type" : "array",
+      "description" : "Securities collateral items for transfer approval",
+      "items" : {
+        "allOf" : [ {
+          "$ref" : "../../objects/business/SecuritiesCollateralTransfer.json"
+        }, {
+          "required" : [ "collateralIdentification", "assetNumber", "quantity", "custodianInformationDestination", "centralDepositaryOperationNumber" ]
+        } ]
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    "cashCollateral" : {
+      "type" : "array",
+      "description" : "Cash collateral items for transfer approval",
+      "items" : {
+        "allOf" : [ {
+          "$ref" : "../../objects/business/CashCollateralTransfer.json"
+        }, {
+          "properties" : {
+            "executedMovementType" : {
+              "$ref" : "../../objects/business/ExternalCodeList.json",
+              "description" : "Executed movement type for collateral operations",
+              "$comment" : "Consult External Code List table ExternalCollateralExecutedMovementTypeCode"
+            }
+          }
+        }, {
+          "required" : [ "collateralIdentification", "assetNumber", "operationValue", "executedMovementType" ]
+        } ]
+      },
+      "minItems" : 1,
+      "maxItems" : 60,
+      "additionalProperties": true
+    },
+    "federalBonds" : {
+      "type" : "array",
+      "description" : "Other types of collateral for transfer approval",
+      "items" : {
+        "allOf" : [ {
+          "$ref" : "../../objects/business/OtherCollateralDistribution.json"
+        }, {
+          "required" : [ "collateralIdentification", "assetNumber", "quantity" ]
+        } ]
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    "externalSecurities" : {
+      "type" : "array",
+      "description" : "Other types of collateral for transfer approval",
+      "items" : {
+        "$ref" : "../../objects/business/ExternalSecurities.json"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    }
+  },
+  "required" : [ "collateralIdentification" ],
+  "anyOf" : [ {
+    "required" : [ "securitiesCollateral" ]
+  }, {
+    "required" : [ "cashCollateral" ]
+  }, {
+    "required" : [ "federalBonds" ]
+  }, {
+    "required" : [ "externalSecurities" ]
+  } ],
+  "additionalProperties" : true,
+  "examples" : [ {
+    "collateralIdentification" : "TRF-REF-003",
+    "securitiesCollateral" : [ {
+      "collateralIdentification" : "1",
+      "assetNumber" : "2015000000349",
+      "quantity" : "1000.00",
+      "custodianInformationDestination" : {
+        "participantInformation" : {
+          "id" : 456,
+          "category" : 2
+        },
+        "accountIdentification" : {
+          "id" : 789012345678901
+        },
+        "subAccount" : "001"
+      },
+      "centralDepositaryOperationNumber" : "123456789"
+    } ],
+    "cashCollateral" : [ {
+      "collateralIdentification" : "1",
+      "assetNumber" : "2015000000349",
+      "operationValue" : {
+        "amount" : "25000.00",
+        "currency" : "BRL"
+      },
+      "executedMovementType" : 1
+    } ],
+    "federalBonds" : [ {
+      "collateralIdentification" : "OTHER-001",
+      "assetNumber" : "2015000000349",
+      "quantity" : "250.75"
+    } ],
+    "externalSecurities" : [ {
+      "collateralIdentification" : "EXT-SEC-REF-001",
+      "quantity" : "500.0",
+      "tradeDate" : "2024-06-15T10:30:00",
+      "settlementDate" : "2024-06-20",
+      "collateralCode" : "COLL-12345",
+      "maturityDate" : "2026-01-15",
+      "destinationDepositary" : 2,
+      "originDepositary" : 1,
+      "BICCode" : "BANKUS33XXX",
+      "accountCentralDepositary" : 123456,
+      "FEDAccount" : "021000021",
+      "accountNameSpecialInstructions" : "SPECIAL-INST-001",
+      "subAccountIdentification" : "SUB-ACC-001"
+    } ]
+  } ]
+}

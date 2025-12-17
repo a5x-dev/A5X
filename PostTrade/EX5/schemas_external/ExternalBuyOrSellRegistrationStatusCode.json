@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Buy Or Sell Registration Status",
+  "description": "Codes for buy or sell registration status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Pending",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Pending Approval",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Pending Cancellation",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Cancelled",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Error",
+      "const": 5
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

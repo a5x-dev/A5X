@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Security Liquidity",
+  "description": "Codes for security liquidity",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Liquidity Resource Ineligible",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Liquidity Resource Eligible",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Liquid Collateral",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Illiquid Collateral",
+      "const": 3
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

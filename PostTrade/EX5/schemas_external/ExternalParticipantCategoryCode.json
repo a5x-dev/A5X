@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalParticipantCategoryCode",
+  "description": "Codes for participant categories",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "MEMBRO DE COMPENSAÇÃO",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "INTERMEDIÁRIO FULL",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "PARTICIPANTE DE LIQUIDAÇÃO",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "INTERMEDIÁRIO LIGHT",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "LIQUIDANTE",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "CUSTODIANTE DE GARANTIAS",
+      "const": 70
+    },
+    {
+      "type": "number",
+      "description": "CUSTODIANTE CADASTRAL",
+      "const": 71
+    },
+    {
+      "type": "number",
+      "description": "ADMINISTRADOR DE FUNDOS",
+      "const": 72
+    },
+    {
+      "type": "number",
+      "description": "GESTOR DE FUNDOS",
+      "const": 73
+    },
+    {
+      "type": "number",
+      "description": "CONTROLADOR GARANTIDOR",
+      "const": 74
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ]
+}

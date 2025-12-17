@@ -1,0 +1,55 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-12",
+  "$metadata" : {
+    "domain" : "position",
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-12"
+  },
+  "title" : "Position Transfer Destination Receiver",
+  "description" : "Message for position transfer destination receiver",
+  "type" : "object",
+  "properties" : {
+    "positionTransferReference" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "minLength" : 1,
+      "pattern" : "^[A-Z0-9]{1,15}$",
+      "description" : "Position transfer reference identifier",
+      "examples" : [ "PST123456789012", "TRANSFER001", "POS12345" ]
+    },
+    "positionRequestTypeCode" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of request",
+      "$comment" : "Consult External Code List table ExternalPositionRequestTypeCode"
+    },
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    }
+  },
+  "required" : [ "positionTransferReference", "positionRequestTypeCode", "clearingMemberIdentification", "participantIdentification", "accountIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "positionTransferReference" : "113624876548555",
+    "positionRequestTypeCode" : 2,
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 115
+    }
+  } ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:domains:OptionType",
+  "$metadata" : {
+    "domain" : "domains",
+    "schemaId" : "urn:a5x:ex5:schema:v1:domains:OptionType"
+  },
+  "type" : "string",
+  "title" : "Option Type",
+  "description" : "This block identifies the option type. Call option (right to buy the underlying asset of the option) or put option (right to sell the underlying asset of the option)",
+  "enum" : [ "CALL", "PUT" ],
+  "examples" : [ "CALL" ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:Cancellation",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:Cancellation"
+  },
+  "title" : "Trade Notification Cancellation",
+  "description" : "Message for notifying participants about trade cancellations",
+  "type" : "object",
+  "properties" : {
+    "tradeCancellationDateTime" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Date and time when the cancellation was performed",
+      "$comment" : "Timestamp of when the cancellation was processed in the system",
+      "examples" : [ "2023-06-16T09:15:00Z", "2024-01-02T11:30:45Z" ]
+    },
+    "tradeRemainingQuantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Remaining quantity after cancellation",
+      "$comment" : "Indicates how much of the original quantity remains after this cancellation",
+      "examples" : [ "500", "0", "250.5" ]
+    },
+    "cancellationJustification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Justification for trade cancellation",
+      "$comment" : "Provides the reason why the trade or allocation was cancelled",
+      "examples" : [ "Error in price", "Error in quantity", "Duplicate allocation", "Client request" ]
+    }
+  },
+  "required" : [ "tradeCancellationDateTime" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "tradeCancellationDateTime" : "2023-06-16T09:15:00Z"
+  } ]
+}

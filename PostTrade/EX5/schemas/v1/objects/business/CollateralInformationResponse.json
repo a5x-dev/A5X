@@ -1,0 +1,158 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralInformationResponse",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralInformationResponse"
+  },
+  "title" : "Collateral Information Response",
+  "description" : "This block contains information about participant collateral information response.",
+  "type" : "object",
+  "properties" : {
+    "collateralCoverageType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Collateral coverage identification",
+      "$comment" : "Consult External Code List table ExternalCollateralCoverageTypeCode",
+      "examples" : [ 1 ]
+    },
+    "assetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "A number that unambiguously identifies the collateral. Provides the deposit record number",
+      "examples" : [ "AST123456789", "COL-2024-001", "ASSET-789012" ]
+    },
+    "holderIndicator" : {
+      "type" : "boolean",
+      "description" : "Identifies if the deposit was made by the collateral holder",
+      "examples" : [ true, false ]
+    },
+    "coverageMarginIndicator" : {
+      "type" : "boolean",
+      "description" : "Identifies if the collateral covers the margin",
+      "examples" : [ true, false ]
+    },
+    "collateralType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Provides collateral type code",
+      "$comment" : "Consult External Code List table ExternalCollateralTypeCode"
+    },
+    "collateralSubType" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides collateral sub type",
+      "examples" : [ "FEDERAL_BOND", "SECURITIES", "CASH", "GOLD", "EXTERNAL" ]
+    },
+    "financialInstrumentIdentification" : {
+      "$ref" : "../../objects/business/InstrumentIdentification.json",
+      "description" : "Provides Financial Instrument Identification"
+    },
+    "federalBondCollateralInformation" : {
+      "$ref" : "../../objects/business/FederalBondCollateralMovement.json",
+      "description" : "This block provides information about federal bond collateral valuation"
+    },
+    "securitiesCollateralInformation" : {
+      "$ref" : "../../objects/business/SecuritiesCollateralInformation.json",
+      "description" : "Provides securities and gold collateral information"
+    },
+    "cashOrCurrencyCollateralInformation" : {
+      "$ref" : "../../objects/business/CashOrCurrencyCollateralMovement.json",
+      "description" : "Provides information cash collateral valuation"
+    },
+    "externalSecuritiesInformation" : {
+      "$ref" : "../../objects/business/ExternalSecuritiesInformation.json",
+      "description" : "Provides information about external securities collateral valuation"
+    },
+    "collateralDetailInformation" : {
+      "$ref" : "../../objects/business/CollateralDetailInformation.json",
+      "description" : "Provides information about collateral detail"
+    }
+  },
+  "oneOf" : [ {
+    "properties" : {
+      "collateralCoverageType" : true,
+      "assetNumber" : true,
+      "holderIndicator" : true,
+      "coverageMarginIndicator" : true,
+      "collateralType" : true,
+      "collateralSubType" : true,
+      "financialInstrumentIdentification" : true,
+      "federalBondCollateralInformation" : true,
+      "collateralDetailInformation" : true
+    },
+    "required" : [ "collateralCoverageType", "assetNumber", "holderIndicator", "coverageMarginIndicator", "collateralType", "collateralSubType", "financialInstrumentIdentification", "federalBondCollateralInformation", "collateralDetailInformation" ]
+  }, {
+    "properties" : {
+      "collateralCoverageType" : true,
+      "assetNumber" : true,
+      "holderIndicator" : true,
+      "coverageMarginIndicator" : true,
+      "collateralType" : true,
+      "collateralSubType" : true,
+      "financialInstrumentIdentification" : true,
+      "securitiesCollateralInformation" : true,
+      "collateralDetailInformation" : true
+    },
+    "required" : [ "collateralCoverageType", "assetNumber", "holderIndicator", "coverageMarginIndicator", "collateralType", "collateralSubType", "financialInstrumentIdentification", "securitiesCollateralInformation", "collateralDetailInformation" ]
+  }, {
+    "properties" : {
+      "collateralCoverageType" : true,
+      "assetNumber" : true,
+      "holderIndicator" : true,
+      "coverageMarginIndicator" : true,
+      "collateralType" : true,
+      "collateralSubType" : true,
+      "financialInstrumentIdentification" : true,
+      "cashOrCurrencyCollateralInformation" : true,
+      "collateralDetailInformation" : true
+    },
+    "required" : [ "collateralCoverageType", "assetNumber", "holderIndicator", "coverageMarginIndicator", "collateralType", "collateralSubType", "financialInstrumentIdentification", "cashOrCurrencyCollateralInformation", "collateralDetailInformation" ]
+  }, {
+    "properties" : {
+      "collateralCoverageType" : true,
+      "assetNumber" : true,
+      "holderIndicator" : true,
+      "coverageMarginIndicator" : true,
+      "collateralType" : true,
+      "collateralSubType" : true,
+      "financialInstrumentIdentification" : true,
+      "externalSecuritiesInformation" : true,
+      "collateralDetailInformation" : true
+    },
+    "required" : [ "collateralCoverageType", "assetNumber", "holderIndicator", "coverageMarginIndicator", "collateralType", "collateralSubType", "financialInstrumentIdentification", "externalSecuritiesInformation", "collateralDetailInformation" ]
+  } ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralCoverageType" : 1,
+    "assetNumber" : "2015000000348",
+    "holderIndicator" : true,
+    "coverageMarginIndicator" : true,
+    "collateralType" : 2,
+    "collateralSubType" : "ABC",
+    "financialInstrumentIdentification" : {
+      "id" : "100000000000001",
+      "source" : "8",
+      "exchange" : "A5X"
+    },
+    "federalBondCollateralInformation" : {
+      "collateralReference" : "FB-REF-001",
+      "maturityDate" : "2025-12-31",
+      "assignerAccount" : "ASSIGNER-ACC-001",
+      "assigneeAccount" : "ASSIGNEE-ACC-001"
+    },
+    "collateralDetailInformation" : {
+      "depositedQuantity" : "1000.50",
+      "valuedQuantity" : "950.25",
+      "deliveryQuantity" : "100.00",
+      "blockedQuantity" : "50.25",
+      "collateralValue" : {
+        "currency" : "BRL",
+        "amount" : "95000.50"
+      },
+      "withdrawalBlockedValue" : {
+        "currency" : "BRL",
+        "amount" : "5000.00"
+      }
+    }
+  } ]
+}

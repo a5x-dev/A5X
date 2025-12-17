@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Collateral Coverage Type",
+  "description": "Codes for collateral coverage type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Garantias de Operações",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Limite Operacional",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Fundo de Liquidação",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Garantia Mínima não Operacional",
+      "const": 31
+    },
+    {
+      "type": "number",
+      "description": "Garantias para Terceiros",
+      "const": 33
+    },
+    {
+      "type": "number",
+      "description": "Depósito",
+      "const": 42
+    },
+    {
+      "type": "number",
+      "description": "Alavancagem do Limite de Negociação",
+      "const": 44
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    11,
+    31,
+    33,
+    42,
+    44
+  ]
+}

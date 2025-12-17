@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Breaking Rules Delay Responsibility",
+  "description": "Codes for Breaking Rules delay responsibility",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Origin",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Destination",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "A5X",
+      "const": 3
+    },
+    {
+      "type": "string",
+      "description": "",
+      "const": null
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    null
+  ]
+}

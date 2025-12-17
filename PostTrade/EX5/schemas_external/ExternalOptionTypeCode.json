@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Option Type",
+  "description": "Codes for option type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "option on future",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "option on spot",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

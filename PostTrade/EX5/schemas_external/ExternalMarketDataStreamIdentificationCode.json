@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Market Data Stream Identification",
+  "description": "Codes for market data stream identification",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Electronic (default)",
+      "const": "E"
+    },
+    {
+      "type": "string",
+      "description": "Ex-pit",
+      "const": "X"
+    },
+    {
+      "type": "string",
+      "description": "Surveillance",
+      "const": "S"
+    },
+    {
+      "type": "string",
+      "description": "Option Exercise",
+      "const": "O"
+    },
+    {
+      "type": "string",
+      "description": "Over-the-counter (OTC)",
+      "const": "C"
+    },
+    {
+      "type": "string",
+      "description": "Foward",
+      "const": "T"
+    },
+    {
+      "type": "string",
+      "description": "Index",
+      "const": "N"
+    },
+    {
+      "type": "string",
+      "description": "Lending",
+      "const": "L"
+    }
+  ],
+  "examples": [
+    "E",
+    "X",
+    "S",
+    "O",
+    "C"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-qry-13",
+  "$metadata" : {
+    "domain" : "accounts_and_links_management",
+    "schemaId" : "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-qry-13"
+  },
+  "title" : "Account search Message",
+  "description" : "Search for multiple accounts with optional filtering criteria",
+  "$comment" : "All fields are optional filters. If no filters are provided, returns accounts belonging to the requesting participant. Returns results via file generation.",
+  "type" : "object",
+  "properties" : {
+    "accountType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of account to search for",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode. Filter results to only include accounts of this specific type."
+    },
+    "accountStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Status filter for accounts",
+      "$comment" : "Consult External Code List table ExternalStatusCode. If not provided, default is 6 (ATIVO)"
+    },
+    "accountIdRange" : {
+      "$ref" : "../../objects/business/AccountIdRange.json"
+    },
+    "documentFilter" : {
+      "$ref" : "../../objects/business/DocumentIdentifier.json"
+    },
+    "creationDateFilter" : {
+      "$ref" : "../../objects/business/DateRange.json"
+    },
+    "updateDateFilter" : {
+      "$ref" : "../../objects/business/DateRange.json"
+    }
+  },
+  "required" : [ ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "accountType" : 2,
+    "accountStatus" : 3,
+    "accountIdRange" : {
+      "start" : 1,
+      "end" : 999999999999999
+    },
+    "documentFilter" : {
+      "documentType" : 5,
+      "documentNumber" : "12345678901"
+    },
+    "creationDateFilter" : {
+      "start" : "2023-01-01",
+      "end" : "2023-01-31"
+    },
+    "updateDateFilter" : {
+      "start" : "2023-01-01",
+      "end" : "2023-01-31"
+    }
+  } ]
+}

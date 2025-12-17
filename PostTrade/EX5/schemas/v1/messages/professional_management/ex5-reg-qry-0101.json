@@ -1,0 +1,58 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-01",
+  "$metadata" : {
+    "domain" : "professional_management",
+    "schemaId" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-01"
+  },
+  "title" : "Professional Search Message",
+  "description" : "Message for searching financial market professionals. The return will be sent in the file response ex5f-reg-rpt-0101.jsonl.",
+  "$comment" : "If sent without filter fields, returns all active professionals for the specified participant.",
+  "type" : "object",
+  "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Participant identification (category and participant ID)"
+    },
+    "knowledgeArea" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Knowledge area of the certification",
+      "$comment" : "Consult External Code List table ExternalKnowledgeAreaCertificationCode"
+    },
+    "professionalStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Professional status",
+      "$comment" : "Consult External Code List table ExternalStatusCode"
+    },
+    "documentIdentifier" : {
+      "$ref" : "../../objects/business/DocumentIdentifier.json",
+      "description" : "Professional's document identification (type and number)"
+    },
+    "relationshipType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of professional relationship",
+      "$comment" : "Consult External Code List table ExternalProfessionalRelationshipCode"
+    },
+    "relationshipStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Status of the professional relationship",
+      "$comment" : "Consult External Code List table ExternalStatusCode"
+    }
+  },
+  "required" : [ "participantIdentification" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "knowledgeArea" : 2,
+    "professionalStatus" : 1,
+    "documentIdentifier" : {
+      "documentType" : 2,
+      "documentNumber" : "12345678900"
+    },
+    "relationshipType" : 1,
+    "relationshipStatus" : 1
+  } ]
+}

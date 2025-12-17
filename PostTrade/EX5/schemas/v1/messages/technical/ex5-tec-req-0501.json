@@ -1,0 +1,15 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-req-05",
+  "$metadata" : {
+    "domain" : "technical",
+    "schemaId" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-req-05"
+  },
+  "title" : "Session Details Request",
+  "description" : "A schema defining the structure of a request for information about configuration of sessions.",
+  "type" : "object",
+  "properties" : { },
+  "required" : [ ],
+  "additionalProperties" : false,
+  "examples" : [ ]
+}

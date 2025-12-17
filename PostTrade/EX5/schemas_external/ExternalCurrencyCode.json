@@ -1,0 +1,993 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalCurrencyCode",
+  "description": "Codes for currency",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "AFEGANE",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "BIRR",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "BATH",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "BALBOA",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "BOLIVAR FORTE",
+      "const": 26
+    },
+    {
+      "type": "number",
+      "description": "BOLIVIANO",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "NOVO CEDI",
+      "const": 35
+    },
+    {
+      "type": "number",
+      "description": "COLON",
+      "const": 40
+    },
+    {
+      "type": "number",
+      "description": "COLON",
+      "const": 45
+    },
+    {
+      "type": "number",
+      "description": "CORDOBA",
+      "const": 51
+    },
+    {
+      "type": "number",
+      "description": "COROA DINAM",
+      "const": 55
+    },
+    {
+      "type": "number",
+      "description": "COROA ISLND",
+      "const": 60
+    },
+    {
+      "type": "number",
+      "description": "COROA NORUE",
+      "const": 65
+    },
+    {
+      "type": "number",
+      "description": "COROA SUECA",
+      "const": 70
+    },
+    {
+      "type": "number",
+      "description": "COROA",
+      "const": 75
+    },
+    {
+      "type": "number",
+      "description": "DALASI",
+      "const": 90
+    },
+    {
+      "type": "number",
+      "description": "DINAR",
+      "const": 95
+    },
+    {
+      "type": "number",
+      "description": "DINAR",
+      "const": 100
+    },
+    {
+      "type": "number",
+      "description": "DINAR",
+      "const": 105
+    },
+    {
+      "type": "number",
+      "description": "DINAR",
+      "const": 115
+    },
+    {
+      "type": "number",
+      "description": "DINAR",
+      "const": 125
+    },
+    {
+      "type": "number",
+      "description": "DINAR",
+      "const": 130
+    },
+    {
+      "type": "number",
+      "description": "DINAR",
+      "const": 132
+    },
+    {
+      "type": "number",
+      "description": "DINAR SERVIO SERV",
+      "const": 133
+    },
+    {
+      "type": "number",
+      "description": "DINAR",
+      "const": 134
+    },
+    {
+      "type": "number",
+      "description": "DINAR",
+      "const": 135
+    },
+    {
+      "type": "number",
+      "description": "DIREITO ESPECIAL",
+      "const": 138
+    },
+    {
+      "type": "number",
+      "description": "DIRHAM",
+      "const": 139
+    },
+    {
+      "type": "number",
+      "description": "DIRHAM",
+      "const": 145
+    },
+    {
+      "type": "number",
+      "description": "DOBRA",
+      "const": 148
+    },
+    {
+      "type": "number",
+      "description": "DOLAR AUSTRALIANO",
+      "const": 150
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/BAHAMAS",
+      "const": 155
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/BERMUDAS",
+      "const": 160
+    },
+    {
+      "type": "number",
+      "description": "DOLAR CANADENSE",
+      "const": 165
+    },
+    {
+      "type": "number",
+      "description": "DOLAR DA GUIANA",
+      "const": 170
+    },
+    {
+      "type": "number",
+      "description": "DÓLAR",
+      "const": 173
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/BARBADOS",
+      "const": 175
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/BELIZE",
+      "const": 180
+    },
+    {
+      "type": "number",
+      "description": "DOLAR BRUNEI",
+      "const": 185
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/CAYMAN",
+      "const": 190
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/CINGAPURA",
+      "const": 195
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/FIJI",
+      "const": 200
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/HONG-KONG",
+      "const": 205
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/TRIN. TOBAG",
+      "const": 210
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/CARIBE",
+      "const": 215
+    },
+    {
+      "type": "number",
+      "description": "DOLAR ZIMBABUE",
+      "const": 217
+    },
+    {
+      "type": "number",
+      "description": "DOLAR DOS EUA",
+      "const": 220
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/JAMAICA",
+      "const": 230
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/LIBERIA",
+      "const": 235
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/NOVA ZELAND",
+      "const": 245
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/IL SALOMAO",
+      "const": 250
+    },
+    {
+      "type": "number",
+      "description": "DOLAR/SURINAME",
+      "const": 255
+    },
+    {
+      "type": "number",
+      "description": "DONGUE",
+      "const": 260
+    },
+    {
+      "type": "number",
+      "description": "DRAM",
+      "const": 275
+    },
+    {
+      "type": "number",
+      "description": "ESCUDO",
+      "const": 295
+    },
+    {
+      "type": "number",
+      "description": "ESCUDO",
+      "const": 320
+    },
+    {
+      "type": "number",
+      "description": "FLORIM",
+      "const": 325
+    },
+    {
+      "type": "number",
+      "description": "FLORIM",
+      "const": 328
+    },
+    {
+      "type": "number",
+      "description": "FORINT",
+      "const": 345
+    },
+    {
+      "type": "number",
+      "description": "FRANCO",
+      "const": 363
+    },
+    {
+      "type": "number",
+      "description": "FRANCO",
+      "const": 365
+    },
+    {
+      "type": "number",
+      "description": "FRANCO",
+      "const": 368
+    },
+    {
+      "type": "number",
+      "description": "FRANCO/CFA CENTRO",
+      "const": 370
+    },
+    {
+      "type": "number",
+      "description": "FRANCO",
+      "const": 372
+    },
+    {
+      "type": "number",
+      "description": "FRANCO",
+      "const": 380
+    },
+    {
+      "type": "number",
+      "description": "FRANCO",
+      "const": 390
+    },
+    {
+      "type": "number",
+      "description": "FRANCO",
+      "const": 398
+    },
+    {
+      "type": "number",
+      "description": "ARIARY",
+      "const": 406
+    },
+    {
+      "type": "number",
+      "description": "FRANCO",
+      "const": 420
+    },
+    {
+      "type": "number",
+      "description": "FRANCO",
+      "const": 425
+    },
+    {
+      "type": "number",
+      "description": "GOURDE",
+      "const": 440
+    },
+    {
+      "type": "number",
+      "description": "GUARANI",
+      "const": 450
+    },
+    {
+      "type": "number",
+      "description": "HYVNIA",
+      "const": 460
+    },
+    {
+      "type": "number",
+      "description": "IENE",
+      "const": 470
+    },
+    {
+      "type": "number",
+      "description": "LARI",
+      "const": 482
+    },
+    {
+      "type": "number",
+      "description": "LAT",
+      "const": 485
+    },
+    {
+      "type": "number",
+      "description": "LEK",
+      "const": 490
+    },
+    {
+      "type": "number",
+      "description": "LEMPIRA",
+      "const": 495
+    },
+    {
+      "type": "number",
+      "description": "LEONE",
+      "const": 500
+    },
+    {
+      "type": "number",
+      "description": "LEU",
+      "const": 503
+    },
+    {
+      "type": "number",
+      "description": "NOVO LEU",
+      "const": 506
+    },
+    {
+      "type": "number",
+      "description": "LEV",
+      "const": 510
+    },
+    {
+      "type": "number",
+      "description": "LIBRA",
+      "const": 530
+    },
+    {
+      "type": "number",
+      "description": "LIBRA",
+      "const": 535
+    },
+    {
+      "type": "number",
+      "description": "LIBRA",
+      "const": 540
+    },
+    {
+      "type": "number",
+      "description": "LIBRA",
+      "const": 545
+    },
+    {
+      "type": "number",
+      "description": "LIBRA",
+      "const": 560
+    },
+    {
+      "type": "number",
+      "description": "LIBRA",
+      "const": 570
+    },
+    {
+      "type": "number",
+      "description": "LIBRA",
+      "const": 575
+    },
+    {
+      "type": "number",
+      "description": "LILANGENI",
+      "const": 585
+    },
+    {
+      "type": "number",
+      "description": "LITA",
+      "const": 601
+    },
+    {
+      "type": "number",
+      "description": "LOTI",
+      "const": 603
+    },
+    {
+      "type": "number",
+      "description": "MANAT",
+      "const": 607
+    },
+    {
+      "type": "number",
+      "description": "NOVO MANAT",
+      "const": 608
+    },
+    {
+      "type": "number",
+      "description": "MARCO CONV",
+      "const": 612
+    },
+    {
+      "type": "number",
+      "description": "METICAL",
+      "const": 620
+    },
+    {
+      "type": "number",
+      "description": "NOVA METICAL",
+      "const": 622
+    },
+    {
+      "type": "number",
+      "description": "NAKFA",
+      "const": 625
+    },
+    {
+      "type": "number",
+      "description": "NAIRA",
+      "const": 630
+    },
+    {
+      "type": "number",
+      "description": "KWANZA",
+      "const": 635
+    },
+    {
+      "type": "number",
+      "description": "NOVO DOLAR/TAIWAN",
+      "const": 640
+    },
+    {
+      "type": "number",
+      "description": "NOVA LIRA",
+      "const": 642
+    },
+    {
+      "type": "number",
+      "description": "NOVO SOL",
+      "const": 660
+    },
+    {
+      "type": "number",
+      "description": "NGULTRUM",
+      "const": 665
+    },
+    {
+      "type": "number",
+      "description": "PAANGA",
+      "const": 680
+    },
+    {
+      "type": "number",
+      "description": "PATACA",
+      "const": 685
+    },
+    {
+      "type": "number",
+      "description": "PESO",
+      "const": 706
+    },
+    {
+      "type": "number",
+      "description": "PESO",
+      "const": 715
+    },
+    {
+      "type": "number",
+      "description": "PESO",
+      "const": 720
+    },
+    {
+      "type": "number",
+      "description": "PESO",
+      "const": 725
+    },
+    {
+      "type": "number",
+      "description": "PESO",
+      "const": 730
+    },
+    {
+      "type": "number",
+      "description": "PESO",
+      "const": 735
+    },
+    {
+      "type": "number",
+      "description": "PESO",
+      "const": 738
+    },
+    {
+      "type": "number",
+      "description": "PESO",
+      "const": 741
+    },
+    {
+      "type": "number",
+      "description": "PESO",
+      "const": 745
+    },
+    {
+      "type": "number",
+      "description": "PULA",
+      "const": 755
+    },
+    {
+      "type": "number",
+      "description": "QUACHA",
+      "const": 760
+    },
+    {
+      "type": "number",
+      "description": "QUACHA",
+      "const": 765
+    },
+    {
+      "type": "number",
+      "description": "QUETZAL",
+      "const": 770
+    },
+    {
+      "type": "number",
+      "description": "QUIATE",
+      "const": 775
+    },
+    {
+      "type": "number",
+      "description": "KINA",
+      "const": 778
+    },
+    {
+      "type": "number",
+      "description": "KUNA",
+      "const": 779
+    },
+    {
+      "type": "number",
+      "description": "QUIPE",
+      "const": 780
+    },
+    {
+      "type": "number",
+      "description": "RANDE",
+      "const": 785
+    },
+    {
+      "type": "number",
+      "description": "REAL",
+      "const": 790
+    },
+    {
+      "type": "number",
+      "description": "IUAN RENMIMBI",
+      "const": 795
+    },
+    {
+      "type": "number",
+      "description": "RIAL",
+      "const": 800
+    },
+    {
+      "type": "number",
+      "description": "RIAL",
+      "const": 805
+    },
+    {
+      "type": "number",
+      "description": "RIAL",
+      "const": 810
+    },
+    {
+      "type": "number",
+      "description": "RIAL",
+      "const": 815
+    },
+    {
+      "type": "number",
+      "description": "RIAL",
+      "const": 820
+    },
+    {
+      "type": "number",
+      "description": "RIEL",
+      "const": 825
+    },
+    {
+      "type": "number",
+      "description": "RINGGIT",
+      "const": 828
+    },
+    {
+      "type": "number",
+      "description": "RUBLO",
+      "const": 829
+    },
+    {
+      "type": "number",
+      "description": "RUBLO",
+      "const": 830
+    },
+    {
+      "type": "number",
+      "description": "RUBLO",
+      "const": 835
+    },
+    {
+      "type": "number",
+      "description": "RUPIA",
+      "const": 840
+    },
+    {
+      "type": "number",
+      "description": "RUPIA",
+      "const": 845
+    },
+    {
+      "type": "number",
+      "description": "RUPIA",
+      "const": 850
+    },
+    {
+      "type": "number",
+      "description": "RUPIA",
+      "const": 855
+    },
+    {
+      "type": "number",
+      "description": "RUPIA",
+      "const": 860
+    },
+    {
+      "type": "number",
+      "description": "RUPIA",
+      "const": 865
+    },
+    {
+      "type": "number",
+      "description": "RUFIA",
+      "const": 870
+    },
+    {
+      "type": "number",
+      "description": "RUPIA",
+      "const": 875
+    },
+    {
+      "type": "number",
+      "description": "SHEKEL",
+      "const": 880
+    },
+    {
+      "type": "number",
+      "description": "SOM",
+      "const": 892
+    },
+    {
+      "type": "number",
+      "description": "SOM",
+      "const": 893
+    },
+    {
+      "type": "number",
+      "description": "SUCRE",
+      "const": 895
+    },
+    {
+      "type": "number",
+      "description": "TACA",
+      "const": 905
+    },
+    {
+      "type": "number",
+      "description": "TALA",
+      "const": 911
+    },
+    {
+      "type": "number",
+      "description": "TENGE",
+      "const": 913
+    },
+    {
+      "type": "number",
+      "description": "TUGRIK",
+      "const": 915
+    },
+    {
+      "type": "number",
+      "description": "UNID FOMENTO",
+      "const": 916
+    },
+    {
+      "type": "number",
+      "description": "UNID.MONET.EUROP.",
+      "const": 918
+    },
+    {
+      "type": "number",
+      "description": "VATU",
+      "const": 920
+    },
+    {
+      "type": "number",
+      "description": "WON",
+      "const": 925
+    },
+    {
+      "type": "number",
+      "description": "WON",
+      "const": 930
+    },
+    {
+      "type": "number",
+      "description": "XELIM",
+      "const": 946
+    },
+    {
+      "type": "number",
+      "description": "XELIM",
+      "const": 950
+    },
+    {
+      "type": "number",
+      "description": "XELIM",
+      "const": 955
+    },
+    {
+      "type": "number",
+      "description": "XELIM",
+      "const": 960
+    },
+    {
+      "type": "number",
+      "description": "ZLOTY",
+      "const": 975
+    },
+    {
+      "type": "number",
+      "description": "EURO",
+      "const": 978
+    },
+    {
+      "type": "number",
+      "description": "DOLAR OURO",
+      "const": 998
+    }
+  ],
+  "examples": [
+    5,
+    9,
+    15,
+    20,
+    26,
+    30,
+    35,
+    40,
+    45,
+    51,
+    55,
+    60,
+    65,
+    70,
+    75,
+    90,
+    95,
+    100,
+    105,
+    115,
+    125,
+    130,
+    132,
+    133,
+    134,
+    135,
+    138,
+    139,
+    145,
+    148,
+    150,
+    155,
+    160,
+    165,
+    170,
+    173,
+    175,
+    180,
+    185,
+    190,
+    195,
+    200,
+    205,
+    210,
+    215,
+    217,
+    220,
+    230,
+    235,
+    245,
+    250,
+    255,
+    260,
+    275,
+    295,
+    320,
+    325,
+    328,
+    345,
+    363,
+    365,
+    368,
+    370,
+    372,
+    380,
+    390,
+    398,
+    406,
+    420,
+    425,
+    440,
+    450,
+    460,
+    470,
+    482,
+    485,
+    490,
+    495,
+    500,
+    503,
+    506,
+    510,
+    530,
+    535,
+    540,
+    545,
+    560,
+    570,
+    575,
+    585,
+    601,
+    603,
+    607,
+    608,
+    612,
+    620,
+    622,
+    625,
+    630,
+    635,
+    640,
+    642,
+    660,
+    665,
+    680,
+    685,
+    706,
+    715,
+    720,
+    725,
+    730,
+    735,
+    738,
+    741,
+    745,
+    755,
+    760,
+    765,
+    770,
+    775,
+    778,
+    779,
+    780,
+    785,
+    790,
+    795,
+    800,
+    805,
+    810,
+    815,
+    820,
+    825,
+    828,
+    829,
+    830,
+    835,
+    840,
+    845,
+    850,
+    855,
+    860,
+    865,
+    870,
+    875,
+    880,
+    892,
+    893,
+    895,
+    905,
+    911,
+    913,
+    915,
+    916,
+    918,
+    920,
+    925,
+    930,
+    946,
+    950,
+    955,
+    960,
+    975,
+    978,
+    998
+  ]
+}

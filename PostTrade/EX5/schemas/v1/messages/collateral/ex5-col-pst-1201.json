@@ -1,0 +1,111 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-pst-12",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-pst-12"
+  },
+  "title" : "Posted Collateral Response",
+  "description" : "Message for Posted Collateral Response information",
+  "type" : "object",
+  "properties" : {
+    "reportParameters" : {
+      "$ref" : "../../objects/business/ReportParameters.json",
+      "description" : "Provides the parameters of the report."
+    },
+    "tradeDate" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Provides date and time the movement of collateral"
+    },
+    "informationType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Information regarding the participant collateral position",
+      "$comment" : "Consult External Code List table ExternalInformationTypeCode"
+    },
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "collateralInformation" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/CollateralInformationArrayItem.json"
+      },
+      "minItems" : 1,
+      "description" : "Block with collateral information"
+    }
+  },
+  "required" : [ "reportParameters", "informationType", "collateralInformation" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "reportParameters" : {
+      "frequency" : 2,
+      "reportNumber" : "00132",
+      "reportDateAndTime" : "2024-06-15T16:40:36.51Z"
+    },
+    "tradeDate" : "2024-06-15T16:40:36.51Z",
+    "informationType" : 2,
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 654321,
+      "category" : 1
+    },
+    "collateralInformation" : [ {
+      "accountIdentification" : {
+        "id" : 987654321012345
+      },
+      "documentInformation" : {
+        "documentType" : 5,
+        "documentNumber" : "12345678901",
+        "country" : "BRA "
+      },
+      "personType" : 1,
+      "residenceStatus" : "NRES",
+      "collateralClientCategory" : 2,
+      "collateralDetails" : [ {
+        "collateralCoverageType" : 1,
+        "assetNumber" : "2015000000348",
+        "holderIndicator" : true,
+        "coverageMarginIndicator" : true,
+        "collateralType" : 2,
+        "collateralSubType" : "ABC",
+        "financialInstrumentIdentification" : {
+          "id" : "100000000000001",
+          "source" : "8",
+          "exchange" : "A5X"
+        },
+        "federalBondCollateralInformation" : {
+          "collateralReference" : "FB-REF-001",
+          "maturityDate" : "2025-12-31",
+          "assignerAccount" : "ASSIGNER-ACC-001",
+          "assigneeAccount" : "ASSIGNEE-ACC-001"
+        },
+        "collateralDetailInformation" : {
+          "depositedQuantity" : "1000.50",
+          "valuedQuantity" : "950.25",
+          "deliveryQuantity" : "100.00",
+          "blockedQuantity" : "50.25",
+          "collateralValue" : {
+            "currency" : "BRL",
+            "amount" : "95000.50"
+          },
+          "withdrawalBlockedValue" : {
+            "currency" : "BRL",
+            "amount" : "5000.00"
+          }
+        }
+      } ],
+      "collateralBalanceInformation" : {
+        "currency" : "BRL",
+        "amount" : "150000.75"
+      }
+    } ]
+  } ]
+}

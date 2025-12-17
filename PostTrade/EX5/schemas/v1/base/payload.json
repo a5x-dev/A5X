@@ -1,0 +1,40 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:base:payload",
+  "$metadata" : {
+    "domain" : "base",
+    "schemaId" : "urn:a5x:ex5:schema:v1:base:payload"
+  },
+  "type" : "object",
+  "properties" : {
+    "PayloadA5X" : {
+      "type" : "object",
+      "title" : "PayloadA5X",
+      "properties" : {
+        "messageHeader" : {
+          "$ref" : "../objects/tech/MessageHeader.json"
+        },
+        "referenceHeader" : {
+          "$ref" : "../objects/tech/MessageHeader.json"
+        },
+        "body" : {
+          "type" : "object",
+          "properties" : {
+            "message" : {
+              "oneOf" : [ {
+                "$ref" : "../messages/trademanagement/Cadastro/ex5-reg-mnt-0201.json"
+              }, {
+                "$ref" : "../messages/techmanagement/Example/ex5-exm-req-0101.json"
+              } ],
+              "description" : "Message that contains the payload"
+            }
+          },
+          "required" : [ ]
+        }
+      },
+      "required" : [ "messageHeader", "body" ],
+      "description" : "PayloadA5X Description"
+    }
+  },
+  "required" : [ "PayloadA5X" ]
+}

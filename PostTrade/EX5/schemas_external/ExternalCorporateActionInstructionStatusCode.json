@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Corporate Action Instruction Status",
+  "description": "Codes for corporate action instruction status",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Processado",
+      "const": "0001"
+    },
+    {
+      "type": "string",
+      "description": "Rejeitado",
+      "const": "0002"
+    }
+  ],
+  "examples": [
+    "0001",
+    "0002"
+  ]
+}

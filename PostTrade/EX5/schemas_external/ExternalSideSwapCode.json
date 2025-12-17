@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Side Swap",
+  "description": "Codes for side swap",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Ative",
+      "const": "A"
+    },
+    {
+      "type": "string",
+      "description": "Passive",
+      "const": "P"
+    }
+  ],
+  "examples": [
+    "A",
+    "P"
+  ]
+}

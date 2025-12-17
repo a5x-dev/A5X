@@ -1,0 +1,117 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ExternalNonResidentLegalStructure",
+    "description": "Codes for the classification of Non Resident Legal Structure for Collateral",
+    "oneOf": [
+      {
+        "type": "number",
+        "description": "FUNDOS MÚTUOS, HEDGE FUNDS, E ENTIDADES NÃO FINANCEIRAS ORGANIZADAS COMO CORPORAÇÕES, SOCIEDADES DE RESPONSABILIDADE LIMITADA, PARCERIAS E TRUSTS EMPRESARIAIS",
+        "const": 1
+      },
+      {
+        "type": "number",
+        "description": "FCMS REGISTRADOS NA CFTC",
+        "const": 2
+      },
+      {
+        "type": "number",
+        "description": "BANCOS DE INVESTIMENTO E CORRETORES, INCLUINDO BROKER-DEALERS REGISTRADOS NA CFTC COMO FCMS",
+        "const": 3
+      },
+      {
+        "type": "number",
+        "description": "INSTITUIÇÕES FINANCEIRAS SISTEMICAMENTE IMPORTANTES",
+        "const": 4
+      },
+      {
+        "type": "number",
+        "description": "FILIAIS LICENCIADAS DE BANCOS NÃO AMERICANOS PELO NYDFS",
+        "const": 5
+      },
+      {
+        "type": "number",
+        "description": "SOCIEDADES DE INVESTIMENTO, INCLUINDO BANCOS DE INVESTIMENTO, CORRETORES E GESTORES DE FUNDOS",
+        "const": 6
+      },
+      {
+        "type": "number",
+        "description": "INSTITUIÇÕES DE CRÉDITO INGLESAS",
+        "const": 7
+      },
+      {
+        "type": "number",
+        "description": "FILIAIS DE INSTITUIÇÕES DE CRÉDITO E SOCIEDADES DE INVESTIMENTO DE PAÍSES TERCEIROS",
+        "const": 8
+      },
+      {
+        "type": "number",
+        "description": "OUTRAS ENTIDADES INCORPORADAS NO REINO UNIDO QUE NÃO SEJAM INSTITUIÇÕES DE CRÉDITO OU SOCIEDADES DE INVESTIMENTO INGLESAS",
+        "const": 9
+      },
+      {
+        "type": "number",
+        "description": "INSTITUIÇÕES DE CREDITO (ETABLISSEMENTS DE CREDIT)",
+        "const": 10
+      },
+      {
+        "type": "number",
+        "description": "SOCIEDADES DE INVESTIMENTO (ENTREPRISES D'INVESTISSEMENT)",
+        "const": 11
+      },
+      {
+        "type": "number",
+        "description": "SOCIEDADE DE RESPONSABILIDADE LIMITADA PRIVADA (B.V.)",
+        "const": 12
+      },
+      {
+        "type": "number",
+        "description": "SOCIEDADE ANÔNIMA PÚBLICA (N.V.)",
+        "const": 13
+      },
+      {
+        "type": "number",
+        "description": "FUNDAÇÃO (STICHTING)",
+        "const": 14
+      },
+      {
+        "type": "number",
+        "description": "SOCIEDADES EM COMANDITA E EM NOME COLETIVO",
+        "const": 15
+      },
+      {
+        "type": "number",
+        "description": "FUNDOS DE INVESTIMENTO ESTRUTURADOS E INSTITUIÇÕES DE CRÉDITO",
+        "const": 16
+      },
+      {
+        "type": "number",
+        "description": "SOCIEDADES E TRUSTS SOB LEIS DAS ILHAS CAYMAN, INCLUINDO SOCIEDADES DE DURAÇÃO LIMITADA E LLCS",
+        "const": 17
+      },
+      {
+        "type": "number",
+        "description": "FONDS COMMUN DE PLACEMENT (FCP)",
+        "const": 18
+      },
+      {
+        "type": "number",
+        "description": "SOCIEDADE DE INVESTIMENTO COM CAPITAL FIXO (SICAF)",
+        "const": 19
+      },
+      {
+        "type": "number",
+        "description": "SOCIEDADE DE INVESTIMENTO COM CAPITAL  VARIÁVEL (SICAV)",
+        "const": 20
+      },
+      {
+        "type": "number",
+        "description": "INSTITUIÇÕES FINANCEIRAS E SOCIEDADES ANÔNIMAS E DE RESPONSABILIDADE LIMITADA",
+        "const": 21
+      }
+    ],
+    "examples": [
+      1,
+      2,
+      3
+    ]
+  }

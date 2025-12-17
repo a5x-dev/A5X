@@ -1,0 +1,114 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-mrg-10",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5f-col-mrg-10"
+  },
+  "title" : "Collateral Margin Response",
+  "description" : "Response message for collateral margin information",
+  "type" : "object",
+  "properties" : {
+    "transactionIdentification" : {
+      "$ref" : "../../objects/business/TransactionIdentification.json",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "tradeDate" : {
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Provides the trade date"
+    },
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
+    "collateralInformation" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/CollateralInformation.json"
+      },
+      "minItems" : 1,
+      "description" : "Array of collateral information"
+    }
+  },
+  "required" : [ "transactionIdentification", "tradeDate", "clearingMemberIdentification", "collateralInformation" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "transactionIdentification" : "TXN-20240115-001",
+    "tradeDate" : "2024-01-15",
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "collateralInformation" : [ {
+      "accountIdentification" : {
+        "id" : 115678
+      },
+      "marginDetails" : [ {
+        "collateralCoverageType" : 2,
+        "totalValueOfCollateral" : "750000.00",
+        "riskWithoutCollateral" : "300000.00",
+        "additionalMargin" : "15000.00",
+        "toBeSettledValue" : "5000.00",
+        "marginCall" : "25000.00",
+        "collateralBalance" : "50000.00",
+        "informationType" : 2,
+        "additionalInformationOfficialCollCall" : {
+          "marginRunId" : "MR-20240101-001",
+          "totalMargin" : {
+            "currency" : "BRL",
+            "amount" : "150000.50"
+          },
+          "initialMargin" : {
+            "currency" : "BRL",
+            "amount" : "100000.25"
+          },
+          "totalAM" : {
+            "currency" : "BRL",
+            "amount" : "50000.25"
+          },
+          "realizedVariationMargin" : {
+            "currency" : "BRL",
+            "amount" : "25000.00"
+          },
+          "netLiquidityValue" : {
+            "currency" : "BRL",
+            "amount" : "200000.75"
+          }
+        },
+        "additionalInformationIntradayCollCall" : {
+          "marginRunId" : "MR-20240101-001",
+          "totalMargin" : {
+            "currency" : "BRL",
+            "amount" : "150000.50"
+          },
+          "initialMargin" : {
+            "currency" : "BRL",
+            "amount" : "100000.25"
+          },
+          "totalAM" : {
+            "currency" : "BRL",
+            "amount" : "50000.25"
+          },
+          "realizedVariationMargin" : {
+            "currency" : "BRL",
+            "amount" : "25000.00"
+          },
+          "netLiquidityValue" : {
+            "currency" : "BRL",
+            "amount" : "200000.75"
+          },
+          "intradayRiskLimitAssigned" : "1000000.12",
+          "riskWithoutCollateralIntraday" : "500000.25"
+        }
+      } ]
+    } ]
+  } ]
+}

@@ -1,0 +1,127 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:positions:ex5f-pos-rsk-04",
+  "$metadata" : {
+    "domain" : "positions",
+    "schemaId" : "urn:a5x:ex5:schema:v1:positions:ex5f-pos-rsk-04"
+  },
+  "title" : "Risk Assessment Position Status",
+  "description" : "Risk assessment position status",
+  "type" : "object",
+  "properties" : {
+    "frequency" : {
+      "type" : "integer",
+      "description" : "Frequency of the report",
+      "$comment" : "Consult External Code List table EventFrequency6Code"
+    },
+    "reportNumber" : {
+      "type" : "string",
+      "pattern" : "^[0-9]{5}$",
+      "description" : "Sequential number of the report"
+    },
+    "reportDateAndTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Reference date of the information"
+    },
+    "clearingMemberIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Clearing member identifier provided by A5X"
+    },
+    "clearingMemberIdentificationCategory" : {
+      "type" : "integer",
+      "description" : "Clearing member category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "participantIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Participant identifier provided by A5X"
+    },
+    "participantIdentificationCategory" : {
+      "type" : "integer",
+      "description" : "Participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "operationReference" : {
+      "type" : "string",
+      "maxLength" : 15,
+      "minLength" : 1,
+      "description" : "Operation reference is used to identify the operation"
+    },
+    "accountIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identifier defined by the participant"
+    },
+    "originPositionType" : {
+      "type" : "integer",
+      "description" : "Type of origin position",
+      "$comment" : "Consult ExternalOriginPositionTypeCode"
+    },
+    "allocationIdentification" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Allocation identifier for this position"
+    },
+    "financialInstrumentIdentificationId" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Proprietary identification of an instrument"
+    },
+    "financialInstrumentIdentificationSource" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Source of the instrument identification"
+    },
+    "financialInstrumentIdentificationExchange" : {
+      "type" : "string",
+      "description" : "Identifier code of the exchange where the instrument is listed"
+    },
+    "tickerSymbol" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Letters that identify stocks traded on stock exchange"
+    },
+    "currency" : {
+      "type" : "string",
+      "description" : "Settlement currency of the investor",
+      "$comment" : "Consult External Code List table ExternalActiveOrHistoricCurrencyCode"
+    },
+    "strategyStatus" : {
+      "type" : "integer",
+      "description" : "Specifies whether the positions are related to a strategy trade",
+      "$comment" : "Consult External Code List table ExternalStrategyIndicator"
+    },
+    "quantity" : {
+      "type" : "string",
+      "description" : "Quantity requested for transfer/reallocation for this position"
+    },
+    "side" : {
+      "type" : "string",
+      "description" : "Coded list to specify the side of the trade",
+      "$comment" : "Consult External Code List table ExternalBuySellIndicatorCode"
+    },
+    "netQuantity" : {
+      "type" : "string",
+      "description" : "Net quantity requested for transfer/reallocation for this position"
+    },
+    "netValue" : {
+      "type" : "string",
+      "description" : "Net value of the position"
+    },
+    "totalAmountRequested" : {
+      "type" : "string",
+      "description" : "Risk value of the position"
+    }
+  },
+  "required" : [ "frequency", "reportDateAndTime", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "participantIdentificationId", "participantIdentificationCategory", "positionTransferReference", "accountIdentificationId" ],
+  "additionalProperties" : false
+}

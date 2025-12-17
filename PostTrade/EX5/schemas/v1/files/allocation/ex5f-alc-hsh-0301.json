@@ -1,0 +1,52 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-hsh-03",
+  "$metadata" : {
+    "domain" : "allocation",
+    "schemaId" : "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-hsh-03"
+  },
+  "title" : "AllocationHash",
+  "description" : "Allocation Hash",
+  "type" : "object",
+  "properties" : {
+    "referenceDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Reference date of the information"
+    },
+    "tradeDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Trade date"
+    },
+    "segment" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Market segment - first level of market classification in post-trading process",
+      "$comment" : "Consult External Code List table ExternalSegmentCode"
+    },
+    "market" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Market type - second level of market classification in post-trading process",
+      "$comment" : "Consult External Code List table ExternalMarketCode"
+    },
+    "accountIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999999999,
+      "description" : "Account identification defined by the participant"
+    },
+    "hashCode64" : {
+      "type" : "string",
+      "maxLength" : 64,
+      "minLength" : 1,
+      "description" : "Concatenates specific information from each allocation to be used for reconciliation"
+    }
+  },
+  "required" : [ "referenceDate", "tradeDate", "segment", "market", "accountIdentification", "hashCode64" ],
+  "additionalProperties" : false,
+  "examples" : [ ]
+}

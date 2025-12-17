@@ -1,0 +1,15 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:types:Iban",
+  "$metadata" : {
+    "domain" : "types",
+    "schemaId" : "urn:a5x:ex5:schema:v1:types:Iban"
+  },
+  "title" : "IBAN",
+  "description" : "International Bank Account Number validation",
+  "type" : "string",
+  "pattern" : "^[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}([A-Z0-9]?){0,16}$",
+  "minLength" : 15,
+  "maxLength" : 34,
+  "examples" : [ "GB82WEST12345698765432", "DE89370400440532013000", "FR1420041010050500013M02606", "IT60X0542811101000000123456" ]
+}

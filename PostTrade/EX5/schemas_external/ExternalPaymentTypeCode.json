@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Payment Type",
+  "description": "Codes for payment type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Netting",
+      "const": 0
+    },
+    {
+      "type": "number",
+      "description": "Gross",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Without Financial Transfer",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Between Parts",
+      "const": 3
+    }
+  ],
+  "examples": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

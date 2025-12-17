@@ -1,0 +1,14 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:InternationalBankAccount",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:InternationalBankAccount"
+  },
+  "title" : "International Bank Account",
+  "description" : "International bank account number specification",
+  "type" : "string",
+  "minLength" : 1,
+  "maxLength" : 70,
+  "examples" : [ "DE89370400440532013000", "GB29NWBK60161331926819", "FR1420041010050500013M02606" ]
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalNonResidentClassification",
+  "description": "Codes for the classification of Non Resident",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "BANCOS CENTRAIS, GOVERNOS OU ENTIDADES GOVERNAMENTAIS, FUNDOS SOBERANOS OU COMPANHIAS DE INVESTIMENTOS CONTROLADAS POR FUNDOS SOBERANOS E SIMILARES",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "ORGANISMOS MULTILATERAIS",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "COMPANHIAS ABERTAS OU EQUIVALENTES",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "INSTITUIÇÕES FINANCEIRAS OU SIMILARES, AGINDO POR CONTA PRÓPRIA",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "ADMINISTRÇÃO DE CARTEIRAS, AGINDO POR CONTA PRÓPRIA",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "SEGURADORAS E ENTIDADES DE PREVIDÊNCIA",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "FUNDOS OU VEÍCULOS DE INVESTIMENTO COLETIVO",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "TRUST",
+      "const": 8
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

@@ -1,0 +1,377 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#", 
+  "$id" : "urn:a5x:ex5:schema:v1:positions:ex5f-pos-rpt-03",
+  "$metadata" : {
+    "domain" : "positions",
+    "schemaId" : "urn:a5x:ex5:schema:v1:positions:ex5f-pos-rpt-03"
+  }, 
+  "title" : "PositionDetails", 
+  "description" : "Position Details", 
+  "type" : "object", 
+  "properties" : {
+    "referenceDate" : {
+      "type" : "string", 
+      "format" : "date", 
+      "description" : "Reference date of the information.", 
+      "examples" : [
+        "2017-07-21", 
+        "2023-12-31", 
+        "2024-01-15"
+      ]
+    }, 
+    "clearingMemberIdentificationId" : {
+      "type" : "integer", 
+      "maximum" : 999999, 
+      "minimum" : 1, 
+      "description" : "Clearing Member identifier provided by A5X"
+    }, 
+    "participantDestinationIdentificationId" : {
+      "type" : "integer", 
+      "maximum" : 999999, 
+      "minimum" : 1, 
+      "description" : "Participant identifier provided by A5X"
+    }, 
+    "accountIdentification" : {
+      "type" : "integer", 
+      "minimum" : 1, 
+      "maximum" : 999999999999999, 
+      "description" : "Account identifier defined by the participant"
+    }, 
+    "tickerSymbol" : {
+      "type" : "string", 
+      "maxLength" : 35, 
+      "minLength" : 1, 
+      "description" : "Letters that identify stocks traded on stock exchange"
+    }, 
+    "financialInstrumentIdentificationId" : {
+      "type" : "string", 
+      "maxLength" : 35, 
+      "minLength" : 1, 
+      "description" : "Proprietary identification of an instrument"
+    }, 
+    "financialInstrumentIdentificationSource" : {
+      "type" : "string", 
+      "maxLength" : 35, 
+      "minLength" : 1, 
+      "description" : "Source of the instrument identification", 
+      "default" : "8"
+    }, 
+    "financialInstrumentIdentificationExchange" : {
+      "type" : "string", 
+      "pattern" : "^[A-Z0-9]{4}$", 
+      "description" : "Identifier code of the exchange where the instrument is listed"
+    }, 
+    "isin" : {
+      "type" : "string", 
+      "pattern" : "^BR[A-Z0-9]{4}[A-Z0-9]{3}[A-Z0-9]{2}\\d$", 
+      "minLength" : 12, 
+      "maxLength" : 12, 
+      "description" : "International Securities Identification Number - Standardized international code for unique identification of financial instruments", 
+      "$comment" : "Structure BR AAAA BBB CC D where: BR=Brazil country code, AAAA=issuer identification (alphanumeric), BBB=asset type (alphanumeric), CC=species or sequence (alphanumeric), D=check digit (numeric)"
+    }, 
+    "market" : {
+      "type" : "integer", 
+      "minimum" : 1, 
+      "maximum" : 999999, 
+      "description" : "Market type - second level of market classification in post-trading process", 
+      "$comment" : "Consult External Code List table"
+    }, 
+    "roundLotContractSize" : {
+      "type" : "number", 
+      "description" : "Decimal value representing the size of a round lot contract"
+    }, 
+    "asset" : {
+      "type" : "string", 
+      "maxLength" : 30, 
+      "description" : "Commodity associated with the instrument"
+    }, 
+    "expirationCode" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 6, 
+      "description" : "Expiration code of a Future or an Option"
+    }, 
+    "expiryDate" : {
+      "type" : "string", 
+      "format" : "date", 
+      "description" : "Expiration Date"
+    }, 
+    "optionType" : {
+      "type" : "integer", 
+      "minimum" : 1, 
+      "maximum" : 999999, 
+      "description" : "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)", 
+      "$comment" : "Consult External Code List table ExternalOptionTypeCode"
+    }, 
+    "optionStyle" : {
+      "type" : "string", 
+      "maxLength" : 4, 
+      "description" : "Option style expressed as an ISO 20022 code (AMER or EURO)"
+    }, 
+    "currentFactor" : {
+      "type" : "number", 
+      "minimum" : 0, 
+      "maximum" : 1, 
+      "description" : "Rate expressed as a decimal between 0 and 1 defining the outstanding principal of the financial instrument"
+    }, 
+    "pricingInformation" : {
+      "type" : "string", 
+      "maxLength" : 35, 
+      "minLength" : 1, 
+      "description" : "Information about which will be the basis of calculation used for the price adjustment"
+    }, 
+    "exercisePrice" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Exercise Price"
+    }, 
+    "underlyingInstrument" : {
+      "type" : "string", 
+      "pattern" : "^BR[A-Z0-9]{4}[A-Z0-9]{3}[A-Z0-9]{2}\\d$", 
+      "minLength" : 12, 
+      "maxLength" : 12, 
+      "description" : "Underlying Security Identifier International Securities Identification Number (ISIN)", 
+      "$comment" : "Structure BR AAAA BBB CC D where: BR=Brazil country code, AAAA=issuer identification (alphanumeric), BBB=asset type (alphanumeric), CC=species or sequence (alphanumeric), D=check digit (numeric)"
+    }, 
+    "initialLongQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Initial long position"
+    }, 
+    "initialShortQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Initial short position"
+    }, 
+    "expiredLongQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Quantity of long positions that have expired"
+    }, 
+    "expiredShortQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Quantity of short positions that have expired"
+    }, 
+    "exerciseBlockQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Identifies the quantity of instruments that will be blocked"
+    }, 
+    "closedDueToExerciseLongQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Long position closed due to exercise"
+    }, 
+    "closedDueToExerciseShortQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Short position closed due to exercise"
+    }, 
+    "purchaseOnDay" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Daily purchased quantity"
+    }, 
+    "saleOnDay" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Daily sold quantity"
+    }, 
+    "sentTransferLongQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Quantity of long positions transferred"
+    }, 
+    "sentTransferShortQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Quantity of short positions transferred"
+    }, 
+    "receivedTransferLongQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Long position received by transfer"
+    }, 
+    "receivedTransferShortQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Short position received by transfer"
+    }, 
+    "currentLongQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Current long position"
+    }, 
+    "currentShortQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Current short position"
+    }, 
+    "boxPosition" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Quantity of positions involved in a BOX trading strategy"
+    }, 
+    "closedLongQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Closed long position"
+    }, 
+    "closedShortQuantity" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Closed short position"
+    }, 
+    "currentLongQuantityCorporateAction" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Current quantity of long positions after a corporate action"
+    }, 
+    "currentShortQuantityCorporateAction" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Current quantity of short positions after a corporate action"
+    }, 
+    "positionFinancialLongAmount" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Long position value"
+    }, 
+    "positionFinancialShortAmount" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Short position value"
+    }, 
+    "premiumCredit" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Options premium"
+    }, 
+    "premiumDebit" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Options premium"
+    }, 
+    "variationMarginCredit" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Variation Margin"
+    }, 
+    "variationMarginDebit" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Variation Margin"
+    }, 
+    "initialPositionVariationMarginCredit" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Variation margin related to the initial position"
+    }, 
+    "initialPositionVariationMarginDebit" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Variation margin related to the initial position"
+    }, 
+    "variationMarginTransferReceivedCredit" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Variation margin related to the position received by transfer"
+    }, 
+    "variationMarginTransferReceivedDebit" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Variation margin related to the position received by transfer"
+    }, 
+    "tradeOfDayVariationMarginCredit" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Variation margin related to the trades of the day"
+    }, 
+    "tradeOfDayVariationMarginDebit" : {
+      "type" : "string", 
+      "maxLength" : 20, 
+      "minLength" : 1, 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$", 
+      "description" : "Variation margin related to the trades of the day"
+    }
+  }, 
+  "required" : [
+    "referenceDate", 
+    "clearingMemberIdentificationId", 
+    "participantDestinationIdentificationId", 
+    "accountIdentification", 
+    "financialInstrumentIdentificationId", 
+    "financialInstrumentIdentificationSource", 
+    "financialInstrumentIdentificationExchange", 
+    "market", 
+    "roundLotContractSize", 
+    "asset", 
+    "expiryDate"
+  ], 
+  "additionalProperties" : false
+}

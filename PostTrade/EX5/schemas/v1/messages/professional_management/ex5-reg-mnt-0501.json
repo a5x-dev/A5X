@@ -1,0 +1,65 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-mnt-05",
+  "$metadata" : {
+    "domain" : "professional_management",
+    "schemaId" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-mnt-05"
+  },
+  "title" : "Professional Mapping Registration and Maintenance Message",
+  "description" : "Message for registering and maintaining professional mapping (associating professionals with companies)",
+  "type" : "object",
+  "properties" : {
+    "operationType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of operation to perform",
+      "$comment" : "Consult External Code List table ExternalOperationTypeCode."
+    },
+    "professionalMappingType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Professional mapping information",
+      "$comment" : "Consult External Professional Mapping table ExternalProfessionalMappingTypeCode"
+    },
+    "mappingType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Type of professional mapping",
+      "$comment" : "Consult External Code List table ExternalProfessionalMappingRoleCode"
+    },
+    "mappingStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Status of the mapping",
+      "$comment" : "Consult External Code List table ExternalStatusCode"
+    },
+    "participantOriginIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Origin participant (category and operational code)"
+    },
+    "participantDestinationIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Destination participant (category and operational code)"
+    },
+    "operatorDocument" : {
+      "$ref" : "../../objects/business/DocumentIdentifier.json",
+      "description" : "Operator document identification (type and number)"
+    }
+  },
+  "required" : [ "operationType", "professionalMappingType", "mappingType", "participantOriginIdentification", "participantDestinationIdentification", "operatorDocument" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "operationType" : 1,
+    "professionalMappingType" : 1,
+    "mappingType" : 1,
+    "mappingStatus" : 1,
+    "participantOriginIdentification" : {
+      "id" : 888,
+      "category" : 3
+    },
+    "participantDestinationIdentification" : {
+      "id" : 777,
+      "category" : 4
+    },
+    "operatorDocument" : {
+      "documentType" : 2,
+      "documentNumber" : "12345678900"
+    }
+  } ]
+}

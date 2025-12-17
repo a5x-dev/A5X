@@ -1,0 +1,362 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#", 
+  "$id" : "urn:a5x:ex5:schema:v1:pricing:ex5-prc-ind-02",
+  "$metadata" : {
+    "domain" : "pricing",
+    "schemaId" : "urn:a5x:ex5:schema:v1:pricing:ex5-prc-ind-02"
+  }, 
+  "title" : "IndexReport", 
+  "description" : "JSON Schema for the 'IndexReport'", 
+  "type" : "object", 
+  "properties" : {
+    "tradeDate" : {
+      "type" : "string", 
+      "format" : "date", 
+      "description" : "Trade date", 
+      "examples" : [
+        "2017-07-21", 
+        "2023-12-31", 
+        "2024-01-15"
+      ]
+    }, 
+    "tickerSymbol" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Letters that identify stocks traded on stock exchange", 
+      "examples" : [
+        "AAAA25"
+      ]
+    }, 
+    "financialInstrumentIdentificationId" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Proprietary identification of an instrument", 
+      "examples" : [
+        "10000000000000001"
+      ]
+    }, 
+    "financialInstrumentIdentificationSource" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Source of the instrument identification", 
+      "examples" : [
+        "8"
+      ]
+    }, 
+    "financialInstrumentIdentificationExchange" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Codes for exchanges and market identifications", 
+      "examples" : [
+        "A5X", 
+        "XNYS", 
+        "XNAS"
+      ]
+    }, 
+    "openingPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Opening Price.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "minimumPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Minimum Price", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "maximumPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Maximum Price", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "tradeAveragePrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Trade Average Price", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "previousDayClosingPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Previous Day Closing Price.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "closingPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Closing Price.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "indexValue" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Index Value", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "oscillationValue" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Oscillation Value.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "assetDescription" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 100, 
+      "description" : "Commodity Description", 
+      "examples" : [
+        "Description"
+      ]
+    }, 
+    "settlementValue" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Settlement Value.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "risingSharesNumber" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Number of rising shares from composition.", 
+      "examples" : [
+        "100"
+      ]
+    }, 
+    "failingSharesNumber" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Number of falling shares from composition", 
+      "examples" : [
+        "100"
+      ]
+    }, 
+    "stableSharesNumber" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 20, 
+      "description" : "Number of stable shares from composition.", 
+      "examples" : [
+        "100"
+      ]
+    }, 
+    "indicativeOptimizedPortfolioValueTickerSymbol" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Letters that identify stocks traded on stock exchange", 
+      "examples" : [
+        "AAAA25"
+      ]
+    }, 
+    "indicativeOptimizedPortfolioValueFinancialInstrumentId" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Proprietary identification of an instrument", 
+      "examples" : [
+        "10000000000000001"
+      ]
+    }, 
+    "indicativeOptimizedPortfolioValueSource" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Source of the instrument identification", 
+      "examples" : [
+        "8"
+      ]
+    }, 
+    "indicativeOptimizedPortfolioValueExchange" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Codes for exchanges and market identifications", 
+      "examples" : [
+        "A5X", 
+        "XNYS", 
+        "XNAS"
+      ]
+    }, 
+    "indicativeOptimizedPortfolioValueOpeningPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Opening Price.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "indicativeOptimizedPortfolioValueMinimumPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Minimum Price", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "indicativeOptimizedPortfolioValueMaximumPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Maximum Price", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "indicativeOptimizedPortfolioValueTradeAveragePrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Trade Average Price", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "indicativeOptimizedPortfolioValuePreviousDayClosingPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Previous Day Closing Price.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "indicativeOptimizedPortfolioValueClosingPrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Closing Price.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "indicativeOptimizedPortfolioValueIndexValue" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Index Value", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "indicativeOptimizedPortfolioValueOscillationValue" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Oscillation Value.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }, 
+    "brazilianDepositaryReceiptTickerSymbol" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Letters that identify BDRs traded on stock exchange", 
+      "examples" : [
+        "AAAA25"
+      ]
+    }, 
+    "brazilianDepositaryReceiptFinancialInstrumentId" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Proprietary identification of an instrument", 
+      "examples" : [
+        "10000000000000001"
+      ]
+    }, 
+    "brazilianDepositaryReceiptSource" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Source of the instrument identification", 
+      "examples" : [
+        "8"
+      ]
+    }, 
+    "brazilianDepositaryReceiptExchange" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Codes for exchanges and market identifications", 
+      "examples" : [
+        "A5X"
+      ]
+    }, 
+    "brazilianDepositaryReceiptReferencePrice" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Reference Price.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }
+  }, 
+  "required" : [
+    "tradeDate", 
+    "tickerSymbol", 
+    "financialInstrumentIdentificationId", 
+    "financialInstrumentIdentificationSource", 
+    "financialInstrumentIdentificationExchange", 
+    "previousDayClosingPrice", 
+    "indexValue", 
+    "oscillationValue", 
+    "assetDescription"
+  ]
+}

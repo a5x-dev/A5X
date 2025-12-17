@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Ballast Type",
+  "description": "Codes for ballast type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Ações",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "ADRs",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Outros",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

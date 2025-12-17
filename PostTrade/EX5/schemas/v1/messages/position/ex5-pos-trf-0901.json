@@ -1,0 +1,82 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-09",
+  "$metadata" : {
+    "domain" : "position",
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-09"
+  },
+  "title" : "Position Transfer Request",
+  "description" : "Message for Position Transfer Request.",
+  "type" : "object",
+  "properties" : {
+    "paginationInformation" : {
+      "$ref" : "../../objects/business/Pagination.json",
+      "description" : "Pagination control information for large result sets"
+    },
+    "positionTransferInformation" : {
+      "$ref" : "../../objects/business/PositionTransferInformation.json",
+      "description" : "Position transfer request information including transfer type and indicators"
+    },
+    "clearingMemberOriginIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the origin clearing member identification"
+    },
+    "participantOriginIdentification" : {
+      "$ref" : "../../objects/business/ParticipantAndAccount.json",
+      "description" : "Provides details about the origin participant and account identification"
+    },
+    "positionTransferDetails" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/PositionTransferDetails.json"
+      },
+      "minItems" : 1,
+      "maxItems" : 1000,
+      "description" : "Array of position transfer details"
+    },
+    "destinationClearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
+    },
+    "destinationAccountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Provides details about the account identification"
+    }
+  },
+  "required" : [ "paginationInformation", "positionTransferInformation", "clearingMemberOriginIdentification", "participantOriginIdentification", "positionTransferDetails" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "paginationInformation" : {
+      "paginationId" : "ABCDD",
+      "pageNumber" : "1",
+      "lastPageIndicator" : true
+    },
+    "positionTransferInformation" : {
+      "clientReference" : "123456789",
+      "collateralTransferIndicator" : true,
+      "transferTypeCode" : 3
+    },
+    "clearingMemberOriginIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantOriginIdentification" : {
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
+      "accountIdentification" : {
+        "id" : 987654321012345
+      }
+    },
+    "positionTransferDetails" : [ {
+      "instrumentIdentification" : {
+        "id" : "7685349",
+        "source" : "8",
+        "exchange" : "A5X"
+      },
+      "shortLongIndicator" : "1",
+      "quantity" : "200.00"
+    } ]
+  } ]
+}

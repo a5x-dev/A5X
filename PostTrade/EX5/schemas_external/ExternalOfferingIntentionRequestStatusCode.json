@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Offering Intention Request Status",
+  "description": "Codes for offering intention request status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Completo - OK",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Parcialmente Completo",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Erro Total",
+      "const": 3
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3
+  ]
+}

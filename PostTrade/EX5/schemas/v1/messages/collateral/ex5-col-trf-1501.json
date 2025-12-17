@@ -1,0 +1,259 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-trf-15",
+  "$metadata" : {
+    "domain" : "collateral",
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-trf-15"
+  },
+  "title" : "Collateral Approval Transfer Request",
+  "description" : "Message for collateral transfer approval request",
+  "type" : "object",
+  "properties" : {
+    "collateralTransferIdentification" : {
+      "$ref" : "../../objects/business/TransactionIdentification.json",
+      "description" : "Provides details about unique transaction identification known by the participant"
+    },
+    "clearingMemberOriginIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the origin clearing member identification"
+    },
+    "participantOriginIdentification" : {
+      "$ref" : "../../objects/business/ParticipantAndAccount.json",
+      "description" : "Provides details about the origin participant and account identification"
+    },
+    "clearingMemberDestinationIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the destination clearing member identification"
+    },
+    "participantDestinationIdentification" : {
+      "$ref" : "../../objects/business/ParticipantAndAccount.json",
+      "description" : "Provides details about the destination participant and account identification"
+    },
+    "collateralTransferDetails" : {
+      "$ref" : "../../objects/business/CollateralTransferDetails.json",
+      "description" : "Provides details about the collateral transfer operation"
+    }
+  },
+  "required" : [ "collateralTransferIdentification", "clearingMemberOriginIdentification", "participantOriginIdentification", "clearingMemberDestinationIdentification", "participantDestinationIdentification", "collateralTransferDetails" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "collateralTransferIdentification" : "COLL-TRF-APPR-160001",
+    "clearingMemberOriginIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantOriginIdentification" : {
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
+      "accountIdentification" : {
+        "id" : 987654321012345
+      }
+    },
+    "clearingMemberDestinationIdentification" : {
+      "id" : 654321,
+      "category" : 2
+    },
+    "participantDestinationIdentification" : {
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
+      "accountIdentification" : {
+        "id" : 987654321012345
+      }
+    },
+    "collateralTransferDetails" : {
+      "positionTransferReference" : "TRF-REF-001",
+      "securitiesCollateral" : [ {
+        "collateralIdentification" : "1",
+        "assetNumber" : "2015000000349",
+        "quantity" : "1000.0",
+        "custodianInformationDestination" : {
+          "participantIdentification" : {
+            "id" : 456,
+            "category" : 2
+          },
+          "accountIdentification" : {
+            "id" : 789012345678901
+          },
+          "subAccount" : "001"
+        },
+        "centralDepositaryOperationNumber" : "123456789",
+        "activeCurrencyAndAmount" : {
+          "amount" : "1000.00",
+          "currency" : "BRL"
+        }
+      } ]
+    }
+  }, {
+    "collateralTransferIdentification" : "COLL-TRF-APPR-160001",
+    "clearingMemberOriginIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantOriginIdentification" : {
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
+      "accountIdentification" : {
+        "id" : 987654321012345
+      }
+    },
+    "clearingMemberDestinationIdentification" : {
+      "id" : 654321,
+      "category" : 2
+    },
+    "participantDestinationIdentification" : {
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
+      "accountIdentification" : {
+        "id" : 987654321012345
+      }
+    },
+    "collateralTransferDetails" : {
+      "positionTransferReference" : "TRF-REF-002",
+      "cashCollateral" : [ {
+        "collateralIdentification" : "1",
+        "assetNumber" : "2015000000349",
+        "operationValue" : {
+          "amount" : "25000.00",
+          "currency" : "BRL"
+        },
+        "collateralValue" : {
+          "amount" : "24000.00",
+          "currency" : "BRL"
+        }
+      } ]
+    }
+  }, {
+    "collateralTransferIdentification" : "COLL-TRF-APPR-160001",
+    "clearingMemberOriginIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantOriginIdentification" : {
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
+      "accountIdentification" : {
+        "id" : 987654321012345
+      }
+    },
+    "clearingMemberDestinationIdentification" : {
+      "id" : 654321,
+      "category" : 2
+    },
+    "participantDestinationIdentification" : {
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
+      "accountIdentification" : {
+        "id" : 987654321012345
+      }
+    },
+    "collateralTransferDetails" : {
+      "positionTransferReference" : "TRF-REF-003",
+      "federalBonds" : [ {
+        "collateralIdentification" : "OTHER-001",
+        "assetNumber" : "GOV-123456",
+        "assignerAccount" : "ASSIGNOR-001",
+        "assigneeAccount" : "ASSIGNEE-001",
+        "quantity" : "250.75",
+        "collateralValue" : {
+          "amount" : "24000.00",
+          "currency" : "BRL"
+        }
+      } ]
+    }
+  },{
+    "collateralTransferIdentification" : "COLL-TRF-APPR-160001",
+    "clearingMemberOriginIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantOriginIdentification" : {
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
+      "accountIdentification" : {
+        "id" : 987654321012345
+      }
+    },
+    "clearingMemberDestinationIdentification" : {
+      "id" : 654321,
+      "category" : 2
+    },
+    "participantDestinationIdentification" : {
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
+      "accountIdentification" : {
+        "id" : 987654321012345
+      }
+    },
+    "collateralTransferDetails" : {
+    "positionTransferReference" : "TRF-REF-003",
+    "externalSecuritiesCollateral" : [ {
+      "collateralIdentification" : "COL-EXT-001",
+      "assetNumber" : "AST-REG-12345",
+      "quantity" : "1500.75",
+      "collateralValue" : {
+        "amount" : "150000.50",
+        "currency" : "BRL"
+        }
+    } ],
+      "securitiesCollateral" : [ {
+        "collateralIdentification" : "1",
+        "assetNumber" : "2015000000349",
+        "quantity" : "1000.0",
+        "custodianInformationDestination" : {
+          "participantIdentification" : {
+            "id" : 456,
+            "category" : 2
+          },
+          "accountIdentification" : {
+            "id" : 789012345678901
+          },
+          "subAccount" : "001"
+        },
+        "centralDepositaryOperationNumber" : "123456789",
+        "activeCurrencyAndAmount" : {
+          "amount" : "1000.00",
+          "currency" : "BRL"
+        }
+      } ],
+      "cashCollateral" : [ {
+        "collateralIdentification" : "1",
+        "assetNumber" : "2015000000349",
+        "operationValue" : {
+          "amount" : "25000.00",
+          "currency" : "BRL"
+        },
+        "collateralValue" : {
+          "amount" : "24000.00",
+          "currency" : "BRL"
+        }
+      } ],
+      "federalBonds" : [ {
+        "collateralIdentification" : "OTHER-001",
+        "assetNumber" : "GOV-123456",
+        "assignerAccount" : "ASSIGNOR-001",
+        "assigneeAccount" : "ASSIGNEE-001",
+        "quantity" : "250.75",
+        "collateralValue" : {
+          "amount" : "24000.00",
+          "currency" : "BRL"
+        }
+      } ]
+    }
+  }  ]
+}

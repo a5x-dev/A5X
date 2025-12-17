@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalResidenceStatusCode",
+  "description": "Codes for residence status for tax purposes",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "RESI - Residente (mora no Brasil)",
+      "const": "RESI"
+    },
+    {
+      "type": "number",
+      "description": "NRES - Não Residente (mora fora do Brasil)",
+      "const": "NRES"
+    }
+  ],
+  "examples": [
+    "RESI",
+    "NRES"
+  ]
+}

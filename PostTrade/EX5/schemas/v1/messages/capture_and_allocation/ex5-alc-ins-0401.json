@@ -1,0 +1,90 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-alc-ins-04",
+  "$metadata" : {
+    "domain" : "capture_and_allocation",
+    "schemaId" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-alc-ins-04"
+  },
+  "title" : "Allocation Request",
+  "type" : "object",
+  "properties" : {
+    "allocationIdentification": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Primary allocation identification number assigned by the system",
+      "$comment": "This is the main identifier used by the central system to track allocations"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the participant using proprietary scheme"
+    },
+    "trade" : {
+      "$ref" : "../../objects/business/Trade.json",
+      "description" : "Trade information"
+    },
+    "instrument" : {
+      "$ref" : "../../objects/business/Instrument.json",
+      "description" : "Financial instrument information, including ISIN and ticker symbol"
+    },
+    "allocationDistribution" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/AllocationDistributionInstruction.json",
+        "description" : "Allocation distribution"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
+    },
+    "breakingRules" : {
+      "$ref" : "../../objects/business/BreakingRules.json",
+      "description" : "Breaking rules information",
+      "$comment" : "Optional field. Required only when the allocation maintenance is being performed outside regular trading hours"
+    }
+  },
+  "required" : [ "allocationIdentification", "participantIdentification", "trade", "instrument", "allocationDistribution" ],
+  "examples" : [ {
+    "allocationIdentification" : "23456789012345678901234567890",
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "trade" : {
+      "tradeDate" : "2025-08-25",
+      "buySellIndicator" : 1,
+      "tradeIdentification" : "TRD987654321098765432109876543210"
+    },
+    "instrument" : {
+      "financialInstrumentIdentification" : {
+        "id" : "100000000000001",
+        "source" : "8",
+        "exchange" : "A5X"
+      },
+      "tickerSymbol" : "DFZ0001"
+    },
+    "allocationDistribution" : [ {
+      "individualAllocationIdentification" : "ALLOCINDIV0001",
+      "accountOriginIdentification" : {
+        "id" : 100001
+      },
+      "accountDestinationIdentification" : {
+        "id" : 200001
+      },
+      "quantity" : "1500.00"
+    }, {
+      "individualAllocationIdentification" : "ALLOCINDIV0001",
+      "accountOriginIdentification" : {
+        "id" : 100001
+      },
+      "accountDestinationIdentification" : {
+        "id" : 200001
+      },
+      "quantity" : "1500.00"
+    } ],
+    "breakingRules" : {
+      "breakingRuleIndicator" : true,
+      "breakingRuleDelayResponsibility" : true,
+      "breakingRuleReason" : 1
+    }
+  } ]
+}

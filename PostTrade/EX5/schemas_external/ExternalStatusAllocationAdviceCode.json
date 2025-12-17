@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Status Allocation Advice",
+  "description": "Codes for status allocation advice",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "SUCCESSFULLY PROCESSED",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "ERROR CODE",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "PENDING GIVE UP APPROVAL",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "GIVE UP APPROVED",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "GIVE UP REJECTED",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "PENDING DUE TO RISK ASSESSMENT",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "PENDING OFF HOUR APPROVAL",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "PENDING TAKE UP CANCEL APPROVAL",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "TAKE UP CANCEL APPROVED",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "TAKE UP CANCEL REJECTED",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "OFF HOUR REJECTED",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "RISK APPROVAL REJECTED",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "ETF TRADE UPDATED",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "PENDING COVERAGE VALIDATION",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "COVERAGE VALIDATION FAILED",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "COVERAGE VALIDATION SUCCEEDED",
+      "const": 19
+    },
+    {
+      "type": "number",
+      "description": "PENDING CUSTODIAN APPROVAL",
+      "const": 20
+    },
+    {
+      "type": "number",
+      "description": "CUSTODIAN INDICATION REJECTED",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "PENDING CLEARING HOUSE GIVE UP APPROVAL",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "PENDING CLEARING HOUSE TAKE UP CANCELLATION APPROVAL",
+      "const": 23
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

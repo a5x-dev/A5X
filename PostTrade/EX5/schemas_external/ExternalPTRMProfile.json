@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ExternalPTRMProfile",
+  "description": "External code list for PTRM (Pre-Trade Risk Management) profiles",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "HFT - High Frequency Trading",
+      "const": 1
+      },
+      {
+        "type": "number",
+        "description": "RLP - Retail Liquidity Provider",
+        "const": 2
+      },
+      {
+        "type": "number",
+        "description": "Tesouraria - Treasury",
+        "const": 3
+      },
+      {
+        "type": "number",
+        "description": "Não Patrocinado",
+        "const": 4
+      }
+
+    ],
+  "examples": [1, 2, 3]
+}

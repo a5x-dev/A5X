@@ -1,0 +1,136 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralMovement",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralMovement"
+  },
+  "title" : "Collateral Movement",
+  "description" : "This block contains information about participant collateral movement.",
+  "type" : "object",
+  "properties" : {
+    "collateralMovementType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Provides information about the type collateral movement",
+      "$comment" : "Consult External Code List table ExternalCollateralMovementTypeCode"
+    },
+    "assetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "A number that unambiguously identifies the collateral."
+    },
+    "collateralCoverageType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Collateral coverage identification",
+      "$comment" : "Consult External Code List table ExternalCollateralCoverageTypeCode"
+    },
+    "collateralType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Provides collateral type code",
+      "$comment" : "Consult External Code List table ExternalCollateralTypeCode"
+    },
+    "collateralSubType" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "description" : "Provides collateral sub type"
+    },
+    "operationStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Provides operation status of collateral.",
+      "$comment" : "Consult External Code List table ExternalApprovalStatusCode"
+    },
+    "financialInstrumentIdentification" : {
+      "$ref" : "../../objects/business/InstrumentIdentification.json",
+      "description" : "Provides Financial Instrument Identification"
+    },
+    "federalBondCollateralMovement" : {
+      "allOf" : [ {
+        "$ref" : "../../objects/business/FederalBondCollateralInformation.json",
+        "description" : "This block provides information about federal bond collateral valuation"
+      }, {
+        "properties" : {
+          "selicOperationCode" : {
+            "type" : "string",
+            "maxLength" : 6,
+            "minLength" : 1,
+            "description" : "SELIC operation code",
+            "examples" : [ "65499", "12345", "98765" ]
+          }
+        }
+      }, {
+        "required" : [ "collateralReference", "maturityDate", "assignerAccount", "assigneeAccount", "selicOperationCode" ]
+      } ]
+    },
+    "securitiesCollateralMovement" : {
+      "$ref" : "../../objects/business/SecuritiesCollateralMovement.json",
+      "description" : "Provides securities collateral information"
+    },
+    "cashOrCurrencyCollateralMovement" : {
+      "$ref" : "../../objects/business/CashOrCurrencyCollateralMovement.json",
+      "description" : "Provides information cash collateral valuation"
+    },
+    "investmentFundMovement" : {
+      "$ref" : "../../objects/business/CashOrCurrencyCollateralMovement.json",
+      "description" : "Provides information cash collateral valuation"
+    },
+    "externalSecuritiesMovement" : {
+      "$ref" : "../../objects/business/ExternalSecuritiesMovement.json",
+      "description" : "This block provides information about external securities collateral valuation"
+    },
+    "otherCollateraMovement" : {
+      "$ref" : "../../objects/business/OtherCollateralMovement.json",
+      "description" : "This block provides information about others collateral valuation."
+    },
+    "collateralDetailMovement" : {
+      "$ref" : "../../objects/business/CollateralDetailMovement.json",
+      "description" : "This block provides information about collateral detail valuation."
+    }
+  },
+  "oneOf" : [ {
+    "required" : [ "collateralMovementType", "assetNumber", "collateralCoverageType", "collateralType", "collateralSubType", "operationStatus", "financialInstrumentIdentification", "federalBondCollateralMovement", "collateralDetailMovement" ]
+  }, {
+    "required" : [ "collateralMovementType", "assetNumber", "collateralCoverageType", "collateralType", "collateralSubType", "operationStatus", "financialInstrumentIdentification", "securitiesCollateralMovement", "collateralDetailMovement" ]
+  }, {
+    "required" : [ "collateralMovementType", "assetNumber", "collateralCoverageType", "collateralType", "collateralSubType", "operationStatus", "financialInstrumentIdentification", "cashOrCurrencyCollateralMovement", "collateralDetailMovement" ]
+  }, {
+    "required" : [ "collateralMovementType", "assetNumber", "collateralCoverageType", "collateralType", "collateralSubType", "operationStatus", "financialInstrumentIdentification", "investmentFundMovement", "collateralDetailMovement" ]
+  }, {
+    "required" : [ "collateralMovementType", "assetNumber", "collateralCoverageType", "collateralType", "collateralSubType", "operationStatus", "financialInstrumentIdentification", "externalSecuritiesMovement", "collateralDetailMovement" ]
+  }, {
+    "required" : [ "collateralMovementType", "assetNumber", "collateralCoverageType", "collateralType", "collateralSubType", "operationStatus", "financialInstrumentIdentification", "otherCollateraMovement", "collateralDetailMovement" ]
+  } ],
+  "additionalProperties" : true,
+  "examples" : [ {
+    "collateralMovementType" : 1,
+    "assetNumber" : "2015000000348",
+    "collateralCoverageType" : 1,
+    "collateralType" : 4,
+    "collateralSubType" : "ABC",
+    "operationStatus" : 1,
+    "financialInstrumentIdentification" : {
+      "id" : "100000000000001",
+      "source" : "8",
+      "exchange" : "A5X"
+    },
+    "federalBondCollateralMovement" : {
+      "collateralReference" : "FB-REF-001",
+      "maturityDate" : "2025-12-31",
+      "assignerAccount" : "ASSIGNER-ACC-001",
+      "assigneeAccount" : "ASSIGNEE-ACC-001",
+      "selicOperationCode" : "65499"
+    },
+    "collateralDetailMovement" : {
+      "operationValue" : {
+        "currency" : "BRL",
+        "amount" : "100000.00"
+      },
+      "operationAcceptValue" : {
+        "currency" : "BRL",
+        "amount" : "95000.00"
+      },
+      "operationQuantity" : "1000.50",
+      "operationAcceptQuantity" : "950.25"
+    }
+  } ]
+}

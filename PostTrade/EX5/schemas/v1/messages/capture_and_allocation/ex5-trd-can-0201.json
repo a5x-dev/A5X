@@ -1,0 +1,95 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-can-02",
+  "$metadata" : {
+    "domain" : "capture_and_allocation",
+    "schemaId" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-can-02"
+  },
+  "title" : "Trade Leg Cancellation",
+  "description" : "Trade Leg Cancellation",
+  "type" : "object",
+  "properties" : {
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Identification of the account associated with the trade, using proprietary scheme"
+    },
+    "trade" : {
+      "allOf" : [ {
+        "$ref" : "../../objects/business/Trade.json"
+      }, {
+        "required" : [ "tradeDate", "buySellIndicator", "tradeId", "allocationId", "statusCode" ]
+      } ],
+      "description" : "Trade information including account, trade date, buy/sell indicator, and trade identification"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the participant using proprietary scheme"
+    },
+    "takeUpParticipantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Identification of the participant taking the allocation, using proprietary scheme"
+    },
+    "instrument" : {
+      "$ref" : "../../objects/business/Instrument.json",
+      "description" : "Financial instrument information, including ISIN and ticker symbol"
+    },
+     "transactionDateTime": {
+      "$ref" : "../../types/ISODateTime.json",
+      "description": "Transaction date and time"
+    },
+    "tradeQuantity": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Trade quantity"
+    },
+    "compressionGroupIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if the operation is derived from block capture",
+      "$comment" : "When true, the allocation was created as part of a block trade that was split into multiple allocations. This affects how the allocation is processed and reported."
+    },
+    "giveUpOnCaptureIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if the operation is derived from block capture."
+    },
+    "averagePrice" : {
+      "$ref" : "../../objects/business/AveragePriceIndicator.json",
+      "description" : "Average price group and execution time information"
+    }
+  },
+  "required" : [ "accountIdentification", "trade", "participantIdentification", "instrument", "tradeDetails", "giveUpOnCaptureIndicator" ],
+  "example" : [ {
+    "accountIdentification" : {
+      "id" : 987654321012345
+    },
+    "trade" : {
+      "tradeDate" : "2025-08-25",
+      "buySellIndicator" : 1,
+      "tradeIdentification" : "TRADE12345678901234567890123456789",
+      "allocationIdentification" : "ALLOC98765432109876543210987654321",
+      "statusCode" : 1
+    },
+    "participantIdentification" : {
+      "id" : 999,
+      "category" : 3
+    },
+    "takeUpParticipantIdentification" : {
+      "id" : 888,
+      "category" : 3
+    },
+    "instrument" : {
+      "financialInstrumentIdentification" : {
+        "id" : "100000000000001",
+        "source" : "8",
+        "exchange" : "A5X"
+      },
+      "tickerSymbol" : "DFZ0001"
+    },
+    "transactionDateTime" : "2025-08-25T14:35:22Z",
+    "tradeQuantity" : "1500.00",
+    "compressionGroupIndicator" : false,
+    "giveUpOnCaptureIndicator" : true,
+    "averagePrice" : {
+      "averagePriceIndicator" : true,
+      "executionTime" : "2025-08-27T14:35:20Z"
+    }
+  } ]
+}

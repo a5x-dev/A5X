@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Deliberation Type",
+  "description": "Codes for deliberation type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Deliberação simples",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Questão simples",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Proposta de deliberação de acionistas",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Eleição do conselho de administração por chapa única",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Eleição do conselho de administração por mais de uma chapa",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Eleição do conselho de administração por candidato",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Eleição do conselho de administração em separado - ordinárias",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Eleição do conselho de administração em separado - preferenciais",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Eleição do conselho fiscal por chapa única",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Eleição do conselho de fiscal por mais de uma chapa",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Eleição do conselho fiscal por candidato",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "Eleição do conselho fiscal em separado - ordinárias",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "Eleição do conselho fiscal em separado  - preferenciais",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "Eleição do conselho de administração por candidato – somente voto múltiplo",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "Eleição do conselho de administração em separado - ordinárias (B)",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "Deliberação simples para FII",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "Questão simples para FII",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "Eleição de Representante de Cotistas",
+      "const": 19
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

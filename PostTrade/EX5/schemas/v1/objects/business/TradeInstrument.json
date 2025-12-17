@@ -1,0 +1,63 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:TradeInstrument",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:TradeInstrument"
+  },
+  "title" : "Trade Instrument",
+  "description" : "Financial instrument information for trades",
+  "oneOf" : [ {
+    "title" : "Complete Trade Instrument",
+    "description" : "Full instrument information with all available fields",
+    "type" : "object",
+    "properties" : {
+      "financialInstrumentIdentification" : {
+        "$ref" : "../../objects/business/InstrumentIdentification.json",
+        "description" : "Identification of the financial instrument"
+      },
+      "ISIN" : {
+        "type" : "string",
+        "maxLength" : 35,
+        "minLength" : 1,
+        "description" : "Unique numeric code used to identify the instrument",
+        "examples" : [ "BRALPAACNOR0", "FI12345", "BOND-2023-001" ]
+      },
+      "tickerSymbol" : {
+        "type" : "string",
+        "maxLength" : 35,
+        "minLength" : 1,
+        "description" : "Letters that identify stocks traded on stock exchange. Example: DFZ0001",
+        "examples" : [ "DFZ0001", "DFZ0001", "ITUB4", "AAPL", "MSFT" ]
+      }
+    },
+    "required" : [ "tickerSymbol" ],
+    "additionalProperties" : false
+  }, {
+    "title" : "Minimal Trade Instrument",
+    "description" : "Minimal instrument information with only the required ticker symbol",
+    "type" : "object",
+    "properties" : {
+      "tickerSymbol" : {
+        "type" : "string",
+        "maxLength" : 35,
+        "minLength" : 1,
+        "description" : "Letters that identify stocks traded on stock exchange. Example: DFZ0001",
+        "examples" : [ "DFZ0001", "DFZ0001", "ITUB4", "AAPL", "MSFT" ]
+      }
+    },
+    "required" : [ "tickerSymbol" ],
+    "additionalProperties" : false
+  } ],
+  "examples" : [ {
+    "financialInstrumentIdentification" : {
+      "securityID" : "10000000000000001",
+      "securitySource" : "8",
+      "securityExchange" : "A5X"
+    },
+    "ISIN" : "BRALPAACNOR0",
+    "tickerSymbol" : "DFZ0001"
+  }, {
+    "tickerSymbol" : "DFZ0001"
+  } ]
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Balance Transfer Status",
+  "description": "Codes for balance transfer status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Incluída",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Excluída",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Emitida",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Confirmada",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Cancelada",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Rejeitada",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Transferência Validada (Aprovada)",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Em análise",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Validada/Bloqueada",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Duplo Comando",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Duplo Comando Sistema",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Duplo Comando Sistema",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "Erro - Solicitação não processada",
+      "const": 13
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

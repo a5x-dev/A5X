@@ -1,0 +1,39 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:NaturalPersonRelationship",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:NaturalPersonRelationship"
+  },
+  "title" : "Natural Person Relationship",
+  "description" : "Relationship with Natural Person",
+  "type" : "object",
+  "properties" : {
+    "name" : {
+      "$ref" : "../../objects/business/NaturalPersonName.json"
+    },
+    "personBase" : {
+      "$ref" : "../../objects/business/PersonBase.json"
+    }
+  },
+  "required" : [ "name", "personBase" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "name" : {
+      "fullName" : "João Oliveira Santos",
+      "socialName" : "Maria Oliveira Santos",
+      "motherOrGuardian" : "Ana Maria de Souza"
+    },
+    "personBase" : {
+      "principalDocument" : {
+        "documentType" : 2,
+        "documentNumber" : "12345678900"
+      },
+      "politicallyExposedPerson" : false,
+      "usPerson" : false,
+      "relatedPerson" : true,
+      "countryOfResidence" : "BRA",
+      "registrationUpdateDate" : "2024-01-15"
+    }
+  } ]
+}

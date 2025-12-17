@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Message Specification Type",
+  "description": "Codes for message specification type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "ILINK",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "ENTRY POINT",
+      "const": 2
+    }
+  ],
+  "examples": [
+    1,
+    2
+  ]
+}

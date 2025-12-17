@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Broker Dealer Request Type",
+  "description": "Codes for broker dealer request type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "initial creation",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "cancel",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "renew",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "early settlement",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Maintenance",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "priorityofferrequest",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "SubscriptionRightsRequested",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "SubscriptionRightReturn",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "SubscriptionReceiptRequest",
+      "const": 9
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

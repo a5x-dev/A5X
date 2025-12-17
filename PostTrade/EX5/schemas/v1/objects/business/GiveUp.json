@@ -1,0 +1,27 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:GiveUp",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:GiveUp"
+  },
+  "title" : "Give-Up",
+  "description" : "Give-Up information",
+  "type" : "object",
+  "properties" : {
+    "giveUpQuantity" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Give-Up quantity"
+    },
+    "giveUpDateAndTime" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Trade date in ISO format"
+    }
+  },
+  "required" : [ "giveUpQuantity", "giveUpDateAndTime" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "giveUpQuantity" : "100",
+    "giveUpDateAndTime" : "2023-10-01T12:00:00Z"
+  } ]
+}
