@@ -1,18 +1,14 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-04",
+  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-07",
   "$metadata" : {
     "domain" : "risk",
-    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-04"
+    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-07"
   },
-  "title" : "Risk Simulation Query Result",
-  "description" : "Message for Risk Simulation Query Result",
+  "title" : "Risk Simulation Request",
+  "description" : "Message for requesting a risk simulation",
   "type" : "object",
   "properties" : {
-    "pagination" : {
-      "$ref" : "../../objects/business/Pagination.json",
-      "description" : "Pagination details"
-    },
     "clearingMemberIdentification" : {
       "$ref" : "../../objects/business/PartyId.json",
       "description" : "Provides details about the clearing member identification"
@@ -25,75 +21,52 @@
       "$ref" : "../../objects/business/AccountIdentification.json",
       "description" : "Provides details about the account identification"
     },
-    "riskSimulationRequests" : {
+    "portfolioPositions" : {
+      "type" : "boolean",
+      "description" : "Indicates if the full portfolio positions should be considered for the simulation"
+    },
+    "userComentary" : {
+      "type" : "string",
+      "description" : "Free text field for user comments related to the simulation request"
+    },
+    "simulationPosition" : {
       "type" : "array",
-      "description" : "Array of risk simulation results",
+      "description" : "Array of positions to be included in the simulation",
       "items" : {
-        "$ref" : "../../objects/business/RiskSimulationDetails.json",
-        "description" : "Collateral coverage information details"
+        "$ref" : "../../objects/business/SimulationPosition.json",
+        "description" : "Position details to be used in simulation"
       }
     }
   },
-  "required" : [ "pagination", "clearingMemberIdentification", "participantIdentification", "accountIdentification", "riskSimulationRequests" ],
-
+  "required" : [ "clearingMemberIdentification", "participantIdentification", "accountIdentification", "portfolioPositions" ],
   "additionalProperties" : false,
-  "examples" : [
-    {
-      "pagination" : {
-        "paginationId" : "ABCDD",
-        "pageNumber" : "1",
-        "lastPageIndicator" : true
+  "examples" : [ {
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 234
+    },
+    "portfolioPositions" : false,
+    "userComentary" : "Result under base scenario; revise foreign exchange exposure",
+    "simulationPosition" : [ {
+      "tickerSymbol" : "ABCDEFG",
+      "settlementCurrency" : "BRL",
+      "longPosition" : 5,
+      "shortPosition" : 2,
+      "longValue" : {
+        "currency" : "BRL",
+        "amount" : "25000.00"
       },
-      "clearingMemberIdentification" : {
-        "id" : 123456,
-        "category" : 2
-      },
-      "participantIdentification" : {
-        "id" : 789012,
-        "category" : 3
-      },
-      "accountIdentification" : {
-        "id" : 1234
-      },
-      "riskSimulationRequests" : [
-        {
-          "riskSimulationId" : "Simulation123",
-          "timestamp" : "2025-10-02T12:34:56Z",
-          "totalLiability" : {
-            "currency" : "BRL",
-            "amount" : "500000.00"
-          },
-          "initialMargin" : {
-            "currency" : "BRL",
-            "amount" : "100000.25"
-          },
-          "contingentVariationMargin" : {
-            "currency" : "BRL",
-            "amount" : "75000.50"
-          },
-          "netLiquidatingValue" : {
-            "currency" : "BRL",
-            "amount" : "200000.75"
-          },
-          "liquidityConcentrationRiskMargin" : {
-            "currency" : "BRL",
-            "amount" : "50000.00"
-          },
-          "wrongWayRiskMargin" : {
-            "currency" : "BRL",
-            "amount" : "25000.25"
-          },
-          "defaultFundAdditionalMargin" : {
-            "currency" : "BRL",
-            "amount" : "15000.50"
-          },
-          "stressTestLoss" : {
-            "currency" : "BRL",
-            "amount" : "500.00"
-          },
-          "userComment" : "Result under base scenario; revise foreign exchange exposure"
-        }
-      ]
-    }
-  ]
+      "shortValue" : {
+        "currency" : "BRL",
+        "amount" : "25000.00"
+      }
+    } ]
+  } ]
 }

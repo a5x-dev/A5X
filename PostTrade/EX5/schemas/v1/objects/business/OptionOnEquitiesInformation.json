@@ -89,7 +89,7 @@
     "deliveryType",
     "automaticExerciseIndicator"
   ],
-  "additionalProperties": false,
+  "additionalProperties": true,
   "examples": [
     {
       "exercisePrice": {

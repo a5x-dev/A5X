@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:NationalBonds",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:NationalBonds"
+  },
+  "title": "NationalBonds",
+  "description": "Information specific to national bond instruments",
+  "type": "object",
+  "properties": {
+    "issueDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Instrument issue date"
+    },
+    "expirationDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Instrument expiration date"
+    },
+    "selicCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 6,
+      "description": "SELIC bond code"
+    },
+    "brazilianFederalGovernmentBondTypeCode": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Brazilian Federal Government Bond Type classifier",
+      "$comment": "Consult External Code List table ExternalBrazilianFederalGovernmentBondTypeCode"
+    },
+    "maturityValue": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Bond redemption value"
+    },
+    "baseDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Base date for bond pricing"
+    },
+    "baseDatePrice": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Bond nominal value"
+    }
+  },
+  "additionalProperties": true,
+  "examples": [
+    {
+      "issueDate": "2024-01-01",
+      "expirationDate": "2029-01-01",
+      "selicCode": "LTN001",
+      "brazilianFederalGovernmentBondTypeCode": "LTN",
+      "baseDate": "2024-01-01",
+      "baseDatePrice": {
+        "amount": "1000.00",
+        "currency": "BRL"
+      }
+    }
+  ]
+}

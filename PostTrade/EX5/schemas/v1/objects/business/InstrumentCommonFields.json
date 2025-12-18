@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:InstrumentCommonFields",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:InstrumentCommonFields"
+  },
+  "title": "InstrumentCommonFields",
+  "description": "Common fields for all financial instruments including identification, classification and basic attributes",
+  "type": "object",
+  "properties": {
+    "financialInstrumentIdentification": {
+     "$ref": "../../objects/business/InstrumentIdentification.json",
+     "description": "Identification of the financial instrument"
+    },
+    "asset": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 30,
+      "description": "Identifies the commodity code that the instrument is linked to"
+    },
+    "assetDescription": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Describes the commodity that the instrument is linked to"
+    },
+    "market": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Market where the commodity is registered - 2nd level of commodity registration",
+      "$comment": "Consult External Code List table ExternalMarketCode"
+    },
+    "segment": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Segment where the commodity is registered - 1st level of commodity registration",
+      "$comment": "Consult External Code List table ExternalSegmentCode"
+    },
+    "instrumentDescription": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Description of the instrument"
+    },
+    "tickerSymbol": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "description": "Code that publicly represents the financial instrument in the market, used for identification and trading"
+    },
+    "collateralIndicator": {
+      "type": "boolean",
+      "description": "Indicates the instrument that can be used as collateral in A5X"
+    },
+    "securityCategory": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Instrument type identifier",
+      "$comment": "Consult External Code List table ExternalSecurityCategory"
+    }
+  },
+  "required": [
+    "financialInstrumentIdentification",
+    "asset",
+    "assetDescription",
+    "market",
+    "segment",
+    "instrumentDescription",
+    "collateralIndicator"
+  ],
+  "additionalProperties": true,
+  "examples": [
+    {
+      "financialInstrumentIdentification": {
+        "id": "10000000000000001",
+        "source": "8",
+        "exchange": "A5X"
+      },
+      "asset": "EQUITY",
+      "assetDescription": "Common Stock",
+      "market": 1,
+      "segment": 1,
+      "instrumentDescription": "EXAMPLE CORPORATION COMMON STOCK",
+      "tickerSymbol": "ABCD123",
+      "collateralIndicator": true,
+      "securityCategory": 1
+    }
+  ]
+}

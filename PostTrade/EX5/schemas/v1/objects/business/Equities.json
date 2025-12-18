@@ -1,0 +1,160 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:Equities",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:Equities"
+  },
+  "title": "Equities",
+  "description": "Information specific to equity instruments including governance indicators, corporate actions and trading parameters",
+  "type": "object",
+  "properties": {
+    "governanceIndicator": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Governance indicator code",
+      "$comment": "Consult External Code List table ExternalGovernanceIndicatorCode"
+    },
+    "rightsIssuePrice": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Rights issue price"
+    },
+    "corporateActionStartDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Corporate action start date"
+    },
+    "exDistributionNumber": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Ex-distribution number code",
+      "$comment": "Consult External Code List table ExternalDistributionCode"
+    },
+    "marketCapitalisation": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Market capitalization value of the entity"
+    },
+    "firstPrice": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Final price of the asset BEFORE the corporate action"
+    },
+    "lastPrice": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Initial price of the asset AFTER the corporate action"
+    },
+    "specificationCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 10,
+      "description": "Stock specification code"
+    },
+    "corporationName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 250,
+      "description": "Corporation name"
+    },
+    "paymentType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Payment type for trade settlement",
+      "$comment": "Consult External Code List table ExternalPaymentTypeCode"
+    },
+    "allocationRoundLot": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Pre-defined lot size for allocation purposes"
+    },
+    "tradingStartDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Date when trading of the financial instrument begins"
+    },
+    "tradingEndDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Date when trading of the financial instrument ends"
+    },
+    "priceFactor": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Factor that indicates the number of shares used for price formation"
+    },
+    "daysToSettlement": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "Number of days to settlement"
+    },
+    "distributionIdentification": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Distribution identification code",
+      "$comment": "Consult External Code List table ExternalDistributionCode"
+    },
+    "underlyingInstrumentIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the underlying instrument"
+    },
+    "targetInstrumentIdentification": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/InstrumentIdentification.json"
+      },
+      "minItems": 1,
+      "maxItems": 60,
+      "description": "Array of target instrument identifications"
+    },
+    "currency": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Currency code in which the amount is denominated",
+      "$comment": "Consult External Code List table ExternalCurrencyCode"
+    }
+  },
+  "additionalProperties": true,
+  "examples": [
+    {
+      "governanceIndicator": "N1",
+      "rightsIssuePrice": {
+        "amount": 15.75,
+        "currency": "USD"
+      },
+      "corporateActionStartDate": "2024-05-15",
+      "exDistributionNumber": 3,
+      "marketCapitalisation": {
+        "amount": 1000000,
+        "currency": "USD"
+      },
+      "firstPrice": {
+        "amount": 50.00,
+        "currency": "USD"
+      },
+      "lastPrice": {
+        "amount": 55.00,
+        "currency": "USD"
+      },
+      "specificationCode": "EQTY",
+      "corporationName": "EXAMPLE CORPORATION SA",
+      "paymentType": 1,
+      "allocationRoundLot": 100,
+      "tradingStartDate": "2024-01-01",
+      "tradingEndDate": "2024-12-31",
+      "priceFactor": 1,
+      "daysToSettlement": 3,
+      "distributionIdentification": 2,
+      "underlyingInstrumentIdentification": {
+        "id": "100000000001",
+        "source": "8",
+        "exchange": "A5X"
+      },
+      "targetInstrumentIdentification": [
+        {
+          "id": "100000000002",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        {
+          "id": "100000000003",
+          "source": "8",
+          "exchange": "A5X"
+        }
+      ],
+      "currency": "USD"
+    }
+  ]
+}

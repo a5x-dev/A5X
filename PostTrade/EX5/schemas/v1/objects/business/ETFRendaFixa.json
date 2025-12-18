@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:ETFRendaFixa",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:ETFRendaFixa"
+  },
+  "title": "ETFRendaFixa",
+  "description": "Information specific to fixed income ETF instruments",
+  "type": "object",
+  "properties": {
+    "assetRegistrationDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Asset inclusion date"
+    },
+    "issueCode": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Code that identifies the issuance of a bond"
+    },
+    "seriesNumber": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Series number of the bond"
+    },
+    "assetCollateralType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Identifies the collateral type of the bond",
+      "$comment": "Consult External Code List table AssetCollateralTypeCode"
+    },
+    "assetAdditionalCollateralType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Identifies the additional collateral type of the bond",
+      "$comment": "Consult External Code List table AssetAdditionalCollateralTypeCode"
+    },
+    "assetSubordinatedType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Identifies the subordination type of the bond",
+      "$comment": "Consult External Code List table AssetSubordinatedTypeCode"
+    },
+    "indexPercentage": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Percentage of the correction index"
+    },
+    "interestRate": {
+      "type": "string",
+      "maxLength": 20,
+      "minLength": 1,
+      "pattern": "^\\d{1,15}(\\.\\d{1,6})?$",
+      "description": "Provides the interest rate"
+    },
+    "interestRateCorrectionType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Provides the interest correction type",
+      "$comment": "Consult External Code List table InterestRateCorrectionTypeCode"
+    },
+    "interestRateCorrectionTimeBase": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Provides the base for interest rate correction",
+      "$comment": "Consult External Code List table InterestRateCorrectionTimeBase"
+    },
+    "earlyRedemptionIndicator": {
+      "type": "boolean",
+      "description": "Indicates if early redemption is allowed"
+    },
+    "earlyRedemptionDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Early redemption start date"
+    },
+    "totalSeriesIssueValue": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Total value of the series issuance"
+    },
+    "unitValue": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Unit value of the bond"
+    },
+    "specificationName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "description": "Asset name"
+    },
+    "riskRating": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "description": "Risk classification of the asset"
+    },
+    "assetSettlementIdentificator": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the asset settlement instrument"
+    }
+  },
+  "additionalProperties": true,
+  "examples": [
+    {
+      "assetRegistrationDate": "2024-01-01",
+      "issueCode": 12345,
+      "seriesNumber": 1,
+      "assetCollateralType": "1",
+      "assetAdditionalCollateralType": "0",
+      "assetSubordinatedType": "0",
+      "indexPercentage": "100.0000",
+      "interestRate": "1.5",
+      "interestRateCorrectionType": "2",
+      "interestRateCorrectionTimeBase": "1",
+      "earlyRedemptionIndicator": false,
+      "earlyRedemptionDate": "2025-01-01",
+      "totalSeriesIssueValue": "1000000.00000000",
+      "unitValue": "100.00",
+      "specificationName": "ETF RENDA FIXA",
+      "riskRating": "AAA",
+      "assetSettlementIdentificator": {
+        "id": "1000000000000002",
+        "source": "8",
+        "exchange": "A5X"
+      }
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:Unit",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:Unit"
+  },
+  "title": "Unit",
+  "description": "Information specific to unit instruments",
+  "type": "object",
+  "properties": {
+    "calendarDays": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Number of calendar days, considering the trading date until the contract maturity date"
+    },
+    "exercisePrice": {
+      "$ref": "../../objects/business/ExercisePrice.json",
+      "description": "Predetermined price of the underlying asset of the derivative contract"
+    },
+    "exerciseStyle": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Code that defines how an option can be exercised",
+      "$comment": "Consult External Code List table ExternalExerciseStyleCode"
+    },
+    "optionType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Specifies whether an option is call or put",
+      "$comment": "Consult External Code List table ExternalOptionTypeCode"
+    },
+    "premiumUpfrontIndicator": {
+      "type": "boolean",
+      "description": "Indicates whether equity options have their premium paid in advance or not"
+    },
+    "openingPositionLimitDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Deadline for open positions"
+    },
+    "targetInstrumentIdentification": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/InstrumentIdentification.json"
+      },
+      "minItems": 1,
+      "maxItems": 60,
+      "description": "Array of target instrument identifications"
+    },
+    "protectionFlag": {
+      "type": "boolean",
+      "description": "Indicates that the option is protected against corporate events"
+    },
+    "automaticExerciseIndicator": {
+      "type": "boolean",
+      "description": "Defines whether the option is exercised automatically"
+    }
+  },
+  "additionalProperties": true,
+  "examples": [
+    {
+      "calendarDays": 30,
+      "exercisePrice": {
+        "amount": "120.00",
+        "currency": "BRL"
+      },
+      "exerciseStyle": "AMER",
+      "optionType": 1,
+      "premiumUpfrontIndicator": true,
+      "openingPositionLimitDate": "2024-12-31",
+      "targetInstrumentIdentification": [
+        {
+          "id": "10000000000000001",
+          "source": "8",
+          "exchange": "A5X"
+        }
+      ],
+      "protectionFlag": false,
+      "automaticExerciseIndicator": false
+    }
+  ]
+}

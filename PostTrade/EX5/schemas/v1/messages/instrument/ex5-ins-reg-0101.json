@@ -53,7 +53,7 @@
       ]
     }
   ],
-  "additionalProperties": false,
+  "additionalProperties": true,
   "examples": [
     {
       "financialInstrumentIdentification": {
@@ -81,6 +81,21 @@
           },
         "premiumUpfrontIndicator": true,
         "openingPositionLimitDate": "2024-12-31",
+        "assetSettlementIdentification": [
+          {
+            "id": "10000000000000001",
+            "source": "8",
+            "exchange": "A5X"
+          },
+          {
+            "id": "10000000000000001",
+            "source": "8",
+            "exchange": "A5X"
+          }
+        ],
+        "withdrawalDays": 90,
+        "workingDays": 63,
+        "calendarDays": 90,
         "automaticExerciseIndicator": true
       },
       "instrumentCommonAttributes": {

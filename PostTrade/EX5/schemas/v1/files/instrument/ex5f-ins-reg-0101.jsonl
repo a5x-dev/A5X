@@ -1,0 +1,557 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:instrument:ex5f-ins-reg-01",
+  "$metadata": {
+    "domain": "instrument",
+    "schemaId": "urn:a5x:ex5:schema:v1:instrument:ex5f-ins-reg-01"
+  },
+  "title": "Financial Instruments Registration File",
+  "description": "File for registering multiple types of financial instruments in the A5X system including equities, bonds, derivatives, and other securities",
+  "type": "object",
+  "properties": {
+    "dateTime": {
+      "$ref": "../../types/ISODateTime.json",
+      "description": "Date and time of file generation"
+    },
+    "reportNumber": {
+      "type": "string",
+      "pattern": "^[0-9]{5}$",
+      "description": "Sequential number of the report"
+    },
+    "numberOfMessages": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999999,
+      "description": "Number of messages/instruments within the file"
+    },
+    "equities": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/InstrumentCommonFields.json"
+        },
+        {
+          "$ref": "../../objects/business/Equities.json"
+        }
+      ],
+      "description": "Information specific to equity instruments (stocks)"
+    },
+    "bdr": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/InstrumentCommonFields.json"
+        },
+        {
+          "$ref": "../../objects/business/BDR.json"
+        }
+      ],
+      "description": "Information specific to Brazilian Depositary Receipts"
+    },
+    "cash": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/InstrumentCommonFields.json"
+        },
+        {
+          "$ref": "../../objects/business/Cash.json"
+        }
+      ],
+      "description": "Information specific to cash instruments"
+    },
+    "adr": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/InstrumentCommonFields.json"
+        },
+        {
+          "$ref": "../../objects/business/ADR.json"
+        }
+      ],
+      "description": "Information specific to American Depositary Receipts"
+    },
+    "internationalBonds": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/InstrumentCommonFields.json"
+        },
+        {
+          "$ref": "../../objects/business/InternationalBonds.json"
+        }
+      ],
+      "description": "Information specific to international bond instruments"
+    },
+    "nationalBonds": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/InstrumentCommonFields.json"
+        },
+        {
+          "$ref": "../../objects/business/NationalBonds.json"
+        }
+      ],
+      "description": "Information specific to national bond instruments"
+    },
+    "etf": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/InstrumentCommonFields.json"
+        },
+        {
+          "$ref": "../../objects/business/ETF.json"
+        }
+      ],
+      "description": "Information specific to Exchange Traded Fund instruments"
+    },
+    "options": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/InstrumentCommonFields.json"
+        },
+        {
+          "$ref": "../../objects/business/Options.json"
+        }
+      ],
+      "description": "Information specific to option instruments"
+    },
+    "future": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/InstrumentCommonFields.json"
+        },
+        {
+          "$ref": "../../objects/business/Future.json"
+        }
+      ],
+      "description": "Information specific to future contract instruments"
+    },
+    "units": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/InstrumentCommonFields.json"
+        },
+        {
+          "$ref": "../../objects/business/Unit.json"
+        }
+      ],
+      "description": "Information specific to unit instruments"
+    },
+    "etfRendaFixa": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/InstrumentCommonFields.json"
+        },
+        {
+          "$ref": "../../objects/business/ETFRendaFixa.json"
+        }
+      ],
+      "description": "Information specific to fixed income ETF instruments"
+    },
+    "fundoDeLiquidez": {
+      "$ref": "../../objects/business/InstrumentCommonFields.json",
+      "description": "Information specific to liquidity fund instruments"
+    },
+    "filax": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/InstrumentCommonFields.json"
+        },
+        {
+          "properties": {
+            "fundName": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 150,
+              "description": "Fund name"
+            }
+          }
+        }
+      ],
+      "description": "Information specific to Filax fund instruments"
+    }
+  },
+  "required": [
+    "dateTime",
+    "reportNumber",
+    "numberOfMessages"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "dateTime": "2024-06-01T10:30:00Z",
+      "reportNumber": 1,
+      "numberOfMessages": 3,
+      "equities": {
+        "governanceIndicator": 1,
+        "corporateActionStartDate": "2024-04-15",
+        "exDistributionNumber": 123456,
+        "marketCapitalisation": {
+          "amount": "500000000000.00",
+          "currency": "BRL"
+        },
+        "firstPrice": {
+          "amount": "35.50",
+          "currency": "BRL"
+        },
+        "lastPrice": {
+          "amount": "36.25",
+          "currency": "BRL"
+        },
+        "specificationCode": "PN",
+        "corporationName": "Petróleo Brasileiro S.A. - Petrobras",
+        "paymentType": 1,
+        "allocationRoundLot": 100,
+        "tradingStartDate": "2024-01-02",
+        "tradingEndDate": "2024-12-30",
+        "priceFactor": 1,
+        "daysToSettlement": 3,
+        "distributionIdentification": 789012
+      },
+      "bdr": {
+        "financialInstrumentIdentification": {
+          "id": "10000000000000001",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "asset": "EQUITY",
+        "assetDescription": "Common Stock",
+        "market": 1,
+        "segment": 1,
+        "instrumentDescription": "EXAMPLE CORPORATION COMMON STOCK",
+        "tickerSymbol": "ABCD123",
+        "collateralIndicator": true,
+        "securityCategory": 1,
+        "specificationCode": "BDR",
+        "corporationName": "EXAMPLE FOREIGN CORPORATION",
+        "paymentType": 1,
+        "allocationRoundLot": 100,
+        "priceFactor": 1,
+        "tradingStartDate": "2024-01-01",
+        "tradingEndDate": "2024-12-31",
+        "daysToSettlement": 3
+      },
+      "cash": {
+        "financialInstrumentIdentification": {
+          "id": "10000000000000001",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "asset": "ABCD123",
+        "assetDescription": "Cash Instrument",
+        "market": 1,
+        "segment": 1,
+        "instrumentDescription": "EXAMPLE CORPORATION CASH INSTRUMENT",
+        "collateralIndicator": true,
+        "securityCategory": 1,
+        "cfiCode": "MRCXXX",
+        "currency": "BRL"
+      },
+      "adr": {
+        "financialInstrumentIdentification": {
+          "id": "10000000000000003",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "asset": "ADR",
+        "assetDescription": "American Depositary Receipt",
+        "market": 1,
+        "segment": 1,
+        "instrumentDescription": "EXAMPLE ADR LEVEL II",
+        "tickerSymbol": "EXAM35",
+        "collateralIndicator": true,
+        "securityCategory": 3,
+        "cusip": "123456789",
+        "programLevel": "L2",
+        "proportion": "2.5",
+        "cfiCode": "ESVUFB",
+        "currencyCode": "BRL"
+      },
+      "internationalBonds": {
+        "financialInstrumentIdentification": {
+          "id": "10000000000000001",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "asset": "EQUITY",
+        "assetDescription": "Common Stock",
+        "market": 1,
+        "segment": 1,
+        "instrumentDescription": "EXAMPLE CORPORATION COMMON STOCK",
+        "tickerSymbol": "ABCD123",
+        "collateralIndicator": true,
+        "securityCategory": 1,
+        "issueDate": "2024-01-01",
+        "expirationDate": "2034-01-01",
+        "cusipIdentification": "987654321",
+        "issuerCountry": "USA",
+        "instrumentType": "Corporate Bond",
+        "issuePrice": {
+          "amount": "1000.00",
+          "currency": "BRL"
+        }
+      },
+      "nationalBonds": {
+        "financialInstrumentIdentification": {
+          "id": "10000000000000005",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "asset": "BOND",
+        "assetDescription": "National Bond",
+        "market": 3,
+        "segment": 3,
+        "instrumentDescription": "EXAMPLE NATIONAL BOND",
+        "tickerSymbol": "NATBOND",
+        "collateralIndicator": true,
+        "securityCategory": 5,
+        "issueDate": "2024-01-01",
+        "expirationDate": "2029-01-01",
+        "selicCode": "LTN001",
+        "brazilianFederalGovernmentBondTypeCode": "LTN",
+        "baseDate": "2024-01-01",
+        "baseDatePrice": {
+          "amount": "1000.00",
+          "currency": "BRL"
+        }
+      },
+      "etf": {
+        "financialInstrumentIdentification": {
+          "id": "10000000000000006",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "asset": "ETF",
+        "assetDescription": "Exchange Traded Fund",
+        "market": 1,
+        "segment": 1,
+        "instrumentDescription": "EXAMPLE ETF FUND",
+        "tickerSymbol": "ETFEX11",
+        "collateralIndicator": true,
+        "securityCategory": 6,
+        "cfiCode": "ESVUFR",
+        "distributionIdentification": 2,
+        "specificationCode": "ETF",
+        "corporationName": "EXAMPLE ETF MANAGEMENT",
+        "tradingStartDate": "2024-01-01",
+        "tradingEndDate": "2024-12-31",
+        "corporateActionStartDate": "2024-06-01",
+        "exDistributionNumber": 5,
+        "marketCapitalisation": {
+          "amount": "50000000.00",
+          "currency": "BRL"
+        },
+        "firstPrice": {
+          "amount": "50.00",
+          "currency": "BRL"
+        },
+        "lastPrice": {
+          "amount": "55.00",
+          "currency": "BRL"
+        },
+        "underlyingInstrumentIdentification": {
+          "id": "10000000000000001",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "targetInstrumentIdentification": [
+          {
+            "id": "10000000000000002",
+            "source": "8",
+            "exchange": "A5X"
+          },
+          {
+            "id": "10000000000000003",
+            "source": "8",
+            "exchange": "A5X"
+          }
+        ]
+      },
+      "options": {
+        "paymentType": 1,
+        "allocationRoundLot": 100,
+        "tradingStartDate": "2024-01-02",
+        "tradingEndDate": "2024-03-15",
+        "expirationCode": 1,
+        "expirationDate": "2024-03-15",
+        "openingPositionLimitDate": "2024-03-10",
+        "contractMultiplier": "100.00",
+        "assetQuotationQuantity": "100.00",
+        "withdrawalDays": 5,
+        "workingDays": 4,
+        "calendarDays": 5,
+        "deliveryType": 1,
+        "exercisePrice": {
+          "amount": "40.00",
+          "currency": "BRL"
+        },
+        "exerciseStyle": 1,
+        "optionType": 1,
+        "premiumUpfrontIndicator": true,
+        "protectionFlag": true,
+        "automaticExerciseIndicator": true
+      },
+      "future": {
+        "financialInstrumentIdentification": {
+          "id": "10000000000000008",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "asset": "FUTURE",
+        "assetDescription": "Future Contract",
+        "market": 5,
+        "segment": 5,
+        "instrumentDescription": "EXAMPLE FUTURE CONTRACT",
+        "tickerSymbol": "FUTEX123",
+        "collateralIndicator": true,
+        "securityCategory": 8,
+        "issueDate": "2024-01-01",
+        "paymentType": 1,
+        "allocationRoundLot": 1,
+        "priceFactor": 1,
+        "assetSettlementIndicator": {
+          "id": "10000000000000001",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "corporationName": "EXAMPLE FUTURES CORP",
+        "tradingStartDate": "2024-01-01",
+        "lastPrice": {
+          "amount": "150.00",
+          "currency": "BRL"
+        },
+        "fundName": "EXAMPLE FUTURES FUND",
+        "expirationCode": "Z24",
+        "valueTypeCode": 1,
+        "baseCode": 252,
+        "conversionCriteria": 1,
+        "maturityDateTargetPoint": 100,
+        "requiredConversionIndicator": false,
+        "deliveryType": "1",
+        "contractMultiplier": "1.00",
+        "assetQuotationQuantity": "1.00",
+        "withdrawalDays": 90,
+        "workingDays": 63,
+        "calendarDays": 90,
+        "exercisePrice": {
+          "amount": "200.00",
+          "currency": "BRL"
+        },
+        "exerciseStyle": "AMER",
+        "optionType": 1,
+        "premiumUpfrontIndicator": true,
+        "openingPositionLimitDate": "2024-12-31",
+        "targetInstrumentIdentification": [
+          {
+            "id": "10000000000000003",
+            "source": "8",
+            "exchange": "A5X"
+          },
+          {
+            "id": "10000000000000004",
+            "source": "8",
+            "exchange": "A5X"
+          }
+        ],
+        "protectionFlag": false,
+        "automaticExerciseIndicator": true
+      },
+      "units": {
+        "financialInstrumentIdentification": {
+          "id": "10000000000000009",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "asset": "UNIT",
+        "assetDescription": "Unit Certificate",
+        "market": 5,
+        "segment": 5,
+        "instrumentDescription": "EXAMPLE UNIT CERTIFICATE",
+        "tickerSymbol": "UNIT11",
+        "collateralIndicator": true,
+        "securityCategory": 9,
+        "calendarDays": 30,
+        "exercisePrice": {
+          "amount": "120.00",
+          "currency": "BRL"
+        },
+        "exerciseStyle": "AMER",
+        "optionType": 1,
+        "premiumUpfrontIndicator": true,
+        "openingPositionLimitDate": "2024-12-31",
+        "targetInstrumentIdentification": [
+          {
+            "id": "10000000000000001",
+            "source": "8",
+            "exchange": "A5X"
+          }
+        ],
+        "protectionFlag": false,
+        "automaticExerciseIndicator": false
+      },
+      "etfRendaFixa": {
+        "financialInstrumentIdentification": {
+          "id": "10000000000000010",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "asset": "ETF_RENDA_FIXA",
+        "assetDescription": "Fixed Income ETF",
+        "market": 5,
+        "segment": 5,
+        "instrumentDescription": "EXAMPLE FIXED INCOME ETF",
+        "tickerSymbol": "FIXA11",
+        "collateralIndicator": true,
+        "securityCategory": 10,
+        "assetRegistrationDate": "2024-01-01",
+        "issueCode": 12345,
+        "seriesNumber": 1,
+        "assetCollateralType": "1",
+        "assetAdditionalCollateralType": "0",
+        "assetSubordinatedType": "0",
+        "indexPercentage": "100.0000",
+        "interestRate": "5.0000",
+        "interestRateCorrectionType": "2",
+        "interestRateCorrectionTimeBase": "1",
+        "earlyRedemptionIndicator": false,
+        "earlyRedemptionDate": "2025-01-01",
+        "totalSeriesIssueValue": "1000000.00000000",
+        "unitValue": "100.00",
+        "specificationName": "ETF RENDA FIXA",
+        "riskRating": "AAA",
+        "assetSettlementIdentificator": {
+          "id": "1000000000000002",
+          "source": "8",
+          "exchange": "A5X"
+        }
+      },
+      "fundoDeLiquidez": {
+        "financialInstrumentIdentification": {
+          "id": "10000000000000001",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "asset": "EQUITY",
+        "assetDescription": "Common Stock",
+        "market": 1,
+        "segment": 1,
+        "instrumentDescription": "EXAMPLE CORPORATION COMMON STOCK",
+        "collateralIndicator": true,
+        "securityCategory": 1
+      },
+      "filax": {
+        "financialInstrumentIdentification": {
+          "id": "10000000000000001",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "asset": "EQUITY",
+        "assetDescription": "Common Stock",
+        "market": 1,
+        "segment": 1,
+        "instrumentDescription": "EXAMPLE CORPORATION COMMON STOCK",
+        "tickerSymbol": "ABCD123",
+        "collateralIndicator": true,
+        "securityCategory": 1,
+        "fundName": "EXAMPLE FILAX FUND NAME"
+      }
+    }
+  ]
+}

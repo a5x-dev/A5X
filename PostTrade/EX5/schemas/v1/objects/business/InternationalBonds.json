@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:InternationalBonds",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:InternationalBonds"
+  },
+  "title": "InternationalBonds",
+  "description": "Information specific to international bond instruments",
+  "type": "object",
+  "properties": {
+    "issueDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Instrument issue date"
+    },
+    "expirationDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Instrument expiration date"
+    },
+    "cusipIdentification": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 9,
+      "description": "CUSIP - Committee on Uniform Securities Identification Procedures"
+    },
+    "issuerCountry": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Country of instrument issuance",
+      "$comment": "Consult External Code List table ExternalCountryCode"
+    },
+    "instrumentType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Bond type identifier"
+    },
+    "issuePrice": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Instrument issue price"
+    },
+    "currency": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Currency code in which the amount is denominated",
+      "$comment": "Consult External Code List table ExternalCurrencyCode"
+    }
+  },
+  "additionalProperties": true,
+  "examples": [
+    {
+      "issueDate": "2024-01-01",
+      "expirationDate": "2034-01-01",
+      "cusipIdentification": "987654321",
+      "issuerCountry": "USA",
+      "instrumentType": "Corporate Bond",
+      "issuePrice": {
+        "amount": "1000.00",
+        "currency": "BRL"
+      },
+      "currency": "USD"
+    }
+  ]
+}

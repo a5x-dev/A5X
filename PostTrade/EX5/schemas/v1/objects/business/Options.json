@@ -1,0 +1,155 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:Options",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:Options"
+  },
+  "title": "Options",
+  "description": "Information specific to option instruments",
+  "type": "object",
+  "properties": {
+    "expirationDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Instrument expiration date"
+    },
+    "paymentType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Payment type for trade settlement",
+      "$comment": "Consult External Code List table ExternalPaymentTypeCode"
+    },
+    "allocationRoundLot": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Pre-defined lot size for allocation purposes"
+    },
+    "priceFactor": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Factor that indicates the number of shares used for price formation"
+    },
+    "daysToSettlement": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "Number of days to settlement"
+    },
+    "cfiCode": {
+      "type": "string",
+      "maxLength": 6,
+      "minLength": 6,
+      "pattern": "^[A-Z]{6}$",
+      "description": "Classification of Financial Instruments code - ISO 10962 standard"
+    },
+    "currencyCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 666666,
+      "description": "Instrument currency",
+      "$comment": "Consultar a lista na tabela ExternalCurrencyCode"
+    },
+    "tradingStartDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Date when trading of the financial instrument begins"
+    },
+    "tradingEndDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Date when trading of the financial instrument ends"
+    },
+    "expirationCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 6,
+      "description": "Contract expiration code"
+    },
+    "deliveryType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 6,
+      "description": "Delivery type identification code"
+    },
+    "contractMultiplier": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Ratio between contract size and commodity quotation quantity"
+    },
+    "assetQuotationQuantity": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Indicates the quantity of the commodity on which the trade price is based"
+    },
+    "underlyingInstrumentIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the underlying instrument"
+    },
+    "exercisePrice": {
+      "$ref": "../../objects/business/ExercisePrice.json",
+      "description": "Predetermined price of the underlying asset of the derivative contract"
+    },
+    "exerciseStyle": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Code that defines how an option can be exercised",
+      "$comment": "Consult External Code List table ExternalExerciseStyleCode"
+    },
+    "optionType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Specifies whether an option is call or put",
+      "$comment": "Consult External Code List table ExternalOptionTypeCode"
+    },
+    "premiumUpfrontIndicator": {
+      "type": "boolean",
+      "description": "Indicates whether equity options have their premium paid in advance or not"
+    },
+    "openingPositionLimitDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Deadline for open positions"
+    },
+    "protectionFlag": {
+      "type": "boolean",
+      "description": "Indicates that the option is protected against corporate events"
+    },
+    "automaticExerciseIndicator": {
+      "type": "boolean",
+      "description": "Defines whether the option is exercised automatically"
+    },
+    "currency": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Currency code in which the amount is denominated",
+      "$comment": "Consult External Code List table ExternalCurrencyCode"
+    }
+  },
+  "additionalProperties": true,
+  "examples": [
+    {
+      "expirationDate": "2024-12-31",
+      "paymentType": 1,
+      "allocationRoundLot": 100,
+      "priceFactor": 1,
+      "daysToSettlement": 1,
+      "cfiCode": "OCASFR",
+      "currencyCode": "BRL",
+      "tradingStartDate": "2024-01-01",
+      "tradingEndDate": "2024-12-30",
+      "expirationCode": "Z24",
+      "deliveryType": "1",
+      "contractMultiplier": "100.00",
+      "assetQuotationQuantity": "1.00",
+      "underlyingInstrumentIdentification": {
+        "id": "10000000000000001",
+        "source": "8",
+        "exchange": "A5X"
+      },
+      "exercisePrice": {
+        "amount": "50.00",
+        "currency": "BRL"
+      },
+      "exerciseStyle": "EURO",
+      "optionType": 1,
+      "premiumUpfrontIndicator": true,
+      "openingPositionLimitDate": "2024-01-01",
+      "protectionFlag": false,
+      "automaticExerciseIndicator": true,
+      "currency": "BRL"
+    }
+  ]
+}

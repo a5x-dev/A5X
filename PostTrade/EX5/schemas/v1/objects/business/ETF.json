@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:ETF",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:ETF"
+  },
+  "title": "ETF",
+  "description": "Information specific to Exchange Traded Fund instruments",
+  "type": "object",
+  "properties": {
+    "cfiCode": {
+      "type": "string",
+      "maxLength": 6,
+      "minLength": 6,
+      "pattern": "^[A-Z]{6}$",
+      "description": "Classification of Financial Instruments code - ISO 10962 standard"
+    },
+    "distributionIdentification": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Distribution identification code",
+      "$comment": "Consult External Code List table ExternalDistributionCode"
+    },
+    "specificationCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 10,
+      "description": "Stock specification code"
+    },
+    "corporationName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 250,
+      "description": "Corporation name"
+    },
+    "tradingStartDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Date when trading of the financial instrument begins"
+    },
+    "tradingEndDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Date when trading of the financial instrument ends"
+    },
+    "corporateActionStartDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Corporate action start date"
+    },
+    "exDistributionNumber": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Ex-distribution number code",
+      "$comment": "Consult External Code List table ExternalDistributionCode"
+    },
+    "marketCapitalisation": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Market capitalization value of the entity"
+    },
+    "firstPrice": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Final price of the asset BEFORE the corporate action"
+    },
+    "lastPrice": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Initial price of the asset AFTER the corporate action"
+    },
+    "underlyingInstrumentIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the underlying instrument"
+    },
+    "targetInstrumentIdentification": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/InstrumentIdentification.json"
+      },
+      "minItems": 1,
+      "maxItems": 60,
+      "description": "Array of target instrument identifications"
+    },
+    "currency": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Currency code in which the amount is denominated",
+      "$comment": "Consult External Code List table ExternalCurrencyCode"
+    }
+  },
+  "additionalProperties": true,
+  "examples": [
+    {
+      "cfiCode": "ESVUFR",
+      "distributionIdentification": 2,
+      "specificationCode": "ETF",
+      "corporationName": "EXAMPLE ETF MANAGEMENT",
+      "tradingStartDate": "2024-01-01",
+      "tradingEndDate": "2024-12-31",
+      "corporateActionStartDate": "2024-06-01",
+      "exDistributionNumber": 5,
+      "marketCapitalisation": {
+        "amount": "50000000.00",
+        "currency": "BRL"
+      },
+      "firstPrice": {
+        "amount": "50.00",
+        "currency": "BRL"
+      },
+      "lastPrice": {
+        "amount": "55.00",
+        "currency": "BRL"
+      },
+      "underlyingInstrumentIdentification": {
+        "id": "10000000000000001",
+        "source": "8",
+        "exchange": "A5X"
+      },
+      "targetInstrumentIdentification": [
+        {
+          "id": "10000000000000002",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        {
+          "id": "10000000000000003",
+          "source": "8",
+          "exchange": "A5X"
+        }
+      ],
+      "currency": "BRL"
+    }
+  ]
+}

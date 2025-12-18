@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:ADR",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:ADR"
+  },
+  "title": "ADR",
+  "description": "Information specific to American Depositary Receipt instruments",
+  "type": "object",
+  "properties": {
+    "cusipIdentification": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 9,
+      "description": "CUSIP - Committee on Uniform Securities Identification Procedures"
+    },
+    "programLevel": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Identifies the program type: Level I Sponsored, Level II Sponsored, Level III Sponsored, Unsponsored",
+      "$comment": "Consult External Code List table ExternalProgramLevelTypeCode"
+    },
+    "proportion": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Indicates the quantity of shares per ADR"
+    },
+    "cfiCode": {
+      "type": "string",
+      "maxLength": 6,
+      "minLength": 6,
+      "pattern": "^[A-Z]{6}$",
+      "description": "Classification of Financial Instruments code - ISO 10962 standard"
+    },
+    "currency": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Currency code in which the amount is denominated",
+      "$comment": "Consult External Code List table ExternalCurrencyCode"
+    }
+  },
+  "additionalProperties": true,
+  "examples": [
+    {
+      "cusip": "123456789",
+      "programLevel": "L2",
+      "proportion": "2.5",
+      "cfiCode": "ESVUFB",
+      "currency": "BRL"
+    }
+  ]
+}

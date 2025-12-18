@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:Cash",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:Cash"
+  },
+  "title": "Cash",
+  "description": "Information specific to cash instruments with minimal identification fields",
+  "type": "object",
+  "properties": {
+    "cfiCode": {
+      "type": "string",
+      "minLength": 6,
+      "maxLength": 6,
+      "pattern": "^[A-Z]{6}$",
+      "description": "Classification of Financial Instruments code - ISO 10962 standard"
+    },
+    "currency": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Currency code in which the amount is denominated",
+      "$comment": "Consult External Code List table ExternalCurrencyCode"
+    }
+  },
+  "additionalProperties": true,
+  "examples": [
+    {
+      "cfiCode": "MRCXXX",
+      "currency": "BRL"
+    }
+  ]
+}
