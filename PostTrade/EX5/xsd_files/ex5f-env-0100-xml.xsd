@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <!-- A5X File Envelope Base -->
+
+    <!-- ===== Hook point: must be defined by including schemas =====
+         complexType name="EnvelopeGroupPayload"
+    -->
+
+    <!-- Root container -->
+    <xs:complexType name="FileEnvelopeDocument">
+        <xs:sequence>
+            <xs:element name="BizFileHdr" type="FileEnvelopeHeader"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FileEnvelopeHeader">
+        <xs:sequence>
+            <xs:element name="Xchg" type="ExchangeEnvelope"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ExchangeEnvelope">
+        <xs:sequence>
+            <xs:element name="BizGrpDesc" type="EnvelopeGroupDescriptor"/>
+            <xs:element name="Rltd" type="EnvelopeGroupDescriptor" minOccurs="0"/>
+            <xs:element name="BizGrp" type="EnvelopeGroupPayload" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="EnvelopeGroupDescriptor">
+        <xs:sequence>
+            <xs:element name="Fr" type="OrganisationPartyRef"/>
+            <xs:element name="To" type="OrganisationPartyRef"/>
+            <xs:element name="BizGrpDtls" type="EnvelopeGroupMetadata"/>
+            <xs:element name="MsgTpDef" type="ContainedMessageType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="EnvelopeGroupMetadata">
+        <xs:sequence>
+            <xs:element name="BizGrpIdr" type="Max35Text"/>
+            <xs:element name="TtlNbOfMsg" type="Number"/>
+            <xs:element name="BizGrpTp" type="Max35Text"/>
+            <xs:element name="CreDtAndTm" type="ISODateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ContainedMessageType">
+        <xs:sequence>
+            <xs:element name="MsgDefIdr" type="Max35Text"/>
+            <xs:element name="NbOfMsg" type="Number"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Parties -->
+    <xs:complexType name="OrganisationPartyRef">
+        <xs:sequence>
+            <xs:element name="OrgId" type="OrganisationPartyId"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OrganisationPartyId">
+        <xs:sequence>
+            <xs:element name="Id" type="OrganisationIdRef" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OrganisationIdRef">
+        <xs:sequence>
+            <xs:element name="OrgId" type="OrganisationId"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OrganisationId">
+        <xs:sequence>
+            <xs:element name="Othr" type="OrganisationOtherId" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OrganisationOtherId">
+        <xs:sequence>
+            <xs:element name="Id" type="Max35Text"/>
+            <xs:element name="Issr" type="Max35Text" minOccurs="0"/>
+            <xs:element name="SchmeNm" type="OrganisationIdScheme" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OrganisationIdScheme">
+        <xs:sequence>
+            <xs:element name="Prtry" type="Max35Text"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Primitives -->
+    <xs:simpleType name="ISODateTime">
+        <xs:restriction base="xs:dateTime"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="Max35Text">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="35"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Number">
+        <xs:restriction base="xs:long">
+            <xs:fractionDigits value="0"/>
+            <xs:totalDigits value="18"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
