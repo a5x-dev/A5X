@@ -149,7 +149,7 @@
             <!-- Option style, type and series -->
             <xs:element name="OptnStyle"        type="OptionStyle"/>
             <xs:element name="XprtnDt"          type="ISODate"/>
-            <xs:element name="XprtnCd"          type="TextMin1Max4"             minOccurs="0"/>
+            <xs:element name="XprtnCd"          type="TextMin1Max8"             minOccurs="0"/>
             <xs:element name="OptnTp"           type="OptionType"/>
             <xs:element name="SrsTp"            type="SeriesTypeCode"           minOccurs="0"/>
 
@@ -194,7 +194,7 @@
             <!-- Exercise style and type -->
             <xs:element name="ExrcStyle"        type="ExerciseStyle"/>
             <xs:element name="XprtnDt"          type="ISODate"/>
-            <xs:element name="XprtnCd"          type="TextMin1Max4"/>
+            <xs:element name="XprtnCd"          type="TextMin1Max8"/>
             <xs:element name="OptnTp"           type="OptionType"/>
 
             <!-- Contract multiplier and asset quotation quantity -->
@@ -238,7 +238,7 @@
             <!-- Expiration and basic identification -->
             <xs:element name="XprtnDt"          type="ISODate"/>
             <xs:element name="TckrSymb"         type="TickerSymbol"/>
-            <xs:element name="XprtnCd"          type="TextMin1Max4"/>
+            <xs:element name="XprtnCd"          type="TextMin1Max8"/>
 
             <!-- Trading dates for the futures contract -->
             <xs:element name="TradgStartDt"     type="ISODate"/>
@@ -349,7 +349,7 @@
             <!-- Expiration and basic identification -->
             <xs:element name="XprtnDt"        type="ISODate"                       minOccurs="0"/>
             <xs:element name="TckrSymb"       type="TickerSymbol"/>
-            <xs:element name="XprtnCd"        type="TextMin1Max4"                  minOccurs="0"/>
+            <xs:element name="XprtnCd"        type="TextMin1Max8"                  minOccurs="0"/>
 
             <!-- Trading dates -->
             <xs:element name="TradgStartDt"   type="ISODate"/>
@@ -619,6 +619,14 @@
         <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
             <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Text from 1 to 8 characters -->
+    <xs:simpleType name="TextMin1Max8">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="8"/>
+            <xs:minLength value="1"/>
         </xs:restriction>
     </xs:simpleType>
 
