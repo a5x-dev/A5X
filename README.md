@@ -23,13 +23,14 @@ O objetivo é oferecer artefatos confiáveis para **desenvolvedores**, **analist
 - **Feedbacks**: são bem-vindos via *Issues* ou contato com o atendimento da A5X.
 
 
-
-
-
 ## Suporte
 - **Portal do Desenvolvedor A5X**: documentação, guias e novidades.
 
 > Em caso de dados sensíveis, utilize os canais privados acordados com a A5X.
+
+
+## Dicas!
+[Clientes com stack **java**](README-java-clients.md)
 
 ---
 
