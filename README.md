@@ -23,6 +23,12 @@ O objetivo é oferecer artefatos confiáveis para **desenvolvedores**, **analist
 - **Feedbacks**: são bem-vindos via *Issues* ou contato com o atendimento da A5X.
 
 
+## Suporte
+- **Portal do Desenvolvedor A5X**: documentação, guias e novidades.
+
+> Em caso de dados sensíveis, utilize os canais privados acordados com a A5X.
+
+
 ## Tips!
 > Clientes com stack **java**, podem fazer utilização do utilitário [javaschema2pojo](https://www.jsonschema2pojo.org/), também disponível através do repositório github [github.com/joelittlejohn/jsonschema2pojo](https://github.com/joelittlejohn/jsonschema2pojo). Na seção de releases, é possível obter o build em diferentes compactações, e uma vez extraído no ambiente local, via terminal, no diretório da A5X, por exemplo, para gerar os stubs de todos os artefatos relacionados a captura e alocação, pode-se disparar o comando;
 
@@ -41,12 +47,6 @@ AllocationIdentification.java           CompressionGroup.java       Ex5AlcReq050
 AllocationResponse.java                 Ex5AlcApr0101.java          Ex5AlcSta0601.java  InstrumentIdentification.java  StatusError.java
 ```
 
-
-
-## Suporte
-- **Portal do Desenvolvedor A5X**: documentação, guias e novidades.
-
-> Em caso de dados sensíveis, utilize os canais privados acordados com a A5X.
 
 ---
 
