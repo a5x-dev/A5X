@@ -21,7 +21,8 @@ AllocationIdentification.java           CompressionGroup.java       Ex5AlcReq050
 AllocationResponse.java                 Ex5AlcApr0101.java          Ex5AlcSta0601.java  InstrumentIdentification.java  StatusError.java
 ```
 
-No exemplo acima, não os stubs são gerados sem a declaração do package.
+
+No exemplo acima, os stubs são gerados **sem a declaração do package**.
 Para deixar já com o pacote desejado, é possível;
 ``` 
 $ mkdir -p ~/a5x-stubs-generated/
