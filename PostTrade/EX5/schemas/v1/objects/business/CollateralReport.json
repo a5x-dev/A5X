@@ -86,7 +86,7 @@
   "examples" : [
     {
       "accountIdentification" : {
-        "id" : 987654321012345
+        "id" : 123456789
       },
       "documentInformation" : {
         "documentType" : 5,
@@ -108,6 +108,7 @@
           "collateralBalance" : "50000.00",
           "informationType" : 2,
           "additionalInformationOfficialCollCall" : {
+            "marginRunId": "MR-20240101-001",
             "totalMargin" : {
               "currency" : "BRL",
               "amount" : "150000.50"
@@ -130,6 +131,7 @@
             }
           },
           "additionalInformationIntradayCollCall" : {
+            "marginRunId": "MR-20240101-001",
             "totalMargin" : {
               "currency" : "BRL",
               "amount" : "150000.50"

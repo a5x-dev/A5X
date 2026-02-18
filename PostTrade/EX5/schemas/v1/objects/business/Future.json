@@ -61,7 +61,7 @@
     "expirationCode": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 6,
+      "maxLength": 8,
       "description": "Contract expiration code"
     },
     "valueTypeCode": {
@@ -73,7 +73,8 @@
       "type": "integer",
       "minimum": 0,
       "maximum": 999999,
-      "description": "Number of days for instrument calculation (252, 360, 365, etc)"
+      "description": "Number of days for instrument calculation (252, 360, 365, etc)",
+      "$comment": "Consult External Code List table ExternalInterestRateCorrectionTimeBaseCode"
     },
     "conversionCriteria": {
       "$ref": "../../objects/business/ExternalCodeList.json",
@@ -91,17 +92,17 @@
       "description": "Indicates if the contract traded in rate should be converted to price"
     },
     "deliveryType": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 6,
-      "description": "Delivery type identification code"
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6,
+      "description": "Delivery type identification number"
     },
     "contractMultiplier": {
-      "$ref": "../../types/DecimalNumber.json",
+      "$ref": "../../types/Decimal18_17.json",
       "description": "Ratio between contract size and commodity quotation quantity"
     },
     "assetQuotationQuantity": {
-      "$ref": "../../types/DecimalNumber.json",
+      "$ref": "../../types/Decimal18_17.json",
       "description": "Indicates the quantity of the commodity on which the trade price is based"
     },
     "withdrawalDays": {
@@ -132,7 +133,7 @@
       "$comment": "Consult External Code List table ExternalExerciseStyleCode"
     },
     "optionType": {
-      "$ref": "../../objects/business/ExternalCodeList.json",
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
       "description": "Specifies whether an option is call or put",
       "$comment": "Consult External Code List table ExternalOptionTypeCode"
     },
@@ -197,9 +198,9 @@
       "conversionCriteria": 1,
       "maturityDateTargetPoint": 100,
       "requiredConversionIndicator": false,
-      "deliveryType": "1",
-      "contractMultiplier": "1.00",
-      "assetQuotationQuantity": "1.00",
+      "deliveryType": 2,
+      "contractMultiplier": "1.2510234564330",
+      "assetQuotationQuantity": "1.2510234564330",
       "withdrawalDays": 90,
       "workingDays": 63,
       "calendarDays": 90,

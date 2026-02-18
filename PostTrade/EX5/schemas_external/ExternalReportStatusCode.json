@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalReportStatusCode",
+  "description": "Codes for report status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Em processamento",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Processado com Sucesso",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Processado com Erro",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Recusado",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Recebido",
+      "const": 5
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [1, 2, 3, 4, 5]
+}

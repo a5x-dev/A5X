@@ -17,7 +17,7 @@
     "clearingMemberIdentificationId": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 99,
+      "maximum": 999999,
       "description": "Clearing member identifier provided by A5X"
     },
     "clearingMemberIdentificationCategory": {
@@ -30,7 +30,7 @@
     "participantIdentificationId": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 99,
+      "maximum": 999999,
       "description": "Participant identifier provided by A5X during participant registration"
     },
     "participantIdentificationCategory": {
@@ -43,7 +43,7 @@
     "accountIdentificationId": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999999999999,
+      "maximum": 999999999,
       "description": "Account identifier defined by the participant"
     },
     "marketMakerIndicator": {
@@ -117,14 +117,14 @@
     "feeProductGroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 99,
+      "maximum": 999999,
       "description": "Fee family",
       "$comment": "Consult External Code List table ExternalFeeProductGroupCode"
     },
     "feeComponent": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 99,
+      "maximum": 999999,
       "description": "Calculated fee component",
       "$comment": "Consult External Code List table ExternalFeeComponentCode"
     },
@@ -154,7 +154,7 @@
     "feeProductSubgroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 99,
+      "maximum": 999999,
       "description": "Represents the second level of fee family, when applicable",
       "$comment": "Consult External Code List table ExternalFeeProductGroupCode. Field will be filled when product uses second level of fee family"
     },
@@ -179,14 +179,14 @@
     "calculationType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 99,
+      "maximum": 999999,
       "description": "Indicates if calculation is Progressive or Regressive",
       "$comment": "Consult External Code List table ExternalCalcTypeCode. Field will not be filled when component deals with maturity settlement or exercise"
     },
     "additionalValueType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 99,
+      "maximum": 999999,
       "description": "Additional value type indicator",
       "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
     },

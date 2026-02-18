@@ -1,0 +1,33 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:MonetaryValueHistoricalCurrency",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:MonetaryValueHistoricalCurrency"
+  },
+  "title" : "MonetaryValueHistoricalCurrency",
+  "description" : "Financial value with historical currency specification",
+  "type" : "object",
+  "properties" : {
+    "amount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Monetary amount with up to 2 decimal places",
+      "examples" : [ "1000.00", "15750.50", "250000" ]
+    },
+    "currency" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "historical currency code in which the amount is denominated",
+      "$comment" : "Consult External Code List table ExternalActiveOrHistoricCurrencyCode"
+    }
+  },
+  "required" : [ "amount", "currency" ],
+  "additionalProperties" : true,
+  "examples" : [ {
+    "amount" : "1000.00",
+    "currency" : "BRL"
+  }, {
+    "amount" : "50000.00",
+    "currency" : "USD"
+  } ]
+}

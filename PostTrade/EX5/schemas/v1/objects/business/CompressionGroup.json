@@ -45,7 +45,7 @@
   "additionalProperties": false,
   "examples": [
     {
-      "compressionGroupIdentification": "CG123456789012345",
+      "compressionGroupIdentification": "CG123456789",
       "compressionGroupStatus": 2,
       "compressionGroupReason": 1,
       "previousCompressionTradeIdentification": "TRD20250815001",

@@ -20,16 +20,6 @@
     },
     {
       "type": "number",
-      "description": "ERRO OPERACIONAL",
-      "const": 11
-    },
-    {
-      "type": "number",
-      "description": "ADMINCON",
-      "const": 10
-    },
-    {
-      "type": "number",
       "description": "BROKERAGE",
       "const": 6
     },
@@ -40,23 +30,33 @@
     },
     {
       "type": "number",
+      "description": "ADMINCON",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "ERRO OPERACIONAL",
+      "const": 11
+    },
+    {
+      "type": "number",
       "description": "INTERMEDIÁRIA",
       "const": 20
     },
     {
       "type": "number",
-      "description": "FORMADOR DE MERCADO",
-      "const": 22
+      "description": "ERRO OPERACIONAL COMPRA",
+      "const": 50
+    },
+    {
+      "type": "number",
+      "description": "ERRO OPERACIONAL VENDA",
+      "const": 51
     }
   ],
   "examples": [
     1,
     2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8
+    3
   ]
 }

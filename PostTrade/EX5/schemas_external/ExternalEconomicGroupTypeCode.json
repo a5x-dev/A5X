@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalEconomicGroupTypeCode",
+  "description": "Codes for economic group type classification",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Grupo Financeiro",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Grupo Industrial",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Grupo Comercial",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Grupo de Serviços",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Conglomerado",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Holding",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Cooperativa",
+      "const": 7
+    }
+  ],
+  "examples": [1, 2, 3, 4, 5, 6, 7]
+}

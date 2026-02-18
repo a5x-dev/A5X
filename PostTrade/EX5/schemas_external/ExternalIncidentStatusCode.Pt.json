@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalIncidentStatusCode",
+  "description": "Codes for incident status",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Incidente recém-criado e aguardando análise inicial",
+      "const": "OPEN"
+    },
+    {
+      "type": "string",
+      "description": "Incidente está sendo ativamente trabalhado pela equipe responsável",
+      "const": "IN_PROGRESS"
+    },
+    {
+      "type": "string",
+      "description": "Incidente foi solucionado e aguarda confirmação ou validação",
+      "const": "RESOLVED"
+    },
+    {
+      "type": "string",
+      "description": "Incidente está encerrado e nenhuma ação adicional é necessária",
+      "const": "CLOSED"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": ["OPEN", "IN_PROGRESS", "RESOLVED", "CLOSED"]
+}

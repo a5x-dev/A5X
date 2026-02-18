@@ -47,7 +47,7 @@
       "category" : 3
     },
     "accountIdentification" : {
-      "id" : 115
+      "id" : 123456789
     },
     "collateralDetails" : [ {
       "collateralIdentification" : "2",
@@ -65,7 +65,7 @@
         "errorIdentification" : [ {
           "code" : 1,
           "message" : "Error X",
-          "description" : "COD12452",
+          "errorDescription" : "COD12452",
           "refId" : "REF12345"
         } ]
       }
@@ -75,7 +75,7 @@
       "errorIdentification" : [ {
         "code" : 1,
         "message" : "Error X",
-        "description" : "COD12452",
+        "errorDescription" : "COD12452",
         "refId" : "REF12345"
       } ]
     }

@@ -48,9 +48,9 @@
     "collateralStatus" : {
       "statusCode" : 1,
       "errorIdentification" : [ {
-        "code" : 1,
+        "code" : "TEC00000",
         "message" : "Error X",
-        "description" : "COD12452",
+        "errorDescription" : "COD12452",
         "refId" : "REF12345"
       } ]
     }

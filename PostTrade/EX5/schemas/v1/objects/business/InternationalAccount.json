@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:InternationalAccount",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:InternationalAccount"
+  },
+  "title": "InternationalAccount",
+  "description": "International account information for non-resident persons",
+  "type": "object",
+  "properties": {
+    "beneficiaryBankDetails": {
+      "$ref": "../../objects/business/BankingDetails.json",
+      "description": "Beneficiary bank details"
+    },
+    "transferCurrency": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Transfer currency",
+      "$comment": "Consult External Code List table ExternalCurrencyCode"
+    },
+    "intermediaryBankDetails": {
+      "$ref": "../../objects/business/BankingDetails.json",
+      "description": "Intermediary bank details"
+    }
+  },
+  "required": [
+    "beneficiaryBankDetails"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "beneficiaryBankDetails": {
+        "accountNumber": "DE89370400440532013000",
+        "iban": "DE89370400440532013000",
+        "swiftCode": "XPTODEFF",
+        "bankName": "Banco do XPTO S.A",
+        "bankCountry": "BRA"
+      },
+      "transferCurrency": "USD",
+      "intermediaryBankDetails": {
+        "accountNumber": "US12345678967890",
+        "swiftCode": "CHXPTO33",
+        "bankName": "Banco do XPTO S.A"
+      }
+    }
+  ]
+}

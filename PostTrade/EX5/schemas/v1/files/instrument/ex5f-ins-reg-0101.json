@@ -401,7 +401,7 @@
     "expirationCode": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 6,
+      "maxLength": 8,
       "description": "Contract expiration code"
     },
     "valueTypeCode": {
@@ -435,16 +435,16 @@
       "description": "Indicates if the rate-traded contract should be converted to price"
     },
     "deliveryType": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 6,
-      "description": "Code that identifies the delivery type"
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6,
+      "description": "Delivery type identification number"
     },
     "contractMultiplier": {
       "type": "string",
-      "maxLength": 20,
-      "minLength": 1,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "maxLength": 1,
+      "minLength": 17,
+      "pattern": "^\\d{1,1}(\\.\\d{1,17})?$",
       "description": "Ratio between contract size and commodity quotation quantity"
     },
     "assetQuotationQuantity": {
@@ -503,7 +503,7 @@
       "$comment": "Consultar a lista na tabela ExternalExerciseStyleCode"
     },
     "optionType": {
-      "type": "string",
+      "type": "integer",
       "minLength": 1,
       "maxLength": 666666,
       "description": "Specifies whether an option is call or put",

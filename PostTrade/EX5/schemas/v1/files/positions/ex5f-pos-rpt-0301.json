@@ -34,7 +34,7 @@
     "accountIdentification" : {
       "type" : "integer", 
       "minimum" : 1, 
-      "maximum" : 999999999999999, 
+      "maximum" : 999999999, 
       "description" : "Account identifier defined by the participant"
     }, 
     "tickerSymbol" : {
@@ -88,7 +88,7 @@
     "expirationCode" : {
       "type" : "string", 
       "minLength" : 1, 
-      "maxLength" : 6, 
+      "maxLength" : 8, 
       "description" : "Expiration code of a Future or an Option"
     }, 
     "expiryDate" : {

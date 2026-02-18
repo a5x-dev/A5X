@@ -1,66 +1,91 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:business:ExclusiveFund",
-  "$metadata" : {
-    "domain" : "business",
-    "schemaId" : "urn:a5x:ex5:schema:v1:business:ExclusiveFund"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:ExclusiveFund",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:ExclusiveFund"
   },
-  "title" : "Exclusive Fund",
-  "description" : "Specific data for exclusive funds - all fields are optional",
-  "type" : "object",
-  "properties" : {
-    "personType" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Type of person. Consult External Code List table ExternalPersonTypeCode",
-      "$comment" : "Consult External Code List table ExternalPersonTypeCode"
+  "title": "ExclusiveFund",
+  "description": "Exclusive fund shareholder information for both natural and legal persons",
+  "type": "object",
+  "properties": {
+    "personType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of person - Natural Person or Legal Entity",
+      "$comment": "Consult External Code List table ExternalPersonTypeCode"
     },
-    "residenceStatus" : {
-      "$ref" : "../../objects/business/ExternalCodeTextList.json",
-      "description" : "Residence status for tax purposes. Consult External Code List table ExternalResidenceStatusCode"
+    "residenceStatus": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Residence status for tax purposes",
+      "$comment": "Consult External Code List table ExternalResidenceStatusCode"
     },
-    "documentIdentifier" : {
-      "$ref" : "../../objects/business/DocumentIdentifier.json",
-      "description" : "Document identifier"
+    "documentIdentifier": {
+      "$ref": "../../objects/business/DocumentIdentifier.json",
+      "description": "Document identification information"
     },
-    "name" : {
-      "$ref" : "../../objects/business/NaturalPersonName.json",
-      "description" : "Full name of the person"
+    "fullName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "description": "Full name - Natural Person only"
     },
-    "relatedPerson" : {
-      "type" : "boolean",
-      "description" : "Related person status indicator",
-      "examples" : [ true, false ]
+    "corporateName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 140,
+      "description": "Corporate name - Legal Entity only"
     },
-    "politicallyExposedPerson" : {
-      "type" : "boolean",
-      "description" : "Politically exposed person status indicator",
-      "examples" : [ true, false ]
+    "relatedPerson": {
+      "type": "boolean",
+      "description": "Related person indicator"
     },
-    "usPerson" : {
-      "type" : "boolean",
-      "description" : "US Person classification indicator",
-      "examples" : [ true, false ]
+    "politicallyExposedPerson": {
+      "type": "boolean",
+      "description": "Politically exposed person indicator"
     },
-    "countryOfResidence" : {
-      "$ref" : "../../objects/business/ExternalCodeTextList.json",
-      "description" : "Country of residence. Consult External Code Text List table ExternalCountryCode"
+    "usPerson": {
+      "type": "boolean",
+      "description": "US Person indicator"
+    },
+    "countryOfResidence": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Country of residence for Natural Person or registration for Legal Entity",
+      "$comment": "Consult External Code List table ExternalCountryCode"
     }
   },
-  "additionalProperties" : false,
-  "examples" : [ {
-    "personType" : 1,
-    "residenceStatus" : "RESI",
-    "documentIdentifier" : {
-      "documentType" : 2,
-      "documentNumber" : "12345678901"
+  "required": [
+    "personType",
+    "residenceStatus",
+    "documentIdentifier",
+    "countryOfResidence"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "personType": 1,
+      "residenceStatus": "RESI",
+      "documentIdentifier": {
+        "documentType": 2,
+        "documentNumber": "12345678900"
+      },
+      "fullName": "João Silva Santos",
+      "relatedPerson": false,
+      "politicallyExposedPerson": false,
+      "usPerson": false,
+      "countryOfResidence": "BRA"
     },
-    "name" : {
-      "fullName" : "João Silva Santos",
-      "socialName" : "João Santos"
-    },
-    "relatedPerson" : false,
-    "politicallyExposedPerson" : false,
-    "usPerson" : false,
-    "countryOfResidence" : "BRA"
-  } ]
+    {
+      "personType": 2,
+      "residenceStatus": "RESI",
+      "documentIdentifier": {
+        "documentType": 5,
+        "documentNumber": "12345678000195"
+      },
+      "corporateName": "Empresa Exemplo LTDA",
+      "relatedPerson": true,
+      "politicallyExposedPerson": false,
+      "usPerson": false,
+      "countryOfResidence": "BRA"
+    }
+  ]
 }

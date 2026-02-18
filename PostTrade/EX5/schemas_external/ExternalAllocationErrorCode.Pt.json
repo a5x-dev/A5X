@@ -1,0 +1,295 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalAllocationErrorCode",
+  "description": "Error codes for allocation domain",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "A conta de Câmara de compra não está especificada",
+      "const": "ALC00001"
+    },
+    {
+      "type": "string",
+      "description": "A conta de Câmara de venda não está especificada",
+      "const": "ALC00002"
+    },
+    {
+      "type": "string",
+      "description": "A posição de compra não é reduzida da operação quando a conta está parcialmente suspensa",
+      "const": "ALC00003"
+    },
+    {
+      "type": "string",
+      "description": "A posição de venda não é reduzida da operação quando a conta está parcialmente suspensa",
+      "const": "ALC00004"
+    },
+    {
+      "type": "string",
+      "description": "A Conta de Erro Operacional de compra de [TMF ID] não está disponível para Alocação de fim de dia (EOD)",
+      "const": "ALC00005"
+    },
+    {
+      "type": "string",
+      "description": "A Conta de Erro Operacional de venda de [TMF ID] não está disponível para Alocação de fim de dia (EOD)",
+      "const": "ALC00006"
+    },
+    {
+      "type": "string",
+      "description": "A posição de compra não é reduzida da operação quando a Conta de Beneficiário de compra está parcialmente suspensa",
+      "const": "ALC00007"
+    },
+    {
+      "type": "string",
+      "description": "A posição de venda não é reduzida da operação quando a Conta de Beneficiário de venda está parcialmente suspensa",
+      "const": "ALC00008"
+    },
+    {
+      "type": "string",
+      "description": "A Conta de Beneficiário de compra especificada não está ativa",
+      "const": "ALC00009"
+    },
+    {
+      "type": "string",
+      "description": "A Conta de Beneficiário de venda especificada não está ativa",
+      "const": "ALC00010"
+    },
+    {
+      "type": "string",
+      "description": "A Alocação é realizada fora do intervalo de tempo permitido de [Deadline - time frame]",
+      "const": "ALC00011"
+    },
+    {
+      "type": "string",
+      "description": "A Alocação é realizada após o prazo final de [Deadline - final time]",
+      "const": "ALC00012"
+    },
+    {
+      "type": "string",
+      "description": "A Alocação não é permitida de um [Source Account Type] para um [Destination Account Type]",
+      "const": "ALC00013"
+    },
+    {
+      "type": "string",
+      "description": "A Quantidade de Alocação [Posting Quantity] não é um múltiplo do Lote Padrão x Multiplicador de Contrato do Instrumento",
+      "const": "ALC00014"
+    },
+    {
+      "type": "string",
+      "description": "Solicitação de Limite de Alocação enviada. Requer autorização dupla",
+      "const": "ALC00015"
+    },
+    {
+      "type": "string",
+      "description": "Autorizado. A solicitação de Limite de Alocação está sendo processada",
+      "const": "ALC00016"
+    },
+    {
+      "type": "string",
+      "description": "Autorização dupla para a solicitação de Limite de Alocação rejeitada",
+      "const": "ALC00017"
+    },
+    {
+      "type": "string",
+      "description": "Solicitação de Limite de Alocação cancelada",
+      "const": "ALC00018"
+    },
+    {
+      "type": "string",
+      "description": "A Conta de Erro de [TMF ID] não está disponível",
+      "const": "ALC00019"
+    },
+    {
+      "type": "string",
+      "description": "A Alocação é realizada quando a atribuição está no substatus \"Pendente de Aprovação\"",
+      "const": "ALC00020"
+    },
+    {
+      "type": "string",
+      "description": "O rejeite de Aceite de repasse não teve sucesso para [Allocation ID] - O rejeite foi iniciado após o Horário de Aceite de repasse para Operações",
+      "const": "ALC00021"
+    },
+    {
+      "type": "string",
+      "description": "A aprovação do Aceite de repasse não teve sucesso, pois o Aceite de repasse de [Allocation ID] já está aprovado",
+      "const": "ALC00022"
+    },
+    {
+      "type": "string",
+      "description": "O rejeite do Aceite de repasse não teve sucesso, pois o Aceite de repasse de [Allocation ID] já está rejeitado",
+      "const": "ALC00023"
+    },
+    {
+      "type": "string",
+      "description": "A aprovação do Aceite de repasse não teve sucesso, pois o Aceite de repasse de [Allocation ID] já está rejeitado",
+      "const": "ALC00024"
+    },
+    {
+      "type": "string",
+      "description": "O Motivo da Quebra de Regra deve ser especificado se o Indicador de Quebra de Regra for Sim",
+      "const": "ALC00025"
+    },
+    {
+      "type": "string",
+      "description": "O Status da Conta de Câmara especificada na solicitação deve ser diferente de Inativo",
+      "const": "ALC00026"
+    },
+    {
+      "type": "string",
+      "description": "Status do Participante de Câmara especificado na solicitação diferente de Inativo",
+      "const": "ALC00027"
+    },
+    {
+      "type": "string",
+      "description": "Status do Participante de Negociação especificado na solicitação diferente de Inativo",
+      "const": "ALC00028"
+    },
+    {
+      "type": "string",
+      "description": "A Conta de Câmara na posição informada deve ser a mesma Conta de Câmara especificada na solicitação",
+      "const": "ALC00029"
+    },
+    {
+      "type": "string",
+      "description": "O Participante de Negociação na posição informada deve ser o mesmo Participante de Negociação especificado na solicitação",
+      "const": "ALC00030"
+    },
+    {
+      "type": "string",
+      "description": "O Participante de Câmara na posição informada deve ser o mesmo Participante de Câmara especificado na solicitação",
+      "const": "ALC00031"
+    },
+    {
+      "type": "string",
+      "description": "O Símbolo na posição informada deve ser o mesmo Símbolo especificado na solicitação",
+      "const": "ALC00032"
+    },
+    {
+      "type": "string",
+      "description": "O Símbolo da atribuição e o Símbolo da solicitação de Alocação devem ser os mesmos",
+      "const": "ALC00033"
+    },
+    {
+      "type": "string",
+      "description": "A Alocação é realizada para uma titularidade diferente",
+      "const": "ALC00034"
+    },
+    {
+      "type": "string",
+      "description": "O rejeite de Aceite de repasse não teve sucesso - Existe uma solicitação de Alocação em status Pendente de Validação de Risco para esta atribuição",
+      "const": "ALC00035"
+    },
+    {
+      "type": "string",
+      "description": "O rejeite de Aceite de repasse não teve sucesso - Existe uma solicitação de Alocação em status Pendente de Autorização da CCP para esta atribuição",
+      "const": "ALC00036"
+    },
+    {
+      "type": "string",
+      "description": "O rejeite de Aceite de repasse não teve sucesso - A atribuição foi atualizada devido à Alocação",
+      "const": "ALC00037"
+    },
+    {
+      "type": "string",
+      "description": "Ações de Aceite de repasse não são permitidas para a atribuição especificada",
+      "const": "ALC00038"
+    },
+    {
+      "type": "string",
+      "description": "A Quebra de Regra deve ser especificada para ações de Rejeição",
+      "const": "ALC00039"
+    },
+    {
+      "type": "string",
+      "description": "A Quebra de Regra não deve ser especificada para ações de Aprovação",
+      "const": "ALC00040"
+    },
+    {
+      "type": "string",
+      "description": "O Motivo da Quebra de Regra deve ser especificado",
+      "const": "ALC00041"
+    },
+    {
+      "type": "string",
+      "description": "A Responsabilidade da Quebra de Regra deve ser especificada",
+      "const": "ALC00042"
+    },
+    {
+      "type": "string",
+      "description": "O rejeite de Aceite de repasse não teve sucesso - A atribuição foi atualizada devido à Alocação",
+      "const": "ALC00043"
+    },
+    {
+      "type": "string",
+      "description": "A Quebra de Regra deve ser especificada ao realizar a Alocação para uma Conta de Beneficiário com vínculo de Repasse de operação após o Horário de Aceite de repasse para Alocações",
+      "const": "ALC00044"
+    },
+    {
+      "type": "string",
+      "description": "A Alocação é realizada quando a atribuição está no substatus \"Pendente de Aprovação do TMF de Destino\"",
+      "const": "ALC00045"
+    },
+    {
+      "type": "string",
+      "description": "O ID da Operação e o Lado da Operação não coincidem com os Dados da Atribuição",
+      "const": "ALC00046"
+    },
+    {
+      "type": "string",
+      "description": "Falha Técnica",
+      "const": "ALC00047"
+    },
+    {
+      "type": "string",
+      "description": "A posição de compra não é reduzida da Alocação quando a conta está parcialmente suspensa",
+      "const": "ALC00048"
+    },
+    {
+      "type": "string",
+      "description": "A posição de venda não é reduzida da Alocação quando a conta está parcialmente suspensa",
+      "const": "ALC00049"
+    },
+    {
+      "type": "string",
+      "description": "A posição de compra não é reduzida da Alocação quando a Conta de Beneficiário de compra está parcialmente suspensa",
+      "const": "ALC00050"
+    },
+    {
+      "type": "string",
+      "description": "A posição de venda não é reduzida da Alocação quando a Conta de Beneficiário de compra está parcialmente suspensa",
+      "const": "ALC00051"
+    },
+    {
+      "type": "string",
+      "description": "O Participante de Negociação da atribuição e o Participante de Negociação da solicitação de Alocação devem ser os mesmos",
+      "const": "ALC00052"
+    },
+    {
+      "type": "string",
+      "description": "A Alocação é realizada quando a atribuição está no substatus \"Pendente de Aprovação da CCP\"",
+      "const": "ALC00053"
+    },
+    {
+      "type": "string",
+      "description": "O vínculo Master ativo não está disponível entre [Source Account] e [Destination Account]",
+      "const": "ALC00054"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    "ALC00001",
+    "ALC00002",
+    "ALC00003",
+    "ALC00004",
+    "ALC00005",
+    "ALC00010",
+    "ALC00015",
+    "ALC00020",
+    "ALC00025",
+    "ALC00030",
+    "ALC00035",
+    "ALC00040",
+    "ALC00045",
+    "ALC00050",
+    "ALC00054"
+  ]
+}

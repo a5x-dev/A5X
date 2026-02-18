@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalFeeStatusCode",
+  "description": "Codes for fee status",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Provisória",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Final Alocação",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Final Alocação e Posição",
+      "const": 3
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [1, 2, 3]
+}

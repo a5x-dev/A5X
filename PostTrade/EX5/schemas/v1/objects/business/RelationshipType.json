@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:RelationshipType",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:RelationshipType"
+  },
+  "title": "RelationshipType",
+  "description": "Relationship information for both natural and legal persons",
+  "type": "object",
+  "properties": {
+    "relationshipType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of relationship",
+      "$comment": "Consult External Code List table ExternalRelationshipTypeCode"
+    },
+    "personType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of person - Natural Person or Legal Entity",
+      "$comment": "Consult External Code List table ExternalPersonTypeCode"
+    },
+    "residenceStatus": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Residence status for tax purposes",
+      "$comment": "Consult External Code List table ExternalResidenceStatusCode"
+    },
+    "documentIdentifier": {
+      "$ref": "../../objects/business/DocumentIdentifier.json",
+      "description": "Document identification information"
+    },
+    "fullName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "description": "Full name - Natural Person only"
+    },
+    "socialName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "description": "Social name - Natural Person only"
+    },
+    "corporateName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 140,
+      "description": "Corporate name - Legal Entity only"
+    },
+    "politicallyExposedPerson": {
+      "type": "boolean",
+      "description": "Politically exposed person indicator"
+    },
+    "usPerson": {
+      "type": "boolean",
+      "description": "US Person indicator"
+    },
+    "relatedPerson": {
+      "type": "boolean",
+      "description": "Related person indicator"
+    },
+    "position": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 70,
+      "description": "Position/role - Natural Person only"
+    },
+    "countryOfResidence": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Country of residence for Natural Person or registration for Legal Entity",
+      "$comment": "Consult External Code List table ExternalCountryCode"
+    },
+    "address": {
+      "$ref": "../../objects/business/Address.json",
+      "description": "Address information"
+    }
+  },
+  "required": [
+    "relationshipType",
+    "personType",
+    "residenceStatus",
+    "documentIdentifier"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "relationshipType": 1,
+      "personType": 1,
+      "residenceStatus": "RESI",
+      "documentIdentifier": {
+        "documentType": 2,
+        "documentNumber": "12345678900"
+      },
+      "fullName": "João Silva Santos",
+      "socialName": "Maria Silva Santos",
+      "politicallyExposedPerson": false,
+      "usPerson": false,
+      "relatedPerson": true,
+      "position": "Diretor",
+      "countryOfResidence": "BRA",
+      "address": {
+        "country": "BRA",
+        "postalCode": "01234-567",
+        "streetAddress": "Rua Brasilândia",
+        "streetNumber": "123",
+        "complement": "Apto 101",
+        "neighborhood": "Centro",
+        "cityName": "São Paulo",
+        "state": 35,
+        "phoneNumber": "+55-11-91234-5678",
+        "email": "usuario@exemplo.com.br"
+      }
+    }
+  ]
+}

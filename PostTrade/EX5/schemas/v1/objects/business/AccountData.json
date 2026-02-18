@@ -1,75 +1,103 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:business:AccountData",
-  "$metadata" : {
-    "domain" : "business",
-    "schemaId" : "urn:a5x:ex5:schema:v1:business:AccountData"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:AccountData",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:AccountData"
   },
-  "title" : "Account Data",
-  "description" : "Complete account information grouping with different contexts",
-  "type" : "object",
-  "properties" : {
-    "profile" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Define the account profile for PTRM setup",
-      "$comment" : "Consult External Code List table ExternalPTRMProfile"
+  "title": "Account Data",
+  "description": "Complete account information grouping with different contexts",
+  "type": "object",
+  "properties": {
+    "account": {
+      "$ref": "../../objects/business/Account.json",
+      "description": "Account and type of account"
     },
-    "riskProfile" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Risk profile classification",
-      "$comment" : "Consult External Code List table ExternalCustomerClassificationRiskCode"
+    "onBehalfOf": {
+      "type": "boolean",
+      "default": false,
+      "description": "On behalf of indicator. Default = false. Required when account is used as origin for 'On Behalf Of' relationship links"
     },
-    "status" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Account status/situation",
-      "$comment" : "Consult External Code List table ExternalStatusCode (optional - set after creation)"
+    "lightIntermediaryCode": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Light intermediary code for opened accounts"
     },
-    "onBehalfOf" : {
-      "type" : "boolean",
-      "default" : false,
-      "description" : "On behalf of indicator. Default = false. Required when account is used as origin for 'On Behalf Of' relationship links"
+    "profile": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Define the account profile for PTRM setup",
+      "$comment": "Consult External Code List table ExternalPTRMProfile"
     },
-    "openedOnBehalf" : {
-      "type" : "boolean",
-      "default" : false,
-      "description" : "Opened on behalf of indicator",
-      "$comment" : "Default = false. Indicates if the account was opened on behalf of another person"
+    "registrationDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Account registration inclusion date"
     },
-    "intermediaryCode" : {
-      "type" : "boolean",
-      "description" : "Intermediary code indicator",
-      "$comment" : "Required when openedOnBehalf = true"
+    "updateDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Account registration modification date"
     },
-    "modifyAddressforAllAccounts" : {
-      "type" : "boolean",
-      "default" : true,
-      "description" : "Update address to all user's accounts"
+    "advisorDocument": {
+      "$ref": "../../objects/business/DocumentIdentifier.json",
+      "description": "Investment advisor document number"
     },
-    "address" : {
-      "$ref" : "../../objects/business/Address.json"
+    "preferredPhoneType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Preferred phone type from investor phone list to use for this account",
+      "$comment": "Consult External Code List table ExternalPhoneTypeCode"
+    },
+    "preferredAddressType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Preferred address type from investor address list to use for this account",
+      "$comment": "Consult External Code List table ExternalAddressTypeCode"
+    },
+    "preferredEmailType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Preferred email type from investor email list to use for this account",
+      "$comment": "Consult External Code List table ExternalEmailTypeCode"
+    },
+    "status": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Account status",
+      "$comment": "Consult External Code List table ExternalStatusCode"
+    },
+    "positionAndCustodianAccount": {
+      "type": "boolean",
+      "description": "Indicator if is the position or custodian account"
+    },
+    "relatedBrand": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6,
+      "description": "Related brand identifier"      
     }
   },
-  "required" : [ ],
-  "additionalProperties" : false,
-  "examples" : [ {
-    "profile" : 1,
-    "riskProfile" : 1,
-    "status" : 1,
-    "onBehalfOf" : true,
-    "openedOnBehalf" : false,
-    "intermediaryCode" : false,
-    "modifyAddressforAllAccounts" : true,
-    "address" : {
-      "street" : "Rua Brasilândia",
-      "number" : "123",
-      "complement" : "Apto 101",
-      "neighborhood" : "Centro",
-      "postalCode" : "01234-567",
-      "cityName" : 3550308,
-      "state" : "SP",
-      "country" : "BRA",
-      "phoneNumber" : "+55-11-91234-5678",
-      "email" : "usuario@exemplo.com.br"
+  "required": [
+    "account",
+    "positionAndCustodianAccount"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "account": {
+        "accountType": 1,
+        "id": 123456789
+      },
+      "onBehalfOf": true,
+      "lightIntermediaryCode": 123456,
+      "profile": 1,
+      "registrationDate": "2023-01-15",
+      "updateDate": "2024-05-20",
+      "advisorDocument": {
+        "documentType": 1,
+        "documentNumber": "123456789"
+      },
+      "preferredPhoneType": 1,
+      "preferredAddressType": 2,
+      "preferredEmailType": 1,
+      "status": 1,      
+      "positionAndCustodianAccount": true,
+      "relatedBrand": 1
     }
-  } ]
+  ]
 }

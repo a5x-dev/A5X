@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalOperationalWindowCode",
+  "description": "Codes for operational window",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Janela operacional para processamento e notificações de chamada de margem",
+      "const": "MARGIN_CALL"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional para atividades de alocação de trades",
+      "const": "ALLOCATION_WINDOW"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional para processamento e cálculos intraday",
+      "const": "INTRADAY_MONITORING"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional para cálculo e gestão de garantias",
+      "const": "DEPOSITORY_WINDOW"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional para atividades de processamento de liquidação",
+      "const": "SETTLEMENT_PROCESSING"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": ["MARGIN_CALL", "ALLOCATION_WINDOW", "INTRADAY_MONITORING", "DEPOSITORY_WINDOW", "SETTLEMENT_PROCESSING"]
+}

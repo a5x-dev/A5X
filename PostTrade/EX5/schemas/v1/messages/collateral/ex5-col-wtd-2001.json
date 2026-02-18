@@ -30,7 +30,7 @@
       "description" : "Unique identifier for a collateral proposal assigned by the A5X"
     }
   },
-  "required" : [ "transactionIdentification", "clearingMemberIdentification", "participantIdentification", "accountIdentification" ],
+  "required" : [ "transactionIdentification", "clearingMemberIdentification", "participantIdentification"],
   "additionalProperties" : false,
   "examples" : [ {
     "transactionIdentification" : "COLL-STA-11682",
@@ -43,7 +43,7 @@
       "category" : 3
     },
     "accountIdentification" : {
-      "id" : 115
+      "id" : 123456789
     },
     "withdrawalResponse" : {
       "collateralWithdrawalIdentification" : "TRF-REF-001",
@@ -83,15 +83,15 @@
         "statusCode" : 1,
         "rejectionInformation" : "Rejection information"
       } ],
-      "collateralSubstitutionStatus" : [ {
+      "collateralSubstitutionStatus" : {
       "statusCode" : 1,
       "errorIdentification" : [ {
-        "code" : 1,
+        "code" : "TEC00000",
         "message" : "Error X",
         "errorDescription" : "COD12452",
         "refId" : "REF12345"
       } ]
-      } ],
+      },
       "externalSecuritiesResponse" : [ {
       "collateralIdentification" : "CASH-REF-001",
       "quantity" : "100.00",

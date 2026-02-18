@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalOrderSentByTypeCode",
+  "description": "Codes for order sent by type",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Administrador de Carteira",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Procurador",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Representante Legal",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Não",
+      "const": 4
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [1, 2, 3, 4]
+}

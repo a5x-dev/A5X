@@ -1,0 +1,379 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalTechnicalErrorCode",
+  "description": "Technical error codes",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Main database connection failure",
+      "const": "TEC00001"
+    },
+    {
+      "type": "string",
+      "description": "Connection timeout",
+      "const": "TEC00002"
+    },
+    {
+      "type": "string",
+      "description": "Service authentication failure",
+      "const": "TEC00003"
+    },
+    {
+      "type": "string",
+      "description": "SSL certificate expired or invalid",
+      "const": "TEC00004"
+    },
+    {
+      "type": "string",
+      "description": "DNS resolution failure",
+      "const": "TEC00005"
+    },
+    {
+      "type": "string",
+      "description": "Communication port blocked or unavailable",
+      "const": "TEC00006"
+    },
+    {
+      "type": "string",
+      "description": "Message broker connection failure",
+      "const": "TEC00007"
+    },
+    {
+      "type": "string",
+      "description": "Cache connectivity loss",
+      "const": "TEC00008"
+    },
+    {
+      "type": "string",
+      "description": "Microservices communication failure",
+      "const": "TEC00009"
+    },
+    {
+      "type": "string",
+      "description": "Gateway response timeout",
+      "const": "TEC00010"
+    },
+    {
+      "type": "string",
+      "description": "Processing timeout",
+      "const": "TEC10001"
+    },
+    {
+      "type": "string",
+      "description": "Insufficient memory",
+      "const": "TEC10002"
+    },
+    {
+      "type": "string",
+      "description": "CPU usage above critical limit",
+      "const": "TEC10003"
+    },
+    {
+      "type": "string",
+      "description": "Processing queue saturated",
+      "const": "TEC10004"
+    },
+    {
+      "type": "string",
+      "description": "Processing interrupted by time limit",
+      "const": "TEC10007"
+    },
+    {
+      "type": "string",
+      "description": "Data serialization/deserialization failure",
+      "const": "TEC10008"
+    },
+    {
+      "type": "string",
+      "description": "Numeric calculation overflow",
+      "const": "TEC10009"
+    },
+    {
+      "type": "string",
+      "description": "Batch processing failed",
+      "const": "TEC10010"
+    },
+    {
+      "type": "string",
+      "description": "Invalid JSON format in message",
+      "const": "TEC20001"
+    },
+    {
+      "type": "string",
+      "description": "Validation schema not found",
+      "const": "TEC20002"
+    },
+    {
+      "type": "string",
+      "description": "Required field missing in message",
+      "const": "TEC20003"
+    },
+    {
+      "type": "string",
+      "description": "Invalid data type in field",
+      "const": "TEC20004"
+    },
+    {
+      "type": "string",
+      "description": "Field size exceeds maximum limit",
+      "const": "TEC20005"
+    },
+    {
+      "type": "string",
+      "description": "Value out of allowed range",
+      "const": "TEC20006"
+    },
+    {
+      "type": "string",
+      "description": "Invalid date/time format",
+      "const": "TEC20007"
+    },
+    {
+      "type": "string",
+      "description": "Invalid character encoding",
+      "const": "TEC20008"
+    },
+    {
+      "type": "string",
+      "description": "Integrity checksum failed",
+      "const": "TEC20009"
+    },
+    {
+      "type": "string",
+      "description": "Incompatible schema version",
+      "const": "TEC20010"
+    },
+    {
+      "type": "string",
+      "description": "Authentication token expired or invalid",
+      "const": "TEC30001"
+    },
+    {
+      "type": "string",
+      "description": "User not authorized for operation",
+      "const": "TEC30003"
+    },
+    {
+      "type": "string",
+      "description": "Login attempt limit exceeded",
+      "const": "TEC30004"
+    },
+    {
+      "type": "string",
+      "description": "Invalid digital signature",
+      "const": "TEC30005"
+    },
+    {
+      "type": "string",
+      "description": "Digital certificate expired",
+      "const": "TEC30006"
+    },
+    {
+      "type": "string",
+      "description": "Data encryption failure",
+      "const": "TEC30007"
+    },
+    {
+      "type": "string",
+      "description": "Integrity validation failure",
+      "const": "TEC30010"
+    },
+    {
+      "type": "string",
+      "description": "Insufficient disk space",
+      "const": "TEC40001"
+    },
+    {
+      "type": "string",
+      "description": "Database write failure",
+      "const": "TEC40002"
+    },
+    {
+      "type": "string",
+      "description": "Database transaction failed",
+      "const": "TEC40003"
+    },
+    {
+      "type": "string",
+      "description": "Corrupted database index",
+      "const": "TEC40004"
+    },
+    {
+      "type": "string",
+      "description": "Automatic backup failed",
+      "const": "TEC40005"
+    },
+    {
+      "type": "string",
+      "description": "Integrity constraint violated",
+      "const": "TEC40008"
+    },
+    {
+      "type": "string",
+      "description": "Corrupted log file",
+      "const": "TEC40009"
+    },
+    {
+      "type": "string",
+      "description": "Inconsistent data cache",
+      "const": "TEC40010"
+    },
+    {
+      "type": "string",
+      "description": "Configuration file not found",
+      "const": "TEC50001"
+    },
+    {
+      "type": "string",
+      "description": "Invalid configuration parameter",
+      "const": "TEC50002"
+    },
+    {
+      "type": "string",
+      "description": "Incompatible dependency version",
+      "const": "TEC50004"
+    },
+    {
+      "type": "string",
+      "description": "Port already in use by another process",
+      "const": "TEC50007"
+    },
+    {
+      "type": "string",
+      "description": "System resource unavailable",
+      "const": "TEC50009"
+    },
+    {
+      "type": "string",
+      "description": "Dynamic configuration load failure",
+      "const": "TEC50010"
+    },
+    {
+      "type": "string",
+      "description": "Monitoring dashboard unavailable",
+      "const": "TEC60007"
+    },
+    {
+      "type": "string",
+      "description": "Log synchronization failure",
+      "const": "TEC60008"
+    },
+    {
+      "type": "string",
+      "description": "Rate limit exceeded",
+      "const": "TEC70003"
+    },
+    {
+      "type": "string",
+      "description": "Webhook could not be delivered",
+      "const": "TEC70007"
+    },
+    {
+      "type": "string",
+      "description": "API callback failed",
+      "const": "TEC70008"
+    },
+    {
+      "type": "string",
+      "description": "External system synchronization failure",
+      "const": "TEC70009"
+    },
+    {
+      "type": "string",
+      "description": "Communication protocol not supported",
+      "const": "TEC70010"
+    },
+    {
+      "type": "string",
+      "description": "Maximum simultaneous connections limit reached",
+      "const": "TEC80001"
+    },
+    {
+      "type": "string",
+      "description": "Requests per minute limit exceeded",
+      "const": "TEC80002"
+    },
+    {
+      "type": "string",
+      "description": "Maximum file size exceeded",
+      "const": "TEC80003"
+    },
+    {
+      "type": "string",
+      "description": "Memory limit per process reached",
+      "const": "TEC80004"
+    },
+    {
+      "type": "string",
+      "description": "Maximum number of threads reached",
+      "const": "TEC80005"
+    },
+    {
+      "type": "string",
+      "description": "Storage quota exceeded",
+      "const": "TEC80006"
+    },
+    {
+      "type": "string",
+      "description": "Processing time limit exceeded",
+      "const": "TEC80007"
+    },
+    {
+      "type": "string",
+      "description": "Maximum records per query exceeded",
+      "const": "TEC80008"
+    },
+    {
+      "type": "string",
+      "description": "Retry mechanism exhausted",
+      "const": "TEC90001"
+    },
+    {
+      "type": "string",
+      "description": "Circuit breaker activated",
+      "const": "TEC90002"
+    },
+    {
+      "type": "string",
+      "description": "Fallback to degraded mode",
+      "const": "TEC90003"
+    },
+    {
+      "type": "string",
+      "description": "Automatic recovery failure",
+      "const": "TEC90004"
+    },
+    {
+      "type": "string",
+      "description": "Transaction rollback failed",
+      "const": "TEC90005"
+    },
+    {
+      "type": "string",
+      "description": "Disaster recovery process initiated",
+      "const": "TEC90006"
+    },
+    {
+      "type": "string",
+      "description": "Failover to secondary server",
+      "const": "TEC90007"
+    },
+    {
+      "type": "string",
+      "description": "Corrupted backup data",
+      "const": "TEC90008"
+    },
+    {
+      "type": "string",
+      "description": "Post-failure synchronization process failed",
+      "const": "TEC90009"
+    },
+    {
+      "type": "string",
+      "description": "Inconsistent state after recovery",
+      "const": "TEC90010"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": ["TEC00001", "TEC10001", "TEC20001", "TEC30001", "TEC40001"]
+}

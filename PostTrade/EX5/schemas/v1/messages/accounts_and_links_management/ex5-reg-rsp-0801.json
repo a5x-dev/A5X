@@ -23,10 +23,6 @@
       "description": "Type of operation to perform",
       "$comment": "Consult External Code List table ExternalTransactionOriginTypeCode"
     },
-    "updatedData": {
-      "$ref": "../../objects/business/NotificationRegistry.json",
-      "description": "Details of the changes made to the Link"
-    },
     "linkData": {
       "$ref": "../../objects/business/BaseRegistrationLink.json",
       "description": "Details of the changes made to the Link"
@@ -41,7 +37,8 @@
   },
   "required": [
     "participantIdentification",
-    "updatedData"
+    "operationType",
+    "transactionOrigin"
   ],
   "additionalProperties": false,
   "examples": [
@@ -52,16 +49,6 @@
       },
       "operationType": 1,
       "transactionOrigin": 1,
-      "updatedData": {
-        "eventType": 2,
-        "eventTimestamp": "2024-05-15T14:30:15Z",
-        "userId": "ADMIN123",
-        "changedFields": [
-          {
-            "fieldName": "account.address.city"
-          }
-        ]
-      },
       "linkData": {
         "linkType": 1,
         "linkStatus": 6,
@@ -83,15 +70,23 @@
         "positionConsolidation": true,
         "automaticAcceptance": true
       },
+      "statusSuccess": true
+    },
+    {
+      "participantIdentification": {
+        "id": 999,
+        "category": 3
+      },
+      "operationType": 1,
+      "transactionOrigin": 1,
       "statusSuccess": false,
       "statusError": {
         "statusCode": 1,
         "errorIdentification": [
           {
-            "code": 1,
+            "code" : "TEC00000",
             "message": "Error X",
-            "errorDescription": "COD12452",
-            "refId": "REF12345"
+            "errorDescription": "COD12452"
           }
         ]
       }

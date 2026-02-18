@@ -82,7 +82,7 @@
     "expirationCode": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 6,
+      "maxLength": 8,
       "description": "Expiration code associated with the instrument"
     },
     "allocationRoundLot": {
@@ -123,7 +123,7 @@
       "cfiCode": "FXXXXX",
       "currency": "BRL",
       "expirationDate": "2024-12-31",
-      "expirationCode": 1,
+      "expirationCode": "F28",
       "allocationRoundLot": 5,
       "tradingStartDate": "2024-01-01",
       "tradingEndDate": "2024-12-30"

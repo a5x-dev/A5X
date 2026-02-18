@@ -27,11 +27,11 @@
       "description" : "Participant category code",
       "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalparticipanteIdentificationCategory."
     },
-    "accountIdentification" : {
-      "type" : "string",
-      "maxLength" : 35,
-      "minLength" : 1,
-      "description" : "Number account identification"
+     "accountIdentification" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999,
+      "description" : "Account identifier defined by the participant"
     },
     "giveUpOnCaptureIndicator" : {
       "type" : "boolean",

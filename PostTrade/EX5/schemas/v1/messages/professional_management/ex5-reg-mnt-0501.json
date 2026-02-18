@@ -22,7 +22,7 @@
     "mappingType" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Type of professional mapping",
-      "$comment" : "Consult External Code List table ExternalProfessionalMappingRoleCode"
+      "$comment" : "Consult External Code List table ExternalMappingTypeCode"
     },
     "mappingStatus" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",

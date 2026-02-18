@@ -12,14 +12,14 @@
     "id" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999999999999,
+      "maximum" : 999999999,
       "description" : "Account identifier defined by the participant",
-      "examples" : [ 987654321012345, 123456789012345 ]
+      "examples" : [ 529876543, 123456789 ]
     }
   },
   "required" : [ "id" ],
   "additionalProperties" : false,
   "examples" : [ {
-    "id" : 987654321012345
+    "id" : 529876543
   } ]
 }

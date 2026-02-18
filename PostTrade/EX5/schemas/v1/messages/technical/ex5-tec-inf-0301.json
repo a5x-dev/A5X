@@ -1,35 +1,87 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-inf-03",
-  "$metadata" : {
-    "domain" : "technical",
-    "schemaId" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-inf-03"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:technical:ex5-tec-inf-03",
+  "$metadata": {
+    "domain": "technical",
+    "schemaId": "urn:a5x:ex5:schema:v1:technical:ex5-tec-inf-03"
   },
-  "title" : "System Status Information Message",
-  "description" : "Message for informing system and status including opening and closing information",
-  "type" : "object",
-  "properties" : {
-    "systemStatus" : {
-      "$ref" : "../../objects/business/ExternalCodeTextList.json",
-      "description" : "Current system status",
-      "$comment" : "Consult External Code List table ExternalSystemStatusCode"
+  "title": "System Status Information Message",
+  "description": "Message for informing system and status including opening and closing information",
+  "type": "object",
+  "properties": {
+    "operationalWindow": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Operational grid",
+      "$comment": "Consult External Code List table ExternalOperationalWindowCode"
     },
-    "deadline" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Deadline code for status change",
-      "$comment" : "Consult External Code List table ExternalStatusDeadlineCode"
+    "windowStartTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start time of the processing window"
     },
-    "businessGroup" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Business group code",
-      "$comment" : "Consult External Code List table ExternalBusinessGroupCode"
+    "windowEndTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End time of the processing window"
+    },
+    "windowStatus": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Grid status",
+      "$comment": "Consult External Code List table ExternalWindowStatusCode"
+    },
+    "businessGroup": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Business group code",
+      "$comment": "Consult External Code List table ExternalBusinessGroupCode"
+    },
+    "market": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Market identifier",
+      "$comment": "Consult External Code List table ExternalMarketCode"
+    },
+    "productFamily": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Product family (dollar, mini dollar, etc.)",
+      "$comment": "Consult External Code List table ExternalProductFamilyCode"
+    },
+    "system": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "System name"
+    },
+    "systemStatus": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Deadline code for status change",
+      "$comment": "Consult External Code List table ExternalSystemStatusCode"
+    },
+    "englishNotes": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "System name"
+    },
+    "portugueseNotes": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "System name"
     }
   },
-  "required" : [ "systemStatus", "deadline" ],
-  "additionalProperties" : false,
-  "examples" : [ {
-    "systemStatus" : "OPEN",
-    "deadline" : 1,
-    "businessGroup" : 1
-  } ]
+  "required": [
+    "businessGroup"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "operationalWindow": "MARGIN_CALL",
+      "windowStartTime": "2024-01-15T18:00:00Z",
+      "windowEndTime": "2024-01-15T18:00:00Z",
+      "windowStatus": "OPEN",
+      "businessGroup": "ALC",
+      "market": 1,
+      "productFamily": 2,
+      "systemStatus": "CLOSED",
+      "system": "NOVO SISTEMA",
+      "englishNotes": "Important observations and possible warnings",
+      "portugueseNotes": "Observações importantes, avisos possíveis..."
+    }
+  ]
 }

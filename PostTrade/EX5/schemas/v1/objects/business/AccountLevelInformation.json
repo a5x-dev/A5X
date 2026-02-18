@@ -27,7 +27,7 @@
   "additionalProperties" : true,
   "examples" : [ {
     "accountIdentification" : {
-      "id" : 115
+      "id" : 123456789
     },
     "collateralMovementReportDetails" : [ {
       "collateralMovementType" : 1,

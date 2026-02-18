@@ -9,9 +9,15 @@
   "description" : "Additional information about the participant's Margin and provides accurate information to assess portfolio risk. Informações adicionais sobre a margem do participante e fornece informações precisas para avaliar o risco do portfólio",
   "type" : "object",
   "properties" : {
-    "totalMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
-      "description" : "Summation of IM and Additional Margin calculated for Margin Account. Soma de IM e Margem Adicional calculada para Conta de Margem"
+    "marginRunId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "description": "Run ID of the margin calculation instance."
+    },
+    "totalMargin": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Summation of IM and Additional Margin calculated for Margin Account. Soma de IM e Margem Adicional calculada para Conta de Margem"
     },
     "initialMargin" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
@@ -40,6 +46,7 @@
   "additionalProperties" : true,
   "examples" : [
     {
+      "marginRunId": "MR-20240101-001",
       "totalMargin" : {
         "currency" : "BRL",
         "amount" : "150000.50"

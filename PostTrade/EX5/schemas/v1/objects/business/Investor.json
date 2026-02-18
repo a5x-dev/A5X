@@ -1,0 +1,223 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:Investidor",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:Investidor"
+  },
+  "title": "Investidor",
+  "description": "Investor information for both natural and legal persons with unified fields",
+  "type": "object",
+  "properties": {
+    "fullName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "description": "Full name - Natural Person only"
+    },
+    "socialName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "description": "Social name - Natural Person only"
+    },
+    "corporateName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 140,
+      "description": "Corporate name - Legal Entity only"
+    },
+    "birthDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Birth date - Natural Person only"
+    },
+    "foundationDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Foundation/constitution date - Legal Entity only"
+    },
+    "politicallyExposedPerson": {
+      "type": "boolean",
+      "description": "Politically exposed person indicator - RESI only"
+    },
+    "relatedPerson": {
+      "type": "boolean",
+      "description": "Related person indicator"
+    },
+    "usPerson": {
+      "type": "boolean",
+      "description": "US Person indicator"
+    },
+    "motherName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "description": "Mother's name - Natural Person only"
+    },
+    "birthPlace": {
+      "type": "string",
+      "description": "Birth place - Natural Person only, IBGE domain"
+    },
+    "nationality": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Nationality - Natural Person only",
+      "$comment": "Consult External Code List table ExternalCountryCode"
+    },
+    "emancipated": {
+      "type": "boolean",
+      "description": "Emancipated indicator - Natural Person only"
+    },
+    "countryOfResidence": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Country of residence for Natural Person or registration for Legal Entity",
+      "$comment": "Consult External Code List table ExternalCountryCode"
+    },
+    "civilStatus": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Civil status - Natural Person only",
+      "$comment": "Consult External Code List table ExternalMaritalStatusCode"
+    },
+    "spouseName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "description": "Spouse name - Natural Person only"
+    },
+    "spouseDocument": {
+      "$ref": "../../objects/business/DocumentIdentifier.json",
+      "description": "Spouse document identification (type and number)"
+    },
+    "educationLevel": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Education level - Natural Person RESI only",
+      "$comment": "Consult External Code List table ExternalEducationLevelCode"
+    },
+    "occupation": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Occupation - Natural Person only",
+      "$comment": "Consult External Code List table ExternalProfessionCode"
+    },
+    "jobPosition": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "description": "Job position/title at employer company - Natural Person only"
+    },
+    "employerCompanyName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 140,
+      "description": "CompanyName name - Legal Person only"
+    },
+    "employerCompanyDocument": {
+      "$ref": "../../objects/business/DocumentIdentifier.json",
+      "description": "Company document identification (type and number)"
+    },
+    "economicActivity": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Economic activity - Legal Entity only",
+      "$comment": "Consult External Code List table ExternalEconomicActivityCode"
+    },
+    "isNonProfit": {
+      "type": "boolean",
+      "description": "Non-profit organization indicator - Legal Entity only"
+    },
+    "nonResidentClassification": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Non-resident classification - Legal Entity NRES only",
+      "$comment": "Consult External Code List table ExternalNonResidentClassification"
+    },
+    "isINRPortifolioOwner": {
+      "type": "boolean",
+      "description": "INR owner indicator - Legal Entity NRES only"
+    },
+    "statusNIF": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "NIF status - NRES only",
+      "$comment": "Consult External Code List table ExternalNIFIndicatorCode"
+    },
+    "simplifiedRegistrationForNonResident": {
+      "type": "boolean",
+      "description": "Simplified registration for non-resident - NRES only"
+    },
+    "trustOrSimilarVehicleIndicator": {
+      "type": "boolean",
+      "description": "Trust or similar vehicle indicator - Legal Entity NRES only"
+    },
+    "foreignIntermediaryName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60,
+      "description": "Foreign intermediary name - NRES only"
+    },
+    "registrationUpdateDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Registration update date"
+    },
+    "orderSentByType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "$comment": "Consult External Code List table ExternalOrderSentByTypeCode",
+      "description": "Type of entity that sent the order"
+    },
+    "registrationInclusionDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Registration inclusion date"
+    },
+    "exclusiveFund": {
+      "type": "boolean",
+      "description": "Exclusive fund indicator"
+    }
+  },
+  "required": [],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "fullName": "João Silva Santos",
+      "socialName": "Maria Silva Santos",
+      "birthDate": "1985-03-15",
+      "politicallyExposedPerson": false,
+      "relatedPerson": true,
+      "usPerson": false,
+      "motherName": "Ana Maria Santos",
+      "birthPlace": "São Paulo",
+      "nationality": "BRA",
+      "emancipated": true,
+      "countryOfResidence": "BRA",
+      "civilStatus": 1,
+      "spouseName": "Carlos Oliveira",
+      "spouseDocument": {
+        "documentType": 2,
+        "documentNumber": "12345678900"
+      },
+      "employerCompanyName": "ABC LTDA",
+      "employerCompanyDocument": {
+        "documentType": 2,
+        "documentNumber": "12345678900000152"
+      },
+      "educationLevel": 3,
+      "occupation": 252105,
+      "registrationUpdateDate": "2024-01-15",
+      "orderSentByType": 1,
+      "registrationInclusionDate": "2024-01-01",
+      "exclusiveFund": false
+    },
+    {
+      "corporateName": "Tech Solutions Ltda",
+      "foundationDate": "2010-06-20",
+      "relatedPerson": false,
+      "usPerson": false,
+      "countryOfResidence": "USA",
+      "economicActivity": 620200,
+      "isNonProfit": false,
+      "nonResidentClassification": 2,
+      "isINRPortifolioOwner": true,
+      "statusNIF": 1,
+      "simplifiedRegistrationForNonResident": false,
+      "trustOrSimilarVehicleIndicator": false,
+      "foreignIntermediaryName": "Global Intermediaries Inc.",
+      "registrationUpdateDate": "2024-02-10",
+      "orderSentByType": 1,
+      "registrationInclusionDate": "2024-02-01",
+      "exclusiveFund": true
+    }
+  ]
+}

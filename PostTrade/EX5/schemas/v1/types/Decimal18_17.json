@@ -1,0 +1,15 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:types:Decimal18_17",
+  "$metadata" : {
+    "domain" : "types",
+    "schemaId" : "urn:a5x:ex5:schema:v1:types:Decimal18_17"
+  },
+  "title" : "Decimal18_17",
+  "description" : "Decimal number with 1 digit before decimal point and up to 17 decimal places (Decimal18_17 specification)",
+  "type" : "string",
+  "maxLength" : 20,
+  "minLength" : 1,
+  "pattern" : "^\\d{1,1}(\\.\\d{1,17})?$",
+  "examples" : [ "1.5", "9.12345678901234567", "0.99999999999999999" ]
+}

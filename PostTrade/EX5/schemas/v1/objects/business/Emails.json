@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:EmailAddress",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:EmailAddress"
+  },
+  "title": "Email Address",
+  "description": "Email address information with type classification",
+  "type": "object",
+  "properties": {
+    "isPrimary": {
+      "type": "boolean",
+      "description": "Primary address indicator"
+    },
+    "emailType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of email address (personal, commercial, corporate, etc.)",
+      "$comment": "Consult External Code List table ExternalEmailTypeCode"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "minLength": 5,
+      "maxLength": 254,
+      "description": "Email address in standard format"
+    }
+  },
+  "required": [
+    "isPrimary",
+    "emailType",
+    "email"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "isPrimary": true,
+      "emailType": 1,
+      "email": "usuario@exemplo.com.br"
+    }
+  ]
+}

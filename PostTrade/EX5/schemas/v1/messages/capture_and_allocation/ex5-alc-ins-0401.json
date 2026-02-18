@@ -44,7 +44,7 @@
   },
   "required" : [ "allocationIdentification", "participantIdentification", "trade", "instrument", "allocationDistribution" ],
   "examples" : [ {
-    "allocationIdentification" : "23456789012345678901234567890",
+    "allocationIdentification" : "23456123456789234567890",
     "participantIdentification" : {
       "id" : 999,
       "category" : 3

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalPhoneTypeCode",
+  "description": "Codes for phone type classification",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Residencial",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Comercial",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Principal",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Celular",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Estrangeiro",
+      "const": 10
+    }
+  ],
+  "examples": [
+    2,
+    3,
+    5,
+    9,
+    10
+  ]
+}

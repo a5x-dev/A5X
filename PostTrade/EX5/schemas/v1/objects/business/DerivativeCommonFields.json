@@ -19,12 +19,12 @@
         "description" : "Pre-defined lot size for allocation purposes",
         "examples" : [ 100, 1000, 5000 ]
       },
-      "contractMultiplier" : {
-        "$ref" : "../../types/DecimalNumber.json",
-        "description" : "Ratio between contract size and commodity quotation quantity"
-      },
+      "contractMultiplier": {
+      "$ref": "../../types/Decimal18_17.json",
+      "description": "Ratio between contract size and commodity quotation quantity"
+     },
       "assetQuotationQuantity" : {
-        "$ref" : "../../types/DecimalNumber.json",
+        "$ref" : "../../types/Decimal18_17.json",
         "description" : "Indicates the quantity of the commodity on which the trade price is based"
       }
     },
@@ -41,8 +41,8 @@
     "tradingCurrency" : "BRL",
     "expirationDate" : "2024-12-31",
     "allocationRoundLot" : 5,
-    "contractMultiplier" : "1000",
-    "assetQuotationQuantity" : "1000",
+    "contractMultiplier" : "1.2510234564330",
+    "assetQuotationQuantity" : "1.2510234564330",
     "withdrawalDays" : 90,
     "workingDays" : 63,
     "calendarDays" : 90
@@ -59,8 +59,8 @@
     "securityCategory" : 2,
     "tradingCurrency" : "BRL",
     "expirationDate" : "2024-06-30",
-    "contractMultiplier" : "1000",
-    "assetQuotationQuantity" : "1000",
+    "contractMultiplier" : "1.2510234564330",
+    "assetQuotationQuantity" : "1.2510234564330",
     "withdrawalDays" : 60,
     "workingDays" : 42,
     "calendarDays" : 60

@@ -30,6 +30,11 @@
     },
     {
       "type": "number",
+      "description": "EM INATIVAÇÃO",
+      "const": 9
+    },
+    {
+      "type": "number",
       "description": "INATIVO",
       "const": 10
     },

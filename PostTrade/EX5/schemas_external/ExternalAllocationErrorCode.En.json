@@ -1,0 +1,295 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalAllocationErrorCode",
+  "description": "Error codes for allocation domain",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Buy clearing account is not specified",
+      "const": "ALC00001"
+    },
+    {
+      "type": "string",
+      "description": "Sell clearing account is not specified",
+      "const": "ALC00002"
+    },
+    {
+      "type": "string",
+      "description": "Buy position is not reduced from the trade when the account is partially suspended",
+      "const": "ALC00003"
+    },
+    {
+      "type": "string",
+      "description": "Sell position is not reduced from the trade when the account is partially suspended",
+      "const": "ALC00004"
+    },
+    {
+      "type": "string",
+      "description": "Operational Error Buy Account of [TMF ID] is not available for EOD posting",
+      "const": "ALC00005"
+    },
+    {
+      "type": "string",
+      "description": "Operational Error Sell Account of [TMF ID] is not available for EOD posting",
+      "const": "ALC00006"
+    },
+    {
+      "type": "string",
+      "description": "Buy position is not reduced from the trade when the Buy Beneficiary Account is partially suspended.",
+      "const": "ALC00007"
+    },
+    {
+      "type": "string",
+      "description": "Sell position is not reduced from the trade when the Sell Beneficiary Account is partially suspended.",
+      "const": "ALC00008"
+    },
+    {
+      "type": "string",
+      "description": "Buy Beneficiary Account specified is not active.",
+      "const": "ALC00009"
+    },
+    {
+      "type": "string",
+      "description": "Sell Beneficiary Account specified is not active.",
+      "const": "ALC00010"
+    },
+    {
+      "type": "string",
+      "description": "Posting is done outside the allowed time frame of [Deadline - time frame]",
+      "const": "ALC00011"
+    },
+    {
+      "type": "string",
+      "description": "Posting is done after the [Deadline - final time] deadline.",
+      "const": "ALC00012"
+    },
+    {
+      "type": "string",
+      "description": "Posting is not allowed from a [Source Account Type] to [Destination Account Type].",
+      "const": "ALC00013"
+    },
+    {
+      "type": "string",
+      "description": "Posting Quantity [Posting Quantity] is not a multiple of the Trading Lot Size x Contract Multiplier of the Instrument.",
+      "const": "ALC00014"
+    },
+    {
+      "type": "string",
+      "description": "Posting Threshold request submitted. Dual Authorisation required.",
+      "const": "ALC00015"
+    },
+    {
+      "type": "string",
+      "description": "Authorised. Posting Threshold request is being processed.",
+      "const": "ALC00016"
+    },
+    {
+      "type": "string",
+      "description": "Dual Authorization for Posting Threshold request rejected.",
+      "const": "ALC00017"
+    },
+    {
+      "type": "string",
+      "description": "Posting Threshold request cancelled.",
+      "const": "ALC00018"
+    },
+    {
+      "type": "string",
+      "description": "Error Account of [TMF ID] is not available",
+      "const": "ALC00019"
+    },
+    {
+      "type": "string",
+      "description": "Posting is done when the allocation is in \"Pending Approval\" sub status",
+      "const": "ALC00020"
+    },
+    {
+      "type": "string",
+      "description": "Take Up rejection is unsuccessful for [Allocation ID] - Rejection was initiated after Take Up Time for Trades.",
+      "const": "ALC00021"
+    },
+    {
+      "type": "string",
+      "description": "Take Up approval unsuccessful since Take Up of [Allocation ID] is already approved.",
+      "const": "ALC00022"
+    },
+    {
+      "type": "string",
+      "description": "Take Up rejection is unsuccessful since Take Up of [Allocation ID] is already rejected.",
+      "const": "ALC00023"
+    },
+    {
+      "type": "string",
+      "description": "Take Up approval is unsuccessful since Take Up of [Allocation ID] is already rejected.",
+      "const": "ALC00024"
+    },
+    {
+      "type": "string",
+      "description": "Break Rule Reason must be specified if Break Rule Indicator is Yes.",
+      "const": "ALC00025"
+    },
+    {
+      "type": "string",
+      "description": "The Status of the Clearing Account specified in the request should be != Inactive",
+      "const": "ALC00026"
+    },
+    {
+      "type": "string",
+      "description": "Status of Clearing Member specified in the request != Inactive",
+      "const": "ALC00027"
+    },
+    {
+      "type": "string",
+      "description": "Status of Trading Member specified in the request != Inactive",
+      "const": "ALC00028"
+    },
+    {
+      "type": "string",
+      "description": "The Clearing Account in the given position should be the same as Clearing Account specified in the request.",
+      "const": "ALC00029"
+    },
+    {
+      "type": "string",
+      "description": "The Trading Member in the given position should be the same as Trading Member specified in the request.",
+      "const": "ALC00030"
+    },
+    {
+      "type": "string",
+      "description": "The Clearing Member in the given position should be the same as Clearing Member specified in the request.",
+      "const": "ALC00031"
+    },
+    {
+      "type": "string",
+      "description": "The Symbol in the given position should be the same as Symbol specified in the request.",
+      "const": "ALC00032"
+    },
+    {
+      "type": "string",
+      "description": "Symbol of the Allocation and Symbol of the Posting Request should be the same.",
+      "const": "ALC00033"
+    },
+    {
+      "type": "string",
+      "description": "Posting is done to a different ownership",
+      "const": "ALC00034"
+    },
+    {
+      "type": "string",
+      "description": "Take Up rejection is unsuccessful - Posting Request in Pending Risk Validation status exists from the allocation.",
+      "const": "ALC00035"
+    },
+    {
+      "type": "string",
+      "description": "Take Up rejection is unsuccessful - Posting Request in Pending CCP Authorization status exists from the allocation.",
+      "const": "ALC00036"
+    },
+    {
+      "type": "string",
+      "description": "Take Up rejection is unsuccessful - Allocation has been updated due to posting.",
+      "const": "ALC00037"
+    },
+    {
+      "type": "string",
+      "description": "Take Up actions are not allowed for the specified allocation.",
+      "const": "ALC00038"
+    },
+    {
+      "type": "string",
+      "description": "Break Rule must be specified for Reject actions.",
+      "const": "ALC00039"
+    },
+    {
+      "type": "string",
+      "description": "Break Rule should not be specified for Approve actions.",
+      "const": "ALC00040"
+    },
+    {
+      "type": "string",
+      "description": "Break Rule Reason must be specified.",
+      "const": "ALC00041"
+    },
+    {
+      "type": "string",
+      "description": "Break Rule Responsibility must be specified.",
+      "const": "ALC00042"
+    },
+    {
+      "type": "string",
+      "description": "Take Up rejection is unsuccessful - Allocation has been updated due to posting.",
+      "const": "ALC00043"
+    },
+    {
+      "type": "string",
+      "description": "Break Rule must be specified when posting to a Beneficiary Account with a Give Up Link after Take Up Time for Postings.",
+      "const": "ALC00044"
+    },
+    {
+      "type": "string",
+      "description": "Posting is done when the allocation is in \"Pending Destination TMF Approval\" sub status.",
+      "const": "ALC00045"
+    },
+    {
+      "type": "string",
+      "description": "Trade ID and Trade Side does not match with the Allocation Data",
+      "const": "ALC00046"
+    },
+    {
+      "type": "string",
+      "description": "Technical Failure",
+      "const": "ALC00047"
+    },
+    {
+      "type": "string",
+      "description": "Buy position is not reduced from the posting when the account is partially suspended",
+      "const": "ALC00048"
+    },
+    {
+      "type": "string",
+      "description": "Sell position is not reduced from the posting when the account is partially suspended",
+      "const": "ALC00049"
+    },
+    {
+      "type": "string",
+      "description": "Buy position is not reduced from the posting when the Buy Beneficiary Account is partially suspended.",
+      "const": "ALC00050"
+    },
+    {
+      "type": "string",
+      "description": "Sell position is not reduced from the posting when the Buy Beneficiary Account is partially suspended.",
+      "const": "ALC00051"
+    },
+    {
+      "type": "string",
+      "description": "Trading Member of the Allocation and Trading Member of the Posting Request should be the same.",
+      "const": "ALC00052"
+    },
+    {
+      "type": "string",
+      "description": "Posting is done when the allocation is in \"Pending CCP Approval\" sub status",
+      "const": "ALC00053"
+    },
+    {
+      "type": "string",
+      "description": "Active Master link is not available between [Source Account] and [Destination Account].",
+      "const": "ALC00054"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    "ALC00001",
+    "ALC00002",
+    "ALC00003",
+    "ALC00004",
+    "ALC00005",
+    "ALC00010",
+    "ALC00015",
+    "ALC00020",
+    "ALC00025",
+    "ALC00030",
+    "ALC00035",
+    "ALC00040",
+    "ALC00045",
+    "ALC00050",
+    "ALC00054"
+  ]
+}

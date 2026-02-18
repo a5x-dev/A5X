@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalBusinessGroupCode",
+  "description": "Codes for business group",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Captura e processamento de operações",
+      "const": "TRD"
+    },
+    {
+      "type": "string",
+      "description": "Alocação e distribuição de operações",
+      "const": "ALC"
+    },
+    {
+      "type": "string",
+      "description": "Gestão e reconciliação de posições",
+      "const": "POS"
+    },
+    {
+      "type": "string",
+      "description": "Avaliação e monitoramento de risco",
+      "const": "RSK"
+    },
+    {
+      "type": "string",
+      "description": "Cadastro e gestão de dados de referência",
+      "const": "REG"
+    },
+    {
+      "type": "string",
+      "description": "Gestão e avaliação de garantias",
+      "const": "COL"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": ["TRD", "ALC", "POS", "RSK", "REG", "COL"]
+}

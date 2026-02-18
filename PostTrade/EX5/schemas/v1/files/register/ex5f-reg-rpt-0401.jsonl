@@ -19,7 +19,7 @@
         "$ref" : "../../objects/business/BaseRegistrationMapping.json"
       },
       "minItems" : 0,
-      "maxItems" : 60,
+      "maxItems" : 10000,
       "description" : "Array of mappings found (empty if none found)"
     }
   },
@@ -31,20 +31,21 @@
       "category" : 3
     },
     "mapping" : [ {
-      "relationshipProfessionalMapping" : 1,
-      "mappingType" : 1,
-      "mappingStatus" : 1,
-      "participantOriginIdentification" : {
-        "id" : 888,
-        "category" : 3
+      "operationalArea": 1,
+      "professionalRole": 1,
+      "workType": 1,
+      "status": 1,
+      "participantOriginIdentification": {
+        "id": 888,
+        "category": 3
       },
-      "participantDestinationIdentification" : {
-        "id" : 777,
-        "category" : 4
+      "participantDestinationIdentification": {
+        "id": 777,
+        "category": 4
       },
-      "operatorDocument" : {
-        "documentType" : 2,
-        "documentNumber" : "12345678900"
+      "operatorDocument": {
+        "documentType": 2,
+        "documentNumber": "12345678900"
       }
     } ]
   } ]

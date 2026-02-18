@@ -1,16 +1,16 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Option Type",
+  "title": "ExternalOptionType",
   "description": "Codes for option type",
   "oneOf": [
     {
       "type": "number",
-      "description": "option on future",
+      "description": "CALL",
       "const": 1
     },
     {
       "type": "number",
-      "description": "option on spot",
+      "description": "PUT",
       "const": 2
     }
   ],

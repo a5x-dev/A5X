@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="urn:ex5f-ins-reg-0101-xml.xsd"
+           targetNamespace="urn:ex5f-ins-reg-0101-xml.xsd"
+           xmlns:hdr="urn:iso:std:iso:20022:tech:xsd:head.001.001.01"
+           xmlns:ins="urn:ex5-ins-reg-0101-xml.xsd"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+
+    <!--
+        A5X Instruments Data File — XML Schema Definition (XSD)
+        File: ex5f-ins-reg-0101-xml.xsd
+        Description: Defines the common file structure for the A5X Instruments registration file, including the base envelope
+                 (ex5f-env-0100-xml.xsd) and binding the BizGrp payload (EnvelopeGroupPayload) to hdr:AppHdr and ins:Document:
+                 - hdr:AppHdr (ISO 20022 Application Header - head.001.001.01.xsd)
+                 - ins:Document (A5X Instruments payload - ex5-ins-reg-0101-xml.xsd)
+
+        Namespace:       urn:ex5f-ins-reg-0101-xml.xsd
+        TargetNamespace: urn:ex5f-ins-reg-0101-xml.xsd
+
+        Version: 1
+        Release-Date: 2025-12-18
+    -->
+
+    <xs:include schemaLocation="ex5f-env-0100-xml.xsd"/>
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.01"
+               schemaLocation="head.001.001.01.xsd"/>
+
+    <xs:import namespace="urn:ex5-ins-reg-0101-xml.xsd"
+               schemaLocation="ex5-ins-reg-0101-xml.xsd"/>
+
+    <!-- Root element for the A5X INS file envelope -->
+    <xs:element name="Document" type="FileEnvelopeDocument"/>
+
+    <!-- Payload (hook) for BizGrp -->
+    <xs:complexType name="EnvelopeGroupPayload">
+        <xs:sequence>
+            <xs:element ref="hdr:AppHdr"/>
+            <xs:element ref="ins:Document"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

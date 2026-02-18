@@ -33,7 +33,7 @@
       "$comment" : "ISO 3166-1 alpha-3 country code, Consult ExternalCodeList table ExternalCountryCode"
     }
   },
-  "required" : [ "swiftCode", "bankCountry" ],
+  "required" : [ "swiftCode"],
   "additionalProperties" : false,
   "examples" : [ {
     "accountNumber" : "DE89370400440532013000",

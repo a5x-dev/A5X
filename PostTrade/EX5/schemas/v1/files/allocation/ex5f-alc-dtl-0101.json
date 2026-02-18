@@ -89,7 +89,7 @@
     "expirationCode" : {
       "type" : "string",
       "minLength": 1,
-      "maxLength": 6,
+      "maxLength": 8,
       "description" : "Expiration code of a Future or an Option"
     },
     "isin" : {
@@ -193,14 +193,14 @@
     "accountIdentification" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999999999999,
+      "maximum" : 999999999,
       "description" : "Account identifier defined by the participant"
     },
-    "securityAccountType" : {
+    "accountType" : {
       "type" : "string",
       "maxLength" : 35,
       "minLength" : 1,
-      "description" : "Trade identification number"
+      "description" : "Identifies the account type where the trade is allocated"
     },
     "allocationStatus" : {
       "type" : "integer",
@@ -269,7 +269,7 @@
       "description" : "Average execution time of the average price allocation group"
     }
   },
-  "required" : [ "referenceDate", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "participantRequesterIdentificationId","participantRequesterIdentificationCategory","financialInstrumentIdentificationId", "financialInstrumentIdentificationSource","financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDate", "tradeIdentification", "dealPrice", "buySellIndicator", "participantIdentificationId", "participantIdentificationCategory", "accountIdentification", "SecurityAccountType", "quantity", "allocationIdentification", "allocationDateTime" ],
+  "required" : [ "referenceDate", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "participantRequesterIdentificationId","participantRequesterIdentificationCategory","financialInstrumentIdentificationId", "financialInstrumentIdentificationSource","financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDate", "tradeIdentification", "dealPrice", "buySellIndicator", "participantIdentificationId", "participantIdentificationCategory", "accountIdentification", "accountType", "quantity", "allocationIdentification", "allocationDateTime" ],
   "additionalProperties" : false,
   "examples" : [ ]
 }

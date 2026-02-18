@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalIncidentSeverityCode",
+  "description": "Codes for incident severity",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Incidente crítico com impacto severo nos serviços, requer ação imediata e prioridade máxima",
+      "const": "CRITICAL"
+    },
+    {
+      "type": "string",
+      "description": "Incidente de alta severidade com impacto significativo, requer atenção urgente",
+      "const": "HIGH"
+    },
+    {
+      "type": "string",
+      "description": "Incidente de severidade média com impacto moderado, deve ser tratado em tempo hábil",
+      "const": "MEDIUM"
+    },
+    {
+      "type": "string",
+      "description": "Incidente de baixa severidade com impacto mínimo, pode ser tratado conforme disponibilidade",
+      "const": "LOW"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": ["CRITICAL", "HIGH", "MEDIUM", "LOW"]
+}

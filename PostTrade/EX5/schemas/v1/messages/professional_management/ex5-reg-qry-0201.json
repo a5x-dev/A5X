@@ -1,52 +1,133 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-02",
-  "$metadata" : {
-    "domain" : "professional_management",
-    "schemaId" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-02"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-02",
+  "$metadata": {
+    "domain": "professional_management",
+    "schemaId": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-02"
   },
-  "title" : "Professional Mapping Search Message",
-  "description" : "Message for searching professional mappings. The return will be sent in the file response ex5f-reg-rpt-0201.jsonl.",
-  "$comment" : "If sent without optional filter fields, returns all mappings for the specified participant.",
-  "type" : "object",
-  "properties" : {
-    "participantIdentification" : {
-      "$ref" : "../../objects/business/PartyId.json",
-      "description" : "Participant identification (category and participant ID)"
+  "title": "Professional Mapping Search Message",
+  "description": "Message for searching professional mappings. The return will be sent in the file response ex5f-reg-rpt-0201.jsonl.",
+  "$comment": "If sent without optional filter fields, returns all mappings for the specified participant.",
+  "type": "object",
+  "properties": {
+    "participantIdentification": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/PartyId.json"
+      },
+      "description": "Participant identification (category and participant ID)",
+      "maxItems": 50
     },
-    "relationshipProfessionalMapping" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Professional mapping information",
-      "$comment" : "Consult External Professional Mapping table ExternalProfessionalMappingType"
+    "operatorDocument": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/DocumentIdentifier.json"
+      },
+      "description": "Operator document identification (type and number)",
+      "maxItems": 1000
     },
-    "mappingType" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Type of professional mapping",
-      "$comment" : "Consult External Code List table ExternalProfessionalMappingRoleCode"
+    "professionalMappingType": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/ExternalCodeList.json",
+        "$comment": "Consult External Professional Mapping table ExternalProfessionalMappingTypeCode"
+      },
+      "description": "Professional mapping information",
+      "maxItems": 50
     },
-    "operatorDocument" : {
-      "$ref" : "../../objects/business/DocumentIdentifier.json",
-      "description" : "Operator document identification (type and number)"
+    "mappingType": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/ExternalCodeList.json",
+        "$comment": "Consult External Code List table ExternalProfessionalMappingRoleCode"
+      },
+      "description": "Type of professional mapping",
+      "maxItems": 50
     },
-    "mappingStatus" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Status of the mapping",
-      "$comment" : "Consult External Code List table ExternalStatusCode"
+    "mappingStatus": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/ExternalCodeList.json",
+        "$comment": "Consult External Code List table ExternalStatusCode"
+      },
+      "description": "Status of the mapping",
+      "maxItems": 50
+    },
+    "creationDate": {
+      "$ref": "../../objects/business/DateRange.json",
+      "description": "Creation date range of account"
+    },
+    "updateDate": {
+      "$ref": "../../objects/business/DateRange.json",
+      "description": "Update date range of account"
     }
   },
-  "required" : [ "participantIdentification" ],
-  "additionalProperties" : false,
-  "examples" : [ {
-    "participantIdentification" : {
-      "id" : 999,
-      "category" : 3
+  "anyOf": [
+    {
+      "required": [
+        "participantIdentification"
+      ]
     },
-    "relationshipProfessionalMapping" : 1,
-    "mappingType" : 1,
-    "operatorDocument" : {
-      "documentType" : 2,
-      "documentNumber" : "12345678900"
+    {
+      "required": [
+        "operatorDocument"
+      ]
     },
-    "mappingStatus" : 1
-  } ]
+    {
+      "required": [
+        "creationDate"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "participantIdentification": [
+        {
+          "id": 789012,
+          "category": 3
+        },
+        {
+          "id": 789012,
+          "category": 3
+        }
+      ],
+      "updateDate": {
+        "start": "2023-01-01",
+        "end": "2023-01-31"
+      }
+    },
+    {
+      "operatorDocument": [
+        {
+          "documentType": 5,
+          "documentNumber": "12345678901"
+        },
+        {
+          "documentType": 5,
+          "documentNumber": "12345678902"
+        }
+      ],
+      "mappingStatus": [
+        6,
+        5
+      ]
+    },
+    {
+      "creationDate": {
+        "start": "2023-01-01",
+        "end": "2023-01-31"
+      },
+      "professionalMappingType": [
+        100,
+        101,
+        102,
+        103
+      ],
+      "mappingStatus": [
+        6,
+        5
+      ]
+    }
+  ]
 }

@@ -4,12 +4,12 @@
   "description": "Codes for residence status for tax purposes",
   "oneOf": [
     {
-      "type": "number",
+      "type": "string",
       "description": "RESI - Residente (mora no Brasil)",
       "const": "RESI"
     },
     {
-      "type": "number",
+      "type": "string",
       "description": "NRES - Não Residente (mora fora do Brasil)",
       "const": "NRES"
     }

@@ -7,11 +7,11 @@
   },
   "type" : "object",
   "properties" : {
-    "Identifier" : {
-      "$ref" : "#/$defs/Identifier"
+    "ClOrdID" : {
+      "$ref" : "#/$defs/ClOrdID"
     },
-    "MessageType" : {
-      "$ref" : "#/$defs/MessageType"
+    "MessageId" : {
+      "$ref" : "#/$defs/MessageId"
     },
     "Timestamp" : {
       "$ref" : "#/$defs/Timestamp"
@@ -33,10 +33,10 @@
     }
   },
   "$defs" : {
-    "Identifier" : {
+    "ClOrdID" : {
       "$ref" : "../../objects/tech/MessageIdentifier.json"
     },
-    "MessageType" : {
+    "MessageId" : {
       "type" : "string",
       "description" : "Message type in our catalog",
       "examples" : [ "ex5-tec-hdr-0101" ]
@@ -66,6 +66,6 @@
       "examples" : [ "FIX4.4" ]
     }
   },
-  "required" : [ "Identifier", "MessageType", "Timestamp", "From", "To" ],
+  "required" : [ "ClOrdID", "MessageId", "Timestamp", "From", "To" ],
   "description" : "header Description"
 }

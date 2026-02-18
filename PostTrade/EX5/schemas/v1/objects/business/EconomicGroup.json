@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:EconomicGroup",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:EconomicGroup"
+  },
+  "title": "Economic Group",
+  "description": "Economic group information with type, identification and name",
+  "type": "object",
+  "properties": {
+    "groupType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of economic group (financial, industrial, commercial, etc.)",
+      "$comment": "Consult External Code List table ExternalEconomicGroupTypeCode"
+    },
+    "groupId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "description": "Unique identifier of the economic group"
+    },
+    "groupName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Name of the economic group"
+    }
+  },
+  "required": [],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "groupType": 1,
+      "groupId": "GRP001",
+      "groupName": "Grupo Financeiro ABC"
+    },
+    {
+      "groupType": 5,
+      "groupId": "CONG123",
+      "groupName": "Conglomerado XYZ Ltda"
+    },
+    {
+      "groupName": "Holding Empresarial DEF"
+    }
+  ]
+}

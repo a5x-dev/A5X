@@ -31,9 +31,9 @@
       "$ref" : "../../types/ISODate.json",
       "description" : "Trade date in ISO format"
     },
-    "securityAccountType" : {
+    "accountType" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Type of security account",
+      "description" : "Type of account",
       "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
     }
   },
@@ -53,6 +53,6 @@
       "id" : 9001234
     } ],
     "tradeDate" : "2025-08-01",
-    "securityAccountType" : 3
+    "accountType" : 3
   } ]
 }

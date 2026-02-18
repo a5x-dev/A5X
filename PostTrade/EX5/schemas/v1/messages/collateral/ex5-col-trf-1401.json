@@ -37,7 +37,7 @@
       "description" : "Overall status of the collateral transfer instruction"
     }
   },
-  "required" : [ "accountServicerTransactionIdentification", "participantIdentification", "accountIdentification" ],
+  "required" : ["participantIdentification"],
   "additionalProperties" : false,
   "examples" : [ {
     "transactionIdentification" : "COLL-MRG-11682",
@@ -47,7 +47,7 @@
       "category" : 3
     },
     "accountIdentification" : {
-      "id" : 115
+      "id" : 123456789
     },
     "collateralDetails" : [ {
       "collateralIdentification" : "2",
@@ -63,7 +63,7 @@
       "collateralStatus" : {
         "statusCode" : 1,
         "errorIdentification" : [ {
-          "code" : 1,
+          "code" : "TEC00000",
           "message" : "Error X",
           "errorDescription" : "COD12452",
           "refId" : "REF12345"
@@ -73,7 +73,7 @@
     "collateralTransferInstructionStatus" : {
       "statusCode" : 1,
       "errorIdentification" : [ {
-        "code" : 1,
+        "code" : "TEC00000",
         "message" : "Error X",
         "errorDescription" : "COD12452",
         "refId" : "REF12345"

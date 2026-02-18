@@ -14,14 +14,13 @@
       "maximum" : 999999,
       "minimum" : 1,
       "description" : "Participant identifier provided by A5X during the participant registration",
-      "examples" : [ 114, 85, 123456, 789012 ]
+      "examples" : [ 444, 44, 123456, 789012 ]
     },
     "category" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Participant category code",
-      "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalParticipantCategoryCode.",
-      "minimum" : 1,
-      "maximum" : 99
+      "$comment" : "Only categories (Intermediário Full), (Participante de Liquidação), and (Intermediário Light) are allowed to include an account. Consult External Code List table ExternalParticipantCategoryCode."
+
     }
   },
   "required" : [ "id", "category" ],

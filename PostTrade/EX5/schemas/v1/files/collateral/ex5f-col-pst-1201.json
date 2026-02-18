@@ -67,7 +67,7 @@
     "accountIdentificationId" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999999999999,
+      "maximum" : 999999999,
       "description" : "Account identifier defined by the participant"
     },
     "documentType" : {
@@ -204,7 +204,7 @@
     "securitiesCustodianAccountId" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999999999999,
+      "maximum" : 999999999,
       "description" : "Securities custodian account identifier"
     },
     "securitiesCustodianSubAccount" : {

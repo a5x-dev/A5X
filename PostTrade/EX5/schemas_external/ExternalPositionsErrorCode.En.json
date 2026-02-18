@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalPositionsErrorCode",
+  "description": "Error codes for positions domain",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Exercise/ Abandonment Quantity [Exercise/ Abandonment Quantity] is not a multiple of the Allocation Lot Size of the Instrument.",
+      "const": "POS00001"
+    },
+    {
+      "type": "string",
+      "description": "Buy position is not reduced from the position transfer when the beneficiary account is partially suspended",
+      "const": "POS00002"
+    },
+    {
+      "type": "string",
+      "description": "Sell position is not reduced from the position transfer when the beneficiary account is partially suspended",
+      "const": "POS00003"
+    },
+    {
+      "type": "string",
+      "description": "Position Not Found",
+      "const": "POS00004"
+    },
+    {
+      "type": "string",
+      "description": "Transfer Quantity [Transfer Quantity] is not a multiple of the Trading Lot Size x Contract Multiplier of the Instrument.",
+      "const": "POS00005"
+    },
+    {
+      "type": "string",
+      "description": "Originating Clearing Account has an ongoing Position Transfer Request.",
+      "const": "POS00006"
+    },
+    {
+      "type": "string",
+      "description": "Invalid account type for Originating Account.",
+      "const": "POS00007"
+    },
+    {
+      "type": "string",
+      "description": "Invalid account type for Beneficiary Account.",
+      "const": "POS00008"
+    },
+    {
+      "type": "string",
+      "description": "Member position transfer file uploaded successfully <file name>.",
+      "const": "POS00009"
+    },
+    {
+      "type": "string",
+      "description": "Member position transfer file approved successfully <fileName>.",
+      "const": "POS00010"
+    },
+    {
+      "type": "string",
+      "description": "Member position transfer file rejected successfully <fileName>.",
+      "const": "POS00011"
+    },
+    {
+      "type": "string",
+      "description": "Originating Account [Originating Account ID] is not in Active or Partially Suspended status.",
+      "const": "POS00012"
+    },
+    {
+      "type": "string",
+      "description": "Beneficiary Account [Beneficiary Account ID] is not in Active or Partially Suspended status.",
+      "const": "POS00013"
+    },
+    {
+      "type": "string",
+      "description": "Duplicate position found in Position Transfer Request.",
+      "const": "POS00014"
+    },
+    {
+      "type": "string",
+      "description": "Invalid [PMR Bulk Mem POS Trans.Originating Trading Member] Originating Trading Member specified.",
+      "const": "POS00015"
+    },
+    {
+      "type": "string",
+      "description": "Invalid [PMR Bulk Mem POS Trans.Beneficiary Trading Member] Beneficiary Trading Member specified.",
+      "const": "POS00016"
+    },
+    {
+      "type": "string",
+      "description": "Invalid [PMR Bulk Mem POS Trans.Beneficiary Account] Beneficiary Account specified.",
+      "const": "POS00017"
+    },
+    {
+      "type": "string",
+      "description": "Invalid position specified.",
+      "const": "POS00018"
+    },
+    {
+      "type": "string",
+      "description": "Member Position Transfer details not specified in file.",
+      "const": "POS00019"
+    },
+    {
+      "type": "string",
+      "description": "Header not found in the file.",
+      "const": "POS00020"
+    },
+    {
+      "type": "string",
+      "description": "The Member Position Transfer file exceeds the maximum record count.",
+      "const": "POS00021"
+    },
+    {
+      "type": "string",
+      "description": "Invalid member position transfer file header.",
+      "const": "POS00022"
+    }    
+  ],
+  "additionalProperties": false,
+  "examples": [
+    "POS00001",
+    "POS00002",
+    "POS00003",
+    "POS00004",
+    "POS00005",
+    "POS00010",
+    "POS00015",
+    "POS00022"
+  ]
+}

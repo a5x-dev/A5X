@@ -12,13 +12,13 @@
     "start" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999999999999,
+      "maximum" : 999999999,
       "description" : "Start account ID (inclusive)"
     },
     "end" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999999999999,
+      "maximum" : 999999999,
       "description" : "End account ID (inclusive)"
     }
   },
@@ -26,6 +26,6 @@
   "additionalProperties" : false,
   "examples" : [ {
     "start" : 1,
-    "end" : 999999999999999
+    "end" : 999999999
   } ]
 }

@@ -30,7 +30,7 @@
       "description" : "This block contains information on the status of each type of collateral used in the distribution command"
     }
   },
-  "required" : [ "transactionIdentification", "participantIdentification", "collateralCommandDistributionInstructionStatus" ],
+  "required" : [ "transactionIdentification", "participantIdentification" ],
   "additionalProperties" : false,
   "examples" : [ {
     "transactionIdentification" : "COLL-STA-11682",
@@ -53,7 +53,7 @@
       "collateralCommandDistributionStatus" : {
         "statusCode" : 1,
         "errorIdentification" : [ {
-          "code" : 1,
+          "code" : "TEC00000",
           "message" : "Error X",
           "errorDescription" : "COD12452",
           "refId" : "REF12345"
@@ -63,7 +63,7 @@
     "collateralCommandDistributionInstructionStatus" : {
       "statusCode" : 1,
       "errorIdentification" : [ {
-        "code" : 1,
+        "code" : "TEC00000",
         "message" : "Error X",
         "errorDescription" : "COD12452",
         "refId" : "REF12345"

@@ -16,7 +16,7 @@
     "exerciseStyle": {
       "$ref": "../../objects/business/ExternalCodeTextList.json",
       "description": "Style of the option exercise (e.g., American, European)",
-      "$comment": "Consult External Code List table ExternalOptionExerciseStyleCode"
+      "$comment": "Consult External Code List table ExternalExerciseStyleCode"
     },
     "optionType": {
       "$ref": "../../objects/business/ExternalCodeList.json",
@@ -26,6 +26,10 @@
     "underlyingInstrumentIdentification": {
       "$ref": "../../objects/business/InstrumentIdentification.json",
       "description": "Identification of the financial instrument"
+    },
+    "assetSettlementIndicator": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the underlying instrument"
     },
     "targetIdentification": {
       "type": "array",
@@ -62,9 +66,9 @@
       "description": "Number of days to settlement"
     },
     "deliveryType": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 6,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6,
       "description": "Delivery type identification number"
     },
     "openingPositionLimitDate": {
@@ -98,6 +102,11 @@
       },
       "exerciseStyle": "EURO",
       "optionType": 1,
+      "assetSettlementIndicator": {
+        "id": "100000000000001",
+        "source": "8",
+        "exchange": "A5X"
+      },
       "underlyingInstrumentIdentification": {
         "id": "100000000000001",
         "source": "8",
@@ -113,7 +122,7 @@
       "paymentType": 2,
       "priceFactor": 100,
       "daysToSettlement": 3,
-      "deliveryType": "CASH",
+      "deliveryType": 2,
       "openingPositionLimitDate": "2024-10-25",
       "automaticExerciseIndicator": true
     }

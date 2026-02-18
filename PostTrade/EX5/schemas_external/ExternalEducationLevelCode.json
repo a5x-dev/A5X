@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalEducationLevelCode",
+  "description": "Codes for education level",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "FUNDAMENTAL INCOMPLETO",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "FUNDAMENTAL COMPLETO",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "MÉDIO INCOMPLETO",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "MÉDIO COMPLETO",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "SUPERIOR INCOMPLETO",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "SUPERIOR COMPLETO",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "ESPECIALIZAÇÃO INCOMPLETA",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "ESPECIALIZAÇÃO COMPLETA",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "MESTRADO INCOMPLETO",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "MESTRADO COMPLETO",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "DOUTORADO INCOMPLETO",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "DOUTORADO COMPLETO",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "MBA",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "NÃO INFORMADO",
+      "const": 14
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+}

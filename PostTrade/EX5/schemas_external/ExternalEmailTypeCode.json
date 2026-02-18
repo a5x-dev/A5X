@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalEmailTypeCode",
+  "description": "Codes for email type classification",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Particular",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Comercial",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Cobrança",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Institucional",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Principal",
+      "const": 6
+    }
+  ],
+  "examples": [1, 2, 3, 5, 6]
+}

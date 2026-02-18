@@ -1,0 +1,200 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:files:ex5f-fee-prm-0101",
+  "$metadata": {
+    "domain": "files",
+    "schemaId": "urn:a5x:ex5:schema:v1:files:ex5f-fee-prm-0101"
+  },
+  "title": "Fee Parameter File Schema",
+  "description": "Fee Parameter File Schema",
+  "type": "object",
+  "properties": {
+    "startDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start date of parameter validity"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End date of parameter validity"
+    },
+    "feeProductGroup": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Fee family",
+      "$comment": "Consult External Code List table ExternalFeeProductGroupCode"
+    },
+    "feeProductSubgroup": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Second level of fee family, when applicable",
+      "$comment": "Consult External Code List table ExternalFeeProductGroupCode"
+    },
+    "market": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Market type - second level of market classification in post-trade process",
+      "$comment": "Consult External Code List table ExternalMarketCode"
+    },
+    "asset": {
+      "type": "string",
+      "maxLength": 30,
+      "description": "Commodity associated with the instrument"
+    },
+    "securityCategory": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Instrument type identifier",
+      "$comment": "Consult External Code List table ExternalSecurityCategoryCode"
+    },
+    "calcType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Indicates if calculation is Progressive or Regressive",
+      "$comment": "Consult External Code List table ExternalCalcTypeCode"
+    },
+    "contractFactor": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Factor applied in fee calculation"
+    },
+    "feeBase": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Indicates the fee base",
+      "$comment": "Consult External Code List table ExternalFeeBaseCode"
+    },
+    "operationType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Operation type for fee calculation",
+      "$comment": "Consult External Code List table ExternalOperationTypeCode"
+    },
+    "operationSubType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Operation subtype for fee calculation",
+      "$comment": "Consult External Code List table ExternalOperationTypeCode"
+    },
+    "feeTier": {
+      "type": "string",
+      "maxLength": 30,
+      "description": "Fee tier"
+    },
+    "minimumTradingVolume": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Minimum trading volume in the tier"
+    },
+    "maximumTradingVolume": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Maximum trading volume in the tier"
+    },
+    "minimumSpread": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Minimum spread for option exercise or maturity settlement"
+    },
+    "maximumSpread": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Maximum spread for option exercise or maturity settlement"
+    },
+    "feeValueType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Fee value type",
+      "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
+    },
+    "feeValue": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Fee value"
+    },
+    "fixedValueType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Fixed fee value type",
+      "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
+    },
+    "fixedValue": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Fixed fee value"
+    },
+    "additionalValueType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Additional value type indicator",
+      "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
+    },
+    "additionalValue": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Additional fee value"
+    },
+    "indicatorReferenceDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Reference date of the indicator used"
+    },
+    "indicatorValue": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Indicator value"
+    },
+    "indicatorType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Indicator type used for value conversion to Brazilian Real",
+      "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
+    }
+  },
+  "required": [
+    "startDate",
+    "endDate",
+    "feeProductGroup",
+    "market",
+    "asset",
+    "securityCategory",
+    "campoReserva1",
+    "operationType",
+    "operationSubType",
+    "feeTier",
+    "feeValueType",
+    "feeValue"
+  ],
+  "additionalProperties": false
+}

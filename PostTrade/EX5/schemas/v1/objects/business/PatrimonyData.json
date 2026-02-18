@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:PatrimonyData",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:PatrimonyData"
+  },
+  "title": "PatrimonyData",
+  "description": "Patrimony information for both natural and legal persons - RESI only",
+  "type": "object",
+  "properties": {
+    "annualIncome": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/MonetaryValueHistoricalCurrency.json",
+          "description": "Annual income with historical currency specification"
+        },
+        {
+          "properties": {
+            "informationDate": {
+              "$ref": "../../types/ISODate.json",
+              "description": "Date of information"
+            }
+          },"required": ["informationDate"]
+        }
+      ],
+      "description": "Annual income information - Natural Person RESI only"
+    },
+    "revenue": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/MonetaryValueHistoricalCurrency.json",
+          "description": "revenue with historical currency specification"
+        },
+        {
+          "properties": {
+            "informationDate": {
+              "$ref": "../../types/ISODate.json",
+              "description": "Date of information"
+            }
+          },"required": ["informationDate"]
+        }
+      ],
+      "description": "revenue information - Legal Entity RESI only"
+    },
+    "patrimony": {
+      "allOf": [
+        {
+          "$ref": "../../objects/business/MonetaryValueHistoricalCurrency.json",
+          "description": "Patrimony with historical currency specification"
+        },
+        {
+          "properties": {
+            "informationDate": {
+              "$ref": "../../types/ISODate.json",
+              "description": "Date of information"
+            }
+          },"required": ["informationDate"]
+        }
+      ],
+      "description": "Patrimony information - Both Natural Person and Legal Entity RESI"
+    }
+  },
+  "required": [],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "annualIncome": {
+        "amount": "150000.00",
+        "currency": "BRL",
+        "informationDate": "2024-01-15"
+      },
+      "revenue": {
+        "amount": "1000000.00",
+        "currency": "BRL",
+        "informationDate": "2024-01-15"
+      },
+      "patrimony": {
+        "amount": "750000.00",
+        "currency": "BRL",
+        "informationDate": "2024-01-15"
+      }
+    }
+  ]
+}

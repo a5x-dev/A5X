@@ -67,7 +67,7 @@
   "additionalProperties" : false,
   "examples" : [ {
     "accountIdentification" : {
-      "id" : 987654321012345
+      "id" : 123456789
     },
     "trade" : {
       "tradeDate" : "2023-12-15",

@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalPositionsErrorCode",
+  "description": "Error codes for positions domain",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "A Quantidade de Exercício/Abandono [Exercise/ Abandonment Quantity] não é um múltiplo do Lote de Atribuição (Allocation Lot Size) do Instrumento",
+      "const": "POS00001"
+    },
+    {
+      "type": "string",
+      "description": "A posição de compra não é reduzida da transferência de posição quando a conta beneficiária está parcialmente suspensa",
+      "const": "POS00002"
+    },
+    {
+      "type": "string",
+      "description": "A posição de venda não é reduzida da transferência de posição quando a conta beneficiária está parcialmente suspensa",
+      "const": "POS00003"
+    },
+    {
+      "type": "string",
+      "description": "Posição Não Encontrada",
+      "const": "POS00004"
+    },
+    {
+      "type": "string",
+      "description": "A Quantidade de Transferência [Transfer Quantity] não é um múltiplo do Lote Padrão x Multiplicador de Contrato do Instrumento",
+      "const": "POS00005"
+    },
+    {
+      "type": "string",
+      "description": "A Conta de Câmara de Origem possui uma Solicitação de Transferência de Posição em andamento",
+      "const": "POS00006"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de conta inválido para a Conta de Origem",
+      "const": "POS00007"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de conta inválido para a Conta Beneficiária",
+      "const": "POS00008"
+    },
+    {
+      "type": "string",
+      "description": "Arquivo de transferência de posição do Participante carregado com sucesso <file name>",
+      "const": "POS00009"
+    },
+    {
+      "type": "string",
+      "description": "Arquivo de transferência de posição do Participante aprovado com sucesso <fileName>",
+      "const": "POS00010"
+    },
+    {
+      "type": "string",
+      "description": "Arquivo de transferência de posição do Participante rejeitado com sucesso <fileName>",
+      "const": "POS00011"
+    },
+    {
+      "type": "string",
+      "description": "A Conta de Origem [Originating Account ID] não está em status Ativo ou Parcialmente Suspenso",
+      "const": "POS00012"
+    },
+    {
+      "type": "string",
+      "description": "A Conta Beneficiária [Beneficiary Account ID] não está em status Ativo ou Parcialmente Suspenso",
+      "const": "POS00013"
+    },
+    {
+      "type": "string",
+      "description": "Posição duplicada encontrada na Solicitação de Transferência de Posição",
+      "const": "POS00014"
+    },
+    {
+      "type": "string",
+      "description": "Participante de Negociação de Origem especificado em [PMR Bulk Mem POS Trans.Originating Trading Member] é inválido",
+      "const": "POS00015"
+    },
+    {
+      "type": "string",
+      "description": "Participante de Negociação Beneficiário especificado em [PMR Bulk Mem POS Trans.Beneficiary Trading Member] é inválido",
+      "const": "POS00016"
+    },
+    {
+      "type": "string",
+      "description": "Conta Beneficiária especificada em [PMR Bulk Mem POS Trans.Beneficiary Account] é inválida",
+      "const": "POS00017"
+    },
+    {
+      "type": "string",
+      "description": "Posição especificada inválida",
+      "const": "POS00018"
+    },
+    {
+      "type": "string",
+      "description": "Detalhes da Transferência de Posição do Participante não especificados no arquivo",
+      "const": "POS00019"
+    },
+    {
+      "type": "string",
+      "description": "Cabeçalho não encontrado no arquivo",
+      "const": "POS00020"
+    },
+    {
+      "type": "string",
+      "description": "O arquivo de Transferência de Posição do Participante excede o limite máximo de registros",
+      "const": "POS00021"
+    },
+    {
+      "type": "string",
+      "description": "Cabeçalho do arquivo de transferência de posição do Participante inválido",
+      "const": "POS00022"
+    }    
+  ],
+  "additionalProperties": false,
+  "examples": [
+    "POS00001",
+    "POS00002",
+    "POS00003",
+    "POS00004",
+    "POS00005",
+    "POS00010",
+    "POS00015",
+    "POS00022"
+  ]
+}

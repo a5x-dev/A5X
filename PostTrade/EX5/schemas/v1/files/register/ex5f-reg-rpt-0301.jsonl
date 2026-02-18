@@ -19,7 +19,7 @@
         "$ref" : "../../objects/business/BaseRegistrationProfessional.json"
       },
       "minItems" : 0,
-      "maxItems" : 60,
+      "maxItems" : 10000,
       "description" : "Array of professionals found (empty if none found)"
     }
   },
@@ -31,7 +31,7 @@
       "category" : 3
     },
     "professionals" : [ {
-      "documentIdentifier" : {
+      "operatorDocument" : {
         "documentType" : 2,
         "documentNumber" : "12345678900"
       },
@@ -46,20 +46,20 @@
       "birthDate" : "1985-03-15",
       "nationality" : "BRA",
       "relationshipType" : 1,
-      "professionalAddress" : {
+      "address" : {
         "street" : "Rua Brasilândia",
         "number" : "123",
         "complement" : "Apto 101",
         "neighborhood" : "Centro",
         "postalCode" : "01234-567",
-        "cityName" : 3550308,
+        "cityName" : "São Paulo",
         "state" : "SP",
         "country" : "BRA",
         "phoneNumber" : "+55-11-91234-5678",
         "email" : "usuario@exemplo.com.br"
       },
       "professionalActivity" : {
-        "professionalRoleType" : 1,
+        "professionalRole" : 1,
         "startDate" : "2023-01-15",
         "endDate" : "2024-12-31"
       },

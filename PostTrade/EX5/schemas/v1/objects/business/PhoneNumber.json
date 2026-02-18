@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:PhoneNumber",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:PhoneNumber"
+  },
+  "title": "Phone Number",
+  "description": "Phone number information with type classification",
+  "type": "object",
+  "properties": {
+    "isPrimary": {
+      "type": "boolean",
+      "description": "Primary address indicator"
+    },
+    "phoneType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of phone number (mobile, landline, fax, etc.)",
+      "$comment": "Consult External Code List table ExternalPhoneTypeCode"
+    },
+    "phoneNumber": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "Phone number in international format (E.164 standard)"
+    }
+  },
+  "required": [
+    "isPrimary",
+    "phoneType",
+    "phoneNumber"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "isPrimary": true,
+      "phoneType": 1,
+      "phoneNumber": "+55-11-91234-5678"
+    }
+  ]
+}

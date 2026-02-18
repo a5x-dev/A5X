@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalBusinessGroupCode",
+  "description": "Codes for business group",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Trade capture and processing",
+      "const": "TRD"
+    },
+    {
+      "type": "string",
+      "description": "Trade allocation and distribution",
+      "const": "ALC"
+    },
+    {
+      "type": "string",
+      "description": "Position management and reconciliation",
+      "const": "POS"
+    },
+    {
+      "type": "string",
+      "description": "Risk assessment and monitoring",
+      "const": "RSK"
+    },
+    {
+      "type": "string",
+      "description": "Registration and reference data management",
+      "const": "REG"
+    },
+    {
+      "type": "string",
+      "description": "Collateral management and valuation",
+      "const": "COL"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": ["TRD", "ALC", "POS", "RSK", "REG", "COL"]
+}

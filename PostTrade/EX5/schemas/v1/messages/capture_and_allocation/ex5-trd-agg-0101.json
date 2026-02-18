@@ -61,7 +61,7 @@
   "additionalProperties" : false,
   "examples" : [ {
     "accountIdentification" : {
-      "id" : 1234567890123
+      "id" : 123456789
     },
     "trade" : {
       "tradeDate" : "2025-08-28",
@@ -87,7 +87,7 @@
     },
     "giveUpOnCaptureIndicator" : true,
     "compressionGroup" : {
-      "compressionGroupIdentification" : "CG123456789012345",
+      "compressionGroupIdentification" : "CG123456789",
       "compressionGroupStatus" : 2,
       "compressionGroupDatetime" : "2025-08-28T13:45:00Z"
     },

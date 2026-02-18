@@ -10,9 +10,9 @@
   "type" : "object",
   "properties" : {
     "code" : {
-      "$ref" : "../../objects/business/ExternalErrorCodeList.json",
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
       "description" : "Provides a proprietary status of each processing requested",
-      "$comment" : "Consult External Code List table ExternalErrorCollateralCode, ExternalErrorRegistrationCode, ExternalErrorAllocationCode, ExternalAllocationInstruction"
+      "$comment" : "Consult External Code List table ExternalCollateralErrorCode, ExternalRegistrationErrorCode, ExternalAllocationErrorCode, ExternalRiskErrorCode, ExternalPositionsErrorCode, ExternalInstrumentsErrorCode, ExternalPricingErrorCode, ExternalFeeErrorCode, ExternalQualifiedServicesErrorCode, ExternalTechnicalErrorCode"
     },
     "errorDescription" : {
       "type" : "string",
@@ -36,9 +36,9 @@
   "required" : [ "code" ],
   "additionalProperties" : false,
   "examples" : [ {
-    "code" : 1,
-    "message" : "Error X",
-    "errorDescription" : "COD12452",
+    "code" : "TEC00000",
+    "message" : "Falha genérica",
+    "errorDescription" : "Erro genérico",
     "refId" : "REF12345"
   } ]
 }

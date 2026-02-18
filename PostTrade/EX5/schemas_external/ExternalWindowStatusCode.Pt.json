@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalWindowStatusCode",
+  "description": "Codes for window status",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Janela operacional aberta e funcionando normalmente",
+      "const": "OPEN"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional fechada e não aceita operações",
+      "const": "CLOSED"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional próxima ao fechamento",
+      "const": "CLOSING_SOON"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional próxima à abertura",
+      "const": "OPENING_SOON"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional em processo de abertura",
+      "const": "OPENING"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional em processo de fechamento",
+      "const": "CLOSING"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional suspensa temporariamente",
+      "const": "SUSPENDED"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional retomando operações após suspensão",
+      "const": "RESUMING"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional em manutenção programada",
+      "const": "MAINTENANCE"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional fechada por situação de emergência",
+      "const": "EMERGENCY_CLOSE"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional em manutenção programada conforme cronograma",
+      "const": "SCHEDULED_MAINTENANCE"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional estendida além do horário normal",
+      "const": "EXTENDED"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional com restrições de operações",
+      "const": "RESTRICTED"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional funcionando parcialmente com operações limitadas",
+      "const": "PARTIAL_OPERATION"
+    },
+    {
+      "type": "string",
+      "description": "Janela operacional indisponível para operações",
+      "const": "UNAVAILABLE"
+    },
+    {
+      "type": "string",
+      "description": "Status padrão da janela operacional",
+      "const": "DEFAULT"
+    },
+    {
+      "type": "string",
+      "description": "Status desconhecido ou não identificado da janela operacional",
+      "const": "UNKNOWN"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": ["OPEN", "CLOSED", "CLOSING_SOON", "OPENING_SOON", "SUSPENDED", "MAINTENANCE", "EMERGENCY_CLOSE", "UNAVAILABLE"]
+}

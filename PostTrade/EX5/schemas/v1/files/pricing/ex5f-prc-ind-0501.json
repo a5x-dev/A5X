@@ -1,0 +1,80 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#", 
+  "$id" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-ind-0501",
+  "$metadata" : {
+    "domain" : "pricing",
+    "schemaId" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-ind-0501"
+  }, 
+  "title" : "Economic Indicator Report", 
+  "description" : "JSON Schema for the Economic Indicator Report", 
+  "type" : "object", 
+  "properties" : {
+    "referenceDate" : {
+      "type" : "string", 
+      "format" : "date", 
+      "description" : "ReferenceDate", 
+      "examples" : [
+        "2017-07-21", 
+        "2023-12-31", 
+        "2024-01-15"
+      ]
+            }, 
+    "financialInstrumentIdentificationId" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Proprietary identification of an instrument", 
+      "examples" : [
+        "10000000000000001"
+      ]
+    }, 
+    "financialInstrumentIdentificationSource" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Source of the instrument identification", 
+      "examples" : [
+        "8"
+      ]
+    }, 
+    "financialInstrumentIdentificationExchange" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Codes for exchanges and market identifications", 
+      "examples" : [
+        "A5X", 
+        "XNYS", 
+        "XNAS"
+      ]
+    }, 
+    "tickerSymbol" : {
+      "type" : "string", 
+      "minLength" : 1, 
+      "maxLength" : 35, 
+      "description" : "Letters that identify stocks traded on stock exchange", 
+      "examples" : [
+        "AAAA25"
+      ]
+
+    }, 
+    "price" : {
+      "type" : "string", 
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$", 
+      "minLength" : 1, 
+      "maxLength" : 22, 
+      "description" : "Indicator Price.", 
+      "examples" : [
+        "1000.509898"
+      ]
+    }
+  },
+  "required" : [
+    "referenceDate", 
+    "financialInstrumentIdentificationId", 
+    "financialInstrumentIdentificationSource", 
+    "financialInstrumentIdentificationExchange", 
+    "tickerSymbol",
+    "price"
+  ]
+}

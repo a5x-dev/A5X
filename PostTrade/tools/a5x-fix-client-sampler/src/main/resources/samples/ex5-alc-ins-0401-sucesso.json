@@ -1,0 +1,44 @@
+{
+  "allocationIdentification" : "23456123456789234567890",
+  "participantIdentification" : {
+    "id" : 999,
+    "category" : 3
+  },
+  "trade" : {
+    "tradeDate" : "2025-08-25",
+    "buySellIndicator" : 1,
+    "tradeIdentification" : "TRD987654321098765432109876543210"
+  },
+  "instrument" : {
+    "financialInstrumentIdentification" : {
+      "id" : "100000000000001",
+      "source" : "8",
+      "exchange" : "A5X"
+    },
+    "tickerSymbol" : "DFZ0001"
+  },
+  "allocationDistribution" : [ {
+    "individualAllocationIdentification" : "ALLOCINDIV0001",
+    "accountOriginIdentification" : {
+      "id" : 100001
+    },
+    "accountDestinationIdentification" : {
+      "id" : 200001
+    },
+    "quantity" : "1500.00"
+  }, {
+    "individualAllocationIdentification" : "ALLOCINDIV0001",
+    "accountOriginIdentification" : {
+      "id" : 100001
+    },
+    "accountDestinationIdentification" : {
+      "id" : 200001
+    },
+    "quantity" : "1500.00"
+  } ],
+  "breakingRules" : {
+    "breakingRuleIndicator" : true,
+    "breakingRuleDelayResponsibility" : true,
+    "breakingRuleReason" : 1
+  }
+}

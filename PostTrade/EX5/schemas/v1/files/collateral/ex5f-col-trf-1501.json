@@ -45,7 +45,7 @@
     "accountOriginIdentificationId" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999999999999,
+      "maximum" : 999999999,
       "description" : "Origin account identifier defined by the participant"
     },
     "clearingMemberDestinationIdentificationId" : {
@@ -77,7 +77,7 @@
     "accountDestinationIdentificationId" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999999999999,
+      "maximum" : 999999999,
       "description" : "Destination account identifier defined by the participant"
     },
     "positionTransferReference" : {
@@ -118,7 +118,7 @@
     "securitiesCustodianAccountId" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999999999999,
+      "maximum" : 999999999,
       "description" : "Securities custodian account identifier"
     },
     "securitiesCustodianSubAccount" : {

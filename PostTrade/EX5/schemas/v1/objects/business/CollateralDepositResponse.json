@@ -1,164 +1,194 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralDepositResponse",
-  "$metadata" : {
-    "domain" : "business",
-    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralDepositResponse"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:CollateralDepositResponse",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:CollateralDepositResponse"
   },
-  "title" : "Collateral Deposit Response Detail",
-  "description" : "Provides response details for each of the proposed collateral pieces.",
-  "type" : "object",
-  "properties" : {
-    "collateralProposalIdentification" : {
-      "type" : "string",
-      "maxLength" : 35,
-      "minLength" : 1,
-      "description" : "Unique collateral proposal identification assigned by the A5X"
+  "title": "Collateral Deposit Response Detail",
+  "description": "Provides response details for each of the proposed collateral pieces.",
+  "type": "object",
+  "properties": {
+    "collateralProposalIdentification": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Unique collateral proposal identification assigned by the A5X"
     },
-    "securitiesCollateral" : {
-      "type" : "array",
-      "description" : "Provides details on the securities collateral proposal",
-      "items" : {
-        "$ref" : "../../objects/business/SecuritiesCollateralProposalResponse.json"
+    "securitiesCollateral": {
+      "type": "array",
+      "description": "Provides details on the securities collateral proposal",
+      "items": {
+        "$ref": "../../objects/business/SecuritiesCollateralProposalResponse.json"
       },
-      "minItems" : 1,
-      "maxItems" : 60
+      "minItems": 1,
+      "maxItems": 60
     },
-    "cashCollateral" : {
-      "type" : "array",
-      "description" : "Provides details on the cash collateral proposal",
-      "items" : {
-        "$ref" : "../../objects/business/CashCollateralProposalResponse.json"
+    "cashCollateral": {
+      "type": "array",
+      "description": "Provides details on the cash collateral proposal",
+      "items": {
+        "$ref": "../../objects/business/CashCollateralProposalResponse.json"
       },
-      "minItems" : 1,
-      "maxItems" : 60
+      "minItems": 1,
+      "maxItems": 60
     },
-    "federalBondsResponse" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "../../objects/business/FederalBondsResponse.json"
+    "federalBondsResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/FederalBondsResponse.json"
       },
-      "description" : "Provides details on other collateral proposal",
-      "minItems" : 1,
-      "maxItems" : 60
+      "description": "Provides details on other collateral proposal",
+      "minItems": 1,
+      "maxItems": 60
     },
-    "externalSecuritiesResponse" : {
-      "type" : "array",
-      "items" : {
-        "allOf" : [ {
-          "$ref" : "../../objects/business/FederalBondsResponse.json"
-        }, {
-          "properties" : {
-            "collateralDepositStatus" : {
-              "$ref" : "../../objects/business/CollateralStatus.json",
-              "description" : "This block contains information on the collateral deposit status."
-            }
-          }
-        }, {
-          "required" : [ "collateralIdentification", "assetNumber", "quantity", "collateralValue", "statusInformation", "collateralDepositStatus" ]
-        } ],
-        "description" : "Provides details on External securities collateral proposal",
-        "minItems" : 1,
-        "maxItems" : 60
+    "externalSecuritiesResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/FederalBondsResponse.json",
+        "description": "Provides details on External securities collateral proposal",
+        "minItems": 1,
+        "maxItems": 60
       }
+    },
+    "collateralDepositStatus": {
+      "$ref": "../../objects/business/CollateralStatus.json",
+      "description": "This block contains information on the collateral deposit status."
     }
   },
-  "anyOf" : [ {
-    "required" : [ "securitiesCollateral" ]
-  }, {
-    "required" : [ "cashCollateral" ]
-  }, {
-    "required" : [ "federalBondsResponse" ]
-  }, {
-    "required" : [ "externalSecuritiesResponse" ]
-  } ],
-  "required" : [ "collateralProposalIdentification" ],
-  "additionalProperties" : false,
-  "examples" : [ {
-    "collateralProposalIdentification" : "TRF-REF-001",
-    "securitiesCollateral" : [ {
-      "collateralIdentification" : "1",
-      "assetNumber" : "AAPL",
-      "quantity" : "100.0",
-      "collateralValue" : {
-        "currency" : "USD",
-        "amount" : "1000.0"
-      },
-      "statusInformation" : {
-        "statusCode" : 1,
-        "errorIdentification" : [ {
-          "code" : 1,
-          "message" : "Error X",
-          "description" : "COD12452",
-          "refId" : "REF12345"
-        } ]
+  "anyOf": [
+    {
+      "required": [
+        "securitiesCollateral"
+      ]
+    },
+    {
+      "required": [
+        "cashCollateral"
+      ]
+    },
+    {
+      "required": [
+        "federalBondsResponse"
+      ]
+    },
+    {
+      "required": [
+        "externalSecuritiesResponse"
+      ]
+    },
+    {
+      "required": [
+        "collateralDepositStatus"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "collateralProposalIdentification": "TRF-REF-001",
+      "securitiesCollateral": [
+        {
+          "collateralIdentification": "1",
+          "assetNumber": "AAPL",
+          "quantity": "100.0",
+          "collateralValue": {
+            "currency": "USD",
+            "amount": "1000.0"
+          },
+          "statusInformation": {
+            "statusCode": 1,
+            "errorIdentification": [
+              {
+                "code": "TEC00000",
+                "message": "Error X",
+                "errorDescription": "COD12452",
+                "refId": "REF12345"
+              }
+            ]
+          }
+        }
+      ],
+      "cashCollateral": [
+        {
+          "collateralIdentification": "1",
+          "assetNumber": "AAPL",
+          "operationValue": {
+            "amount": "25000.00",
+            "currency": "BRL"
+          },
+          "collateralValue": {
+            "amount": "25000.00",
+            "currency": "BRL"
+          },
+          "statusInformation": {
+            "statusCode": 1,
+            "errorIdentification": [
+              {
+                "code": "TEC00000",
+                "message": "Error X",
+                "errorDescription": "COD12452",
+                "refId": "REF12345"
+              }
+            ]
+          }
+        }
+      ],
+      "federalBondsResponse": [
+        {
+          "collateralIdentification": "OTHER-001",
+          "assetNumber": "AAPL",
+          "quantity": "100.0",
+          "collateralValue": {
+            "amount": "24000.00",
+            "currency": "BRL"
+          },
+          "statusInformation": {
+            "statusCode": 1,
+            "errorIdentification": [
+              {
+                "code": "TEC00000",
+                "message": "Error X",
+                "errorDescription": "COD12452",
+                "refId": "REF12345"
+              }
+            ]
+          }
+        }
+      ],
+      "externalSecuritiesResponse": [
+        {
+          "collateralIdentification": "OTHER-001",
+          "assetNumber": "AAPL",
+          "quantity": "100.0",
+          "collateralValue": {
+            "amount": "24000.00",
+            "currency": "BRL"
+          },
+          "statusInformation": {
+            "statusCode": 1,
+            "errorIdentification": [
+              {
+                "code": "TEC00000",
+                "message": "Error X",
+                "errorDescription": "COD12452",
+                "refId": "REF12345"
+              }
+            ]
+          }
+        }
+      ],
+      "collateralDepositStatus": {
+        "statusCode": 1,
+        "errorIdentification": [
+          {
+            "code": "TEC00000",
+            "message": "Error X",
+            "errorDescription": "COD12452",
+            "refId": "REF12345"
+          }
+        ]
       }
-    } ],
-    "cashCollateral" : [ {
-      "collateralIdentification" : "1",
-      "assetNumber" : "AAPL",
-      "operationValue" : {
-        "amount" : "25000.00",
-        "currency" : "BRL"
-      },
-      "collateralValue" : {
-        "amount" : "25000.00",
-        "currency" : "BRL"
-      },
-      "statusInformation" : {
-        "statusCode" : 1,
-        "errorIdentification" : [ {
-          "code" : 1,
-          "message" : "Error X",
-          "description" : "COD12452",
-          "refId" : "REF12345"
-        } ]
-      }
-    } ],
-    "federalBondsResponse" : [ {
-      "collateralIdentification" : "OTHER-001",
-      "assetNumber" : "AAPL",
-      "quantity" : "100.0",
-      "collateralValue" : {
-        "amount" : "24000.00",
-        "currency" : "BRL"
-      },
-      "statusInformation" : {
-        "statusCode" : 1,
-        "errorIdentification" : [ {
-          "code" : 1,
-          "message" : "Error X",
-          "description" : "COD12452",
-          "refId" : "REF12345"
-        } ]
-      }
-    } ],
-    "externalSecuritiesResponse" : [ {
-      "collateralIdentification" : "OTHER-001",
-      "assetNumber" : "AAPL",
-      "quantity" : "100.0",
-      "collateralValue" : {
-        "amount" : "24000.00",
-        "currency" : "BRL"
-      },
-      "statusInformation" : {
-        "statusCode" : 1,
-        "errorIdentification" : [ {
-          "code" : 1,
-          "message" : "Error X",
-          "description" : "COD12452",
-          "refId" : "REF12345"
-        } ]
-      },
-      "collateralDepositStatus" : {
-        "statusCode" : 1,
-        "errorIdentification" : [ {
-          "code" : 1,
-          "message" : "Error X",
-          "description" : "COD12452",
-          "refId" : "REF12345"
-        } ]
-      }
-    } ]
-  } ]
+    }
+  ]
 }

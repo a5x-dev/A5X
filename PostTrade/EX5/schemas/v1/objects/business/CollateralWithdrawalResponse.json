@@ -1,123 +1,133 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:business:CollateralWithdrawalResponse",
-  "$metadata" : {
-    "domain" : "business",
-    "schemaId" : "urn:a5x:ex5:schema:v1:business:CollateralWithdrawalResponse"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:CollateralWithdrawalResponse",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:CollateralWithdrawalResponse"
   },
-  "title" : "Collateral Withdrawal Response Detail",
-  "description" : "Provides details about the collateral withdrawal response",
-  "type" : "object",
-  "properties" : {
-    "collateralWithdrawalIdentification" : {
-      "type" : "string",
-      "maxLength" : 35,
-      "minLength" : 1,
-      "description" : "Unique collateral withdrawal identification assigned by the A5X"
+  "title": "Collateral Withdrawal Response Detail",
+  "description": "Provides details about the collateral withdrawal response",
+  "type": "object",
+  "properties": {
+    "collateralWithdrawalIdentification": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Unique collateral withdrawal identification assigned by the A5X"
     },
-    "securitiesCollateral" : {
-      "type" : "array",
-      "description" : "Provides details on the securities collateral proposal",
-      "items" : {
-        "$ref" : "../../objects/business/SecuritiesCollateralResponse.json"
+    "securitiesCollateral": {
+      "type": "array",
+      "description": "Provides details on the securities collateral proposal",
+      "items": {
+        "$ref": "../../objects/business/SecuritiesCollateralResponse.json"
       },
-      "minItems" : 1,
-      "maxItems" : 60
+      "minItems": 1,
+      "maxItems": 60
     },
-    "cashCollateral" : {
-      "type" : "array",
-      "description" : "Provides details on the cash collateral proposal",
-      "items" : {
-        "$ref" : "../../objects/business/CashCollateralResponse.json"
+    "cashCollateral": {
+      "type": "array",
+      "description": "Provides details on the cash collateral proposal",
+      "items": {
+        "$ref": "../../objects/business/CashCollateralResponse.json"
       },
-      "minItems" : 1,
-      "maxItems" : 60
+      "minItems": 1,
+      "maxItems": 60
     },
-    "federalBondsResponse" : {
-      "type" : "array",
-      "description" : "Provides details on other collateral proposal",
-      "items" : {
-        "$ref" : "../../objects/business/FederalBondsWithdrawalResponse.json"
+    "federalBondsResponse": {
+      "type": "array",
+      "description": "Provides details on other collateral proposal",
+      "items": {
+        "$ref": "../../objects/business/FederalBondsWithdrawalResponse.json"
       },
-      "minItems" : 1,
-      "maxItems" : 60
+      "minItems": 1,
+      "maxItems": 60
     },
-     "collateralSubstitutionStatus" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "../../objects/business/CollateralStatus.json"
-      },
-      "minItems" : 1,
-      "description" : "This block contains information on the collateral release request status."
+    "collateralSubstitutionStatus": {
+      "$ref": "../../objects/business/CollateralStatus.json",
+      "description": "This block contains information on the collateral release request status."
     },
-    "externalSecuritiesResponse" : {
-      "type" : "array",
-      "description" : "Provides details on the securities collateral proposal",
-      "items" : {
-        "$ref" : "../../objects/business/SecuritiesCollateralResponse.json"
+    "externalSecuritiesResponse": {
+      "type": "array",
+      "description": "Provides details on the securities collateral proposal",
+      "items": {
+        "$ref": "../../objects/business/SecuritiesCollateralResponse.json"
       },
-      "minItems" : 1,
-      "maxItems" : 60
+      "minItems": 1,
+      "maxItems": 60
     }
   },
-  "required" : [ "collateralWithdrawalIdentification" ],
-  "additionalProperties" : true,
-  "examples" : [ {
-    "collateralWithdrawalIdentification" : "TRF-REF-001",
-    "securitiesCollateral" : [ {
-      "collateralIdentification" : "CASH-REF-001",
-      "quantity" : "100.00",
-      "collateralValue" : {
-        "currency" : "BRL",
-        "amount" : "100000.00"
+  "required": [
+    "collateralWithdrawalIdentification"
+  ],
+  "additionalProperties": true,
+  "examples": [
+    {
+      "collateralWithdrawalIdentification": "TRF-REF-001",
+      "securitiesCollateral": [
+        {
+          "collateralIdentification": "CASH-REF-001",
+          "quantity": "100.00",
+          "collateralValue": {
+            "currency": "BRL",
+            "amount": "100000.00"
+          },
+          "statusCode": 1,
+          "rejectionInformation": "Rejection information"
+        }
+      ],
+      "cashCollateral": [
+        {
+          "collateralIdentification": "CASH-REF-001",
+          "operationValue": {
+            "currency": "BRL",
+            "amount": "100000.00"
+          },
+          "collateralValue": {
+            "currency": "BRL",
+            "amount": "100000.00"
+          },
+          "statusCode": 1,
+          "rejectionInformation": "Rejection information"
+        }
+      ],
+      "federalBondsResponse": [
+        {
+          "collateralIdentification": "CASH-REF-001",
+          "quantity": "100.00",
+          "collateralValue": {
+            "currency": "BRL",
+            "amount": "100000.00"
+          },
+          "selicOperationCode": "65499",
+          "assignerAccount": "ASSIGNER-ACC-001",
+          "assigneeAccount": "ASSIGNEE-ACC-001",
+          "statusCode": 1,
+          "rejectionInformation": "Rejection information"
+        }
+      ],
+      "collateralSubstitutionStatus": {
+        "statusCode": 1,
+        "errorIdentification": [
+          {
+            "code": "TEC00000",
+            "message": "Error X",
+            "errorDescription": "COD12452",
+            "refId": "REF12345"
+          }
+        ]
       },
-      "statusCode" : 1,
-      "rejectionInformation" : "Rejection information"
-    } ],
-    "cashCollateral" : [ {
-      "collateralIdentification" : "CASH-REF-001",
-      "operationValue" : {
-        "currency" : "BRL",
-        "amount" : "100000.00"
-      },
-      "collateralValue" : {
-        "currency" : "BRL",
-        "amount" : "100000.00"
-      },
-      "statusCode" : 1,
-      "rejectionInformation" : "Rejection information"
-    } ],
-    "federalBondsResponse" : [ {
-      "collateralIdentification" : "CASH-REF-001",
-      "quantity" : "100.00",
-      "collateralValue" : {
-        "currency" : "BRL",
-        "amount" : "100000.00"
-      },
-      "selicOperationCode" : "65499",
-      "assignerAccount" : "ASSIGNER-ACC-001",
-      "assigneeAccount" : "ASSIGNEE-ACC-001",
-      "statusCode" : 1,
-      "rejectionInformation" : "Rejection information"
-    } ],
-      "collateralSubstitutionStatus" : [ {
-      "statusCode" : 1,
-      "errorIdentification" : [ {
-        "code" : 1,
-        "message" : "Error X",
-        "description" : "COD12452",
-        "refId" : "REF12345"
-      } ]
-      } ],
-    "externalSecuritiesResponse" : [ {
-      "collateralIdentification" : "CASH-REF-001",
-      "quantity" : "100.00",
-      "collateralValue" : {
-        "currency" : "BRL",
-        "amount" : "100000.00"
-      },
-      "statusCode" : 1,
-      "rejectionInformation" : "Rejection information"
-  } ]
-  } ]
+      "externalSecuritiesResponse": [
+        {
+          "collateralIdentification": "CASH-REF-001",
+          "quantity": "100.00",
+          "collateralValue": {
+            "currency": "BRL",
+            "amount": "100000.00"
+          },
+          "statusCode": 1,
+          "rejectionInformation": "Rejection information"
+        }
+      ]
+    }
+  ]
 }

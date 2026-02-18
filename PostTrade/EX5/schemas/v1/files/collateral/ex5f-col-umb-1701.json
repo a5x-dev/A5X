@@ -62,7 +62,7 @@
     "securitiesAccountIdentificationId" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999999999999,
+      "maximum" : 999999999,
       "description" : "Securities account identifier defined by the participant"
     },
     "cashCollateralIdentification" : {
@@ -86,7 +86,7 @@
     "cashAccountIdentificationId" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999999999999,
+      "maximum" : 999999999,
       "description" : "Cash account identifier defined by the participant"
     },
     "federalBondsCollateralIdentification" : {
@@ -103,7 +103,7 @@
     "federalBondsAccountIdentificationId" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999999999999,
+      "maximum" : 999999999,
       "description" : "Federal bonds account identifier defined by the participant"
     }
   },

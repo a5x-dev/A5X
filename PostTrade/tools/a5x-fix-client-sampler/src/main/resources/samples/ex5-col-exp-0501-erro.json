@@ -1,0 +1,12 @@
+{
+  "clearingMemberIdentification" : {
+    "id" : 123456,
+    "category" : 2
+  },
+  "collateralReportType" : 1,
+  "collateralCoverageInformation" : {
+    "informationType" : 2,
+    "holderType" : 2,
+    "collateralCoverageType" : 11
+  }
+}

@@ -1,107 +1,87 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Status Allocation Advice",
+  "title": "ExternalStatusAllocationAdvice",
   "description": "Codes for status allocation advice",
   "oneOf": [
     {
       "type": "number",
-      "description": "SUCCESSFULLY PROCESSED",
+      "description": "Successfully processed",
       "const": 1
     },
     {
       "type": "number",
-      "description": "ERROR CODE",
+      "description": "Error code",
       "const": 2
     },
     {
       "type": "number",
-      "description": "PENDING GIVE UP APPROVAL",
+      "description": "Pending give up approval",
       "const": 3
     },
     {
       "type": "number",
-      "description": "GIVE UP APPROVED",
+      "description": "Give up approved",
       "const": 4
     },
     {
       "type": "number",
-      "description": "GIVE UP REJECTED",
+      "description": "Give up rejected",
       "const": 5
     },
     {
       "type": "number",
-      "description": "PENDING DUE TO RISK ASSESSMENT",
+      "description": "Pending due to risk assessment",
       "const": 6
     },
     {
       "type": "number",
-      "description": "PENDING OFF HOUR APPROVAL",
+      "description": "Pending breaking rule approval",
       "const": 7
     },
     {
       "type": "number",
-      "description": "PENDING TAKE UP CANCEL APPROVAL",
+      "description": "Pending take up cancel approval",
       "const": 8
     },
     {
       "type": "number",
-      "description": "TAKE UP CANCEL APPROVED",
+      "description": "Take up cancel approved",
       "const": 9
     },
     {
       "type": "number",
-      "description": "TAKE UP CANCEL REJECTED",
+      "description": "Take up cancel rejected",
       "const": 10
     },
     {
       "type": "number",
-      "description": "OFF HOUR REJECTED",
+      "description": "Breaking rule rejected",
       "const": 12
     },
     {
       "type": "number",
-      "description": "RISK APPROVAL REJECTED",
+      "description": "Risk approval rejected",
       "const": 15
     },
     {
       "type": "number",
-      "description": "ETF TRADE UPDATED",
-      "const": 16
-    },
-    {
-      "type": "number",
-      "description": "PENDING COVERAGE VALIDATION",
-      "const": 17
-    },
-    {
-      "type": "number",
-      "description": "COVERAGE VALIDATION FAILED",
-      "const": 18
-    },
-    {
-      "type": "number",
-      "description": "COVERAGE VALIDATION SUCCEEDED",
-      "const": 19
-    },
-    {
-      "type": "number",
-      "description": "PENDING CUSTODIAN APPROVAL",
-      "const": 20
-    },
-    {
-      "type": "number",
-      "description": "CUSTODIAN INDICATION REJECTED",
-      "const": 21
-    },
-    {
-      "type": "number",
-      "description": "PENDING CLEARING HOUSE GIVE UP APPROVAL",
+      "description": "Pending clearing house give up approval",
       "const": 22
     },
     {
       "type": "number",
-      "description": "PENDING CLEARING HOUSE TAKE UP CANCELLATION APPROVAL",
+      "description": "Pending clearing house take up cancelation approval",
       "const": 23
+    },
+    {
+      "type": "number",
+      "description": "New trade",
+      "const": 24
+    },
+    {
+      "type": "number",
+      "description": "Cancelled trade",
+      "const": 25
     }
   ],
   "examples": [

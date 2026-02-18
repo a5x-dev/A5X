@@ -1,0 +1,379 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalTechnicalErrorCode",
+  "description": "Technical error codes",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Falha na conexão com banco de dados principal",
+      "const": "TEC00001"
+    },
+    {
+      "type": "string",
+      "description": "Timeout na conexão",
+      "const": "TEC00002"
+    },
+    {
+      "type": "string",
+      "description": "Falha na autenticação do serviço",
+      "const": "TEC00003"
+    },
+    {
+      "type": "string",
+      "description": "Certificado SSL expirado ou inválido",
+      "const": "TEC00004"
+    },
+    {
+      "type": "string",
+      "description": "Falha na resolução DNS",
+      "const": "TEC00005"
+    },
+    {
+      "type": "string",
+      "description": "Porta de comunicação bloqueada ou indisponível",
+      "const": "TEC00006"
+    },
+    {
+      "type": "string",
+      "description": "Falha na conexão com message broker",
+      "const": "TEC00007"
+    },
+    {
+      "type": "string",
+      "description": "Perda de conectividade com cache",
+      "const": "TEC00008"
+    },
+    {
+      "type": "string",
+      "description": "Falha na comunicação entre microserviços",
+      "const": "TEC00009"
+    },
+    {
+      "type": "string",
+      "description": "Timeout na resposta do gateway",
+      "const": "TEC00010"
+    },
+    {
+      "type": "string",
+      "description": "Timeout no processamento",
+      "const": "TEC10001"
+    },
+    {
+      "type": "string",
+      "description": "Memória insuficiente",
+      "const": "TEC10002"
+    },
+    {
+      "type": "string",
+      "description": "CPU com utilização acima do limite crítico",
+      "const": "TEC10003"
+    },
+    {
+      "type": "string",
+      "description": "Fila de processamento saturada",
+      "const": "TEC10004"
+    },
+    {
+      "type": "string",
+      "description": "Processamento interrompido por limite de tempo",
+      "const": "TEC10007"
+    },
+    {
+      "type": "string",
+      "description": "Falha na serialização/deserialização de dados",
+      "const": "TEC10008"
+    },
+    {
+      "type": "string",
+      "description": "Overflow em cálculo numérico",
+      "const": "TEC10009"
+    },
+    {
+      "type": "string",
+      "description": "Processamento em lote falhou",
+      "const": "TEC10010"
+    },
+    {
+      "type": "string",
+      "description": "Formato JSON inválido na mensagem",
+      "const": "TEC20001"
+    },
+    {
+      "type": "string",
+      "description": "Schema de validação não encontrado",
+      "const": "TEC20002"
+    },
+    {
+      "type": "string",
+      "description": "Campo obrigatório ausente na mensagem",
+      "const": "TEC20003"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de dado inválido no campo",
+      "const": "TEC20004"
+    },
+    {
+      "type": "string",
+      "description": "Tamanho do campo excede limite máximo",
+      "const": "TEC20005"
+    },
+    {
+      "type": "string",
+      "description": "Valor fora do range permitido",
+      "const": "TEC20006"
+    },
+    {
+      "type": "string",
+      "description": "Formato de data/hora inválido",
+      "const": "TEC20007"
+    },
+    {
+      "type": "string",
+      "description": "Encoding de caracteres inválido",
+      "const": "TEC20008"
+    },
+    {
+      "type": "string",
+      "description": "Checksum de integridade falhou",
+      "const": "TEC20009"
+    },
+    {
+      "type": "string",
+      "description": "Versão do schema incompatível",
+      "const": "TEC20010"
+    },
+    {
+      "type": "string",
+      "description": "Token de autenticação expirado ou inválido",
+      "const": "TEC30001"
+    },
+    {
+      "type": "string",
+      "description": "Usuário não autorizado para operação",
+      "const": "TEC30003"
+    },
+    {
+      "type": "string",
+      "description": "Limite de tentativas de login excedido",
+      "const": "TEC30004"
+    },
+    {
+      "type": "string",
+      "description": "Assinatura digital inválida",
+      "const": "TEC30005"
+    },
+    {
+      "type": "string",
+      "description": "Certificado digital expirado",
+      "const": "TEC30006"
+    },
+    {
+      "type": "string",
+      "description": "Falha na criptografia dos dados",
+      "const": "TEC30007"
+    },
+    {
+      "type": "string",
+      "description": "Falha na validação de integridade",
+      "const": "TEC30010"
+    },
+    {
+      "type": "string",
+      "description": "Espaço em disco insuficiente",
+      "const": "TEC40001"
+    },
+    {
+      "type": "string",
+      "description": "Falha na gravação no banco de dados",
+      "const": "TEC40002"
+    },
+    {
+      "type": "string",
+      "description": "Transação de banco de dados falhou",
+      "const": "TEC40003"
+    },
+    {
+      "type": "string",
+      "description": "Índice de banco corrompido",
+      "const": "TEC40004"
+    },
+    {
+      "type": "string",
+      "description": "Backup automático falhou",
+      "const": "TEC40005"
+    },
+    {
+      "type": "string",
+      "description": "Constraint de integridade violada",
+      "const": "TEC40008"
+    },
+    {
+      "type": "string",
+      "description": "Arquivo de log corrompido",
+      "const": "TEC40009"
+    },
+    {
+      "type": "string",
+      "description": "Cache de dados inconsistente",
+      "const": "TEC40010"
+    },
+    {
+      "type": "string",
+      "description": "Arquivo de configuração não encontrado",
+      "const": "TEC50001"
+    },
+    {
+      "type": "string",
+      "description": "Parâmetro de configuração inválido",
+      "const": "TEC50002"
+    },
+    {
+      "type": "string",
+      "description": "Versão incompatível de dependência",
+      "const": "TEC50004"
+    },
+    {
+      "type": "string",
+      "description": "Porta já em uso por outro processo",
+      "const": "TEC50007"
+    },
+    {
+      "type": "string",
+      "description": "Recurso do sistema indisponível",
+      "const": "TEC50009"
+    },
+    {
+      "type": "string",
+      "description": "Falha na carga de configurações dinâmicas",
+      "const": "TEC50010"
+    },
+    {
+      "type": "string",
+      "description": "Dashboard de monitoramento indisponível",
+      "const": "TEC60007"
+    },
+    {
+      "type": "string",
+      "description": "Falha na sincronização de logs",
+      "const": "TEC60008"
+    },
+    {
+      "type": "string",
+      "description": "Rate limit excedido",
+      "const": "TEC70003"
+    },
+    {
+      "type": "string",
+      "description": "Webhook não pôde ser entregue",
+      "const": "TEC70007"
+    },
+    {
+      "type": "string",
+      "description": "Callback de API falhou",
+      "const": "TEC70008"
+    },
+    {
+      "type": "string",
+      "description": "Falha na sincronização com sistema externo",
+      "const": "TEC70009"
+    },
+    {
+      "type": "string",
+      "description": "Protocolo de comunicação não suportado",
+      "const": "TEC70010"
+    },
+    {
+      "type": "string",
+      "description": "Limite máximo de conexões simultâneas atingido",
+      "const": "TEC80001"
+    },
+    {
+      "type": "string",
+      "description": "Limite de requisições por minuto excedido",
+      "const": "TEC80002"
+    },
+    {
+      "type": "string",
+      "description": "Tamanho máximo de arquivo excedido",
+      "const": "TEC80003"
+    },
+    {
+      "type": "string",
+      "description": "Limite de memória por processo atingido",
+      "const": "TEC80004"
+    },
+    {
+      "type": "string",
+      "description": "Número máximo de threads atingido",
+      "const": "TEC80005"
+    },
+    {
+      "type": "string",
+      "description": "Quota de armazenamento excedida",
+      "const": "TEC80006"
+    },
+    {
+      "type": "string",
+      "description": "Limite de tempo de processamento excedido",
+      "const": "TEC80007"
+    },
+    {
+      "type": "string",
+      "description": "Número máximo de registros por consulta excedido",
+      "const": "TEC80008"
+    },
+    {
+      "type": "string",
+      "description": "Mecanismo de retry esgotado",
+      "const": "TEC90001"
+    },
+    {
+      "type": "string",
+      "description": "Circuit breaker ativado",
+      "const": "TEC90002"
+    },
+    {
+      "type": "string",
+      "description": "Fallback para modo degradado",
+      "const": "TEC90003"
+    },
+    {
+      "type": "string",
+      "description": "Falha na recuperação automática",
+      "const": "TEC90004"
+    },
+    {
+      "type": "string",
+      "description": "Rollback de transação falhou",
+      "const": "TEC90005"
+    },
+    {
+      "type": "string",
+      "description": "Processo de recuperação de desastre iniciado",
+      "const": "TEC90006"
+    },
+    {
+      "type": "string",
+      "description": "Failover para servidor secundário",
+      "const": "TEC90007"
+    },
+    {
+      "type": "string",
+      "description": "Dados de backup corrompidos",
+      "const": "TEC90008"
+    },
+    {
+      "type": "string",
+      "description": "Processo de sincronização após falha falhou",
+      "const": "TEC90009"
+    },
+    {
+      "type": "string",
+      "description": "Estado inconsistente após recuperação",
+      "const": "TEC90010"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": ["TEC00001", "TEC10001", "TEC20001", "TEC30001", "TEC40001"]
+}

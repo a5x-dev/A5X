@@ -30,7 +30,7 @@
     },
     {
       "type": "number",
-      "description": "CART. DE ORDENS PROFISSIONAIS",
+      "description": "CARTEIRA DE ORDENS PROFISSIONAIS",
       "const": 6
     },
     {
@@ -45,7 +45,7 @@
     },
     {
       "type": "number",
-      "description": "REGISTRO DE IDENTIDADE CIVIL",
+      "description": "CARTEIRA DE IDENTIFICAÇÃO NACIONAL",
       "const": 9
     },
     {
@@ -60,28 +60,8 @@
     },
     {
       "type": "number",
-      "description": "SWIFT/BIC/BEI",
-      "const": 12
-    },
-    {
-      "type": "number",
-      "description": "NFA-ID",
-      "const": 13
-    },
-    {
-      "type": "number",
-      "description": "CÓD. BOVESPA",
-      "const": 14
-    },
-    {
-      "type": "number",
       "description": "ISPB",
       "const": 15
-    },
-    {
-      "type": "number",
-      "description": "FEDWIRE",
-      "const": 16
     },
     {
       "type": "number",
@@ -95,111 +75,6 @@
     },
     {
       "type": "number",
-      "description": "CÓDIGO 333",
-      "const": 19
-    },
-    {
-      "type": "number",
-      "description": "CÓDIGO 444",
-      "const": 20
-    },
-    {
-      "type": "number",
-      "description": "NIRE",
-      "const": 21
-    },
-    {
-      "type": "number",
-      "description": "INSCRIÇÃO ESTADUAL",
-      "const": 22
-    },
-    {
-      "type": "number",
-      "description": "TAX ID",
-      "const": 23
-    },
-    {
-      "type": "number",
-      "description": "UNIQUE TAXPAYER REFERENCE",
-      "const": 24
-    },
-    {
-      "type": "number",
-      "description": "REGISTRO PUBLICO Y GEN DE COM.",
-      "const": 25
-    },
-    {
-      "type": "number",
-      "description": "UNIFIED BUSINESS IDENTIFIER",
-      "const": 26
-    },
-    {
-      "type": "number",
-      "description": "NÚMERO IDENTIFICACIÓN FISCAL",
-      "const": 27
-    },
-    {
-      "type": "number",
-      "description": "NUMERO DI ISCRIZIONE",
-      "const": 28
-    },
-    {
-      "type": "number",
-      "description": "SIREN NUMÉRO D'IDENTIFICATION",
-      "const": 29
-    },
-    {
-      "type": "number",
-      "description": "TRADE REGISTER",
-      "const": 30
-    },
-    {
-      "type": "number",
-      "description": "DOCUMENTO NACIONAL IDENTIDAD",
-      "const": 31
-    },
-    {
-      "type": "number",
-      "description": "SISBACEN",
-      "const": 32
-    },
-    {
-      "type": "number",
-      "description": "iSELIC",
-      "const": 33
-    },
-    {
-      "type": "number",
-      "description": "COMPE",
-      "const": 35
-    },
-    {
-      "type": "number",
-      "description": "SISBEX",
-      "const": 36
-    },
-    {
-      "type": "number",
-      "description": "COD. OPERADOR",
-      "const": 37
-    },
-    {
-      "type": "number",
-      "description": "CÓDIGO CETIP",
-      "const": 38
-    },
-    {
-      "type": "number",
-      "description": "CÓDIGO PARTICIPANTE BVMF",
-      "const": 39
-    },
-    {
-      "type": "number",
-      "description": "COD. REPRESENTANTE CVM",
-      "const": 40
-    },
-    {
-      "type": "number",
       "description": "NIF",
       "const": 45
     },
@@ -210,23 +85,8 @@
     },
     {
       "type": "number",
-      "description": "NÚMERO DE IDENTIFICAÇÃO DE INTERMEDIÁRIO GLOBAL (GIN)",
-      "const": 48
-    },
-    {
-      "type": "number",
-      "description": "CÓDIGO LEI",
-      "const": 49
-    },
-    {
-      "type": "number",
-      "description": "RDE",
-      "const": 50
-    },
-    {
-      "type": "number",
-      "description": "CÓDIGO DE AGRUPAMENTO",
-      "const": 51
+      "description": "CÓDIGO 55",
+      "const": 301
     },
     {
       "type": "number",
@@ -234,6 +94,7 @@
       "const": 99
     }
   ],
+  "additionalProperties": false,
   "examples": [
     1,
     2,
@@ -244,6 +105,14 @@
     7,
     8,
     9,
-    10
+    10,
+    11,
+    15,
+    17,
+    18,
+    45,
+    46,
+    301,
+    99
   ]
 }

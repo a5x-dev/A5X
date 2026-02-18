@@ -67,7 +67,12 @@
       "description" : "Expected time to resolve",
       "maxLength" : 500
     },
-    "resolution" : {
+    "englishResolution" : {
+      "type" : "string",
+      "description" : "Details about the resolution",
+      "maxLength" : 500
+    },
+    "portugueseResolution" : {
       "type" : "string",
       "description" : "Details about the resolution",
       "maxLength" : 500
@@ -88,6 +93,7 @@
     "impactedPublic" : "Public B",
     "currentStatus" : "OPEN",
     "previsionResolution" : "Within 1 hours",
-    "resolution" : "Error caused by ABCD and resolved after EFG"
+    "englishResolution" : "Error caused by ABCD and resolved after EFG",
+    "portugueseResolution" : "Error caused by ABCD and resolved after EFG"
   } ]
 }

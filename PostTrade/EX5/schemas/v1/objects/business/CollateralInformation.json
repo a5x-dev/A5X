@@ -41,6 +41,7 @@
           "collateralBalance" : "50000.00",
           "informationType" : 2,
           "additionalInformationOfficialCollCall" : {
+            "marginRunId": "MR-20240101-001",
             "totalMargin" : {
               "currency" : "BRL",
               "amount" : "150000.50"
@@ -63,6 +64,7 @@
             }
           },
           "additionalInformationIntradayCollCall" : {
+            "marginRunId": "MR-20240101-001",
             "totalMargin" : {
               "currency" : "BRL",
               "amount" : "150000.50"

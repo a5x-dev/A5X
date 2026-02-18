@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalExerciseStyleCode",
+  "description": "Codes for exercise style",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "American",
+      "const": "AMER"
+    },
+    {
+      "type": "string",
+      "description": "European",
+      "const": "EURO"
+    },
+    {
+      "type": "string",
+      "description": "Bermudan",
+      "const": "BERM"
+    },
+    {
+      "type": "string",
+      "description": "Canadian",
+      "const": "CANA"
+    },
+    {
+      "type": "string",
+      "description": "Asian",
+      "const": "ASIA"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    "AMER",
+    "EURO", 
+    "BERM",
+    "CANA",
+    "ASIA"
+  ]
+}

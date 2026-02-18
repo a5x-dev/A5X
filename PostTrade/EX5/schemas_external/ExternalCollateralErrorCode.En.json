@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalCollateralErrorCode",
+  "description": "Error codes for collateral movement operations",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Invalid fields provided for collateral movement",
+      "const": "COL00001"
+    },
+    {
+      "type": "string",
+      "description": "The instrument provided is not eligible for collateral movement request",
+      "const": "COL00002"
+    },
+    {
+      "type": "string",
+      "description": "The account or participant registration information is invalid for collateral movement",
+      "const": "COL00003"
+    },
+    {
+      "type": "string",
+      "description": "The instrument provided is invalid for collateral movement request",
+      "const": "COL00004"
+    },
+    {
+      "type": "string",
+      "description": "The purpose provided is invalid for collateral movement request",
+      "const": "COL00005"
+    },
+    {
+      "type": "string",
+      "description": "The investor type provided is invalid for collateral movement request",
+      "const": "COL00006"
+    },
+    {
+      "type": "string",
+      "description": "The collateral deposit exceeds the allowed concentration limit",
+      "const": "COL00007"
+    },
+    {
+      "type": "string",
+      "description": "The quantity provided exceeds the available collateral balance",
+      "const": "COL00008"
+    },
+    {
+      "type": "string",
+      "description": "The system is closed",
+      "const": "COL00010"
+    },
+    {
+      "type": "string",
+      "description": "The request exceeds the allowed time schedule for this collateral movement",
+      "const": "COL00011"
+    },
+    {
+      "type": "string",
+      "description": "The free balance is insufficient for collateral movement",
+      "const": "COL00012"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    "COL00001",
+    "COL00002",
+    "COL00003",
+    "COL00004",
+    "COL00005",
+    "COL00006",
+    "COL00007",
+    "COL00008",
+    "COL00010",
+    "COL00011",
+    "COL00012"
+  ]
+}

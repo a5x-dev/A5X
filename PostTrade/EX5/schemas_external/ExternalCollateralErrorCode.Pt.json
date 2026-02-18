@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalCollateralErrorCode",
+  "description": "Códigos de erro para operações de movimentação de garantias",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Campos informados inválidos para a movimentação de garantias",
+      "const": "COL00001"
+    },
+    {
+      "type": "string",
+      "description": "O instrumento informado não é elegível para a solicitação de movimentação de garantias",
+      "const": "COL00002"
+    },
+    {
+      "type": "string",
+      "description": "As informações cadastrais da conta ou do participante são inválidas para a movimentação de garantias",
+      "const": "COL00003"
+    },
+    {
+      "type": "string",
+      "description": "O instrumento informado é inválido para a solicitação de movimentação de garantias",
+      "const": "COL00004"
+    },
+    {
+      "type": "string",
+      "description": "A finalidade informada é inválida para a solicitação de movimentação de garantias",
+      "const": "COL00005"
+    },
+    {
+      "type": "string",
+      "description": "O tipo de investidor informado é inválido para a solicitação de movimentação de garantias",
+      "const": "COL00006"
+    },
+    {
+      "type": "string",
+      "description": "O depósito de garantia excede o limite de concentração permitido",
+      "const": "COL00007"
+    },
+    {
+      "type": "string",
+      "description": "A quantidade informada excede o saldo disponível em garantia",
+      "const": "COL00008"
+    },
+    {
+      "type": "string",
+      "description": "O sistema encontra-se encerrado",
+      "const": "COL00010"
+    },
+    {
+      "type": "string",
+      "description": "A solicitação excede a grade horária permitida para essa movimentação de garantias",
+      "const": "COL00011"
+    },
+    {
+      "type": "string",
+      "description": "O saldo livre é insuficiente para a movimentação de garantias",
+      "const": "COL00012"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    "COL00001",
+    "COL00002",
+    "COL00003",
+    "COL00004",
+    "COL00005",
+    "COL00006",
+    "COL00007",
+    "COL00008",
+    "COL00010",
+    "COL00011",
+    "COL00012"
+  ]
+}

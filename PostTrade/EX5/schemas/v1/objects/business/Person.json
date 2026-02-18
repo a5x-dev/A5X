@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:Pessoa",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:Pessoa"
+  },
+  "title": "Pessoa",
+  "description": "Basic person information for both natural and legal persons",
+  "type": "object",
+  "properties": {
+    "personType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of person - Natural Person or Legal Entity",
+      "$comment": "Consult External Code List table ExternalPersonTypeCode"
+    },
+    "residenceStatus": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Residence status for tax purposes",
+      "$comment": "Consult External Code List table ExternalResidenceStatusCode"
+    },
+    "documentIdentifier": {
+      "$ref": "../../objects/business/DocumentIdentifier.json",
+      "description": "Document identification information"
+    },
+    "personStatus": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Person status - Active, Suspended, Partially Suspended, Inactive",
+      "$comment": "Consult External Code List table ExternalStatusCode"
+    },
+    "reasonCode": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Reason code for status changes, mainly used for defaulters",
+      "$comment": "Consult External Code List table ExternalRestrictionTypeCode"
+    }
+  },
+  "required": [
+    "personType",
+    "residenceStatus",
+    "documentIdentifier"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "personType": 1,
+      "residenceStatus": "RESI",
+      "documentIdentifier": {
+        "documentType": 2,
+        "documentNumber": "12345678900"
+      },
+      "personStatus": 1,
+      "reasonCode": 1
+    }
+  ]
+}

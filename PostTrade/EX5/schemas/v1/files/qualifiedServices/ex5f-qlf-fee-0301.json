@@ -111,14 +111,14 @@
     "feeProductGroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 99,
+      "maximum": 999999,
       "description": "Fee family code",
       "$comment": "Consult External Code List table ExternalFeeProductGroup"
     },
     "feeComponent": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 99,
+      "maximum": 999999,
       "description": "Calculated fee component code",
       "$comment": "Consult External Code List table ExternalFeeComponent"
     },
@@ -146,7 +146,7 @@
     "feeProductSubgroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 99,
+      "maximum": 999999,
       "description": "Second level of fee family, when applicable",
       "$comment": "Consult External Code List table ExternalFeeProductGroup"
     },
@@ -171,14 +171,14 @@
     "calculationType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 99,
+      "maximum": 999999,
       "description": "Indicates if calculation is Progressive or Regressive",
       "$comment": "Consult External Code List table ExternalCalcType"
     },
     "additionalValueType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 99,
+      "maximum": 999999,
       "description": "Additional value type indicator",
       "$comment": "Consult External Code List table ExternalFeetypeindicator"
     },

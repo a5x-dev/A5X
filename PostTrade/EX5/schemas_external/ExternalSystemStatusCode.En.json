@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalSystemStatusCode",
+  "description": "Codes for system status",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "System is open and functioning normally",
+      "const": "OPEN"
+    },
+    {
+      "type": "string",
+      "description": "System is closed and does not accept operations",
+      "const": "CLOSED"
+    },
+    {
+      "type": "string",
+      "description": "System is in pre-opening phase",
+      "const": "PRE_OPENING"
+    },
+    {
+      "type": "string",
+      "description": "System is in pre-closing phase",
+      "const": "PRE_CLOSING"
+    },
+    {
+      "type": "string",
+      "description": "System is temporarily suspended",
+      "const": "SUSPENDED"
+    },
+    {
+      "type": "string",
+      "description": "System is under maintenance",
+      "const": "MAINTENANCE"
+    },
+    {
+      "type": "string",
+      "description": "System is unavailable for operations",
+      "const": "UNAVAILABLE"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": ["OPEN", "CLOSED", "PRE_OPENING", "SUSPENDED", "MAINTENANCE"]
+}

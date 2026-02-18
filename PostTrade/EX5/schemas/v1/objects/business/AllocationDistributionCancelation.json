@@ -42,9 +42,9 @@
   "examples": [
     {
       "individualAllocationIdentification": "ALLOCINDIV0002",
-      "allocationIdentification": "ALLOC123456789012345678901234567890",
+      "allocationIdentification": "ALLOC123456123456789234567890",
       "accountIdentification": {
-        "id": 123456789012345
+        "id": 123456789
       },
       "quantity": "1000.00"
     }

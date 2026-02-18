@@ -22,7 +22,7 @@
       "description" : "Beneficiary bank details"
     },
     "transferCurrency" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
       "description" : "Transfer currency. Consult External Code List table - ExternalCurrencyCode"
     },
     "intermediaryBankDetails" : {

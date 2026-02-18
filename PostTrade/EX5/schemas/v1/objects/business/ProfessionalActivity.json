@@ -9,10 +9,10 @@
   "description" : "Professional activity information including role type and period of activity",
   "type" : "object",
   "properties" : {
-    "professionalRoleType" : {
+    "professionalRole" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Type of professional role or activity",
-      "$comment" : "Consult External Code List table ExternalProfessionalRoleTypeCode "
+      "$comment" : "Consult External Code List table ExternalProfessionalMappingRoleCode "
     },
     "startDate" : {
       "$ref" : "../../types/ISODate.json",
@@ -23,14 +23,14 @@
       "description" : "End date of the professional activity"
     }
   },
-  "required" : [ "professionalRoleType", "startDate" ],
+  "required" : [ "professionalRole", "startDate" ],
   "additionalProperties" : false,
   "examples" : [ {
-    "professionalRoleType" : 1,
+    "professionalRole" : 1,
     "startDate" : "2023-01-15",
     "endDate" : "2024-12-31"
   }, {
-    "professionalRoleType" : 2,
+    "professionalRole" : 2,
     "startDate" : "2022-06-01"
   } ]
 }

@@ -1,386 +1,268 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:business:BaseRegistrationAccount",
-  "$metadata" : {
-    "domain" : "business",
-    "schemaId" : "urn:a5x:ex5:schema:v1:business:BaseRegistrationAccount"
-  },
-  "title" : "Fields base to account register",
-  "description" : "Fields to Natural Person and Legal entity composition message",
-  "type" : "object",
-  "properties" : {
-    "account" : {
-      "$ref" : "../../objects/business/Account.json"
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "urn:a5x:ex5:schema:v1:business:BaseRegistrationAccount",
+    "$metadata": {
+        "domain": "business",
+        "schemaId": "urn:a5x:ex5:schema:v1:business:BaseRegistrationAccount"
     },
-    "personType" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Type of person. Consult External Code List table ExternalPersonTypeCode",
-      "$comment" : "Consult External Code List table ExternalPersonTypeCode"
-    },
-    "residenceStatus" : {
-      "$ref" : "../../objects/business/ExternalCodeTextList.json",
-      "description" : "Residence status for tax purposes",
-      "$comment" : "Consult External Code List table ExternalResidenceStatusCode"
-    },
-    "naturalPersonRegistration" : {
-      "$ref" : "../../objects/business/NaturalPerson.json"
-    },
-    "legalPersonRegistration" : {
-      "$ref" : "../../objects/business/LegalPerson.json"
-    }
-  },
-  "additionalProperties" : false,
-  "oneOf" : [ {
-    "properties" : {
-      "account" : true,
-      "personType" : true,
-      "residenceStatus" : true,
-      "naturalPersonRegistration" : true,
-      "legalPersonRegistration" : false
-    },
-    "required" : [ "account", "personType", "residenceStatus", "naturalPersonRegistration" ]
-  }, {
-    "properties" : {
-      "account" : true,
-      "personType" : true,
-      "residenceStatus" : true,
-      "naturalPersonRegistration" : false,
-      "legalPersonRegistration" : true
-    },
-    "required" : [ "account", "personType", "residenceStatus", "legalPersonRegistration" ]
-  } ],
-  "examples" : [ {
-    "account" : {
-      "accountType" : 1,
-      "id" : 123456789012345
-    },
-    "personType" : 1,
-    "residenceStatus" : "RESI",
-    "naturalPersonRegistration" : {
-      "naturalPersonInformation" : {
-        "name" : {
-          "fullName" : "João Oliveira Santos",
-          "socialName" : "Maria Oliveira Santos",
-          "motherOrGuardian" : "Ana Maria de Souza"
+    "title": "Fields base to account register",
+    "description": "Fields to Natural Person and Legal entity composition message",
+    "type": "object",
+    "properties": {
+        "person": {
+            "$ref": "../../objects/business/Person.json",
+            "description": "Basic person information"
         },
-        "personBase" : {
-          "principalDocument" : {
-            "documentType" : 2,
-            "documentNumber" : "12345678900"
-          },
-          "politicallyExposedPerson" : false,
-          "usPerson" : false,
-          "relatedPerson" : true,
-          "countryOfResidence" : "BRA",
-          "registrationUpdateDate" : "2024-01-15"
-        }
-      },
-      "naturalPersonSpecific" : {
-        "statusNIF" : 2,
-        "birthDate" : "1975-01-30",
-        "birthPlace" : "USA",
-        "nationality" : "USA",
-        "emancipated" : true,
-        "civilStatus" : 1,
-        "occupation" : 252105,
-        "annualIncome" : {
-          "amount" : "150000.00",
-          "currency" : "USD"
+        "investor": {
+            "$ref": "../../objects/business/Investor.json",
+            "description": "Investor specific information"
         },
-        "patrimony" : {
-          "amount" : "750000.00",
-          "currency" : "USD"
-        }
-      },
-      "accountDetails" : {
-        "accountData" : {
-          "profile" : 1,
-          "riskProfile" : 1,
-          "status" : 1,
-          "onBehalfOf" : true,
-          "openedOnBehalf" : false,
-          "intermediaryCode" : false,
-          "modifyAddressforAllAccounts" : true,
-          "address" : {
-            "street" : "Rua Brasilândia",
-            "number" : "123",
-            "complement" : "Apto 101",
-            "neighborhood" : "Centro",
-            "postalCode" : "01234-567",
-            "cityName" : 3550308,
-            "state" : "SP",
-            "country" : "BRA",
-            "phoneNumber" : "+55-11-91234-5678",
-            "email" : "usuario@exemplo.com.br"
-          }
-        },
-        "internationalCollateral" : {
-          "jurisdictionOfOrigin" : "USA",
-          "legalForm" : "LLC",
-          "beneficiaryBankDetails" : {
-            "accountNumber" : "DE89370400440532013000",
-            "iban" : "DE89370400440532013000",
-            "swiftCode" : "DXXXXXXF",
-            "bankName" : "Banco do XPTO S.A.",
-            "bankCountry" : "BRA"
-          },
-          "transferCurrency" : 220,
-          "intermediaryBankDetails" : {
-            "accountNumber" : "DE89370400440532013000",
-            "iban" : "DE89370400440532013000",
-            "swiftCode" : "DXXXXXXF",
-            "bankName" : "Banco do XPTO S.A.",
-            "bankCountry" : "BRA"
-          }
-        },
-        "documents" : [ {
-          "documentIdentifier" : {
-            "documentType" : 2,
-            "documentNumber" : "12345678900"
-          },
-          "issueDate" : "2018-05-15",
-          "expirationDate" : "2028-05-14",
-          "country" : "BRA",
-          "issuingAuthority" : 2,
-          "state" : "SP"
-        } ]
-      },
-      "relationship" : [ {
-        "relationshipType" : 1,
-        "address" : {
-          "street" : "Rua Brasilândia",
-          "number" : "123",
-          "complement" : "Apto 101",
-          "neighborhood" : "Centro",
-          "postalCode" : "01234-567",
-          "cityName" : 3550308,
-          "state" : "SP",
-          "country" : "BRA",
-          "phoneNumber" : "+55-11-91234-5678",
-          "email" : "usuario@exemplo.com.br"
-        },
-        "naturalPersonRelationship" : {
-          "name" : {
-            "fullName" : "João Oliveira Santos",
-            "socialName" : "Maria Oliveira Santos",
-            "motherOrGuardian" : "Ana Maria de Souza"
-          },
-          "personBase" : {
-            "personStatus" : 1,
-            "reasonCode" : 1,
-            "principalDocument" : {
-              "documentType" : 2,
-              "documentNumber" : "12345678900"
+        "exclusiveFund": {
+            "type": "array",
+            "items": {
+                "$ref": "../../objects/business/ExclusiveFund.json"
             },
-            "politicallyExposedPerson" : false,
-            "usPerson" : false,
-            "relatedPerson" : true,
-            "countryOfResidence" : "BRA",
-            "registrationUpdateDate" : "2024-01-15"
-          }
-        }
-      }, {
-        "relationshipType" : 1,
-        "address" : {
-          "street" : "Rua Brasilândia",
-          "number" : "123",
-          "complement" : "Apto 101",
-          "neighborhood" : "Centro",
-          "postalCode" : "01234-567",
-          "cityName" : 3550308,
-          "state" : "SP",
-          "country" : "BRA",
-          "phoneNumber" : "+55-11-91234-5678",
-          "email" : "usuario@exemplo.com.br"
+            "description": "List of exclusive fund shareholders",
+            "minItems": 0,
+            "maxItems": 60
         },
-        "legalPersonRelationship" : {
-          "corporateName" : "Empresa XPTO Ltda",
-          "personBase" : {
-            "personStatus" : 1,
-            "reasonCode" : 1,
-            "principalDocument" : {
-              "documentType" : 2,
-              "documentNumber" : "12345678900"
+        "documents": {
+            "type": "array",
+            "items": {
+                "$ref": "../../objects/business/DocumentIdentifier.json"
             },
-            "politicallyExposedPerson" : false,
-            "usPerson" : false,
-            "relatedPerson" : true,
-            "countryOfResidence" : "BRA",
-            "registrationUpdateDate" : "2024-01-15"
-          }
+            "description": "List of documents",
+            "minItems": 0,
+            "maxItems": 60
+        },
+        "patrimonyData": {
+            "$ref": "../../objects/business/PatrimonyData.json",
+            "description": "Patrimony and income data"
+        },
+        "relationship": {
+            "type": "array",
+            "items": {
+                "$ref": "../../objects/business/RelationshipType.json"
+            },
+            "description": "List of relationship types",
+            "minItems": 0,
+            "maxItems": 60
+        },
+        "internationalGuarantees": {
+            "$ref": "../../objects/business/InternationalGarantee.json",
+            "description": "International guarantees information"
+        },
+        "internationalAccount": {
+            "$ref": "../../objects/business/InternationalAccount.json",
+            "description": "International account information"
+        },
+        "address": {
+            "type": "array",
+            "items": {
+                "$ref": "../../objects/business/Address.json"
+            },
+            "description": "List of investor addresses",
+            "minItems": 0,
+            "maxItems": 60
+        },
+        "phoneNumber": {
+            "type": "array",
+            "items": {
+                "$ref": "../../objects/business/PhoneNumber.json"
+            },
+            "description": "List of phone numbers",
+            "minItems": 0,
+            "maxItems": 60
+        },
+        "emails": {
+            "type": "array",
+            "items": {
+                "$ref": "../../objects/business/Emails.json"
+            },
+            "description": "List of email addresses",
+            "minItems": 0,
+            "maxItems": 60
+        },
+        "accountData": {
+            "$ref": "../../objects/business/AccountData.json",
+            "description": "Account detailed information"
         }
-      } ]
-    }
-  }, {
-    "account" : {
-      "accountType" : 1,
-      "id" : 123456789012345
     },
-    "personType" : 1,
-    "residenceStatus" : "RESI",
-    "legalPersonRegistration" : {
-      "legalPersonInformation" : {
-        "corporateName" : "Empresa XPTO Ltda",
-        "personBase" : {
-          "personStatus" : 1,
-          "reasonCode" : 1,
-          "principalDocument" : {
-            "documentType" : 2,
-            "documentNumber" : "12345678900"
-          },
-          "politicallyExposedPerson" : false,
-          "usPerson" : false,
-          "relatedPerson" : true,
-          "countryOfResidence" : "BRA",
-          "registrationUpdateDate" : "2024-01-15"
-        }
-      },
-      "legalEntitySpecific" : {
-        "statusNIF" : "SIM",
-        "economicActivity" : "6201-5/01",
-        "nonResidentClassification" : 1,
-        "revenue" : {
-          "amount" : "1000000.00",
-          "currency" : "BRL"
-        },
-        "patrimony" : {
-          "amount" : "5000000.00",
-          "currency" : "BRL"
-        },
-        "exclusiveFund" : true,
-        "exclusiveFundData" : {
-          "personType" : 1,
-          "residenceStatus" : "RESI",
-          "documentIdentifier" : {
-            "documentType" : 2,
-            "documentNumber" : "12345678901"
-          },
-          "relatedPerson" : false,
-          "politicallyExposedPerson" : false,
-          "usPerson" : false,
-          "countryOfResidence" : "BRA"
-        },
-        "nonResidentBeneficialOwner" : false,
-        "isNonProfit" : false
-      },
-      "accountDetails" : {
-        "accountData" : {
-          "profile" : 1,
-          "riskProfile" : 1,
-          "status" : 1,
-          "onBehalfOf" : true,
-          "openedOnBehalf" : false,
-          "intermediaryCode" : false,
-          "modifyAddressforAllAccounts" : true,
-          "address" : {
-            "street" : "Rua Brasilândia",
-            "number" : "123",
-            "complement" : "Apto 101",
-            "neighborhood" : "Centro",
-            "postalCode" : "01234-567",
-            "cityName" : 3550308,
-            "state" : "SP",
-            "country" : "BRA",
-            "phoneNumber" : "+55-11-91234-5678",
-            "email" : "usuario@exemplo.com.br"
-          }
-        },
-        "internationalCollateral" : {
-          "jurisdictionOfOrigin" : "USA",
-          "legalForm" : "LLC",
-          "beneficiaryBankDetails" : {
-            "accountNumber" : "DE89370400440532013000",
-            "iban" : "DE89370400440532013000",
-            "swiftCode" : "DXXXXXXF",
-            "bankName" : "Banco do XPTO S.A.",
-            "bankCountry" : "BRA"
-          },
-          "transferCurrency" : 220,
-          "intermediaryBankDetails" : {
-            "accountNumber" : "DE89370400440532013000",
-            "iban" : "DE89370400440532013000",
-            "swiftCode" : "DXXXXXXF",
-            "bankName" : "Banco do XPTO S.A.",
-            "bankCountry" : "BRA"
-          }
-        },
-        "documents" : [ {
-          "documentIdentifier" : {
-            "documentType" : 2,
-            "documentNumber" : "12345678900"
-          },
-          "issueDate" : "2018-05-15",
-          "expirationDate" : "2028-05-14",
-          "country" : "BRA",
-          "issuingAuthority" : 2,
-          "state" : "SP"
-        } ]
-      },
-      "relationship" : [ {
-        "relationshipType" : 1,
-        "address" : {
-          "street" : "Rua Brasilândia",
-          "number" : "123",
-          "complement" : "Apto 101",
-          "neighborhood" : "Centro",
-          "postalCode" : "01234-567",
-          "cityName" : 3550308,
-          "state" : "SP",
-          "country" : "BRA",
-          "phoneNumber" : "+55-11-91234-5678",
-          "email" : "usuario@exemplo.com.br"
-        },
-        "naturalPersonRelationship" : {
-          "name" : {
-            "fullName" : "João Oliveira Santos",
-            "socialName" : "Maria Oliveira Santos",
-            "motherOrGuardian" : "Ana Maria de Souza"
-          },
-          "personBase" : {
-            "personStatus" : 1,
-            "reasonCode" : 1,
-            "principalDocument" : {
-              "documentType" : 2,
-              "documentNumber" : "12345678900"
+    "required": [
+        "participantIdentification"
+    ],
+    "additionalProperties": false,
+    "examples": [
+        {
+            "person": {
+                "personType": 1,
+                "residenceStatus": "RESI",
+                "documentIdentifier": {
+                    "documentType": 2,
+                    "documentNumber": "12345678900"
+                },
+                "personStatus": 1,
+                "reasonCode": 1
             },
-            "politicallyExposedPerson" : false,
-            "usPerson" : false,
-            "relatedPerson" : true,
-            "countryOfResidence" : "BRA",
-            "registrationUpdateDate" : "2024-01-15"
-          }
-        }
-      }, {
-        "relationshipType" : 1,
-        "address" : {
-          "street" : "Rua Brasilândia",
-          "number" : "123",
-          "complement" : "Apto 101",
-          "neighborhood" : "Centro",
-          "postalCode" : "01234-567",
-          "cityName" : 3550308,
-          "state" : "SP",
-          "country" : "BRA",
-          "phoneNumber" : "+55-11-91234-5678",
-          "email" : "usuario@exemplo.com.br"
-        },
-        "legalPersonRelationship" : {
-          "corporateName" : "Empresa XPTO Ltda",
-          "personBase" : {
-            "personStatus" : 1,
-            "reasonCode" : 1,
-            "principalDocument" : {
-              "documentType" : 2,
-              "documentNumber" : "12345678900"
+            "investor": {
+                "fullName": "João Silva Santos",
+                "socialName": "Maria Silva Santos",
+                "birthDate": "1985-03-15",
+                "politicallyExposedPerson": false,
+                "relatedPerson": true,
+                "usPerson": false,
+                "motherName": "Ana Maria Santos",
+                "birthPlace": "São Paulo",
+                "nationality": "BRA",
+                "emancipated": true,
+                "countryOfResidence": "BRA",
+                "civilStatus": 1,
+                "spouseName": "Carlos Oliveira",
+                "spouseDocument": {
+                    "documentType": 2,
+                    "documentNumber": "12345678900"
+                },
+                "employerCompanyName": "ABC LTDA",
+                "employerCompanyDocument": {
+                    "documentType": 2,
+                    "documentNumber": "12345678900000152"
+                },
+                "educationLevel": 3,
+                "occupation": 252105,
+                "registrationUpdateDate": "2024-01-15",
+                "orderSentByType": 1,
+                "registrationInclusionDate": "2024-01-01",
+                "exclusiveFund": false
             },
-            "politicallyExposedPerson" : false,
-            "usPerson" : false,
-            "relatedPerson" : true,
-            "countryOfResidence" : "BRA",
-            "registrationUpdateDate" : "2024-01-15"
-          }
+            "exclusiveFund": {
+                "personType": 1,
+                "residenceStatus": "RESI",
+                "documentIdentifier": {
+                    "documentType": 2,
+                    "documentNumber": "12345678900"
+                },
+                "fullName": "João Silva Santos",
+                "relatedPerson": false,
+                "politicallyExposedPerson": false,
+                "usPerson": false,
+                "countryOfResidence": "BRA"
+            },
+            "documents": [
+                {
+                    "documentIdentifier": {
+                        "documentType": 2,
+                        "documentNumber": "12345678900"
+                    },
+                    "issueDate": "2018-05-15",
+                    "issuingAuthority": 2,
+                    "expirationDate": "2028-05-14",
+                    "issuingState": 35,
+                    "country": "BRA"
+                }
+            ],
+            "patrimonyData": {
+                "annualIncome": {
+                    "amount": "150000.00",
+                    "currency": "BRL",
+                    "informationDate": "2024-01-15"
+                }
+            },
+            "relationship": {
+                "relationshipType": 1,
+                "personType": 1,
+                "residenceStatus": "RESI",
+                "documentIdentifier": {
+                    "documentType": 2,
+                    "documentNumber": "12345678900"
+                },
+                "fullName": "João Silva Santos",
+                "socialName": "Maria Silva Santos",
+                "politicallyExposedPerson": false,
+                "usPerson": false,
+                "relatedPerson": true,
+                "position": "Diretor",
+                "countryOfResidence": "BRA",
+                "address": {
+                    "street": "Rua Brasilândia",
+                    "number": "123",
+                    "complement": "Apto 101",
+                    "neighborhood": "Centro",
+                    "postalCode": "01234-567",
+                    "cityName": "São Paulo",
+                    "state": "SP",
+                    "country": "BRA",
+                    "phoneNumber": "+55-11-91234-5678",
+                    "email": "central@xpto.com.br"
+                }
+            },
+            "internationalGuarantees": {
+                "jurisdictionOfOrigin": "USA",
+                "legalForm": 1
+            },
+            "internationalAccount": [
+                {
+                    "beneficiaryBankDetails": {
+                        "accountNumber": "DE89370400440532013000",
+                        "iban": "DE89370400440532013000",
+                        "swiftCode": "XPTODEFF",
+                        "bankName": "Banco do XPTO S.A",
+                        "bankCountry": "BRA"
+                    },
+                    "transferCurrency": "USD",
+                    "intermediaryBankDetails": {
+                        "accountNumber": "US12345678967890",
+                        "swiftCode": "CHXPTO33",
+                        "bankName": "Banco do XPTO S.A"
+                    }
+                }
+            ],
+            "address": [
+                {
+                    "street": "Rua Brasilândia",
+                    "number": "123",
+                    "complement": "Apto 101",
+                    "neighborhood": "Centro",
+                    "postalCode": "01234-567",
+                    "cityName": "São Paulo",
+                    "state": "SP",
+                    "country": "BRA",
+                    "phoneNumber": "+55-11-91234-5678",
+                    "email": "central@xpto.com.br"
+                }
+            ],
+            "phoneNumber": [
+                {
+                    "phoneType": 1,
+                    "phoneNumber": "+55-11-91234-5678"
+                }
+            ],
+            "emails": [
+                {
+                    "emailType": 1,
+                    "email": "usuario@exemplo.com.br"
+                }
+            ],
+            "accountData": {
+                "account": {
+                    "accountType": 1,
+                    "id": 123456789
+                },
+                "onBehalfOf": true,
+                "lightIntermediaryCode": 123456,
+                "profile": 1,
+                "registrationDate": "2023-01-15",
+                "updateDate": "2024-05-20",
+                "advisorDocument": {
+                    "documentType": 1,
+                    "documentNumber": "123456789"
+                },
+                "preferredPhoneType": 1,
+                "preferredAddressType": 2,
+                "preferredEmailType": 1,
+                "status": 1,
+                "positionAndCustodianAccount": true,
+                "relatedBrand": 1
+            }
         }
-      } ]
-    }
-  } ]
+    ]
 }

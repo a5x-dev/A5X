@@ -28,7 +28,7 @@
   "examples" : [ {
     "statusCode" : 1,
     "errorIdentification" : [ {
-      "code" : 1,
+      "code" : "TEC00000",
       "message" : "Error X",
       "errorDescription" : "COD12452",
       "refId" : "REF12345"

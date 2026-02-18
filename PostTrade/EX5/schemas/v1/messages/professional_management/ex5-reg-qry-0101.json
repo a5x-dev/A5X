@@ -1,58 +1,183 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-01",
-  "$metadata" : {
-    "domain" : "professional_management",
-    "schemaId" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-01"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-01",
+  "$metadata": {
+    "domain": "professional_management",
+    "schemaId": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-01"
   },
-  "title" : "Professional Search Message",
-  "description" : "Message for searching financial market professionals. The return will be sent in the file response ex5f-reg-rpt-0101.jsonl.",
-  "$comment" : "If sent without filter fields, returns all active professionals for the specified participant.",
-  "type" : "object",
-  "properties" : {
-    "participantIdentification" : {
-      "$ref" : "../../objects/business/PartyId.json",
-      "description" : "Participant identification (category and participant ID)"
+  "title": "Professional Search Message",
+  "description": "Message for searching financial market professionals. The return will be sent in the file response ex5f-reg-rpt-0101.jsonl.",
+  "$comment": "If sent without filter fields, returns all active professionals for the specified participant.",
+  "type": "object",
+  "properties": {
+    "participantIdentification": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Participant identification using existing PartyId structure"
     },
-    "knowledgeArea" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Knowledge area of the certification",
-      "$comment" : "Consult External Code List table ExternalKnowledgeAreaCertificationCode"
+    "operatorDocument": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/DocumentIdentifier.json"
+      },
+      "description": "Professional's document identification (type and number)",
+      "maxItems": 1000
     },
-    "professionalStatus" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Professional status",
-      "$comment" : "Consult External Code List table ExternalStatusCode"
+    "companyDocument": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/DocumentIdentifier.json"
+      },
+      "description": "Company's document identification (type and number)",
+      "maxItems": 1000
     },
-    "documentIdentifier" : {
-      "$ref" : "../../objects/business/DocumentIdentifier.json",
-      "description" : "Professional's document identification (type and number)"
+    "obtainedCertication": {
+      "$ref": "../../objects/business/DateRange.json",
+      "description": "Obtained certification range date"
     },
-    "relationshipType" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Type of professional relationship",
-      "$comment" : "Consult External Code List table ExternalProfessionalRelationshipCode"
+    "expirationDate": {
+      "$ref": "../../objects/business/DateRange.json",
+      "description": "Expiration date of certifications"
     },
-    "relationshipStatus" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Status of the professional relationship",
-      "$comment" : "Consult External Code List table ExternalStatusCode"
+    "creationDate": {
+      "$ref": "../../objects/business/DateRange.json",
+      "description": "Creation date range of professional"
+    },
+    "updateDate": {
+      "$ref": "../../objects/business/DateRange.json",
+      "description": "Update date range of professional"
+    },
+    "professionalRelationship": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/ExternalCodeList.json",
+        "$comment": "Consult External Code List table ExternalProfessionalRelationshipCode"
+      },
+      "description": "Type of professional relationship",
+      "maxItems": 50
+    },
+    "relationshipStatus": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/ExternalCodeList.json",
+        "$comment": "Consult External Code List table ExternalStatusCode"
+      },
+      "description": "Status of the professional relationship",
+      "maxItems": 100
+    },
+    "professionalRole": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/ExternalCodeList.json",
+        "$comment": "Consult External Code List table ExternalProfessionalMappingRoleCode"
+      },
+      "description": "Type of professional role",
+      "maxItems": 50
+    },
+    "certificationType": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/ExternalCodeList.json",
+        "$comment": "Consult External Code List table ExternalCertificationTypeCode"
+      },
+      "description": "Type of professional certification",
+      "maxItems": 100
+    },
+    "knowledgeArea": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/ExternalCodeList.json",
+        "$comment": "Consult External Code List table ExternalKnowledgeAreaCertificationCode"
+      },
+      "description": "Knowledge area of the certification",
+      "maxItems": 100
+    },
+    "certificationExpirated": {
+      "type": "boolean",
+      "description": "Expirated certifications"
+    },
+    "professionalStatus": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/ExternalCodeList.json",
+        "$comment": "Consult External Code List table ExternalStatusCode"
+      },
+      "description": "Professional status",
+      "maxItems": 100
     }
   },
-  "required" : [ "participantIdentification" ],
-  "additionalProperties" : false,
-  "examples" : [ {
-    "participantIdentification" : {
-      "id" : 999,
-      "category" : 3
+  "anyOf": [
+    {
+      "required": [
+        "operatorDocument"
+      ]
     },
-    "knowledgeArea" : 2,
-    "professionalStatus" : 1,
-    "documentIdentifier" : {
-      "documentType" : 2,
-      "documentNumber" : "12345678900"
+    {
+      "required": [
+        "companyDocument"
+      ]
     },
-    "relationshipType" : 1,
-    "relationshipStatus" : 1
-  } ]
+    {
+      "required": [
+        "creationDate"
+      ]
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "companyDocument": [
+        {
+          "documentType": 2,
+          "documentNumber": "12345678900"
+        },
+        {
+          "documentType": 2,
+          "documentNumber": "12345678901"
+        }
+      ],
+      "updateDate": {
+        "start": "2023-01-01",
+        "end": "2023-01-31"
+      }
+    },
+    {
+      "operatorDocument": [
+        {
+          "documentType": 2,
+          "documentNumber": "12345678900"
+        },
+        {
+          "documentType": 2,
+          "documentNumber": "12345678901"
+        }
+      ],
+      "certificationExpirated": true
+    },
+    {
+      "creationDate": {
+        "start": "2023-01-01",
+        "end": "2023-01-31"
+      },
+      "knowledgeArea": [
+        2,
+        3,
+        4
+      ],
+      "professionalStatus": [
+        2,
+        3,
+        4
+      ],
+      "professionalRelationship": [
+        2,
+        3,
+        4
+      ],
+      "relationshipStatus": [
+        2,
+        3,
+        4
+      ]
+    }
+  ]
 }

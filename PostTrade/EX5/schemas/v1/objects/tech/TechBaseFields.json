@@ -14,9 +14,13 @@
       "description" : "Processing status",
       "$comment" : "Consult External Code List table ExternalReportStatusCode"
     },
-    "error" : {
-      "$ref" : "../../objects/tech/StatusError.json",
-      "description" : "Processing status"
+    "errorIdentification" : {
+      "type" : "array",
+      "items": {
+      "$ref" : "../../objects/tech/StatusError.json"
+      },      
+      "description" : "Processing status",
+      "maxItems": 60
     },
     "fileName" : {
       "type" : "string",
@@ -58,12 +62,16 @@
   "additionalProperties" : false,
   "examples" : [ {
     "status" : 2,
-    "error" : {
-      "code" : 1,
+    "errorIdentification" : [{
+      "code" : "TEC00000",
       "message" : "Error X",
-      "description" : "COD12452",
+      "errorDescription" : "COD12452",
       "refId" : "REF12345"
     },
+    { "code" : "TEC00000",
+      "message" : "Error X",
+      "errorDescription" : "COD12452"
+    }],
     "fileName" : "EX5F-COL-MRG-0101-20250101-1.csv",
     "filelink" : "http://example.com/EX5F-COL-MRG-0101-20250101-1.csv.csv",
     "filePath" : "/home/user/documents/EX5F-COL-MRG-0101-20250101-1.csv.csv",

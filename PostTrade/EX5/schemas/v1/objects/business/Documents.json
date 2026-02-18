@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:Documents",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:Documents"
+  },
+  "title": "Documents",
+  "description": "Document information for both natural and legal persons",
+  "type": "object",
+  "properties": {
+    "documentIdentifier": {
+      "$ref": "../../objects/business/DocumentIdentifier.json",
+      "description": "Document identification information"
+    },
+    "issueDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Document issue date"
+    },
+    "issuingAuthority": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Document issuing authority",
+      "$comment": "Consult External Code List table ExternalIssuerCode"
+    },
+    "expirationDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Document expiration date"
+    },
+    "issuingState": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "State of document issuance",
+      "$comment": "Consult External Code List table ExternalStateCode"
+    },
+    "country": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Country of the document",
+      "$comment": "Consult External Code List table ExternalCountryCode"
+    }
+  },
+  "required": [
+    "documentIdentifier"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "documentIdentifier": {
+        "documentType": 2,
+        "documentNumber": "12345678900"
+      },
+      "issueDate": "2018-05-15",
+      "issuingAuthority": 2,
+      "expirationDate": "2028-05-14",
+      "issuingState": 35,
+      "country": "BRA"
+    }
+  ]
+}

@@ -36,7 +36,7 @@
     "optionType": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "$comment": "Consult External Code List table ExternalOptionTypeCode",
-      "description": "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)"
+      "description": "Option type identification. CALL (right to buy underlying asset) or PUT (right to sell underlying asset)"
     }
   },
   "required": [

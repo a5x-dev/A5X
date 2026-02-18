@@ -24,11 +24,11 @@
       "description": "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)"
     },
     "contractMultiplier": {
-      "$ref": "../../types/DecimalNumber.json",
+      "$ref": "../../types/Decimal18_17.json",
       "description": "Ratio between contract size and commodity quotation quantity"
     },
     "assetQuotationQuantity": {
-      "$ref": "../../types/DecimalNumber.json",
+      "$ref": "../../types/Decimal18_17.json",
       "description": "Indicates the quantity of the commodity on which the trade price is based"
     },
     "paymentType": {
@@ -94,8 +94,8 @@
       },
       "exerciseStyle": "EURO",
       "optionType": 1,
-      "contractMultiplier": "10,00",
-      "assetQuotationQuantity": "10,00",
+      "contractMultiplier": "1.2510234564330",
+      "assetQuotationQuantity": "1.2510234564330",
       "paymentType": 1,
       "underlyingInstrumentIdentification": [
         {

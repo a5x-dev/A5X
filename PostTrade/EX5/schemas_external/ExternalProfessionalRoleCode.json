@@ -1,6 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Professional Role Code",
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalProfessionalRoleCode",
   "description": "Codes for professional role",
   "oneOf": [
     {
@@ -27,13 +27,43 @@
       "type": "number",
       "description": "Assessor Bancário",
       "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Profissional área comercial",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Profissional de middle ou back office",
+      "const": 7
+    },
+    {
+      "type": "number",
+      "description": "Profissional de risco",
+      "const": 8
+    },
+    {
+      "type": "number",
+      "description": "Profissional de cadastro",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "Profissional de compliance",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "Profissional de custódia",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "Profissional de liquidação",
+      "const": 12
     }
   ],
-  "examples": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ]
+  "additionalProperties": false,
+  "examples": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 }

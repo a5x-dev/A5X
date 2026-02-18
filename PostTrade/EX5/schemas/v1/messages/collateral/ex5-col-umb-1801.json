@@ -29,7 +29,7 @@
       "description" : "Overall status of the collateral umbrella distribution request"
     }
   },
-  "required" : [ "transactionIdentification", "collateralUmbrellaStatus" ],
+  "required" : [ "transactionIdentification"],
   "additionalProperties" : false,
   "examples" : [ {
     "transactionIdentification" : "UMB-STA-220915-1000",
@@ -51,7 +51,7 @@
       "collateralStatus" : {
         "statusCode" : 1,
         "errorIdentification" : [ {
-          "code" : 1,
+          "code" : "TEC00000",
           "message" : "Error X",
           "errorDescription" : "COD12452",
           "refId" : "REF12345"
@@ -61,7 +61,7 @@
     "collateralUmbrellaStatus" : {
       "statusCode" : 1,
       "errorIdentification" : [ {
-        "code" : 1,
+        "code" : "TEC00000",
         "message" : "Error X",
         "errorDescription" : "COD12452",
         "refId" : "REF12345"

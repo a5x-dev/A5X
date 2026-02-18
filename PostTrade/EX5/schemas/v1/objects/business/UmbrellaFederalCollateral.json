@@ -30,7 +30,7 @@
     "collateralIdentification" : "OTHER-001",
     "quantity" : "10.5",
     "accountIdentification" : {
-      "id" : 115
+      "id" : 123456789
     }
   } ]
 }

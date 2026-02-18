@@ -9,79 +9,79 @@
   "description" : "Base professional registration information containing all core fields for professional management",
   "type" : "object",
   "properties" : {
-    "documentIdentifier" : {
-      "$ref" : "../../objects/business/DocumentIdentifier.json",
-      "description" : "Professional's document identification (type and number)"
+    "operatorDocument": {
+      "$ref": "../../objects/business/DocumentIdentifier.json",
+      "description": "Professional's document identification (type and number)"
     },
-    "personType" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Type of person",
-      "$comment" : "Consult External Code List table ExternalPersonTypeCode"
+    "personType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of person",
+      "$comment": "Consult External Code List table ExternalPersonTypeCode"
     },
-    "relationshipStatus" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Status of the professional relationship",
-      "$comment" : "Consult External Code List table ExternalStatusCode"
+    "relationshipStatus": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Status of the professional relationship",
+      "$comment": "Consult External Code List table ExternalStatusCode"
     },
-    "professionalStatus" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Professional status",
-      "$comment" : "Consult External Code List table ExternalStatusCode"
+    "professionalStatus": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Professional status",
+      "$comment": "Consult External Code List table ExternalStatusCode"
     },
-    "statusReason" : {
-      "type" : "string",
-      "maxLength" : 200,
-      "description" : "Reason for professional status"
+    "statusReason": {
+      "type": "string",
+      "maxLength": 200,
+      "minLength": 1,
+      "description": "Reason for professional status"
     },
-    "personName" : {
-      "$ref" : "../../objects/business/NaturalPersonName.json",
-      "description" : "Professional's full name and social name"
+    "personName": {
+      "$ref": "../../objects/business/NaturalPersonName.json",
+      "description": "Professional's full name and social name"
     },
-    "birthDate" : {
-      "$ref" : "../../types/ISODate.json",
-      "description" : "Professional's birth date"
+    "birthDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Professional's birth date"
     },
-    "nationality" : {
-      "$ref" : "../../objects/business/ExternalCodeTextList.json",
-      "description" : "Professional's nationality",
-      "$comment" : "Consult External Code List table ExternalCountryCode"
+    "nationality": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Professional's nationality",
+      "$comment": "Consult External Code List table ExternalCountryCode"
     },
-    "relationshipType" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Type of professional relationship",
-      "$comment" : "Consult External Code List table ExternalProfessionalRelationshipCode"
+    "relationshipType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of professional relationship",
+      "$comment": "Consult External Code List table ExternalProfessionalRelationshipCode"
     },
-    "professionalAddress" : {
-      "$ref" : "../../objects/business/Address.json",
-      "description" : "Professional's business address information"
+    "address": {
+      "$ref": "../../objects/business/Address.json",
+      "description": "Professional's business address information"
     },
-    "professionalActivity" : {
-      "$ref" : "../../objects/business/ProfessionalActivity.json",
-      "description" : "Professional activity information including role type and period"
+    "professionalActivity": {
+      "$ref": "../../objects/business/ProfessionalActivity.json",
+      "description": "Professional activity information including role type and period"
     },
-    "certificationExemption" : {
-      "type" : "boolean",
-      "description" : "Indicates if the professional is exempt from this certification requirement",
-      "examples" : [ true, false ]
+    "certificationExemption": {
+      "type": "boolean",
+      "description": "Indicates if the professional is exempt from this certification requirement"
     },
-    "certifications" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "../../objects/business/ProfessionalCertification.json"
+    "certifications": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/ProfessionalCertification.json"
       },
-      "minItems" : 1,
-      "maxItems" : 60,
-      "description" : "List of professional certifications"
+      "minItems": 1,
+      "maxItems": 60,
+      "description": "List of professional certifications"
     },
-    "companyAffiliation" : {
-      "$ref" : "../../objects/business/CompanyAffiliation.json",
-      "description" : "Professional's affiliation with the company"
+    "companyAffiliation": {
+      "$ref": "../../objects/business/CompanyAffiliation.json",
+      "description": "Professional's affiliation with the company"
     }
   },
   "required" : [ ],
   "additionalProperties" : false,
   "examples" : [ {
-    "documentIdentifier" : {
+    "operatorDocument" : {
       "documentType" : 2,
       "documentNumber" : "12345678900"
     },
@@ -96,20 +96,20 @@
     "birthDate" : "1985-03-15",
     "nationality" : "BRA",
     "relationshipType" : 1,
-    "professionalAddress" : {
-      "streetAddress" : "Rua Augusta",
-      "streetNumber" : "123",
-      "complement" : "Sala 1205",
-      "neighborhood" : "Centro",
-      "postalCode" : "01234-567",
-      "cityName" : 3550308,
-      "state" : "SP",
-      "country" : "BRA",
-      "phoneNumber" : "+55-11-91234-5678",
-      "email" : "joao.santos@empresa.com.br"
+    "address" : {
+      "street": "Rua Brasilândia",
+      "number": "123",
+      "complement": "Apto 101",
+      "neighborhood": "Centro",
+      "postalCode": "01234-567",
+      "cityName": "São Paulo",
+      "state": "SP",
+      "country": "BRA",
+      "phoneNumber": "+55-11-91234-5678",
+      "email": "central@xpto.com.br"
     },
     "professionalActivity" : {
-      "professionalRoleType" : 1,
+      "professionalRole" : 1,
       "startDate" : "2023-01-15",
       "endDate" : "2024-12-31"
     },

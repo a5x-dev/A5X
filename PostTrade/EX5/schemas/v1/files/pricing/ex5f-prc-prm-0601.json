@@ -1,0 +1,124 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-prm-0601",
+    "$metadata": {
+        "domain": "pricing",
+        "schemaId": "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-prm-0601"
+    },
+    "title": "Reference Option Premium Report",
+    "description": "JSON Schema for the 'Reference Option Premium Report",
+    "type": "object",
+    "properties": {
+        "referenceDate": {
+            "type": "string",
+            "format": "date",
+            "description": "ReferenceDate",
+            "examples": [
+                "2017-07-21",
+                "2023-12-31",
+                "2024-01-15"
+            ]
+        },
+        "financialInstrumentIdentificationId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 35,
+            "description": "Proprietary identification of an instrument",
+            "examples": [
+                "10000000000000001"
+            ]
+        },
+        "financialInstrumentIdentificationSource": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 35,
+            "description": "Source of the instrument identification",
+            "examples": [
+                "8"
+            ]
+        },
+        "financialInstrumentIdentificationExchange": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 35,
+            "description": "Codes for exchanges and market identifications",
+            "examples": [
+                "A5X",
+                "XNYS",
+                "XNAS"
+            ]
+        },
+        "market": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999999,
+            "description": "Market type - second level of market classification in post-trading process",
+            "$comment": "Consult External Code List table ExternalMarketCode"
+        },
+        "tickerSymbol": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 35,
+            "description": "Letters that identify stocks traded on stock exchange",
+            "examples": [
+                "AAAA25"
+            ]
+        },
+        "optionType": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999999,
+            "description": "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)",
+            "$comment": "Consult External Code List table ExternalOptionTypeCode"
+        },
+        "optionStyle": {
+            "type": "string",
+            "maxLength": 4,
+            "description": "Option style expressed as an ISO 20022 code (AMER or EURO)",
+            "$comment": "Consult External Code List table ExternalOptionStyleCode"
+        },
+        "expirationDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Expiration Date"
+        },
+        "exercisePrice": {
+            "type": "string",
+            "maxLength": 20,
+            "minLength": 1,
+            "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+            "description": "Exercise Price"
+        },
+        "premium": {
+            "type": "string",
+            "maxLength": 20,
+            "minLength": 1,
+            "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+            "description": "Options premium"
+        },
+        "volatilityStrikePrice": {
+            "type": "string",
+            "pattern": "^\\d{1,15}(\\.\\d{1,6})?$",
+            "minLength": 1,
+            "maxLength": 22,
+            "description": "Volatility by strike price",
+            "examples": [
+                "1000.509898"
+            ]
+        }
+    },
+    "required": [
+        "referenceDate",
+        "financialInstrumentIdentificationId",
+        "financialInstrumentIdentificationSource",
+        "financialInstrumentIdentificationExchange",
+        "market",
+        "tickerSymbol",
+        "optionType",
+        "optionStyle",
+        "expirationDate",
+        "exercisePrice",
+        "premium",
+        "volatilityStrikePrice"
+    ]
+}

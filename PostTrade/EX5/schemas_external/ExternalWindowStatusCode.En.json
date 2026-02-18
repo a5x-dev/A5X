@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalWindowStatusCode",
+  "description": "Codes for window status",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Operational window is open and functioning normally",
+      "const": "OPEN"
+    },
+    {
+      "type": "string",
+      "description": "Operational window is closed and does not accept operations",
+      "const": "CLOSED"
+    },
+    {
+      "type": "string",
+      "description": "Operational window is approaching closure",
+      "const": "CLOSING_SOON"
+    },
+    {
+      "type": "string",
+      "description": "Operational window is approaching opening",
+      "const": "OPENING_SOON"
+    },
+    {
+      "type": "string",
+      "description": "Operational window is in the process of opening",
+      "const": "OPENING"
+    },
+    {
+      "type": "string",
+      "description": "Operational window is in the process of closing",
+      "const": "CLOSING"
+    },
+    {
+      "type": "string",
+      "description": "Operational window is temporarily suspended",
+      "const": "SUSPENDED"
+    },
+    {
+      "type": "string",
+      "description": "Operational window is resuming operations after suspension",
+      "const": "RESUMING"
+    },
+    {
+      "type": "string",
+      "description": "Operational window is under scheduled maintenance",
+      "const": "MAINTENANCE"
+    },
+    {
+      "type": "string",
+      "description": "Operational window is closed due to emergency situation",
+      "const": "EMERGENCY_CLOSE"
+    },
+    {
+      "type": "string",
+      "description": "Operational window is under scheduled maintenance according to schedule",
+      "const": "SCHEDULED_MAINTENANCE"
+    },
+    {
+      "type": "string",
+      "description": "Operational window is extended beyond normal hours",
+      "const": "EXTENDED"
+    },
+    {
+      "type": "string",
+      "description": "Operational window has restrictions on operations",
+      "const": "RESTRICTED"
+    },
+    {
+      "type": "string",
+      "description": "Operational window is functioning partially with limited operations",
+      "const": "PARTIAL_OPERATION"
+    },
+    {
+      "type": "string",
+      "description": "Operational window is unavailable for operations",
+      "const": "UNAVAILABLE"
+    },
+    {
+      "type": "string",
+      "description": "Default status of the operational window",
+      "const": "DEFAULT"
+    },
+    {
+      "type": "string",
+      "description": "Unknown or unidentified status of the operational window",
+      "const": "UNKNOWN"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": ["OPEN", "CLOSED", "CLOSING_SOON", "OPENING_SOON", "SUSPENDED", "MAINTENANCE", "EMERGENCY_CLOSE", "UNAVAILABLE"]
+}

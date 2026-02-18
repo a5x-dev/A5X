@@ -22,7 +22,7 @@
     }
   },
   "required" : [ "amount", "currency" ],
-  "additionalProperties" : false,
+  "additionalProperties" : true,
   "examples" : [ {
     "amount" : "1000.00",
     "currency" : "BRL"

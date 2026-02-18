@@ -113,7 +113,7 @@
       "quantity" : "200.00"
     } ],
     "positionTransferRequestStatus" : {
-      "code" : 1
+      "code" : "TEC00000"
     },
     "TransferEventDetails" : {
       "transferEventCode" : 1

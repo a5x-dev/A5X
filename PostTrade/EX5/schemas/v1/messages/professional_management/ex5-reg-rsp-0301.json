@@ -1,118 +1,122 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-rsp-03",
-  "$metadata" : {
-    "domain" : "professional_management",
-    "schemaId" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-rsp-03"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-rsp-03",
+  "$metadata": {
+    "domain": "professional_management",
+    "schemaId": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-rsp-03"
   },
-  "title" : "Professional Change Notification and maintenance response",
-  "description" : "Notification message for changes made to a professional by screen interface, by message and maintenance response",
-  "type" : "object",
-  "properties" : {
-    "participantIdentification" : {
-      "$ref" : "../../objects/business/PartyId.json",
-      "description" : "Participant ID associated with the user"
+  "title": "Professional Change Notification and maintenance response",
+  "description": "Notification message for changes made to a professional by screen interface, by message and maintenance response",
+  "type": "object",
+  "properties": {
+    "participantIdentification": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Participant ID associated with the user"
     },
-    "operationType" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Type of operation to perform",
-      "$comment" : "Consult External Code List table ExternalOperationTypeCode"
+    "operationType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of operation to perform",
+      "$comment": "Consult External Code List table ExternalOperationTypeCode"
     },
-    "transactionOrigin" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Type of operation to perform",
-      "$comment" : "Consult External Code List table ExternalTransactionOriginTypeCode"
+    "transactionOrigin": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of operation to perform",
+      "$comment": "Consult External Code List table ExternalTransactionOriginTypeCode"
     },
-    "updatedData" : {
-      "$ref" : "../../objects/business/NotificationRegistry.json",
-      "description" : "Details of the changes made to the professional"
+    "professionals": {
+      "$ref": "../../objects/business/BaseRegistrationProfessional.json",
+      "description": "Array of professionals found (empty if none found)"
     },
-    "professionals" : {
-      "$ref" : "../../objects/business/BaseRegistrationProfessional.json",
-      "description" : "Array of professionals found (empty if none found)"
+    "statusSuccess": {
+      "type": "boolean",
+      "description": "Indicates if the operation was successful (true) or not (false)"
     },
-    "statusSuccess" : {
-      "type" : "boolean",
-      "description" : "Indicates if the operation was successful (true) or not (false)"
-    },
-    "statusError" : {
-      "$ref" : "../../objects/business/RegisterStatus.json"
+    "statusError": {
+      "$ref": "../../objects/business/RegisterStatus.json"
     }
   },
-  "required" : [ "participantIdentification" ],
-  "additionalProperties" : false,
-  "examples" : [ {
-    "participantIdentification" : {
-      "id" : 999,
-      "category" : 3
-    },
-    "operationType" : 2,
-    "transactionOrigin" : 1,
-    "updatedData" : {
-      "eventType" : 2,
-      "eventTimestamp" : "2024-05-15T14:30:15Z",
-      "userId" : "ADMIN123",
-      "changedFields" : [ {
-        "fieldName" : "account.address.city"
-      } ]
-    },
-    "statusSuccess" : true,
-    "statusError" : {
-      "statusCode" : 1,
-      "errorIdentification" : [ {
-        "code" : 1,
-        "message" : "Error X",
-        "errorDescription" : "COD12452",
-        "refId" : "REF12345"
-      } ]
-    },
-    "professionals" : {
-      "documentIdentifier" : {
-        "documentType" : 2,
-        "documentNumber" : "12345678900"
+  "required": [
+    "participantIdentification"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "participantIdentification": {
+        "id": 999,
+        "category": 3
       },
-      "personType" : 1,
-      "relationshipStatus" : 1,
-      "professionalStatus" : 1,
-      "statusReason" : "Esse campo tem 200 caracteres no máximo.",
-      "personName" : {
-        "fullName" : "João Silva Santos",
-        "socialName" : "João Santos"
-      },
-      "birthDate" : "1985-03-15",
-      "nationality" : "BRA",
-      "relationshipType" : 1,
-      "professionalAddress" : {
-        "street" : "Rua Augusta",
-        "number" : "123",
-        "complement" : "Sala 1205",
-        "neighborhood" : "Centro",
-        "postalCode" : "01234-567",
-        "cityName" : 3550308,
-        "state" : "SP",
-        "country" : "BRA",
-        "phoneNumber" : "+55-11-91234-5678",
-        "email" : "joao.santos@empresa.com.br"
-      },
-      "professionalActivity" : {
-        "professionalRoleType" : 1,
-        "startDate" : "2023-01-15",
-        "endDate" : "2024-12-31"
-      },
-      "certificationExemption" : false,
-      "certifications" : [ {
-        "certificationType" : 1,
-        "knowledgeArea" : 2,
-        "certificationDate" : "2023-06-15",
-        "expirationDate" : "2025-06-15"
-      } ],
-      "companyAffiliation" : {
-        "companyDocument" : {
-          "documentType" : 1,
-          "documentNumber" : "12345678000190"
+      "operationType": 2,
+      "transactionOrigin": 1,
+      "statusSuccess": true,
+      "professionals": {
+        "operatorDocument": {
+          "documentType": 2,
+          "documentNumber": "12345678900"
         },
-        "companyName" : "Corretora XYZ S.A."
+        "personType": 1,
+        "relationshipStatus": 1,
+        "professionalStatus": 1,
+        "statusReason": "Esse campo tem 200 caracteres no máximo.",
+        "personName": {
+          "fullName": "João Silva Santos",
+          "socialName": "João Santos"
+        },
+        "birthDate": "1985-03-15",
+        "nationality": "BRA",
+        "relationshipType": 1,
+        "address": {
+          "street": "Rua Augusta",
+          "number": "123",
+          "complement": "Sala 1205",
+          "neighborhood": "Centro",
+          "postalCode": "01234-567",
+          "cityName": "São Paulo",
+          "state": "SP",
+          "country": "BRA",
+          "phoneNumber": "+55-11-91234-5678",
+          "email": "joao.santos@empresa.com.br"
+        },
+        "professionalActivity": {
+          "professionalRole": 1,
+          "startDate": "2023-01-15",
+          "endDate": "2024-12-31"
+        },
+        "certificationExemption": false,
+        "certifications": [
+          {
+            "certificationType": 1,
+            "knowledgeArea": 2,
+            "certificationDate": "2023-06-15",
+            "expirationDate": "2025-06-15"
+          }
+        ],
+        "companyAffiliation": {
+          "companyDocument": {
+            "documentType": 1,
+            "documentNumber": "12345678000190"
+          },
+          "companyName": "Corretora XYZ S.A."
+        }
+      }
+    },
+    {
+      "participantIdentification": {
+        "id": 999,
+        "category": 3
+      },
+      "operationType": 2,
+      "transactionOrigin": 1,
+      "statusSuccess": false,
+      "statusError": {
+        "statusCode": 1,
+        "errorIdentification": [
+          {
+            "code": "TEC00000",
+            "message": "Error X",
+            "errorDescription": "COD12452"
+          }
+        ]
       }
     }
-  } ]
+  ]
 }

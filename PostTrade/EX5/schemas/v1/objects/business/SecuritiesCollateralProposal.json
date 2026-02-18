@@ -50,7 +50,7 @@
         "category" : 2
       },
       "accountIdentification" : {
-        "id" : 789012345678901
+        "id" : 123456789
       },
       "subAccount" : "001"
     },
@@ -62,7 +62,7 @@
         "category" : 2
       },
       "accountIdentification" : {
-        "id" : 789012345678901
+        "id" : 123456789
       },
       "subAccount" : "001"
     }

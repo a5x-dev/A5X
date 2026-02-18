@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalIncidentCategoryCode",
+  "description": "Codes for incident category",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Incidente relacionado a problemas de rede",
+      "const": "NETWORK"
+    },
+    {
+      "type": "string",
+      "description": "Incidente relacionado a problemas de hardware",
+      "const": "HARDWARE"
+    },
+    {
+      "type": "string",
+      "description": "Incidente relacionado a problemas de software",
+      "const": "SOFTWARE"
+    },
+    {
+      "type": "string",
+      "description": "Incidente relacionado a problemas de segurança",
+      "const": "SECURITY"
+    },
+    {
+      "type": "string",
+      "description": "Incidente que não se enquadra em outras categorias",
+      "const": "OTHER"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": ["NETWORK", "HARDWARE", "SOFTWARE", "SECURITY", "OTHER"]
+}
