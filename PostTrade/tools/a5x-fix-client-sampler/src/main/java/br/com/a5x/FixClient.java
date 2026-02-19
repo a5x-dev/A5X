@@ -1,9 +1,9 @@
 package br.com.a5x;
 
-import java.io.File;
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.UUID;
@@ -121,18 +121,17 @@ public class FixClient extends MessageCracker implements Application {
         log.info("ExecutionReport: {} | Status: {}", report.getClOrdID().getValue(), report.getOrdStatus().getValue());
     }
 
-    public void sendNewMessage(SessionID sessionId, String jsonStringPath, String msgName) {
-        File file = new File(jsonStringPath);
-        if (!file.exists()) {
-            log.error("File not found: {}", jsonStringPath);
-            return;
-        }
-        
-        try {
-            String jsonString = Files.readString(file.toPath());
+    public void sendNewMessage(SessionID sessionId, String resourcePath, String msgName) {
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(resourcePath)) {
+            if (inputStream == null) {
+                log.error("Resource not found: {}", resourcePath);
+                return;
+            }
+            
+            String jsonString = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
             Message message = new Message();
             includeA5XFields(message, jsonString, msgName);
-            log.info("Message will Send {}", message.toString());
+            log.info("Message will Send {}", message);
             Session.lookupSession(sessionId).send(message);
             log.info("Message Sent {}", msgName);
         } catch (IOException e) {

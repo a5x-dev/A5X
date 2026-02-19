@@ -93,11 +93,11 @@ public class Main {
 			}
 			case "2" -> {
 				writer.println("Sending success message...");
-				application.sendNewMessage(sessionId, "src/main/resources/samples/ex5-alc-ins-0401-sucesso.json", "ex5-alc-ins-0401");
+				application.sendNewMessage(sessionId, "samples/ex5-alc-ins-0401-sucesso.json", "ex5-alc-ins-0401");
 			}
 			case "3" -> {
 				writer.println("Sending error message...");
-				application.sendNewMessage(sessionId, "src/main/resources/samples/ex5-col-exp-0501-erro.json", "ex5-col-exp-0501");
+				application.sendNewMessage(sessionId, "samples/ex5-col-exp-0501-erro.json", "ex5-col-exp-0501");
 			}
 			case "4" -> viewLiveLogs();
 			case "5" -> {
