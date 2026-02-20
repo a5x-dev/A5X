@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>br.com.a5x.trd</groupId>
+	<artifactId>a5x-public-framework</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<name>a5x-public-framework</name>
+
+	<organization>
+		<name>A5X</name>
+		<url>https://a5x.com.br/</url>
+	</organization>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>21</maven.compiler.target>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.release>21</maven.compiler.release>
+		<java.version>21</java.version>
+	</properties>
+
+	<modules>
+		<module>a5x-trading-codegen</module>
+		<module>a5x-trading-mitch</module>
+	</modules>
+
+	<scm>
+		<developerConnection>scm:git:https://github.com/a5x-dev/A5X.git</developerConnection>
+	</scm>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.17.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.13.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

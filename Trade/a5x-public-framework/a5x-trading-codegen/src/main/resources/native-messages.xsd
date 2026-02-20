@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://a5x.com.br/native"
+           xmlns="http://a5x.com.br/native"
+           elementFormDefault="qualified">
+
+    <xs:element name="messages">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="field" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:attribute name="name" type="xs:string" use="required"/>
+                                    <xs:attribute name="type" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:enumeration value="alpha"/>
+                                                <xs:enumeration value="byte"/>
+                                                <xs:enumeration value="price"/>
+                                                <xs:enumeration value="uint8"/>
+                                                <xs:enumeration value="uint16"/>
+                                                <xs:enumeration value="uint32"/>
+                                                <xs:enumeration value="uint64"/>
+                                                <xs:enumeration value="int32"/>
+                                                <xs:enumeration value="bitfield"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                    <xs:attribute name="length" type="xs:positiveInteger"/>
+                                    <xs:attribute name="description" type="xs:string"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="name" type="xs:string" use="required"/>
+                        <xs:attribute name="messageType" type="xs:string" use="required"/>
+                        <xs:attribute name="description" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

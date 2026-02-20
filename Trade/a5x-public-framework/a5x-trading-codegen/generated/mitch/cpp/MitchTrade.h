@@ -1,0 +1,207 @@
+#ifndef MITCHTRADE_H
+#define MITCHTRADE_H
+
+#include <cstdint>
+#include <cstring>
+#include <string>
+
+namespace a5x::trading::mitch {
+
+/// Sent when a non-displayed trade occurs
+struct MitchTrade {
+    /// Nanoseconds offset from the last Time message
+    uint32_t nanosecond;
+
+    /// Identifier for the order
+    uint64_t orderId;
+
+    /// Quantity executed
+    uint32_t executedQuantity;
+
+    /// Executed price
+    int64_t price;
+
+    double priceAsDecimal() const { return price / 10000.0; }
+
+    /// Numeric identifier of the instrument
+    uint32_t instrumentId;
+
+    /// Unique identifier of the trade
+    uint64_t tradeId;
+
+    /// Converted price of the executed volatility of the options instrument
+    int64_t lastOptPx;
+
+    double lastOptPxAsDecimal() const { return lastOptPx / 10000.0; }
+
+    /// Converted volatility of the executed price of the options instrument
+    int64_t volatility;
+
+    double volatilityAsDecimal() const { return volatility / 10000.0; }
+
+    /// Underlying Reference Price related to converted value calculated upon an options instrument trade execution
+    int64_t underlyingReferencePrice;
+
+    double underlyingReferencePriceAsDecimal() const { return underlyingReferencePrice / 10000.0; }
+
+    /// Date and time when the trade was executed [Epoch]
+    uint64_t tradingDateTime;
+
+    /// Instrument identification code
+    std::string instrumentIdentificationCode;
+
+    /// 1 = ISIN Code
+    uint8_t instrumentIdentificationCodeType;
+
+    /// Currency in which the price of the trade is expressed
+    std::string currency;
+
+    /// Identification of the venue where the trade was executed
+    std::string venueOfExecution;
+
+    /// 1 = MONE - Monetary value, 2 = PERC - Percentage, 3 = YIEL - Yield
+    uint8_t priceNotation;
+
+    /// Notional value relevant to the security
+    int64_t notionalAmount;
+
+    double notionalAmountAsDecimal() const { return notionalAmount / 10000.0; }
+
+    /// The currency in which the notional is represented
+    std::string notionalCurrency;
+
+    /// Date and time when the trade was published by the trading venue [Epoch]
+    uint64_t publicationDateTime;
+
+    /// Firm ID of the party firm
+    std::string firm;
+
+    /// Firm ID of the counter party firm
+    std::string contraFirm;
+
+    /// Indicates if the trade has been cancelled (Value = CANC)
+    std::string cancellationFlag;
+
+    /// Indicates if the trade has been amended (Value = AMND)
+    std::string amendmentFlag;
+
+    /// 1 = Regular, 11 = Negotiated Trades
+    uint8_t subBook;
+
+    /// Bit 0: Trade Condition Flag, Bit 1: Internal Crossed Trade, Bit 5: RLP
+    void* flags;
+
+    static void parse(MitchTrade& msg, const uint8_t* data) {
+        size_t offset = 0;
+        std::memcpy(&msg.nanosecond, data + offset, 4);
+        offset += 4;
+        std::memcpy(&msg.orderId, data + offset, 8);
+        offset += 8;
+        std::memcpy(&msg.executedQuantity, data + offset, 4);
+        offset += 4;
+        std::memcpy(&msg.price, data + offset, 8);
+        offset += 8;
+        std::memcpy(&msg.instrumentId, data + offset, 4);
+        offset += 4;
+        std::memcpy(&msg.tradeId, data + offset, 8);
+        offset += 8;
+        std::memcpy(&msg.lastOptPx, data + offset, 8);
+        offset += 8;
+        std::memcpy(&msg.volatility, data + offset, 8);
+        offset += 8;
+        std::memcpy(&msg.underlyingReferencePrice, data + offset, 8);
+        offset += 8;
+        std::memcpy(&msg.tradingDateTime, data + offset, 8);
+        offset += 8;
+        msg.instrumentIdentificationCode = std::string(reinterpret_cast<const char*>(data + offset), 12);
+        msg.instrumentIdentificationCode.erase(msg.instrumentIdentificationCode.find_last_not_of(' ') + 1);
+        offset += 12;
+        msg.instrumentIdentificationCodeType = data[offset++];
+        msg.currency = std::string(reinterpret_cast<const char*>(data + offset), 3);
+        msg.currency.erase(msg.currency.find_last_not_of(' ') + 1);
+        offset += 3;
+        msg.venueOfExecution = std::string(reinterpret_cast<const char*>(data + offset), 4);
+        msg.venueOfExecution.erase(msg.venueOfExecution.find_last_not_of(' ') + 1);
+        offset += 4;
+        msg.priceNotation = data[offset++];
+        std::memcpy(&msg.notionalAmount, data + offset, 8);
+        offset += 8;
+        msg.notionalCurrency = std::string(reinterpret_cast<const char*>(data + offset), 3);
+        msg.notionalCurrency.erase(msg.notionalCurrency.find_last_not_of(' ') + 1);
+        offset += 3;
+        std::memcpy(&msg.publicationDateTime, data + offset, 8);
+        offset += 8;
+        msg.firm = std::string(reinterpret_cast<const char*>(data + offset), 6);
+        msg.firm.erase(msg.firm.find_last_not_of(' ') + 1);
+        offset += 6;
+        msg.contraFirm = std::string(reinterpret_cast<const char*>(data + offset), 6);
+        msg.contraFirm.erase(msg.contraFirm.find_last_not_of(' ') + 1);
+        offset += 6;
+        msg.cancellationFlag = std::string(reinterpret_cast<const char*>(data + offset), 4);
+        msg.cancellationFlag.erase(msg.cancellationFlag.find_last_not_of(' ') + 1);
+        offset += 4;
+        msg.amendmentFlag = std::string(reinterpret_cast<const char*>(data + offset), 4);
+        msg.amendmentFlag.erase(msg.amendmentFlag.find_last_not_of(' ') + 1);
+        offset += 4;
+        msg.subBook = data[offset++];
+    }
+
+    static void encode(const MitchTrade& msg, uint8_t* data) {
+        size_t offset = 0;
+        std::memcpy(data + offset, &msg.nanosecond, 4);
+        offset += 4;
+        std::memcpy(data + offset, &msg.orderId, 8);
+        offset += 8;
+        std::memcpy(data + offset, &msg.executedQuantity, 4);
+        offset += 4;
+        std::memcpy(data + offset, &msg.price, 8);
+        offset += 8;
+        std::memcpy(data + offset, &msg.instrumentId, 4);
+        offset += 4;
+        std::memcpy(data + offset, &msg.tradeId, 8);
+        offset += 8;
+        std::memcpy(data + offset, &msg.lastOptPx, 8);
+        offset += 8;
+        std::memcpy(data + offset, &msg.volatility, 8);
+        offset += 8;
+        std::memcpy(data + offset, &msg.underlyingReferencePrice, 8);
+        offset += 8;
+        std::memcpy(data + offset, &msg.tradingDateTime, 8);
+        offset += 8;
+        std::memset(data + offset, ' ', 12);
+        std::memcpy(data + offset, msg.instrumentIdentificationCode.c_str(), std::min(msg.instrumentIdentificationCode.size(), size_t(12)));
+        offset += 12;
+        data[offset++] = msg.instrumentIdentificationCodeType;
+        std::memset(data + offset, ' ', 3);
+        std::memcpy(data + offset, msg.currency.c_str(), std::min(msg.currency.size(), size_t(3)));
+        offset += 3;
+        std::memset(data + offset, ' ', 4);
+        std::memcpy(data + offset, msg.venueOfExecution.c_str(), std::min(msg.venueOfExecution.size(), size_t(4)));
+        offset += 4;
+        data[offset++] = msg.priceNotation;
+        std::memcpy(data + offset, &msg.notionalAmount, 8);
+        offset += 8;
+        std::memset(data + offset, ' ', 3);
+        std::memcpy(data + offset, msg.notionalCurrency.c_str(), std::min(msg.notionalCurrency.size(), size_t(3)));
+        offset += 3;
+        std::memcpy(data + offset, &msg.publicationDateTime, 8);
+        offset += 8;
+        std::memset(data + offset, ' ', 6);
+        std::memcpy(data + offset, msg.firm.c_str(), std::min(msg.firm.size(), size_t(6)));
+        offset += 6;
+        std::memset(data + offset, ' ', 6);
+        std::memcpy(data + offset, msg.contraFirm.c_str(), std::min(msg.contraFirm.size(), size_t(6)));
+        offset += 6;
+        std::memset(data + offset, ' ', 4);
+        std::memcpy(data + offset, msg.cancellationFlag.c_str(), std::min(msg.cancellationFlag.size(), size_t(4)));
+        offset += 4;
+        std::memset(data + offset, ' ', 4);
+        std::memcpy(data + offset, msg.amendmentFlag.c_str(), std::min(msg.amendmentFlag.size(), size_t(4)));
+        offset += 4;
+        data[offset++] = msg.subBook;
+    }
+};
+
+} // namespace a5x::trading::mitch
+
+#endif // MITCHTRADE_H

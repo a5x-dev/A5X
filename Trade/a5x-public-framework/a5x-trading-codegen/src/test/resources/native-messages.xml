@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://a5x.com.br/native">
+    <message name="NativeLogon" messageType="A" description="Logon request">
+        <field name="compId" type="alpha" length="11" description="CompID assigned to the client"/>
+        <field name="password" type="alpha" length="25" description="Password assigned to the CompID"/>
+        <field name="protocolVersion" type="int32" description="Protocol version"/>
+    </message>
+    <message name="NativeHeartbeat" messageType="0" description="Heartbeat message">
+    </message>
+</messages>

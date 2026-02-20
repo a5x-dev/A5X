@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://a5x.com.br/mitch">
+    <message name="MitchAddOrder" messageType="0x41" description="Add order message">
+        <field name="nanosecond" type="uint32" description="Nanoseconds offset"/>
+        <field name="orderId" type="uint64" description="Order ID"/>
+        <field name="side" type="char" description="B = Buy, S = Sell"/>
+        <field name="firm" type="bytearray" length="6" description="Firm ID"/>
+    </message>
+</messages>

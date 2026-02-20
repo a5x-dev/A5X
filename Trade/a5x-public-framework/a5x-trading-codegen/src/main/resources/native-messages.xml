@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://a5x.com.br/native">
+    
+    <message name="NativeLogon" messageType="A" description="Logon request">
+        <field name="compId" type="alpha" length="11" description="CompID assigned to the client"/>
+        <field name="password" type="alpha" length="25" description="Password assigned to the CompID"/>
+        <field name="newPassword" type="alpha" length="25" description="New password for CompID"/>
+        <field name="protocolVersion" type="int32" description="Protocol version (1-9)"/>
+        <field name="ipAddress" type="alpha" length="15" description="Original IP Address the user"/>
+        <field name="certifiedSolution" type="alpha" length="44" description="Nome da solução certificada"/>
+    </message>
+    
+    <message name="NativeLogonResponse" messageType="B" description="Logon response">
+        <field name="rejectCode" type="int32" description="0 or 3 = Accepted, 6 = Firm suspended, 9 = Account expired, 50 = Staggered Start, 55 = Node suspended, 100 = Not logged into real-time, 626 = User suspended, 628 = User inactive, 630 = End of Day, 9903 = Concurrent limit, 9904 = Invalid gateway, 9905 = System unavailable, 9906 = Logons not allowed"/>
+        <field name="passwordExpiry" type="int32" description="Number of days for password expiry, ignore if negative"/>
+    </message>
+    
+    <message name="NativeHeartbeat" messageType="0" description="Heartbeat message">
+    </message>
+    
+    <message name="NativeReject" messageType="3" description="Reject message">
+        <field name="rejectCode" type="int32" description="Code specifying the reason for the reject"/>
+        <field name="rejectReason" type="alpha" length="30" description="Reason for the reject"/>
+        <field name="refMessageType" type="byte" description="Type of message rejected"/>
+        <field name="clientOrderId" type="alpha" length="10" description="Client specified identifier of the rejected message if available"/>
+    </message>
+    
+    <message name="NativeLogout" messageType="5" description="Logout message">
+        <field name="reason" type="alpha" length="20" description="Reason for the logout"/>
+    </message>
+    
+    <message name="NativeExecutionReport" messageType="8" description="Execution report">
+        <field name="partitionId" type="uint8" description="Identity of the matching partition"/>
+        <field name="sequenceNumber" type="uint64" description="Message sequence number of the matching partition"/>
+        <field name="executionId" type="alpha" length="21" description="Identifier of the Execution Report. Identifier of the trade being cancelled or corrected if Execution Type is Trade Cancel (H)"/>
+        <field name="clientOrderId" type="alpha" length="10" description="Client specified identifier of the order, cancel request or modification requests"/>
+        <field name="orderId" type="alpha" length="12" description="Server specified identifier of the order"/>
+        <field name="publicOrderId" type="alpha" length="12" description="Server specified public order identifier of the order"/>
+        <field name="executedPrice" type="price" description="Executed price. Ignore if Execution Type is not Trade (F)"/>
+        <field name="transactTime" type="uint64" description="Time the transaction occurred in epoch format"/>
+        <field name="account" type="uint64" description="Identifier of the Trader Account"/>
+        <field name="senderLocation" type="alpha" length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="instrumentId" type="uint32" description="Numeric Identifier of the instrument"/>
+        <field name="crossId" type="alpha" length="10" description="Identifier of the cross order. Only alphanumeric values allowed"/>
+        <field name="executedQuantity" type="uint32" description="Executed quantity. Ignore if Execution Type is not Trade (F)"/>
+        <field name="leavesQuantity" type="uint32" description="Quantity available for further execution"/>
+        <field name="executionType" type="alpha" length="1" description="0 = New, 4 = Cancelled, 5 = Modified, 8 = Rejected, 9 = Suspended, A = Pending New, C = Expired, D = Restated, E = Pending Replace, F = Trade, H = Trade Cancel, L = Triggered"/>
+        <field name="orderStatus" type="uint8" description="0 = New, 1 = Partially Filled, 2 = Filled, 4 = Cancelled, 6 = Expired, 8 = Rejected, 9 = Suspended, 12 = Pending New, 14 = Pending Replace"/>
+        <field name="rejectCode" type="uint32" description="Code specifying the reason for the reject. Ignore if Execution Type is not Rejected (8)"/>
+        <field name="workingIndicator" type="uint8" description="0 = Unset, 1 = Order is being worked, 2 = Order is not currently in a working state. Only applicable when Order Status is New (0)"/>
+        <field name="side" type="uint8" description="1 = Buy, 2 = Sell. When a quote is rejected, field will be set to Buy (1)"/>
+        <field name="restatementReason" type="uint8" description="0 = GT Corporate Action, 1 = GT Renewal/Restatement, 3 = Order Re-Priced, 8 = Market Option, 100 = Order Replenishment. Only applicable if Exec Type is Restated (D) or unsolicited cancellation"/>
+        <field name="orderBook" type="uint8" description="1 = Regular"/>
+        <field name="indicatorFlags" type="bitfield" description="Bit 0: Aggressor Indicator (0 = Passive, 1 = Aggressor), Bit 5: RLP (0 = No, 1 = Yes). Applicable only when Exec Type is Trade"/>
+        <field name="crossType" type="uint8" description="5 = Internal Cross. Any other value rejected"/>
+        <field name="routingInstruction" type="uint8" description="1 = Retail Liquidity Taker, 2 = Waived Priority, 3 = Broker Only"/>
+        <field name="tradingPhase" type="uint8" description="1 = Regular, 2 = Non-Regular"/>
+        <field name="executionVenue" type="alpha" length="4" description="MIC Code of the instrument as set up under Execution Venue in Reference Data"/>
+        <field name="enteringTrader" type="alpha" length="15" description="Entering Trader ID"/>
+        <field name="memo" type="alpha" length="15" description="Free format text field. Echoed in reports"/>
+        <field name="deskId" type="alpha" length="15" description="Desk ID through which the order is placed from"/>
+        <field name="noTradeKey" type="alpha" length="10" description="Client specified identifier of order relevant to self-execution"/>
+    </message>
+    
+    <message name="NativeOrderCancelReject" messageType="9" description="Order Cancel Reject">
+        <field name="partitionId" type="uint8" description="Identity of the matching partition"/>
+        <field name="sequenceNumber" type="uint64" description="Message sequence number of the matching partition"/>
+        <field name="clientOrderId" type="alpha" length="10" description="Client specified identifier of the rejected cancel or modification request"/>
+        <field name="rejectCode" type="int32" description="Code specifying the reason for the reject"/>
+        <field name="orderBook" type="uint8" description="1 = Regular"/>
+        <field name="transactTime" type="uint64" description="Time the message was generated in epoch format"/>
+        <field name="senderLocation" type="alpha" length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+    </message>
+    
+    <message name="NativeNewOrderSingle" messageType="D" description="New order single">
+        <field name="limitPrice" type="price" description="Limit price"/>
+        <field name="orderQuantity" type="uint32" description="Total order quantity"/>
+        <field name="instrumentId" type="uint32" description="Numeric Identifier of the instrument"/>
+        <field name="side" type="uint8" description="1 = Buy, 2 = Sell"/>
+        <field name="enteringTrader" type="alpha" length="15" description="Entering Trader ID"/>
+        <field name="clientOrderId" type="alpha" length="10" description="Client specified identifier of the order"/>
+        <field name="account" type="uint64" description="Identifier of the Trader Account"/>
+        <field name="senderLocation" type="alpha" length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="noTradeKey" type="alpha" length="10" description="Client specified identifier of order relevant to self-execution"/>
+        <field name="stopPrice" type="price" description="Stop price/Trigger price"/>
+        <field name="displayQuantity" type="uint32" description="Maximum quantity to be displayed"/>
+        <field name="cancelOnDisconnect" type="uint8" description="0 = Do Not Cancel, 1 = Cancel"/>
+        <field name="anonymity" type="uint8" description="0 = Anonymous, 1 = Named"/>
+        <field name="orderBook" type="uint8" description="1 = Regular"/>
+        <field name="executionInstruction" type="bitfield" description="Bit 0: Passive Only (0 = No, 1 = Yes)"/>
+        <field name="routingInstruction" type="uint8" description="1 = Retail Liquidity Taker, 2 = Waived Priority, 3 = Broker Only"/>
+        <field name="orderType" type="uint8" description="1 = Market, 2 = Limit, 3 = Stop, 4 = Stop Limit, 5 = Market to Limit, 51 = RLP"/>
+        <field name="timeInForce" type="uint8" description="0 = Day, 3 = IOC, 4 = FOK, 5 = OPG, 8 = GTT, 9 = GFA, 10 = ATC"/>
+        <field name="expireTime" type="uint64" description="Expire time in epoch (seconds precision)"/>
+        <field name="memo" type="alpha" length="15" description="Free format text field"/>
+        <field name="deskId" type="alpha" length="15" description="Desk ID through which the order is placed from"/>
+    </message>
+    
+    <message name="NativeOrderCancelRequest" messageType="F" description="Order cancel request">
+        <field name="clientOrderId" type="alpha" length="10" description="Client specified identifier of the request"/>
+        <field name="origClientOrderId" type="alpha" length="10" description="Client specified identifier of the order or quote being cancelled"/>
+        <field name="orderId" type="alpha" length="12" description="Server specified identifier of the order being cancelled"/>
+        <field name="instrumentId" type="uint32" description="Numeric Identifier of the instrument"/>
+        <field name="side" type="uint8" description="1 = Buy, 2 = Sell"/>
+        <field name="orderBook" type="uint8" description="1 = Regular"/>
+        <field name="senderLocation" type="alpha" length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+    </message>
+    
+    <message name="NativeOrderReplaceRequest" messageType="G" description="Order Replace Request">
+        <field name="limitPrice" type="price" description="Limit price. Ignored if Order Type is not Limit (2) or Stop Limit (4)"/>
+        <field name="orderQuantity" type="uint32" description="Total order quantity"/>
+        <field name="instrumentId" type="uint32" description="Numeric Identifier of the instrument"/>
+        <field name="side" type="uint8" description="1 = Buy, 2 = Sell"/>
+        <field name="clientOrderId" type="alpha" length="10" description="Client specified identifier of the order"/>
+        <field name="origClientOrderId" type="alpha" length="10" description="Client specified identifier of the order being modified"/>
+        <field name="orderId" type="alpha" length="12" description="Server specified identifier of the order being cancelled"/>
+        <field name="account" type="uint64" description="Identifier of the Trader Account. Required field"/>
+        <field name="senderLocation" type="alpha" length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="stopPrice" type="price" description="Stop price/Trigger price. Ignored if Order Type is not Stop (3) or Stop Limit (4)"/>
+        <field name="displayQuantity" type="uint32" description="Maximum quantity to be displayed. Negative value to ignore"/>
+        <field name="orderBook" type="uint8" description="1 = Regular"/>
+        <field name="executionInstruction" type="bitfield" description="Bit 0: Passive Only (0 = No, 1 = Yes)"/>
+        <field name="orderType" type="uint8" description="1 = Market, 2 = Limit, 3 = Stop, 4 = Stop Limit, 5 = Market to Limit, 51 = RLP"/>
+        <field name="timeInForce" type="uint8" description="0 = Day, 3 = IOC, 4 = FOK, 5 = OPG, 8 = GTT, 9 = GFA, 10 = ATC"/>
+        <field name="expireTime" type="uint64" description="Expire time in epoch (seconds precision). Ignored if Time in Force is not GTT (8)"/>
+    </message>
+    
+    <message name="NativeMissedMessageRequest" messageType="M" description="Missed message request">
+        <field name="partitionId" type="uint8" description="Identity of the matching partition the request relates to"/>
+        <field name="sequenceNumber" type="uint64" description="Sequence number immediately after that of the last message received from the partition"/>
+    </message>
+    
+    <message name="NativeMissedMessageRequestAck" messageType="N" description="Missed message request acknowledgement">
+        <field name="status" type="uint8" description="0 = Request Accepted, 1 = Request Limit Reached, 2 = Invalid Partition ID, 3 = Service Unavailable"/>
+    </message>
+    
+    <message name="NativeTransmissionComplete" messageType="P" description="Transmission complete">
+        <field name="status" type="uint8" description="0 = All Messages Transmitted, 1 = Message Limit Reached, 3 = Service Unavailable"/>
+    </message>
+
+    <message name="NativeSystemStatus" messageType="n" description="System status">
+        <field name="partitionId" type="uint8" description="Identity of the matching partition the message relates to"/>
+        <field name="status" type="uint8" description="1 = Recovery Service Resumed, 2 = Recovery Service Unavailable, 3 = Partition Suspended"/>
+    </message>
+
+    <message name="NativeNewOrderCross" messageType="u" description="New Order Cross">
+        <field name="crossId" type="alpha" length="10" description="Identifier of the cross order. Only alphanumeric values allowed"/>
+        <field name="limitPrice" type="price" description="Price of the cross order"/>
+        <field name="orderQuantity" type="uint32" description="Total order quantity of the cross order"/>
+        <field name="enteringTrader" type="alpha" length="15" description="Entering Trader ID"/>
+        <field name="instrumentId" type="uint32" description="Numeric Identifier of the instrument"/>
+        <field name="senderLocation" type="alpha" length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="crossType" type="uint8" description="5 = Internal Cross. Any other value rejected"/>
+        <field name="buySideClientOrderId" type="alpha" length="10" description="Client specified identifier of the buy side. Required"/>
+        <field name="buySideAccountId" type="uint64" description="Identifier of the buyer's trading account. Required"/>
+        <field name="sellSideClientOrderId" type="alpha" length="10" description="Client specified identifier of the sell side. Required"/>
+        <field name="sellSideAccountId" type="uint64" description="Identifier of the seller's trading account. Required"/>
+        <field name="orderType" type="uint8" description="2 = Limit. Any other value rejected"/>
+        <field name="timeInForce" type="uint8" description="0 = Day. Only DAY TIF allowed for cross orders"/>
+        <field name="deskId" type="alpha" length="15" description="Desk ID through which the order is placed from"/>
+        <field name="memo" type="alpha" length="15" description="Free format text field. Echoed in reports"/>
+    </message>
+
+    <message name="NativeBusinessReject" messageType="j" description="Business Reject">
+        <field name="partitionId" type="uint8" description="Identity of the matching partition"/>
+        <field name="sequenceNumber" type="uint64" description="Message sequence number of the matching partition"/>
+        <field name="rejectCode" type="uint32" description="Code specifying the reason for the reject. 9000 = Unknown instrument, 9998 = Matching partition suspended, 9999 = System suspended"/>
+        <field name="clientOrderId" type="alpha" length="10" description="Client specified identifier of the rejected message if available"/>
+    </message>
+
+    <message name="NativeMassCancelRequest" messageType="q" description="Mass Cancel Request">
+        <field name="clientOrderId" type="alpha" length="10" description="Client specified identifier of the rejected message if available"/>
+        <field name="massCancelType" type="uint8" description="3 = Firm Interest for Instrument, 4 = Firm Interest for Segment, 7 = All Interest for Client, 8 = All Interest for Firm, 9 = Client Interest for Instrument, 14 = Client Interest for Underlying, 15 = Client Interest for Segment, 22 = Firm Interest for Underlying"/>
+        <field name="instrumentId" type="uint32" description="Numeric Identifier of the instrument"/>
+        <field name="segment" type="alpha" length="10" description="Identifier of the segment"/>
+        <field name="interestType" type="uint8" description="0 = Order, 3 = Quote"/>
+        <field name="orderBook" type="uint8" description="1 = Regular"/>
+        <field name="senderLocation" type="alpha" length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+    </message>
+
+    <message name="NativeMassCancelReport" messageType="r" description="Mass Cancel Report">
+        <field name="partitionId" type="uint8" description="Identity of the matching partition"/>
+        <field name="sequenceNumber" type="uint64" description="Message sequence number of the matching partition"/>
+        <field name="clientOrderId" type="alpha" length="10" description="Client specified identifier of the rejected message if available"/>
+        <field name="status" type="uint8" description="0 = Rejected, 7 = Accepted"/>
+        <field name="rejectCode" type="uint32" description="Code specifying the reason for the reject. Ignore if Status is not Rejected (0)"/>
+        <field name="orderBook" type="uint8" description="1 = Regular"/>
+    </message>
+
+    <message name="NativeNews" messageType="CB" description="News">
+        <field name="partitionId" type="uint8" description="Identity of the matching partition"/>
+        <field name="sequenceNumber" type="uint64" description="Message sequence number of the matching partition"/>
+        <field name="origTime" type="uint64" description="Time the announcement was published in EPOCH time"/>
+        <field name="urgency" type="uint8" description="0 = Rejected, 1 = High Priority, 2 = Low Priority"/>
+        <field name="headline" type="alpha" length="100" description="Headline or subject of the announcement"/>
+        <field name="text" type="alpha" length="750" description="Text of the announcement"/>
+        <field name="instruments" type="alpha" length="100" description="Pipe separated list of symbols of instruments the announcements relates to"/>
+        <field name="underlyings" type="alpha" length="100" description="Pipe separated list of symbols of underlyings the instruments relates to"/>
+        <field name="firmList" type="alpha" length="54" description="Pipe separated list of firms that the announcement should be sent to"/>
+        <field name="userList" type="alpha" length="54" description="Pipe separated list of users that the announcement should be sent to"/>
+    </message>
+
+    <message name="NativeMassQuote" messageType="i" description="Mass Quote">
+        <field name="massQuoteId" type="alpha" length="10" description="Client specified identifier of the message"/>
+        <field name="partitionId" type="uint8" description="Identity of the matching partition"/>
+        <field name="cancelOnDisconnect" type="uint8" description="0 = Do Not Cancel, 1 = Cancel"/>
+        <field name="anonymity" type="uint8" description="0 = Anonymous, 1 = Named. Absence interpreted as Anonymous (0)"/>
+        <field name="account" type="uint64" description="Identifier of the trading account. Required field"/>
+        <field name="senderLocation" type="alpha" length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="enteringTrader" type="alpha" length="15" description="Entering Trader ID"/>
+        <field name="noTradeKey" type="alpha" length="10" description="Client specified identifier of order relevant to self-execution"/>
+        <field name="memo" type="alpha" length="15" description="Free format text field. Echoed in reports"/>
+        <field name="deskId" type="alpha" length="15" description="Desk ID through which the order is placed from"/>
+        <field name="totalQuoteEntries" type="uint16" description="Number of quote entries in the mass quote"/>
+    </message>
+
+    <message name="NativeMassQuoteAcknowledgement" messageType="b" description="Mass Quote Acknowledgement">
+        <field name="massQuoteId" type="alpha" length="10" description="Mass Quote ID of the Mass Quote message"/>
+        <field name="partitionId" type="uint8" description="Identity of the matching partition"/>
+        <field name="status" type="uint8" description="0 = Accepted, 5 = Rejected"/>
+        <field name="rejectCode" type="int32" description="Code specifying the reason for the reject. Ignore if Status is not Rejected (0)"/>
+        <field name="transactTime" type="uint64" description="Time of quote creation in epoch format"/>
+        <field name="anonymity" type="uint8" description="0 = Anonymous, 1 = Named. Absence interpreted as Anonymous (0)"/>
+        <field name="account" type="uint64" description="Identifier of the Account"/>
+        <field name="senderLocation" type="alpha" length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="orderBook" type="uint8" description="1 = Regular"/>
+        <field name="enteringTrader" type="alpha" length="15" description="Entering Trader ID"/>
+        <field name="noTradeKey" type="alpha" length="10" description="Client specified identifier of order relevant to self-execution"/>
+        <field name="memo" type="alpha" length="15" description="Free format text field. Echoed in reports"/>
+        <field name="deskId" type="alpha" length="15" description="Desk ID through which the order is placed from"/>
+        <field name="tradingPhase" type="uint8" description="1 = Regular (Day Session), 2 = Non-Regular (Night Session)"/>
+        <field name="routingSeq" type="uint64" description="Unique sequence assigned for all market data message"/>
+        <field name="totalQuoteEntries" type="uint16" description="Number of quote entries"/>
+    </message>
+
+    <message name="NativeQuoteStatusReport" messageType="AI" description="Quote Status Report">
+        <field name="partitionId" type="uint8" description="Identity of the matching partition"/>
+        <field name="sequenceNumber" type="uint64" description="Message sequence number of the Matching Partition"/>
+        <field name="quoteMsgId" type="alpha" length="10" description="Client specified identifier of the quote if available. Null filled otherwise"/>
+        <field name="quoteStatus" type="uint8" description="6 = Removed from Market, 7 = Expired, 17 = Cancelled"/>
+        <field name="rejectCode" type="int32" description="Code specifying the reason for the reject. Applicable only if Quote Status is Rejected, null filled otherwise"/>
+        <field name="orderBook" type="uint32" description="1 = Regular"/>
+        <field name="transactTime" type="uint64" description="Time the message was generated in epoch format"/>
+        <field name="anonymity" type="uint8" description="0 = Anonymous, 1 = Named. Absence interpreted as Anonymous (0)"/>
+        <field name="instrumentId" type="uint32" description="Numeric Identifier of the instrument"/>
+        <field name="bidId" type="alpha" length="10" description="The system generated unique ID for the Bid Side"/>
+        <field name="offerId" type="alpha" length="10" description="The system generated unique ID for the Offer Side"/>
+        <field name="account" type="uint64" description="Identifier of the Account"/>
+        <field name="senderLocation" type="alpha" length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="enteringTrader" type="alpha" length="15" description="Entering Trader ID"/>
+        <field name="memo" type="alpha" length="15" description="Free format text field. Echoed in reports"/>
+        <field name="deskId" type="alpha" length="15" description="Desk ID through which the order is placed from"/>
+    </message>
+
+</messages>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://a5x.com.br/mitch"
+           xmlns:mitch="http://a5x.com.br/mitch"
+           elementFormDefault="qualified">
+
+    <xs:element name="messages">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="mitch:MessageType" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="MessageType">
+        <xs:sequence>
+            <xs:element name="field" type="mitch:FieldType" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="messageType" type="xs:string" use="required"/>
+        <xs:attribute name="description" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="FieldType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="type" type="mitch:DataType" use="required"/>
+        <xs:attribute name="length" type="xs:int"/>
+        <xs:attribute name="decimals" type="xs:int"/>
+        <xs:attribute name="description" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:simpleType name="DataType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="uint32"/>
+            <xs:enumeration value="uint64"/>
+            <xs:enumeration value="uint8"/>
+            <xs:enumeration value="uint16"/>
+            <xs:enumeration value="int32"/>
+            <xs:enumeration value="int64"/>
+            <xs:enumeration value="char"/>
+            <xs:enumeration value="byte"/>
+            <xs:enumeration value="bytearray"/>
+            <xs:enumeration value="string"/>
+            <xs:enumeration value="price4"/>
+            <xs:enumeration value="price8"/>
+            <xs:enumeration value="alpha"/>
+            <xs:enumeration value="bitfield"/>
+            <xs:enumeration value="date"/>
+            <xs:enumeration value="time"/>
+            <xs:enumeration value="extendedtime"/>
+            <xs:enumeration value="datetime"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
