@@ -29,9 +29,7 @@
       "maxItems": 50
     }
   },
-  "required": [
-    "allocationStatusCode"
-  ],
+  "required": [],
   "additionalProperties": false,
   "examples": [
     {

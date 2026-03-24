@@ -61,20 +61,24 @@
       "description": "Account status",
       "$comment": "Consult External Code List table ExternalStatusCode"
     },
-    "positionAndCustodianAccount": {
-      "type": "boolean",
-      "description": "Indicator if is the position or custodian account"
-    },
     "relatedBrand": {
       "type": "integer",
       "minimum": 1,
       "maximum": 6,
       "description": "Related brand identifier"      
+    },
+    "custodianAccountDetails": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/CustodianAccountDetails.json"
+      },
+      "description": "List of custodian account details",
+      "minItems": 0,
+      "maxItems": 60
     }
   },
   "required": [
-    "account",
-    "positionAndCustodianAccount"
+    "account"
   ],
   "additionalProperties": false,
   "examples": [
@@ -96,8 +100,16 @@
       "preferredAddressType": 2,
       "preferredEmailType": 1,
       "status": 1,      
-      "positionAndCustodianAccount": true,
-      "relatedBrand": 1
+      "relatedBrand": 1,
+      "custodianAccountDetails": [
+        {
+          "custodianCodeAtDepository": 123,
+          "custodyAccountIdentification": {
+            "id": 784215001
+          },
+          "custodyAccountValidationStatus": 1
+        }
+      ]
     }
   ]
 }

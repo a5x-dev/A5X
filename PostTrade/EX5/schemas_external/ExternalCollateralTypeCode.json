@@ -5,6 +5,11 @@
   "oneOf": [
     {
       "type": "number",
+      "description": "Carta de Fiança",
+      "const": 1
+    },
+    {
+      "type": "number",
       "description": "Título Privado",
       "const": 2
     },
@@ -39,7 +44,9 @@
       "const": 13
     }
   ],
+  "additionalProperties": false,
   "examples": [
+    1,
     2,
     3,
     4,

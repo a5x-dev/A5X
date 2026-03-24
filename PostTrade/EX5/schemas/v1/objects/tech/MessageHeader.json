@@ -1,71 +1,110 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:tech:MessageHeader",
-  "$metadata" : {
-    "domain" : "tech",
-    "schemaId" : "urn:a5x:ex5:schema:v1:tech:MessageHeader"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:tech:MessageHeader",
+  "$metadata": {
+    "domain": "tech",
+    "schemaId": "urn:a5x:ex5:schema:v1:tech:MessageHeader"
   },
-  "type" : "object",
-  "properties" : {
-    "ClOrdID" : {
-      "$ref" : "#/$defs/ClOrdID"
+  "title": "Header Message",
+  "description": "Header Description",
+  "type": "object",
+  "properties": {
+    "businessMessageIdentification": {
+      "$ref": "#/$defs/businessMessageIdentification"
     },
-    "MessageId" : {
-      "$ref" : "#/$defs/MessageId"
+    "businessMessage": {
+      "$ref": "#/$defs/businessMessage"
     },
-    "Timestamp" : {
-      "$ref" : "#/$defs/Timestamp"
+    "timestamp": {
+      "$ref": "#/$defs/timestamp"
     },
-    "From" : {
-      "$ref" : "#/$defs/From"
+    "from": {
+      "$ref": "#/$defs/from"
     },
-    "To" : {
-      "$ref" : "#/$defs/To"
+    "to": {
+      "$ref": "#/$defs/to"
     },
-    "Sender" : {
-      "$ref" : "#/$defs/Sender"
+    "sender": {
+      "$ref": "#/$defs/sender"
     },
-    "Target" : {
-      "$ref" : "#/$defs/Target"
+    "target": {
+      "$ref": "#/$defs/target"
     },
-    "BeginString" : {
-      "$ref" : "#/$defs/BeginString"
+    "beginString": {
+      "$ref": "#/$defs/beginString"
     }
   },
-  "$defs" : {
-    "ClOrdID" : {
-      "$ref" : "../../objects/tech/MessageIdentifier.json"
+  "$defs": {
+    "businessMessageIdentification": {
+      "$ref": "../../objects/tech/MessageIdentifier.json"
     },
-    "MessageId" : {
-      "type" : "string",
-      "description" : "Message type in our catalog",
-      "examples" : [ "ex5-tec-hdr-0101" ]
+    "businessMessage": {
+      "type": "string",
+      "description": "Message type in our catalog",
+      "examples": [
+        "ex5-tec-hdr-0101"
+      ]
     },
-    "Timestamp" : {
-      "type" : "string",
-      "description" : "Trade Date and Time in ISO 8601 format",
-      "format" : "date-time",
-      "examples" : [ "2026-03-14T00:00:00Z" ],
-      "pattern" : "^(([0-9]{4})((-[0-9]{2}){2}(([ T])?([0-9]{2}:){2}[0-9]{2}((\\+[0-9]{2}(:[0-9]{2})?)|Z)?)?|(-W[0-9]{2}(-[1-7])?)|(-[1-3]?[0-9]{2})))$"
+    "timestamp": {
+      "type": "string",
+      "description": "Trade Date and Time in ISO 8601 format",
+      "format": "date-time",
+      "examples": [
+        "2026-03-14T00:00:00Z"
+      ],
+      "pattern": "^(([0-9]{4})((-[0-9]{2}){2}(([ T])?([0-9]{2}:){2}[0-9]{2}((\\+[0-9]{2}(:[0-9]{2})?)|Z)?)?|(-W[0-9]{2}(-[1-7])?)|(-[1-3]?[0-9]{2})))$"
     },
-    "From" : {
-      "$ref" : "../business/PartyId.json"
+    "from": {
+      "$ref": "../business/PartyId.json"
     },
-    "To" : {
-      "$ref" : "../business/PartyId.json"
+    "to": {
+      "$ref": "../business/PartyId.json"
     },
-    "Sender" : {
-      "$ref" : "../tech/SenderSessionIdentifier.json"
+    "sender": {
+      "$ref": "../tech/SenderSessionIdentifier.json"
     },
-    "Target" : {
-      "$ref" : "../tech/TargetSessionIdentifier.json"
+    "target": {
+      "$ref": "../tech/TargetSessionIdentifier.json"
     },
-    "BeginString" : {
-      "type" : "string",
-      "description" : "Session",
-      "examples" : [ "FIX4.4" ]
+    "beginString": {
+      "type": "string",
+      "description": "Session",
+      "examples": [
+        "FIX4.4"
+      ]
     }
   },
-  "required" : [ "ClOrdID", "MessageId", "Timestamp", "Sender", "Target" ],
-  "description" : "header Description"
+  "required": [
+    "businessMessageIdentification",
+    "businessMessage",
+    "timestamp",
+    "from",
+    "to",
+    "sender",
+    "target"
+  ],
+  "examples": [
+    {
+      "messageHeader": {
+        "businessMessageIdentification": "5I000123202603020000000000000100000",
+        "businessMessage": "ex5-col-wtd-1901",
+        "timestamp": "2026-03-02T18:14:02.399Z",
+        "from": {
+          "id": 789012,
+          "category": 3
+        },
+        "to": {
+          "id": 555,
+          "category": 55
+        },
+        "sender": {
+          "CompID": "C000114ALC003"
+        },
+        "target": {
+          "CompID": "GTWA5XD003"
+        },
+        "beginString": "FIX.4.4"
+      }
+    }
+  ]
 }

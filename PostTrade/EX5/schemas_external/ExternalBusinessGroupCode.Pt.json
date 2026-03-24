@@ -5,35 +5,75 @@
   "oneOf": [
     {
       "type": "string",
-      "description": "Captura e processamento de operações",
-      "const": "TRD"
-    },
-    {
-      "type": "string",
-      "description": "Alocação e distribuição de operações",
+      "description": "Alocação",
       "const": "ALC"
     },
     {
       "type": "string",
-      "description": "Gestão e reconciliação de posições",
+      "description": "Garantias",
+      "const": "COL"
+    },
+    {
+      "type": "string",
+      "description": "Tarifação",
+      "const": "FEE"
+    },
+    {
+      "type": "string",
+      "description": "Instrumento",
+      "const": "INS"
+    },
+    {
+      "type": "string",
+      "description": "Chamada de Margem",
+      "const": "MRG"
+    },
+    {
+      "type": "string",
+      "description": "Posição",
       "const": "POS"
     },
     {
       "type": "string",
-      "description": "Avaliação e monitoramento de risco",
-      "const": "RSK"
+      "description": "Precificação",
+      "const": "PRC"
     },
     {
       "type": "string",
-      "description": "Cadastro e gestão de dados de referência",
+      "description": "Público",
+      "const": "PUB"
+    },
+    {
+      "type": "string",
+      "description": "Serviços Qualificados",
+      "const": "QLF"
+    },
+    {
+      "type": "string",
+      "description": "Cadastro",
       "const": "REG"
     },
     {
       "type": "string",
-      "description": "Gestão e avaliação de garantias",
-      "const": "COL"
+      "description": "Risco",
+      "const": "RSK"
+    },
+    {
+      "type": "string",
+      "description": "Liquidação",
+      "const": "STL"
+    },
+    {
+      "type": "string",
+      "description": "Técnico",
+      "const": "TEC"
+    },
+    {
+      "type": "string",
+      "description": "Negociação",
+      "const": "TRD"
     }
   ],
   "additionalProperties": false,
-  "examples": ["TRD", "ALC", "POS", "RSK", "REG", "COL"]
+  "examples": ["ALC", "COL", "FEE", "INS", "MRG", "POS", "PRC", "PUB", "QLF", "REG", "RSK", "STL", "TEC", "TRD"]
 }

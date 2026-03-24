@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:RiskCollateralPosition",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:RiskCollateralPosition"
+  },
+  "title": "Risk Collateral Position",
+  "description": "Collateral position details for risk calculation, including instrument identification and collateral value",
+  "type": "object",
+  "properties": {
+    "financialInstrumentIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the financial instrument associated with the collateral position"
+    },
+    "tickerSymbol": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Letters that identify stocks traded on stock exchange"
+    },
+    "quantity": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Quantity of the financial instrument in the collateral position"
+    },
+    "collateralValue": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Monetary value of the collateral position after haircut"
+    }
+  },
+  "required": [
+    "financialInstrumentIdentification",
+    "tickerSymbol",
+    "quantity",
+    "collateralValue"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "financialInstrumentIdentification": {
+        "id": "100000000000001",
+        "source": "8",
+        "exchange": "A5X"
+      },
+      "tickerSymbol": "PETR4",
+      "quantity": "1000.00",
+      "collateralValue": {
+        "amount": "150000.00",
+        "currency": "BRL"
+      }
+    }
+  ]
+}

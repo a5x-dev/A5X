@@ -46,62 +46,72 @@
       "id" : 123456789
     },
     "withdrawalResponse" : {
-      "collateralWithdrawalIdentification" : "TRF-REF-001",
-      "securitiesCollateral" : [ {
-        "collateralIdentification" : "CASH-REF-001",
-        "quantity" : "100.00",
-        "collateralValue" : {
-          "currency" : "BRL",
-          "amount" : "100000.00"
-        },
-        "statusCode" : 1,
-        "rejectionInformation" : "Rejection information"
-      } ],
-      "cashCollateral" : [ {
-        "collateralIdentification" : "CASH-REF-001",
-        "operationValue" : {
-          "currency" : "BRL",
-          "amount" : "100000.00"
-        },
-        "collateralValue" : {
-          "currency" : "BRL",
-          "amount" : "100000.00"
-        },
-        "statusCode" : 1,
-        "rejectionInformation" : "Rejection information"
-      } ],
-      "federalBondsResponse" : [ {
-        "collateralIdentification" : "CASH-REF-001",
-        "quantity" : "100.00",
-        "collateralValue" : {
-          "currency" : "BRL",
-          "amount" : "100000.00"
-        },
-        "selicOperationCode" : "65499",
-        "assignerAccount" : "ASSIGNER-ACC-001",
-        "assigneeAccount" : "ASSIGNEE-ACC-001",
-        "statusCode" : 1,
-        "rejectionInformation" : "Rejection information"
-      } ],
-      "collateralSubstitutionStatus" : {
-      "statusCode" : 1,
-      "errorIdentification" : [ {
-        "code" : "TEC00000",
-        "message" : "Error X",
-        "errorDescription" : "COD12452",
-        "refId" : "REF12345"
-      } ]
+      "collateralWithdrawalIdentification": "TRF-REF-001",
+      "securitiesCollateral": [
+        {
+          "collateralIdentification": "CASH-REF-001",
+          "quantity": "100.00",
+          "collateralValue": {
+            "currency": "BRL",
+            "amount": "100000.00"
+          },
+          "statusCode": 1,
+          "rejectionInformation": "Rejection information"
+        }
+      ],
+      "cashCollateral": [
+        {
+          "collateralIdentification": "CASH-REF-001",
+          "operationValue": {
+            "currency": "BRL",
+            "amount": "100000.00"
+          },
+          "collateralValue": {
+            "currency": "BRL",
+            "amount": "100000.00"
+          },
+          "statusCode": 1,
+          "rejectionInformation": "Rejection information"
+        }
+      ],
+      "federalBondsResponse": [
+        {
+          "collateralIdentification": "CASH-REF-001",
+          "quantity": "100.00",
+          "collateralValue": {
+            "currency": "BRL",
+            "amount": "100000.00"
+          },
+          "selicOperationCode": "65499",
+          "assignerAccount": "ASSIGNER-ACC-001",
+          "assigneeAccount": "ASSIGNEE-ACC-001",
+          "statusCode": 1,
+          "rejectionInformation": "Rejection information"
+        }
+      ],
+      "collateralSubstitutionStatus": {
+        "statusCode": 1,
+        "errorIdentification": [
+          {
+            "code": "TEC00000",
+            "message": "Error X",
+            "errorDescription": "COD12452",
+            "refId": "REF12345"
+          }
+        ]
       },
-      "externalSecuritiesResponse" : [ {
-      "collateralIdentification" : "CASH-REF-001",
-      "quantity" : "100.00",
-      "collateralValue" : {
-        "currency" : "BRL",
-        "amount" : "100000.00"
-      },
-      "statusCode" : 1,
-      "rejectionInformation" : "Rejection information"
-      } ]
+      "externalSecuritiesResponse": [
+        {
+          "collateralIdentification": "CASH-REF-001",
+          "quantity": "100.00",
+          "collateralValue": {
+            "currency": "BRL",
+            "amount": "100000.00"
+          },
+          "statusCode": 1,
+          "rejectionInformation": "Rejection information"
+        }
+      ]
     }
   } ]
 }

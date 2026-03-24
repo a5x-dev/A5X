@@ -1,0 +1,129 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-ind-0201",
+  "$metadata": {
+    "domain": "pricing",
+    "schemaId": "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-ind-0201"
+  },
+  "title": "Economic Indicator Report",
+  "description": "JSON Schema for the Economic Indicator Report",
+  "type": "object",
+  "properties": {
+    "financialInstrumentIdentificationId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "description": "Proprietary identification of an instrument"
+    },
+    "financialInstrumentIdentificationSource": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "description": "Unique identification scheme used to identify the instrument"
+    },
+    "financialInstrumentIdentificationExchange": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 8,
+      "description": "Exchange or market identifier where the financial instrument is listed or traded according to ISO 10383",
+      "$comment": "Consult External Code List table ExternalMarketCode"
+    },
+    "tickerSymbol": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Trading symbol or code of the instrument"
+    },
+    "instrumentDescription": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Description of the instrument in the trading system"
+    },
+    "segment": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Market segment representing the first level of market classification in post-trading process",
+      "$comment": "Consult External Code List table ExternalSegmentCode"
+    },
+    "market": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Market type representing the second level of market classification in post-trading process",
+      "$comment": "Consult External Code List table ExternalMarketCode"
+    },
+    "asset": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 30,
+      "description": "Commodity or asset associated with the instrument"
+    },
+    "securityCategory": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Security category representing the third level of market classification in post-trading process",
+      "$comment": "Consult External Code List table ExternalSecurityCategoryCode"
+    },
+    "economicIndicatorTypeCode": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Code indicating whether the price is an economic indicator or exchange rate",
+      "$comment": "Consult External Code List table ExternalEconomicTypeCode"
+    },
+    "economicIndicatorDescription": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Description of the economic indicator"
+    },
+    "economicIndicatorBaseCode": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Number of days in the period used for price calculation or interest correction, e.g., 252, 360, 365",
+      "$comment": "Consult External Code List table ExternalInterestRateCorrectionTimeBaseCode"
+    },
+    "economicIndicatorValueTypeCode": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Code identifying the presentation format of the economic indicator (price or percentage)",
+      "$comment": "Consult External Code List table ExternalValueTypeCode"
+    },
+    "economicIndicatorEntryReferenceCode": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Days used as reference for economic indicator appreciation (1=T0, 2=T+1, 3=T-1)"
+    },
+    "economicIndicatorDecimalPrecision": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Number of decimal places used in price calculation or for disclosure purposes"
+    },
+    "economicIndicatorMaturity": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Code for the maturity interval to be used (1=Monthly, 2=Reference, 3=Validity)",
+      "$comment": "Consult External Code List table ExternalMaturityCode"
+    }
+  },
+  "required": [
+    "financialInstrumentIdentificationId",
+    "financialInstrumentIdentificationSource",
+    "financialInstrumentIdentificationExchange",
+    "tickerSymbol",
+    "instrumentDescription",
+    "segment",
+    "market",
+    "asset",
+    "securityCategory"
+  ],
+  "additionalProperties": false
+}

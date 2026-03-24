@@ -260,8 +260,16 @@
                 "preferredAddressType": 2,
                 "preferredEmailType": 1,
                 "status": 1,
-                "positionAndCustodianAccount": true,
-                "relatedBrand": 1
+                "relatedBrand": 1,
+                "custodianAccountDetails": [
+                    {
+                        "custodianCodeAtDepository": 123,
+                        "custodyAccountIdentification": {
+                            "id": 784215001
+                        },
+                        "custodyAccountValidationStatus": 1
+                    }
+                ]
             }
         }
     ]

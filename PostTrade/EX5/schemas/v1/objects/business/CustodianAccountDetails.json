@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:CustodianAccountDetails",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:CustodianAccountDetails"
+  },
+  "title": "Custodian Account Details",
+  "description": "Custodian account details at the equity depository",
+  "type": "object",
+  "properties": {
+    "custodianCodeAtDepository": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Custodian code at the equity depository"
+    },
+    "custodyAccountIdentification": {
+     "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Custody account Identification"
+    },
+    "custodyAccountValidationStatus": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Custody account validation status",
+      "$comment": "Consult External Code List table ExternalStatusCode"
+    }
+  },
+  "required": [
+    "custodianCodeAtDepository",
+    "custodyAccountIdentification"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "custodianCodeAtDepository": 123,
+      "custodyAccountIdentification": {
+        "id": 784215001
+      },
+      "custodyAccountValidationStatus": 1
+    },
+    {
+      "custodianCodeAtDepository": 456,
+      "custodyAccountIdentification": {
+        "id": 784215001
+      },
+      "custodyAccountValidationStatus": 2
+    }
+  ]
+}

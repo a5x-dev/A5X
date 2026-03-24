@@ -54,15 +54,15 @@
         "previousAllocationIdentification": "ALLOC-PREV-123"
       },
       "allocationStatusCode": 1,
-      "accountOriginIdentification": {
-        "id": "123456"
-      },
       "errorReasonAllocation": [
         1,
         2
       ],
+      "accountOriginIdentification": {
+        "id": 123456
+      },
       "accountDestinationIdentification": {
-        "id": "7891011"
+        "id": 7891011
       },
       "quantity": "1000.50"
     }

@@ -1,51 +1,71 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-mrg-02",
-  "$metadata" : {
-    "domain" : "risk",
-    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-mrg-02"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-mrg-02",
+  "$metadata": {
+    "domain": "risk",
+    "schemaId": "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-mrg-02"
   },
-  "title" : "Instrument Margin Rate",
-  "description" : "Margin or rate calculated for an instrument",
-  "type" : "object",
-  "properties" : {
-    "financialInstrumentIdentificationId" : {
-      "type" : "string",
-      "description" : "Proprietary identification of the instrument"
+  "title": "Instrument Margin Rate",
+  "description": "Margin or rate calculated for an instrument",
+  "type": "object",
+  "properties": {
+    "financialInstrumentIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the financial instrument"
     },
-    "financialInstrumentIdentificationSource" : {
-      "type" : "string",
-      "description" : "Source of instrument identification"
+    "tickerSymbol": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Symbol of the instrument"
     },
-    "financialInstrumentIdentificationExchange" : {
-      "type" : "string",
-      "description" : "MIC code of the exchange/market where the instrument is listed"
+    "currency": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Currency for which the fee is calculated",
+      "$comment": "Consult External Code List table ExternalCurrencyCode"
     },
-    "tickerSymbol" : {
-      "type" : "string",
-      "description" : "Symbol of the instrument"
+    "marketPrice": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Market price of the instrument, up to 2 decimal places"
     },
-    "currency" : {
-      "type" : "string",
-      "description" : "Currency for which the fee is calculated (ex: BRL, USD)"
+    "collateralMarginRate": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Margin rate in percentage (0-100), up to 4 decimal places"
     },
-    "marketPrice" : {
-      "type" : "string",
-      "description" : "Market price of the instrument (amount in 'currency', up to 2 decimal places)"
+    "riskPositionValueLong": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Value of the purchased position considered for risk"
     },
-    "collateralMarginRate" : {
-      "type" : "string",
-      "description" : "Margin rate in percentage (0-100), up to 4 decimal places. Ex.: '7', '7.1253', '100.0000"
-    },
-    "riskPositionValueLong" : {
-      "type" : "string",
-      "description" : "Value of the purchased position considered for risk (in 'currency' currency)"
-    },
-    "riskPositionValueShort" : {
-      "type" : "string",
-      "description" : "Value of the position sold considered for risk (in 'currency')"
+    "riskPositionValueShort": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Value of the sold position considered for risk"
     }
   },
-  "required" : [ "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "tickerSymbol", "currency" ],
-  "additionalProperties" : false
+  "required": [
+    "financialInstrumentIdentification",
+    "tickerSymbol",
+    "currency"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "financialInstrumentIdentification": {
+        "id": "100000000000001",
+        "source": "8",
+        "exchange": "A5X"
+      },
+      "tickerSymbol": "PETR4",
+      "currency": "BRL",
+      "marketPrice": "35.50",
+      "collateralMarginRate": "7.1253",
+      "riskPositionValueLong": {
+        "amount": "150000.00",
+        "currency": "BRL"
+      },
+      "riskPositionValueShort": {
+        "amount": "250000.00",
+        "currency": "BRL"
+      }
+    }
+  ]
 }

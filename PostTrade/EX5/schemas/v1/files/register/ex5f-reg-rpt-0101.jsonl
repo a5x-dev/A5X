@@ -201,7 +201,6 @@
             "preferredAddressType": 2,
             "preferredEmailType": 1,
             "status": 1,
-            "positionAndCustodianAccount": true,
             "relatedBrand": 1
           }
         }

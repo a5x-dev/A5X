@@ -83,10 +83,6 @@
       "minLength" : 1,
       "description" : "Letters that identify stocks traded on stock exchange"
     },
-    "collateralPositionQuantity" : {
-      "type" : "string",
-      "description" : "Quantity of the Collateral Position"
-    },
     "collateralPositionCollateralValueAmount" : {
       "type" : "string",
       "pattern" : "^-?\\d{1,15}(\\.\\d{1,2})?$",

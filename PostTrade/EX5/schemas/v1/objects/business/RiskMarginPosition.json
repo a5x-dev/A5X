@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:RiskMarginPosition",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:RiskMarginPosition"
+  },
+  "title": "Risk Margin Position",
+  "description": "Margin position details for risk calculation, including instrument identification, position quantities and monetary values",
+  "type": "object",
+  "properties": {
+    "financialInstrumentIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the financial instrument associated with the margin position"
+    },
+    "tickerSymbol": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Letters that identify stocks traded on stock exchange"
+    },
+    "expirationDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Expiry date of the instrument for the margin position"
+    },
+    "netPosition": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Value of the net position for the margin position (Long Position - Short Position)"
+    },
+    "netValue": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Net monetary value of the margin position"
+    },
+    "broughtForwardNetValue": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Brought forward net of the margin position"
+    },
+    "imSubPortfolio": {
+      "type": "string",
+      "description": "IM sub portfolio of the instrument for the margin position"
+    },
+    "longPosition": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Amount of long position for the margin position"
+    },
+    "shortPosition": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Amount of short position for the margin position"
+    },
+    "longValue": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Monetary value of the long position"
+    },
+    "shortValue": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Monetary value of the short position"
+    }
+  },
+  "required": [
+    "financialInstrumentIdentification",
+    "tickerSymbol"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "financialInstrumentIdentification": {
+        "id": "100000000000001",
+        "source": "8",
+        "exchange": "A5X"
+      },
+      "tickerSymbol": "PETR4",
+      "expirationDate": "2025-12-15",
+      "netPosition": "50",
+      "netValue": {
+        "amount": "75000.00",
+        "currency": "BRL"
+      },
+      "broughtForwardNetValue": {
+        "amount": "70000.00",
+        "currency": "BRL"
+      },
+      "imSubPortfolio": "SP1",
+      "longPosition": "100",
+      "shortPosition": "50",
+      "longValue": {
+        "amount": "75000.00",
+        "currency": "BRL"
+      },
+      "shortValue": {
+        "amount": "75000.00",
+        "currency": "BRL"
+      }}
+  ]
+}

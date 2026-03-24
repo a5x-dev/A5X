@@ -32,6 +32,12 @@
     "statusInformation" : {
       "$ref" : "../../objects/business/CollateralStatus.json",
       "description" : "Provides Status Information"
+    },
+    "thirdAssetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Identifies the registration number of the collateral deposit assigned by the central counterparty when the collateral is provided by a third party."
     }
   },
   "required" : [ "collateralIdentification", "assetNumber", "quantity", "collateralValue", "statusInformation" ],
@@ -52,6 +58,7 @@
         "errorDescription" : "COD12452",
         "refId" : "REF12345"
       } ]
-    }
+    },
+    "thirdAssetNumber" : "CCP-REG-20251015-001"
   } ]
 }

@@ -5,35 +5,75 @@
   "oneOf": [
     {
       "type": "string",
-      "description": "Trade capture and processing",
-      "const": "TRD"
-    },
-    {
-      "type": "string",
-      "description": "Trade allocation and distribution",
+      "description": "Allocation",
       "const": "ALC"
     },
     {
       "type": "string",
-      "description": "Position management and reconciliation",
+      "description": "Collateral",
+      "const": "COL"
+    },
+    {
+      "type": "string",
+      "description": "Fee",
+      "const": "FEE"
+    },
+    {
+      "type": "string",
+      "description": "Instrument",
+      "const": "INS"
+    },
+    {
+      "type": "string",
+      "description": "Margin Request",
+      "const": "MRG"
+    },
+    {
+      "type": "string",
+      "description": "Position",
       "const": "POS"
     },
     {
       "type": "string",
-      "description": "Risk assessment and monitoring",
-      "const": "RSK"
+      "description": "Pricing",
+      "const": "PRC"
     },
     {
       "type": "string",
-      "description": "Registration and reference data management",
+      "description": "Public",
+      "const": "PUB"
+    },
+    {
+      "type": "string",
+      "description": "Qualified Services",
+      "const": "QLF"
+    },
+    {
+      "type": "string",
+      "description": "Registration",
       "const": "REG"
     },
     {
       "type": "string",
-      "description": "Collateral management and valuation",
-      "const": "COL"
+      "description": "Risk",
+      "const": "RSK"
+    },
+    {
+      "type": "string",
+      "description": "Settlement",
+      "const": "STL"
+    },
+    {
+      "type": "string",
+      "description": "Technical",
+      "const": "TEC"
+    },
+    {
+      "type": "string",
+      "description": "Trade",
+      "const": "TRD"
     }
   ],
   "additionalProperties": false,
-  "examples": ["TRD", "ALC", "POS", "RSK", "REG", "COL"]
+  "examples": ["ALC", "COL", "FEE", "INS", "MRG", "POS", "PRC", "PUB", "QLF", "REG", "RSK", "STL", "TEC", "TRD"]
 }
