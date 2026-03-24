@@ -12,7 +12,7 @@ O objetivo é oferecer artefatos confiáveis para **desenvolvedores**, **analist
 - **Schemas**: definem a estrutura dos objetos/mensagens (ex.: JSON e XML). 
 - **Exemplos**: instâncias reais ou fictícias que demonstram o uso correto dos schemas em cenários comuns.
 
-> Dica: a página inicial do **Portal do Desenvolvedor A5X** traz a visão macro, links de documentação e novidades. Este repositório foca na **parte técnica** (artefatos e exemplos).
+> Dica: a página inicial do **Portal Técnico A5X** traz a visão macro, links de documentação e novidades. Este repositório foca na **parte técnica** (artefatos e exemplos).
 
 
 
@@ -27,7 +27,7 @@ O objetivo é oferecer artefatos confiáveis para **desenvolvedores**, **analist
 
 
 ## Suporte
-- **Portal do Desenvolvedor A5X**: documentação, guias e novidades.
+- **[Portal do Técnico A5X](https://portal-tecnico.a5x.com.br/)**: documentação, guias e novidades.
 
 > Em caso de dados sensíveis, utilize os canais privados acordados com a A5X.
 
