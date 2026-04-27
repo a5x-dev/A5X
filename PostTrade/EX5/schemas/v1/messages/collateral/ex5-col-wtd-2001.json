@@ -50,13 +50,13 @@
       "securitiesCollateral": [
         {
           "collateralIdentification": "CASH-REF-001",
-          "quantity": "100.00",
+           "quantity" : 100,
           "collateralValue": {
             "currency": "BRL",
             "amount": "100000.00"
           },
           "statusCode": 1,
-          "rejectionInformation": "Rejection information"
+          "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }]
         }
       ],
       "cashCollateral": [
@@ -71,13 +71,13 @@
             "amount": "100000.00"
           },
           "statusCode": 1,
-          "rejectionInformation": "Rejection information"
+          "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }]
         }
       ],
       "federalBondsResponse": [
         {
           "collateralIdentification": "CASH-REF-001",
-          "quantity": "100.00",
+           "quantity" : 100,
           "collateralValue": {
             "currency": "BRL",
             "amount": "100000.00"
@@ -86,7 +86,7 @@
           "assignerAccount": "ASSIGNER-ACC-001",
           "assigneeAccount": "ASSIGNEE-ACC-001",
           "statusCode": 1,
-          "rejectionInformation": "Rejection information"
+          "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }]
         }
       ],
       "collateralSubstitutionStatus": {
@@ -103,13 +103,13 @@
       "externalSecuritiesResponse": [
         {
           "collateralIdentification": "CASH-REF-001",
-          "quantity": "100.00",
+           "quantity" : 100,
           "collateralValue": {
             "currency": "BRL",
             "amount": "100000.00"
           },
           "statusCode": 1,
-          "rejectionInformation": "Rejection information"
+          "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }]
         }
       ]
     }

@@ -263,23 +263,23 @@
       "description" : "Special instructions account's name for external securities"
     },
     "depositedQuantity" : {
-      "type" : "string",
-      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "type" : "integer",
+      "minimum" : 1,
       "description" : "Deposited quantity"
     },
     "valuedQuantity" : {
-      "type" : "string",
-      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "type" : "integer",
+      "minimum" : 1,
       "description" : "Accepted collateral quantity"
     },
     "deliveryQuantity" : {
-      "type" : "string",
-      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "type" : "integer",
+      "minimum" : 1,
       "description" : "Distributed collateral quantity to another account"
     },
     "blockedQuantity" : {
-      "type" : "string",
-      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "type" : "integer",
+      "minimum" : 1,
       "description" : "Blocked quantity by clearing"
     },
     "collateralValueAmount" : {

@@ -10,24 +10,24 @@
   "type" : "object",
   "properties" : {
     "depositedQuantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Deposited quantity. Quantidade depositada",
-      "examples" : [ "1000.50", "2500.75" ]
+      "examples" : [ 1000, 2500 ]
     },
     "valuedQuantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Accepted collateral quantity. Quantidade valorizada para garantia",
-      "examples" : [ "950.25", "2400.00" ]
+      "examples" : [ 950, 2400 ]
     },
     "deliveryQuantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Distributed collateral quantity to another account. Quantidade distribuida para outra conta",
-      "examples" : [ "100.00", "0.00" ]
+      "examples" : [ 100, 0 ]
     },
     "blockedQuantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Blocked quantity by clearing. Quantidade bloqueada pela Clearing",
-      "examples" : [ "50.25", "0.00" ]
+      "examples" : [ 50, 0 ]
     },
     "collateralValue" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
@@ -41,10 +41,10 @@
   "required" : [ "collateralValue", "withdrawalBlockedValue" ],
   "additionalProperties" : false,
   "examples" : [ {
-    "depositedQuantity" : "1000.50",
-    "valuedQuantity" : "950.25",
-    "deliveryQuantity" : "100.00",
-    "blockedQuantity" : "50.25",
+    "depositedQuantity" : 1000,
+    "valuedQuantity" : 950,
+    "deliveryQuantity" : 100,
+    "blockedQuantity" : 50,
     "collateralValue" : {
       "currency" : "BRL",
       "amount" : "95000.50"

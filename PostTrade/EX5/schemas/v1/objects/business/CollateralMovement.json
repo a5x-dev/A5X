@@ -129,8 +129,8 @@
         "currency" : "BRL",
         "amount" : "95000.00"
       },
-      "operationQuantity" : "1000.50",
-      "operationAcceptQuantity" : "950.25"
+      "operationQuantity" : 1000,
+      "operationAcceptQuantity" : 950
     }
   } ]
 }

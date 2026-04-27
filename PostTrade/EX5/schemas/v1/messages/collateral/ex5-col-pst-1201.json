@@ -88,10 +88,10 @@
           "assigneeAccount" : "ASSIGNEE-ACC-001"
         },
         "collateralDetailInformation" : {
-          "depositedQuantity" : "1000.50",
-          "valuedQuantity" : "950.25",
-          "deliveryQuantity" : "100.00",
-          "blockedQuantity" : "50.25",
+          "depositedQuantity" : 1000,
+          "valuedQuantity" : 950,
+          "deliveryQuantity" : 100,
+          "blockedQuantity" : 50,
           "collateralValue" : {
             "currency" : "BRL",
             "amount" : "95000.50"

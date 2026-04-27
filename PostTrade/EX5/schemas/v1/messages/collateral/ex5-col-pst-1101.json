@@ -22,7 +22,18 @@
       "description" : "Provides details about the account identification"
     },
     "collateralCoverageInformation" : {
-      "$ref" : "../../objects/business/CollateralCoverageInformation.json",
+      "allOf" : [ {
+        "$ref" : "../../objects/business/CollateralCoverageInformation.json"
+      }, {
+        "properties" : {
+          "holderType" : {
+            "$ref" : "../../objects/business/ExternalCodeList.json",
+            "description" : "Indicates if the collateral information is related to the participant or to Client",
+            "$comment" : "Consult External Code List table ExternalHolderTypeCode"
+          }
+        },
+        "required" : [ "holderType" ]
+      } ],
       "description" : "Collateral coverage information details"
     }
   },

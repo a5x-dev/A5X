@@ -15,22 +15,27 @@
     },
     {
       "type": "number",
+      "description": "Margem Adicional de Risco Residual",
+      "const": 9
+    },
+    {
+      "type": "number",
       "description": "Fundo de Liquidação",
       "const": 11
     },
-    {
+       {
       "type": "number",
-      "description": "Garantia Mínima não Operacional",
-      "const": 31
-    },
-    {
-      "type": "number",
-      "description": "Garantias para Terceiros",
+      "description": "Garantias para Terceiro",
       "const": 33
     },
     {
       "type": "number",
-      "description": "Depósito",
+      "description": "Leilão",
+      "const": 41
+    },
+    {
+      "type": "number",
+      "description": "Requisito de Acesso",
       "const": 42
     },
     {
@@ -42,9 +47,10 @@
   "examples": [
     1,
     2,
+    9,
     11,
-    31,
     33,
+    41,
     42,
     44
   ]

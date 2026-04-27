@@ -69,7 +69,7 @@
       "securitiesCollateral" : [ {
         "collateralIdentification" : "1",
         "assetNumber" : "2015000000349",
-        "quantity" : "1000.0",
+        "quantity" : 1000,
         "custodianInformationDestination" : {
           "participantIdentification" : {
             "id" : 456,
@@ -157,7 +157,7 @@
         "assetNumber" : "GOV-123456",
         "assignerAccount" : "ASSIGNOR-001",
         "assigneeAccount" : "ASSIGNEE-001",
-        "quantity" : "250.75"
+        "quantity" : 250
       } ]
     }
   }, {
@@ -193,7 +193,7 @@
       "externalCollateral" : [ {
         "collateralIdentification" : "1",
         "assetNumber" : "2015000000349",
-        "quantity" : "150.0"
+        "quantity" : 150
       } ]
     }
   } ]

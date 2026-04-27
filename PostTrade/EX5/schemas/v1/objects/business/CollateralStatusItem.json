@@ -16,7 +16,7 @@
       "description" : "Collateral ID given by the requestor participant."
     },
     "quantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Quantity request to collateral transfer."
     },
     "operationValue" : {
@@ -36,7 +36,7 @@
   "additionalProperties" : false,
   "examples" : [ {
     "collateralIdentification" : "2",
-    "quantity" : "2000.00",
+    "quantity" : 2000,
     "operationValue" : {
       "amount" : "1000.00",
       "currency" : "BRL"

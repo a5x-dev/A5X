@@ -1,4 +1,4 @@
-{
+﻿{
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-cmd-02",
   "$metadata" : {
@@ -41,7 +41,7 @@
     "collateralDetails" : [ {
       "distributionCommandNumber" : "206",
       "collateralIdentification" : "1",
-      "quantity" : "150.0",
+      "quantity" : 150,
       "operationValue" : {
         "amount" : "1000.00",
         "currency" : "BRL"

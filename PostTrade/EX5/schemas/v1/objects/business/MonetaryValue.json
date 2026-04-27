@@ -21,11 +21,10 @@
       "$comment" : "Consult External Code List table ExternalCurrencyCode"
     }
   },
-  "required" : [ "amount", "currency" ],
+  "required" : [ "amount" ],
   "additionalProperties" : true,
   "examples" : [ {
-    "amount" : "1000.00",
-    "currency" : "BRL"
+    "amount" : "1000.00"
   }, {
     "amount" : "50000.00",
     "currency" : "USD"

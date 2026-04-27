@@ -18,11 +18,11 @@
       "description" : "Value accept in the transaction"
     },
     "operationQuantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Initial quantity of a transaction"
     },
     "operationAcceptQuantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Quantity accepts in the transaction"
     }
   },
@@ -37,7 +37,7 @@
       "currency" : "BRL",
       "amount" : "95000.00"
     },
-    "operationQuantity" : "1000.50",
-    "operationAcceptQuantity" : "950.25"
+    "operationQuantity" : 1000,
+    "operationAcceptQuantity" : 950
   } ]
 }

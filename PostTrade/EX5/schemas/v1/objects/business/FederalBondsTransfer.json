@@ -39,7 +39,7 @@
       "description" : "Provides the assignee account identification"
     },
     "quantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Quantity requested to collateral transfer"
     },
     "collateralValue" : {
@@ -54,7 +54,7 @@
     "assetNumber" : "GOV-123456",
     "assignerAccount" : "ASSIGNOR-001",
     "assigneeAccount" : "ASSIGNEE-001",
-    "quantity" : "250.75",
+    "quantity" : 250,
     "collateralValue" : {
       "amount" : "24000.00",
       "currency" : "BRL"

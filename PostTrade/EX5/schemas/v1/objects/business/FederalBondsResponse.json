@@ -22,7 +22,7 @@
       "description" : "Identifies the register number of the collateral deposit assigned by the central counterparty"
     },
     "quantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Quantity requested to collateral transfer"
     },
     "collateralValue" : {
@@ -45,7 +45,7 @@
   "examples" : [ {
     "collateralIdentification" : "OTHER-001",
     "assetNumber" : "AAPL",
-    "quantity" : "100.0",
+    "quantity" : 100,
     "collateralValue" : {
       "amount" : "24000.00",
       "currency" : "BRL"

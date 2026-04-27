@@ -42,14 +42,6 @@
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Value of correlation risk at account level"
     },
-    "defaultFundAdditionalMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
-      "description" : "Value of the additional margin to the settlement fund at account level"
-    },
-    "stressTestLoss" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
-      "description" : "Stress test loss at account level"
-    },
     "userComment" : {
       "type" : "string",
       "description" : "Free text wrote by the requestor"
@@ -62,9 +54,7 @@
     "contingentVariationMargin",
     "netLiquidatingValue",
     "liquidityConcentrationRiskMargin",
-    "wrongWayRiskMargin",
-    "defaultFundAdditionalMargin",
-    "stressTestLoss"
+    "wrongWayRiskMargin"
   ],
   "additionalProperties" : false,
   "examples" : [
@@ -94,14 +84,6 @@
       "wrongWayRiskMargin" : {
         "currency" : "BRL",
         "amount" : "25000.25"
-      },
-      "defaultFundAdditionalMargin" : {
-        "currency" : "BRL",
-        "amount" : "15000.50"
-      },
-      "stressTestLoss" : {
-        "currency" : "BRL",
-        "amount" : "500.00"
       },
       "userComment" : "Result under base scenario; revise foreign exchange exposure"
     }

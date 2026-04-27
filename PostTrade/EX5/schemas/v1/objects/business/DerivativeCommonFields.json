@@ -8,7 +8,7 @@
   "title" : "DerivativeCommonFields",
   "description" : "Common fields for all derivative instruments, extending base instrument fields",
   "allOf" : [ {
-    "$ref" : "../../objects/business/InstrumentBaseFields.json"
+    "$ref" : "../../objects/business/InstrumentCommonFields.json"
   }, {
     "type" : "object",
     "properties" : {
@@ -29,40 +29,9 @@
       }
     },
     "required" : [ "contractMultiplier", "assetQuotationQuantity" ],
-    "additionalProperties" : false
+    "additionalProperties" : true
   }, {
     "$ref" : "../../objects/business/TradingDaysInfo.json"
   } ],
-  "examples" : [ {
-    "instrumentData" : {
-      "tickerSymbol" : "DFZ0001"
-    },
-    "securityCategory" : 2,
-    "tradingCurrency" : "BRL",
-    "expirationDate" : "2024-12-31",
-    "allocationRoundLot" : 5,
-    "contractMultiplier" : "1.2510234564330",
-    "assetQuotationQuantity" : "1.2510234564330",
-    "withdrawalDays" : 90,
-    "workingDays" : 63,
-    "calendarDays" : 90
-  }, {
-    "instrumentData" : {
-      "InstrumentIdentification" : {
-        "securityID" : "10000000000000001",
-        "securitySource" : "8",
-        "securityExchange" : "A5X"
-      },
-      "ISIN" : "BRZZZZFUT001",
-      "tickerSymbol" : "DFZ0001"
-    },
-    "securityCategory" : 2,
-    "tradingCurrency" : "BRL",
-    "expirationDate" : "2024-06-30",
-    "contractMultiplier" : "1.2510234564330",
-    "assetQuotationQuantity" : "1.2510234564330",
-    "withdrawalDays" : 60,
-    "workingDays" : 42,
-    "calendarDays" : 60
-  } ]
+  "examples" : []
 }

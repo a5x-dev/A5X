@@ -1,12 +1,12 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:business:CashCollateralTransfer",
+  "$id" : "urn:a5x:ex5:schema:v1:business:CashCollateralMovement",
   "$metadata" : {
     "domain" : "business",
-    "schemaId" : "urn:a5x:ex5:schema:v1:business:CashCollateralTransfer"
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:CashCollateralMovement"
   },
-  "title" : "Cash Collateral Transfer",
-  "description" : "Cash collateral transfer item with operation value information",
+  "title" : "Cash Collateral Movement",
+  "description" : "Cash collateral movement item with operation value information",
   "type" : "object",
   "properties" : {
     "collateralIdentification" : {

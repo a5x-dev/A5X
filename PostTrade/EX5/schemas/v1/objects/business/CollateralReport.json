@@ -121,7 +121,7 @@
               "currency" : "BRL",
               "amount" : "50000.25"
             },
-            "realizedVariationMargin" : {
+            "contingentVariationMargin" : {
               "currency" : "BRL",
               "amount" : "25000.00"
             },
@@ -144,7 +144,7 @@
               "currency" : "BRL",
               "amount" : "50000.25"
             },
-            "realizedVariationMargin" : {
+            "contingentVariationMargin" : {
               "currency" : "BRL",
               "amount" : "25000.00"
             },
@@ -153,7 +153,15 @@
               "amount" : "200000.75"
             },
             "intradayRiskLimitAssigned" : "1000000.12",
-            "riskWithoutCollateralIntraday" : "500000.25"
+            "riskWithoutCollateralIntraday" : "500000.25",
+            "collateralBalanceIntraday" : {
+              "currency" : "BRL",
+              "amount" : "75000.00"
+            },
+            "projectedBalance" : {
+              "currency" : "BRL",
+              "amount" : "120000.50"
+            }
           }
         }
       ],
@@ -177,10 +185,10 @@
             "assigneeAccount" : "ASSIGNEE-ACC-001"
           },
           "collateralDetailInformation" : {
-            "depositedQuantity" : "1000.50",
-            "valuedQuantity" : "950.25",
-            "deliveryQuantity" : "100.00",
-            "blockedQuantity" : "50.25",
+            "depositedQuantity" : 1000,
+            "valuedQuantity" : 950,
+            "deliveryQuantity" : 100,
+            "blockedQuantity" : 50,
             "collateralValue" : {
               "currency" : "BRL",
               "amount" : "95000.50"

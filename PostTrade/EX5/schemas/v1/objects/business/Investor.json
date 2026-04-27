@@ -68,7 +68,7 @@
     },
     "countryOfResidence": {
       "$ref": "../../objects/business/ExternalCodeTextList.json",
-      "description": "Country of residence for Natural Person or registration for Legal Entity",
+      "description": "Country of residence or register",
       "$comment": "Consult External Code List table ExternalCountryCode"
     },
     "civilStatus": {
@@ -168,7 +168,7 @@
     }
   },
   "required": [],
-  "additionalProperties": false,
+  "additionalProperties": true,
   "examples": [
     {
       "fullName": "João Silva Santos",

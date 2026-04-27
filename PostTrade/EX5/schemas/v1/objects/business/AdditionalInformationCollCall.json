@@ -27,9 +27,9 @@
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Summation of all the Additional Margins calculated for Margin Account except for Concentration Position Limit. Soma de todas as Margens Adicionais calculadas para a Conta de Margem, exceto para o Limite de Posição de Concentração"
     },
-    "realizedVariationMargin" : {
+    "contingentVariationMargin" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
-      "description" : "Realized Variation Margin calculated for the Margin Account. Margem de Variação Realizada calculada para a Conta de Margem"
+      "description" : "Contingent Variation Margin calculated for the Margin Account"
     },
     "netLiquidityValue" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
@@ -40,7 +40,7 @@
     "totalMargin",
     "initialMargin",
     "totalAdditionalMargin",
-    "realizedVariationMargin",
+    "contingentVariationMargin",
     "netLiquidityValue"
   ],
   "additionalProperties" : true,
@@ -59,7 +59,7 @@
         "currency" : "BRL",
         "amount" : "50000.25"
       },
-      "realizedVariationMargin" : {
+      "contingentVariationMargin" : {
         "currency" : "BRL",
         "amount" : "25000.00"
       },

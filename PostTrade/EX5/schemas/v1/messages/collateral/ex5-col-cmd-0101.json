@@ -1,4 +1,4 @@
-{
+﻿{
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-cmd-01",
   "$metadata" : {
@@ -56,7 +56,7 @@
         "distributionCommandNumber" : "206",
         "collateralIdentification" : "1",
         "assetNumber" : "2015000000349",
-        "quantity" : "150.0"
+        "quantity" : 150
       } ]
     }
   }, {
@@ -103,7 +103,7 @@
         "distributionCommandNumber" : "206",
         "collateralIdentification" : "1",
         "assetNumber" : "2015000000349",
-        "quantity" : "150.0"
+        "quantity" : 150
       } ]
     }
   }, {
@@ -125,7 +125,7 @@
         "distributionCommandNumber" : "206",
         "collateralIdentification" : "1",
         "assetNumber" : "2015000000349",
-        "quantity" : "150.0"
+        "quantity" : 150
       } ]
     }
   } ]

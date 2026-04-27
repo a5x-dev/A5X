@@ -1,101 +1,121 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-agg-01",
-  "$metadata" : {
-    "domain" : "capture_and_allocation",
-    "schemaId" : "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-agg-01"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-agg-01",
+  "$metadata": {
+    "domain": "capture_and_allocation",
+    "schemaId": "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-agg-01"
   },
-  "title" : "CompressionTrade",
-  "description" : "Compression Trade",
-  "type" : "object",
-  "properties" : {
-    "accountIdentification" : {
-      "$ref" : "../../objects/business/AccountIdentification.json",
-      "description" : "Identification of the account associated with the trade. "
+  "title": "CompressionTrade",
+  "description": "Compression Trade",
+  "type": "object",
+  "properties": {
+    "accountIdentification": {
+      "$ref": "../../objects/business/Account.json",
+      "description": "Identification of the account associated with the trade. "
     },
-    "trade" : {
-      "$ref" : "../../objects/business/Trade.json",
-      "description" : "Trade information"
+    "trade": {
+      "$ref": "../../objects/business/Trade.json",
+      "description": "Trade information"
     },
-    "participantIdentification" : {
-      "$ref" : "../../objects/business/PartyId.json",
-      "description" : "Identification of the participant."
+    "participantIdentification": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Identification of the participant."
     },
-    "takeUpParticipantIdentification" : {
-      "$ref" : "../../objects/business/PartyId.json",
-      "description" : "Identification of the participant taking the allocation."
+    "clearingMemberIdentification": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Provides details about the clearing member identification"
     },
-    "instrument" : {
-      "$ref" : "../../objects/business/Instrument.json",
-      "description" : "Financial instrument information, including ISIN and ticker symbol"
+    "takeUpParticipantIdentification": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Identification of the participant taking the allocation."
     },
-    "tradeDetails" : {
-      "$ref" : "../../objects/business/TradeDetails.json",
-      "description" : "Trade execution information including quantity, value, and transaction date/time"
+    "instrument": {
+      "$ref": "../../objects/business/Instrument.json",
+      "description": "Financial instrument information, including ISIN and ticker symbol"
     },
-    "trader" : {
-      "$ref" : "../../objects/business/Trader.json",
-      "description" : "Trader information"
+    "tradeDetails": {
+      "$ref": "../../objects/business/TradeDetails.json",
+      "description": "Trade execution information including quantity, value, and transaction date/time"
     },
-    "giveUpOnCaptureIndicator" : {
-      "type" : "boolean",
-      "description" : "Indicates if the operation is derived from block capture."
+    "trader": {
+      "$ref": "../../objects/business/Trader.json",
+      "description": "Trader information"
     },
-    "grossTradeAmount" : {
-      "$ref" : "../../types/DecimalNumber.json",
-      "description" : "Gross trade amount"
+    "giveUpOnCaptureIndicator": {
+      "type": "boolean",
+      "description": "Indicates if the operation is derived from block capture."
     },
-    "compressionGroup" : {
-      "$ref" : "../../objects/business/CompressionGroup.json",
-      "description" : "Compression group information"
+    "grossTradeAmount": {
+      "$ref": "../../types/DecimalNumber.json",
+      "description": "Gross trade amount"
     },
-    "noCompressionGroup" : {
-      "$ref" : "../../objects/business/NoCompressionGroup.json",
-      "description" : "No compression group"
+    "compressionGroup": {
+      "$ref": "../../objects/business/CompressionGroup.json",
+      "description": "Compression group information"
     },
-    "pagination" : {
-      "$ref" : "../../objects/tech/Pagination.json"
+    "noCompressionGroup": {
+      "$ref": "../../objects/business/NoCompressionGroup.json",
+      "description": "No compression group"
+    },
+    "pagination": {
+      "$ref": "../../objects/tech/Pagination.json"
     }
   },
-  "required" : [ "accountIdentification", "trade", "participantIdentification", "instrument", "tradeDetails", "giveUpOnCaptureIndicator", "compressionGroup", "noCompressionGroup" ],
-  "additionalProperties" : false,
-  "examples" : [ {
-    "accountIdentification" : {
-      "id" : 123456789
-    },
-    "trade" : {
-      "tradeDate" : "2025-08-28",
-      "buySellIndicator" : 1,
-      "tradeIdentification" : "TRD20250828001"
-    },
-    "participantIdentification" : {
-      "id" : 999,
-      "category" : 3
-    },
-    "instrument" : {
-      "financialInstrumentIdentification" : {
-        "id" : "100000000000001",
-        "source" : "8",
-        "exchange" : "A5X"
+  "required": [
+    "accountIdentification",
+    "trade",
+    "participantIdentification",
+    "instrument",
+    "tradeDetails",
+    "giveUpOnCaptureIndicator",
+    "compressionGroup",
+    "noCompressionGroup"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "accountIdentification": {
+        "accountType": 1,
+        "id": 123456789
       },
-      "tickerSymbol" : "DFZ0001"
-    },
-    "tradeDetails" : {
-      "transactionDateTime" : "2023-12-15T10:30:00Z",
-      "tradeQuantity" : "1500.00",
-      "dealPrice" : "75000.123456"
-    },
-    "giveUpOnCaptureIndicator" : true,
-    "compressionGroup" : {
-      "compressionGroupIdentification" : "CG123456789",
-      "compressionGroupStatus" : 2,
-      "compressionGroupDatetime" : "2025-08-28T13:45:00Z"
-    },
-    "noCompressionGroup" :  {
-      "tradeIdentification" : "TRADE-ABC-123456",
-      "transactionDateTime" : "2025-12-31T14:45:30Z",
-      "tradeQuantity" : "2500.75",
-      "compressionTradeStatusCode" : 2
+      "trade": {
+        "tradeDate": "2025-08-28",
+        "buySellIndicator": 1,
+        "tradeIdentification": "TRD20250828001"
+      },
+      "participantIdentification": {
+        "id": 999,
+        "category": 3
+      },
+      "clearingMemberIdentification": {
+        "id": 456,
+        "category": 2
+      },
+      "instrument": {
+        "financialInstrumentIdentification": {
+          "id": "100000000000001",
+          "source": "8",
+          "exchange": "A5X"
+        },
+        "tickerSymbol": "DFZ0001"
+      },
+      "tradeDetails": {
+        "transactionDateTime": "2023-12-15T10:30:00Z",
+        "tradeQuantity": "1500.00",
+        "dealPrice": "75000.123456"
+      },
+      "giveUpOnCaptureIndicator": true,
+      "compressionGroup": {
+        "compressionGroupIdentification": "CG123456789",
+        "compressionGroupStatus": 2,
+        "compressionGroupDatetime": "2025-08-28T13:45:00Z"
+      },
+      "noCompressionGroup": {
+        "tradeIdentification": "TRADE-ABC-123456",
+        "transactionDateTime": "2025-12-31T14:45:30Z",
+        "tradeQuantity": "2500.75",
+        "compressionTradeStatusCode": 2
+      }
     }
-  } ]
+  ]
 }

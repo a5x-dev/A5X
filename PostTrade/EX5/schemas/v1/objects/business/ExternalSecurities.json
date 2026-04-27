@@ -16,7 +16,7 @@
       "examples" : [ "EXT-SEC-REF-001", "EXTERNAL-789012" ]
     },
     "quantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Quantity of other collateral"
     },
     "tradeDate" : {
@@ -75,8 +75,8 @@
   "additionalProperties" : false,
   "examples" : [ {
     "collateralIdentification" : "EXT-SEC-REF-001",
-    "quantity" : "500.0",
-    "tradeDate" : "2024-06-15T10:30:00",
+    "quantity" : 500,
+    "tradeDate" : "2024-06-15T10:30:00Z",
     "settlementDate" : "2024-06-20",
     "collateralCode" : "COLL-12345",
     "maturityDate" : "2026-01-15",

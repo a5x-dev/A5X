@@ -19,7 +19,7 @@
       "$comment" : "CRDT = Credit, DBIT = Debit"
     }
   },
-  "required" : [ "amount" ],
+  "required" : [ "value" ],
   "additionalProperties" : false,
   "$comment" : "Credit/Debit amount value object",
   "examples" : [ {

@@ -1,8 +1,13 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Deposit Type",
+  "title": "ExternalDepositType",
   "description": "Codes for deposit type",
   "oneOf": [
+    {
+      "type": "number",
+      "description": "Instituição Financeira",
+      "const": 1
+    },
     {
       "type": "number",
       "description": "Janela de Liquidação",
@@ -20,6 +25,7 @@
     }
   ],
   "examples": [
+    1,
     2,
     4,
     5

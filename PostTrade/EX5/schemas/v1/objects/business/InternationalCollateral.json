@@ -42,7 +42,7 @@
       "bankName" : "Banco do XPTO S.A.",
       "bankCountry" : "BRA"
     },
-    "transferCurrency" : 220,
+    "transferCurrency" : "USD",
     "intermediaryBankDetails" : {
       "accountNumber" : "DE89370400440532013000",
       "iban" : "DE89370400440532013000",

@@ -85,26 +85,20 @@
   ],
   "examples": [
     {
-      "messageHeader": {
-        "businessMessageIdentification": "5I000123202603020000000000000100000",
-        "businessMessage": "ex5-col-wtd-1901",
-        "timestamp": "2026-03-02T18:14:02.399Z",
-        "from": {
-          "id": 789012,
-          "category": 3
-        },
-        "to": {
-          "id": 555,
-          "category": 55
-        },
-        "sender": {
-          "CompID": "C000114ALC003"
-        },
-        "target": {
-          "CompID": "GTWA5XD003"
-        },
-        "beginString": "FIX.4.4"
-      }
+      "businessMessageIdentification": "5I0009992026022300000000000000000100001",
+      "businessMessage": "ex5-tec-cnt-0101",
+      "timestamp": "2026-03-14T00:00:00Z",
+      "from": {
+        "id": 789012,
+        "category": 3
+      },
+      "to": {
+        "id": 555,
+        "category": 55
+      },
+      "sender": "P789012BRA001",
+      "target": "GTWA5XP005",
+      "beginString": "FIX.4.4"
     }
   ]
 }

@@ -24,7 +24,7 @@
     "conversionCriteria": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Type of conversion criteria, for example, linear, exponential, not available",
-      "$comment": "Consult External Code List table ExternalConversionCriteriaTypeCode"
+      "$comment": "Consult External Code List table ExternalInterestRateCorrectionTypeCode"
     },
     "maturityDateTargetPoint": {
       "type": "integer",
@@ -117,24 +117,24 @@
       "assetQuotationQuantity": "1.2510234564330",
       "assetSettlementIdentification": {
         "id": "10000000000000002",
-        "Source": "8",
-        "Exchange": "A5X"
+        "source": "8",
+        "exchange": "A5X"
       },
       "underlyingInstrumentIdentification": {
         "id": "10000000000000002",
-        "Source": "8",
-        "Exchange": "A5X"
+        "source": "8",
+        "exchange": "A5X"
       },
       "targetIdentification": [
         {
           "id": "10000000000000002",
-          "Source": "8",
-          "Exchange": "A5X"
+          "source": "8",
+          "exchange": "A5X"
         },
         {
           "id": "10000000000000002",
-          "Source": "8",
-          "Exchange": "A5X"
+          "source": "8",
+          "exchange": "A5X"
         }
       ],
       "openingPositionLimitDate": "2020-01-01",

@@ -54,8 +54,12 @@
   "examples" : [ {
     "assetNumber" : "ASSET-001",
     "securitiesCollateral" : [ {
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
       "collateralIdentification" : "SEC-001",
-      "quantity" : "1000.0",
+      "quantity" : 100,
       "accountIdentification" : {
         "id" : 115
       }
@@ -63,25 +67,28 @@
   }, {
     "assetNumber" : "ASSET-001",
     "cashCollateral" : [ {
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
       "collateralIdentification" : "2",
-      "quantity" : "2000.0000000000",
       "operationValue" : {
         "amount" : "1000.00",
         "currency" : "BRL"
       },
-      "collateralValue" : {
-        "amount" : "75000.00",
-        "currency" : "BRL"
-      },
-      "collateralUmbrellaTypeDistributionStatus" : {
-        "statusCode" : "4"
+      "accountIdentification" : {
+        "id" : 115
       }
     } ]
   }, {
     "assetNumber" : "ASSET-001",
     "federalBonds" : [ {
+      "participantIdentification" : {
+        "id" : 789012,
+        "category" : 3
+      },
       "collateralIdentification" : "OTHER-001",
-      "quantity" : "10.5",
+      "quantity" : 10,
       "accountIdentification" : {
         "id" : 115
       }

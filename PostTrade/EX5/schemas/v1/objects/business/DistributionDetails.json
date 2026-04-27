@@ -31,7 +31,7 @@
       "type" : "array",
       "description" : "Other types of collateral for distribution command",
       "items" : {
-        "$ref" : "../../objects/business/OtherCollateralDistribution.json"
+        "$ref" : "../../objects/business/OtherCollateralOperation.json"
       },
       "minItems" : 1,
       "maxItems" : 60
@@ -41,7 +41,7 @@
       "description" : "Other types of collateral for transfer approval",
       "items" : {
         "allOf" : [ {
-          "$ref" : "../../objects/business/OtherCollateralDistribution.json"
+          "$ref" : "../../objects/business/OtherCollateralOperation.json"
         }, {
           "required" : [ "collateralIdentification", "assetNumber", "quantity" ]
         } ]
@@ -65,14 +65,7 @@
       "distributionCommandNumber" : "206",
       "collateralIdentification" : "1",
       "assetNumber" : "2015000000349",
-      "quantity" : "150.0"
-    } ]
-  }, {
-    "cashCollateral" : [ {
-      "distributionCommandNumber" : "206",
-      "collateralIdentification" : "1",
-      "assetNumber" : "2015000000349",
-      "operationValue" : "75.12345"
+      "quantity" : 100
     } ]
   }, {
     "federalBondsCollateral" : [ {
@@ -80,14 +73,14 @@
       "collateralIdentification" : "1",
       "assetNumber" : "2015000000349",
       "collateralType" : 2,
-      "quantity" : "150.0"
+      "quantity" : 100
     } ]
   }, {
     "externalCollateral" : [ {
       "distributionCommandNumber" : "206",
       "collateralIdentification" : "1",
       "assetNumber" : "2015000000349",
-      "quantity" : "150.0"
+      "quantity" : 100
     } ]
   } ]
 }

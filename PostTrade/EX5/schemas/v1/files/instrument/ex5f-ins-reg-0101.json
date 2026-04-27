@@ -57,18 +57,18 @@
       "description": "Describes the commodity to which the instrument is linked"
     },
     "market": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 666666,
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
       "description": "Market where the commodity is registered - 2nd level of commodity registration",
-      "$comment": "Consultar a lista na tabela ExternalMarketCode"
+      "$comment": "Consult External Code List table ExternalMarketCode"
     },
-    "segment": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 666666,
+    "segment" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
       "description": "Segment where the commodity is registered - 1st level of commodity registration",
-      "$comment": "Consultar a lista na tabela ExternalSegmentCode"
+      "$comment" : "Consult External Code List table ExternalSegmentCode"
     },
     "instrumentDescription": {
       "type": "string",
@@ -87,9 +87,9 @@
       "description": "Indicates the instrument that can be used as collateral at A5X"
     },
     "securityCategory": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 666666,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
       "description": "Instrument type identifier",
       "$comment": "Consultar a lista na tabela ExternalSecurityCategory"
     },
@@ -156,9 +156,9 @@
       "description": "SELIC system security code"
     },
     "brazilianFederalGovernmentBondTypeCode": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 666666,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
       "description": "Brazilian Federal Government Bond type classifier",
       "$comment": "Consultar a lista na tabela ExternalBrazilianFederalGovermmentBondType"
     },
@@ -178,9 +178,9 @@
       "description": "Base date price monetary amount with up to 10 decimal places"
     },
     "programLevel": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 666666,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
       "description": "Identifies the program type",
       "$comment": "Consultar a lista na tabela ExternalProgramLevelTypeCode"
     },
@@ -208,10 +208,12 @@
       "description": "Institution name"
     },
     "paymentType": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 6,
-      "description": "Trade settlement type"
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Trade settlement type",
+      "$comment": "Consult External Code List table ExternalPaymentTypeCode"
+   
     },
     "allocationRoundLot": {
       "type": "integer",
@@ -280,9 +282,9 @@
       "description": "Underlying financial instrument exchange identifier"
     },
     "governanceIndicator": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 666666,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
       "description": "Governance indicator",
       "$comment": "Consultar a lista na tabela ExternalGovernanceIndicatorCode"
     },
@@ -315,23 +317,23 @@
       "description": "Security series number"
     },
     "assetCollateralType": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 666666,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
       "description": "Identifies the security collateral type",
       "$comment": "Consultar a lista na tabela ExternalAssetCollateralTypeCode"
     },
     "assetAdditionalCollateralType": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 666666,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
       "description": "Identifies the additional collateral type of the security",
       "$comment": "Consultar a lista na tabela ExternalAssetAdditionalCollateralTypeCode"
     },
     "assetSubordinatedType": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 666666,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
       "description": "Identifies the subordination type of the security",
       "$comment": "Consultar a lista na tabela ExternalAssetSubordinatedTypeCode"
     },
@@ -348,16 +350,16 @@
       "description": "Provides the interest rate"
     },
     "interestRateCorrectionType": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 666666,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
       "description": "Provides the interest rate correction type",
       "$comment": "Consultar a lista na tabela ExternalInterestRateCorrectionTypeCode"
     },
     "interestRateCorrectionTimeBase": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 666666,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
       "description": "Provides the basis for interest rate correction time base",
       "$comment": "Consultar a lista na tabela ExternalInterestRateCorrectionTimeBase"
     },
@@ -405,9 +407,9 @@
       "description": "Contract expiration code"
     },
     "valueTypeCode": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 666666,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
       "description": "Code that defines the instrument value type",
       "$comment": "Consultar a lista na tabela ExternalValueTypeCode"
     },
@@ -415,14 +417,15 @@
       "type": "integer",
       "minimum": 1,
       "maximum": 999999,
-      "description": "Number of days for instrument calculation (252, 360, 365, etc)"
+      "description": "Number of days for instrument calculation (252, 360, 365, etc)",
+      "$comment": "Consultar a lista na tabela ExternalInterestRateCorrectionTimeBaseCode"
     },
     "conversionCriteria": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 666666,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
       "description": "Conversion criteria type",
-      "$comment": "Consultar a lista na tabela ExternalConversionCriteriaTypeCode"
+      "$comment": "Consultar a lista na tabela ExternalInterestRateCorrectionTypeCode"
     },
     "maturityDateTargetPoint": {
       "type": "integer",
@@ -437,8 +440,9 @@
     "deliveryType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 6,
-      "description": "Delivery type identification number"
+      "maximum": 999999,
+      "description": "Delivery type identification number",
+      "$comment": "Consultar a lista na tabela ExternalDeliveryTypeCode"
     },
     "contractMultiplier": {
       "type": "string",

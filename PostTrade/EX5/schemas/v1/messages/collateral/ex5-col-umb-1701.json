@@ -1,4 +1,4 @@
-{
+﻿{
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-umb-17",
   "$metadata" : {
@@ -17,16 +17,12 @@
       "$ref" : "../../objects/business/PartyId.json",
       "description" : "Provides details about the clearing member identification"
     },
-    "participantIdentification" : {
-      "$ref" : "../../objects/business/PartyId.json",
-      "description" : "Provides details about the participant identification"
-    },
     "UmbrellaCollateralDetails" : {
       "$ref" : "../../objects/business/UmbrellaDistributionDetails.json",
       "description" : "Provides details about the umbrella type distribution."
     }
   },
-  "required" : [ "transactionIdentification", "clearingMemberIdentification", "participantIdentification", "UmbrellaCollateralDetails" ],
+  "required" : [ "transactionIdentification", "clearingMemberIdentification", "UmbrellaCollateralDetails" ],
   "additionalProperties" : false,
   "examples" : [ {
     "transactionIdentification" : "UMB-DIST-164-001",
@@ -34,15 +30,15 @@
       "id" : 123456,
       "category" : 2
     },
-    "participantIdentification" : {
-      "id" : 789012,
-      "category" : 3
-    },
     "UmbrellaCollateralDetails" : {
       "assetNumber" : "ASSET-001",
       "securitiesCollateral" : [ {
+        "participantIdentification" : {
+          "id" : 789012,
+          "category" : 3
+        },
         "collateralIdentification" : "SEC-001",
-        "quantity" : "1000.0",
+        "quantity" : 1000,
         "accountIdentification" : {
           "id" : 115
         }
@@ -54,13 +50,13 @@
       "id" : 123456,
       "category" : 2
     },
-    "participantIdentification" : {
-      "id" : 789012,
-      "category" : 3
-    },
     "UmbrellaCollateralDetails" : {
       "assetNumber" : "ASSET-001",
       "cashCollateral" : [ {
+        "participantIdentification" : {
+          "id" : 789012,
+          "category" : 3
+        },
         "collateralIdentification" : "CASH-001",
         "operationValue" : {
           "amount" : "1000.00",
@@ -77,15 +73,15 @@
       "id" : 123456,
       "category" : 2
     },
-    "participantIdentification" : {
-      "id" : 789012,
-      "category" : 3
-    },
     "UmbrellaCollateralDetails" : {
       "assetNumber" : "ASSET-001",
       "federalBonds" : [ {
+        "participantIdentification" : {
+          "id" : 789012,
+          "category" : 3
+        },
         "collateralIdentification" : "OTHER-001",
-        "quantity" : "10.5",
+        "quantity" : 10,
         "accountIdentification" : {
           "id" : 115
         }

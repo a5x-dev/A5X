@@ -1,12 +1,12 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:business:OtherCollateralDistribution",
+  "$id" : "urn:a5x:ex5:schema:v1:business:OtherCollateralOperation",
   "$metadata" : {
     "domain" : "business",
-    "schemaId" : "urn:a5x:ex5:schema:v1:business:OtherCollateralDistribution"
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:OtherCollateralOperation"
   },
-  "title" : "Other Collateral Distribution",
-  "description" : "Other collateral distribution item extending base with description and optional quantity/value",
+  "title" : "Other Collateral Operation",
+  "description" : "Other collateral operation item extending base with description and optional quantity/value",
   "properties" : {
     "distributionCommandNumber" : {
       "type" : "string",
@@ -31,7 +31,7 @@
       "comment" : "Consult External Code List table ExternalCollateralTypeCode"
     },
     "quantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Quantity requested to the distribution with command."
     }
   },
@@ -42,6 +42,6 @@
     "collateralIdentification" : "1",
     "assetNumber" : "2015000000349",
     "collateralType" : 2,
-    "quantity" : "150.0"
+    "quantity" : 150
   } ]
 }

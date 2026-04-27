@@ -51,7 +51,6 @@
     },
     "collateralCoverageInformation" : {
       "informationType" : 2,
-      "holderType" : 2,
       "collateralCoverageType" : 11
     },
     "validityPeriod" : {

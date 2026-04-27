@@ -20,8 +20,13 @@
     },
     {
       "type": "number",
-      "description": "DETRAN",
+      "description": "DEPARTAMENTO DE TRÂNSITO",
       "const": 4
+    },
+    {
+      "type": "number",
+      "description": "ORDEM DOS ADVOGADOS DO BRASIL",
+      "const": 5
     },
     {
       "type": "number",
@@ -30,8 +35,68 @@
     },
     {
       "type": "number",
+      "description": "CONSELHO REGIONAL DE ADMINISTRAÇÃO",
+      "const": 7
+    },
+    {
+      "type": "number",
       "description": "FORÇAS ARMADAS",
       "const": 8
+    },
+    {
+      "type": "number",
+      "description": "CONSELHO REGIONAL DE ASSISTENTES SOCIAIS",
+      "const": 9
+    },
+    {
+      "type": "number",
+      "description": "ORDENS DOS MÚSICOS DO BRASIL",
+      "const": 10
+    },
+    {
+      "type": "number",
+      "description": "CONS. REG. ENG. ARQUITETURA E AGRONOMIA",
+      "const": 11
+    },
+    {
+      "type": "number",
+      "description": "CONSELHO REGIONAL DE ESTATÍSTICA",
+      "const": 12
+    },
+    {
+      "type": "number",
+      "description": "CONS. REG. FISIOTER TERAPIA OCUPACIONAL",
+      "const": 13
+    },
+    {
+      "type": "number",
+      "description": "CONSELHO REGIONAL DE BIBLIOTECONOMIA",
+      "const": 14
+    },
+    {
+      "type": "number",
+      "description": "CONSELHO REGIONAL CORRETORES DE IMÓVEIS",
+      "const": 15
+    },
+    {
+      "type": "number",
+      "description": "CONSELHO REGIONAL DE CONTABILIDADE",
+      "const": 16
+    },
+    {
+      "type": "number",
+      "description": "CONSELHO REGIONAL DE ECONOMÍA",
+      "const": 17
+    },
+    {
+      "type": "number",
+      "description": "CONSELHO REGIONAL DE ENFERMAGEM",
+      "const": 18
+    },
+    {
+      "type": "number",
+      "description": "MINISTÉRIO DAS RELACÕES EXTERIORES",
+      "const": 19
     },
     {
       "type": "number",
@@ -40,8 +105,23 @@
     },
     {
       "type": "number",
-      "description": "MINISTÉRIO DAS RELACÕES EXTERIORES",
-      "const": 19
+      "description": "CONSELHO REGIONAL DE FARMÁCIA",
+      "const": 21
+    },
+    {
+      "type": "number",
+      "description": "MINISTÉRIO DA JUSTIÇA",
+      "const": 22
+    },
+    {
+      "type": "number",
+      "description": "CONSELHO REGIONAL DE QUÍMICA",
+      "const": 23
+    },
+    {
+      "type": "number",
+      "description": "CONSELHO REGIONAL DE MEDICINA",
+      "const": 24
     },
     {
       "type": "number",
@@ -55,8 +135,38 @@
     },
     {
       "type": "number",
+      "description": "CONSELHO REGIONAL MEDICINA VETERINÁRIA",
+      "const": 29
+    },
+    {
+      "type": "number",
+      "description": "CONSELHO REGIONAL DE NUTRIÇÃO",
+      "const": 30
+    },
+    {
+      "type": "number",
+      "description": "CONSELHO REGIONAL DE ODONTOLOGIA",
+      "const": 31
+    },
+    {
+      "type": "number",
       "description": "OUTROS ORGAOS",
       "const": 32
+    },
+    {
+      "type": "number",
+      "description": "CONSELHO REGIONAL DE PSICOLOGIA",
+      "const": 33
+    },
+    {
+      "type": "number",
+      "description": "CONSELHO REGIONAL REPR. COMERCIAIS",
+      "const": 34
+    },
+    {
+      "type": "number",
+      "description": "CONS. REGIONAL PROF. RELAÇÕES PÚBLICAS",
+      "const": 35
     },
     {
       "type": "number",
@@ -70,7 +180,17 @@
     },
     {
       "type": "number",
-      "description": "B3",
+      "description": "SOC WORLDWIDE INTERBANK FIN. TELECOM.",
+      "const": 38
+    },
+    {
+      "type": "number",
+      "description": "NATIONAL FUTURES ASSOCIATION",
+      "const": 39
+    },
+    {
+      "type": "number",
+      "description": "BM&FBOVESPA",
       "const": 40
     },
     {
@@ -80,8 +200,93 @@
     },
     {
       "type": "number",
+      "description": "FEDERAL RESERVE",
+      "const": 42
+    },
+    {
+      "type": "number",
+      "description": "SECRETARIA DA FAZENDA",
+      "const": 43
+    },
+    {
+      "type": "number",
+      "description": "CENTRAL CUSTÓDIA E LIQU. FIN. DE TÍTULOS",
+      "const": 44
+    },
+    {
+      "type": "number",
+      "description": "INTERNAL REVENUE SERVICE",
+      "const": 45
+    },
+    {
+      "type": "number",
+      "description": "HM REVENUE & CUSTOMS",
+      "const": 46
+    },
+    {
+      "type": "number",
+      "description": "DIRECCIÓN GENERAL DE REGISTROS",
+      "const": 47
+    },
+    {
+      "type": "number",
+      "description": "SECRETARY OF STATE",
+      "const": 48
+    },
+    {
+      "type": "number",
+      "description": "REGISTRO MERCANTIL CENTRAL",
+      "const": 49
+    },
+    {
+      "type": "number",
+      "description": "CAMERA DI COMMERCIO INDUSTRIA",
+      "const": 50
+    },
+    {
+      "type": "number",
+      "description": "LES GREFFES DES TRIBUNAUX DE COMMERCE",
+      "const": 51
+    },
+    {
+      "type": "number",
+      "description": "CHAMBER OF COMMERCE",
+      "const": 52
+    },
+    {
+      "type": "number",
+      "description": "CENTRAL BUSINESS NAMES",
+      "const": 53
+    },
+    {
+      "type": "number",
+      "description": "REGISTRO NACIONAL DE LAS PERSONAS",
+      "const": 54
+    },
+    {
+      "type": "number",
+      "description": "JUNTA COMERCIAL",
+      "const": 55
+    },
+    {
+      "type": "number",
+      "description": "SUPERINTEND REGIONAL DO TRABALHO EMPREGO",
+      "const": 56
+    },
+    {
+      "type": "number",
+      "description": "INSTITUTO DE IDENTIFICACAO FELIX PACHECO",
+      "const": 61
+    },
+    {
+      "type": "number",
       "description": "POLÍCIA CIVIL",
       "const": 62
+    },
+    {
+      "type": "number",
+      "description": "A5X",
+      "const": 65
     }
   ],
   "examples": [
@@ -89,6 +294,10 @@
     2,
     3,
     4,
-    6
+    5,
+    6,
+    40,
+    41,
+    65
   ]
 }

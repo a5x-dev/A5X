@@ -26,7 +26,7 @@
   "required": [
     "participantIdentification"
   ],
-  "additionalProperties": false,
+  "additionalProperties": true,
   "examples": [
     {
       "participantIdentification": {
@@ -75,19 +75,17 @@
             "registrationInclusionDate": "2024-01-01",
             "exclusiveFund": false
           },
-          "exclusiveFund": {
-            "personType": 1,
-            "residenceStatus": "RESI",
-            "documentIdentifier": {
-              "documentType": 2,
-              "documentNumber": "12345678900"
-            },
-            "fullName": "João Silva Santos",
-            "relatedPerson": false,
-            "politicallyExposedPerson": false,
-            "usPerson": false,
-            "countryOfResidence": "BRA"
-          },
+          "exclusiveFund": [
+            {
+              "personType": 1,
+              "residenceStatus": "RESI",
+              "documentIdentifier": {
+                "documentType": 2,
+                "documentNumber": "12345678900"
+              },
+              "fullName": "João Silva Santos"
+            }
+          ],
           "documents": [
             {
               "documentIdentifier": {
@@ -97,7 +95,7 @@
               "issueDate": "2018-05-15",
               "issuingAuthority": 2,
               "expirationDate": "2028-05-14",
-              "issuingState": 35,
+              "issuingState": "SP",
               "country": "BRA"
             }
           ],
@@ -108,55 +106,49 @@
               "informationDate": "2024-01-15"
             }
           },
-          "relationship": {
-            "relationshipType": 1,
-            "personType": 1,
-            "residenceStatus": "RESI",
-            "documentIdentifier": {
-              "documentType": 2,
-              "documentNumber": "12345678900"
-            },
-            "fullName": "João Silva Santos",
-            "socialName": "Maria Silva Santos",
-            "politicallyExposedPerson": false,
-            "usPerson": false,
-            "relatedPerson": true,
-            "position": "Diretor",
-            "countryOfResidence": "BRA",
-            "address": {
-              "street": "Rua Brasilândia",
-              "number": "123",
-              "complement": "Apto 101",
-              "neighborhood": "Centro",
-              "postalCode": "01234-567",
-              "cityName": "São Paulo",
-              "state": "SP",
-              "country": "BRA",
-              "phoneNumber": "+55-11-91234-5678",
-              "email": "central@xpto.com.br"
+          "relationship": [
+            {
+              "relationshipType": 1,
+              "personType": 1,
+              "residenceStatus": "RESI",
+              "documentIdentifier": {
+                "documentType": 2,
+                "documentNumber": "12345678900"
+              },
+              "fullName": "João Silva Santos",
+              "address": {
+                "street": "Rua Brasilândia",
+                "number": "123",
+                "complement": "Apto 101",
+                "neighborhood": "Centro",
+                "postalCode": "01234-567",
+                "cityName": "São Paulo",
+                "state": "SP",
+                "country": "BRA",
+                "phoneNumber": "+55-11-91234-5678",
+                "email": "central@xpto.com.br"
+              }
             }
-          },
+          ],
           "internationalGuarantees": {
             "jurisdictionOfOrigin": "USA",
             "legalForm": 1
           },
-          "internationalAccount": [
-            {
-              "beneficiaryBankDetails": {
-                "accountNumber": "DE89370400440532013000",
-                "iban": "DE89370400440532013000",
-                "swiftCode": "XPTODEFF",
-                "bankName": "Banco do XPTO S.A",
-                "bankCountry": "BRA"
-              },
-              "transferCurrency": "USD",
-              "intermediaryBankDetails": {
-                "accountNumber": "US12345678967890",
-                "swiftCode": "CHXPTO33",
-                "bankName": "Banco do XPTO S.A"
-              }
+          "internationalAccount": {
+            "beneficiaryBankDetails": {
+              "accountNumber": "DE89370400440532013000",
+              "iban": "DE89370400440532013000",
+              "swiftCode": "XPTODEFF",
+              "bankName": "Banco do XPTO S.A",
+              "bankCountry": "BRA"
+            },
+            "transferCurrency": "USD",
+            "intermediaryBankDetails": {
+              "accountNumber": "US12345678967890",
+              "swiftCode": "CHXPTO33",
+              "bankName": "Banco do XPTO S.A"
             }
-          ],
+          },
           "address": [
             {
               "street": "Rua Brasilândia",

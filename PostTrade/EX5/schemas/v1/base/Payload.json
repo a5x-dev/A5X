@@ -166,9 +166,9 @@
   "description" : "payload Description",
   "examples" : [ {
     "messageHeader" : {
-      "businessMessageIdentification" : "5I000123202603020000000000000100000",
-      "businessMessage" : "ex5-col-wtd-1901",
-      "timestamp" : "2026-03-02T18:14:02.399Z",
+      "businessMessageIdentification" : "5I0001232026030200000100000000000100000",
+      "businessMessage" : "ex5-reg-mnt-1001",
+      "timestamp" : "2026-03-02T18:14:02Z",
       "from" : {
         "id" : 789012,
         "category" : 3
@@ -177,77 +177,177 @@
         "id" : 555,
         "category" : 55
       },
-      "sender" : {
-        "CompID" : "C000114ALC003"
-      },
-      "target" : {
-        "CompID" : "GTWA5XD003"
-      },
+      "sender" : "C000114ALC003",
+      "target" : "GTWA5XD003",
       "beginString" : "FIX.4.4"
     },
     "body" : {
       "message" : {
-        "transactionIdentification" : "COLL-UMB-11682",
-        "clearingMemberIdentification" : {
-          "id" : 123456,
-          "category" : 2
-        },
         "participantIdentification" : {
-          "id" : 789012,
+          "id" : 999,
           "category" : 3
         },
-        "accountIdentification" : {
-          "id" : 987654321012345
+        "operationType" : 1,
+        "person" : {
+          "personType" : 1,
+          "residenceStatus" : "RESI",
+          "documentIdentifier" : {
+            "documentType" : 2,
+            "documentNumber" : "12345678900"
+          },
+          "personStatus" : 1,
+          "reasonCode" : 1
         },
-        "valuationDate" : "2024-01-15",
-        "WithdrawalRequest" : [ {
-          "collateralIdentification" : "TRF-REF-004",
-          "securitiesCollateral" : [ {
-            "collateralIdentification" : "1",
-            "assetNumber" : "2015000000349",
-            "quantity" : "1000.00",
-            "custodianInformationDestination" : {
-              "participantIdentification" : {
-                "id" : 456,
-                "category" : 2
-              },
-              "accountIdentification" : {
-                "id" : 789012345678901
-              },
-              "subAccount" : "001"
+        "investor" : {
+          "fullName" : "João Silva Santos",
+          "socialName" : "Maria Silva Santos",
+          "birthDate" : "1985-03-15",
+          "politicallyExposedPerson" : false,
+          "relatedPerson" : true,
+          "usPerson" : false,
+          "motherName" : "Ana Maria Santos",
+          "birthPlace" : "São Paulo",
+          "nationality" : "BRA",
+          "emancipated" : true,
+          "countryOfResidence" : "BRA",
+          "civilStatus" : 1,
+          "spouseName" : "Carlos Oliveira",
+          "spouseDocument" : {
+            "documentType" : 2,
+            "documentNumber" : "12345678900"
+          },
+          "employerCompanyName" : "ABC LTDA",
+          "employerCompanyDocument" : {
+            "documentType" : 2,
+            "documentNumber" : "12345678900000152"
+          },
+          "educationLevel" : 3,
+          "occupation" : 252105,
+          "registrationUpdateDate" : "2024-01-15",
+          "orderSentByType" : 1,
+          "registrationInclusionDate" : "2024-01-01",
+          "exclusiveFund" : false
+        },
+        "exclusiveFund" : [ {
+          "personType" : 1,
+          "residenceStatus" : "RESI",
+          "documentIdentifier" : {
+            "documentType" : 2,
+            "documentNumber" : "12345678900"
+          },
+          "fullName" : "João Silva Santos"
+        } ],
+        "documents" : [ {
+          "documentIdentifier" : {
+            "documentType" : 2,
+            "documentNumber" : "12345678900"
+          },
+          "issueDate" : "2018-05-15",
+          "issuingAuthority" : 2,
+          "expirationDate" : "2028-05-14",
+          "issuingState" : "35",
+          "country" : "BRA"
+        } ],
+        "patrimonyData" : {
+          "annualIncome" : {
+            "amount" : "150000.00",
+            "currency" : "BRL",
+            "informationDate" : "2024-01-15"
+          }
+        },
+        "relationship" : [ {
+          "relationshipType" : 1,
+          "personType" : 1,
+          "residenceStatus" : "RESI",
+          "documentIdentifier" : {
+            "documentType" : 2,
+            "documentNumber" : "12345678900"
+          },
+          "corporateName" : "XYZ.INC",
+          "fullName" : "João Silva Santos",
+          "address" : {
+            "street" : "Rua Brasilândia",
+            "number" : "123",
+            "complement" : "Apto 101",
+            "neighborhood" : "Centro",
+            "postalCode" : "01234-567",
+            "cityName" : "São Paulo",
+            "state" : "SP",
+            "country" : "BRA",
+            "phoneNumber" : "+55-11-91234-5678",
+            "email" : "central@xpto.com.br"
+          }
+        } ],
+        "internationalGuarantees" : {
+          "jurisdictionOfOrigin" : "USA",
+          "legalForm" : 1
+        },
+        "internationalAccount" : {
+          "beneficiaryBankDetails" : {
+            "accountNumber" : "DE89370400440532013000",
+            "iban" : "DE89370400440532013000",
+            "swiftCode" : "XPTODEFF",
+            "bankName" : "Banco do XPTO S.A",
+            "bankCountry" : "BRA"
+          },
+          "transferCurrency" : "USD",
+          "intermediaryBankDetails" : {
+            "accountNumber" : "US12345678967890",
+            "swiftCode" : "CHXPTO33",
+            "bankName" : "Banco do XPTO S.A"
+          }
+        },
+        "address" : [ {
+          "isPrimary" : true,
+          "addressType" : 1,
+          "street" : "Rua Brasilândia",
+          "number" : "123",
+          "complement" : "Apto 101",
+          "neighborhood" : "Centro",
+          "postalCode" : "01234-567",
+          "cityName" : "São Paulo",
+          "state" : "SP",
+          "country" : "BRA",
+          "phoneNumber" : "+55-11-91234-5678",
+          "email" : "central@xpto.com.br"
+        } ],
+        "phoneNumber" : [ {
+          "isPrimary" : true,
+          "phoneType" : 1,
+          "phoneNumber" : "+55-11-91234-5678"
+        } ],
+        "emails" : [ {
+          "isPrimary" : true,
+          "emailType" : 1,
+          "email" : "usuario@exemplo.com.br"
+        } ],
+        "accountData" : {
+          "account" : {
+            "accountType" : 1,
+            "id" : 123456789
+          },
+          "onBehalfOf" : true,
+          "lightIntermediaryCode" : 123456,
+          "profile" : 1,
+          "registrationDate" : "2023-01-15",
+          "updateDate" : "2024-05-20",
+          "advisorDocument" : {
+            "documentType" : 1,
+            "documentNumber" : "123456789"
+          },
+          "preferredPhoneType" : 1,
+          "preferredAddressType" : 2,
+          "preferredEmailType" : 1,
+          "status" : 1,
+          "relatedBrand" : 1,
+          "custodianAccountDetails" : [ {
+            "custodianCodeAtDepository" : 123,
+            "custodyAccountIdentification" : {
+              "id" : 784215001
             },
-            "centralDepositaryOperationNumber" : "123456789"
-          } ],
-          "cashCollateral" : [ {
-            "collateralIdentification" : "1",
-            "assetNumber" : "2015000000349",
-            "operationValue" : {
-              "amount" : "25000.00",
-              "currency" : "BRL"
-            },
-            "executedMovementType" : 1
-          } ],
-          "federalBonds" : [ {
-            "collateralIdentification" : "OTHER-001",
-            "assetNumber" : "2015000000349",
-            "quantity" : "250.75"
-          } ],
-          "externalSecurities" : [ {
-            "collateralIdentification" : "EXT-SEC-REF-001",
-            "quantity" : "500.0",
-            "tradeDate" : "2017-07-21T17:32:28Z",
-            "settlementDate" : "2024-06-20",
-            "collateralCode" : "COLL-12345",
-            "maturityDate" : "2026-01-15",
-            "destinationDepositary" : 3,
-            "originDepositary" : 2,
-            "BICCode" : "BANKUS33XXX",
-            "accountCentralDepositary" : "123456",
-            "FEDAccount" : "021000021",
-            "accountNameSpecialInstructions" : "SPECIAL-INST-001",
-            "subAccountIdentification" : "SUB-ACC-001"
+            "custodyAccountValidationStatus" : 1
           } ]
-        } ]
+        }
       }
     }
   } ]

@@ -9,6 +9,10 @@
   "description" : "Securities collateral item for umbrella type distribution with account information",
   "type" : "object",
   "properties" : {
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the participant identification"
+    },
     "collateralIdentification" : {
       "type" : "string",
       "maxLength" : 35,
@@ -16,7 +20,7 @@
       "description" : "Collateral identifier given by the requestor participant"
     },
     "quantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Quantity requested for umbrella type distribution"
     },
     "accountIdentification" : {
@@ -24,11 +28,15 @@
       "description" : "Provides details about the account identification"
     }
   },
-  "required" : [ "collateralIdentification", "quantity" ],
+  "required" : [ "participantIdentification", "collateralIdentification", "quantity" ],
   "additionalProperties" : false,
   "examples" : [ {
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
+    },
     "collateralIdentification" : "SEC-001",
-    "quantity" : "1000.0",
+    "quantity" : 100,
     "accountIdentification" : {
       "id" : 123456789
     }

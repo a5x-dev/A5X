@@ -28,9 +28,9 @@
   "required" : [ "statusCode" ],
   "additionalProperties" : false,
   "examples" : [ {
-    "statusCode" : "1"
+    "statusCode" : 1
   }, {
-    "statusCode" : "0",
+    "statusCode" : 0,
     "errorIds" : [ "RULE001", "RULE002" ]
   } ]
 }

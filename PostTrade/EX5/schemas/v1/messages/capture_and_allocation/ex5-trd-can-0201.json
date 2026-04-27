@@ -10,8 +10,8 @@
   "type" : "object",
   "properties" : {
     "accountIdentification" : {
-      "$ref" : "../../objects/business/AccountIdentification.json",
-      "description" : "Identification of the account associated with the trade, using proprietary scheme"
+      "$ref" : "../../objects/business/accountIdentification.json",
+      "description" : "Identification of the account associated with the trade"
     },
     "trade" : {
       "allOf" : [ {
@@ -24,6 +24,10 @@
     "participantIdentification" : {
       "$ref" : "../../objects/business/PartyId.json",
       "description" : "Identification of the participant using proprietary scheme"
+    },
+    "clearingMemberIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the clearing member identification"
     },
     "takeUpParticipantIdentification" : {
       "$ref" : "../../objects/business/PartyId.json",
@@ -70,6 +74,10 @@
     "participantIdentification" : {
       "id" : 999,
       "category" : 3
+    },
+    "clearingMemberIdentification" : {
+      "id" : 456,
+      "category" : 2
     },
     "takeUpParticipantIdentification" : {
       "id" : 888,

@@ -37,9 +37,9 @@
   "examples" : [ {
     "collateralReference" : "FB-REF-001",
     "custodianInformation" : {
-      "participantInformation" : {
-        "id" : 456,
-        "category" : 2
+      "participantIdentification" : {
+        "id" : 123456,
+        "category" : 3
       },
       "accountIdentification" : {
         "id" : 123456789

@@ -261,6 +261,13 @@
       "maximum" : 999999999,
       "description" : "Account identifier defined by the TakeUp participant"
     },
+    "accountDestinationType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Account type identification for destination account",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
+    },
     "participantOriginIdentificationId" : {
       "type" : "integer",
       "maximum" : 999999,
@@ -279,6 +286,13 @@
       "minimum" : 1,
       "maximum" : 999999999,
       "description" : "Account identifier defined by the participant"
+    },
+    "accountOriginType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Account type identification for origin account",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
     },
     "quantity" : {
       "type" : "number",

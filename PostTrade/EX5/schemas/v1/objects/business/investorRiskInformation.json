@@ -85,7 +85,7 @@
   "additionalProperties" : false,
   "examples" : [
     {
-      "positionTransferReference" : "TRF-REF-003",
+      "positionTransferReference" : "3YQORCYI12Y",
       "accountIdentification" : {
         "id" : 115
       },

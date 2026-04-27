@@ -46,17 +46,77 @@
     {
       "type": "string",
       "description": "O sistema encontra-se encerrado",
-      "const": "COL00010"
+      "const": "COL00009"
     },
     {
       "type": "string",
       "description": "A solicitação excede a grade horária permitida para essa movimentação de garantias",
+      "const": "COL00010"
+    },
+    {
+      "type": "string",
+      "description": "O saldo livre [Valor do Saldo Livre] é insuficiente para a movimentação de garantias",
       "const": "COL00011"
     },
     {
       "type": "string",
-      "description": "O saldo livre é insuficiente para a movimentação de garantias",
+      "description": "O ID da garantia informado é inválido (garantia não encontrada)",
       "const": "COL00012"
+    },
+    {
+      "type": "string",
+      "description": "A quantidade solicitada para movimentação de garantias é inválida",
+      "const": "COL00013"
+    },
+    {
+      "type": "string",
+      "description": "A quantidade solicitada excede a disponível em garantias",
+      "const": "COL00014"
+    },
+    {
+      "type": "string",
+      "description": "Há conta(s) do investidor com saldo livre negativo",
+      "const": "COL00015"
+    },
+    {
+      "type": "string",
+      "description": "O protocolo de transferência de posição não foi encontrado na câmara para a transferência solicitada",
+      "const": "COL00016"
+    },
+    {
+      "type": "string",
+      "description": "A conta destino da transferência não é da mesma titularidade",
+      "const": "COL00017"
+    },
+    {
+      "type": "string",
+      "description": "O pedido de transferência não foi encontrado ou é inválido para uma transferência aprovada",
+      "const": "COL00018"
+    },
+    {
+      "type": "string",
+      "description": "Comando informado inexistente ou inválido",
+      "const": "COL00019"
+    },
+    {
+      "type": "string",
+      "description": "A conta destino não possui a mesma titularidade da conta origem",
+      "const": "COL00020"
+    },
+    {
+      "type": "string",
+      "description": "A garantia não pertence ao solicitante",
+      "const": "COL00021"
+    },
+    {
+      "type": "string",
+      "description": "O status do pedido é inválido para a ação solicitada (aprovação ou rejeição)",
+      "const": "COL00022"
+    },
+    {
+      "type": "string",
+      "description": "Não foi possível criar ou impactar a garantia",
+      "const": "COL00023"
     }
   ],
   "additionalProperties": false,
@@ -69,8 +129,20 @@
     "COL00006",
     "COL00007",
     "COL00008",
+    "COL00009",
     "COL00010",
     "COL00011",
-    "COL00012"
+    "COL00012",
+    "COL00013",
+    "COL00014",
+    "COL00015",
+    "COL00016",
+    "COL00017",
+    "COL00018",
+    "COL00019",
+    "COL00020",
+    "COL00021",
+    "COL00022",
+    "COL00023"
   ]
 }

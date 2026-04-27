@@ -112,11 +112,11 @@
         "source": "8",
         "exchange": "A5X"
       },
-      "targetIdentification": {
+      "targetIdentification": [{
         "id": "100000000000001",
         "source": "8",
         "exchange": "A5X"
-      },
+      }],
       "protectionFlag": false,
       "premiumUpfrontIndicator": true,
       "paymentType": 2,

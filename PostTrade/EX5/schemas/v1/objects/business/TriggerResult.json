@@ -29,7 +29,7 @@
   "additionalProperties" : false,
   "examples" : [ {
     "marginRunId" : "MR-20251003-001",
-    "timeStamp" : "2025-10-03 12:00:00",
+    "timeStamp" : "2017-07-21T17:32:28Z",
     "calculationType" : "HF"
   } ]
 }

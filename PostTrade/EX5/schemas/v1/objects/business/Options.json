@@ -140,7 +140,7 @@
         "exchange": "A5X"
       },
       "exercisePrice": {
-        "amount": "50.00",
+        "amount": 50.00,
         "currency": "BRL"
       },
       "exerciseStyle": "EURO",

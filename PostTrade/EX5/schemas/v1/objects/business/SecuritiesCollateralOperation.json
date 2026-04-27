@@ -1,12 +1,12 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:business:SecuritiesCollateralTransfer",
+  "$id" : "urn:a5x:ex5:schema:v1:business:SecuritiesCollateralOperation",
   "$metadata" : {
     "domain" : "business",
-    "schemaId" : "urn:a5x:ex5:schema:v1:business:SecuritiesCollateralTransfer"
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:SecuritiesCollateralOperation"
   },
-  "title" : "Securities Collateral Transfer",
-  "description" : "Securities collateral transfer item with safekeeping and custody information",
+  "title" : "Securities Collateral Operation",
+  "description" : "Securities collateral operation item with safekeeping and custody information",
   "type" : "object",
   "properties" : {
     "collateralIdentification" : {
@@ -22,7 +22,7 @@
       "description" : "Identifies the register number of the collateral deposit"
     },
     "quantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Quantity requested to collateral transfer"
     },
     "custodianInformationDestination" : {
@@ -40,11 +40,11 @@
   "examples" : [ {
     "collateralIdentification" : "1",
     "assetNumber" : "2015000000349",
-    "quantity" : "1000.00",
+    "quantity" : 1000,
     "custodianInformationDestination" : {
-      "participantInformation" : {
-        "id" : 456,
-        "category" : 2
+      "participantIdentification" : {
+        "id" : 123456,
+        "category" : 3
       },
       "accountIdentification" : {
         "id" : 123456789

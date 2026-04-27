@@ -27,7 +27,7 @@
       "description": "Document expiration date"
     },
     "issuingState": {
-      "$ref": "../../objects/business/ExternalCodeList.json",
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
       "description": "State of document issuance",
       "$comment": "Consult External Code List table ExternalStateCode"
     },
@@ -50,7 +50,7 @@
       "issueDate": "2018-05-15",
       "issuingAuthority": 2,
       "expirationDate": "2028-05-14",
-      "issuingState": 35,
+      "issuingState": "SP",
       "country": "BRA"
     }
   ]

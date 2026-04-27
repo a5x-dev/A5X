@@ -37,10 +37,6 @@
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Wrong Way Risk Margin calculated for Margin Account."
     },
-    "defaultFundAdditionalMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
-      "description" : "Default Fund Additional Margin Calculated for Margin Account."
-    },
     "stressTestLoss" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Stress Test Loss calculated for Margin Account."
@@ -53,10 +49,6 @@
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Primary Initial Margin calculated for Margin Account."
     },
-    "flatRateInitialMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
-      "description" : "Flat Rate Initial Margin for Margin Account."
-    },
     "netInitialMargin" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Net Initial Margin for Margin Account."
@@ -68,6 +60,14 @@
     "netCollateral" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Value of the summation of all collateral for the selected Collateral Account after haircut calculation in the base currency of the Collateral Account."
+    },
+    "totalLiability" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Consolidated result of investor risk assessment (e.g., monetary amount)."
+    },
+    "collateralBalanceIntraday": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Intraday remaining value (positive value) or debit (negative value) of collateral. This field has 2 decimal places"
     }
   },
   "required" : [
@@ -78,11 +78,9 @@
     "netLiquidatingValue",
     "liquidityConcentrationRiskMargin",
     "wrongWayRiskMargin",
-    "defaultFundAdditionalMargin",
     "stressTestLoss",
     "stressTestLossOverInitialMargin",
     "primaryInitialMargin",
-    "flatRateInitialMargin",
     "netInitialMargin",
     "grossInitialMargin",
     "netCollateral"
@@ -118,10 +116,6 @@
         "currency" : "BRL",
         "amount" : "50000.00"
       },
-      "defaultFundAdditionalMargin" : {
-        "currency" : "BRL",
-        "amount" : "50000.00"
-      },
       "stressTestLoss" : {
         "currency" : "BRL",
         "amount" : "50000.00"
@@ -134,10 +128,6 @@
         "currency" : "BRL",
         "amount" : "50000.00"
       },
-      "flatRateInitialMargin" : {
-        "currency" : "BRL",
-        "amount" : "50000.00"
-      },
       "netInitialMargin" : {
         "currency" : "BRL",
         "amount" : "50000.00"
@@ -147,6 +137,14 @@
         "amount" : "50000.00"
       },
       "netCollateral" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "totalLiability" : {
+        "currency" : "BRL",
+        "amount" : "50000.00"
+      },
+      "collateralBalanceIntraday" : {
         "currency" : "BRL",
         "amount" : "50000.00"
       }

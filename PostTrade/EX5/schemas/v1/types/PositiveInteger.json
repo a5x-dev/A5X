@@ -1,0 +1,14 @@
+﻿{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:types:PositiveInteger",
+  "$metadata" : {
+    "domain" : "types",
+    "schemaId" : "urn:a5x:ex5:schema:v1:types:PositiveInteger"
+  },
+  "title" : "PositiveInteger",
+  "description" : "Positive integer number (minimum 1)",
+  "type" : "integer",
+  "minimum" : 1,
+  "maximum" : 999999999999999,
+  "examples" : [ 1, 100, 1000, 250, 999999999999999 ]
+}

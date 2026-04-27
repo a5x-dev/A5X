@@ -67,14 +67,14 @@
       "type": "string",
       "format": "email",
       "minLength": 5,
-      "maxLength": 254,
+      "maxLength": 100,
       "description": "Email address in standard format"
     }
   },
   "required": [
     "street",
     "number",
-    "postalCode",
+    "cityName",
     "country"
   ],
   "additionalProperties": true,

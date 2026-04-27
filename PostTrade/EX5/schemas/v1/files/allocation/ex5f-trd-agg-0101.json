@@ -33,6 +33,46 @@
       "maximum" : 999999999,
       "description" : "Account identifier defined by the participant"
     },
+    "accountType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Account type identification",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
+    },
+    "participantOriginIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Origin participant category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "accountOriginIdentification" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 35,
+      "description" : "Origin account identifier defined by the participant"
+    },
+    "accountOriginType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Origin account type identification",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
+    },
+    "clearingMemberIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Clearing member identifier provided by A5X during the participant registration"
+    },
+    "clearingMemberIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Clearing member category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
     "giveUpOnCaptureIndicator" : {
       "type" : "boolean",
       "description" : "Indicates if the  give up was originated due to a trade capture"

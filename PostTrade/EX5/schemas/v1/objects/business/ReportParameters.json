@@ -12,7 +12,7 @@
     "frequency" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Frequency of the report",
-      "$comment" : "Consult External Code List table EventFrequency6Code"
+      "$comment" : "Consult External Code List table ExternalEventFrequency6Code"
     },
     "reportNumber" : {
       "type" : "string",
@@ -29,6 +29,6 @@
   "examples" : [ {
     "frequency" : 2,
     "reportNumber" : "00132",
-    "reportDateAndTime" : "2015-09-18"
+    "reportDateAndTime" : "2015-09-18T12:00:00Z"
   } ]
 }

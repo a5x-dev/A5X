@@ -27,7 +27,7 @@
       "description" : "Identifies the register number of the collateral deposit assigned by the central counterparty."
     },
     "quantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Quantity requested to the distribution with command."
     }
   },
@@ -37,6 +37,6 @@
     "distributionCommandNumber" : "206",
     "collateralIdentification" : "1",
     "assetNumber" : "2015000000349",
-    "quantity" : "150.0"
+    "quantity" : 150
   } ]
 }

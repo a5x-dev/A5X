@@ -7,9 +7,9 @@
   },
   "title" : "MessageIdentifier",
   "type" : "string",
-  "description" : "A fixed-length, 35-character unique message identifier. The format is composed of a prefix (5I or 5O), participant code (6 digits), date (8 digits), message sequential id (14 digits), and pagination (5 digits). Where unused digits are zero.",
-  "examples" : [ "5I000999202602230000000000000100001", "5O000999202602230000000000000100001" ],
-  "pattern" : "^5[IO]\\d{6}\\d{8}\\d{14}\\d{5}$",
-  "minLength" : 35,
-  "maxLength" : 35
+  "description" : "A fixed-length, 39-character unique message identifier. The format is composed of a prefix (5I or 5O), participant code (6 digits), date (8 digits), instance number (4 digits), message sequential id (14 digits), and pagination (5 digits). Where unused digits are zero.",
+  "examples" : [ "5I0009992026022300000010000000000010001", "5O0009992026022300000010000000000010001" ],
+  "pattern" : "^5[IO]\\d{6}\\d{8}\\d{4}\\d{14}\\d{5}$",
+  "minLength" : 39,
+  "maxLength" : 39
 }

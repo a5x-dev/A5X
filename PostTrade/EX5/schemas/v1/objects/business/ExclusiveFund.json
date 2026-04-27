@@ -34,30 +34,12 @@
       "minLength": 1,
       "maxLength": 140,
       "description": "Corporate name - Legal Entity only"
-    },
-    "relatedPerson": {
-      "type": "boolean",
-      "description": "Related person indicator"
-    },
-    "politicallyExposedPerson": {
-      "type": "boolean",
-      "description": "Politically exposed person indicator"
-    },
-    "usPerson": {
-      "type": "boolean",
-      "description": "US Person indicator"
-    },
-    "countryOfResidence": {
-      "$ref": "../../objects/business/ExternalCodeTextList.json",
-      "description": "Country of residence for Natural Person or registration for Legal Entity",
-      "$comment": "Consult External Code List table ExternalCountryCode"
     }
   },
   "required": [
     "personType",
     "residenceStatus",
-    "documentIdentifier",
-    "countryOfResidence"
+    "documentIdentifier"
   ],
   "additionalProperties": false,
   "examples": [
@@ -68,11 +50,7 @@
         "documentType": 2,
         "documentNumber": "12345678900"
       },
-      "fullName": "João Silva Santos",
-      "relatedPerson": false,
-      "politicallyExposedPerson": false,
-      "usPerson": false,
-      "countryOfResidence": "BRA"
+      "fullName": "João Silva Santos"
     },
     {
       "personType": 2,
@@ -81,11 +59,7 @@
         "documentType": 5,
         "documentNumber": "12345678000195"
       },
-      "corporateName": "Empresa Exemplo LTDA",
-      "relatedPerson": true,
-      "politicallyExposedPerson": false,
-      "usPerson": false,
-      "countryOfResidence": "BRA"
+      "corporateName": "Empresa Exemplo LTDA"
     }
   ]
 }

@@ -31,7 +31,7 @@
       "source" : "8",
       "exchange" : "A5X"
     },
-    "shortLongIndicator" : 2,
+    "shortLongIndicator" : "2",
     "quantity" : "200.00"
   }, {
     "instrumentIdentification" : {
@@ -39,7 +39,7 @@
       "source" : "8",
       "exchange" : "A5X"
     },
-    "shortLongIndicator" : 1,
+    "shortLongIndicator" : "1",
     "quantity" : "100.00"
   } ]
 }

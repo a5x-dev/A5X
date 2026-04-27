@@ -1,4 +1,4 @@
-{
+﻿{
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-dep-03",
   "$metadata" : {
@@ -30,6 +30,12 @@
       "description" : "Indicates the deposit date. Indica a data de depósito de garantias",
       "examples" : [ "2024-01-15", "2024-12-31" ]
     },
+    "collateralCoverageType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Collateral coverage identification",
+      "$comment" : "Consult External Code List table ExternalCollateralCoverageTypeCode",
+      "examples" : [ 1 ]
+    },
     "collateralDeposit" : {
       "type" : "array",
       "items" : {
@@ -37,7 +43,7 @@
       }
     }
   },
-  "required" : [ "transactionIdentification", "clearingMemberIdentification", "participantIdentification", "accountIdentification", "valuationDate", "collateralDeposit" ],
+  "required" : [ "transactionIdentification", "clearingMemberIdentification", "valuationDate", "collateralCoverageType", "collateralDeposit" ],
   "additionalProperties" : false,
   "examples" : [ {
     "transactionIdentification" : "COLL-UMB-11682",
@@ -53,10 +59,11 @@
       "id" : 123456789
     },
     "valuationDate" : "2024-01-15",
+    "collateralCoverageType" : 1,
     "collateralDeposit" : [ {
       "securitiesCollateralProposal" : [ {
         "collateralIdentification" : "1",
-        "quantity" : "1000.0",
+        "quantity" : 1000,
         "custodianInformationOrigin" : {
           "participantIdentification" : {
             "id" : 456,
@@ -91,7 +98,7 @@
       } ],
       "federalBondCollateral" : [ {
         "collateralIdentification" : "OTHER-001",
-        "quantity" : "250.75",
+        "quantity" : 250,
         "maturityDate" : "2025-12-31",
         "selicCode" : "COMMODITY-001",
         "SELICOperationCode" : "65499",
@@ -100,7 +107,7 @@
       } ],
       "externalSecurities" : [ {
         "collateralIdentification" : "EXT-SEC-REF-001",
-        "quantity" : "500.0",
+        "quantity" : 500,
         "tradeDate" : "2024-06-15T10:30:00Z",
         "settlementDate" : "2024-06-20",
         "collateralCode" : "COLL-12345",

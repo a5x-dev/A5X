@@ -16,7 +16,7 @@
       "description" : "Collateral ID given by the requestor participant"
     },
     "quantity" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/PositiveInteger.json",
       "description" : "Quantity requested to collateral transfer"
     },
     "maturityDate" : {
@@ -48,7 +48,7 @@
   "additionalProperties" : false,
   "examples" : [ {
     "collateralIdentification" : "OTHER-001",
-    "quantity" : "250.75",
+    "quantity" : 250,
     "maturityDate" : "2025-12-31",
     "selicCode" : "COMMODITY-001",
     "SELICOperationCode" : "65499",

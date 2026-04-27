@@ -51,7 +51,7 @@
     },
     "collateralDetails" : [ {
       "collateralIdentification" : "2",
-      "quantity" : "2000.00",
+      "quantity" : 200,
       "operationValue" : {
         "amount" : "1000.00",
         "currency" : "BRL"

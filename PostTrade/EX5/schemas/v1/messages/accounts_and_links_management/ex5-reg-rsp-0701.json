@@ -13,6 +13,11 @@
       "$ref": "../../objects/business/PartyId.json",
       "description": "Participant identification using existing PartyId structure"
     },
+    "operationType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Type of operation to perform",
+      "$comment": "Consult External Code List table ExternalOperationTypeCode"
+    },
     "transactionOrigin": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Type of operation to perform",
@@ -130,13 +135,15 @@
       ]
     }
   ],
-  "additionalProperties": false,
+  "additionalProperties": true,
   "examples": [
     {
       "participantIdentification": {
         "id": 999,
         "category": 3
       },
+      "operationType": 1,
+      "transactionOrigin": 1,
       "person": {
         "personType": 1,
         "residenceStatus": "RESI",
@@ -185,11 +192,7 @@
             "documentType": 2,
             "documentNumber": "12345678900"
           },
-          "fullName": "João Silva Santos",
-          "relatedPerson": false,
-          "politicallyExposedPerson": false,
-          "usPerson": false,
-          "countryOfResidence": "BRA"
+          "fullName": "João Silva Santos"
         }
       ],
       "documents": [
@@ -201,7 +204,7 @@
           "issueDate": "2018-05-15",
           "issuingAuthority": 2,
           "expirationDate": "2028-05-14",
-          "issuingState": 35,
+          "issuingState": "SP",
           "country": "BRA"
         }
       ],
@@ -222,12 +225,6 @@
             "documentNumber": "12345678900"
           },
           "fullName": "João Silva Santos",
-          "socialName": "Maria Silva Santos",
-          "politicallyExposedPerson": false,
-          "usPerson": false,
-          "relatedPerson": true,
-          "position": "Diretor",
-          "countryOfResidence": "BRA",
           "address": {
             "street": "Rua Brasilândia",
             "number": "123",
@@ -318,14 +315,7 @@
           }
         ]
       },
-      "statusError": {
-        "errorIdentification": [
-          {
-            "code": "TEC00000",
-            "errorDescription": "COD12452"
-          }
-        ]
-      }
+      "statusSuccess": true
     }
   ]
 }

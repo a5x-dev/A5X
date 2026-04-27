@@ -28,11 +28,12 @@
       "description" : "Provides a proprietary status of each processing requested",
       "comment" : "Consult External Code List table ExternalCollateralStatusCode"
     },
-    "rejectionInformation" : {
-      "type" : "string",
-      "maxLength" : 35,
-      "minLength" : 1,
-      "description" : "Additional information regarding why the collateral proposal has a rejected status."
+    "errorIdentification" : {
+      "type" : "array",
+      "description" : "List of error identification rules when status indicates failure",
+      "items" : {
+        "$ref" : "../../objects/tech/StatusError.json"
+      }
     }
   },
   "required" : [ "collateralIdentification", "operationValue", "collateralValue", "statusCode" ],
@@ -48,6 +49,11 @@
       "amount" : "100000.00"
     },
     "statusCode" : 1,
-    "rejectionInformation" : "Rejection information"
+    "errorIdentification" : [ {
+      "code" : "TEC00000",
+      "message" : "Error X",
+      "errorDescription" : "COD12452",
+      "refId" : "REF12345"
+    } ]
   } ]
 }

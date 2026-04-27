@@ -42,6 +42,13 @@
       "minLength" : 1,
       "description" : "Number account identification"
     },
+    "accountOriginType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Account type identification for origin account",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
+    },
     "hashCode64" : {
       "type" : "string",
       "maxLength" : 64,

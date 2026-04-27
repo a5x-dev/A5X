@@ -20,7 +20,7 @@
       "description" : "Securities collateral items for transfer approval",
       "items" : {
         "allOf" : [ {
-          "$ref" : "../../objects/business/SecuritiesCollateralTransfer.json"
+          "$ref" : "../../objects/business/SecuritiesCollateralOperation.json"
         }, {
           "required" : [ "collateralIdentification", "assetNumber", "quantity", "custodianInformationDestination", "centralDepositaryOperationNumber" ]
         } ]
@@ -33,7 +33,7 @@
       "description" : "Cash collateral items for transfer approval",
       "items" : {
         "allOf" : [ {
-          "$ref" : "../../objects/business/CashCollateralTransfer.json"
+          "$ref" : "../../objects/business/CashCollateralMovement.json"
         }, {
           "properties" : {
             "executedMovementType" : {
@@ -55,7 +55,7 @@
       "description" : "Other types of collateral for transfer approval",
       "items" : {
         "allOf" : [ {
-          "$ref" : "../../objects/business/OtherCollateralDistribution.json"
+          "$ref" : "../../objects/business/OtherCollateralOperation.json"
         }, {
           "required" : [ "collateralIdentification", "assetNumber", "quantity" ]
         } ]
@@ -84,52 +84,5 @@
     "required" : [ "externalSecurities" ]
   } ],
   "additionalProperties" : true,
-  "examples" : [ {
-    "collateralIdentification" : "TRF-REF-003",
-    "securitiesCollateral" : [ {
-      "collateralIdentification" : "1",
-      "assetNumber" : "2015000000349",
-      "quantity" : "1000.00",
-      "custodianInformationDestination" : {
-        "participantInformation" : {
-          "id" : 456,
-          "category" : 2
-        },
-        "accountIdentification" : {
-          "id" : 123456789
-        },
-        "subAccount" : "001"
-      },
-      "centralDepositaryOperationNumber" : "123456789"
-    } ],
-    "cashCollateral" : [ {
-      "collateralIdentification" : "1",
-      "assetNumber" : "2015000000349",
-      "operationValue" : {
-        "amount" : "25000.00",
-        "currency" : "BRL"
-      },
-      "executedMovementType" : 1
-    } ],
-    "federalBonds" : [ {
-      "collateralIdentification" : "OTHER-001",
-      "assetNumber" : "2015000000349",
-      "quantity" : "250.75"
-    } ],
-    "externalSecurities" : [ {
-      "collateralIdentification" : "EXT-SEC-REF-001",
-      "quantity" : "500.0",
-      "tradeDate" : "2024-06-15T10:30:00",
-      "settlementDate" : "2024-06-20",
-      "collateralCode" : "COLL-12345",
-      "maturityDate" : "2026-01-15",
-      "destinationDepositary" : 2,
-      "originDepositary" : 1,
-      "BICCode" : "BANKUS33XXX",
-      "accountCentralDepositary" : 123456,
-      "FEDAccount" : "021000021",
-      "accountNameSpecialInstructions" : "SPECIAL-INST-001",
-      "subAccountIdentification" : "SUB-ACC-001"
-    } ]
-  } ]
+  "examples" : []
 }

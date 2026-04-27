@@ -30,11 +30,11 @@
       "maxItems": 60
     },
     "accountOriginIdentification": {
-      "$ref": "../../objects/business/AccountIdentification.json",
+      "$ref": "../../objects/business/Account.json",
       "description": "Specifies the account from which the allocation originates"
     },
     "accountDestinationIdentification": {
-      "$ref": "../../objects/business/AccountIdentification.json",
+      "$ref": "../../objects/business/Account.json",
       "description": "Specifies the account to which the allocation is directed"
     },
     "quantity": {
@@ -59,9 +59,11 @@
         2
       ],
       "accountOriginIdentification": {
+        "accountType": 1,
         "id": 123456
       },
       "accountDestinationIdentification": {
+        "accountType": 1,
         "id": 7891011
       },
       "quantity": "1000.50"

@@ -111,21 +111,21 @@
     {
       "governanceIndicator": "N1",
       "rightsIssuePrice": {
-        "amount": 15.75,
+        "amount": "15.75",
         "currency": "USD"
       },
       "corporateActionStartDate": "2024-05-15",
       "exDistributionNumber": 3,
       "marketCapitalisation": {
-        "amount": 1000000,
+        "amount": "1000000",
         "currency": "USD"
       },
       "firstPrice": {
-        "amount": 50.00,
+        "amount": "50.00",
         "currency": "USD"
       },
       "lastPrice": {
-        "amount": 55.00,
+        "amount": "55.00",
         "currency": "USD"
       },
       "specificationCode": "EQTY",

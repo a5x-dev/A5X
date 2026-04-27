@@ -52,11 +52,14 @@
       "description": "Enables automatic approval of transfer requests"
     }
   },
-  "required": [
-    "linkType",
-    "participantOriginIdentification",
-    "participantDestinationIdentification"
-  ],
+ "required": [
+  "linkType",
+  "linkStatus",
+  "participantOriginIdentification",
+  "accountOriginIdentification",
+  "participantDestinationIdentification",
+  "accountDestinationIdentification"
+],
   "additionalProperties": true,
   "examples": [
     {

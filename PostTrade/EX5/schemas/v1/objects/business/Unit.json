@@ -60,7 +60,7 @@
     {
       "calendarDays": 30,
       "exercisePrice": {
-        "amount": "120.00",
+        "amount": 120.00,
         "currency": "BRL"
       },
       "exerciseStyle": "AMER",

@@ -125,9 +125,7 @@
         "documentType" : 1,
         "documentNumber" : "12345678000190"
       },
-      "companyName" : {
-        "corporateName" : "Corretora XYZ S.A."
-      }
+      "companyName" :"Corretora XYZ S.A."
     }
   } ]
 }

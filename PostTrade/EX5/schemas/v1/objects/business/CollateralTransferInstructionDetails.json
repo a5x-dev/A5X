@@ -20,7 +20,7 @@
       "description" : "Securities collateral items for transfer approval",
       "items" : {
         "allOf" : [ {
-          "$ref" : "../../objects/business/SecuritiesCollateralTransfer.json"
+          "$ref" : "../../objects/business/SecuritiesCollateralOperation.json"
         }, {
           "required" : [ "collateralIdentification", "assetNumber", "centralDepositaryOperationNumber", "custodianInformationDestination", "quantity" ]
         } ]
@@ -33,7 +33,7 @@
       "description" : "Cash collateral items for transfer approval",
       "items" : {
         "allOf" : [ {
-          "$ref" : "../../objects/business/CashCollateralTransfer.json"
+          "$ref" : "../../objects/business/CashCollateralMovement.json"
         }, {
           "required" : [ "collateralIdentification", "assetNumber", "operationValue" ]
         } ]
@@ -59,7 +59,7 @@
       "description" : "Other types of collateral for transfer approval",
       "items" : {
         "allOf" : [ {
-          "$ref" : "../../objects/business/OtherCollateralDistribution.json"
+          "$ref" : "../../objects/business/OtherCollateralOperation.json"
         }, {
           "required" : [ "collateralIdentification", "assetNumber", "quantity" ]
         } ]
@@ -84,11 +84,11 @@
     "securitiesCollateral" : [ {
       "collateralIdentification" : "1",
       "assetNumber" : "2015000000349",
-      "quantity" : "1000.0",
+      "quantity" : 100,
       "custodianInformationDestination" : {
-        "participantInformation" : {
-          "id" : 456,
-          "category" : 2
+        "participantIdentification" : {
+          "id" : 789012,
+          "category" : 3
         },
         "accountIdentification" : {
           "id" : 123456789
@@ -114,14 +114,14 @@
       "assetNumber" : "GOV-123456",
       "assignerAccount" : "ASSIGNOR-001",
       "assigneeAccount" : "ASSIGNEE-001",
-      "quantity" : "250.75"
+      "quantity" : 250
     } ]
   }, {
     "positionTransferReference" : "TRF-REF-003",
     "externalCollateral" : [ {
       "collateralIdentification" : "1",
       "assetNumber" : "2015000000349",
-      "quantity" : "150.0"
+      "quantity" : 150
     } ]
   } ]
 }

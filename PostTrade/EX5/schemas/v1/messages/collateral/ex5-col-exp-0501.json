@@ -53,7 +53,6 @@
     "collateralReportType" : 1,
     "collateralCoverageInformation" : {
       "informationType" : 2,
-      "holderType" : 2,
       "collateralCoverageType" : 11
     }
   } ]

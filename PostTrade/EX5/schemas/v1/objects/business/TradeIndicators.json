@@ -85,11 +85,5 @@
     "averagePriceGroupIndicator" : true,
     "averageExecutionTime" : "2023-06-15T10:30:00Z",
     "giveUpOnCaptureIndicator" : false
-  }, {
-    "compressionGroupIndicator" : false,
-    "averagePriceGroupIndicator" : false,
-    "giveUpOnCaptureIndicator" : true
-  }, {
-    "compressionGroupIndicator" : true
-  } ]
+  }]
 }

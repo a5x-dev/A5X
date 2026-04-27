@@ -1,4 +1,4 @@
-{
+﻿{
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-wtd-19",
   "$metadata" : {
@@ -59,7 +59,7 @@
       "securitiesCollateral" : [ {
         "collateralIdentification" : "1",
         "assetNumber" : "2015000000349",
-        "quantity" : "1000.00",
+        "quantity" : 1000,
         "custodianInformationDestination" : {
           "participantIdentification" : {
             "id" : 456,
@@ -84,11 +84,11 @@
       "federalBonds" : [ {
         "collateralIdentification" : "OTHER-001",
         "assetNumber" : "2015000000349",
-        "quantity" : "250.75"
+        "quantity" : 250
       } ],
       "externalSecurities" : [ {
         "collateralIdentification" : "EXT-SEC-REF-001",
-        "quantity" : "500.0",
+        "quantity" : 500,
         "tradeDate" : "2024-06-15T10:30:00Z",
         "settlementDate" : "2024-06-20",
         "collateralCode" : "COLL-12345",

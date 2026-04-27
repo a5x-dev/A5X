@@ -35,6 +35,13 @@
       "maximum" : 999999999,
       "description" : "Account identifier defined by the participant"
     },
+    "accountType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Account type identification",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
+    },
     "financialInstrumentIdentificationId" : {
       "type" : "string",
       "maxLength" : 35,

@@ -83,14 +83,6 @@
             "currency" : "BRL",
             "amount" : "25000.25"
           },
-          "defaultFundAdditionalMargin" : {
-            "currency" : "BRL",
-            "amount" : "15000.50"
-          },
-          "stressTestLoss" : {
-            "currency" : "BRL",
-            "amount" : "500.00"
-          },
           "userComment" : "Result under base scenario; revise foreign exchange exposure"
         }
       ]

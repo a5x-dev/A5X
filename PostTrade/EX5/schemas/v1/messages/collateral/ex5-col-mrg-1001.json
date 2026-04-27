@@ -9,10 +9,6 @@
   "description" : "Response message for collateral margin information",
   "type" : "object",
   "properties" : {
-    "transactionIdentification" : {
-      "$ref" : "../../objects/business/TransactionIdentification.json",
-      "description" : "Provides details about unique transaction identification known by the participant"
-    },
     "tradeDate" : {
       "$ref" : "../../types/ISODate.json",
       "description" : "Provides the trade date"
@@ -35,7 +31,6 @@
     }
   },
   "required" : [
-    "transactionIdentification",
     "tradeDate",
     "clearingMemberIdentification",
     "collateralInformation"
@@ -43,7 +38,6 @@
   "additionalProperties" : false,
   "examples" : [
     {
-      "transactionIdentification" : "TXN-20240115-001",
       "tradeDate" : "2024-01-15",
       "clearingMemberIdentification" : {
         "id" : 123456,
@@ -82,7 +76,7 @@
                   "currency" : "BRL",
                   "amount" : "50000.25"
                 },
-                "realizedVariationMargin" : {
+                "contingentVariationMargin" : {
                   "currency" : "BRL",
                   "amount" : "25000.00"
                 },
@@ -105,7 +99,7 @@
                   "currency" : "BRL",
                   "amount" : "50000.25"
                 },
-                "realizedVariationMargin" : {
+                "contingentVariationMargin" : {
                   "currency" : "BRL",
                   "amount" : "25000.00"
                 },
@@ -114,7 +108,15 @@
                   "amount" : "200000.75"
                 },
                 "intradayRiskLimitAssigned" : "1000000.12",
-                "riskWithoutCollateralIntraday" : "500000.25"
+                "riskWithoutCollateralIntraday" : "500000.25",
+                "collateralBalanceIntraday" : {
+                  "currency" : "BRL",
+                  "amount" : "75000.00"
+                },
+                "projectedBalance" : {
+                  "currency" : "BRL",
+                  "amount" : "120000.50"
+                }
               }
             }
           ]

@@ -24,12 +24,9 @@
       "examples" : [ "AST-001", "REG-98765", "DEP-456" ]
     },
     "quantity" : {
-      "type" : "string",
-      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
-      "maxLength" : 20,
-      "minLength" : 1,
-      "description" : "Quantidade solicitada para transferência de garantia",
-      "examples" : [ "1000.50", "25000.75", "500.00" ]
+      "$ref" : "../../types/PositiveInteger.json",
+      "description" : "Quantity requested for collateral transfer",
+      "examples" : [ 1000, 500, 100 ]
     },
     "collateralValue" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
@@ -42,7 +39,7 @@
     {
       "collateralIdentification" : "COL-EXT-001",
       "assetNumber" : "AST-REG-12345",
-      "quantity" : "1500.75",
+      "quantity" : 100,
       "collateralValue" : {
         "amount" : "150000.50",
         "currency" : "BRL"

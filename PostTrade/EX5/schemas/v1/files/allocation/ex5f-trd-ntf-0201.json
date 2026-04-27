@@ -20,6 +20,26 @@
       "maximum" : 999999999,
       "description" : "Account identifier defined by the participant"
     },
+    "accountType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Account type identification",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
+    },
+    "clearingMemberIdentificationId" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999,
+      "description" : "Clearing member identifier provided by A5X during the participant registration"
+    },
+    "clearingMemberIdentificationCategory" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Clearing member category code",
+      "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
+    },
     "tradeDate" : {
       "type" : "string",
       "format" : "date-time",

@@ -35,11 +35,6 @@
     },
     {
       "type": "number",
-      "description": "EMPRESA PARA QUAL TRABALHA",
-      "const": 144
-    },
-    {
-      "type": "number",
       "description": "CONTROLADORA",
       "const": 145
     },

@@ -205,11 +205,11 @@
       "workingDays": 63,
       "calendarDays": 90,
       "exercisePrice": {
-        "amount": "200.00",
+        "amount": 200.00,
         "currency": "BRL"
       },
       "exerciseStyle": "AMER",
-      "optionType": 1,
+      "optionType": "type",
       "premiumUpfrontIndicator": true,
       "openingPositionLimitDate": "2024-12-31",
       "targetInstrumentIdentification": [

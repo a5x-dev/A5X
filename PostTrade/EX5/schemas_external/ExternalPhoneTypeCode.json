@@ -15,11 +15,6 @@
     },
     {
       "type": "number",
-      "description": "Principal",
-      "const": 5
-    },
-    {
-      "type": "number",
       "description": "Celular",
       "const": 9
     },
@@ -32,7 +27,6 @@
   "examples": [
     2,
     3,
-    5,
     9,
     10
   ]

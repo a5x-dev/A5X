@@ -54,7 +54,7 @@
               "currency" : "BRL",
               "amount" : "50000.25"
             },
-            "realizedVariationMargin" : {
+            "contingentVariationMargin" : {
               "currency" : "BRL",
               "amount" : "25000.00"
             },
@@ -77,7 +77,7 @@
               "currency" : "BRL",
               "amount" : "50000.25"
             },
-            "realizedVariationMargin" : {
+            "contingentVariationMargin" : {
               "currency" : "BRL",
               "amount" : "25000.00"
             },
@@ -86,7 +86,15 @@
               "amount" : "200000.75"
             },
             "intradayRiskLimitAssigned" : "1000000.12",
-            "riskWithoutCollateralIntraday" : "500000.25"
+            "riskWithoutCollateralIntraday" : "500000.25",
+            "collateralBalanceIntraday" : {
+              "currency" : "BRL",
+              "amount" : "75000.00"
+            },
+            "projectedBalance" : {
+              "currency" : "BRL",
+              "amount" : "120000.50"
+            }
           }
         }
       ]

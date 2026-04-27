@@ -9,13 +9,6 @@
   "description" : "Collateral Margin Response File Schema",
   "type" : "object",
   "properties" : {
-    "transactionIdentification" : {
-      "type" : "string",
-      "maxLength" : 35,
-      "minLength" : 1,
-      "pattern" : "^[A-Za-z0-9_-]+$",
-      "description" : "Provides details about unique transaction identification known by the participant"
-    },
     "tradeDate" : {
       "type" : "string",
       "format" : "date",
@@ -133,16 +126,16 @@
       "description" : "Currency code for official total AM",
       "$comment" : "Consult External Code List table ExternalCurrencyCode"
     },
-    "officialRealizedVariationMarginAmount" : {
+    "officialContingentVariationMarginAmount" : {
       "type" : "string",
       "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
-      "description" : "Realized Variation Margin calculated for the Margin Account"
+      "description" : "Contingent Variation Margin calculated for the Margin Account"
     },
-    "officialRealizedVariationMarginCurrency" : {
+    "officialContingentVariationMarginCurrency" : {
       "type" : "string",
       "maxLength" : 5,
       "minLength" : 1,
-      "description" : "Currency code for official realized variation margin",
+      "description" : "Currency code for official contingent variation margin",
       "$comment" : "Consult External Code List table ExternalCurrencyCode"
     },
     "officialNetLiquidityValueAmount" : {
@@ -193,16 +186,16 @@
       "description" : "Currency code for intraday total AM",
       "$comment" : "Consult External Code List table ExternalCurrencyCode"
     },
-    "intradayRealizedVariationMarginAmount" : {
+    "intradayContingentVariationMarginAmount" : {
       "type" : "string",
       "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
-      "description" : "Realized Variation Margin calculated for the Margin Account (intraday)"
+      "description" : "Contingent Variation Margin calculated for the Margin Account (intraday)"
     },
-    "intradayRealizedVariationMarginCurrency" : {
+    "intradayContingentVariationMarginCurrency" : {
       "type" : "string",
       "maxLength" : 5,
       "minLength" : 1,
-      "description" : "Currency code for intraday realized variation margin",
+      "description" : "Currency code for intraday contingent variation margin",
       "$comment" : "Consult External Code List table ExternalCurrencyCode"
     },
     "intradayNetLiquidityValueAmount" : {
@@ -226,8 +219,32 @@
       "type" : "string",
       "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
       "description" : "Risk Exposure without collaterals at EoD (intraday)"
+    },
+    "collateralBalanceIntradayAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Intraday remaining value (positive value) or debit (negative value) of collateral"
+    },
+    "collateralBalanceIntradayCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for intraday collateral balance",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    },
+    "projectedBalanceAmount" : {
+      "type" : "string",
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Remaining value (positive value) or debit (negative value) of collateral considering intraday and official margin run"
+    },
+    "projectedBalanceCurrency" : {
+      "type" : "string",
+      "maxLength" : 5,
+      "minLength" : 1,
+      "description" : "Currency code for projected balance",
+      "$comment" : "Consult External Code List table ExternalCurrencyCode"
     }
   },
-  "required" : [ "transactionIdentification", "tradeDate", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "collateralCoverageType", "totalValueOfCollateral", "riskWithoutCollateral", "additionalMargin", "toBeSettledValue", "marginCall", "collateralBalance", "informationType" ],
+  "required" : [ "tradeDate", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "collateralCoverageType", "totalValueOfCollateral", "riskWithoutCollateral", "additionalMargin", "toBeSettledValue", "marginCall", "collateralBalance", "informationType" ],
   "additionalProperties" : false
 }

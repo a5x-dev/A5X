@@ -10,27 +10,27 @@
     },
     {
       "type": "string",
-      "description": "The instrument provided is not eligible for collateral movement request",
+      "description": "The provided instrument is not eligible for the collateral movement request",
       "const": "COL00002"
     },
     {
       "type": "string",
-      "description": "The account or participant registration information is invalid for collateral movement",
+      "description": "Account or participant registration information is invalid for collateral movement",
       "const": "COL00003"
     },
     {
       "type": "string",
-      "description": "The instrument provided is invalid for collateral movement request",
+      "description": "The provided instrument is invalid for the collateral movement request",
       "const": "COL00004"
     },
     {
       "type": "string",
-      "description": "The purpose provided is invalid for collateral movement request",
+      "description": "The provided finality is invalid for the collateral movement request",
       "const": "COL00005"
     },
     {
       "type": "string",
-      "description": "The investor type provided is invalid for collateral movement request",
+      "description": "The provided investor type is invalid for the collateral movement request",
       "const": "COL00006"
     },
     {
@@ -40,23 +40,83 @@
     },
     {
       "type": "string",
-      "description": "The quantity provided exceeds the available collateral balance",
+      "description": "The provided quantity exceeds the available collateral balance",
       "const": "COL00008"
     },
     {
       "type": "string",
-      "description": "The system is closed",
+      "description": "The system is currently closed",
+      "const": "COL00009"
+    },
+    {
+      "type": "string",
+      "description": "The request exceeds the allowed time window",
       "const": "COL00010"
     },
     {
       "type": "string",
-      "description": "The request exceeds the allowed time schedule for this collateral movement",
+      "description": "The free balance is insufficient for collateral movement",
       "const": "COL00011"
     },
     {
       "type": "string",
-      "description": "The free balance is insufficient for collateral movement",
+      "description": "The provided collateral identifier is invalid (collateral not found)",
       "const": "COL00012"
+    },
+    {
+      "type": "string",
+      "description": "The requested quantity is invalid for collateral movement",
+      "const": "COL00013"
+    },
+    {
+      "type": "string",
+      "description": "The requested quantity exceeds the available collateral balance",
+      "const": "COL00014"
+    },
+    {
+      "type": "string",
+      "description": "There is a margin account with negative free balance for the provided investor",
+      "const": "COL00015"
+    },
+    {
+      "type": "string",
+      "description": "The position transfer protocol was not found at the clearinghouse for the requested transfer",
+      "const": "COL00016"
+    },
+    {
+      "type": "string",
+      "description": "The destination account does not have the same beneficial ownership",
+      "const": "COL00017"
+    },
+    {
+      "type": "string",
+      "description": "The transfer request was not found or is invalid for an approved transfer",
+      "const": "COL00018"
+    },
+    {
+      "type": "string",
+      "description": "Invalid or non-existent command provided",
+      "const": "COL00019"
+    },
+    {
+      "type": "string",
+      "description": "Destination account does not match the ownership of the source account",
+      "const": "COL00020"
+    },
+    {
+      "type": "string",
+      "description": "The collateral is not owned by the requester",
+      "const": "COL00021"
+    },
+    {
+      "type": "string",
+      "description": "The request status is invalid for the requested action (approval or rejection)",
+      "const": "COL00022"
+    },
+    {
+      "type": "string",
+      "description": "The system was unable to create or impact the collateral",
+      "const": "COL00023"
     }
   ],
   "additionalProperties": false,
@@ -69,8 +129,20 @@
     "COL00006",
     "COL00007",
     "COL00008",
+    "COL00009",
     "COL00010",
     "COL00011",
-    "COL00012"
+    "COL00012",
+    "COL00013",
+    "COL00014",
+    "COL00015",
+    "COL00016",
+    "COL00017",
+    "COL00018",
+    "COL00019",
+    "COL00020",
+    "COL00021",
+    "COL00022",
+    "COL00023"
   ]
 }

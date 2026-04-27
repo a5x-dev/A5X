@@ -51,13 +51,11 @@
   } ],
   "examples" : [ {
     "financialInstrumentIdentification" : {
-      "securityID" : "10000000000000001",
-      "securitySource" : "8",
-      "securityExchange" : "A5X"
+      "id" : "100000000000001",
+      "source" : "8",
+      "exchange" : "A5X"
     },
     "ISIN" : "BRALPAACNOR0",
-    "tickerSymbol" : "DFZ0001"
-  }, {
     "tickerSymbol" : "DFZ0001"
   } ]
 }

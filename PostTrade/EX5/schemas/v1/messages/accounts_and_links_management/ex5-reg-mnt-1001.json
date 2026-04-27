@@ -129,7 +129,7 @@
     "emails",
     "phoneNumber"
   ],
-  "additionalProperties": false,
+  "additionalProperties": true,
   "examples": [
     {
       "participantIdentification": {
@@ -185,11 +185,7 @@
             "documentType": 2,
             "documentNumber": "12345678900"
           },
-          "fullName": "João Silva Santos",
-          "relatedPerson": false,
-          "politicallyExposedPerson": false,
-          "usPerson": false,
-          "countryOfResidence": "BRA"
+          "fullName": "João Silva Santos"
         }
       ],
       "documents": [
@@ -201,7 +197,7 @@
           "issueDate": "2018-05-15",
           "issuingAuthority": 2,
           "expirationDate": "2028-05-14",
-          "issuingState": 35,
+          "issuingState": "SP",
           "country": "BRA"
         }
       ],
@@ -222,13 +218,7 @@
             "documentNumber": "12345678900"
           },
           "fullName": "João Silva Santos",
-          "socialName": "Maria Silva Santos",
-          "politicallyExposedPerson": false,
-          "usPerson": false,
-          "relatedPerson": true,
-          "position": "Diretor",
-          "countryOfResidence": "BRA",
-          "address": {
+            "address": {
             "street": "Rua Brasilândia",
             "number": "123",
             "complement": "Apto 101",
@@ -264,7 +254,7 @@
       "address": [
         {
           "isPrimary": true,
-          "addressType": 1,
+          "addressType": 2,
           "street": "Rua Brasilândia",
           "number": "123",
           "complement": "Apto 101",

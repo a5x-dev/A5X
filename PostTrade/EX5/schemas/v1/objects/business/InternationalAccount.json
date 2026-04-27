@@ -24,9 +24,10 @@
     }
   },
   "required": [
-    "beneficiaryBankDetails"
+    "beneficiaryBankDetails",
+    "transferCurrency"
   ],
-  "additionalProperties": false,
+  "additionalProperties": true,
   "examples": [
     {
       "beneficiaryBankDetails": {

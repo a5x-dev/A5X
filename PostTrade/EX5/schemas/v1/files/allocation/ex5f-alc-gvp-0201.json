@@ -260,6 +260,13 @@
       "maximum" : 999999999,
       "description" : "Account identifier for give up account"
     },
+    "accountOriginType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Account type identification for origin account",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
+    },
     "participantDestinationIdentificationId" : {
       "type" : "integer",
       "minimum" : 1,
@@ -278,6 +285,13 @@
       "minimum" : 1,
       "maximum" : 999999999,
       "description" : "Account identifier defined by the participant"
+    },
+    "accountDestinationType" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Account type identification for destination account",
+      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
     },
     "giveUpOnCaptureIndicator" : {
       "type" : "boolean",

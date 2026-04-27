@@ -12,5 +12,5 @@
   "minLength" : 12,
   "maxLength" : 12,
   "$comment" : "Structure BR AAAA BBB CC D where: BR=Brazil country code, AAAA=issuer identification (alphanumeric), BBB=asset type (alphanumeric), CC=species or sequence (alphanumeric), D=check digit (numeric)",
-  "examples" : [ "BZPZZZZZZZZ1", "BZPZZZZZZZZ2", "BRDFZ0001111119", "BRDFZ0001131119" ]
+  "examples" : [ "BRI5TVA9PP77", "BREVWZT1PUO6", "BRBA38495CZ4", "BRKOLZI6P3M7" ]
 }
