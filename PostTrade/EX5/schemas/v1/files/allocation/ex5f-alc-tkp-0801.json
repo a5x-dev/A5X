@@ -95,9 +95,9 @@
       "multipleOf" : 1.0E-10,
       "description" : "Monetary amount of the exercise price with high precision (up to 10 decimal places)"
     },
-    "tradeDateAndTime" : {
+    "tradeDate" : {
       "type" : "string",
-      "format" : "date-time",
+      "format" : "date",
       "description" : "Transaction date and time"
     },
     "tradeTransactionType" : {
@@ -336,7 +336,7 @@
       "description" : "Participant identifier provided by A5X during the participant registration"
     }
   },
-  "required" : [ "referenceDate", "participantDestinationIdentificationId", "participantDestinationIdentificationCategory", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDateAndTime", "tradeTransactionType", "transactionDateTime", "tradeIdentification", "dealPrice", "buySellIndicator", "tradeMatchId", "accountDestinationIdentification", "participantOriginIdentificationId", "participantOriginIdentificationCategory", "accountOriginIdentification", "quantity", "allocationIdentification", "giveUpDateTime", "allocationStatus" ],
+  "required" : [ "referenceDate", "participantDestinationIdentificationId", "participantDestinationIdentificationCategory", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDate", "tradeTransactionType", "transactionDateTime", "tradeIdentification", "dealPrice", "buySellIndicator", "tradeMatchId", "accountDestinationIdentification", "participantOriginIdentificationId", "participantOriginIdentificationCategory", "accountOriginIdentification", "quantity", "allocationIdentification", "giveUpDateTime", "allocationStatus" ],
   "additionalProperties" : false,
   "examples" : [ ]
 }

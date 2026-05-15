@@ -80,7 +80,7 @@
           },
           "subAccount" : "001"
         },
-        "centralDepositaryOperationNumber" : "123456789"
+        "centralDepositoryOperationNumber" : "123456789"
       } ]
     }
   }, {

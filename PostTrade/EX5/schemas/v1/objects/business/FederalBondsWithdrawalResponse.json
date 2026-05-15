@@ -42,20 +42,12 @@
       "description" : "Provides identification about assignee account",
       "examples" : [ "ASSIGNEE-ACC-001", "ACC987654321" ]
     },
-    "statusCode" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Provides a proprietary status of each processing requested",
-      "comment" : "Consult External Code List table ExternalCollateralStatusCode"
-    },
-    "errorIdentification" : {
-      "type" : "array",
-      "description" : "List of error identification rules when status indicates failure",
-      "items" : {
-        "$ref" : "../../objects/tech/StatusError.json"
-      }
+    "collateralStatus" : {
+      "$ref" : "../../objects/business/CollateralStatus.json",
+      "description" : "This block contains information on the status of each collateral processing"
     }
   },
-  "required" : [ "collateralIdentification", "quantity", "collateralValue", "statusCode" ],
+  "required" : [ "collateralIdentification", "quantity", "collateralValue", "collateralStatus" ],
   "additionalProperties" : false,
   "examples" : [ {
     "collateralIdentification" : "CASH-REF-001",
@@ -67,12 +59,14 @@
     "selicOperationCode" : "65499",
     "assignerAccount" : "ASSIGNER-ACC-001",
     "assigneeAccount" : "ASSIGNEE-ACC-001",
-    "statusCode" : 1,
-    "errorIdentification" : [ {
-      "code" : "TEC00000",
-      "message" : "Error X",
-      "errorDescription" : "COD12452",
-      "refId" : "REF12345"
-    } ]
+    "collateralStatus" : {
+      "statusCode" : 1,
+      "errorIdentification" : [ {
+        "code" : "TEC00000",
+        "message" : "Error X",
+        "errorDescription" : "COD12452",
+        "refId" : "REF12345"
+      } ]
+    }
   } ]
 }

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalRiskErrorCode",
+  "description": "Códigos de erro para operações de simulação de risco",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Quantidade de posições excede o limite máximo permitido",
+      "const": "RSK00001"
+    },
+    {
+      "type": "string",
+      "description": "Instrumento inválido",
+      "const": "RSK00002"
+    },
+    {
+      "type": "string",
+      "description": "Conta é inválida",
+      "const": "RSK00003"
+    },
+    {
+      "type": "string",
+      "description": "Dados de posição insuficientes para simulação",
+      "const": "RSK00004"
+    },
+    {
+      "type": "string",
+      "description": "Valores de posição inválidos informados",
+      "const": "RSK00005"
+    },
+    {
+      "type": "string",
+      "description": "marginRunId inválido",
+      "const": "RSK00006"
+    },
+    {
+      "type": "string",
+      "description": "Portfolio não possui posições para o cálculo",
+      "const": "RSK00007"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    "RSK00001",
+    "RSK00002",
+    "RSK00003",
+    "RSK00004",
+    "RSK00005",
+    "RSK00006",
+    "RSK00007"
+  ]
+}

@@ -10,7 +10,7 @@
   "type" : "object",
   "properties" : {
     "accountIdentification" : {
-      "$ref" : "../../objects/business/accountIdentification.json",
+      "$ref" : "../../objects/business/AccountIdentification.json",
       "description" : "Identification of the account associated with the trade"
     },
     "trade" : {

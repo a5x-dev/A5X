@@ -15,10 +15,10 @@
       "minLength" : 1,
       "description" : "Symbol of the Instrument"
     },
-    "settlementCurrency" : {
-      "$ref" : "../../objects/business/ExternalCodeTextList.json",
-      "description" : "Settlement currency code in which the amount is denominated",
-      "$comment" : "Consult External Code List table ExternalCurrencyCode"
+    "strategyStatus" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Specifies whether the position is related to a strategy trade.",
+      "$comment" : "Consult External Code List table ExternalStrategyStatus"
     },
     "longPosition" : {
       "type" : "integer",
@@ -39,11 +39,11 @@
       "description" : "Amount of short value. Short Value = Short Position × Price"
     }
   },
-  "required" : [ "tickerSymbol", "settlementCurrency" ],
+  "required" : [ "tickerSymbol", "strategyStatus" ],
   "additionalProperties" : false,
   "examples" : [ {
     "tickerSymbol" : "ABCDEFG",
-    "settlementCurrency" : "BRL",
+    "strategyStatus" : 2,
     "longPosition" : 5,
     "shortPosition" : 2,
     "longValue" : {

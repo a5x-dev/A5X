@@ -29,7 +29,7 @@
             }
           }
         }, {
-          "required" : [ "collateralIdentification", "assetNumber", "quantity", "custodianInformationDestination", "centralDepositaryOperationNumber", "activeCurrencyAndAmount" ]
+          "required" : [ "collateralIdentification", "assetNumber", "quantity", "custodianInformationDestination", "centralDepositoryOperationNumber", "activeCurrencyAndAmount" ]
         } ]
       },
       "minItems" : 1,
@@ -99,7 +99,7 @@
         },
         "subAccount" : "001"
       },
-      "centralDepositaryOperationNumber" : "123456789",
+      "centralDepositoryOperationNumber" : "123456789",
       "activeCurrencyAndAmount" : {
         "amount" : "1000.00",
         "currency" : "BRL"

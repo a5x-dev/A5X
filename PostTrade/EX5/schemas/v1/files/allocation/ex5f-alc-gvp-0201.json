@@ -321,12 +321,12 @@
       "format" : "date-time",
       "description" : "Give up date and time"
     },
-    "status" : {
+    "allocationStatusCode" : {
       "type" : "integer",
       "minimum" : 1,
       "maximum" : 999999,
       "description" : "Trade status code",
-      "$comment" : "Consult External Code List table ExternalTradeStatusCode"
+      "$comment" : "Consult External Code List table ExternalStatusAllocationAdviceCode"
     },
     "breakingRuleIndicator" : {
       "type" : "boolean",
@@ -334,6 +334,6 @@
       "$comment" : "When true, indicates a rule break that requires justification"
     }
   },
-  "required" : [ "referenceDate", "participantOriginIdentificationId", "participantOriginIdentificationCategory", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDate", "transactionDateTime", "tradeIdentification", "dealPrice", "buySellIndicator", "accountOriginIdentification", "participantDestinationIdentificationId", "participantDestinationIdentificationCategory", "accountDestinationIdentification", "giveUpOnCaptureIndicator", "quantity", "allocationIdentification", "giveUpDateTime", "status", "breakingRuleIndicator" ],
+  "required" : [ "referenceDate", "participantOriginIdentificationId", "participantOriginIdentificationCategory", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDate", "transactionDateTime", "tradeIdentification", "dealPrice", "buySellIndicator", "accountOriginIdentification", "participantDestinationIdentificationId", "participantDestinationIdentificationCategory", "accountDestinationIdentification", "giveUpOnCaptureIndicator", "quantity", "allocationIdentification", "giveUpDateTime", "allocationStatusCode", "breakingRuleIndicator" ],
   "additionalProperties" : false
 }

@@ -55,8 +55,7 @@
             "currency": "BRL",
             "amount": "100000.00"
           },
-          "statusCode": 1,
-          "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }]
+          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }] }
         }
       ],
       "cashCollateral": [
@@ -70,8 +69,7 @@
             "currency": "BRL",
             "amount": "100000.00"
           },
-          "statusCode": 1,
-          "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }]
+          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }] }
         }
       ],
       "federalBondsResponse": [
@@ -85,8 +83,7 @@
           "selicOperationCode": "65499",
           "assignerAccount": "ASSIGNER-ACC-001",
           "assigneeAccount": "ASSIGNEE-ACC-001",
-          "statusCode": 1,
-          "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }]
+          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }] }
         }
       ],
       "collateralSubstitutionStatus": {
@@ -108,8 +105,7 @@
             "currency": "BRL",
             "amount": "100000.00"
           },
-          "statusCode": 1,
-          "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }]
+          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }] }
         }
       ]
     }

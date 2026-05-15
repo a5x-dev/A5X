@@ -78,7 +78,7 @@
       "$ref" : "../../objects/business/ExternalSecuritiesMovement.json",
       "description" : "This block provides information about external securities collateral valuation"
     },
-    "otherCollateraMovement" : {
+    "otherCollateralMovement" : {
       "$ref" : "../../objects/business/OtherCollateralMovement.json",
       "description" : "This block provides information about others collateral valuation."
     },
@@ -98,7 +98,7 @@
   }, {
     "required" : [ "collateralMovementType", "assetNumber", "collateralCoverageType", "collateralType", "collateralSubType", "operationStatus", "financialInstrumentIdentification", "externalSecuritiesMovement", "collateralDetailMovement" ]
   }, {
-    "required" : [ "collateralMovementType", "assetNumber", "collateralCoverageType", "collateralType", "collateralSubType", "operationStatus", "financialInstrumentIdentification", "otherCollateraMovement", "collateralDetailMovement" ]
+    "required" : [ "collateralMovementType", "assetNumber", "collateralCoverageType", "collateralType", "collateralSubType", "operationStatus", "financialInstrumentIdentification", "otherCollateralMovement", "collateralDetailMovement" ]
   } ],
   "additionalProperties" : true,
   "examples" : [ {

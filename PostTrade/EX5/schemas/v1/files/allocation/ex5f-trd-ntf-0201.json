@@ -42,7 +42,7 @@
     },
     "tradeDate" : {
       "type" : "string",
-      "format" : "date-time",
+      "format" : "date",
       "description" : "Trade date"
     },
     "buySellIndicator" : {
@@ -154,7 +154,7 @@
       "format" : "date-time",
       "description" : "Transaction date and time"
     },
-    "quantity" : {
+    "tradeQuantity" : {
       "type" : "string",
       "maxLength" : 20,
       "minLength" : 1,
@@ -315,7 +315,7 @@
       "description" : "Gross trade value before any adjustments or deductions"
     }
   },
-  "required" : [ "referenceDate", "accountIdentification", "tradeDate", "buySellIndicator", "tradeIdentification", "allocationIdentification", "allocationStatus", "participantDestinationIdentificationId", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "tickerSymbol", "segment", "market", "transactionDateTime", "quantity", "orderIdentification", "tradeMatchIdentification", "tradeTransactionType", "dealPrice" ],
+  "required" : [ "referenceDate", "accountIdentification", "tradeDate", "buySellIndicator", "tradeIdentification", "allocationIdentification", "allocationStatus", "participantDestinationIdentificationId", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "tickerSymbol", "segment", "market", "transactionDateTime", "tradeQuantity", "orderIdentification", "tradeMatchIdentification", "tradeTransactionType", "dealPrice" ],
   "additionalProperties" : false,
   "examples" : [ ]
 }

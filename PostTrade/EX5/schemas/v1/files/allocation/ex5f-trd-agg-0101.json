@@ -48,9 +48,9 @@
       "$comment" : "Consult External Code List table ExternalParticipantCategoryCode"
     },
     "accountOriginIdentification" : {
-      "type" : "string",
-      "minLength" : 1,
-      "maxLength" : 35,
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999,
       "description" : "Origin account identifier defined by the participant"
     },
     "accountOriginType" : {
@@ -237,9 +237,25 @@
       "maximum" : 999999,
       "description" : "Compression trade status code",
       "$comment" : "Consult External Code List table ExternalCompressionTradeStatusCode"
+    },
+    "tradeMatchIdentification" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Trade match identification"
+    },
+    "secondaryTradeMatchIdentification" : {
+      "type" : "string",
+      "maxLength" : 10,
+      "minLength" : 1,
+      "description" : "Secondary trade match identification"
+    },
+    "isAggressor" : {
+      "type" : "boolean",
+      "description" : "Indicates if the trade is aggressor"
     }
   },
-  "required" : [ "participantIdentificationId", "participanteIdentificationCategory", "accountIdentification", "giveUpOnCaptureIndicator", "compressionGroupIdentification", "compressionTradeIdentification", "compressionGroupStatus", "compressionGroupReason", "tradeDate", "buySellIndicator", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "compressionTradeQuantity", "dealPrice", "tickerSymbol", "tradingSessionIdentification", "tradeRegistrationOrigin", "grossTradeAmount", "compressionTradeIdDateTime", "orderIdentificationIdent", "tradeIdentificationIdentification", "transactionDateTime", "tradeQuantity", "compressionTradeStatus" ],
+  "required" : [ "participantIdentificationId", "participanteIdentificationCategory", "accountIdentification", "giveUpOnCaptureIndicator", "compressionGroupIdentification", "compressionTradeIdentification", "compressionGroupStatus", "compressionGroupReason", "tradeDate", "buySellIndicator", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "compressionTradeQuantity", "dealPrice", "tickerSymbol", "tradingSessionIdentification", "tradeRegistrationOrigin", "grossTradeAmount", "compressionTradeIdDateTime", "orderIdentification", "tradeIdentification", "transactionDateTime", "tradeQuantity", "compressionTradeStatus" ],
   "additionalProperties" : false,
   "examples" : [ ]
 }

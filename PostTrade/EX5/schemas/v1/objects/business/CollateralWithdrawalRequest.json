@@ -22,7 +22,7 @@
         "allOf" : [ {
           "$ref" : "../../objects/business/SecuritiesCollateralOperation.json"
         }, {
-          "required" : [ "collateralIdentification", "assetNumber", "quantity", "custodianInformationDestination", "centralDepositaryOperationNumber" ]
+          "required" : [ "collateralIdentification", "assetNumber", "quantity", "custodianInformationDestination", "centralDepositoryOperationNumber" ]
         } ]
       },
       "minItems" : 1,

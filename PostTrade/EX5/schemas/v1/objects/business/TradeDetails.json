@@ -94,7 +94,7 @@
       "description": "Indicates if the trade is aggressor"
     }
   },
-  "required" : [ "transactionDateTime", "tradeQuantity", "dealPrice" ],
+  "required" : [ "transactionDateTime", "tradeTransactionType", "tradeQuantity", "dealPrice" ],
   "additionalProperties": false,
   "examples": [
     {

@@ -1,4 +1,4 @@
-﻿{
+{
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-wtd-19",
   "$metadata" : {
@@ -70,7 +70,7 @@
           },
           "subAccount" : "001"
         },
-        "centralDepositaryOperationNumber" : "123456789"
+        "centralDepositoryOperationNumber" : "123456789"
       } ],
       "cashCollateral" : [ {
         "collateralIdentification" : "1",
@@ -93,10 +93,10 @@
         "settlementDate" : "2024-06-20",
         "collateralCode" : "COLL-12345",
         "maturityDate" : "2026-01-15",
-        "destinationDepositary" : 2,
-        "originDepositary" : 1,
+        "destinationDepository" : 2,
+        "originDepository" : 1,
         "BICCode" : "BANKUS33XXX",
-        "accountCentralDepositary" : "123456",
+        "accountCentralDepository" : "123456",
         "FEDAccount" : "021000021",
         "accountNameSpecialInstructions" : "SPECIAL-INST-001",
         "subAccountIdentification" : "SUB-ACC-001"

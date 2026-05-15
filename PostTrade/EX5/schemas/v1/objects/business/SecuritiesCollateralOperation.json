@@ -29,13 +29,13 @@
       "$ref" : "../../objects/business/CustodianInformation.json",
       "description" : "This block identifies the custodian Information"
     },
-    "centralDepositaryOperationNumber" : {
+    "centralDepositoryOperationNumber" : {
       "type" : "string",
       "pattern" : "^[0-9]{1,9}$",
       "description" : "Central Depository Operation Number"
     }
   },
-  "required" : [ "collateralIdentification", "assetNumber", "quantity", "custodianInformationDestination", "centralDepositaryOperationNumber" ],
+  "required" : [ "collateralIdentification", "assetNumber", "quantity", "custodianInformationDestination", "centralDepositoryOperationNumber" ],
   "additionalProperties" : true,
   "examples" : [ {
     "collateralIdentification" : "1",
@@ -51,6 +51,6 @@
       },
       "subAccount" : "001"
     },
-    "centralDepositaryOperationNumber" : "123456789"
+    "centralDepositoryOperationNumber" : "123456789"
   } ]
 }

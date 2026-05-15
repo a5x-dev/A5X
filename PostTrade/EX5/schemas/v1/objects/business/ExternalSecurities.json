@@ -36,22 +36,22 @@
       "$ref" : "../../types/ISODate.json",
       "description" : "Date on which the other collateral expires"
     },
-    "destinationDepositary" : {
+    "destinationDepository" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Destination depositary code",
-      "$comment" : "Consult External Code List table ExternalDepositaryCode"
+      "$comment" : "Consult External Code List table ExternalDepositoryCode"
     },
-    "originDepositary" : {
+    "originDepository" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Origin depositary code",
-      "$comment" : "Consult External Code List table ExternalDepositaryCode"
+      "$comment" : "Consult External Code List table ExternalDepositoryCode"
     },
     "BICCode" : {
       "type" : "string",
       "maxLength" : 35,
       "description" : "BIC Code of the participant"
     },
-    "accountCentralDepositary" : {
+    "accountCentralDepository" : {
       "type" : "string",
       "description" : "DTC/Euroclear origin account"
     },
@@ -71,7 +71,7 @@
       "description" : "Unique and unambiguous identification for the account between the account owner and the account servicer"
     }
   },
-  "required" : [ "collateralIdentification", "quantity", "tradeDate", "settlementDate", "collateralCode", "maturityDate", "destinationDepositary", "originDepositary", "BICCode", "accountCentralDepositary" ],
+  "required" : [ "collateralIdentification", "quantity", "tradeDate", "settlementDate", "collateralCode", "maturityDate", "destinationDepository", "originDepository", "BICCode", "accountCentralDepository" ],
   "additionalProperties" : false,
   "examples" : [ {
     "collateralIdentification" : "EXT-SEC-REF-001",
@@ -80,10 +80,10 @@
     "settlementDate" : "2024-06-20",
     "collateralCode" : "COLL-12345",
     "maturityDate" : "2026-01-15",
-    "destinationDepositary" : 2,
-    "originDepositary" : 1,
+    "destinationDepository" : 2,
+    "originDepository" : 1,
     "BICCode" : "BANKUS33XXX",
-    "accountCentralDepositary" : "123456",
+    "accountCentralDepository" : "123456",
     "FEDAccount" : "021000021",
     "accountNameSpecialInstructions" : "SPECIAL-INST-001",
     "subAccountIdentification" : "SUB-ACC-001"

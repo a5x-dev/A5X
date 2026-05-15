@@ -179,8 +179,8 @@
     },
     "participantIdentificationId" : {
       "type" : "integer",
-      "maxLength" : 999999,
-      "minLength" : 1,
+      "minimum" : 1,
+      "maximum" : 999999,
       "description" : "Id of Participant"
     },
     "participantIdentificationCategory" : {
@@ -202,12 +202,12 @@
       "minLength" : 1,
       "description" : "Identifies the account type where the trade is allocated"
     },
-    "allocationStatus" : {
+    "allocationStatusCode" : {
       "type" : "integer",
       "minimum" : 1,
       "maximum" : 999999,
       "description" : "Status information for the allocation including processing codes",
-      "$comment" : "Consult table ExternalAllocationInstructionStatus. Contains status codes and optional rule identification for rejected allocations"
+      "$comment" : "Consult table ExternalStatusAllocationAdviceCode. Contains status codes and optional rule identification for rejected allocations"
     },
     "quantity" : {
       "type" : "string",

@@ -20,7 +20,7 @@
     },
     {
       "type": "number",
-      "description": "DEPARTAMENTO DE TRÂNSITO",
+      "description": "DETRAN-DEPARTAMENTO DE TRÂNSITO",
       "const": 4
     },
     {
@@ -190,7 +190,7 @@
     },
     {
       "type": "number",
-      "description": "BM&FBOVESPA",
+      "description": "B3",
       "const": 40
     },
     {

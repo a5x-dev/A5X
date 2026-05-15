@@ -1,9 +1,544 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Economic Activity",
+  "title": "ExternalEconomicActivityCode",
   "description": "Codes for economic activity ",
   "oneOf": [
 
+    {
+      "type": "number",
+      "description": "Informação e Comunicação",
+      "const": 5400
+    },
+    {
+      "type": "number",
+      "description": "Serviços de Liquidação e Custódia",
+      "const": 5500
+    },
+    {
+      "type": "number",
+      "description": "Fundações",
+      "const": 5600
+    },
+    {
+      "type": "number",
+      "description": "Consultorias de Investimento",
+      "const": 5700
+    },
+    {
+      "type": "number",
+      "description": "Corretora de Mercadorias e Assemelhados",
+      "const": 5800
+    },
+    {
+      "type": "number",
+      "description": "Sociedades de Fomento Mercantil - Factoring",
+      "const": 5900
+    },
+    {
+      "type": "number",
+      "description": "Micro e Pequenas Empresas",
+      "const": 6000
+    },
+    {
+      "type": "number",
+      "description": "Sociedades ou Entidades que Tenham por Objetivo Distribuir Emissão de Valores Mobiliários, ou Atuar Como Intermediários na Negociação de Valores Mobiliários, Agindo por Conta Própria ou de Terceiros, Registradas e Reguladas por Órgão Reconhecido Pela CVM",
+      "const": 6100
+    },
+    {
+      "type": "number",
+      "description": "Fundos de Investimento Imobiliários",
+      "const": 10000
+    },
+    {
+      "type": "number",
+      "description": "Empresa Pública",
+      "const": 20100
+    },
+    {
+      "type": "number",
+      "description": "Ind. de Produtos Alimentícios",
+      "const": 20300
+    },
+    {
+      "type": "number",
+      "description": "Indústria de Bebidas",
+      "const": 20400
+    },
+    {
+      "type": "number",
+      "description": "Indústria de Fumo",
+      "const": 20500
+    },
+    {
+      "type": "number",
+      "description": "Indústria Editorial e Gráfica",
+      "const": 20600
+    },
+    {
+      "type": "number",
+      "description": "Indústrias Diversas",
+      "const": 20601
+    },
+    {
+      "type": "number",
+      "description": "Industria de Artefatos de Couro, Artigos para Viagem e Calçados",
+      "const": 20602
+    },
+    {
+      "type": "number",
+      "description": "Indústria da Construcão",
+      "const": 20700
+    },
+    {
+      "type": "number",
+      "description": "Comércio Varejista",
+      "const": 30100
+    },
+    {
+      "type": "number",
+      "description": "Comércio Atacadista",
+      "const": 40000
+    },
+    {
+      "type": "number",
+      "description": "Escritórios Centrais e Regionais",
+      "const": 40100
+    },
+    {
+      "type": "number",
+      "description": "Intermediação na Compra, Venda e Aluguel de Imóveis",
+      "const": 40101
+    },
+    {
+      "type": "number",
+      "description": "Serviços",
+      "const": 40102
+    },
+    {
+      "type": "number",
+      "description": "Serviços de Transporte",
+      "const": 40105
+    },
+    {
+      "type": "number",
+      "description": "Serviços de Comunicação",
+      "const": 40200
+    },
+    {
+      "type": "number",
+      "description": "Serv. de Alojamento e Alimentação",
+      "const": 40300
+    },
+    {
+      "type": "number",
+      "description": "Serv. de Reparo e Manutenção",
+      "const": 40400
+    },
+    {
+      "type": "number",
+      "description": "Serviços Pessoais",
+      "const": 40500
+    },
+    {
+      "type": "number",
+      "description": "Serv. de Radiofusão, Televisão",
+      "const": 40600
+    },
+    {
+      "type": "number",
+      "description": "Serv. Auxiliares Diversos",
+      "const": 40700
+    },
+    {
+      "type": "number",
+      "description": "Servicos de Saúde",
+      "const": 50100
+    },
+    {
+      "type": "number",
+      "description": "Serv. de Administracão e Locação",
+      "const": 50101
+    },
+    {
+      "type": "number",
+      "description": "Educação",
+      "const": 50102
+    },
+    {
+      "type": "number",
+      "description": "Importação e Exportação",
+      "const": 50103
+    },
+    {
+      "type": "number",
+      "description": "Entidades Sem Fins Lucrativos",
+      "const": 60100
+    },
+    {
+      "type": "number",
+      "description": "Bancos de Desenvolvimento",
+      "const": 60101
+    },
+    {
+      "type": "number",
+      "description": "Caixas Econômicas",
+      "const": 60200
+    },
+    {
+      "type": "number",
+      "description": "Bancos Comerciais, Bancos de Investimento, Banco Central, Associação de Poupança e Empréstimo, Custodiantes Globais e Instituições Similares, Reguladas e Fiscalizadas por Autoridade Governamental Competente",
+      "const": 60201
+    },
+    {
+      "type": "number",
+      "description": "Companhias Seguradoras, Reguladas e Fiscalizadas por Autoridade Governamental Competente",
+      "const": 60300
+    },
+    {
+      "type": "number",
+      "description": "Entidades de Previdência Reguladas por Autoridade Governamental Competente",
+      "const": 70100
+    },
+    {
+      "type": "number",
+      "description": "Instituições Sem Fins Lucrativos, Desde que Reguladas por Autoridade Governamental Competente",
+      "const": 80100
+    },
+    {
+      "type": "number",
+      "description": "Qualquer Entidade que Tenha por Objetivo a Aplicação de Recursos nos Mercados Financeiro e de Capitais, da Qual Participem Exclusivamente Pessoas Naturais e Jurídicas Residentes e Domiciliadas no Exterior",
+      "const": 90100
+    },
+    {
+      "type": "number",
+      "description": "Demais Fundos ou Entidades de Investimento Coletivo",
+      "const": 90200
+    },
+    {
+      "type": "number",
+      "description": "Demais Pessoas Jurídicas Constituídas no Exterior",
+      "const": 90300
+    },
+    {
+      "type": "number",
+      "description": "Empresa Individual de Responsabilidade Limitada – EIRELI",
+      "const": 90400
+    },
+    {
+      "type": "number",
+      "description": "Bolsas e Mercados de Balcão Organizados",
+      "const": 150000
+    },
+    {
+      "type": "number",
+      "description": "Condomínio",
+      "const": 160100
+    },
+    {
+      "type": "number",
+      "description": "Cooperativa",
+      "const": 170000
+    },
+    {
+      "type": "number",
+      "description": "Cooperativa de Crédito",
+      "const": 180000
+    },
+    {
+      "type": "number",
+      "description": "Empr.agrop.,cooperat.,benef.prods.agricolas",
+      "const": 180100
+    },
+    {
+      "type": "number",
+      "description": "Consórcio",
+      "const": 180200
+    },
+    {
+      "type": "number",
+      "description": "Instituição de Carater Filantrópico, Recreativo e Cultural",
+      "const": 200000
+    },
+    {
+      "type": "number",
+      "description": "Banco Central",
+      "const": 202000
+    },
+    {
+      "type": "number",
+      "description": "Banco Comercial / Múltiplo",
+      "const": 202001
+    },
+    {
+      "type": "number",
+      "description": "Bancos Comerciais",
+      "const": 202002
+    },
+    {
+      "type": "number",
+      "description": "Bancos Múltiplos",
+      "const": 202003
+    },
+    {
+      "type": "number",
+      "description": "Outras Instituições Financeiras",
+      "const": 202004
+    },
+    {
+      "type": "number",
+      "description": "Bancos de Investimento",
+      "const": 202005
+    },
+    {
+      "type": "number",
+      "description": "Sociedade de Seguro, Previdência e Capitalização",
+      "const": 202006
+    },
+    {
+      "type": "number",
+      "description": "Sociedade Distribuidora de Títulos e Valores Mobiliários",
+      "const": 202007
+    },
+    {
+      "type": "number",
+      "description": "Sociedade Corretora de Títulos e Valores Mobiliários",
+      "const": 202008
+    },
+    {
+      "type": "number",
+      "description": "Sociedade de Credito, Financiamento e Investimento - Financeiras",
+      "const": 202009
+    },
+    {
+      "type": "number",
+      "description": "Arrendamento Mercantil",
+      "const": 202010
+    },
+    {
+      "type": "number",
+      "description": "Fundos de Investimento, Exceto Previdenciários e Imobiliários",
+      "const": 202011
+    },
+    {
+      "type": "number",
+      "description": "Fundo de Ações",
+      "const": 202012
+    },
+    {
+      "type": "number",
+      "description": "Fundo de Renda Fixa",
+      "const": 202013
+    },
+    {
+      "type": "number",
+      "description": "Fundo de Commodities",
+      "const": 202014
+    },
+    {
+      "type": "number",
+      "description": "Fundos de Investimento Previdenciários (inclusive FAPI) - Aberto",
+      "const": 202015
+    },
+    {
+      "type": "number",
+      "description": "Previdência Complementar Aberta",
+      "const": 202016
+    },
+    {
+      "type": "number",
+      "description": "Fundos de Investimento Previdenciários (inclusive FAPI) - Fechado",
+      "const": 202017
+    },
+    {
+      "type": "number",
+      "description": "Previdência Complementar Fechada",
+      "const": 202018
+    },
+    {
+      "type": "number",
+      "description": "Fundo de Plano de Benefício de Sociedade Seguradora (inclusive Seguro de Vida)",
+      "const": 202019
+    },
+    {
+      "type": "number",
+      "description": "Clubes de Investimento",
+      "const": 202020
+    },
+    {
+      "type": "number",
+      "description": "Administração Pública, Defesa e Seguridade Social",
+      "const": 202021
+    },
+    {
+      "type": "number",
+      "description": "Templo de Qualquer Culto",
+      "const": 202022
+    },
+    {
+      "type": "number",
+      "description": "Partido Político e Suas Fundações",
+      "const": 202023
+    },
+    {
+      "type": "number",
+      "description": "Entidade Sindical de Trabalhados",
+      "const": 202024
+    },
+    {
+      "type": "number",
+      "description": "Servicos Comunitarios e Sociais",
+      "const": 202025
+    },
+    {
+      "type": "number",
+      "description": "Administração de Carteira de Valores Mobiliários",
+      "const": 202026
+    },
+    {
+      "type": "number",
+      "description": "Depositário de ADR",
+      "const": 202027
+    },
+    {
+      "type": "number",
+      "description": "Resseguros",
+      "const": 202028
+    },
+    {
+      "type": "number",
+      "description": "Administração de Carteira de Valores Mobiliários",
+      "const": 202100
+    },
+    {
+      "type": "number",
+      "description": "Carteira Administrada",
+      "const": 202101
+    },
+    {
+      "type": "number",
+      "description": "Carteira Administrada",
+      "const": 202102
+    },
+    {
+      "type": "number",
+      "description": "Atv. Não Especif./classificadas",
+      "const": 202103
+    },
+    {
+      "type": "number",
+      "description": "Indústria",
+      "const": 202104
+    },
+    {
+      "type": "number",
+      "description": "Extração de Minerais",
+      "const": 202201
+    },
+    {
+      "type": "number",
+      "description": "Extração Vegetal",
+      "const": 202202
+    },
+    {
+      "type": "number",
+      "description": "Pesca e Aquicultura",
+      "const": 202203
+    },
+    {
+      "type": "number",
+      "description": "Indústria de Produtos Minerais",
+      "const": 202204
+    },
+    {
+      "type": "number",
+      "description": "Indústria Metalurgica",
+      "const": 202205
+    },
+    {
+      "type": "number",
+      "description": "Indústria Mecânica",
+      "const": 202206
+    },
+    {
+      "type": "number",
+      "description": "Indústria de Material Elétrico",
+      "const": 202207
+    },
+    {
+      "type": "number",
+      "description": "Indústria de Matéria Paratransporte",
+      "const": 202208
+    },
+    {
+      "type": "number",
+      "description": "Indústria de Madeira",
+      "const": 202209
+    },
+    {
+      "type": "number",
+      "description": "Indústria do Mobiliário",
+      "const": 202210
+    },
+    {
+      "type": "number",
+      "description": "Ind. de Papel,papelão e Celulose",
+      "const": 202211
+    },
+    {
+      "type": "number",
+      "description": "Indústria de Borracha",
+      "const": 202212
+    },
+    {
+      "type": "number",
+      "description": "Industria de Artefatos de Couro, Artigos para Viagem e Calçados",
+      "const": 202213
+    },
+    {
+      "type": "number",
+      "description": "Indústria Química",
+      "const": 202214
+    },
+    {
+      "type": "number",
+      "description": "Indústria de Produtos Farmaceuticos",
+      "const": 202400
+    },
+    {
+      "type": "number",
+      "description": "Refino de Petróleo e Destilação",
+      "const": 202500
+    },
+    {
+      "type": "number",
+      "description": "Indústria de Produtos de Materiais",
+      "const": 202600
+    },
+    {
+      "type": "number",
+      "description": "Indústria Textil",
+      "const": 202700
+    },
+    {
+      "type": "number",
+      "description": "Ind. do Vestuário, Artefatos",
+      "const": 202800
+    },
+    {
+      "type": "number",
+      "description": "Serviços Ind. de Utilidades",
+      "const": 240000
+    },
+    {
+      "type": "number",
+      "description": "Holding - Controladora de Participação",
+      "const": 270000
+    },
+    {
+      "type": "number",
+      "description": "Comércio",
+      "const": 280000
+    },
     {
       "type": "number",
       "description": "Cultivo de arroz",

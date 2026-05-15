@@ -1,4 +1,4 @@
-﻿{
+{
   "$schema" : "http://json-schema.org/draft-07/schema#",
   "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-trf-15",
   "$metadata" : {
@@ -80,7 +80,7 @@
           },
           "subAccount" : "001"
         },
-        "centralDepositaryOperationNumber" : "123456789",
+        "centralDepositoryOperationNumber" : "123456789",
         "activeCurrencyAndAmount" : {
           "amount" : "1000.00",
           "currency" : "BRL"
@@ -225,7 +225,7 @@
           },
           "subAccount" : "001"
         },
-        "centralDepositaryOperationNumber" : "123456789",
+        "centralDepositoryOperationNumber" : "123456789",
         "activeCurrencyAndAmount" : {
           "amount" : "1000.00",
           "currency" : "BRL"

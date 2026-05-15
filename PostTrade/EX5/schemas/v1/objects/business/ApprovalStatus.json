@@ -17,15 +17,15 @@
       "examples" : [ "COLL-001", "TRANSFER-12345", "GUARANTEE-789" ]
     },
     "affirmationStatus" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
       "description" : "This block contains information about approval or rejection of the collateral transfer.",
-      "$comment" : "Consult the external table ExternalAffirmationStatus1Code."
+      "$comment" : "Consult the external table ExternalAffirmationStatusCode."
     }
   },
   "required" : [ "collateralIdentification", "affirmationStatus" ],
   "additionalProperties" : false,
   "examples" : [ {
     "collateralIdentification" : "COLL-001",
-    "affirmationStatus" : 2
+    "affirmationStatus" : "AFFI"
   } ]
 }

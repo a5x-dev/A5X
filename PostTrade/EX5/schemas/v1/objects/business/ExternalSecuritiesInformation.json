@@ -25,13 +25,13 @@
       "description" : "Provides maturity date of collateral",
       "examples" : [ "2026-01-15", "2025-12-01" ]
     },
-    "depositary" : {
+    "depository" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Central Depositary",
-      "$comment" : "Consult External Code List table ExternalDepositaryCode",
+      "$comment" : "Consult External Code List table ExternalDepositoryCode",
       "examples" : [ 1, 2, 3 ]
     },
-    "accountCentralDepositary" : {
+    "accountCentralDepository" : {
       "type" : "integer",
       "description" : "Account in DTC / Euroclear",
       "examples" : [ 123456, 987654, 555000 ]
@@ -55,8 +55,8 @@
     "collateralReference" : "EXT-SEC-REF-001",
     "issueDate" : "2024-01-15",
     "maturityDate" : "2026-01-15",
-    "depositary" : 2,
-    "accountCentralDepositary" : 987654,
+    "depository" : 2,
+    "accountCentralDepository" : 987654,
     "fedAccount" : "026009593",
     "accountNameSpecialInstructions" : "SI-ACCOUNT"
   } ]

@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:SimulationCollateralPosition",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:SimulationCollateralPosition"
+  },
+  "title": "Collateral Position Detail",
+  "description": "Collateral positions for simulation",
+  "type": "object",
+  "properties": {
+    "tickerSymbol": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Symbol of the Instrument"
+    },
+    "quantity": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Quantity of collateral position"
+    },
+    "financialValue": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Monetary value of the collateral position"
+    }
+  },
+  "required": [
+    "tickerSymbol"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "tickerSymbol": "XYZ123",
+      "quantity": 100
+    },
+    {
+      "tickerSymbol": "ABC999",
+      "financialValue": {
+        "currency": "BRL",
+        "amount": "150000.75"
+      }
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-07",
+  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-04",
   "$metadata" : {
     "domain" : "risk",
-    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-07"
+    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-04"
   },
   "title" : "Risk Simulation Request",
   "description" : "Message for requesting a risk simulation",
@@ -21,9 +21,19 @@
       "$ref" : "../../objects/business/AccountIdentification.json",
       "description" : "Provides details about the account identification"
     },
+    "marginRunId" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 35,
+      "description" : "Run ID of the margin calculation instance."
+    },
     "portfolioPositions" : {
       "type" : "boolean",
       "description" : "Indicates if the full portfolio positions should be considered for the simulation"
+    },
+    "collateralPositions" : {
+      "type" : "boolean",
+      "description" : "Indicates if the full collateral positions should be considered for the simulation"
     },
     "userComentary" : {
       "type" : "string",
@@ -36,9 +46,17 @@
         "$ref" : "../../objects/business/SimulationPosition.json",
         "description" : "Position details to be used in simulation"
       }
+    },
+    "simulationCollateralPosition" : {
+      "type" : "array",
+      "description" : "Array of collateral positions to be included in the simulation",
+      "items" : {
+        "$ref" : "../../objects/business/SimulationCollateralPosition.json",
+        "description" : "Collateral position details to be used in simulation"
+      }
     }
   },
-  "required" : [ "clearingMemberIdentification", "participantIdentification", "accountIdentification", "portfolioPositions" ],
+  "required" : [ "clearingMemberIdentification", "participantIdentification", "accountIdentification", "portfolioPositions", "collateralPositions" ],
   "additionalProperties" : false,
   "examples" : [ {
     "clearingMemberIdentification" : {
@@ -52,11 +70,13 @@
     "accountIdentification" : {
       "id" : 234
     },
+    "marginRunId" : "MRUN-20260422-001",
     "portfolioPositions" : false,
+    "collateralPositions" : false,
     "userComentary" : "Result under base scenario; revise foreign exchange exposure",
     "simulationPosition" : [ {
       "tickerSymbol" : "ABCDEFG",
-      "settlementCurrency" : "BRL",
+      "strategyStatus" : 1,
       "longPosition" : 5,
       "shortPosition" : 2,
       "longValue" : {
@@ -66,6 +86,16 @@
       "shortValue" : {
         "currency" : "BRL",
         "amount" : "25000.00"
+      }
+    } ],
+    "simulationCollateralPosition" : [ {
+      "tickerSymbol" : "XYZ123",
+      "quantity" : 100
+    }, {
+      "tickerSymbol" : "ABC999",
+      "financialValue" : {
+        "currency" : "BRL",
+        "amount" : "150000.75"
       }
     } ]
   } ]

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Affirmation Status Code",
+  "title": "ExternalAffirmationStatusCode",
   "description": "Codes for affirmation status indicating whether a trade or allocation has been affirmed or not affirmed",
   "oneOf": [
     {

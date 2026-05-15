@@ -29,7 +29,8 @@
   "required": [
     "clearingMemberIdentification",
     "participantIdentification",
-    "accountIdentification"
+    "accountIdentification",
+    "riskSimulationDetails"
   ],
   "additionalProperties": false,
   "examples": [
@@ -64,6 +65,10 @@
           "currency": "BRL",
           "amount": "200000.75"
         },
+        "netCollateral": {
+          "currency": "BRL",
+          "amount": "180000.00"
+        },
         "liquidityConcentrationRiskMargin": {
           "currency": "BRL",
           "amount": "50000.00"
@@ -72,6 +77,7 @@
           "currency": "BRL",
           "amount": "25000.25"
         },
+        "systemStatusMessage": "Simulation Successful. Excluded Instrument(s): XXXX",
         "userComment": "Result under base scenario; revise foreign exchange exposure"
       }
     }

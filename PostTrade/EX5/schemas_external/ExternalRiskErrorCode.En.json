@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "title": "ExternalRiskErrorCode",
+  "description": "Error codes for risk simulation operations",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Number of positions exceeds the maximum allowed limit",
+      "const": "RSK00001"
+    },
+    {
+      "type": "string",
+      "description": "Instrument is invalid",
+      "const": "RSK00002"
+    },
+    {
+      "type": "string",
+      "description": "Account is invalid",
+      "const": "RSK00003"
+    },
+    {
+      "type": "string",
+      "description": "Insufficient position data for simulation",
+      "const": "RSK00004"
+    },
+    {
+      "type": "string",
+      "description": "Invalid position values provided",
+      "const": "RSK00005"
+    },
+    {
+      "type": "string",
+      "description": "Invalid marginRunId",
+      "const": "RSK00006"
+    },
+    {
+      "type": "string",
+      "description": "The portfolio has no positions for the calculation",
+      "const": "RSK00007"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    "RSK00001",
+    "RSK00002",
+    "RSK00003",
+    "RSK00004",
+    "RSK00005",
+    "RSK00006",
+    "RSK00007"
+  ]
+}

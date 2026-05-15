@@ -36,7 +36,7 @@
     },
     "ApprovalStatus" : [ {
       "collateralIdentification" : "COLL-001",
-      "affirmationStatus" : 1
+      "affirmationStatus" : "AFFI"
     } ]
   } ]
 }

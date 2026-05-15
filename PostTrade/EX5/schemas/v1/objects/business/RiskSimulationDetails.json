@@ -34,6 +34,10 @@
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Net liquidity value at account level"
     },
+    "netCollateral" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Net collateral value at account level"
+    },
     "liquidityConcentrationRiskMargin" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Value of liquidity and concentration risk at account level"
@@ -41,6 +45,10 @@
     "wrongWayRiskMargin" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Value of correlation risk at account level"
+    },
+    "systemStatusMessage" : {
+      "type" : "string",
+      "description" : "System status message regarding the simulation result"
     },
     "userComment" : {
       "type" : "string",
@@ -53,6 +61,7 @@
     "initialMargin",
     "contingentVariationMargin",
     "netLiquidatingValue",
+    "netCollateral",
     "liquidityConcentrationRiskMargin",
     "wrongWayRiskMargin"
   ],
@@ -77,6 +86,10 @@
         "currency" : "BRL",
         "amount" : "200000.75"
       },
+      "netCollateral" : {
+        "currency" : "BRL",
+        "amount" : "180000.00"
+      },
       "liquidityConcentrationRiskMargin" : {
         "currency" : "BRL",
         "amount" : "50000.00"
@@ -85,6 +98,7 @@
         "currency" : "BRL",
         "amount" : "25000.25"
       },
+      "systemStatusMessage" : "Simulation Successful. Excluded Instrument(s): XXXX",
       "userComment" : "Result under base scenario; revise foreign exchange exposure"
     }
   ]

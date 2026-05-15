@@ -1,8 +1,803 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Profession Code",
+  "title": "ExternalProfessionCode",
   "description": "Codes for profession",
   "oneOf": [
+    {
+      "type": "number",
+      "description": "Engenheiro",
+      "const": 101
+    },
+    {
+      "type": "number",
+      "description": "Arquiteto",
+      "const": 102
+    },
+    {
+      "type": "number",
+      "description": "Agronomo",
+      "const": 103
+    },
+    {
+      "type": "number",
+      "description": "Quimico",
+      "const": 104
+    },
+    {
+      "type": "number",
+      "description": "Desenhista industrial",
+      "const": 105
+    },
+    {
+      "type": "number",
+      "description": "Fisico",
+      "const": 106
+    },
+    {
+      "type": "number",
+      "description": "Geologo",
+      "const": 107
+    },
+    {
+      "type": "number",
+      "description": "Tecnologo",
+      "const": 108
+    },
+    {
+      "type": "number",
+      "description": "Outros",
+      "const": 109
+    },
+    {
+      "type": "number",
+      "description": "Medico",
+      "const": 111
+    },
+    {
+      "type": "number",
+      "description": "Veterinario e zootecnista",
+      "const": 112
+    },
+    {
+      "type": "number",
+      "description": "Enfermeiro e nutricionista",
+      "const": 113
+    },
+    {
+      "type": "number",
+      "description": "Fisioterapeuta e terapeuta ocupacional",
+      "const": 114
+    },
+    {
+      "type": "number",
+      "description": "Odontologo e dentista",
+      "const": 115
+    },
+    {
+      "type": "number",
+      "description": "Biologo e biomedico",
+      "const": 116
+    },
+    {
+      "type": "number",
+      "description": "Farmaceutico",
+      "const": 117
+    },
+    {
+      "type": "number",
+      "description": "Fonoaudiologo",
+      "const": 118
+    },
+    {
+      "type": "number",
+      "description": "Consultor",
+      "const": 120
+    },
+    {
+      "type": "number",
+      "description": "Economista",
+      "const": 121
+    },
+    {
+      "type": "number",
+      "description": "Estatistico",
+      "const": 122
+    },
+    {
+      "type": "number",
+      "description": "Atuario e matematico",
+      "const": 123
+    },
+    {
+      "type": "number",
+      "description": "Contador",
+      "const": 124
+    },
+    {
+      "type": "number",
+      "description": "Administrador",
+      "const": 125
+    },
+    {
+      "type": "number",
+      "description": "Analista de sistemas",
+      "const": 126
+    },
+    {
+      "type": "number",
+      "description": "Geografo",
+      "const": 127
+    },
+    {
+      "type": "number",
+      "description": "Astronomo e meteorologista",
+      "const": 128
+    },
+    {
+      "type": "number",
+      "description": "Profissional liberal",
+      "const": 130
+    },
+    {
+      "type": "number",
+      "description": "Advogado",
+      "const": 131
+    },
+    {
+      "type": "number",
+      "description": "Psicologo",
+      "const": 132
+    },
+    {
+      "type": "number",
+      "description": "Sociologo",
+      "const": 133
+    },
+    {
+      "type": "number",
+      "description": "Assistente social",
+      "const": 134
+    },
+    {
+      "type": "number",
+      "description": "Bibliotecario, arquivista, museologo e arqueologo",
+      "const": 135
+    },
+    {
+      "type": "number",
+      "description": "Comunicologo",
+      "const": 136
+    },
+    {
+      "type": "number",
+      "description": "Relacoes publicas",
+      "const": 137
+    },
+    {
+      "type": "number",
+      "description": "Profissionais de letras e de artes",
+      "const": 138
+    },
+    {
+      "type": "number",
+      "description": "Professor de ensino superior",
+      "const": 142
+    },
+    {
+      "type": "number",
+      "description": "Professor de primeiro e segundo graus",
+      "const": 143
+    },
+    {
+      "type": "number",
+      "description": "Diretor de estabelecimento de ensino",
+      "const": 144
+    },
+    {
+      "type": "number",
+      "description": "Outros trabalhadores de nivel superior ligados ao ensino",
+      "const": 145
+    },
+    {
+      "type": "number",
+      "description": "Tecnico de contabilidade e de estatistica",
+      "const": 151
+    },
+    {
+      "type": "number",
+      "description": "Tecnico de biologica",
+      "const": 152
+    },
+    {
+      "type": "number",
+      "description": "Tecnico em agronomia e agrimensura",
+      "const": 153
+    },
+    {
+      "type": "number",
+      "description": "Tecnico de quimica",
+      "const": 154
+    },
+    {
+      "type": "number",
+      "description": "Tecnico de mecanica",
+      "const": 155
+    },
+    {
+      "type": "number",
+      "description": "Tecnico de eletricidade, eletronica e telecomunicacoes",
+      "const": 156
+    },
+    {
+      "type": "number",
+      "description": "Tecnico de laboratorio e raio x",
+      "const": 157
+    },
+    {
+      "type": "number",
+      "description": "Desenhista tecnico",
+      "const": 158
+    },
+    {
+      "type": "number",
+      "description": "Empresario artistico e produtor de espetaculos publicos",
+      "const": 161
+    },
+    {
+      "type": "number",
+      "description": "Ator e diretor de espetaculos publicos",
+      "const": 162
+    },
+    {
+      "type": "number",
+      "description": "Cantor e compositor",
+      "const": 163
+    },
+    {
+      "type": "number",
+      "description": "Musico",
+      "const": 164
+    },
+    {
+      "type": "number",
+      "description": "Coreografo e bailarino",
+      "const": 165
+    },
+    {
+      "type": "number",
+      "description": "Locutor e comentarista de radio e televisao e radialista",
+      "const": 166
+    },
+    {
+      "type": "number",
+      "description": "Operador de camara de cinema e televisao",
+      "const": 167
+    },
+    {
+      "type": "number",
+      "description": "Atleta profissional e tecnico em desportos",
+      "const": 168
+    },
+    {
+      "type": "number",
+      "description": "Jornalista",
+      "const": 171
+    },
+    {
+      "type": "number",
+      "description": "Publicitario",
+      "const": 172
+    },
+    {
+      "type": "number",
+      "description": "Piloto de aeronaves",
+      "const": 181
+    },
+    {
+      "type": "number",
+      "description": "Comissario de bordo",
+      "const": 182
+    },
+    {
+      "type": "number",
+      "description": "Comandante de embarcacoes",
+      "const": 183
+    },
+    {
+      "type": "number",
+      "description": "Escultor, pintor e assemelhados",
+      "const": 191
+    },
+    {
+      "type": "number",
+      "description": "Desenhista comercial",
+      "const": 192
+    },
+    {
+      "type": "number",
+      "description": "Decorador",
+      "const": 193
+    },
+    {
+      "type": "number",
+      "description": "Membro do poder legislativo: senador, dep.fed.e estadual",
+      "const": 201
+    },
+    {
+      "type": "number",
+      "description": "Membro do poder executivo: pres.republica, ministro etc.",
+      "const": 203
+    },
+    {
+      "type": "number",
+      "description": "Membro do poder judiciario: ministro de trib. superior",
+      "const": 205
+    },
+    {
+      "type": "number",
+      "description": "Procurador e assemelhados",
+      "const": 211
+    },
+    {
+      "type": "number",
+      "description": "Diplomata",
+      "const": 212
+    },
+    {
+      "type": "number",
+      "description": "Fiscal",
+      "const": 213
+    },
+    {
+      "type": "number",
+      "description": "Delegado de policia",
+      "const": 214
+    },
+    {
+      "type": "number",
+      "description": "Ocupante de cargo de direcao e assessoramento superior",
+      "const": 215
+    },
+    {
+      "type": "number",
+      "description": "Oficiais das forcas armadas e forcas auxiliares",
+      "const": 216
+    },
+    {
+      "type": "number",
+      "description": "Ocupante de cargo de direcao e assessoramento intermediar",
+      "const": 291
+    },
+    {
+      "type": "number",
+      "description": "Agente administrativo",
+      "const": 292
+    },
+    {
+      "type": "number",
+      "description": "Serventuario de justica",
+      "const": 293
+    },
+    {
+      "type": "number",
+      "description": "Tabeliao",
+      "const": 294
+    },
+    {
+      "type": "number",
+      "description": "Militar em geral",
+      "const": 295
+    },
+    {
+      "type": "number",
+      "description": "Servidor publico federal",
+      "const": 296
+    },
+    {
+      "type": "number",
+      "description": "Servidor publico estadual",
+      "const": 297
+    },
+    {
+      "type": "number",
+      "description": "Servidor publico municipal",
+      "const": 298
+    },
+    {
+      "type": "number",
+      "description": "Diretor de empresas",
+      "const": 301
+    },
+    {
+      "type": "number",
+      "description": "Gerente",
+      "const": 303
+    },
+    {
+      "type": "number",
+      "description": "Empresario",
+      "const": 304
+    },
+    {
+      "type": "number",
+      "description": "Coordenador e supervisor",
+      "const": 305
+    },
+    {
+      "type": "number",
+      "description": "Chefe intermediario",
+      "const": 391
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador dos servicos de contabilidade, de caixa",
+      "const": 392
+    },
+    {
+      "type": "number",
+      "description": "Secretario, estenografo, datilografo, recepcionista, telef",
+      "const": 393
+    },
+    {
+      "type": "number",
+      "description": "Auxiliar de escritorio e assemelhados",
+      "const": 394
+    },
+    {
+      "type": "number",
+      "description": "Bancario e economiario",
+      "const": 395
+    },
+    {
+      "type": "number",
+      "description": "Securitario",
+      "const": 396
+    },
+    {
+      "type": "number",
+      "description": "Superior, inspetor e agente de compras e vendas",
+      "const": 401
+    },
+    {
+      "type": "number",
+      "description": "Vendedor pracista, representante comercial, caixeiro viaj",
+      "const": 402
+    },
+    {
+      "type": "number",
+      "description": "Corretor de imoveis, seguros, titulos e valores",
+      "const": 403
+    },
+    {
+      "type": "number",
+      "description": "Leiloeiro, avaliador e assemelhados",
+      "const": 404
+    },
+    {
+      "type": "number",
+      "description": "Agenciador de propaganda",
+      "const": 405
+    },
+    {
+      "type": "number",
+      "description": "Vendedor de comercio varejista e atacadista",
+      "const": 411
+    },
+    {
+      "type": "number",
+      "description": "Jornaleiro",
+      "const": 412
+    },
+    {
+      "type": "number",
+      "description": "Feirante",
+      "const": 413
+    },
+    {
+      "type": "number",
+      "description": "Demonstrador",
+      "const": 491
+    },
+    {
+      "type": "number",
+      "description": "Modelo de modas",
+      "const": 492
+    },
+    {
+      "type": "number",
+      "description": "Porteiro de edificio, ascensorista, garagista e faxineiro",
+      "const": 501
+    },
+    {
+      "type": "number",
+      "description": "Cabeleireiro, barbeiro, manicure, pedicure, maquilador",
+      "const": 511
+    },
+    {
+      "type": "number",
+      "description": "Governanta de hotel, camareiro, porteiro, cozinheiro",
+      "const": 521
+    },
+    {
+      "type": "number",
+      "description": "Motorista de veiculos de transporte de passageiros",
+      "const": 531
+    },
+    {
+      "type": "number",
+      "description": "Motorista de veiculos de transporte de carga",
+      "const": 532
+    },
+    {
+      "type": "number",
+      "description": "Contramestre de embarcacoes",
+      "const": 533
+    },
+    {
+      "type": "number",
+      "description": "Marinheiro e assemelhados",
+      "const": 534
+    },
+    {
+      "type": "number",
+      "description": "Maquinista e foguista de embarcacoes, locomotivas",
+      "const": 535
+    },
+    {
+      "type": "number",
+      "description": "Mecanico de manutencao de veiculos automoveis e maquinas",
+      "const": 541
+    },
+    {
+      "type": "number",
+      "description": "Eletricista de manutencao de veiculos automotores e maquinas",
+      "const": 542
+    },
+    {
+      "type": "number",
+      "description": "Lanterneiro e pintor de veiculos metalicos",
+      "const": 543
+    },
+    {
+      "type": "number",
+      "description": "Bombeiro",
+      "const": 544
+    },
+    {
+      "type": "number",
+      "description": "Alfaiate",
+      "const": 591
+    },
+    {
+      "type": "number",
+      "description": "Protetico",
+      "const": 592
+    },
+    {
+      "type": "number",
+      "description": "Despachante, inclusive o aduaneiro",
+      "const": 593
+    },
+    {
+      "type": "number",
+      "description": "Agente de viagem e guia de turismo",
+      "const": 594
+    },
+    {
+      "type": "number",
+      "description": "Agente de servicos funerarios e embalsamador",
+      "const": 595
+    },
+    {
+      "type": "number",
+      "description": "Auxiliar de laboratorio",
+      "const": 596
+    },
+    {
+      "type": "number",
+      "description": "Estivador, carregador, embalador e assemelhados",
+      "const": 597
+    },
+    {
+      "type": "number",
+      "description": "Empregado domestico",
+      "const": 598
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador agricola",
+      "const": 601
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador da pecuaria",
+      "const": 602
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador florestal",
+      "const": 603
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador da pesca",
+      "const": 604
+    },
+    {
+      "type": "number",
+      "description": "Garimpeiro",
+      "const": 605
+    },
+    {
+      "type": "number",
+      "description": "Mestre e contramestre",
+      "const": 701
+    },
+    {
+      "type": "number",
+      "description": "Mecanico de manutencao, montador, preparador, operador",
+      "const": 702
+    },
+    {
+      "type": "number",
+      "description": "Eletricista e assemelhados",
+      "const": 703
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador de instalacoes de processamento quimico",
+      "const": 704
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador de fabricacao de roupas",
+      "const": 705
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador de tratamento de fumo e de fabr. cigarros",
+      "const": 706
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador metalurgico e siderurgico",
+      "const": 707
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador de usinagem e metais",
+      "const": 708
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador de construcao civil",
+      "const": 709
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador de fabricacao e preparacao de alimentos bebid",
+      "const": 710
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador de artes graficas",
+      "const": 711
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador de fabricacao de produtos texteis",
+      "const": 712
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador de fabricacao de artefatos de madeira",
+      "const": 713
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador de fabricacao de papel e papelao",
+      "const": 714
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador de fabricacao de calcados e artefatos de cour",
+      "const": 715
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador de fabricacao de produtos de borracha e plast",
+      "const": 716
+    },
+    {
+      "type": "number",
+      "description": "Joalheiros e ourives",
+      "const": 717
+    },
+    {
+      "type": "number",
+      "description": "Proprietario de estabelecimento agricola, da pecuaria",
+      "const": 901
+    },
+    {
+      "type": "number",
+      "description": "Proprietario de estabelecimento comercial",
+      "const": 902
+    },
+    {
+      "type": "number",
+      "description": "Proprietario de estabelecimento industrial",
+      "const": 903
+    },
+    {
+      "type": "number",
+      "description": "Proprietario de estabelecimento de prestacao de servicos",
+      "const": 904
+    },
+    {
+      "type": "number",
+      "description": "Proprietario de microempresas",
+      "const": 905
+    },
+    {
+      "type": "number",
+      "description": "Proprietario de imovel (recebendo rendimento de aluguel)",
+      "const": 906
+    },
+    {
+      "type": "number",
+      "description": "Capitalista, recebendo rendimento de aplicacao de capital",
+      "const": 907
+    },
+    {
+      "type": "number",
+      "description": "Trabalhador autonomo",
+      "const": 908
+    },
+    {
+      "type": "number",
+      "description": "Sacerdote ou membro de ordens ou seitas religiosas",
+      "const": 910
+    },
+    {
+      "type": "number",
+      "description": "Militar reformado",
+      "const": 921
+    },
+    {
+      "type": "number",
+      "description": "Funcionario publico civil aposentado",
+      "const": 922
+    },
+    {
+      "type": "number",
+      "description": "Aposentado (exceto funcionario publico)",
+      "const": 923
+    },
+    {
+      "type": "number",
+      "description": "Pensionista",
+      "const": 924
+    },
+    {
+      "type": "number",
+      "description": "Bolsista, estagiario e assemelhados",
+      "const": 931
+    },
+    {
+      "type": "number",
+      "description": "Estudante",
+      "const": 932
+    },
+    {
+      "type": "number",
+      "description": "Falecido",
+      "const": 933
+    },
+    {
+      "type": "number",
+      "description": "Profissionais de midias digitais e afins",
+      "const": 934
+    },
     {
       "type": "number",
       "description": "Oficial general da aeronáutica",

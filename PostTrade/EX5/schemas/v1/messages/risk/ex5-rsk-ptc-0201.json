@@ -37,7 +37,7 @@
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Portion of the intraday risk exposure that has not yet been allocated."
     },
-    "residualRiskInvestor" : {
+    "investorRiskExposure" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Residual risk per investor after all applicable allocations."
     },
@@ -50,7 +50,7 @@
       "description" : "Total operational limit calculated as the sum of all related risk components."
     }
   },
-  "required" : [ "triggerResult", "participantIdentification", "tradeDate", "intradayRiskLimitAssigned", "operationalLimitCollateral", "riskExposure", "nonAllocatedRisk", "residualRiskInvestor", "additionalMargin", "operationalLimit" ],
+  "required" : [ "triggerResult", "participantIdentification", "tradeDate", "intradayRiskLimitAssigned", "operationalLimitCollateral", "riskExposure", "nonAllocatedRisk", "investorRiskExposure", "additionalMargin", "operationalLimit" ],
   "additionalProperties" : false,
   "examples" : [ {
     "triggerResult" : {
@@ -79,7 +79,7 @@
       "amount" : "20000.00",
       "currency" : "BRL"
     },
-    "residualRiskInvestor" : {
+    "investorRiskExposure" : {
       "amount" : "5000.00",
       "currency" : "BRL"
     },

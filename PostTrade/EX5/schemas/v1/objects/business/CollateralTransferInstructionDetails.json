@@ -22,7 +22,7 @@
         "allOf" : [ {
           "$ref" : "../../objects/business/SecuritiesCollateralOperation.json"
         }, {
-          "required" : [ "collateralIdentification", "assetNumber", "centralDepositaryOperationNumber", "custodianInformationDestination", "quantity" ]
+          "required" : [ "collateralIdentification", "assetNumber", "centralDepositoryOperationNumber", "custodianInformationDestination", "quantity" ]
         } ]
       },
       "minItems" : 1,
@@ -95,7 +95,7 @@
         },
         "subAccount" : "001"
       },
-      "centralDepositaryOperationNumber" : "123456789"
+      "centralDepositoryOperationNumber" : "123456789"
     } ]
   }, {
     "positionTransferReference" : "TRF-REF-002",

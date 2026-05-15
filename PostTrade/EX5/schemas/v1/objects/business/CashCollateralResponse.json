@@ -23,20 +23,12 @@
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Collateral value in active currency"
     },
-    "statusCode" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Provides a proprietary status of each processing requested",
-      "comment" : "Consult External Code List table ExternalCollateralStatusCode"
-    },
-    "errorIdentification" : {
-      "type" : "array",
-      "description" : "List of error identification rules when status indicates failure",
-      "items" : {
-        "$ref" : "../../objects/tech/StatusError.json"
-      }
+    "collateralStatus" : {
+      "$ref" : "../../objects/business/CollateralStatus.json",
+      "description" : "This block contains information on the status of each collateral processing"
     }
   },
-  "required" : [ "collateralIdentification", "operationValue", "collateralValue", "statusCode" ],
+  "required" : [ "collateralIdentification", "operationValue", "collateralValue", "collateralStatus" ],
   "additionalProperties" : false,
   "examples" : [ {
     "collateralIdentification" : "CASH-REF-001",
@@ -48,12 +40,14 @@
       "currency" : "BRL",
       "amount" : "100000.00"
     },
-    "statusCode" : 1,
-    "errorIdentification" : [ {
-      "code" : "TEC00000",
-      "message" : "Error X",
-      "errorDescription" : "COD12452",
-      "refId" : "REF12345"
-    } ]
+    "collateralStatus" : {
+      "statusCode" : 1,
+      "errorIdentification" : [ {
+        "code" : "TEC00000",
+        "message" : "Error X",
+        "errorDescription" : "COD12452",
+        "refId" : "REF12345"
+      } ]
+    }
   } ]
 }

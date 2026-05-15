@@ -29,7 +29,7 @@
       "minLength" : 1,
       "description" : "Letters that identify stocks traded on stock exchange"
     },
-    "centralDepositaryOperationNumber" : {
+    "centralDepositoryOperationNumber" : {
       "type" : "string",
       "pattern" : "^[0-9]{1,9}$",
       "description" : "Central Depository Operation Number"
@@ -39,7 +39,7 @@
       "description" : "This block identifies the custodian Information"
     }
   },
-  "required" : [ "collateralIdentification", "quantity", "custodianInformationOrigin", "tickerSymbol", "centralDepositaryOperationNumber", "custodianInformationDestination" ],
+  "required" : [ "collateralIdentification", "quantity", "custodianInformationOrigin", "tickerSymbol", "centralDepositoryOperationNumber", "custodianInformationDestination" ],
   "additionalProperties" : false,
   "examples" : [ {
     "collateralIdentification" : "1",
@@ -55,7 +55,7 @@
       "subAccount" : "001"
     },
     "tickerSymbol" : "AAPL",
-    "centralDepositaryOperationNumber" : "123456789",
+    "centralDepositoryOperationNumber" : "123456789",
     "custodianInformationDestination" : {
       "participantIdentification" : {
         "id" : 123456,
