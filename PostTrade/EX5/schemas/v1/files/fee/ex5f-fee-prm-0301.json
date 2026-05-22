@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:files:ex5f-fee-prm-0101",
+  "$id": "urn:a5x:ex5:schema:v1:files:ex5f-fee-prm-03",
   "$metadata": {
     "domain": "files",
-    "schemaId": "urn:a5x:ex5:schema:v1:files:ex5f-fee-prm-0101"
+    "schemaId": "urn:a5x:ex5:schema:v1:files:ex5f-fee-prm-03"
   },
   "title": "Fee Parameter File Schema",
   "description": "Fee Parameter File Schema",
