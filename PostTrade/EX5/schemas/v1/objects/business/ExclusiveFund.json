@@ -34,6 +34,18 @@
       "minLength": 1,
       "maxLength": 140,
       "description": "Corporate name - Legal Entity only"
+    },
+    "relatedPerson": {
+      "type": "boolean",
+      "description": "Indicates whether the shareholder is a related person to the fund manager or administrator"
+    },
+    "politicallyExposedPerson": {
+      "type": "boolean",
+      "description": "Indicates whether the shareholder is a politically exposed person (PEP)"
+    },
+    "usPerson": {
+      "type": "boolean",
+      "description": "Indicates whether the shareholder is a US Person for FATCA compliance purposes"
     }
   },
   "required": [
@@ -50,7 +62,10 @@
         "documentType": 2,
         "documentNumber": "12345678900"
       },
-      "fullName": "João Silva Santos"
+      "fullName": "João Silva Santos",
+      "relatedPerson": false,
+      "politicallyExposedPerson": true,
+      "usPerson": false
     },
     {
       "personType": 2,
@@ -59,7 +74,10 @@
         "documentType": 5,
         "documentNumber": "12345678000195"
       },
-      "corporateName": "Empresa Exemplo LTDA"
+      "corporateName": "Empresa Exemplo LTDA",
+      "relatedPerson": false,
+      "politicallyExposedPerson": false,
+      "usPerson": false
     }
   ]
 }

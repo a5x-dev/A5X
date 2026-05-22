@@ -267,6 +267,48 @@
     "averageExecutionTime" : {
       "type" : "string",
       "description" : "Average execution time of the average price allocation group"
+    },
+    "transactionDateTime" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Transaction date and time"
+    },
+    "tradeQuantity" : {
+      "type" : "string",
+      "maxLength" : 20,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description" : "Trade quantity"
+    },
+    "tradingDeskIdentification" : {
+      "type" : "string",
+      "maxLength" : 50,
+      "minLength" : 1,
+      "description" : "Identifies trading desk or strategy"
+    },
+    "shortFuturePrice" : {
+      "type" : "string",
+      "maxLength" : 22,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
+      "description" : "Short future value with up to 6 decimal places",
+      "$comment" : "Represents the price of the short future leg in the strategy"
+    },
+    "longFuturePrice" : {
+      "type" : "string",
+      "maxLength" : 22,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
+      "description" : "Long future value with up to 6 decimal places",
+      "$comment" : "Represents the price of the long future leg in the strategy"
+    },
+    "delta" : {
+      "type" : "string",
+      "maxLength" : 22,
+      "minLength" : 1,
+      "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
+      "description" : "Delta value with up to 6 decimal places",
+      "$comment" : "Represents the rate of change between the derivative price and the underlying asset price"
     }
   },
   "required" : [ "referenceDate", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "participantRequesterIdentificationId","participantRequesterIdentificationCategory","financialInstrumentIdentificationId", "financialInstrumentIdentificationSource","financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDate", "tradeIdentification", "dealPrice", "buySellIndicator", "participantIdentificationId", "participantIdentificationCategory", "accountIdentification", "accountType", "quantity", "allocationIdentification", "allocationDateTime" ],

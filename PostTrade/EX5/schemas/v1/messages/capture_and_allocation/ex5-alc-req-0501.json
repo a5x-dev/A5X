@@ -35,6 +35,17 @@
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Type of account",
       "$comment": "Consult External Code List table ExternalSecurityAccountTypeCode"
+    },
+    "tradeIdentification": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 35
+      },
+      "description": "List of trade identifiers to filter the allocation report",
+      "minItems": 1,
+      "maxItems": 100
     }
   },
   "required": [
@@ -62,7 +73,8 @@
         }
       ],
       "tradeDate": "2025-08-01",
-      "accountType": 3
+      "accountType": 3,
+      "tradeIdentification": ["TRD20250801001", "TRD20250801002", "TRD20250801003"]
     }
   ]
 }

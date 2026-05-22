@@ -40,6 +40,18 @@
       "maxLength": 140,
       "description": "Corporate name - Legal Entity only"
     },
+    "politicallyExposedPerson": {
+      "type": "boolean",
+      "description": "Politically exposed person indicator - RESI only"
+    },
+    "relatedPerson": {
+      "type": "boolean",
+      "description": "Related person indicator"
+    },
+    "usPerson": {
+      "type": "boolean",
+      "description": "US Person indicator"
+    },
     "address": {
       "$ref": "../../objects/business/Address.json",
       "description": "Address information"
@@ -62,6 +74,9 @@
         "documentNumber": "12345678900"
       },
       "fullName": "João Silva Santos",
+      "politicallyExposedPerson": false,
+      "relatedPerson": true,
+      "usPerson": false,
       "address": {
         "country": "BRA",
         "street": "Rua Brasilândia",

@@ -83,7 +83,10 @@
                 "documentType": 2,
                 "documentNumber": "12345678900"
               },
-              "fullName": "João Silva Santos"
+              "fullName": "João Silva Santos",
+              "relatedPerson": false,
+              "politicallyExposedPerson": true,
+              "usPerson": false
             }
           ],
           "documents": [
@@ -116,6 +119,9 @@
                 "documentNumber": "12345678900"
               },
               "fullName": "João Silva Santos",
+              "politicallyExposedPerson": false,
+              "relatedPerson": true,
+              "usPerson": false,
               "address": {
                 "street": "Rua Brasilândia",
                 "number": "123",
