@@ -47,14 +47,14 @@
     "segment" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Market segment - first level of market classification in post-trading process",
       "$comment" : "Consult External Code List table ExternalSegmentCode"
     },
     "market" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Market type - second level of market classification in post-trading process",
       "$comment" : "Consult External Code List table ExternalMarketCode"
     },
@@ -73,9 +73,9 @@
       "description" : "Letters that identify stocks traded on stock exchange."
     },
     "optionType" : {
-      "type" : "string",
-      "maxLength" : 35,
-      "minLength" : 1,
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999,
       "$comment" : "Consult External Code List table ExternalOptionTypeCode",
       "description" : "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)"
     },
@@ -98,12 +98,12 @@
     "tradeDate" : {
       "type" : "string",
       "format" : "date",
-      "description" : "Transaction date and time"
+      "description" : "Trade date"
     },
     "tradeTransactionType" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Trade transaction type code",
       "$comment" : "Consult External Code List table ExternalTradeTransactionTypeCode"
     },
@@ -115,7 +115,7 @@
     "tradeSubTypeCode" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Additional qualification for trade type",
       "$comment" : "Consult External Code List table ExternalTradeSubTypeCode"
     },
@@ -154,14 +154,14 @@
     "buySellIndicator" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Indicates whether the trade is a buy or sell",
       "$comment" : "Consult External Code List table ExternalBuySellIndicatorCode"
     },
     "tradingSessionIdentification" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Indicates if trade was executed during regular hours or after market",
       "$comment" : "Consult External Code List table ExternalTradingSessionIdCode"
     },
@@ -174,14 +174,14 @@
     "tradingSessionSubIdentification" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Identifies the phase group in trading session",
       "$comment" : "Consult External Code List table ExternalTradingSessionSubIdCode"
     },
     "securityTradingStatus" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Identifies the instrument phase in trading",
       "$comment" : "Consult External Code List table ExternalSecurityTradingStatusCode"
     },
@@ -264,7 +264,7 @@
     "accountDestinationType" : {
       "type" : "integer",
       "minimum" : 0,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Account type identification for destination account",
       "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
     },
@@ -290,7 +290,7 @@
     "accountOriginType" : {
       "type" : "integer",
       "minimum" : 0,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Account type identification for origin account",
       "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
     },
@@ -320,9 +320,9 @@
     "allocationStatus" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Trade status code",
-      "$comment" : "Consult External Code List table ExternalTradeStatusCode"
+      "$comment" : "Consult External Code List table ExternalStatusAllocationAdviceCode"
     },
     "breakingRuleIndicator" : {
       "type" : "boolean",
@@ -336,7 +336,7 @@
       "description" : "Participant identifier provided by A5X during the participant registration"
     }
   },
-  "required" : [ "referenceDate", "participantDestinationIdentificationId", "participantDestinationIdentificationCategory", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDate", "tradeTransactionType", "transactionDateTime", "tradeIdentification", "dealPrice", "buySellIndicator", "tradeMatchId", "accountDestinationIdentification", "participantOriginIdentificationId", "participantOriginIdentificationCategory", "accountOriginIdentification", "quantity", "allocationIdentification", "giveUpDateTime", "allocationStatus" ],
+  "required" : [ "referenceDate", "participantDestinationIdentificationId", "participantDestinationIdentificationCategory", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDate", "tradeTransactionType", "transactionDateTime", "tradeIdentification", "dealPrice", "buySellIndicator", "tradeMatchIdentification", "accountDestinationIdentification", "participantOriginIdentificationId", "participantOriginIdentificationCategory", "accountOriginIdentification", "quantity", "allocationIdentification", "giveUpDateTime", "allocationStatus" ],
   "additionalProperties" : false,
   "examples" : [ ]
 }

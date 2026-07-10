@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:ex5f-prc-prc-0101-xml.xsd"
+          xmlns:hdr="urn:iso:std:iso:20022:tech:xsd:head.001.001.01"
+          xmlns:prc="urn:ex5-prc-prc-0101-xml.xsd">
+    <BizFileHdr>
+        <Xchg>
+            <BizGrpDesc>
+                <Fr>
+                    <OrgId>
+                        <Id>
+                            <OrgId>
+                                <Othr>
+                                    <Id>A5X</Id>
+                                    <Issr>A5X</Issr>
+                                    <SchmeNm>
+                                        <Prtry>SYSTEM</Prtry>
+                                    </SchmeNm>
+                                </Othr>
+                            </OrgId>
+                        </Id>
+                    </OrgId>
+                </Fr>
+                <To>
+                    <OrgId>
+                        <Id>
+                            <OrgId>
+                                <Othr>
+                                    <Id>CLIENT</Id>
+                                    <Issr>A5X</Issr>
+                                    <SchmeNm>
+                                        <Prtry>SYSTEM</Prtry>
+                                    </SchmeNm>
+                                </Othr>
+                            </OrgId>
+                        </Id>
+                    </OrgId>
+                </To>
+                <BizGrpDtls>
+                    <BizGrpIdr>GRP-PRC-PRC-0001</BizGrpIdr>
+                    <TtlNbOfMsg>1</TtlNbOfMsg>
+                    <BizGrpTp>PRC_PRC</BizGrpTp>
+                    <CreDtAndTm>2026-03-26T18:00:00Z</CreDtAndTm>
+                </BizGrpDtls>
+                <MsgTpDef>
+                    <MsgDefIdr>ex5-prc-prc-0101-xml</MsgDefIdr>
+                    <NbOfMsg>1</NbOfMsg>
+                </MsgTpDef>
+            </BizGrpDesc>
+            <BizGrp>
+                <hdr:AppHdr>
+                    <hdr:BizMsgIdr>MSG-PRC-PRC-0001</hdr:BizMsgIdr>
+                    <hdr:MsgDefIdr>ex5-prc-prc-0101-xml</hdr:MsgDefIdr>
+                    <hdr:CreDt>2026-03-26T18:00:00Z</hdr:CreDt>
+                    <hdr:Fr>
+                        <hdr:OrgId>
+                            <hdr:Id>
+                                <hdr:OrgId>
+                                    <hdr:Othr>
+                                        <hdr:Id>A5X</hdr:Id>
+                                        <hdr:SchmeNm>
+                                            <hdr:Prtry>SYSTEM</hdr:Prtry>
+                                        </hdr:SchmeNm>
+                                        <hdr:Issr>A5X</hdr:Issr>
+                                    </hdr:Othr>
+                                </hdr:OrgId>
+                            </hdr:Id>
+                        </hdr:OrgId>
+                    </hdr:Fr>
+                    <hdr:To>
+                        <hdr:OrgId>
+                            <hdr:Id>
+                                <hdr:OrgId>
+                                    <hdr:Othr>
+                                        <hdr:Id>CLIENT</hdr:Id>
+                                        <hdr:SchmeNm>
+                                            <hdr:Prtry>SYSTEM</hdr:Prtry>
+                                        </hdr:SchmeNm>
+                                        <hdr:Issr>A5X</hdr:Issr>
+                                    </hdr:Othr>
+                                </hdr:OrgId>
+                            </hdr:Id>
+                        </hdr:OrgId>
+                    </hdr:To>
+                </hdr:AppHdr>
+                <prc:Document>
+                    <prc:PricRpt>
+                        <prc:PgntnInf>
+                            <prc:Id>
+                                <prc:PgntnId>PRC-PRC-0001</prc:PgntnId>
+                            </prc:Id>
+                            <prc:Pgntn>
+                                <prc:PgNb>00001</prc:PgNb>
+                                <prc:LastPgInd>true</prc:LastPgInd>
+                            </prc:Pgntn>
+                        </prc:PgntnInf>
+                        <!-- Record 1: PETR4 APR26 -->
+                        <prc:PricRptDtl>
+                            <prc:TradDt>
+                                <prc:Dt>2026-03-26</prc:Dt>
+                            </prc:TradDt>
+                            <prc:SctyId>
+                                <prc:TckrSymb>PETR4 APR26</prc:TckrSymb>
+                            </prc:SctyId>
+                            <prc:FinInstrmId>
+                                <prc:OthrId>
+                                    <prc:Id>847293615042</prc:Id>
+                                    <prc:Tp>
+                                        <prc:Prtry>8</prc:Prtry>
+                                    </prc:Tp>
+                                </prc:OthrId>
+                                <prc:PlcOfListg>
+                                    <prc:MktIdrCd>A5XB</prc:MktIdrCd>
+                                </prc:PlcOfListg>
+                            </prc:FinInstrmId>
+                            <prc:TradDtls>
+                                <prc:TradQty>35500</prc:TradQty>
+                            </prc:TradDtls>
+                            <prc:FinInstrmAttrbts>
+                                <prc:MktDataStrmId>E</prc:MktDataStrmId>
+                                <prc:NtlFinVol Ccy="BRL">1720929.00</prc:NtlFinVol>
+                                <prc:IntlFinVol Ccy="USD">328999.19</prc:IntlFinVol>
+                                <prc:OpnIntrst>11430900</prc:OpnIntrst>
+                                <prc:FinInstrmQty>35500</prc:FinInstrmQty>
+                                <prc:BestBidPric Ccy="BRL">48.110000</prc:BestBidPric>
+                                <prc:BestAskPric Ccy="BRL">59.610000</prc:BestAskPric>
+                                <prc:FrstPric Ccy="BRL">48.110000</prc:FrstPric>
+                                <prc:MinPric Ccy="BRL">48.110000</prc:MinPric>
+                                <prc:MaxPric Ccy="BRL">48.790000</prc:MaxPric>
+                                <prc:TradAvrgPric Ccy="BRL">48.470000</prc:TradAvrgPric>
+                                <prc:LastPric Ccy="BRL">48.480000</prc:LastPric>
+                                <prc:RglrTxsQty>68</prc:RglrTxsQty>
+                                <prc:RglrTraddCtrcts>35500</prc:RglrTraddCtrcts>
+                                <prc:NtlRglrVol Ccy="BRL">1720929.00</prc:NtlRglrVol>
+                                <prc:IntlRglrVol Ccy="USD">328999.19</prc:IntlRglrVol>
+                                <prc:AdjstdQt Ccy="BRL">48.400000</prc:AdjstdQt>
+                                <prc:AdjstdQtStin>F</prc:AdjstdQtStin>
+                                <prc:PrvsAdjstdQt Ccy="BRL">47.900000</prc:PrvsAdjstdQt>
+                                <prc:PrvsAdjstdQtStin>U</prc:PrvsAdjstdQtStin>
+                                <prc:OscnPctg>1.21</prc:OscnPctg>
+                                <prc:VartnPts Ccy="BRL">0.500000</prc:VartnPts>
+                                <prc:AdjstdValCtrct Ccy="BRL">0.500000</prc:AdjstdValCtrct>
+                                <prc:MaxTradLmt Ccy="BRL">59.640000</prc:MaxTradLmt>
+                                <prc:MinTradLmt Ccy="BRL">36.160000</prc:MinTradLmt>
+                            </prc:FinInstrmAttrbts>
+                        </prc:PricRptDtl>
+                        <!-- Record 2: SELIC JAN27 -->
+                        <prc:PricRptDtl>
+                            <prc:TradDt>
+                                <prc:Dt>2026-03-26</prc:Dt>
+                            </prc:TradDt>
+                            <prc:SctyId>
+                                <prc:TckrSymb>SELIC JAN27</prc:TckrSymb>
+                            </prc:SctyId>
+                            <prc:FinInstrmId>
+                                <prc:OthrId>
+                                    <prc:Id>123456</prc:Id>
+                                    <prc:Tp>
+                                        <prc:Prtry>8</prc:Prtry>
+                                    </prc:Tp>
+                                </prc:OthrId>
+                                <prc:PlcOfListg>
+                                    <prc:MktIdrCd>A5XB</prc:MktIdrCd>
+                                </prc:PlcOfListg>
+                            </prc:FinInstrmId>
+                            <prc:TradDtls>
+                                <prc:TradQty>1208196</prc:TradQty>
+                            </prc:TradDtls>
+                            <prc:FinInstrmAttrbts>
+                                <prc:MktDataStrmId>E</prc:MktDataStrmId>
+                                <prc:NtlFinVol Ccy="BRL">109122036646.28</prc:NtlFinVol>
+                                <prc:IntlFinVol Ccy="USD">20861443115.06</prc:IntlFinVol>
+                                <prc:OpnIntrst>6263413</prc:OpnIntrst>
+                                <prc:FinInstrmQty>1208196</prc:FinInstrmQty>
+                                <prc:BestBidPric Ccy="BRL">14.310000</prc:BestBidPric>
+                                <prc:BestAskPric Ccy="BRL">14.325000</prc:BestAskPric>
+                                <prc:FrstPric Ccy="BRL">14.230000</prc:FrstPric>
+                                <prc:MinPric Ccy="BRL">14.220000</prc:MinPric>
+                                <prc:MaxPric Ccy="BRL">14.360000</prc:MaxPric>
+                                <prc:TradAvrgPric Ccy="BRL">14.299000</prc:TradAvrgPric>
+                                <prc:LastPric Ccy="BRL">14.320000</prc:LastPric>
+                                <prc:RglrTxsQty>47164</prc:RglrTxsQty>
+                                <prc:RglrTraddCtrcts>1208196</prc:RglrTraddCtrcts>
+                                <prc:NtlRglrVol Ccy="BRL">109122036646.28</prc:NtlRglrVol>
+                                <prc:IntlRglrVol Ccy="USD">20861443115.06</prc:IntlRglrVol>
+                                <prc:AdjstdQt Ccy="BRL">90300.540000</prc:AdjstdQt>
+                                <prc:AdjstdQtTax Ccy="BRL">14.329000</prc:AdjstdQtTax>
+                                <prc:AdjstdQtStin>F</prc:AdjstdQtStin>
+                                <prc:PrvsAdjstdQt Ccy="BRL">90445.780000</prc:PrvsAdjstdQt>
+                                <prc:PrvsAdjstdQtTax Ccy="BRL">14.088000</prc:PrvsAdjstdQtTax>
+                                <prc:PrvsAdjstdQtStin>U</prc:PrvsAdjstdQtStin>
+                                <prc:OscnPctg>1.64</prc:OscnPctg>
+                                <prc:VartnPts Ccy="BRL">-145.240000</prc:VartnPts>
+                                <prc:AdjstdValCtrct Ccy="BRL">-145.240000</prc:AdjstdValCtrct>
+                                <prc:MaxTradLmt Ccy="BRL">14.870000</prc:MaxTradLmt>
+                                <prc:MinTradLmt Ccy="BRL">13.395000</prc:MinTradLmt>
+                            </prc:FinInstrmAttrbts>
+                        </prc:PricRptDtl>
+                    </prc:PricRpt>
+                </prc:Document>
+            </BizGrp>
+        </Xchg>
+    </BizFileHdr>
+</Document>

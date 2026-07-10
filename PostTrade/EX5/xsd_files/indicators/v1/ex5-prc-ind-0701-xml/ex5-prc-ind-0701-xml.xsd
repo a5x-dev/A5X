@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns="urn:ex5-prc-ind-0701-xml.xsd"
+        targetNamespace="urn:ex5-prc-ind-0701-xml.xsd"
+        elementFormDefault="qualified">
+
+    <!--
+        A5X Financial Indicators Data Message — XML Schema Definition (XSD)
+        File: ex5-prc-ind-0701-xml.xsd
+        Description: Defines the XML structure for the A5X Financial Indicators data message
+                     (reference/master data for economic/financial indicators).
+
+        Namespace:       urn:ex5-prc-ind-0701-xml.xsd
+        TargetNamespace: urn:ex5-prc-ind-0701-xml.xsd
+
+        Version: 1
+        Release-Date: 2026-03-16
+    -->
+
+    <!-- ========== ROOT DOCUMENT ========== -->
+
+    <xs:element name="Document" type="Document"/>
+
+    <xs:complexType name="Document">
+        <xs:sequence>
+            <xs:element name="Inds" type="Indicators"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========== INDICATORS WRAPPER ========== -->
+
+    <xs:complexType name="Indicators">
+        <xs:sequence>
+            <xs:element name="RptParams"  type="ReportParameters"/>
+            <xs:element name="InstrmId"   type="InstrumentIdentification"/>
+            <xs:element name="InstrmInf"  type="FinancialIndicatorAttributes"/>
+            <xs:element name="InstrmDtls" type="IndicatorDetailsChoice"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========== COMMON PART (REPORT + CORE IDENTIFICATION + COMMON ATTRIBUTES) ========== -->
+
+    <!-- Report parameters -->
+    <xs:complexType name="ReportParameters">
+        <xs:sequence>
+            <xs:element name="ActvtyInd"   type="YesNoFlag"/>
+            <xs:element name="Frqcy"       type="EventFrequencyCode"/>
+            <xs:element name="NetPosId"    type="TextMin1Max35"/>
+            <xs:element name="RptDtAndTm"  type="ReportDateChoice"/>
+            <xs:element name="RptNb"       type="FiveDigitNumericText" minOccurs="0"/>
+            <xs:element name="UpdTp"       type="StatementUpdateTypeCode"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Report date wrapper (date-only for this reduced model) -->
+    <xs:complexType name="ReportDateChoice">
+        <xs:sequence>
+            <xs:element name="Dt" type="ISODate"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Instrument/indicator identification (triple: id + source + exchange) -->
+    <xs:complexType name="InstrumentIdentification">
+        <xs:sequence>
+            <xs:element name="OthrId"     type="AlternativeIdentification"/>
+            <xs:element name="PlcOfListg" type="MarketIdentification"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Alternative (Other) identification: ID + proprietary type/source -->
+    <xs:complexType name="AlternativeIdentification">
+        <xs:sequence>
+            <xs:element name="Id" type="TextMin1Max35"/>
+            <xs:element name="Tp" type="SourceIdentification"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Identification source (proprietary code) -->
+    <xs:complexType name="SourceIdentification">
+        <xs:sequence>
+            <xs:element name="Prtry" type="TextMin1Max35"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Market identification (MIC code) -->
+    <xs:complexType name="MarketIdentification">
+        <xs:sequence>
+            <xs:element name="MktIdrCd" type="MICCode"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Common indicator attributes -->
+    <xs:complexType name="FinancialIndicatorAttributes">
+        <xs:sequence>
+            <xs:element name="InstrmNm"  type="TextMin1Max100"/>
+            <xs:element name="Desc"      type="TextMin1Max100"/>
+            <xs:element name="Sgmt"      type="SegmentCode"/>
+            <xs:element name="Mkt"       type="MarketCode"/>
+            <xs:element name="Asst"      type="TextMin1Max30"/>
+            <xs:element name="SctyCtgy"  type="SecurityCategoryCode"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Indicator-specific details -->
+    <xs:complexType name="IndicatorDetailsChoice">
+        <xs:sequence>
+            <xs:element name="EcncIndsInf" type="EconomicIndicatorsAttributes"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========== ECONOMIC / FINANCIAL INDICATORS ========== -->
+
+    <xs:complexType name="EconomicIndicatorsAttributes">
+        <xs:sequence>
+            <xs:element name="TpCd"         type="EconomicTypeCode"/>
+            <xs:element name="EcncIndDesc"  type="TextMin1Max100"/>
+            <xs:element name="BaseCd"       type="BaseCode"/>
+            <xs:element name="ValTpCd"      type="ValueTypeCode"/>
+            <xs:element name="NtryRefCd"    type="EntryReferenceCode" minOccurs="0"/>
+            <xs:element name="DcmlPrcsn"    type="DecimalPrecision"/>
+            <xs:element name="Mtrty"        type="MaturityCode"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========== PRIMITIVE / SHARED TYPES ========== -->
+
+    <!-- Boolean flag -->
+    <xs:simpleType name="YesNoFlag">
+        <xs:restriction base="xs:boolean"/>
+    </xs:simpleType>
+
+    <!-- Event frequency code -->
+    <xs:simpleType name="EventFrequencyCode">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DAIL"/>
+            <xs:enumeration value="ONDE"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Exactly 5 numeric characters -->
+    <xs:simpleType name="FiveDigitNumericText">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Statement update type -->
+    <xs:simpleType name="StatementUpdateTypeCode">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="COMP"/>
+            <xs:enumeration value="DELT"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- ISO 8601 date (YYYY-MM-DD) -->
+    <xs:simpleType name="ISODate">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+
+    <!-- Text from 1 to 30 characters -->
+    <xs:simpleType name="TextMin1Max30">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Text from 1 to 35 characters -->
+    <xs:simpleType name="TextMin1Max35">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="35"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Text from 1 to 100 characters -->
+    <xs:simpleType name="TextMin1Max100">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- MIC market identifier code (4 alphanumeric) -->
+    <xs:simpleType name="MICCode">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z0-9]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Security category code -->
+    <xs:simpleType name="SecurityCategoryCode">
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+
+    <!-- Market code -->
+    <xs:simpleType name="MarketCode">
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+
+    <!-- Segment code -->
+    <xs:simpleType name="SegmentCode">
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+
+    <!-- Economic indicator type code -->
+    <xs:simpleType name="EconomicTypeCode">
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+
+    <!-- Indicator value type code -->
+    <xs:simpleType name="ValueTypeCode">
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+
+    <!-- Base code -->
+    <xs:simpleType name="BaseCode">
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+
+    <!-- Optional entry/reference code -->
+    <xs:simpleType name="EntryReferenceCode">
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+
+    <!-- Decimal precision -->
+    <xs:simpleType name="DecimalPrecision">
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+
+    <!-- Maturity code -->
+    <xs:simpleType name="MaturityCode">
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+
+</xs:schema>

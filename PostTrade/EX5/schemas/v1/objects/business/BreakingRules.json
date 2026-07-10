@@ -15,10 +15,12 @@
       "description": "Indicates if the operation was requested outside the time limit",
       "$comment": "When true, indicates a breaking rule that requires justification"
     },
-    "breakingRuleDelayResponsibility": {
-      "type": "boolean",
-      "description": "Indicates which participant is responsible for the breaking rule operation",
-      "$comment": "Required when breakingRuleIndicator is true. True indicates the current participant is responsible, false indicates the counterparty is responsible"
+    "breakingRuleDelayResponsibility" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999,
+      "description" : "Breaking rule delay responsibility code",
+      "$comment" : "Consult External Code List table ExternalBreakingRulesResponsibilityCode"
     },
     "breakingRuleReason": {
       "$ref": "../../objects/business/ExternalCodeList.json",
@@ -31,7 +33,7 @@
   "examples": [
     {
       "breakingRuleIndicator": true,
-      "breakingRuleDelayResponsibility": true,
+      "breakingRuleDelayResponsibility": 1,
       "breakingRuleReason": 1
     }
   ]

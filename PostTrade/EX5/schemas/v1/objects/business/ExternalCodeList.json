@@ -8,7 +8,7 @@
   "title" : "ExternalCodeList",
   "type" : "integer",
   "minimum" : 0,
-  "maximum" : 999999,
-  "examples" : [ 1, 2, 3, 12345 ],
+  "maximum" : 999999999,
+  "examples" : [ 1, 2, 3, 123456789 ],
   "description" : "Code from external reference table"
 }

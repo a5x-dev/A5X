@@ -87,7 +87,7 @@
     },
     "allocationRoundLot": {
       "type": "integer",
-      "minimum": 1,
+      "minimum": 0,
       "maximum": 999999,
       "description": "Pre-defined lot size for allocation purposes"
     },
@@ -106,8 +106,7 @@
     "market",
     "segment",
     "instrumentDescription",
-    "tickerSymbol",
-    "securityCategory"
+    "tickerSymbol"
   ],
   "additionalProperties": false,
   "examples": [

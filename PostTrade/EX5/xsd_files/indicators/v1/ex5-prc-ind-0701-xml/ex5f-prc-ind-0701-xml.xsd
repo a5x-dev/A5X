@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="urn:ex5f-prc-ind-0701-xml.xsd"
+           targetNamespace="urn:ex5f-prc-ind-0701-xml.xsd"
+           xmlns:hdr="urn:iso:std:iso:20022:tech:xsd:head.001.001.01"
+           xmlns:ind="urn:ex5-prc-ind-0701-xml.xsd"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <!--
+        A5X Financial Indicators Data File — XML Schema Definition (XSD)
+        File: ex5f-prc-ind-0701-xml.xsd
+        Description: Defines the common file structure for the A5X Financial Indicators registration file,
+                     including the base envelope (ex5f-env-0100-xml.xsd) and binding the BizGrp payload
+                     (EnvelopeGroupPayload) to:
+                     - hdr:AppHdr   (ISO 20022 Application Header - head.001.001.01.xsd)
+                     - ind:Document (A5X Financial Indicators payload - ex5-prc-ind-0701-xml.xsd)
+
+        Namespace:       urn:ex5f-prc-ind-0701-xml.xsd
+        TargetNamespace: urn:ex5f-prc-ind-0701-xml.xsd
+
+        Version: 1
+        Release-Date: 2026-03-16
+    -->
+
+    <xs:include schemaLocation="ex5f-env-0100-xml.xsd"/>
+
+    <xs:import namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.01"
+               schemaLocation="head.001.001.01.xsd"/>
+
+    <xs:import namespace="urn:ex5-prc-ind-0701-xml.xsd"
+               schemaLocation="ex5-prc-ind-0701-xml.xsd"/>
+
+    <!-- Root element for the A5X IND file envelope -->
+    <xs:element name="Document" type="FileEnvelopeDocument"/>
+
+    <!-- Payload (hook) for BizGrp -->
+    <xs:complexType name="EnvelopeGroupPayload">
+        <xs:sequence>
+            <xs:element ref="hdr:AppHdr"/>
+            <xs:element ref="ind:Document"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

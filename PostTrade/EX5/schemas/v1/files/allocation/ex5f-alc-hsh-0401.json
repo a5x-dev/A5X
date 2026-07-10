@@ -24,30 +24,23 @@
     "segment" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "$comment" : "Consult External Code List table ExternalSegmentCode",
       "examples" : [ 1 ]
     },
     "market" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Market type - second level of market classification in post-trading process",
       "$comment" : "Consult External Code List table ExternalMarketCode",
       "examples" : [ 10 ]
     },
     "accountOriginIdentification" : {
-      "type" : "string",
-      "maxLength" : 35,
-      "minLength" : 1,
-      "description" : "Number account identification"
-    },
-    "accountOriginType" : {
       "type" : "integer",
-      "minimum" : 0,
-      "maximum" : 999999,
-      "description" : "Account type identification for origin account",
-      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
+      "minimum" : 1,
+      "maximum" : 999999999,
+      "description" : "Account identifier defined by the participant"
     },
     "hashCode64" : {
       "type" : "string",

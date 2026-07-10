@@ -47,13 +47,11 @@
     },
     "positionConsolidation": {
       "type": "boolean",
-      "default": false,
       "description": "Enables position consolidation between linked accounts",
       "$comment": "Optional field. When true, positions will be consolidated across the linked accounts."
     },
     "automaticAcceptance": {
       "type": "boolean",
-      "default": false,
       "description": "Enables automatic approval of transfer requests"
     }
   },

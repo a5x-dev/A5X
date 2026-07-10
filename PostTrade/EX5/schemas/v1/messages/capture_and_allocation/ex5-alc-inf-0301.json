@@ -5,8 +5,8 @@
     "domain": "capture_and_allocation",
     "schemaId": "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-alc-inf-03"
   },
-  "title": "Inform Give Up Pending Approval",
-  "description": "Inform Give Up Pending Approval",
+  "title": "Inform GiveUp",
+  "description": "Inform GiveUp",
   "type": "object",
   "properties": {
     "participantIdentification": {
@@ -68,7 +68,7 @@
     },
     "allocationIdentification": {
       "type": "string",
-      "maxLength": 35,
+      "maxLength": 30,
       "minLength": 1,
       "description": "Primary allocation identification number assigned by the system",
       "$comment": "This is the main identifier used by the central system to track allocations"
@@ -130,7 +130,7 @@
         "financialInstrumentIdentification": {
           "id": "100000000000001",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         },
         "tickerSymbol": "DFZ0001",
         "segment": 1,
@@ -149,6 +149,7 @@
         "tradeMatchIdentification": "MATCH20250",
         "secondaryTradeMatchIdentification": "SMATCH2025",
         "tradingSessionIdentification": 1,
+        "tradeRegistrationOrigin": "DMA1",
         "securityTradingStatus": 1,
         "tradeSubType": 37,
         "sideTradeSubType": "NORMAL",
@@ -175,7 +176,7 @@
       },
       "breakingRules": {
         "breakingRuleIndicator": true,
-        "breakingRuleDelayResponsibility": true,
+        "breakingRuleDelayResponsibility": 1,
         "breakingRuleReason": 1
       },
       "tradeParticipantIdentification": {

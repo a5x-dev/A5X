@@ -1,0 +1,39 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "External Product Family Code",
+  "description": "Codes for product family classification",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "Equities",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "Currencies",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Indices",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Interest Rates",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Crypto",
+      "const": 5
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ]
+}

@@ -20,19 +20,12 @@
       "description" : "Code for approval status",
       "$comment" : "Consult External Code List table ExternalStatusTransferEventCode",
       "examples" : [ 1 ]
-    },
-    "rejectionCode" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
-      "description" : "Code for rejection status",
-      "$comment" : "Consult External Code List table ExternalStatusTransferEventCode",
-      "examples" : [ 2 ]
     }
   },
   "required" : [ "transferEventCode" ],
   "additionalProperties" : false,
   "examples" : [ {
     "transferEventCode" : 2,
-    "approvalCode" : 1,
-    "rejectionCode" : 2
+    "approvalCode" : 1
   } ]
 }

@@ -10,7 +10,7 @@
   "type" : "object",
   "properties" : {
     "pagination" : {
-      "$ref" : "../../objects/business/Pagination.json",
+      "$ref" : "../../objects/tech/Pagination.json",
       "description" : "Pagination details"
     },
     "clearingMemberIdentification" : {
@@ -40,7 +40,7 @@
   "examples" : [
     {
       "pagination" : {
-        "paginationId" : "ABCDD",
+        "paginationSet": "SET1",
         "pageNumber" : "1",
         "lastPageIndicator" : true
       },

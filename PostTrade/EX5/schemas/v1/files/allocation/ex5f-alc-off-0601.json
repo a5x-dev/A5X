@@ -36,7 +36,7 @@
     "buySellIndicator" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Indicates whether the trade is a buy or sell",
       "$comment" : "Consult External Code List table ExternalBuySellIndicatorCode"
     },
@@ -71,7 +71,7 @@
     "segment" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Market segment - first level of market classification in post-trading process",
       "$comment" : "Consult External Code List table ExternalSegmentCode"
     },
@@ -111,7 +111,7 @@
     "accountPreviousType" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Account type identification that will be registered",
       "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
     },
@@ -143,7 +143,7 @@
     "accountOriginType" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Account type identification that will be registered",
       "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
     },
@@ -175,28 +175,28 @@
     "accountDestinationType" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Account type identification that will be registered",
       "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
     },
     "breakingRuleType" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Breaking rule type code",
       "$comment" : "Consult External Code List table ExternalBreakingRulesTypeCode"
     },
     "breakingRuleDelayResponsibility" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Breaking rule delay responsibility code",
       "$comment" : "Consult External Code List table ExternalBreakingRulesResponsibilityCode"
     },
     "breakingRuleReason" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Breaking rule reason code",
       "$comment" : "Consult External Code List table ExternalBreakingRulesReasonCode"
     },
@@ -208,7 +208,7 @@
     "allocationStatus" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Processing status of the allocation instruction",
       "$comment" : "Consult External Code List table ExternalAllocationInstruction"
     },

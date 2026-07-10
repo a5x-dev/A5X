@@ -17,7 +17,7 @@
       "allOf" : [ {
         "$ref" : "../../objects/business/Trade.json"
       }, {
-        "required" : [ "tradeDate", "buySellIndicator", "tradeId", "allocationId", "statusCode" ]
+        "required" : [ "tradeDate", "buySellIndicator", "tradeIdentification", "allocationIdentification", "statusCode" ]
       } ],
       "description" : "Trade information including account, trade date, buy/sell indicator, and trade identification"
     },
@@ -59,7 +59,7 @@
       "description" : "Average price group and execution time information"
     }
   },
-  "required" : [ "accountIdentification", "trade", "participantIdentification", "instrument", "tradeDetails", "giveUpOnCaptureIndicator" ],
+  "required" : [ "accountIdentification", "trade", "participantIdentification", "instrument", "transactionDateTime", "tradeQuantity", "giveUpOnCaptureIndicator" ],
   "example" : [ {
     "accountIdentification" : {
       "id" : 123456789
@@ -87,7 +87,7 @@
       "financialInstrumentIdentification" : {
         "id" : "100000000000001",
         "source" : "8",
-        "exchange" : "A5X"
+        "exchange" : "A5XB"
       },
       "tickerSymbol" : "DFZ0001"
     },
@@ -96,8 +96,8 @@
     "compressionGroupIndicator" : false,
     "giveUpOnCaptureIndicator" : true,
     "averagePrice" : {
-      "averagePriceIndicator" : true,
-      "executionTime" : "2025-08-27T14:35:20Z"
+      "averagePriceGroupIndicator": true,
+      "averageExecutionTime": "2023-06-15T10:30:00Z"
     }
   } ]
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:ex5-prc-ind-0701-xml.xsd">
+    <Inds>
+        <RptParams>
+            <ActvtyInd>true</ActvtyInd>
+            <Frqcy>DAIL</Frqcy>
+            <NetPosId>PRC-IND-0001</NetPosId>
+            <RptDtAndTm>
+                <Dt>2026-03-16</Dt>
+            </RptDtAndTm>
+            <RptNb>00001</RptNb>
+            <UpdTp>COMP</UpdTp>
+        </RptParams>
+        <InstrmId>
+            <OthrId>
+                <Id>900000000001</Id>
+                <Tp>
+                    <Prtry>8</Prtry>
+                </Tp>
+            </OthrId>
+            <PlcOfListg>
+                <MktIdrCd>A5X1</MktIdrCd>
+            </PlcOfListg>
+        </InstrmId>
+        <InstrmInf>
+            <InstrmNm>IPCA</InstrmNm>
+            <Desc>Indice Nacional de Precos ao Consumidor Amplo</Desc>
+            <Sgmt>9</Sgmt>
+            <Mkt>9</Mkt>
+            <Asst>IPCA</Asst>
+            <SctyCtgy>901</SctyCtgy>
+        </InstrmInf>
+        <InstrmDtls>
+            <EcncIndsInf>
+                <TpCd>1</TpCd>
+                <EcncIndDesc>Inflation index - IPCA</EcncIndDesc>
+                <BaseCd>100</BaseCd>
+                <ValTpCd>0</ValTpCd>
+                <NtryRefCd>1</NtryRefCd>
+                <DcmlPrcsn>2</DcmlPrcsn>
+                <Mtrty>0</Mtrty>
+            </EcncIndsInf>
+        </InstrmDtls>
+    </Inds>
+</Document>

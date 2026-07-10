@@ -51,11 +51,11 @@
     "financialInstruments" : [ {
       "id" : "100000000000001",
       "source" : "8",
-      "exchange" : "A5X"
+      "exchange" : "A5XB"
     }, {
       "id" : "100000000000002",
       "source" : "8",
-      "exchange" : "A5X"
+      "exchange" : "A5XB"
     } ],
     "reportType" : 1
   } ]

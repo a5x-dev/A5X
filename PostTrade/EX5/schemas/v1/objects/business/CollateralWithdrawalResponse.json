@@ -71,7 +71,7 @@
             "currency": "BRL",
             "amount": "100000.00"
           },
-          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }] }
+          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
         }
       ],
       "cashCollateral": [
@@ -85,7 +85,7 @@
             "currency": "BRL",
             "amount": "100000.00"
           },
-          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }] }
+          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
         }
       ],
       "federalBondsResponse": [
@@ -99,7 +99,7 @@
           "selicOperationCode": "65499",
           "assignerAccount": "ASSIGNER-ACC-001",
           "assigneeAccount": "ASSIGNEE-ACC-001",
-          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }] }
+          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
         }
       ],
       "collateralSubstitutionStatus": {
@@ -109,7 +109,7 @@
             "code": "TEC00000",
             "message": "Error X",
             "errorDescription": "COD12452",
-            "refId": "REF12345"
+            "referenceIdentification": "REF12345"
           }
         ]
       },
@@ -121,7 +121,7 @@
             "currency": "BRL",
             "amount": "100000.00"
           },
-          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "refId": "REF12345" }] }
+          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
         }
       ]
     }

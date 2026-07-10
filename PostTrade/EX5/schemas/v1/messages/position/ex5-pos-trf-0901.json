@@ -9,8 +9,8 @@
   "description" : "Message for Position Transfer Request.",
   "type" : "object",
   "properties" : {
-    "paginationInformation" : {
-      "$ref" : "../../objects/business/Pagination.json",
+    "pagination" : {
+      "$ref" : "../../objects/tech/Pagination.json",
       "description" : "Pagination control information for large result sets"
     },
     "positionTransferInformation" : {
@@ -43,11 +43,11 @@
       "description" : "Provides details about the account identification"
     }
   },
-  "required" : [ "paginationInformation", "positionTransferInformation", "clearingMemberOriginIdentification", "participantOriginIdentification", "positionTransferDetails" ],
+  "required" : [ "pagination", "positionTransferInformation", "clearingMemberOriginIdentification", "participantOriginIdentification", "positionTransferDetails" ],
   "additionalProperties" : false,
   "examples" : [ {
-    "paginationInformation" : {
-      "paginationId" : "ABCDD",
+    "pagination" : {
+      "paginationSet": "SET1",
       "pageNumber" : "1",
       "lastPageIndicator" : true
     },
@@ -73,7 +73,7 @@
       "instrumentIdentification" : {
         "id" : "7685349",
         "source" : "8",
-        "exchange" : "A5X"
+        "exchange" : "A5XB"
       },
       "shortLongIndicator" : "1",
       "quantity" : "200.00"

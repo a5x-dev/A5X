@@ -48,14 +48,14 @@
     "segment" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Market segment - first level of market classification in post-trading process",
       "$comment" : "Consult External Code List table ExternalSegmentCode"
     },
     "market" : {
       "type" : "integer",
-      "minimum" : 0,
-      "maximum" : 999999,
+      "minimum" : 1,
+      "maximum" : 999999999,
       "description" : "Market type - second level of market classification in post-trading process",
       "$comment" : "Consult External Code List table ExternalMarketCode"
     },
@@ -76,7 +76,7 @@
     "optionType" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)",
       "$comment" : "Consult External Code List table ExternalOptionTypeCode"
     },
@@ -93,13 +93,6 @@
       "pattern" : "^\\d{1,15}(\\.\\d{1,10})?$",
       "description" : "Rate expressed as a decimal between 0 and 1 defining the outstanding principal of the financial instrument (for factored securities)"
     },
-    "exercisePrice" : {
-      "type" : "string",
-      "minLength" : 1,
-      "maxLength" : 22,
-      "pattern" : "^\\d{1,15}(\\.\\d{1,10})?$",
-      "description" : "Monetary amount of the exercise price with high precision (up to 10 decimal places)"
-    },
     "tradeDate" : {
       "type" : "string",
       "format" : "date",
@@ -107,8 +100,8 @@
     },
     "tradeTransactionType" : {
       "type" : "integer",
-      "minimum" : 1,
-      "maximum" : 999999,
+      "minimum" : 0,
+      "maximum" : 999999999,
       "description" : "Trade transaction type code",
       "$comment" : "Consult External Code List table ExternalTradeTransactionTypeCode"
     },
@@ -120,7 +113,7 @@
     "tradeSubType" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Additional qualification for trade type",
       "$comment" : "Consult External Code List table ExternalTradeSubTypeCode"
     },
@@ -133,7 +126,7 @@
     "strategyType" : {
       "type" : "string",
       "minLength" : 1,
-      "maxLength" : 35,
+      "maxLength" : 5,
       "description" : "Defines strategy type",
       "$comment" : "Consult External Code List table ExternalStrategyTypeCode"
     },
@@ -159,14 +152,14 @@
     "buySellIndicator" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Indicates whether the trade is a buy or sell",
       "$comment" : "Consult External Code List table ExternalBuySellIndicatorCode"
     },
     "tradingSessionIdentification" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Indicates if trade was executed during regular hours or after market",
       "$comment" : "Consult External Code List table ExternalTradingSessionIdCode"
     },
@@ -179,14 +172,14 @@
     "tradingSessionSubIdentification" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Identifies the phase group in trading session",
       "$comment" : "Consult External Code List table ExternalTradingSessionSubIdCode"
     },
     "securityTradingStatus" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Identifies the instrument phase in trading",
       "$comment" : "Consult External Code List table ExternalSecurityTradingStatusCode"
     },
@@ -237,6 +230,12 @@
       "pattern" : "^\\d{1,15}(\\.\\d{1,6})?$",
       "description" : "Delta value with up to 6 decimal places",
       "$comment" : "Represents the rate of change between the derivative price and the underlying asset price"
+    },
+    "tradingDeskIdentification" : {
+      "type" : "string",
+      "maxLength" : 50,
+      "minLength" : 1,
+      "description" : "Identifies trading desk or strategy"
     },
     "compressionGroupIndicator" : {
       "type" : "boolean",
@@ -334,6 +333,6 @@
       "$comment" : "When true, indicates a rule break that requires justification"
     }
   },
-  "required" : [ "referenceDate", "participantOriginIdentificationId", "participantOriginIdentificationCategory", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDate", "transactionDateTime", "tradeIdentification", "dealPrice", "buySellIndicator", "accountOriginIdentification", "participantDestinationIdentificationId", "participantDestinationIdentificationCategory", "accountDestinationIdentification", "giveUpOnCaptureIndicator", "quantity", "allocationIdentification", "giveUpDateTime", "allocationStatusCode", "breakingRuleIndicator" ],
+  "required" : [ "referenceDate", "participantOriginIdentificationId", "participantOriginIdentificationCategory", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDate", "tradeTransactionType", "transactionDateTime", "tradeIdentification", "dealPrice", "buySellIndicator", "tradeMatchIdentification", "accountOriginIdentification", "participantDestinationIdentificationId", "participantDestinationIdentificationCategory", "accountDestinationIdentification", "giveUpOnCaptureIndicator", "quantity", "allocationIdentification", "giveUpDateTime", "allocationStatusCode", "breakingRuleIndicator" ],
   "additionalProperties" : false
 }

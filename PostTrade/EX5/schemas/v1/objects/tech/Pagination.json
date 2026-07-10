@@ -1,20 +1,33 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:tech:Pagination",
+  "$id" : "urn:a5x:ex5:schema:v1:business:Pagination",
   "$metadata" : {
-    "domain" : "tech",
-    "schemaId" : "urn:a5x:ex5:schema:v1:tech:Pagination"
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:Pagination"
   },
+  "title" : "Pagination Information",
+  "description" : "Pagination control information for large result sets",
   "type" : "object",
-  "title" : "Pagination",
-  "description" : "Information for pagination control",
   "properties" : {
-    "currentPage" : {
-      "type" : "integer",
-      "minimum" : 1,
-      "description" : "Current page number"
+    "paginationSet" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "Unique identifier for the pagination set",
+      "examples" : [ "SET1", "PG001", "BATCH123" ]
     },
-    "perPage" : {
+    "pageNumber" : {
+      "type" : "string",
+      "pattern" : "^[0-9]{1,5}$",
+      "description" : "Current page number",
+      "examples" : [ "1", "2", "100" ]
+    },
+    "lastPageIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates if this is the last page",
+      "examples" : [ true, false ]
+    },
+    "itemsPerPage" : {
       "type" : "integer",
       "minimum" : 0,
       "description" : "Number of items per page"
@@ -23,21 +36,13 @@
       "type" : "integer",
       "minimum" : 1,
       "description" : "Total number of pages"
-    },
-    "totalItems" : {
-      "type" : "integer",
-      "minimum" : 0,
-      "description" : "Total number of items"
-    },
-    "nextPage" : {
-      "type" : [ "integer", "null" ],
-      "description" : "Next page number, if available"
-    },
-    "prevPage" : {
-      "type" : [ "integer", "null" ],
-      "description" : "Previous page number, if available"
     }
   },
-  "required" : [ "currentPage", "perPage", "totalPages", "totalItems" ],
-  "additionalProperties" : false
+  "required" : [ "paginationSet", "pageNumber", "lastPageIndicator" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "paginationSet" : "SET1",
+    "pageNumber" : "1",
+    "lastPageIndicator" : true
+  } ]
 }

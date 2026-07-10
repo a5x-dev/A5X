@@ -20,60 +20,26 @@
     },
     {
       "type": "number",
-      "description": "AGRIBUSINESS",
-      "const": 4
-    },
-    {
-      "type": "number",
       "description": "FINANCIAL",
       "const": 5
     },
     {
       "type": "number",
-      "description": "METAL",
-      "const": 6
-    },
-    {
-      "type": "number",
-      "description": "ENERGY",
-      "const": 7
-    },
-    {
-      "type": "number",
       "description": "GOV. BONDS",
       "const": 8
-    },
+    },   
     {
       "type": "number",
-      "description": "FX",
-      "const": 9
-    },
-    {
-      "type": "number",
-      "description": "OTC",
-      "const": 10
-    },
-    {
-      "type": "number",
-      "description": "INDICATORS",
-      "const": 11
-    },
-    {
-      "type": "number",
-      "description": "OTC traded Securities Lending",
-      "const": 12
-    },
-    {
-      "type": "number",
-      "description": "OTC FIXED INCOME",
-      "const": 13
+      "description": "FPR",
+      "const": 14
     }
   ],
   "examples": [
     1,
     2,
     3,
-    4,
-    5
+    5,
+    8,
+    14
   ]
 }

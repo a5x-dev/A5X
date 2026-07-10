@@ -157,6 +157,8 @@
           },
           "address": [
             {
+              "isPrimary": true,
+              "addressType": 2,
               "street": "Rua Brasilândia",
               "number": "123",
               "complement": "Apto 101",

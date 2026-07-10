@@ -29,7 +29,7 @@
     "instrumentIdentification" : {
       "id" : "7685349",
       "source" : "8",
-      "exchange" : "A5X"
+      "exchange" : "A5XB"
     },
     "shortLongIndicator" : "2",
     "quantity" : "200.00"
@@ -37,7 +37,7 @@
     "instrumentIdentification" : {
       "id" : "2648579",
       "source" : "8",
-      "exchange" : "A5X"
+      "exchange" : "A5XB"
     },
     "shortLongIndicator" : "1",
     "quantity" : "100.00"

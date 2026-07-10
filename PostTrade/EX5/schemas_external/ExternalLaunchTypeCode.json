@@ -1,16 +1,16 @@
-{
+﻿{
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Side Type",
-  "description": "Codes for side type",
+  "title": "External Launch Type",
+  "description": "Codes for launch type",
   "oneOf": [
     {
       "type": "number",
-      "description": "Buy",
+      "description": "Credit",
       "const": 1
     },
     {
       "type": "number",
-      "description": "Sell",
+      "description": "Debit",
       "const": 2
     }
   ],

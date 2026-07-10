@@ -111,7 +111,7 @@
     "currencyCode": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 666666,
+      "maxLength": 15,
       "description": "Instrument currency",
       "$comment": "Consultar a lista na tabela ExternalCurrencyCode"
     },
@@ -124,7 +124,7 @@
     "issuerCountry": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 666666,
+      "maxLength": 15,
       "description": "Instrument issuer country",
       "$comment": "Consultar a lista na tabela ExternalCountryCode"
     },
@@ -446,16 +446,16 @@
     },
     "contractMultiplier": {
       "type": "string",
-      "maxLength": 1,
-      "minLength": 17,
-      "pattern": "^\\d{1,1}(\\.\\d{1,17})?$",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,10}(\\.\\d{1,9})?$",
       "description": "Ratio between contract size and commodity quotation quantity"
     },
     "assetQuotationQuantity": {
       "type": "string",
       "maxLength": 20,
       "minLength": 1,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "pattern": "^\\d{1,10}(\\.\\d{1,9})?$",
       "description": "Indicates the commodity quantity on which the trade price is based"
     },
     "assetSettlementIndicatorSecurityId": {
@@ -502,14 +502,14 @@
     "exerciseStyle": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 666666,
+      "maxLength": 15,
       "description": "Code that defines how an option can be exercised",
       "$comment": "Consultar a lista na tabela ExternalExerciseStyleCode"
     },
     "optionType": {
       "type": "integer",
-      "minLength": 1,
-      "maxLength": 666666,
+      "minimum": 1,
+      "maximum": 999999,
       "description": "Specifies whether an option is call or put",
       "$comment": "Consultar lista na tabela ExternalOptionTypeCode"
     },
@@ -558,6 +558,24 @@
       "maxLength": 4,
       "description": "Target financial instrument exchange identifier"
     },
+    "target3InstrumentIdentificationSecurityId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "description": "Third target financial instrument identifier"
+    },
+    "target3InstrumentIdentificationSecuritySource": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "description": "Third target financial instrument source identifier"
+    },
+    "target3InstrumentIdentificationSecurityExchange": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4,
+      "description": "Third target financial instrument exchange identifier"
+    },
     "protectionFlag": {
       "type": "boolean",
       "description": "Indicates that the option is protected against corporate events"
@@ -577,6 +595,7 @@
     "asset",
     "assetDescription",
     "market",
+    "tickerSymbol",
     "segment",
     "instrumentDescription",
     "collateralIndicator"

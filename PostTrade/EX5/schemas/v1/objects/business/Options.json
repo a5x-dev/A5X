@@ -132,12 +132,12 @@
       "tradingEndDate": "2024-12-30",
       "expirationCode": "Z24",
       "deliveryType": 2,
-      "contractMultiplier": "1.2510234564330",
+      "contractMultiplier": "1.251023456",
       "assetQuotationQuantity": "1.00",
       "underlyingInstrumentIdentification": {
         "id": "10000000000000001",
         "source": "8",
-        "exchange": "A5X"
+        "exchange": "A5XB"
       },
       "exercisePrice": {
         "amount": 50.00,

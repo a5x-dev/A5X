@@ -9,8 +9,9 @@
   "description": "Information specific to options on spot and futures",
   "type": "object",
   "properties": {
-    "exercisePrice": {
-      "$ref": "../../objects/business/ExercisePrice.json",
+    "exercisePriceAmount": {
+      "type": "string",
+      "pattern": "^\\d{1,15}(\\.\\d{1,10})?$",
       "description": "Price at which the option can be exercised"
     },
     "exerciseStyle": {
@@ -76,7 +77,6 @@
     }
   },
   "required": [
-    "exercisePrice",
     "exerciseStyle",
     "optionType",
     "paymentType",
@@ -88,27 +88,24 @@
   "additionalProperties": false,
   "examples": [
     {
-      "exercisePrice": {
-        "amount": 35.5,
-        "currency": "BRL"
-      },
+      "exercisePriceAmount": "35.5",
       "exerciseStyle": "EURO",
       "optionType": 1,
-      "contractMultiplier": "1.2510234564330",
-      "assetQuotationQuantity": "1.2510234564330",
+      "contractMultiplier": "1.251023456",
+      "assetQuotationQuantity": "1.251023456",
       "paymentType": 1,
       "underlyingInstrumentIdentification":
         {
           "id": "10000000000000001",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         },
       "premiumUpfrontIndicator": true,
       "openingPositionLimitDate": "2024-12-31",
       "assetSettlementIdentification": {
           "id": "10000000000000002",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         },
       "withdrawalDays": 90,
       "workingDays": 63,

@@ -27,22 +27,6 @@
       "description": "Type of person",
       "$comment": "Consult External Code List table ExternalPersonTypeCode"
     },
-    "relationshipStatus": {
-      "$ref": "../../objects/business/ExternalCodeList.json",
-      "description": "Status of the professional relationship",
-      "$comment": "Consult External Code List table ExternalStatusCode"
-    },
-    "professionalStatus": {
-      "$ref": "../../objects/business/ExternalCodeList.json",
-      "description": "Professional status",
-      "$comment": "Consult External Code List table ExternalStatusCode"
-    },
-    "statusReason": {
-      "type": "string",
-      "maxLength": 200,
-      "minLength": 1,
-      "description": "Reason for professional status"
-    },
     "personName": {
       "$ref": "../../objects/business/NaturalPersonName.json",
       "description": "Professional's full name and social name"
@@ -55,14 +39,14 @@
       "$ref": "../../objects/business/ExternalCodeTextList.json",
       "description": "Professional's nationality",
       "$comment": "Consult External Code List table ExternalCountryCode"
-    },
-    "relationshipType": {
+    },    
+      "relationshipType": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Type of professional relationship",
       "$comment": "Consult External Code List table ExternalProfessionalRelationshipCode"
     },
     "address": {
-      "$ref": "../../objects/business/Address.json",
+      "$ref": "../../objects/business/ProfessionalAddress.json",
       "description": "Professional's business address information"
     },
     "professionalActivity": {
@@ -78,7 +62,7 @@
       "items": {
         "$ref": "../../objects/business/ProfessionalCertification.json"
       },
-      "minItems": 1,
+      "minItems": 0,
       "maxItems": 60,
       "description": "List of professional certifications"
     },
@@ -97,7 +81,8 @@
     "nationality",
     "relationshipType",
     "address",
-    "certifications"
+    "professionalActivity",
+    "certificationExemption"
   ],
   "additionalProperties": false,
   "examples": [
@@ -112,9 +97,6 @@
         "documentNumber": "12345678900"
       },
       "personType": 1,
-      "relationshipStatus": 1,
-      "professionalStatus": 1,
-      "statusReason": "Esse campo tem 200 caracteres no máximo.",
       "personName": {
         "fullName": "João Silva Santos",
         "socialName": "João Santos"

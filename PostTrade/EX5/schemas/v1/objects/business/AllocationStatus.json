@@ -26,10 +26,10 @@
         "$ref": "../../objects/tech/StatusError.json"
       },
       "description": "Array of error rule identifiers when status indicates failure",
-      "maxItems": 50
+      "maxItems": 60
     }
   },
-  "required": [],
+  "required": ["allocationStatusCode"],
   "additionalProperties": false,
   "examples": [
     {
@@ -40,7 +40,7 @@
           "code": "TEC00000",
           "message": "Error X",
           "errorDescription": "COD12452",
-          "refId": "REF12345"
+          "referenceIdentification": "REF12345"
         }
       ]
     }

@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-ind-0201",
+  "$id": "urn:a5x:ex5:schema:v1:instrument:ex5f-ins-ind-0201",
   "$metadata": {
-    "domain": "pricing",
-    "schemaId": "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-ind-0201"
+    "domain": "instrument",
+    "schemaId": "urn:a5x:ex5:schema:v1:instrument:ex5f-ins-ind-0201"
   },
   "title": "Economic Indicator Report",
   "description": "JSON Schema for the Economic Indicator Report",
@@ -25,13 +25,12 @@
       "type": "string",
       "minLength": 3,
       "maxLength": 8,
-      "description": "Exchange or market identifier where the financial instrument is listed or traded according to ISO 10383",
-      "$comment": "Consult External Code List table ExternalMarketCode"
+      "description": "Exchange or market identifier where the financial instrument is listed or traded according to ISO 10383"
     },
     "tickerSymbol": {
       "type": "string",
       "minLength": 1,
-      "maxLength": 100,
+      "maxLength": 35,
       "description": "Trading symbol or code of the instrument"
     },
     "instrumentDescription": {
@@ -42,15 +41,15 @@
     },
     "segment": {
       "type": "integer",
-      "minimum": 1,
-      "maximum": 999999,
+      "minimum": 0,
+      "maximum": 999999999,
       "description": "Market segment representing the first level of market classification in post-trading process",
       "$comment": "Consult External Code List table ExternalSegmentCode"
     },
     "market": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Market type representing the second level of market classification in post-trading process",
       "$comment": "Consult External Code List table ExternalMarketCode"
     },
@@ -62,8 +61,8 @@
     },
     "securityCategory": {
       "type": "integer",
-      "minimum": 1,
-      "maximum": 999999,
+      "minimum": 0,
+      "maximum": 999999999,
       "description": "Security category representing the third level of market classification in post-trading process",
       "$comment": "Consult External Code List table ExternalSecurityCategoryCode"
     },
@@ -83,13 +82,13 @@
     "economicIndicatorBaseCode": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Number of days in the period used for price calculation or interest correction, e.g., 252, 360, 365",
       "$comment": "Consult External Code List table ExternalInterestRateCorrectionTimeBaseCode"
     },
     "economicIndicatorValueTypeCode": {
       "type": "integer",
-      "minimum": 1,
+      "minimum": 0,
       "maximum": 99,
       "description": "Code identifying the presentation format of the economic indicator (price or percentage)",
       "$comment": "Consult External Code List table ExternalValueTypeCode"
@@ -112,6 +111,37 @@
       "maximum": 99,
       "description": "Code for the maturity interval to be used (1=Monthly, 2=Reference, 3=Validity)",
       "$comment": "Consult External Code List table ExternalMaturityCode"
+    },
+    "currency": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 3,
+      "description": "Currency code of the instrument",
+      "$comment": "Consult External Code List table ExternalCurrencyCode"
+    },
+    "type": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999999,
+      "description": "Type classification of the economic indicator instrument"
+    },
+    "subType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999999,
+      "description": "Sub-type classification of the economic indicator instrument"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Name of the economic indicator instrument"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255,
+      "description": "Detailed description of the economic indicator instrument"
     }
   },
   "required": [
@@ -121,9 +151,7 @@
     "tickerSymbol",
     "instrumentDescription",
     "segment",
-    "market",
-    "asset",
-    "securityCategory"
+    "market"
   ],
   "additionalProperties": false
 }

@@ -10,7 +10,7 @@
   "type" : "object",
   "properties" : {
     "pagination" : {
-      "$ref" : "../../objects/business/Pagination.json",
+      "$ref" : "../../objects/tech/Pagination.json",
       "description" : "Pagination control information for large result sets"
     },
     "positionTransferDetails" : {
@@ -26,7 +26,7 @@
   "additionalProperties" : false,
   "examples" : [ {
     "pagination" : {
-      "paginationId" : "XXFGH",
+      "paginationSet": "SET1",
       "pageNumber" : "1",
       "lastPageIndicator" : true
     },

@@ -22,14 +22,14 @@
     "segment" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Market segment - first level of market classification in post-trading process",
       "$comment" : "Consult External Code List table ExternalSegmentCode"
     },
     "market" : {
       "type" : "integer",
       "minimum" : 0,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Market type - second level of market classification in post-trading process",
       "$comment" : "Consult External Code List table ExternalMarketCode"
     },
@@ -38,13 +38,6 @@
       "minimum" : 1,
       "maximum" : 999999999,
       "description" : "Account identification defined by the participant"
-    },
-    "accountType" : {
-      "type" : "integer",
-      "minimum" : 0,
-      "maximum" : 999999,
-      "description" : "Account type identification",
-      "$comment" : "Consult External Code List table ExternalSecurityAccountTypeCode"
     },
     "hashCode64" : {
       "type" : "string",

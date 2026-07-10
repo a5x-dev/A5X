@@ -12,21 +12,21 @@
   "properties": {
     "allocationIdentification": {
       "type": "string",
-      "maxLength": 35,
+      "maxLength": 30,
       "minLength": 1,
       "description": "Primary allocation identification number assigned by the system",
       "$comment": "This is the main identifier used by the central system to track allocations"
     },
     "individualAllocationIdentification": {
       "type": "string",
-      "maxLength": 35,
+      "maxLength": 30,
       "minLength": 1,
       "description": "Individual allocation number assigned by the participant system",
       "$comment": "This identifier is used by participants to track allocations in their own systems"
     },
     "previousAllocationIdentification": {
       "type": "string",
-      "maxLength": 35,
+      "maxLength": 30,
       "minLength": 1,
       "description": "Identifies the control number of a previous allocation related to this one",
       "$comment": "Used in status messages to reference a previous allocation, especially in correction or replacement scenarios"

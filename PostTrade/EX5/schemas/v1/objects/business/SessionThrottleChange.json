@@ -1,0 +1,42 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:SessionThrottleChange",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:SessionThrottleChange"
+  },
+  "title": "Session Throttle Change",
+  "description": "Represents the throttle change applied to a single session, including the previous and new inbound and outbound values.",
+  "type": "object",
+  "properties": {
+    "sessionName": {
+      "type": "string",
+      "maxLength": 250,
+      "minLength": 1,
+      "description": "Name of the session affected by the throttle change"
+    },
+    "previousThrottleOut": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Previous maximum number of outgoing messages configured within a specific interval"
+    },
+    "newThrottleOut": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "New maximum number of outgoing messages configured within a specific interval"
+    }
+  },
+  "required": [
+    "sessionName",
+    "previousThrottleOut",
+    "newThrottleOut"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "sessionName": "C000935TRD001",
+      "previousThrottleOut": 100,
+      "newThrottleOut": 150
+    }
+  ]
+}

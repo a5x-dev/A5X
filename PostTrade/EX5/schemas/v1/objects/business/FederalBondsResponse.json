@@ -56,7 +56,7 @@
         "code" : "TEC00000",
         "message" : "Error X",
         "errorDescription" : "COD12452",
-        "refId" : "REF12345"
+        "referenceIdentification" : "REF12345"
       } ]
     },
     "thirdAssetNumber" : "CCP-REG-20251015-001"

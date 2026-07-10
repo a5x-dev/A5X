@@ -26,11 +26,11 @@
       "minLength" : 1,
       "description" : "Message"
     },
-    "refId" : {
+    "referenceIdentification" : {
       "type" : "string",
       "maxLength" : 100,
       "minLength" : 1,
-      "description" : "Reference ID"
+      "description" : "Reference Identification"
     }
   },
   "required" : [ "code" ],
@@ -39,6 +39,6 @@
     "code" : "TEC00000",
     "message" : "Falha genérica",
     "errorDescription" : "Erro genérico",
-    "refId" : "REF12345"
+    "referenceIdentification" : "REF12345"
   } ]
 }

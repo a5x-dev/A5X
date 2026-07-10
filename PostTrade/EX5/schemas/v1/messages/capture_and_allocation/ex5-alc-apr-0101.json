@@ -43,7 +43,7 @@
       "$comment": "Contains the allocation identifiers that will be used to reference this allocation in the system"
     },
     "affirmationStatus": {
-      "$ref": "../../objects/business/ExternalCodeList.json",
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
       "description": "Information about acceptance or rejection of the transaction",
       "$comment": "Consult External Code List table ExternalAffirmationStatusCode"
     },
@@ -86,7 +86,7 @@
         "financialInstrumentIdentification": {
           "id": "100000000000001",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         },
         "tickerSymbol": "DFZ0001"
       },
@@ -94,10 +94,10 @@
         "individualAllocationIdentification": "ALLOC123",
         "allocationIdentification": "ALLOC20230615001"
       },
-      "affirmationStatus": 1,
+      "affirmationStatus": "AFFI",
       "breakingRules": {
         "breakingRuleIndicator": true,
-        "breakingRuleDelayResponsibility": true,
+        "breakingRuleDelayResponsibility": 1,
         "breakingRuleReason": 1
       }
     }

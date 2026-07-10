@@ -39,7 +39,7 @@
     "deliveryType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 6,
+      "maximum": 999999,
       "description": "Delivery type identification number"
     },
     "paymentType": {
@@ -96,7 +96,6 @@
     }
   },
   "required": [
-    "valueTypeCode",
     "deliveryType",
     "paymentType",
     "withdrawalDays",
@@ -113,28 +112,28 @@
       "requiredConversionIndicator": true,
       "deliveryType": 1,
       "paymentType": 2,
-      "contractMultiplier": "1.2510234564330",
-      "assetQuotationQuantity": "1.2510234564330",
+      "contractMultiplier": "1.251023456",
+      "assetQuotationQuantity": "1.251023456",
       "assetSettlementIdentification": {
         "id": "10000000000000002",
         "source": "8",
-        "exchange": "A5X"
+        "exchange": "A5XB"
       },
       "underlyingInstrumentIdentification": {
         "id": "10000000000000002",
         "source": "8",
-        "exchange": "A5X"
+        "exchange": "A5XB"
       },
       "targetIdentification": [
         {
           "id": "10000000000000002",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         },
         {
           "id": "10000000000000002",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         }
       ],
       "openingPositionLimitDate": "2020-01-01",

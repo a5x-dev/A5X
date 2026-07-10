@@ -10,7 +10,7 @@
   "properties" : {
     "allocationIdentification": {
       "type": "string",
-      "maxLength": 35,
+      "maxLength": 30,
       "minLength": 1,
       "description": "Primary allocation identification number assigned by the system",
       "$comment": "This is the main identifier used by the central system to track allocations"
@@ -58,7 +58,7 @@
       "financialInstrumentIdentification" : {
         "id" : "100000000000001",
         "source" : "8",
-        "exchange" : "A5X"
+        "exchange" : "A5XB"
       },
       "tickerSymbol" : "DFZ0001"
     },
@@ -72,7 +72,7 @@
       },
       "quantity" : "1500.00"
     }, {
-      "individualAllocationIdentification" : "ALLOCINDIV0001",
+      "individualAllocationIdentification" : "ALLOCINDIV0002",
       "accountOriginIdentification" : {
         "id" : 100001
       },
@@ -83,7 +83,7 @@
     } ],
     "breakingRules" : {
       "breakingRuleIndicator" : true,
-      "breakingRuleDelayResponsibility" : true,
+      "breakingRuleDelayResponsibility" : 1,
       "breakingRuleReason" : 1
     }
   } ]

@@ -78,7 +78,7 @@
       "description": "Indicates if the operation is derived from block capture."
     },
     "grossTradeAmount": {
-      "$ref": "../../types/DecimalNumber.json",
+      "$ref": "../../types/DecimalNumber6Decimais.json",
       "description": "Gross trade value before any adjustments or deductions"
     }
   },
@@ -120,7 +120,7 @@
         "financialInstrumentIdentification": {
           "id": "100000000000001",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         },
         "tickerSymbol": "DFZ0001",
         "segment": 1,
@@ -155,7 +155,7 @@
       },
       "compressionGroupIndicator": false,
       "giveUpOnCaptureIndicator": true,
-      "grossTradeAmount": "112500.00"
+      "grossTradeAmount": "112500.000000"
     }
   ]
 }

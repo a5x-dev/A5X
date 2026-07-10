@@ -178,7 +178,7 @@
       "assetSettlementIndicator": {
         "id": "10000000000000001",
         "source": "8",
-        "exchange": "A5X"
+        "exchange": "A5XB"
       },
       "corporationName": "EXAMPLE FUTURES CORP",
       "tradingStartDate": "2024-01-01",
@@ -189,7 +189,7 @@
       "underlyingInstrumentIdentification": {
         "id": "10000000000000001",
         "source": "8",
-        "exchange": "A5X"
+        "exchange": "A5XB"
       },
       "fundName": "EXAMPLE FUTURES FUND",
       "expirationCode": "Z24",
@@ -199,8 +199,8 @@
       "maturityDateTargetPoint": 100,
       "requiredConversionIndicator": false,
       "deliveryType": 2,
-      "contractMultiplier": "1.2510234564330",
-      "assetQuotationQuantity": "1.2510234564330",
+      "contractMultiplier": "1.251023456",
+      "assetQuotationQuantity": "1.251023456",
       "withdrawalDays": 90,
       "workingDays": 63,
       "calendarDays": 90,
@@ -216,12 +216,12 @@
         {
           "id": "10000000000000003",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         },
         {
           "id": "10000000000000004",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         }
       ],
       "protectionFlag": false,

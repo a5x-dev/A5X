@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:technical:ex5-tec-ntf-09",
+  "$metadata": {
+    "domain": "technical",
+    "schemaId": "urn:a5x:ex5:schema:v1:technical:ex5-tec-ntf-09"
+  },
+  "title": "Throttle Change Notification",
+  "description": "Notification message sent to the participant when the Throttle parameters of one or more sessions are changed (immediately or scheduled), informing the previous and new inbound and outbound Throttle values per session.",
+  "type": "object",
+  "properties": {
+    "participantIdentification": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Provides details about the participant identification"
+    },
+    "throttleChanges": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/SessionThrottleChange.json"
+      },
+      "minItems": 1,
+      "maxItems": 60,
+      "description": "List of sessions and their respective throttle changes"
+    },
+    "changedBy": {
+      "type": "string",
+      "maxLength": 250,
+      "minLength": 1,
+      "description": "User responsible for performing the throttle change"
+    },
+    "reason": {
+      "type": "string",
+      "maxLength": 250,
+      "description": "Reason for the throttle change"
+    },
+    "notificationTimestamp": {
+      "$ref": "../../types/ISODateTime.json",
+      "description": "Timestamp of when the notification was generated"
+    },
+    "scheduled": {
+      "type": "boolean",
+      "description": "Indicates whether the throttle change is scheduled (true) or applied immediately (false)"
+    },
+    "scheduledStartTime": {
+      "$ref": "../../types/ISODateTime.json",
+      "description": "Date and time when the scheduled throttle change becomes effective"
+    }
+  },
+  "required": [
+    "participantIdentification",
+    "throttleChanges",
+    "changedBy",
+    "notificationTimestamp",
+    "scheduled"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "participantIdentification": {
+        "id": 935,
+        "category": 3
+      },
+      "throttleChanges": [
+        {
+          "sessionName": "C000935TRD001",
+          "previousThrottleOut": 100,
+          "newThrottleOut": 150
+        },
+        {
+          "sessionName": "C000935COL002",
+          "previousThrottleOut": 80,
+          "newThrottleOut": 150
+        }
+      ],
+      "changedBy": "A5X Operations",
+      "reason": "Temporary increase to support expected volume peak",
+      "notificationTimestamp": "2026-06-09T14:30:00Z",
+      "scheduled": true,
+      "scheduledStartTime": "2026-06-10T09:00:00Z"
+    }
+  ]
+}

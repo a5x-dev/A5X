@@ -103,7 +103,7 @@
                 "code": "TEC00000",
                 "message": "Error X",
                 "errorDescription": "COD12452",
-                "refId": "REF12345"
+                "referenceIdentification": "REF12345"
               }
             ]
           }
@@ -128,7 +128,7 @@
                 "code": "TEC00000",
                 "message": "Error X",
                 "errorDescription": "COD12452",
-                "refId": "REF12345"
+                "referenceIdentification": "REF12345"
               }
             ]
           }
@@ -150,7 +150,7 @@
                 "code": "TEC00000",
                 "message": "Error X",
                 "errorDescription": "COD12452",
-                "refId": "REF12345"
+                "referenceIdentification": "REF12345"
               }
             ]
           }
@@ -172,7 +172,7 @@
                 "code": "TEC00000",
                 "message": "Error X",
                 "errorDescription": "COD12452",
-                "refId": "REF12345"
+                "referenceIdentification": "REF12345"
               }
             ]
           }
@@ -185,7 +185,7 @@
             "code": "TEC00000",
             "message": "Error X",
             "errorDescription": "COD12452",
-            "refId": "REF12345"
+            "referenceIdentification": "REF12345"
           }
         ]
       }

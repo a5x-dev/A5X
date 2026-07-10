@@ -1,0 +1,83 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:files:ex5f-fee-uni-04",
+  "$metadata": {
+    "domain": "files",
+    "schemaId": "urn:a5x:ex5:schema:v1:files:ex5f-fee-uni-04"
+  },
+  "title": "Fee Unit Cost File Schema",
+  "description": "Schema for fee unit cost file containing unit cost details per investor",
+  "type": "object",
+  "properties": {
+    "referenceDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Reference date of the information"
+    },
+    "participantIdentificationId": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999,
+      "description": "Participant identifier provided by A5X during participant registration"
+    },
+    "participantIdentificationCategory": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Participant category code",
+      "$comment": "Consult External Code List table ExternalParticipantCategoryCode"
+    },
+    "documentNumber": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "pattern": "^[A-Za-z0-9]+$",
+      "description": "Document number (alphanumeric characters only, no special characters)"
+    },
+    "feeProductGroup": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Fee family",
+      "$comment": "Consult External Code List table ExternalFeeProductGroupCode"
+    },
+    "feeComponent": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Calculated fee component",
+      "$comment": "Consult External Code List table ExternalFeeComponentCode"
+    },
+    "feeTier": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Tier used for fee calculation",
+      "$comment": "Consult fee parameter file list"
+    },
+    "unitCostPercentage": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
+      "description": "Unit cost value in percentage"
+    },
+    "financialUnitCost": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
+      "description": "Unit cost value in financial terms"
+    }
+  },
+  "required": [
+    "referenceDate",
+    "participantIdentificationId",
+    "participantIdentificationCategory",
+    "documentNumber",
+    "feeProductGroup",
+    "feeComponent",
+    "feeTier"
+  ],
+  "additionalProperties": false
+}

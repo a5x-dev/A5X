@@ -59,37 +59,34 @@
       "financialInstrumentIdentification": {
         "id": "10000000000000001",
         "source": "8",
-        "exchange": "A5X"
+        "exchange": "A5XB"
       },
       "optionOnEquitiesInformation": {
-        "exercisePrice": {
-          "amount": 35.5,
-          "currency": "BRL"
-        },
+        "exercisePriceAmount": "35.5",
         "exerciseStyle": "EURO",
         "optionType": 1,
         "assetSettlementIndicator": {
           "id": "100000000000001",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         },
         "underlyingInstrumentIdentification": {
           "id": "100000000000001",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         },
         "targetIdentification": [{
           "id": "100000000000001",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         },{
           "id": "100000000000001",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         },{
           "id": "100000000000001",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         }],
         "protectionFlag": false,
         "premiumUpfrontIndicator": true,

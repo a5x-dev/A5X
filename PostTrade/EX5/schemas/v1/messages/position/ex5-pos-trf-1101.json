@@ -9,11 +9,11 @@
   "description" : "Message providing status for position transfer requests following ISO 20022 structure",
   "type" : "object",
   "properties" : {
-    "PaginationInformation" : {
-      "$ref" : "../../objects/business/Pagination.json",
+    "pagination" : {
+      "$ref" : "../../objects/tech/Pagination.json",
       "description" : "Pagination control information for large result sets"
     },
-    "PositionTransferInformation" : {
+    "positionTransferInformation" : {
       "$ref" : "../../objects/business/PositionTransfer.json",
       "description" : "Position transfer information with reference and configuration details"
     },
@@ -40,7 +40,7 @@
       "$comment" : "Consult External Code List table ExternalTransferRoleCode",
       "examples" : [ 1 ]
     },
-      "PositionTransferDetails" : {
+      "positionTransferDetails" : {
         "type": "array",
         "items": {
           "$ref": "../../objects/business/PositionTransferStatusDetails.json",
@@ -51,11 +51,11 @@
         "$ref" : "../../objects/tech/StatusError.json",
         "description" : "Status of the position transfer request"
       },
-      "TransferEventDetails" : {
+      "transferEventDetails" : {
         "$ref" : "../../objects/business/TransferEventDetails.json",
         "description" : "Details about transfer events"
       },
-      "PendingApprovalDetails" : {
+      "pendingApprovalDetails" : {
         "type" : "array",
         "items" : {
           "$ref" : "../../objects/business/PendingApprovalDetails.json"
@@ -63,26 +63,17 @@
         "minItems" : 0,
         "maxItems" : 60,
         "description" : "Array of pending approval details"
-      },
-      "RollbackPositionDetails" : {
-        "type" : "array",
-        "items" : {
-          "$ref" : "../../objects/business/RollbackPositionDetails.json"
-        },
-        "minItems" : 0,
-        "maxItems" : 60,
-        "description" : "Array of rollback position details"
       }
   },
-  "required" : [ "PaginationInformation", "positionTransferRequestStatus" ],
+  "required" : [ "pagination", "positionTransferRequestStatus" ],
   "additionalProperties" : false,
   "examples" : [ {
-    "PaginationInformation" : {
-      "paginationId" : "EEFGH",
+    "pagination" : {
+      "paginationSet": "SET1",
       "pageNumber" : "1",
       "lastPageIndicator" : true
     },
-    "PositionTransferInformation" : {
+    "positionTransferInformation" : {
       "positionTransferReference" : "PST123456789012",
       "clientReference" : "123456789",
       "collateralTransferIndicator" : true,
@@ -98,12 +89,12 @@
       "category" : 3
     },
     "transferRole" : 1,
-    "PositionTransferDetails" : [ {
+    "positionTransferDetails" : [ {
       "instrument" : {
         "financialInstrumentIdentification" : {
           "id" : "100000000000001",
           "source" : "8",
-          "exchange" : "A5X"
+          "exchange" : "A5XB"
         },
         "isin" : "BRPETRTNP524",
         "tickerSymbol" : "PETR4T"
@@ -115,20 +106,11 @@
     "positionTransferRequestStatus" : {
       "code" : "TEC00000"
     },
-    "TransferEventDetails" : {
+    "transferEventDetails" : {
       "transferEventCode" : 1
     },
-    "PendingApprovalDetails" : [ {
+    "pendingApprovalDetails" : [ {
       "pendingApprovalCode" : 1
-    } ],
-    "RollbackPositionDetails" : [ {
-      "instrumentIdentification" : {
-        "id" : "100000000000001",
-        "source" : "8",
-        "exchange" : "A5X"
-      },
-      "executedQuantity" : "150.00",
-      "availableQuantity" : "50.00"
     } ]
   } ]
 }

@@ -9,8 +9,9 @@
   "description": "Information specific to options on equities",
   "type": "object",
   "properties": {
-    "exercisePrice": {
-      "$ref": "../../objects/business/ExercisePrice.json",
+    "exercisePriceAmount": {
+      "type": "string",
+      "pattern": "^\\d{1,15}(\\.\\d{1,10})?$",
       "description": "Price at which the option can be exercised"
     },
     "exerciseStyle": {
@@ -68,7 +69,7 @@
     "deliveryType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 6,
+      "maximum": 999999,
       "description": "Delivery type identification number"
     },
     "openingPositionLimitDate": {
@@ -81,14 +82,13 @@
     }
   },
   "required": [
-    "exercisePrice",
+    "exercisePriceAmount",
     "exerciseStyle",
     "optionType",
     "underlyingInstrumentIdentification",
     "protectionFlag",
     "premiumUpfrontIndicator",
     "paymentType",
-    "priceFactor",
     "daysToSettlement",
     "deliveryType",
     "automaticExerciseIndicator"
@@ -96,26 +96,23 @@
   "additionalProperties": true,
   "examples": [
     {
-      "exercisePrice": {
-        "amount": 35.5,
-        "currency": "BRL"
-      },
+      "exercisePriceAmount": "35.5",
       "exerciseStyle": "EURO",
       "optionType": 1,
       "assetSettlementIndicator": {
         "id": "100000000000001",
         "source": "8",
-        "exchange": "A5X"
+        "exchange": "A5XB"
       },
       "underlyingInstrumentIdentification": {
         "id": "100000000000001",
         "source": "8",
-        "exchange": "A5X"
+        "exchange": "A5XB"
       },
       "targetIdentification": [{
         "id": "100000000000001",
         "source": "8",
-        "exchange": "A5X"
+        "exchange": "A5XB"
       }],
       "protectionFlag": false,
       "premiumUpfrontIndicator": true,

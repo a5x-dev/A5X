@@ -74,7 +74,7 @@
       "financialInstrumentIdentification": {
         "id": "100000000000001",
         "source": "8",
-        "exchange": "A5X"
+        "exchange": "A5XB"
       },
       "tickerSymbol" : "DFZ0001",
       "expireDate": "2025-11-23"

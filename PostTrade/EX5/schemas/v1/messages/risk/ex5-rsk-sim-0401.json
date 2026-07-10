@@ -42,10 +42,11 @@
     "simulationPosition" : {
       "type" : "array",
       "description" : "Array of positions to be included in the simulation",
-      "items" : {
+        "items" : {
         "$ref" : "../../objects/business/SimulationPosition.json",
         "description" : "Position details to be used in simulation"
-      }
+      },
+      "maxItems" : 2000
     },
     "simulationCollateralPosition" : {
       "type" : "array",

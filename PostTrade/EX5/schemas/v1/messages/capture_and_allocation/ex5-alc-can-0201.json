@@ -41,7 +41,7 @@
       "financialInstrumentIdentification" : {
         "id" : "100000000000001",
         "source" : "8",
-        "exchange" : "A5X1"
+        "exchange" : "A5XB"
       },
       "tickerSymbol" : "DFZ0001"
     },
@@ -52,13 +52,11 @@
     },
     "allocationDistribution" : [
       {
-      "allocationIdentification" : "ALC001",
-      "accountIdentification" : {
-        "id": 123
-      },
-      "quantity" : "1000.00",
-      "individualAllocationIdentification": "123143"
+      "individualAllocationIdentification": "ALLOCINDIV0002",
+      "allocationIdentification": "ALLOC123456123456789234567890",
+      "accountIdentification": 123456789,     
+      "quantity": "1000.00"
       }
-    ]
+     ]
   } ]
 }

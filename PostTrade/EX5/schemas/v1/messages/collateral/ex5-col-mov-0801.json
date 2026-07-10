@@ -66,7 +66,7 @@
         "financialInstrumentIdentification" : {
           "id" : "100000000000001",
           "source" : "8",
-          "exchange" : "A5X"
+          "exchange" : "A5XB"
         },
         "federalBondCollateralMovement" : {
           "collateralReference" : "FB-REF-001",

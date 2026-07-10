@@ -107,18 +107,18 @@
       "underlyingInstrumentIdentification": {
         "id": "10000000000000001",
         "source": "8",
-        "exchange": "A5X"
+        "exchange": "A5XB"
       },
       "targetInstrumentIdentification": [
         {
           "id": "10000000000000002",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         },
         {
           "id": "10000000000000003",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         }
       ],
       "currency": "BRL"

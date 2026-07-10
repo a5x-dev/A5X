@@ -11,7 +11,7 @@
   "properties": {
     "individualAllocationIdentification": {
       "type": "string",
-      "maxLength": 35,
+      "maxLength": 30,
       "minLength": 1,
       "description": "Individual allocation number assigned by the participant system",
       "$comment": "This identifier is used by participants to track allocations in their own systems"

@@ -64,12 +64,12 @@
       "minLength" : 1,
       "description" : "Allocation identification number"
     },
-    "allocationStatus" : {
+    "allocationStatusCode" : {
       "type" : "integer",
       "minimum" : 1,
       "maximum" : 999999,
-      "description" : "Trade status code",
-      "$comment" : "Consult External Code List table ExternalTradeStatusCode"
+      "description" : "Status information for the allocation including processing codes",
+      "$comment" : "Consult table ExternalStatusAllocationAdviceCode. Contains status codes and optional rule identification for rejected allocations"
     },
     "participantIdentificationId" : {
       "type" : "integer",
@@ -315,7 +315,7 @@
       "description" : "Gross trade value before any adjustments or deductions"
     }
   },
-  "required" : [ "referenceDate", "accountIdentification", "tradeDate", "buySellIndicator", "tradeIdentification", "allocationIdentification", "allocationStatus", "participantDestinationIdentificationId", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "tickerSymbol", "segment", "market", "transactionDateTime", "tradeQuantity", "orderIdentification", "tradeMatchIdentification", "tradeTransactionType", "dealPrice" ],
+  "required" : [ "referenceDate", "accountIdentification", "tradeDate", "buySellIndicator", "tradeIdentification", "allocationIdentification", "allocationStatusCode", "participantIdentificationId", "participantIdentificationCategory", "financialInstrumentIdentificationId", "financialInstrumentIdentificationSource", "financialInstrumentIdentificationExchange", "tickerSymbol", "segment", "market", "transactionDateTime", "tradeQuantity", "orderIdentification", "tradeMatchIdentification", "tradeTransactionType", "dealPrice" ],
   "additionalProperties" : false,
   "examples" : [ ]
 }

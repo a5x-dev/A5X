@@ -45,6 +45,13 @@
       "type": "boolean",
       "description": "Indicates if the informed account belongs to a market maker"
     },
+    "investorType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Investor type for fee calculation",
+      "$comment": "Consult External Code List table ExternalInvestorTypeCode"
+    },
     "tradingCode": {
       "type": "string",
       "minLength": 1,
@@ -157,15 +164,17 @@
       "description": "Factor applied in fee calculation"
     },
     "unitCostPercentage": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 99,
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
       "description": "Unit cost value in percentage"
     },
     "financialUnitCost": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 99,
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
       "description": "Unit cost value in financial terms"
     },
     "calculationType": {
@@ -183,10 +192,59 @@
       "$comment": "Consult External Code List table ExternalFeetypeindicator"
     },
     "additionalValue": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
+      "description": "Additional value"
+    },
+    "appliedDiscountType": {
       "type": "integer",
       "minimum": 1,
       "maximum": 99,
-      "description": "Additional value"
+      "description": "Applied discount type indicator",
+      "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
+    },
+    "discountPercentage": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Percentage granted as discount used for fee reduction"
+    },
+    "financialDiscount": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Financial value granted as discount used for fee reduction"
+    },
+    "financialCredit": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Financial value granted as credit used for fee reduction"
+    },
+    "creditPercentage": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Percentage granted as credit used for fee reduction"
+    },
+    "creditOrigin": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Origin of the granted credit",
+      "$comment": "Consult External Code List table ExternalCreditOriginCode"
+    },
+    "expirationCode": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 8,
+      "description": "Contract expiration code"
     },
     "feeSettlementDate": {
       "type": "string",
@@ -208,6 +266,8 @@
     "requestingInvestorCode",
     "requestedParticipantCode",
     "requestedInvestorCode",
+    "marketMakerIndicator",
+    "investorType",
     "tradingCode",
     "instrumentCode",
     "instrumentIdentificationOriginCode",
@@ -221,7 +281,6 @@
     "feeProductGroup",
     "feeComponent",
     "feeTier",
-    "feeProductSubgroup",
     "financialUnitCost",
     "feeSettlementDate",
     "payableAmount"

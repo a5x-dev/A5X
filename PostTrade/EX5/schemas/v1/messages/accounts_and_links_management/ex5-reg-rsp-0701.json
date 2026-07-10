@@ -73,7 +73,28 @@
     "address": {
       "type": "array",
       "items": {
-        "$ref": "../../objects/business/Address.json"
+        "allOf": [
+          {
+            "$ref": "../../objects/business/Address.json"
+          },
+          {
+            "properties": {
+              "isPrimary": {
+                "type": "boolean",
+                "description": "Primary address indicator"
+              },
+              "addressType": {
+                "$ref": "../../objects/business/ExternalCodeList.json",
+                "description": "Address type",
+                "$comment": "Consult External Code List table ExternalAddressTypeCode"
+              }
+            },
+            "required": [
+              "isPrimary",
+              "addressType"
+            ]
+          }
+        ]
       },
       "description": "List of investor addresses",
       "minItems": 0,
@@ -266,6 +287,8 @@
       },
       "address": [
         {
+          "isPrimary": true,
+          "addressType": 2,
           "street": "Rua Brasilândia",
           "number": "123",
           "complement": "Apto 101",

@@ -54,22 +54,21 @@
     },
     "financialInstrumentIdentificationExchange" : {
       "type" : "string",
-      "minLength" : 3,
-      "maxLength" : 8,
-      "pattern" : "^[A-Z0-9]{4}$",
+      "minLength" : 4,
+      "maxLength" : 4,
       "description" : "Identifier code of the exchange where the instrument is listed"
     },
     "segment" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Market segment - first level of market classification in post-trading process",
       "$comment" : "Consult External Code List table ExternalSegmentCode"
     },
     "market" : {
       "type" : "integer",
       "minimum" : 0,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Market type - second level of market classification in post-trading process",
       "$comment" : "Consult External Code List table ExternalMarketCode"
     },
@@ -82,7 +81,7 @@
     "optionType" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)",
       "$comment" : "Consult External Code List table ExternalOptionTypeCode"
     },
@@ -104,7 +103,7 @@
       "type" : "number",
       "maxLength" : 35,
       "minLength" : 1,
-      "description" : "Trade identification number"
+      "description" : "Instrument quotation factor"
     },
     "tradeDate" : {
       "type" : "string",
@@ -114,14 +113,14 @@
     "tradeTransactionType" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Trade transaction type code",
       "$comment" : "Consult External Code List table ExternalTradeTransactionTypeCode"
     },
     "tradeSubType" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Additional qualification for trade type",
       "$comment" : "Consult External Code List table ExternalTradeSubTypeCode"
     },
@@ -141,14 +140,14 @@
     "buySellIndicator" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Indicates whether the trade is a buy or sell",
       "$comment" : "Consult External Code List table ExternalBuySellIndicatorCode"
     },
     "tradingSessionIdentification" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Indicates if trade was executed during regular hours or after market",
       "$comment" : "Consult External Code List table ExternalTradingSessionIdCode"
     },
@@ -205,7 +204,7 @@
     "allocationStatusCode" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description" : "Status information for the allocation including processing codes",
       "$comment" : "Consult table ExternalStatusAllocationAdviceCode. Contains status codes and optional rule identification for rejected allocations"
     },
@@ -311,7 +310,7 @@
       "$comment" : "Represents the rate of change between the derivative price and the underlying asset price"
     }
   },
-  "required" : [ "referenceDate", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "participantRequesterIdentificationId","participantRequesterIdentificationCategory","financialInstrumentIdentificationId", "financialInstrumentIdentificationSource","financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDate", "tradeIdentification", "dealPrice", "buySellIndicator", "participantIdentificationId", "participantIdentificationCategory", "accountIdentification", "accountType", "quantity", "allocationIdentification", "allocationDateTime" ],
+  "required" : [ "referenceDate", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "participantRequesterIdentificationId","participantRequesterIdentificationCategory","financialInstrumentIdentificationId", "financialInstrumentIdentificationSource","financialInstrumentIdentificationExchange", "segment", "market", "tickerSymbol", "tradeDate", "tradeTransactionType", "tradeIdentification", "dealPrice", "buySellIndicator", "participantIdentificationId", "participantIdentificationCategory", "accountIdentification", "accountType", "quantity", "allocationIdentification", "allocationDateTime" ],
   "additionalProperties" : false,
   "examples" : [ ]
 }

@@ -1,0 +1,98 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:ProfessionalAddress",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:ProfessionalAddress"
+  },
+  "title": "Professional Address",
+  "description": "Professional business address.",
+  "type": "object",
+  "properties": {
+    "street": {
+      "type": "string",
+      "maxLength": 70,
+      "minLength": 3,
+      "pattern": "^[A-Za-zÀ-ÿ0-9\\s'-\\.\\,]+$",
+      "description": "Street address (Logradouro)"
+    },
+    "number": {
+      "type": "string",
+      "maxLength": 6,
+      "minLength": 1,
+      "pattern": "^[0-9A-Za-z\\s\\-\\/]+$",
+      "description": "Street number"
+    },
+    "complement": {
+      "type": "string",
+      "maxLength": 70,
+      "minLength": 1,
+      "pattern": "^[A-Za-zÀ-ÿ0-9\\s'-\\.\\,\\/\\(\\)]+$",
+      "description": "Address complement (apartment, suite, etc.)"
+    },
+    "neighborhood": {
+      "type": "string",
+      "maxLength": 70,
+      "minLength": 2,
+      "pattern": "^[A-Za-zÀ-ÿ0-9\\s'-\\.\\,]+$",
+      "description": "Neighborhood/district name. Required only if country is Brazil (BR)"
+    },
+    "postalCode": {
+      "type": "string",
+      "maxLength": 16,
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9\\s\\-]+$",
+      "description": "Postal code (CEP), required only if country is Brazil (BR)"
+    },
+    "cityName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 70,
+      "description": "City name based on IBGE list. Required only if country is Brazil (BR)"
+    },
+    "state": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Consult External Text List table ExternalStateCode. Required only if country is Brazil (BR)"
+    },
+    "country": {
+      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "description": "Consult External Text List table ExternalCountryCode"
+    },
+    "phoneNumber": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "Phone number with country code"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "minLength": 5,
+      "maxLength": 100,
+      "description": "Email address in standard format"
+    }
+  },
+  "required": [
+    "street",
+    "number",
+    "cityName",
+    "country",
+    "state",
+    "phoneNumber",
+    "email"
+  ],
+  "additionalProperties": true,
+  "examples": [
+    {
+      "street": "Rua Brasilandia",
+      "number": "123",
+      "complement": "Apto 101",
+      "neighborhood": "Centro",
+      "postalCode": "01234-567",
+      "cityName": "Sao Paulo",
+      "state": "SP",
+      "country": "BRA",
+      "phoneNumber": "+55-11-91234-5678",
+      "email": "usuario@exemplo.com.br"
+    }
+  ]
+}

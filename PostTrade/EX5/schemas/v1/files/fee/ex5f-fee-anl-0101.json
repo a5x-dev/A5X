@@ -57,6 +57,10 @@
       "type": "boolean",
       "description": "Indicates if the informed account belongs to a market maker"
     },
+    "isAggressor": {
+      "type": "boolean",
+      "description": "Indicates if the trade is an aggressor"
+    },
     "tradeDate": {
       "type": "string",
       "format": "date-time",
@@ -144,6 +148,13 @@
       "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
       "description": "Total component amount. Can be total allocated amount, exercised amount or maturity settled amount, according to indicated component"
     },
+    "spread": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "For option exercise: difference between exercise price and market price. For maturity settlement: difference between settlement price and adjustment price"
+    },
     "feeProductGroup": {
       "type": "integer",
       "minimum": 1,
@@ -198,14 +209,14 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
       "description": "Unit cost value in percentage"
     },
     "financialUnitCost": {
       "type": "string",
       "minLength": 1,
       "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
       "description": "Unit cost value in financial terms"
     },
     "calculationType": {
@@ -226,9 +237,51 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
       "description": "Additional value",
       "$comment": "Field will not be filled when component deals with maturity settlement or exercise"
+    },
+    "appliedDiscountType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Applied discount type indicator",
+      "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
+    },
+    "discountPercentage": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Percentage granted as discount used for fee reduction"
+    },
+    "financialDiscount": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Financial value granted as discount used for fee reduction"
+    },
+    "financialCredit": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Financial value granted as credit used for fee reduction"
+    },
+    "creditPercentage": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Percentage granted as credit used for fee reduction"
+    },
+    "creditOrigin": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Origin of the granted credit",
+      "$comment": "Consult External Code List table ExternalCreditOriginCode"
     },
     "feePaymentDate": {
       "type": "string",
@@ -251,6 +304,7 @@
     "participantIdentificationId",
     "participantIdentificationCategory",
     "accountIdentificationId",
+    "marketMakerIndicator",
     "tradeDate",
     "tickerSymbol",
     "financialInstrumentIdentificationId",
@@ -268,7 +322,6 @@
     "feeProductGroup",
     "feeComponent",
     "feeTier",
-    "feeProductSubgroup",
     "financialUnitCost",
     "feePaymentDate",
     "amountToBePaid"

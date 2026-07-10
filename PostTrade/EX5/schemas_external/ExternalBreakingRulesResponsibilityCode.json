@@ -17,17 +17,11 @@
       "type": "number",
       "description": "A5X",
       "const": 3
-    },
-    {
-      "type": "string",
-      "description": "",
-      "const": null
     }
   ],
   "examples": [
     1,
     2,
-    3,
-    null
+    3
   ]
 }

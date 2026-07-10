@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:ex5-prc-prc-0101-xml.xsd">
+    <PricRpt>
+        <PgntnInf>
+            <Id>
+                <PgntnId>PRC-PRC-0001</PgntnId>
+            </Id>
+            <Pgntn>
+                <PgNb>00001</PgNb>
+                <LastPgInd>true</LastPgInd>
+            </Pgntn>
+        </PgntnInf>
+        <!-- Record 1: PETR4 APR26 -->
+        <PricRptDtl>
+            <TradDt>
+                <Dt>2026-03-26</Dt>
+            </TradDt>
+            <SctyId>
+                <TckrSymb>PETR4 APR26</TckrSymb>
+            </SctyId>
+            <FinInstrmId>
+                <OthrId>
+                    <Id>847293615042</Id>
+                    <Tp>
+                        <Prtry>8</Prtry>
+                    </Tp>
+                </OthrId>
+                <PlcOfListg>
+                    <MktIdrCd>A5XB</MktIdrCd>
+                </PlcOfListg>
+            </FinInstrmId>
+            <TradDtls>
+                <TradQty>35500</TradQty>
+            </TradDtls>
+            <FinInstrmAttrbts>
+                <MktDataStrmId>E</MktDataStrmId>
+                <NtlFinVol Ccy="BRL">1720929.00</NtlFinVol>
+                <IntlFinVol Ccy="USD">328999.19</IntlFinVol>
+                <OpnIntrst>11430900</OpnIntrst>
+                <FinInstrmQty>35500</FinInstrmQty>
+                <BestBidPric Ccy="BRL">48.110000</BestBidPric>
+                <BestAskPric Ccy="BRL">59.610000</BestAskPric>
+                <FrstPric Ccy="BRL">48.110000</FrstPric>
+                <MinPric Ccy="BRL">48.110000</MinPric>
+                <MaxPric Ccy="BRL">48.790000</MaxPric>
+                <TradAvrgPric Ccy="BRL">48.470000</TradAvrgPric>
+                <LastPric Ccy="BRL">48.480000</LastPric>
+                <RglrTxsQty>68</RglrTxsQty>
+                <RglrTraddCtrcts>35500</RglrTraddCtrcts>
+                <NtlRglrVol Ccy="BRL">1720929.00</NtlRglrVol>
+                <IntlRglrVol Ccy="USD">328999.19</IntlRglrVol>
+                <AdjstdQt Ccy="BRL">48.400000</AdjstdQt>
+                <AdjstdQtStin>F</AdjstdQtStin>
+                <PrvsAdjstdQt Ccy="BRL">47.900000</PrvsAdjstdQt>
+                <PrvsAdjstdQtStin>U</PrvsAdjstdQtStin>
+                <OscnPctg>1.21</OscnPctg>
+                <VartnPts Ccy="BRL">0.500000</VartnPts>
+                <AdjstdValCtrct Ccy="BRL">0.500000</AdjstdValCtrct>
+                <MaxTradLmt Ccy="BRL">59.640000</MaxTradLmt>
+                <MinTradLmt Ccy="BRL">36.160000</MinTradLmt>
+            </FinInstrmAttrbts>
+        </PricRptDtl>
+        <!-- Record 2: SELIC JAN27 -->
+        <PricRptDtl>
+            <TradDt>
+                <Dt>2026-03-26</Dt>
+            </TradDt>
+            <SctyId>
+                <TckrSymb>SELIC JAN27</TckrSymb>
+            </SctyId>
+            <FinInstrmId>
+                <OthrId>
+                    <Id>123456</Id>
+                    <Tp>
+                        <Prtry>8</Prtry>
+                    </Tp>
+                </OthrId>
+                <PlcOfListg>
+                    <MktIdrCd>A5XB</MktIdrCd>
+                </PlcOfListg>
+            </FinInstrmId>
+            <TradDtls>
+                <TradQty>1208196</TradQty>
+            </TradDtls>
+            <FinInstrmAttrbts>
+                <MktDataStrmId>E</MktDataStrmId>
+                <NtlFinVol Ccy="BRL">109122036646.28</NtlFinVol>
+                <IntlFinVol Ccy="USD">20861443115.06</IntlFinVol>
+                <OpnIntrst>6263413</OpnIntrst>
+                <FinInstrmQty>1208196</FinInstrmQty>
+                <BestBidPric Ccy="BRL">14.310000</BestBidPric>
+                <BestAskPric Ccy="BRL">14.325000</BestAskPric>
+                <FrstPric Ccy="BRL">14.230000</FrstPric>
+                <MinPric Ccy="BRL">14.220000</MinPric>
+                <MaxPric Ccy="BRL">14.360000</MaxPric>
+                <TradAvrgPric Ccy="BRL">14.299000</TradAvrgPric>
+                <LastPric Ccy="BRL">14.320000</LastPric>
+                <RglrTxsQty>47164</RglrTxsQty>
+                <RglrTraddCtrcts>1208196</RglrTraddCtrcts>
+                <NtlRglrVol Ccy="BRL">109122036646.28</NtlRglrVol>
+                <IntlRglrVol Ccy="USD">20861443115.06</IntlRglrVol>
+                <AdjstdQt Ccy="BRL">90300.540000</AdjstdQt>
+                <AdjstdQtTax Ccy="BRL">14.329000</AdjstdQtTax>
+                <AdjstdQtStin>F</AdjstdQtStin>
+                <PrvsAdjstdQt Ccy="BRL">90445.780000</PrvsAdjstdQt>
+                <PrvsAdjstdQtTax Ccy="BRL">14.088000</PrvsAdjstdQtTax>
+                <PrvsAdjstdQtStin>U</PrvsAdjstdQtStin>
+                <OscnPctg>1.64</OscnPctg>
+                <VartnPts Ccy="BRL">-145.240000</VartnPts>
+                <AdjstdValCtrct Ccy="BRL">-145.240000</AdjstdValCtrct>
+                <MaxTradLmt Ccy="BRL">14.870000</MaxTradLmt>
+                <MinTradLmt Ccy="BRL">13.395000</MinTradLmt>
+            </FinInstrmAttrbts>
+        </PricRptDtl>
+    </PricRpt>
+</Document>

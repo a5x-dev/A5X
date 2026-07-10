@@ -5,40 +5,35 @@
   "oneOf": [
     {
       "type": "number",
-      "description": "Pause",
+      "description": "Opening Auction Call",
       "const": 2
     },
     {
       "type": "number",
-      "description": "Close",
+      "description": "Continuous (Regular)",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "Closing Auction Call",
       "const": 4
     },
     {
       "type": "number",
-      "description": "Open",
-      "const": 17
+      "description": "Re-Opening Auction Call",
+      "const": 6
     },
     {
       "type": "number",
-      "description": "Pre-Close",
-      "const": 18
-    },
-    {
-      "type": "number",
-      "description": "Pre-Open",
-      "const": 21
-    },
-    {
-      "type": "number",
-      "description": "Final Closing Call",
-      "const": 101
+      "description": "Closing Price Cross",
+      "const": 8
     }
   ],
   "examples": [
     2,
+    3,
     4,
-    17,
-    18,
-    21
+    6,
+    8
   ]
 }

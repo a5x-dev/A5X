@@ -36,11 +36,6 @@
       "maxLength" : 15,
       "description" : "Requested investor code"
     },
-    "onBehalfParticipantCode" : {
-      "type" : "string",
-      "maxLength" : 15,
-      "description" : "On behalf participant code"
-    },
     "commodity" : {
       "type" : "string",
       "maxLength" : 30,

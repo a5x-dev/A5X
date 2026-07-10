@@ -53,7 +53,7 @@
       "$comment": "Consult External Code List table ExternalProfessionalRelationshipCode"
     },
     "address": {
-      "$ref": "../../objects/business/Address.json",
+      "$ref": "../../objects/business/ProfessionalAddress.json",
       "description": "Professional's business address information"
     },
     "professionalActivity": {

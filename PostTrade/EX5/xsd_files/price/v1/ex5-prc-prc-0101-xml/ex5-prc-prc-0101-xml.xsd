@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns="urn:ex5-prc-prc-0101-xml.xsd"
+        targetNamespace="urn:ex5-prc-prc-0101-xml.xsd"
+        elementFormDefault="qualified">
+
+    <!--
+        A5X Price Report — XML Schema Definition (XSD)
+        File: ex5-prc-prc-0101-xml.xsd
+        Description: Defines the XML structure for the A5X Price Report
+                     data message (ex5f-prc-prc-0101).
+
+        Field names and validation rules aligned with:
+          - Regras_do_relatorio.xlsx (field dictionary)
+          - ex5f-prc-prc-0101.json   (decimal precision rules)
+          - bvmf.217.01.xsd          (original B3 XSD element names)
+
+        Namespace:       urn:ex5-prc-prc-0101-xml.xsd
+        TargetNamespace: urn:ex5-prc-prc-0101-xml.xsd
+
+        Version: 2
+        Release-Date: 2026-03-26
+    -->
+
+    <!-- ========== ROOT DOCUMENT ========== -->
+
+    <xs:element name="Document" type="Document"/>
+
+    <xs:complexType name="Document">
+        <xs:sequence>
+            <xs:element name="PricRpt" type="PriceReportResponse"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========== PRICE REPORT WRAPPER ========== -->
+
+    <xs:complexType name="PriceReportResponse">
+        <xs:sequence>
+            <xs:element name="PgntnInf"   minOccurs="1" maxOccurs="1"         type="PaginationInfo"/>
+            <xs:element name="PricRptDtl" minOccurs="1" maxOccurs="unbounded" type="PriceReportDetail"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========== PAGINATION TYPES ========== -->
+
+    <xs:complexType name="PaginationInfo">
+        <xs:sequence>
+            <xs:element name="Id"    minOccurs="1" maxOccurs="1" type="PaginationIdentification"/>
+            <xs:element name="Pgntn" minOccurs="1" maxOccurs="1" type="Pagination"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PaginationIdentification">
+        <xs:sequence>
+            <xs:element name="PgntnId" minOccurs="1" maxOccurs="1" type="TextMin1Max35"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Pagination">
+        <xs:sequence>
+            <xs:element name="PgNb"      minOccurs="1" maxOccurs="1" type="FiveDigitNumericText"/>
+            <xs:element name="LastPgInd" minOccurs="1" maxOccurs="1" type="YesNoFlag"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========== PRICE REPORT DETAIL ========== -->
+    <!--
+        Fields 1-38 from Regras_do_relatorio.xlsx + MinimumTradeLimit (39)
+        Mapped to bvmf.217.01 XML element names.
+    -->
+
+    <xs:complexType name="PriceReportDetail">
+        <xs:sequence>
+            <!-- 1. TradeDate (Sim) -->
+            <xs:element name="TradDt"          minOccurs="1" maxOccurs="1" type="DateChoice"/>
+            <!-- 2. TickerSymbol (Sim) -->
+            <xs:element name="SctyId"          minOccurs="1" maxOccurs="1" type="SecurityIdentification"/>
+            <!-- 3-5. FinancialInstrumentId, Source, Exchange (Sim) -->
+            <xs:element name="FinInstrmId"     minOccurs="1" maxOccurs="1" type="FinancialInstrumentIdentification"/>
+            <!-- 6-7. DaysToSettlement, TradeQuantity -->
+            <xs:element name="TradDtls"        minOccurs="0" maxOccurs="1" type="TradeDetails"/>
+            <!-- 8-39. Instrument attributes -->
+            <xs:element name="FinInstrmAttrbts" minOccurs="0" maxOccurs="1" type="FinancialInstrumentAttributes"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========== TRADE DATE ========== -->
+    <!-- Field 1: TradeDate — ISODate, required -->
+
+    <xs:complexType name="DateChoice">
+        <xs:sequence>
+            <xs:element name="Dt" minOccurs="1" maxOccurs="1" type="ISODate"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========== SECURITY IDENTIFICATION ========== -->
+    <!-- Field 2: TickerSymbol — string 1-35, required -->
+
+    <xs:complexType name="SecurityIdentification">
+        <xs:sequence>
+            <xs:element name="TckrSymb" minOccurs="1" maxOccurs="1" type="TickerIdentifier"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========== FINANCIAL INSTRUMENT IDENTIFICATION ========== -->
+    <!-- Field 3: FinancialInstrumentId — string 1-35, required -->
+    <!-- Field 4: Source — string 1-35, required -->
+    <!-- Field 5: Exchange — MIC 4 chars, required -->
+
+    <xs:complexType name="FinancialInstrumentIdentification">
+        <xs:sequence>
+            <xs:element name="OthrId"     minOccurs="1" maxOccurs="1" type="OtherIdentification"/>
+            <xs:element name="PlcOfListg" minOccurs="1" maxOccurs="1" type="MarketIdentificationChoice"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OtherIdentification">
+        <xs:sequence>
+            <xs:element name="Id" minOccurs="1" maxOccurs="1" type="TextMin1Max35"/>
+            <xs:element name="Tp" minOccurs="1" maxOccurs="1" type="IdentificationSourceChoice"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="IdentificationSourceChoice">
+        <xs:sequence>
+            <xs:element name="Prtry" minOccurs="1" maxOccurs="1" type="TextMin1Max35"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MarketIdentificationChoice">
+        <xs:sequence>
+            <xs:element name="MktIdrCd" minOccurs="1" maxOccurs="1" type="MICIdentifier"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========== TRADE DETAILS ========== -->
+    <!-- Field 6: DaysToSettlement — integer, optional -->
+    <!-- Field 7: TradeQuantity — Quantity0Decimal, optional -->
+
+    <xs:complexType name="TradeDetails">
+        <xs:sequence>
+            <xs:element name="DaysToSttlm" minOccurs="0" maxOccurs="1" type="Max4Text"/>
+            <xs:element name="TradQty"     minOccurs="0" maxOccurs="1" type="Quantity0Decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========== FINANCIAL INSTRUMENT ATTRIBUTES ========== -->
+    <!--
+        Fields 8-39 from Regras_do_relatorio.xlsx.
+        Decimal precision from ex5f-prc-prc-0101.json:
+          - Volumes (NtlFinVol, IntlFinVol, NtlRglrVol, etc.): pattern ^\\d{1,15}(\\.\\d{1,2})?$ → CurrencyAnd2DecimalAmount
+          - Prices (BestBidPric, FrstPric, etc.): pattern ^\\d{1,15}(\\.\\d{1,6})?$ → CurrencyAnd6DecimalAmount
+          - Quantities (OpnIntrst, FinInstrmQty): no decimal → Quantity0Decimal
+          - OscnPctg: pattern ^\\d{1,15}(\\.\\d{1,2})?$ → Quantity2Decimal
+    -->
+
+    <xs:complexType name="FinancialInstrumentAttributes">
+        <xs:sequence>
+            <!-- 8. MarketDataStreamIdentification — string 1-35 -->
+            <xs:element name="MktDataStrmId"      minOccurs="0" maxOccurs="1" type="TextMin1Max35"/>
+            <!-- 9. NationalFinancialVolume — ^\\d{1,15}(\\.\\d{1,2})?$ -->
+            <xs:element name="NtlFinVol"          minOccurs="0" maxOccurs="1" type="CurrencyAnd2DecimalAmount"/>
+            <!-- 10. InternationalFinancialVolume — ^\\d{1,15}(\\.\\d{1,2})?$ -->
+            <xs:element name="IntlFinVol"         minOccurs="0" maxOccurs="1" type="CurrencyAnd2DecimalAmount"/>
+            <!-- 11. OpenInterest — quantity, no decimal -->
+            <xs:element name="OpnIntrst"          minOccurs="0" maxOccurs="1" type="Quantity0Decimal"/>
+            <!-- 12. FinancialInstrumentQuantity — quantity, no decimal -->
+            <xs:element name="FinInstrmQty"       minOccurs="0" maxOccurs="1" type="Quantity0Decimal"/>
+            <!-- 13. BestBidPrice — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="BestBidPric"        minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 14. BestAskPrice — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="BestAskPric"        minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 15. FirstPrice — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="FrstPric"           minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 16. MinimumPrice — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="MinPric"            minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 17. MaximumPrice — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="MaxPric"            minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 18. TradeAveragePrice — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="TradAvrgPric"       minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 19. LastPrice — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="LastPric"           minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 20. RegularTransactionsQuantity — quantity, no decimal -->
+            <xs:element name="RglrTxsQty"         minOccurs="0" maxOccurs="1" type="Quantity0Decimal"/>
+            <!-- 21. NonRegularTransactionsQuantity — quantity, no decimal -->
+            <xs:element name="NonRglrTxsQty"      minOccurs="0" maxOccurs="1" type="Quantity0Decimal"/>
+            <!-- 22. RegularTradedContracts — quantity, no decimal -->
+            <xs:element name="RglrTraddCtrcts"    minOccurs="0" maxOccurs="1" type="Quantity0Decimal"/>
+            <!-- 23. NonRegularTradedContracts — quantity, no decimal -->
+            <xs:element name="NonRglrTraddCtrcts" minOccurs="0" maxOccurs="1" type="Quantity0Decimal"/>
+            <!-- 24. NationalRegularVolume — ^\\d{1,15}(\\.\\d{1,2})?$ -->
+            <xs:element name="NtlRglrVol"         minOccurs="0" maxOccurs="1" type="CurrencyAnd2DecimalAmount"/>
+            <!-- 25. NationalNonRegularVolume — ^\\d{1,15}(\\.\\d{1,2})?$ -->
+            <xs:element name="NtlNonRglrVol"      minOccurs="0" maxOccurs="1" type="CurrencyAnd2DecimalAmount"/>
+            <!-- 26. InternationalRegularVolume — ^\\d{1,15}(\\.\\d{1,2})?$ -->
+            <xs:element name="IntlRglrVol"        minOccurs="0" maxOccurs="1" type="CurrencyAnd2DecimalAmount"/>
+            <!-- 27. InternationalNonRegularVolume — ^\\d{1,15}(\\.\\d{1,2})?$ -->
+            <xs:element name="IntlNonRglrVol"     minOccurs="0" maxOccurs="1" type="CurrencyAnd2DecimalAmount"/>
+            <!-- 28. AdjustedQuote — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="AdjstdQt"           minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 29. AdjustedQuoteTax — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="AdjstdQtTax"        minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 30. AdjustedQuoteSituation — string 1-35 -->
+            <xs:element name="AdjstdQtStin"       minOccurs="0" maxOccurs="1" type="Max1Text"/>
+            <!-- 31. PreviousAdjustedQuote — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="PrvsAdjstdQt"       minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 32. PreviousAdjustedQuoteTax — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="PrvsAdjstdQtTax"    minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 33. PreviousAdjustedQuoteSituation — string 1-35 -->
+            <xs:element name="PrvsAdjstdQtStin"   minOccurs="0" maxOccurs="1" type="Max1Text"/>
+            <!-- 34. OscillationPercentage — ^\\d{1,15}(\\.\\d{1,2})?$ -->
+            <xs:element name="OscnPctg"           minOccurs="0" maxOccurs="1" type="Quantity2Decimal"/>
+            <!-- 35. VariationPoints — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="VartnPts"           minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 36. EquivalentValue — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="EqvtVal"            minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 37. AdjustedValueContract — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="AdjstdValCtrct"     minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 38. MaximumTradeLimit — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="MaxTradLmt"         minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+            <!-- 39. MinimumTradeLimit — ^\\d{1,15}(\\.\\d{1,6})?$ -->
+            <xs:element name="MinTradLmt"         minOccurs="0" maxOccurs="1" type="CurrencyAnd6DecimalAmount"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========== PRIMITIVE / SHARED TYPES ========== -->
+
+    <xs:simpleType name="TextMin1Max35">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="35"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="TickerIdentifier">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="35"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Max1Text">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Max4Text">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="FiveDigitNumericText">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{1,5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="MICIdentifier">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z0-9]{4,4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ISODate">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="YesNoFlag">
+        <xs:restriction base="xs:boolean"/>
+    </xs:simpleType>
+
+    <!-- ISO 4217 currency code -->
+    <xs:simpleType name="ActiveOrHistoricCurrencyCode">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{3,3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Quantity: 0 decimal places, up to 28 digits -->
+    <xs:simpleType name="Quantity0Decimal">
+        <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="0"/>
+            <xs:totalDigits value="28"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Quantity: 2 decimal places, up to 18 digits (OscillationPercentage) -->
+    <xs:simpleType name="Quantity2Decimal">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="18"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!--
+        Currency amount with 2 decimal places and currency attribute.
+        Used for volume fields: NtlFinVol, IntlFinVol, NtlRglrVol, NtlNonRglrVol,
+        IntlRglrVol, IntlNonRglrVol.
+        JSON pattern: ^\d{1,15}(\.\d{1,2})?$
+    -->
+    <xs:complexType name="CurrencyAnd2DecimalAmount">
+        <xs:simpleContent>
+            <xs:extension base="CurrencyAnd2DecimalAmount_SimpleType">
+                <xs:attribute name="Ccy" type="ActiveOrHistoricCurrencyCode" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="CurrencyAnd2DecimalAmount_SimpleType">
+        <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="2"/>
+            <xs:totalDigits value="18"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!--
+        Currency amount with 6 decimal places and currency attribute.
+        Used for price fields: BestBidPric, BestAskPric, FrstPric, MinPric, MaxPric,
+        TradAvrgPric, LastPric, AdjstdQt, AdjstdQtTax, PrvsAdjstdQt, PrvsAdjstdQtTax,
+        VartnPts, EqvtVal, AdjstdValCtrct, MaxTradLmt, MinTradLmt.
+        JSON pattern: ^\d{1,15}(\.\d{1,6})?$
+    -->
+    <xs:complexType name="CurrencyAnd6DecimalAmount">
+        <xs:simpleContent>
+            <xs:extension base="CurrencyAnd6DecimalAmount_SimpleType">
+                <xs:attribute name="Ccy" type="ActiveOrHistoricCurrencyCode" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="CurrencyAnd6DecimalAmount_SimpleType">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="22"/>
+            <xs:fractionDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

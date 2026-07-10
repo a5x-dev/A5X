@@ -54,7 +54,12 @@
       "description": "Compression group information"
     },
     "noCompressionGroup": {
-      "$ref": "../../objects/business/NoCompressionGroup.json",
+      "type" : "array",
+      "items" : {
+          "$ref": "../../objects/business/NoCompressionGroup.json"
+      },
+      "minItems" : 1,
+      "maxItems" : 60,   
       "description": "No compression group"
     },
     "pagination": {
@@ -95,7 +100,7 @@
         "financialInstrumentIdentification": {
           "id": "100000000000001",
           "source": "8",
-          "exchange": "A5X"
+          "exchange": "A5XB"
         },
         "tickerSymbol": "DFZ0001"
       },
@@ -111,12 +116,12 @@
         "compressionGroupStatus": 2,
         "compressionGroupDatetime": "2025-08-28T13:45:00Z"
       },
-      "noCompressionGroup": {
+      "noCompressionGroup": [{
         "tradeIdentification": "TRADE-ABC-123456",
         "transactionDateTime": "2025-12-31T14:45:30Z",
         "tradeQuantity": "2500.75",
         "compressionTradeStatusCode": 2
-      }
+      }]
     }
   ]
 }

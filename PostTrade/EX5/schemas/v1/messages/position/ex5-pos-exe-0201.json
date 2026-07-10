@@ -53,7 +53,7 @@
     "financialInstrumentIdentification" : {
       "id" : "123456",
       "source" : "8",
-      "exchange" : "A5X"
+      "exchange" : "A5XB"
     },
     "blockExerciseQuantity" : "100.00",
     "exerciseBlockType" : 4
