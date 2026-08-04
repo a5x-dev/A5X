@@ -7,14 +7,66 @@
     <xs:element name="messages">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="types" type="mitch:TypesType" minOccurs="0"/>
                 <xs:element name="message" type="mitch:MessageType" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
+    <!--
+        Declarative catalog of the wire data types this protocol uses. The generators map the
+        DataType enumeration below to language specific types; this block documents the wire
+        contract those mappings have to honour (width, byte order, encoding, decimal scaling).
+    -->
+    <xs:complexType name="TypesType">
+        <xs:sequence>
+            <xs:element name="type" type="mitch:TypeType" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="byteOrder" type="mitch:ByteOrder"/>
+    </xs:complexType>
+
+    <xs:complexType name="TypeType">
+        <xs:attribute name="name" type="mitch:DataType" use="required"/>
+        <xs:attribute name="wireSize" type="mitch:WireSize" use="required"/>
+        <xs:attribute name="encoding" type="xs:string" use="required"/>
+        <xs:attribute name="impliedDecimals" type="xs:nonNegativeInteger"/>
+        <xs:attribute name="padding" type="mitch:Padding"/>
+        <xs:attribute name="description" type="xs:string"/>
+    </xs:complexType>
+
+    <!-- Either a fixed octet count or "variable", in which case each field carries a length. -->
+    <xs:simpleType name="WireSize">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:positiveInteger"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="variable"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+
+    <xs:simpleType name="Padding">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="null-terminated"/>
+            <xs:enumeration value="space-padded"/>
+            <xs:enumeration value="none"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ByteOrder">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="little-endian"/>
+            <xs:enumeration value="big-endian"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:complexType name="MessageType">
         <xs:sequence>
-            <xs:element name="field" type="mitch:FieldType" maxOccurs="unbounded"/>
+            <!-- minOccurs="0": some administrative messages carry no body, e.g. Logout Request. -->
+            <xs:element name="field" type="mitch:FieldType" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="name" type="xs:string" use="required"/>
         <xs:attribute name="messageType" type="xs:string" use="required"/>
@@ -29,22 +81,27 @@
         <xs:attribute name="description" type="xs:string"/>
     </xs:complexType>
 
+    <!--
+        Ordered to match the shared core in native-messages.xsd, followed by the MITCH only
+        types. char, string and int64 were removed: they appear in no A5X specification, no
+        field uses them, and string duplicated alpha. The MITCH generators still handle them,
+        so re-adding an enumeration here is enough should a future message need one.
+    -->
     <xs:simpleType name="DataType">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="uint32"/>
-            <xs:enumeration value="uint64"/>
+            <!-- Shared core: keep in sync with native-messages.xsd. -->
+            <xs:enumeration value="alpha"/>
+            <xs:enumeration value="byte"/>
+            <xs:enumeration value="bitfield"/>
+            <xs:enumeration value="int32"/>
             <xs:enumeration value="uint8"/>
             <xs:enumeration value="uint16"/>
-            <xs:enumeration value="int32"/>
-            <xs:enumeration value="int64"/>
-            <xs:enumeration value="char"/>
-            <xs:enumeration value="byte"/>
-            <xs:enumeration value="bytearray"/>
-            <xs:enumeration value="string"/>
+            <xs:enumeration value="uint32"/>
+            <xs:enumeration value="uint64"/>
             <xs:enumeration value="price4"/>
             <xs:enumeration value="price8"/>
-            <xs:enumeration value="alpha"/>
-            <xs:enumeration value="bitfield"/>
+            <!-- MITCH only: ASCII temporal types plus bytearray for reserved fields. -->
+            <xs:enumeration value="bytearray"/>
             <xs:enumeration value="date"/>
             <xs:enumeration value="time"/>
             <xs:enumeration value="extendedtime"/>

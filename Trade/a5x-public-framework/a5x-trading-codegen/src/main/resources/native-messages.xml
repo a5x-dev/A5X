@@ -5,7 +5,7 @@
         <field name="compId" type="alpha" length="11" description="CompID assigned to the client"/>
         <field name="password" type="alpha" length="25" description="Password assigned to the CompID"/>
         <field name="newPassword" type="alpha" length="25" description="New password for CompID"/>
-        <field name="protocolVersion" type="int32" description="Protocol version (1-9)"/>
+        <field name="protocolVersion" type="int32" description="Specifies the version of protocol. The system will only accept values from 1-9. If left empty, the system will consider the default value defined in system"/>
         <field name="ipAddress" type="alpha" length="15" description="Original IP Address the user"/>
         <field name="certifiedSolution" type="alpha" length="44" description="Nome da solução certificada"/>
     </message>
@@ -36,7 +36,7 @@
         <field name="clientOrderId" type="alpha" length="10" description="Client specified identifier of the order, cancel request or modification requests"/>
         <field name="orderId" type="alpha" length="12" description="Server specified identifier of the order"/>
         <field name="publicOrderId" type="alpha" length="12" description="Server specified public order identifier of the order"/>
-        <field name="executedPrice" type="price" description="Executed price. Ignore if Execution Type is not Trade (F)"/>
+        <field name="executedPrice" type="price8" description="Executed price. This field should be ignored if Execution Type is not Trade (F)"/>
         <field name="transactTime" type="uint64" description="Time the transaction occurred in epoch format"/>
         <field name="account" type="uint64" description="Identifier of the Trader Account"/>
         <field name="senderLocation" type="alpha" length="10" description="Sender Location assigned to the Trader ID/Firm"/>
@@ -73,17 +73,17 @@
     </message>
     
     <message name="NativeNewOrderSingle" messageType="D" description="New order single">
-        <field name="limitPrice" type="price" description="Limit price"/>
+        <field name="limitPrice" type="price8" description="Limit price. This field will be ignored if the Order Type is not Limit (2) or Stop Limit (4)"/>
         <field name="orderQuantity" type="uint32" description="Total order quantity"/>
         <field name="instrumentId" type="uint32" description="Numeric Identifier of the instrument"/>
         <field name="side" type="uint8" description="1 = Buy, 2 = Sell"/>
         <field name="enteringTrader" type="alpha" length="15" description="Entering Trader ID"/>
         <field name="clientOrderId" type="alpha" length="10" description="Client specified identifier of the order"/>
-        <field name="account" type="uint64" description="Identifier of the Trader Account"/>
+        <field name="account" type="uint64" description="Identifier of the Trader Account. This is a required field"/>
         <field name="senderLocation" type="alpha" length="10" description="Sender Location assigned to the Trader ID/Firm"/>
         <field name="noTradeKey" type="alpha" length="10" description="Client specified identifier of order relevant to self-execution"/>
-        <field name="stopPrice" type="price" description="Stop price/Trigger price"/>
-        <field name="displayQuantity" type="uint32" description="Maximum quantity to be displayed"/>
+        <field name="stopPrice" type="price8" description="Stop price/Trigger price. This field will be ignored if the Order Type is not Stop (3) or Stop Limit (4)"/>
+        <field name="displayQuantity" type="uint32" description="Max Floor. Maximum quantity to be displayed. A negative value should be used if this field is to be ignored"/>
         <field name="cancelOnDisconnect" type="uint8" description="0 = Do Not Cancel, 1 = Cancel"/>
         <field name="anonymity" type="uint8" description="0 = Anonymous, 1 = Named"/>
         <field name="orderBook" type="uint8" description="1 = Regular"/>
@@ -107,19 +107,17 @@
     </message>
     
     <message name="NativeOrderReplaceRequest" messageType="G" description="Order Replace Request">
-        <field name="limitPrice" type="price" description="Limit price. Ignored if Order Type is not Limit (2) or Stop Limit (4)"/>
+        <field name="limitPrice" type="price8" description="Limit price. This field will be ignored if the Order Type is not Limit (2) or Stop Limit (4)"/>
         <field name="orderQuantity" type="uint32" description="Total order quantity"/>
         <field name="instrumentId" type="uint32" description="Numeric Identifier of the instrument"/>
         <field name="side" type="uint8" description="1 = Buy, 2 = Sell"/>
         <field name="clientOrderId" type="alpha" length="10" description="Client specified identifier of the order"/>
         <field name="origClientOrderId" type="alpha" length="10" description="Client specified identifier of the order being modified"/>
-        <field name="orderId" type="alpha" length="12" description="Server specified identifier of the order being cancelled"/>
-        <field name="account" type="uint64" description="Identifier of the Trader Account. Required field"/>
+        <field name="account" type="uint64" description="Identifier of the Trader Account. This is a required field"/>
         <field name="senderLocation" type="alpha" length="10" description="Sender Location assigned to the Trader ID/Firm"/>
-        <field name="stopPrice" type="price" description="Stop price/Trigger price. Ignored if Order Type is not Stop (3) or Stop Limit (4)"/>
-        <field name="displayQuantity" type="uint32" description="Maximum quantity to be displayed. Negative value to ignore"/>
+        <field name="stopPrice" type="price8" description="Stop price/Trigger price. This field will be ignored if the Order Type is not Stop (3) or Stop Limit (4)"/>
+        <field name="displayQuantity" type="uint32" description="Maximum quantity to be displayed. A negative value should be used if this field is to be ignored"/>
         <field name="orderBook" type="uint8" description="1 = Regular"/>
-        <field name="executionInstruction" type="bitfield" description="Bit 0: Passive Only (0 = No, 1 = Yes)"/>
         <field name="orderType" type="uint8" description="1 = Market, 2 = Limit, 3 = Stop, 4 = Stop Limit, 5 = Market to Limit, 51 = RLP"/>
         <field name="timeInForce" type="uint8" description="0 = Day, 3 = IOC, 4 = FOK, 5 = OPG, 8 = GTT, 9 = GFA, 10 = ATC"/>
         <field name="expireTime" type="uint64" description="Expire time in epoch (seconds precision). Ignored if Time in Force is not GTT (8)"/>
@@ -143,9 +141,9 @@
         <field name="status" type="uint8" description="1 = Recovery Service Resumed, 2 = Recovery Service Unavailable, 3 = Partition Suspended"/>
     </message>
 
-    <message name="NativeNewOrderCross" messageType="u" description="New Order Cross">
+    <message name="NativeNewOrderCross" messageType="C" description="New Order Cross">
         <field name="crossId" type="alpha" length="10" description="Identifier of the cross order. Only alphanumeric values allowed"/>
-        <field name="limitPrice" type="price" description="Price of the cross order"/>
+        <field name="limitPrice" type="price8" description="Price of the cross order"/>
         <field name="orderQuantity" type="uint32" description="Total order quantity of the cross order"/>
         <field name="enteringTrader" type="alpha" length="15" description="Entering Trader ID"/>
         <field name="instrumentId" type="uint32" description="Numeric Identifier of the instrument"/>
@@ -187,7 +185,7 @@
         <field name="orderBook" type="uint8" description="1 = Regular"/>
     </message>
 
-    <message name="NativeNews" messageType="CB" description="News">
+    <message name="NativeNews" messageType="Z" description="News">
         <field name="partitionId" type="uint8" description="Identity of the matching partition"/>
         <field name="sequenceNumber" type="uint64" description="Message sequence number of the matching partition"/>
         <field name="origTime" type="uint64" description="Time the announcement was published in EPOCH time"/>
@@ -212,9 +210,16 @@
         <field name="memo" type="alpha" length="15" description="Free format text field. Echoed in reports"/>
         <field name="deskId" type="alpha" length="15" description="Desk ID through which the order is placed from"/>
         <field name="totalQuoteEntries" type="uint16" description="Number of quote entries in the mass quote"/>
+        <!--
+            The specification defines a repeating group of Total Quote Entries occurrences after this
+            field: Quote Entry ID (alpha 10), Instrument ID (uint32), Bid Price (price8), Bid Size
+            (uint32), Offer Price (price8), Offer Size (uint32). The current schema has no construct
+            for repeating groups, so the group is not generated. Callers must encode/decode the
+            trailing entries manually.
+        -->
     </message>
 
-    <message name="NativeMassQuoteAcknowledgement" messageType="b" description="Mass Quote Acknowledgement">
+    <message name="NativeMassQuoteAcknowledgement" messageType="J" description="Mass Quote Acknowledgement">
         <field name="massQuoteId" type="alpha" length="10" description="Mass Quote ID of the Mass Quote message"/>
         <field name="partitionId" type="uint8" description="Identity of the matching partition"/>
         <field name="status" type="uint8" description="0 = Accepted, 5 = Rejected"/>
@@ -231,15 +236,23 @@
         <field name="tradingPhase" type="uint8" description="1 = Regular (Day Session), 2 = Non-Regular (Night Session)"/>
         <field name="routingSeq" type="uint64" description="Unique sequence assigned for all market data message"/>
         <field name="totalQuoteEntries" type="uint16" description="Number of quote entries"/>
+        <!--
+            The specification defines a repeating group of Total Quote Entries occurrences after this
+            field: Quote Entry ID (alpha 10), Instrument ID (uint32), Quote Entry Status (uint8),
+            Quote Entry Reject Code (int32), BidID (alpha 10), OfferID (alpha 10), BidPx (price8),
+            OfferPx (price8), BidSize (uint32), OfferSize (uint32). The current schema has no
+            construct for repeating groups, so the group is not generated. Callers must
+            encode/decode the trailing entries manually.
+        -->
     </message>
 
-    <message name="NativeQuoteStatusReport" messageType="AI" description="Quote Status Report">
+    <message name="NativeQuoteStatusReport" messageType="c" description="Quote Status Report">
         <field name="partitionId" type="uint8" description="Identity of the matching partition"/>
         <field name="sequenceNumber" type="uint64" description="Message sequence number of the Matching Partition"/>
         <field name="quoteMsgId" type="alpha" length="10" description="Client specified identifier of the quote if available. Null filled otherwise"/>
         <field name="quoteStatus" type="uint8" description="6 = Removed from Market, 7 = Expired, 17 = Cancelled"/>
         <field name="rejectCode" type="int32" description="Code specifying the reason for the reject. Applicable only if Quote Status is Rejected, null filled otherwise"/>
-        <field name="orderBook" type="uint32" description="1 = Regular"/>
+        <field name="orderBook" type="uint8" description="1 = Regular"/>
         <field name="transactTime" type="uint64" description="Time the message was generated in epoch format"/>
         <field name="anonymity" type="uint8" description="0 = Anonymous, 1 = Named. Absence interpreted as Anonymous (0)"/>
         <field name="instrumentId" type="uint32" description="Numeric Identifier of the instrument"/>

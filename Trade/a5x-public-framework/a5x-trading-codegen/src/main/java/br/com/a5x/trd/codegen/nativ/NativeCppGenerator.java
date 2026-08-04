@@ -73,6 +73,7 @@ public class NativeCppGenerator {
             case "alpha": return "uint8_t";
             case "byte": return "uint8_t";
             case "price": return "int32_t";
+            case "price8": return "int64_t";
             case "uint8": return "uint8_t";
             case "uint16": return "uint16_t";
             case "uint32": return "uint32_t";
@@ -94,6 +95,8 @@ public class NativeCppGenerator {
             case "price":
             case "int32":
                 return "std::memcpy(&msg." + field.getName() + ", data + " + offset + ", 4)";
+            case "price8":
+                return "std::memcpy(&msg." + field.getName() + ", data + " + offset + ", 8)";
             case "uint16":
                 return "std::memcpy(&msg." + field.getName() + ", data + " + offset + ", 2)";
             case "uint32":
@@ -116,6 +119,8 @@ public class NativeCppGenerator {
             case "price":
             case "int32":
                 return "std::memcpy(data + " + offset + ", &msg." + field.getName() + ", 4)";
+            case "price8":
+                return "std::memcpy(data + " + offset + ", &msg." + field.getName() + ", 8)";
             case "uint16":
                 return "std::memcpy(data + " + offset + ", &msg." + field.getName() + ", 2)";
             case "uint32":
@@ -137,6 +142,7 @@ public class NativeCppGenerator {
             case "price":
             case "int32":
             case "uint32": return 4;
+            case "price8":
             case "uint64": return 8;
             default: return 1;
         }

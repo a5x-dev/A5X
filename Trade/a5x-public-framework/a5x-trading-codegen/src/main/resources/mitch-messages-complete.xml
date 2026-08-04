@@ -74,8 +74,8 @@
         <field name="notionalAmount" type="price8" description="Notional value relevant to the security"/>
         <field name="notionalCurrency" type="alpha" length="3" description="The currency in which the notional is represented"/>
         <field name="publicationDateTime" type="uint64" description="Date and time when the trade was published by the trading venue [Epoch]"/>
-        <field name="firm" type="alpha" length="6" description="Firm ID of the party firm"/>
-        <field name="contraFirm" type="alpha" length="6" description="Firm ID of the counter party firm"/>
+        <field name="buyerFirm" type="alpha" length="6" description="Buyer Firm ID"/>
+        <field name="sellerFirm" type="alpha" length="6" description="Seller Firm ID"/>
     </message>
     
     <message name="MitchOrderExecutedWithPriceSize" messageType="0x43" description="Sent when an order is executed and includes remaining display quantity">
@@ -97,8 +97,8 @@
         <field name="notionalAmount" type="price8" description="Notional value relevant to the security"/>
         <field name="notionalCurrency" type="alpha" length="3" description="The currency in which the notional is represented"/>
         <field name="publicationDateTime" type="uint64" description="Date and time when the trade was published by the trading venue [Epoch]"/>
-        <field name="firm" type="alpha" length="6" description="Firm ID of the party firm"/>
-        <field name="contraFirm" type="alpha" length="6" description="Firm ID of the counter party firm"/>
+        <field name="buyerFirm" type="alpha" length="6" description="Buyer Firm ID"/>
+        <field name="sellerFirm" type="alpha" length="6" description="Seller Firm ID"/>
         <field name="displayQuantity" type="uint32" description="Displayed quantity of the order after the execution"/>
         <field name="printable" type="byte" description="N = Non-Printable, Y = Printable"/>
     </message>
@@ -131,8 +131,8 @@
         <field name="notionalAmount" type="price8" description="Notional value relevant to the security"/>
         <field name="notionalCurrency" type="alpha" length="3" description="The currency in which the notional is represented"/>
         <field name="publicationDateTime" type="uint64" description="Date and time when the trade was published by the trading venue [Epoch]"/>
-        <field name="cancellationFlag" type="alpha" length="4" description="Indicates if the trade has been cancelled (Value = CANC)"/>
-        <field name="amendmentFlag" type="alpha" length="4" description="Indicates if the trade has been amended (Value = AMND)"/>
+        <field name="cancellationFlag" type="alpha" length="4" description="PTCancellationFlag. Indicates if the trade represented by the message has been cancelled (Value = CANC)"/>
+        <field name="amendmentFlag" type="alpha" length="4" description="PTAmendmentFlag. Indicates if the trade represented by the message has been amended (Value = AMND)"/>
         <field name="auctionType" type="byte" description="A = Re-Opening Auction, C = Closing Auction, O = Opening Auction"/>
     </message>
     
@@ -155,10 +155,10 @@
         <field name="notionalAmount" type="price8" description="Notional value relevant to the security"/>
         <field name="notionalCurrency" type="alpha" length="3" description="The currency in which the notional is represented"/>
         <field name="publicationDateTime" type="uint64" description="Date and time when the trade was published by the trading venue [Epoch]"/>
-        <field name="firm" type="alpha" length="6" description="Firm ID of the party firm"/>
-        <field name="contraFirm" type="alpha" length="6" description="Firm ID of the counter party firm"/>
-        <field name="cancellationFlag" type="alpha" length="4" description="Indicates if the trade has been cancelled (Value = CANC)"/>
-        <field name="amendmentFlag" type="alpha" length="4" description="Indicates if the trade has been amended (Value = AMND)"/>
+        <field name="buyerFirm" type="alpha" length="6" description="Buyer Firm ID"/>
+        <field name="sellerFirm" type="alpha" length="6" description="Seller Firm ID"/>
+        <field name="cancellationFlag" type="alpha" length="4" description="PTCancellationFlag. Indicates if the trade represented by the message has been cancelled (Value = CANC)"/>
+        <field name="amendmentFlag" type="alpha" length="4" description="PTAmendmentFlag. Indicates if the trade represented by the message has been amended (Value = AMND)"/>
         <field name="subBook" type="uint8" description="1 = Regular, 11 = Negotiated Trades"/>
         <field name="flags" type="bitfield" description="Bit 0: Trade Condition Flag, Bit 1: Internal Crossed Trade, Bit 5: RLP"/>
         <field name="auctionType" type="byte" description="A = Re-Opening Auction, C = Closing Auction, O = Opening Auction"/>
@@ -169,8 +169,8 @@
         <field name="instrumentId" type="uint32" description="Numeric identifier of the instrument"/>
         <field name="statisticType" type="byte" description="C = Closing Price, O = Opening Price, P = Previous Close"/>
         <field name="price" type="price8" description="Opening or closing price"/>
-        <field name="openCloseIndicator" type="byte" description="A = Auction Trade, B = Regular Trade, C = Mid Point, D = Last Regular Trade, E = Last Auction, F = Manual, H = VWAP, I = Previous Close, T = Theoretical Price, L = VWAP n Volume, U = Best Bid, V = Best Offer, W = None, X = VWAP of Last n Trades, Y = Reference Price, Z = Price Unavailable"/>
-        <field name="subBook" type="uint8" description="1 = Regular, 2 = Off-Book, 9 = Bulletin Board"/>
+        <field name="openCloseIndicator" type="byte" description="A = Auction Trade, B = Regular Trade, D = Last Regular Trade, E = Last Auction, F = Manual, I = Previous Close, T = Theoretical Price, W = None, Y = Reference Price, Z = Price Unavailable"/>
+        <field name="subBook" type="uint8" description="1 = Regular"/>
     </message>
     
     <message name="MitchExtendedStatistics" messageType="0x80" description="Sent to provide extended statistical information about instruments">
@@ -203,7 +203,7 @@
         <field name="flags" type="bitfield" description="Reserved for future use"/>
         <field name="haltReason" type="alpha" length="4" description="Reason for the trading halt. This field will contain only spaces if Trading Status is not 'H'"/>
         <field name="sessionChangeReason" type="uint8" description="0 = Scheduled Transition, 1 = Extended by Market Ops, 2 = Shortened by Market Ops, 3 = Market Order Extension, 4 = Price Monitoring Extension, 5 = Circuit Breaker Tripped, 9 = Unavailable, 10 = No Cancel Period Start"/>
-        <field name="newEndTime" type="uint64" description="New session end time (EPOCH). The field will contain only spaces if Session Change Reason is '0' or '9'"/>
+        <field name="newEndTime" type="uint64" description="New session end time specified in terms of local time for server (UTC) [Epoch in microseconds UTC]. The field will contain only spaces if Session Change Reason is '0' or '9'"/>
         <field name="subBook" type="uint8" description="1 = Regular, 2 = Off-Book, 9 = Bulletin Board, 11 = Negotiated Trades"/>
     </message>
     
@@ -214,7 +214,7 @@
         <field name="action" type="byte" description="1 = Update, 2 = Delete"/>
         <field name="side" type="byte" description="B = Buy, S = Sell"/>
         <field name="price" type="price8" description="Best price for the particular side"/>
-        <field name="quantity" type="uint32" description="Cumulative visible size at best price"/>
+        <field name="quantity" type="uint32" description="Cumulative visible size at best price. This will be set to zero on a delete action"/>
         <field name="marketOrderQuantity" type="uint32" description="Cumulative visible size of market orders"/>
         <field name="reservedField" type="bytearray" length="2" description="Reserved for future use"/>
         <field name="splits" type="uint32" description="Cumulative visible orders at Best price. This will be set to zero on a delete action"/>
@@ -239,10 +239,10 @@
         <field name="notionalAmount" type="price8" description="Notional value relevant to the security"/>
         <field name="notionalCurrency" type="alpha" length="3" description="The currency in which the notional is represented"/>
         <field name="publicationDateTime" type="uint64" description="Date and time when the trade was published by the trading venue [Epoch]"/>
-        <field name="firm" type="alpha" length="6" description="Firm ID of the party firm"/>
-        <field name="contraFirm" type="alpha" length="6" description="Firm ID of the counter party firm"/>
-        <field name="cancellationFlag" type="alpha" length="4" description="Indicates if the trade has been cancelled (Value = CANC)"/>
-        <field name="amendmentFlag" type="alpha" length="4" description="Indicates if the trade has been amended (Value = AMND)"/>
+        <field name="buyerFirm" type="alpha" length="6" description="Buyer Firm ID"/>
+        <field name="sellerFirm" type="alpha" length="6" description="Seller Firm ID"/>
+        <field name="cancellationFlag" type="alpha" length="4" description="PTCancellationFlag. Indicates if the trade represented by the message has been cancelled (Value = CANC)"/>
+        <field name="amendmentFlag" type="alpha" length="4" description="PTAmendmentFlag. Indicates if the trade represented by the message has been amended (Value = AMND)"/>
         <field name="subBook" type="uint8" description="1 = Regular, 11 = Negotiated Trades"/>
         <field name="flags" type="bitfield" description="Bit 0: Trade Condition Flag, Bit 1: Internal Crossed Trade, Bit 5: RLP"/>
     </message>

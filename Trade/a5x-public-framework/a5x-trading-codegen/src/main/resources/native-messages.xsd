@@ -1,45 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="http://a5x.com.br/native"
-           xmlns="http://a5x.com.br/native"
+           xmlns:nativ="http://a5x.com.br/native"
            elementFormDefault="qualified">
 
     <xs:element name="messages">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="message" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="field" minOccurs="0" maxOccurs="unbounded">
-                                <xs:complexType>
-                                    <xs:attribute name="name" type="xs:string" use="required"/>
-                                    <xs:attribute name="type" use="required">
-                                        <xs:simpleType>
-                                            <xs:restriction base="xs:string">
-                                                <xs:enumeration value="alpha"/>
-                                                <xs:enumeration value="byte"/>
-                                                <xs:enumeration value="price"/>
-                                                <xs:enumeration value="uint8"/>
-                                                <xs:enumeration value="uint16"/>
-                                                <xs:enumeration value="uint32"/>
-                                                <xs:enumeration value="uint64"/>
-                                                <xs:enumeration value="int32"/>
-                                                <xs:enumeration value="bitfield"/>
-                                            </xs:restriction>
-                                        </xs:simpleType>
-                                    </xs:attribute>
-                                    <xs:attribute name="length" type="xs:positiveInteger"/>
-                                    <xs:attribute name="description" type="xs:string"/>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                        <xs:attribute name="name" type="xs:string" use="required"/>
-                        <xs:attribute name="messageType" type="xs:string" use="required"/>
-                        <xs:attribute name="description" type="xs:string"/>
-                    </xs:complexType>
-                </xs:element>
+                <xs:element name="types" type="nativ:TypesType" minOccurs="0"/>
+                <xs:element name="message" type="nativ:MessageType" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <!--
+        Declarative catalog of the wire data types this protocol uses. The generators map the
+        DataType enumeration below to language specific types; this block documents the wire
+        contract those mappings have to honour (width, byte order, encoding, decimal scaling).
+    -->
+    <xs:complexType name="TypesType">
+        <xs:sequence>
+            <xs:element name="type" type="nativ:TypeType" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="byteOrder" type="nativ:ByteOrder"/>
+    </xs:complexType>
+
+    <xs:complexType name="TypeType">
+        <xs:attribute name="name" type="nativ:DataType" use="required"/>
+        <xs:attribute name="wireSize" type="nativ:WireSize" use="required"/>
+        <xs:attribute name="encoding" type="xs:string" use="required"/>
+        <xs:attribute name="impliedDecimals" type="xs:nonNegativeInteger"/>
+        <xs:attribute name="padding" type="nativ:Padding"/>
+        <xs:attribute name="description" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="MessageType">
+        <xs:sequence>
+            <xs:element name="field" type="nativ:FieldType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="messageType" type="xs:string" use="required"/>
+        <xs:attribute name="description" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="FieldType">
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="type" type="nativ:DataType" use="required"/>
+        <xs:attribute name="length" type="xs:positiveInteger"/>
+        <xs:attribute name="description" type="xs:string"/>
+    </xs:complexType>
+
+    <!--
+        The A5X shared core vocabulary, in the same order as mitch-messages.xsd. MITCH extends
+        it with bytearray and the ASCII temporal types (date, time, extendedtime, datetime);
+        do not add those here until the Native generators handle them, since today they would
+        fall through to the default branch and be sized as a single byte.
+    -->
+    <xs:simpleType name="DataType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="alpha"/>
+            <xs:enumeration value="byte"/>
+            <xs:enumeration value="bitfield"/>
+            <xs:enumeration value="int32"/>
+            <xs:enumeration value="uint8"/>
+            <xs:enumeration value="uint16"/>
+            <xs:enumeration value="uint32"/>
+            <xs:enumeration value="uint64"/>
+            <xs:enumeration value="price4"/>
+            <xs:enumeration value="price8"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Either a fixed octet count or "variable", in which case each field carries a length. -->
+    <xs:simpleType name="WireSize">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:positiveInteger"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="variable"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+
+    <xs:simpleType name="Padding">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="null-terminated"/>
+            <xs:enumeration value="space-padded"/>
+            <xs:enumeration value="none"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ByteOrder">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="little-endian"/>
+            <xs:enumeration value="big-endian"/>
+        </xs:restriction>
+    </xs:simpleType>
 
 </xs:schema>

@@ -97,6 +97,8 @@ public class NativeWiresharkGenerator {
             case "price":
             case "int32":
                 return "ProtoField.int32(\"native." + fieldName + "\", \"" + capitalize(field.getName()) + "\", base.DEC)";
+            case "price8":
+                return "ProtoField.int64(\"native." + fieldName + "\", \"" + capitalize(field.getName()) + "\", base.DEC)";
             case "uint32":
                 return "ProtoField.uint32(\"native." + fieldName + "\", \"" + capitalize(field.getName()) + "\", base.DEC)";
             case "uint64":
@@ -116,6 +118,7 @@ public class NativeWiresharkGenerator {
             case "price":
             case "int32":
             case "uint32": return 4;
+            case "price8":
             case "uint64": return 8;
             default: return 1;
         }

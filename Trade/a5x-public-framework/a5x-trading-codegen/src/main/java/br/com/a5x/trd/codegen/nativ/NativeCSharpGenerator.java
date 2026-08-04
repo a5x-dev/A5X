@@ -68,6 +68,7 @@ public class NativeCSharpGenerator {
             case "alpha": return "byte[]";
             case "byte": return "byte";
             case "price": return "int";
+            case "price8": return "long";
             case "uint8": return "byte";
             case "uint16": return "ushort";
             case "uint32": return "uint";
@@ -89,6 +90,8 @@ public class NativeCSharpGenerator {
             case "price":
             case "int32":
                 return "BitConverter.ToInt32(data.Slice(" + offset + ", 4))";
+            case "price8":
+                return "BitConverter.ToInt64(data.Slice(" + offset + ", 8))";
             case "uint16":
                 return "BitConverter.ToUInt16(data.Slice(" + offset + ", 2))";
             case "uint32":
@@ -111,6 +114,8 @@ public class NativeCSharpGenerator {
             case "price":
             case "int32":
                 return "BitConverter.TryWriteBytes(data.Slice(" + offset + ", 4), msg." + capitalize(field.getName()) + ")";
+            case "price8":
+                return "BitConverter.TryWriteBytes(data.Slice(" + offset + ", 8), msg." + capitalize(field.getName()) + ")";
             case "uint16":
                 return "BitConverter.TryWriteBytes(data.Slice(" + offset + ", 2), msg." + capitalize(field.getName()) + ")";
             case "uint32":
@@ -132,6 +137,7 @@ public class NativeCSharpGenerator {
             case "price":
             case "int32":
             case "uint32": return 4;
+            case "price8":
             case "uint64": return 8;
             default: return 1;
         }

@@ -40,6 +40,9 @@ public class NativeCodeGenerator {
             if ("price".equals(field.getType())) {
                 sb.append("    public java.math.BigDecimal ").append(field.getName()).append("AsDecimal() { return java.math.BigDecimal.valueOf(").append(field.getName()).append(", 4); }\n\n");
             }
+            if ("price8".equals(field.getType())) {
+                sb.append("    public java.math.BigDecimal ").append(field.getName()).append("AsDecimal() { return java.math.BigDecimal.valueOf(").append(field.getName()).append(", 8); }\n\n");
+            }
         }
         
         sb.append("    public static void parse(").append(msg.getName()).append(" msg, ByteBuffer data) {\n");
@@ -100,6 +103,7 @@ public class NativeCodeGenerator {
             case "alpha": return "byte[]";
             case "byte": return "byte";
             case "price": return "int";
+            case "price8": return "long";
             case "uint8": return "int";
             case "uint16": return "int";
             case "uint32": return "long";
@@ -118,6 +122,8 @@ public class NativeCodeGenerator {
                 return "data.get()";
             case "price":
                 return "data.getInt()";
+            case "price8":
+                return "data.getLong()";
             case "uint8":
                 return "Byte.toUnsignedInt(data.get())";
             case "uint16":
@@ -143,6 +149,8 @@ public class NativeCodeGenerator {
                 return "data.put(msg." + field.getName() + ")";
             case "price":
                 return "data.putInt(msg." + field.getName() + ")";
+            case "price8":
+                return "data.putLong(msg." + field.getName() + ")";
             case "uint8":
                 return "data.put((byte) msg." + field.getName() + ")";
             case "uint16":
