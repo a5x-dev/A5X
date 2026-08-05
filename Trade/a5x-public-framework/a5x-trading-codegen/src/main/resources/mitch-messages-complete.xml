@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messages xmlns="http://a5x.com.br/mitch">
-    
+
+    <!--
+        A5X MITCH (Market Data Binary) Gateway wire data types.
+
+        Source: https://portal-tecnico.a5x.com.br/pt-br/trading/market-data-binary.
+
+        ==========================================================================
+        SHARED TYPE VOCABULARY
+        ==========================================================================
+        The first ten types below are the A5X shared core and are declared
+        identically, in the same order, in native-messages.xml. A given type name
+        means exactly the same thing on the wire in both protocols. Diffing the two
+        <types> blocks should show only the differences listed here.
+
+        Intentional difference 1 - alpha padding:
+            MITCH   : padding="space-padded"
+            Native  : padding="null-terminated"
+        This is a genuine wire level difference between the two gateways, stated in
+        each specification. The name stays stable and the padding attribute carries
+        the distinction, so callers key off one concept rather than two names.
+
+        Intentional difference 2 - MITCH only types:
+            bytearray, date, time, extendedtime, datetime.
+            MITCH transmits dates and times as ASCII and uses bytearray for its
+            reserved fields. Native carries every timestamp as a uint64 epoch value
+            and has no reserved fields, so it declares none of these.
+    -->
+    <types byteOrder="little-endian">
+        <!-- Shared core: keep in sync with native-messages.xml. -->
+        <type name="alpha"        wireSize="variable" encoding="ASCII"               padding="space-padded" javaType="String" csharpType="string" cppType="std::string" description="ASCII string, left-justified and right-padded with spaces. Length specified per field. The SDK trims trailing spaces on decode and pads with spaces on encode."/>
+        <type name="byte"         wireSize="1"        encoding="unsigned-integer"                           javaType="byte"   csharpType="byte"   cppType="uint8_t"     description="Single byte used to hold one ASCII character."/>
+        <type name="bitfield"     wireSize="1"        encoding="unsigned-integer"                           javaType="byte"   csharpType="byte"   cppType="uint8_t"     description="Single byte where individual bits carry meaning. Bit 0 is the least significant bit, bit 7 the most significant."/>
+        <type name="int32"        wireSize="4"        encoding="int32-le"                                   javaType="int"    csharpType="int"    cppType="int32_t"     description="Signed 32-bit little-endian integer."/>
+        <type name="uint8"        wireSize="1"        encoding="unsigned-integer"                           javaType="int"    csharpType="byte"   cppType="uint8_t"     description="Unsigned 8-bit integer."/>
+        <type name="uint16"       wireSize="2"        encoding="unsigned-integer-le"                        javaType="int"    csharpType="ushort" cppType="uint16_t"    description="Unsigned 16-bit little-endian integer."/>
+        <type name="uint32"       wireSize="4"        encoding="unsigned-integer-le"                        javaType="long"   csharpType="uint"   cppType="uint32_t"    description="Unsigned 32-bit little-endian integer."/>
+        <type name="uint64"       wireSize="8"        encoding="unsigned-integer-le"                        javaType="long"   csharpType="ulong"  cppType="uint64_t"    description="Unsigned 64-bit little-endian integer. Java has no unsigned 64-bit primitive: all 64 bits are preserved in a long, but a value above 2^63-1 reads as negative. Use Long.toUnsignedString and Long.compareUnsigned when that is possible. C# and C++ expose it as a true unsigned type."/>
+        <type name="price4"       wireSize="4"        encoding="int32-le"            impliedDecimals="4"    javaType="int"    csharpType="int"    cppType="int32_t"     description="Signed 32-bit little-endian integer with 4 implied decimal places (divide by 10000)."/>
+        <type name="price8"       wireSize="8"        encoding="int64-le"            impliedDecimals="4"    javaType="long"   csharpType="long"   cppType="int64_t"     description="Signed 64-bit little-endian integer with 4 implied decimal places (divide by 10000)."/>
+
+        <!-- MITCH only: no Native equivalent. See note above. -->
+        <type name="bytearray"    wireSize="variable" encoding="opaque"                                     javaType="byte[]" csharpType="byte[]" cppType="uint8_t"     description="Raw byte array, no interpretation. Length specified per field. Used for reserved fields. Declared as a fixed size array in C++."/>
+        <type name="date"         wireSize="8"        encoding="ASCII"                                      javaType="String" csharpType="string" cppType="std::string" description="Date as ASCII characters in YYYYMMDD format."/>
+        <type name="time"         wireSize="8"        encoding="ASCII"                                      javaType="String" csharpType="string" cppType="std::string" description="Time as ASCII characters in HH:MM:SS format."/>
+        <type name="extendedtime" wireSize="12"       encoding="ASCII"                                      javaType="String" csharpType="string" cppType="std::string" description="Time as ASCII characters in HH:MM:SS.sss format."/>
+        <type name="datetime"     wireSize="27"       encoding="ASCII"                                      javaType="String" csharpType="string" cppType="std::string" description="UTC date and time as ASCII characters in YYYY-MM-DDThh:mm:ss.ddddddZ format."/>
+    </types>
+
     <message name="MitchTime" messageType="0x54" description="Sent by the server for every second for which at least one application message is generated. This message is not transmitted during periods where no other application messages are generated">
         <field name="seconds" type="uint32" description="Number of seconds since midnight. Midnight will be in terms of the local time for the server (i.e. not UTC)"/>
     </message>

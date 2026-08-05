@@ -22,7 +22,8 @@ public class NativeCodeGenerator {
         StringBuilder sb = new StringBuilder();
         
         sb.append("package br.com.a5x.trd.pub.nativ.model;\n\n");
-        sb.append("import java.nio.ByteBuffer;\n\n");
+        sb.append("import java.nio.ByteBuffer;\n");
+        sb.append("import java.nio.charset.StandardCharsets;\n\n");
         
         sb.append("/**\n");
         sb.append(" * ").append(msg.getDescription()).append("\n");
@@ -34,14 +35,13 @@ public class NativeCodeGenerator {
             sb.append("    /** ").append(field.getDescription()).append(" */\n");
             sb.append("    public ").append(getJavaType(field)).append(" ").append(field.getName());
             if (field.getType().equals("alpha")) {
-                sb.append(" = new byte[").append(field.getLength()).append("]");
+                sb.append(" = \"\"");
             }
             sb.append(";\n\n");
-            if ("price".equals(field.getType())) {
+            // Both price types carry 4 implied decimals. See the <types> block in
+            // native-messages.xml for why price8 is scale 4 and not the 8 the portal states.
+            if ("price4".equals(field.getType()) || "price8".equals(field.getType())) {
                 sb.append("    public java.math.BigDecimal ").append(field.getName()).append("AsDecimal() { return java.math.BigDecimal.valueOf(").append(field.getName()).append(", 4); }\n\n");
-            }
-            if ("price8".equals(field.getType())) {
-                sb.append("    public java.math.BigDecimal ").append(field.getName()).append("AsDecimal() { return java.math.BigDecimal.valueOf(").append(field.getName()).append(", 8); }\n\n");
             }
         }
         
@@ -67,28 +67,31 @@ public class NativeCodeGenerator {
             sb.append("        return \"").append(msg.getName()).append("{\" +\n");
             for (int i = 0; i < msg.getFields().size(); i++) {
                 FieldDefinition field = msg.getFields().get(i);
-                sb.append("                \"").append(field.getName()).append("=\" + ");
-                if (field.getType().equals("alpha")) {
-                    sb.append("new String(").append(field.getName()).append(").trim()");
-                } else {
-                    sb.append(field.getName());
-                }
+                sb.append("                \"").append(field.getName()).append("=\" + ").append(field.getName());
                 sb.append(i < msg.getFields().size() - 1 ? " + \", \" +\n" : " + '}';\n");
             }
         }
         
         sb.append("    }\n\n");
         
-        sb.append("    private static byte[] readAlpha(ByteBuffer data, int length) {\n");
-        sb.append("        byte[] result = new byte[length];\n");
-        sb.append("        data.get(result);\n");
-        sb.append("        return result;\n");
+        // Native alpha is null-terminated: read up to the first NUL, pad writes with NUL.
+        sb.append("    private static String readAlpha(ByteBuffer data, int length) {\n");
+        sb.append("        byte[] raw = new byte[length];\n");
+        sb.append("        data.get(raw);\n");
+        sb.append("        int end = 0;\n");
+        sb.append("        while (end < length && raw[end] != 0) {\n");
+        sb.append("            end++;\n");
+        sb.append("        }\n");
+        sb.append("        return new String(raw, 0, end, StandardCharsets.US_ASCII);\n");
         sb.append("    }\n\n");
         
-        sb.append("    private static void writeAlpha(ByteBuffer data, byte[] value, int length) {\n");
-        sb.append("        byte[] temp = new byte[length];\n");
-        sb.append("        System.arraycopy(value, 0, temp, 0, Math.min(value.length, length));\n");
-        sb.append("        data.put(temp);\n");
+        sb.append("    private static void writeAlpha(ByteBuffer data, String value, int length) {\n");
+        sb.append("        byte[] out = new byte[length];\n");
+        sb.append("        if (value != null) {\n");
+        sb.append("            byte[] src = value.getBytes(StandardCharsets.US_ASCII);\n");
+        sb.append("            System.arraycopy(src, 0, out, 0, Math.min(src.length, length));\n");
+        sb.append("        }\n");
+        sb.append("        data.put(out);\n");
         sb.append("    }\n");
         sb.append("}\n");
         
@@ -100,9 +103,10 @@ public class NativeCodeGenerator {
 
     private String getJavaType(FieldDefinition field) {
         switch (field.getType()) {
-            case "alpha": return "byte[]";
+            // Keep in sync with MitchCodeGenerator.getJavaType for the shared core types.
+            case "alpha": return "String";
             case "byte": return "byte";
-            case "price": return "int";
+            case "price4": return "int";
             case "price8": return "long";
             case "uint8": return "int";
             case "uint16": return "int";
@@ -120,7 +124,7 @@ public class NativeCodeGenerator {
                 return "readAlpha(data, " + field.getLength() + ")";
             case "byte":
                 return "data.get()";
-            case "price":
+            case "price4":
                 return "data.getInt()";
             case "price8":
                 return "data.getLong()";
@@ -147,7 +151,7 @@ public class NativeCodeGenerator {
                 return "writeAlpha(data, msg." + field.getName() + ", " + field.getLength() + ")";
             case "byte":
                 return "data.put(msg." + field.getName() + ")";
-            case "price":
+            case "price4":
                 return "data.putInt(msg." + field.getName() + ")";
             case "price8":
                 return "data.putLong(msg." + field.getName() + ")";

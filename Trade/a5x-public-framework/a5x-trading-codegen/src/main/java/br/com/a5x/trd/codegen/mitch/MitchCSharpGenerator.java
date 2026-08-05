@@ -25,7 +25,6 @@ public class MitchCSharpGenerator {
         StringBuilder sb = new StringBuilder();
         
         sb.append("using System;\n");
-        sb.append("using System.Numerics;\n");
         sb.append("using System.Text;\n\n");
         sb.append("namespace A5X.Trading.Mitch.Model\n{\n");
         
@@ -43,12 +42,16 @@ public class MitchCSharpGenerator {
             sb.append("        /// ").append(field.getDescription()).append("\n");
             sb.append("        /// </summary>\n");
             sb.append("        public ").append(getCSharpType(field)).append(" ").append(capitalize(field.getName()));
+            sb.append(" { get; set; }");
             
+            // C# requires an auto-property initializer to follow the accessor list, and the
+            // property then needs a terminating semicolon. Emitting it before "{ get; set; }"
+            // produces code that does not compile.
             if ("bytearray".equals(field.getType())) {
-                sb.append(" = new byte[").append(field.getLength()).append("]");
+                sb.append(" = new byte[").append(field.getLength()).append("];");
             }
             
-            sb.append(" { get; set; }\n\n");
+            sb.append("\n\n");
 
             if ("price4".equals(field.getType()) || "price8".equals(field.getType())) {
                 sb.append("        public decimal ").append(capitalize(field.getName())).append("AsDecimal => ").append(capitalize(field.getName())).append(" / 10000m;\n\n");
@@ -87,16 +90,22 @@ public class MitchCSharpGenerator {
     
     private String getCSharpType(FieldDefinition field) {
         switch (field.getType()) {
+            // Keep in sync with NativeCSharpGenerator.getCSharpType for the shared core types.
             case "uint32": return "uint";
-            case "uint64": return "BigInteger";
+            case "uint64": return "ulong";
             case "uint8": return "byte";
-            case "char": return "char";
+            case "uint16": return "ushort";
+            case "int32": return "int";
             case "byte": return "byte";
+            case "bitfield": return "byte";
             case "bytearray": return "byte[]";
-            case "string": return "string";
             case "alpha": return "string";
             case "price4": return "int";
             case "price8": return "long";
+            case "date": return "string";
+            case "time": return "string";
+            case "extendedtime": return "string";
+            case "datetime": return "string";
             default: return "object";
         }
     }
@@ -111,24 +120,31 @@ public class MitchCSharpGenerator {
                 sb.append("            offset += 4;\n");
                 break;
             case "uint64":
-                sb.append("            msg.").append(fieldName).append(" = new BigInteger(data.Slice(offset, 8));\n");
+                sb.append("            msg.").append(fieldName).append(" = BitConverter.ToUInt64(data.Slice(offset, 8));\n");
                 sb.append("            offset += 8;\n");
                 break;
+            case "uint16":
+                sb.append("            msg.").append(fieldName).append(" = BitConverter.ToUInt16(data.Slice(offset, 2));\n");
+                sb.append("            offset += 2;\n");
+                break;
+            case "int32":
+                sb.append("            msg.").append(fieldName).append(" = BitConverter.ToInt32(data.Slice(offset, 4));\n");
+                sb.append("            offset += 4;\n");
+                break;
             case "uint8":
-                sb.append("            msg.").append(fieldName).append(" = data[offset++];\n");
-                break;
-            case "char":
-                sb.append("            msg.").append(fieldName).append(" = (char)data[offset++];\n");
-                break;
             case "byte":
+            case "bitfield":
                 sb.append("            msg.").append(fieldName).append(" = data[offset++];\n");
                 break;
             case "bytearray":
                 sb.append("            data.Slice(offset, ").append(field.getLength()).append(").CopyTo(msg.").append(fieldName).append(");\n");
                 sb.append("            offset += ").append(field.getLength()).append(";\n");
                 break;
-            case "string":
             case "alpha":
+            case "date":
+            case "time":
+            case "extendedtime":
+            case "datetime":
                 sb.append("            msg.").append(fieldName).append(" = Encoding.ASCII.GetString(data.Slice(offset, ").append(field.getLength()).append(")).TrimEnd();\n");
                 sb.append("            offset += ").append(field.getLength()).append(";\n");
                 break;
@@ -155,21 +171,32 @@ public class MitchCSharpGenerator {
                 sb.append("            offset += 4;\n");
                 break;
             case "uint64":
-                sb.append("            msg.").append(fieldName).append(".TryWriteBytes(data.Slice(offset, 8), out _);\n");
+                sb.append("            BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.").append(fieldName).append(");\n");
                 sb.append("            offset += 8;\n");
                 break;
+            case "uint16":
+                sb.append("            BitConverter.TryWriteBytes(data.Slice(offset, 2), msg.").append(fieldName).append(");\n");
+                sb.append("            offset += 2;\n");
+                break;
+            case "int32":
+                sb.append("            BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.").append(fieldName).append(");\n");
+                sb.append("            offset += 4;\n");
+                break;
             case "uint8":
-            case "char":
             case "byte":
+            case "bitfield":
                 sb.append("            data[offset++] = (byte)msg.").append(fieldName).append(";\n");
                 break;
             case "bytearray":
                 sb.append("            msg.").append(fieldName).append(".CopyTo(data.Slice(offset, ").append(field.getLength()).append("));\n");
                 sb.append("            offset += ").append(field.getLength()).append(";\n");
                 break;
-            case "string":
             case "alpha":
-                sb.append("            var ").append(field.getName()).append("Bytes = Encoding.ASCII.GetBytes(msg.").append(fieldName).append(".PadRight(").append(field.getLength()).append("));\n");
+            case "date":
+            case "time":
+            case "extendedtime":
+            case "datetime":
+                sb.append("            var ").append(field.getName()).append("Bytes = Encoding.ASCII.GetBytes((msg.").append(fieldName).append(" ?? string.Empty).PadRight(").append(field.getLength()).append("));\n");
                 sb.append("            ").append(field.getName()).append("Bytes.AsSpan(0, ").append(field.getLength()).append(").CopyTo(data.Slice(offset, ").append(field.getLength()).append("));\n");
                 sb.append("            offset += ").append(field.getLength()).append(";\n");
                 break;

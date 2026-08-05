@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <messages xmlns="http://a5x.com.br/native">
-    
+
+    <!--
+        A5X Native (OrderEntry Binary) Gateway wire data types.
+
+        Source: https://portal-tecnico.a5x.com.br/pt-br/trading/order-entry-binary (spec v1.4).
+
+        ==========================================================================
+        SHARED TYPE VOCABULARY
+        ==========================================================================
+        The ten types below are the A5X shared core and are declared identically,
+        in the same order, in mitch-messages-complete.xml. A given type name means
+        exactly the same thing on the wire in both protocols. Diffing the two
+        <types> blocks should show only the differences listed here.
+
+        Intentional difference 1 - alpha padding:
+            Native  : padding="null-terminated"
+            MITCH   : padding="space-padded"
+        This is a genuine wire level difference between the two gateways, stated in
+        each specification. The name stays stable and the padding attribute carries
+        the distinction, so callers key off one concept rather than two names.
+
+        Intentional difference 2 - temporal types:
+            MITCH additionally defines date, time, extendedtime and datetime
+            (ASCII encoded), plus bytearray for reserved fields.
+            Native carries every timestamp as a uint64 epoch value and has no
+            reserved fields, so it declares none of them. Do not add bytearray or
+            the temporal types here until the Native generators support them; today
+            they would fall through to the default branch and be sized as 1 byte.
+    -->
+    <types byteOrder="little-endian">
+        <!-- Shared core: keep in sync with mitch-messages-complete.xml. -->
+        <type name="alpha"    wireSize="variable" encoding="ASCII"               padding="null-terminated" javaType="String" csharpType="string" cppType="std::string" description="ASCII string, null-terminated when the fixed length is not fully used. The first byte contains a null if the field is unused. Length specified per field. The SDK strips the terminator on decode and pads with NUL on encode."/>
+        <type name="byte"     wireSize="1"        encoding="unsigned-integer"                              javaType="byte"   csharpType="byte"   cppType="uint8_t"     description="Single byte used to hold one ASCII character."/>
+        <type name="bitfield" wireSize="1"        encoding="unsigned-integer"                              javaType="byte"   csharpType="byte"   cppType="uint8_t"     description="Single byte where individual bits carry meaning. Bit 0 is the least significant bit, bit 7 the most significant."/>
+        <type name="int32"    wireSize="4"        encoding="int32-le"                                      javaType="int"    csharpType="int"    cppType="int32_t"     description="Signed 32-bit little-endian integer."/>
+        <type name="uint8"    wireSize="1"        encoding="unsigned-integer"                              javaType="int"    csharpType="byte"   cppType="uint8_t"     description="Unsigned 8-bit integer."/>
+        <type name="uint16"   wireSize="2"        encoding="unsigned-integer-le"                           javaType="int"    csharpType="ushort" cppType="uint16_t"    description="Unsigned 16-bit little-endian integer."/>
+        <type name="uint32"   wireSize="4"        encoding="unsigned-integer-le"                           javaType="long"   csharpType="uint"   cppType="uint32_t"    description="Unsigned 32-bit little-endian integer."/>
+        <type name="uint64"   wireSize="8"        encoding="unsigned-integer-le"                           javaType="long"   csharpType="ulong"  cppType="uint64_t"    description="Unsigned 64-bit little-endian integer. Java has no unsigned 64-bit primitive: all 64 bits are preserved in a long, but a value above 2^63-1 reads as negative. Use Long.toUnsignedString and Long.compareUnsigned when that is possible. C# and C++ expose it as a true unsigned type."/>
+        <type name="price4"   wireSize="4"        encoding="int32-le"            impliedDecimals="4"       javaType="int"    csharpType="int"    cppType="int32_t"     description="Signed 32-bit little-endian integer with 4 implied decimal places (divide by 10000)."/>
+        <type name="price8"   wireSize="8"        encoding="int64-le"            impliedDecimals="4"       javaType="long"   csharpType="long"   cppType="int64_t"     description="Signed 64-bit little-endian integer with 4 implied decimal places (divide by 10000)."/>
+    </types>
+
     <message name="NativeLogon" messageType="A" description="Logon request">
         <field name="compId" type="alpha" length="11" description="CompID assigned to the client"/>
         <field name="password" type="alpha" length="25" description="Password assigned to the CompID"/>

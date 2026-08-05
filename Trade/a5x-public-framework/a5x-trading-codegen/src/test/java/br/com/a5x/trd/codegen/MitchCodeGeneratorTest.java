@@ -116,8 +116,9 @@ class MitchCodeGeneratorTest {
         File generatedFile = new File(tempDir, firstMsg.getName() + ".java");
         
         String content = Files.readString(generatedFile.toPath());
-        assertTrue(content.contains("import java.math.BigInteger"));
         assertTrue(content.contains("import java.nio.ByteBuffer"));
         assertTrue(content.contains("import br.com.a5x.trd.pub.fw.utils.BitUtils"));
+        // uint64 maps to long, matching the Native SDK, so BigInteger is no longer imported.
+        assertFalse(content.contains("import java.math.BigInteger"));
     }
 }

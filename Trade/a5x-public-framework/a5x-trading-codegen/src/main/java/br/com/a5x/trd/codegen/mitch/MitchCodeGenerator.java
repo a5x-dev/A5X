@@ -27,7 +27,6 @@ public class MitchCodeGenerator {
         StringBuilder sb = new StringBuilder();
         
         sb.append("package ").append(PACKAGE).append(";\n\n");
-        sb.append("import java.math.BigInteger;\n");
         sb.append("import java.nio.ByteBuffer;\n\n");
         sb.append("import br.com.a5x.trd.pub.fw.utils.BitUtils;\n\n");
         
@@ -130,8 +129,9 @@ public class MitchCodeGenerator {
     
     private String getJavaType(String xmlType, Integer length) {
         switch (xmlType) {
+            // Keep in sync with NativeCodeGenerator.getJavaType for the shared core types.
             case "uint32": return "long";
-            case "uint64": return "BigInteger";
+            case "uint64": return "long";
             case "uint8": return "int";
             case "uint16": return "int";
             case "int32": return "int";
@@ -157,7 +157,9 @@ public class MitchCodeGenerator {
         
         switch (field.getType()) {
             case "uint32": return "BitUtils.byteArrayToUInt32(pData, false)";
-            case "uint64": return "BitUtils.byteArrayToUInt64(pData, false)";
+            // Read as a signed long, same convention already used by int64 and price8. The
+            // 64 bits are preserved; see the <types> block for unsigned handling.
+            case "uint64": return "pData.getLong()";
             case "uint8": return "BitUtils.byteToUInt8(pData)";
             case "uint16": return "BitUtils.byteArrayToUInt16(pData, false)";
             case "int32": return "pData.getInt()";
@@ -182,7 +184,7 @@ public class MitchCodeGenerator {
                 sb.append("\t\tBitUtils.uint32ToByteArray(").append(fieldAccess).append(", pData, false);\n");
                 break;
             case "uint64":
-                sb.append("\t\tBitUtils.uint64ToByteArray(").append(fieldAccess).append(", pData, false);\n");
+                sb.append("\t\tpData.putLong(").append(fieldAccess).append(");\n");
                 break;
             case "uint8":
                 sb.append("\t\tBitUtils.uint8ToByte(").append(fieldAccess).append(", pData);\n");
@@ -218,8 +220,12 @@ public class MitchCodeGenerator {
             case "time":
             case "extendedtime":
             case "datetime":
+                // MITCH alpha is space-padded, not null-padded. The C# and C++ generators
+                // already pad with spaces; this keeps Java consistent with them and with
+                // the padding="space-padded" contract declared in the <types> block.
                 sb.append("\t\tbyte[] ").append(field.getName()).append("Bytes = new byte[").append(field.getLength()).append("];\n");
-                sb.append("\t\tbyte[] ").append(field.getName()).append("Src = ").append(fieldAccess).append(".getBytes();\n");
+                sb.append("\t\tjava.util.Arrays.fill(").append(field.getName()).append("Bytes, (byte) ' ');\n");
+                sb.append("\t\tbyte[] ").append(field.getName()).append("Src = ").append(fieldAccess).append(" == null ? new byte[0] : ").append(fieldAccess).append(".getBytes(java.nio.charset.StandardCharsets.US_ASCII);\n");
                 sb.append("\t\tSystem.arraycopy(").append(field.getName()).append("Src, 0, ").append(field.getName()).append("Bytes, 0, Math.min(").append(field.getName()).append("Src.length, ").append(field.getLength()).append("));\n");
                 sb.append("\t\tpData.put(").append(field.getName()).append("Bytes);\n");
                 break;

@@ -33,7 +33,7 @@ public class NativeCSharpGenerator {
         for (FieldDefinition field : msg.getFields()) {
             sb.append("        /// <summary>").append(field.getDescription()).append("</summary>\n");
             sb.append("        public ").append(getCSharpType(field)).append(" ").append(capitalize(field.getName())).append(" { get; set; }\n\n");
-            if ("price".equals(field.getType())) {
+            if ("price4".equals(field.getType())) {
                 sb.append("        public decimal ").append(capitalize(field.getName())).append("AsDecimal => ").append(capitalize(field.getName())).append(" / 10000m;\n\n");
             }
         }
@@ -65,9 +65,10 @@ public class NativeCSharpGenerator {
 
     private String getCSharpType(FieldDefinition field) {
         switch (field.getType()) {
-            case "alpha": return "byte[]";
+            // Keep in sync with MitchCSharpGenerator.getCSharpType for the shared core types.
+            case "alpha": return "string";
             case "byte": return "byte";
-            case "price": return "int";
+            case "price4": return "int";
             case "price8": return "long";
             case "uint8": return "byte";
             case "uint16": return "ushort";
@@ -82,12 +83,13 @@ public class NativeCSharpGenerator {
     private String getParseCode(FieldDefinition field, int offset) {
         switch (field.getType()) {
             case "alpha":
-                return "data.Slice(" + offset + ", " + field.getLength() + ").ToArray()";
+                // Native alpha is null-terminated: drop everything from the first NUL.
+                return "Encoding.ASCII.GetString(data.Slice(" + offset + ", " + field.getLength() + ")).TrimEnd('\\0')";
             case "byte":
             case "uint8":
             case "bitfield":
                 return "data[" + offset + "]";
-            case "price":
+            case "price4":
             case "int32":
                 return "BitConverter.ToInt32(data.Slice(" + offset + ", 4))";
             case "price8":
@@ -106,12 +108,15 @@ public class NativeCSharpGenerator {
     private String getEncodeCode(FieldDefinition field, int offset) {
         switch (field.getType()) {
             case "alpha":
-                return "msg." + capitalize(field.getName()) + ".CopyTo(data.Slice(" + offset + ", " + field.getLength() + "))";
+                // Pad with NUL to the fixed field width, truncating anything longer.
+                return "Encoding.ASCII.GetBytes((msg." + capitalize(field.getName()) + " ?? string.Empty).PadRight("
+                        + field.getLength() + ", '\\0')).AsSpan(0, " + field.getLength()
+                        + ").CopyTo(data.Slice(" + offset + ", " + field.getLength() + "))";
             case "byte":
             case "uint8":
             case "bitfield":
                 return "data[" + offset + "] = msg." + capitalize(field.getName());
-            case "price":
+            case "price4":
             case "int32":
                 return "BitConverter.TryWriteBytes(data.Slice(" + offset + ", 4), msg." + capitalize(field.getName()) + ")";
             case "price8":
@@ -134,7 +139,7 @@ public class NativeCSharpGenerator {
             case "uint8":
             case "bitfield": return 1;
             case "uint16": return 2;
-            case "price":
+            case "price4":
             case "int32":
             case "uint32": return 4;
             case "price8":

@@ -31,6 +31,14 @@
         <xs:attribute name="encoding" type="xs:string" use="required"/>
         <xs:attribute name="impliedDecimals" type="xs:nonNegativeInteger"/>
         <xs:attribute name="padding" type="mitch:Padding"/>
+        <!--
+            The type each generator emits. For the shared core these values are identical to
+            the ones in native-messages.xml, so a given wire type surfaces as the same language
+            type in both SDKs.
+        -->
+        <xs:attribute name="javaType" type="xs:string"/>
+        <xs:attribute name="csharpType" type="xs:string"/>
+        <xs:attribute name="cppType" type="xs:string"/>
         <xs:attribute name="description" type="xs:string"/>
     </xs:complexType>
 

@@ -62,7 +62,7 @@ public class NativeWiresharkGenerator {
         for (FieldDefinition field : msg.getFields()) {
                 String fieldName = msg.getName().toLowerCase() + "_" + field.getName();
                 int size = getFieldSize(field);
-                if ("price".equals(field.getType())) {
+                if ("price4".equals(field.getType())) {
                     sb.append("        do local v = buffer(offset, ").append(size).append("):le_int()")
                       .append(" subtree:add(f.").append(fieldName).append(", buffer(offset, ").append(size).append("))")
                       .append(":set_text(\"").append(capitalize(field.getName())).append(": \" .. string.format(\"%.4f\", v / 10000000.0)) end\n");
@@ -94,7 +94,7 @@ public class NativeWiresharkGenerator {
                 return "ProtoField.uint8(\"native." + fieldName + "\", \"" + capitalize(field.getName()) + "\", base.DEC)";
             case "uint16":
                 return "ProtoField.uint16(\"native." + fieldName + "\", \"" + capitalize(field.getName()) + "\", base.DEC)";
-            case "price":
+            case "price4":
             case "int32":
                 return "ProtoField.int32(\"native." + fieldName + "\", \"" + capitalize(field.getName()) + "\", base.DEC)";
             case "price8":
@@ -115,7 +115,7 @@ public class NativeWiresharkGenerator {
             case "uint8":
             case "bitfield": return 1;
             case "uint16": return 2;
-            case "price":
+            case "price4":
             case "int32":
             case "uint32": return 4;
             case "price8":

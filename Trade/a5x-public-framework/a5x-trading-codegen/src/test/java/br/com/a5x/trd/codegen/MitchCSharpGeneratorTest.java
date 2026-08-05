@@ -112,6 +112,8 @@ class MitchCSharpGeneratorTest {
         
         String content = Files.readString(generatedFile.toPath());
         assertTrue(content.contains("using System;"));
-        assertTrue(content.contains("using System.Numerics;"));
+        assertTrue(content.contains("using System.Text;"));
+        // uint64 maps to ulong, matching the Native SDK, so BigInteger is no longer used.
+        assertFalse(content.contains("using System.Numerics;"));
     }
 }

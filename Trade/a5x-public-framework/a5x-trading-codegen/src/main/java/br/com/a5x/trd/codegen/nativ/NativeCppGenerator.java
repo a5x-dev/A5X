@@ -22,8 +22,10 @@ public class NativeCppGenerator {
         StringBuilder sb = new StringBuilder();
         
         sb.append("#pragma once\n\n");
+        sb.append("#include <algorithm>\n");
         sb.append("#include <cstdint>\n");
-        sb.append("#include <cstring>\n\n");
+        sb.append("#include <cstring>\n");
+        sb.append("#include <string>\n\n");
         sb.append("namespace a5x::trading::native {\n\n");
         sb.append("/**\n");
         sb.append(" * ").append(msg.getDescription()).append("\n");
@@ -34,11 +36,8 @@ public class NativeCppGenerator {
         for (FieldDefinition field : msg.getFields()) {
             sb.append("    /** ").append(field.getDescription()).append(" */\n");
             sb.append("    ").append(getCppType(field)).append(" ").append(field.getName());
-            if (field.getType().equals("alpha")) {
-                sb.append("[").append(field.getLength()).append("]");
-            }
             sb.append(";\n\n");
-            if ("price".equals(field.getType())) {
+            if ("price4".equals(field.getType())) {
                 sb.append("    double ").append(field.getName()).append("AsDecimal() const { return ").append(field.getName()).append(" / 10000.0; }\n\n");
             }
         }
@@ -70,9 +69,10 @@ public class NativeCppGenerator {
 
     private String getCppType(FieldDefinition field) {
         switch (field.getType()) {
-            case "alpha": return "uint8_t";
+            // Keep in sync with MitchCppGenerator.getCppType for the shared core types.
+            case "alpha": return "std::string";
             case "byte": return "uint8_t";
-            case "price": return "int32_t";
+            case "price4": return "int32_t";
             case "price8": return "int64_t";
             case "uint8": return "uint8_t";
             case "uint16": return "uint16_t";
@@ -87,12 +87,14 @@ public class NativeCppGenerator {
     private String getParseCode(FieldDefinition field, int offset) {
         switch (field.getType()) {
             case "alpha":
-                return "std::memcpy(msg." + field.getName() + ", data + " + offset + ", " + field.getLength() + ")";
+                // Native alpha is null-terminated: stop at the first NUL within the field.
+                return "msg." + field.getName() + ".assign(reinterpret_cast<const char*>(data + " + offset
+                        + "), strnlen(reinterpret_cast<const char*>(data + " + offset + "), " + field.getLength() + "))";
             case "byte":
             case "uint8":
             case "bitfield":
                 return "msg." + field.getName() + " = data[" + offset + "]";
-            case "price":
+            case "price4":
             case "int32":
                 return "std::memcpy(&msg." + field.getName() + ", data + " + offset + ", 4)";
             case "price8":
@@ -111,12 +113,15 @@ public class NativeCppGenerator {
     private String getEncodeCode(FieldDefinition field, int offset) {
         switch (field.getType()) {
             case "alpha":
-                return "std::memcpy(data + " + offset + ", msg." + field.getName() + ", " + field.getLength() + ")";
+                // Pad with NUL to the fixed field width, truncating anything longer.
+                return "std::memset(data + " + offset + ", 0, " + field.getLength() + "); std::memcpy(data + "
+                        + offset + ", msg." + field.getName() + ".c_str(), std::min(msg." + field.getName()
+                        + ".size(), size_t(" + field.getLength() + ")))";
             case "byte":
             case "uint8":
             case "bitfield":
                 return "data[" + offset + "] = msg." + field.getName();
-            case "price":
+            case "price4":
             case "int32":
                 return "std::memcpy(data + " + offset + ", &msg." + field.getName() + ", 4)";
             case "price8":
@@ -139,7 +144,7 @@ public class NativeCppGenerator {
             case "uint8":
             case "bitfield": return 1;
             case "uint16": return 2;
-            case "price":
+            case "price4":
             case "int32":
             case "uint32": return 4;
             case "price8":

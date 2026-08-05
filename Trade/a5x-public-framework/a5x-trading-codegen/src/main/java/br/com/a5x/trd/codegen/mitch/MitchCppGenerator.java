@@ -28,6 +28,7 @@ public class MitchCppGenerator {
         
         sb.append("#ifndef ").append(guard).append("\n");
         sb.append("#define ").append(guard).append("\n\n");
+        sb.append("#include <algorithm>\n");
         sb.append("#include <cstdint>\n");
         sb.append("#include <cstring>\n");
         sb.append("#include <string>\n\n");
@@ -89,13 +90,18 @@ public class MitchCppGenerator {
             case "uint32": return "uint32_t";
             case "uint64": return "uint64_t";
             case "uint8": return "uint8_t";
-            case "char": return "char";
+            case "uint16": return "uint16_t";
+            case "int32": return "int32_t";
             case "byte": return "uint8_t";
+            case "bitfield": return "uint8_t";
             case "bytearray": return "uint8_t";
-            case "string": return "std::string";
             case "alpha": return "std::string";
             case "price4": return "int32_t";
             case "price8": return "int64_t";
+            case "date": return "std::string";
+            case "time": return "std::string";
+            case "extendedtime": return "std::string";
+            case "datetime": return "std::string";
             default: return "void*";
         }
     }
@@ -112,17 +118,28 @@ public class MitchCppGenerator {
                 sb.append("        std::memcpy(&msg.").append(field.getName()).append(", data + offset, 8);\n");
                 sb.append("        offset += 8;\n");
                 break;
+            case "uint16":
+                sb.append("        std::memcpy(&msg.").append(field.getName()).append(", data + offset, 2);\n");
+                sb.append("        offset += 2;\n");
+                break;
+            case "int32":
+                sb.append("        std::memcpy(&msg.").append(field.getName()).append(", data + offset, 4);\n");
+                sb.append("        offset += 4;\n");
+                break;
             case "uint8":
-            case "char":
             case "byte":
+            case "bitfield":
                 sb.append("        msg.").append(field.getName()).append(" = data[offset++];\n");
                 break;
             case "bytearray":
                 sb.append("        std::memcpy(msg.").append(field.getName()).append(", data + offset, ").append(field.getLength()).append(");\n");
                 sb.append("        offset += ").append(field.getLength()).append(";\n");
                 break;
-            case "string":
             case "alpha":
+            case "date":
+            case "time":
+            case "extendedtime":
+            case "datetime":
                 sb.append("        msg.").append(field.getName()).append(" = std::string(reinterpret_cast<const char*>(data + offset), ").append(field.getLength()).append(");\n");
                 sb.append("        msg.").append(field.getName()).append(".erase(msg.").append(field.getName()).append(".find_last_not_of(' ') + 1);\n");
                 sb.append("        offset += ").append(field.getLength()).append(";\n");
@@ -152,17 +169,28 @@ public class MitchCppGenerator {
                 sb.append("        std::memcpy(data + offset, &msg.").append(field.getName()).append(", 8);\n");
                 sb.append("        offset += 8;\n");
                 break;
+            case "uint16":
+                sb.append("        std::memcpy(data + offset, &msg.").append(field.getName()).append(", 2);\n");
+                sb.append("        offset += 2;\n");
+                break;
+            case "int32":
+                sb.append("        std::memcpy(data + offset, &msg.").append(field.getName()).append(", 4);\n");
+                sb.append("        offset += 4;\n");
+                break;
             case "uint8":
-            case "char":
             case "byte":
+            case "bitfield":
                 sb.append("        data[offset++] = msg.").append(field.getName()).append(";\n");
                 break;
             case "bytearray":
                 sb.append("        std::memcpy(data + offset, msg.").append(field.getName()).append(", ").append(field.getLength()).append(");\n");
                 sb.append("        offset += ").append(field.getLength()).append(";\n");
                 break;
-            case "string":
             case "alpha":
+            case "date":
+            case "time":
+            case "extendedtime":
+            case "datetime":
                 sb.append("        std::memset(data + offset, ' ', ").append(field.getLength()).append(");\n");
                 sb.append("        std::memcpy(data + offset, msg.").append(field.getName()).append(".c_str(), std::min(msg.").append(field.getName()).append(".size(), size_t(").append(field.getLength()).append(")));\n");
                 sb.append("        offset += ").append(field.getLength()).append(";\n");

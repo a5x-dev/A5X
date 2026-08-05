@@ -57,7 +57,10 @@ class NativeCodeGeneratorTest {
         File javaFile = new File(tempDir, "NativeLogon.java");
         String content = Files.readString(javaFile.toPath());
         
-        assertTrue(content.contains("public byte[] compId"));
+        // alpha maps to String in both protocols so the same wire type surfaces as the same
+        // language type across the two SDKs. The null terminator is handled by the generated
+        // readAlpha/writeAlpha helpers, not by the caller.
+        assertTrue(content.contains("public String compId"));
         assertTrue(content.contains("public int protocolVersion"));
     }
     
