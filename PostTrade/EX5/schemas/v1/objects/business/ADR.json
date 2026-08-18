@@ -16,7 +16,7 @@
       "description": "CUSIP - Committee on Uniform Securities Identification Procedures"
     },
     "programLevel": {
-      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Identifies the program type: Level I Sponsored, Level II Sponsored, Level III Sponsored, Unsponsored",
       "$comment": "Consult External Code List table ExternalProgramLevelTypeCode"
     },
@@ -41,7 +41,7 @@
   "examples": [
     {
       "cusip": "123456789",
-      "programLevel": "L2",
+      "programLevel": 2,
       "proportion": "2.5",
       "cfiCode": "ESVUFB",
       "currency": "BRL"

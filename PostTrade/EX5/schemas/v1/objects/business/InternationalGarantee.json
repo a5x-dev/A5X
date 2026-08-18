@@ -17,7 +17,7 @@
     "legalForm": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Legal entity formation type - Legal Entity NRES only",
-      "$comment": "Consult External Code List table ExternalNonResidentLegalStructure"
+      "$comment": "Consult External Code List table ExternalNonResidentLegalStructureCode"
     }
   },
   "required": [

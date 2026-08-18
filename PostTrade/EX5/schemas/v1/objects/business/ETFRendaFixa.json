@@ -28,17 +28,17 @@
     "assetCollateralType": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Identifies the collateral type of the bond",
-      "$comment": "Consult External Code List table AssetCollateralTypeCode"
+      "$comment": "Consult External Code List table ExternalAssetCollateralTypeCode"
     },
     "assetAdditionalCollateralType": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Identifies the additional collateral type of the bond",
-      "$comment": "Consult External Code List table AssetAdditionalCollateralTypeCode"
+      "$comment": "Consult External Code List table ExternalAssetAdditionalCollateralTypeCode"
     },
     "assetSubordinatedType": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Identifies the subordination type of the bond",
-      "$comment": "Consult External Code List table AssetSubordinatedTypeCode"
+      "$comment": "Consult External Code List table ExternalAssetSubordinatedTypeCode"
     },
     "indexPercentage": {
       "$ref": "../../types/DecimalNumber.json",
@@ -54,12 +54,12 @@
     "interestRateCorrectionType": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Provides the interest correction type",
-      "$comment": "Consult External Code List table InterestRateCorrectionTypeCode"
+      "$comment": "Consult External Code List table ExternalInterestRateCorrectionTypeCode"
     },
     "interestRateCorrectionTimeBase": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Provides the base for interest rate correction",
-      "$comment": "Consult External Code List table InterestRateCorrectionTimeBase"
+      "$comment": "Consult External Code List table ExternalInterestRateCorrectionTimeBaseCode"
     },
     "earlyRedemptionIndicator": {
       "type": "boolean",

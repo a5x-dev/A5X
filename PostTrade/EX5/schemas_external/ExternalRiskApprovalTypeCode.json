@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "ExternalRiskApprovalTypeCode",
-  "description": "Codes for risk approval type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Risk",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Cancellation",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Position",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalRiskApprovalTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalRiskApprovalTypeCode"
+  },
+  "title" : "ExternalRiskApprovalTypeCode",
+  "description" : "Codes for risk approval type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Risk",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Cancellation",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Position",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

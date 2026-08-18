@@ -1,21 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Day Type",
-  "description": "Codes for day type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Business",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Reserved",
-      "const": 2
-    }
-  ],
-  "examples": [
-    1,
-    2
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalDayTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalDayTypeCode"
+  },
+  "title" : "External Day Type",
+  "description" : "Codes for day type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Business",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Reserved",
+    "const" : 2
+  } ],
+  "examples" : [ 1, 2 ]
 }

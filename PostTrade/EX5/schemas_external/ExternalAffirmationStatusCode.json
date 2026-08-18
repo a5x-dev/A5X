@@ -1,17 +1,19 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "ExternalAffirmationStatusCode",
-  "description": "Codes for affirmation status indicating whether a trade or allocation has been affirmed or not affirmed",
-  "oneOf": [
-    {
-      "type": "string",
-      "description": "Affirmed",
-      "const": "AFFI"
-    },
-    {
-      "type": "string",
-      "description": "Not Affirmed",
-      "const": "NAFI"
-    }
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAffirmationStatusCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAffirmationStatusCode"
+  },
+  "title" : "ExternalAffirmationStatusCode",
+  "description" : "Codes for affirmation status indicating whether a trade or allocation has been affirmed or not affirmed",
+  "oneOf" : [ {
+    "type" : "string",
+    "description" : "Affirmed",
+    "const" : "AFFI"
+  }, {
+    "type" : "string",
+    "description" : "Not Affirmed",
+    "const" : "NAFI"
+  } ]
 }

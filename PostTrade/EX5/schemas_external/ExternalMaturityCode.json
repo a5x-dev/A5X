@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Maturity",
-  "description": "Codes for maturity",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Mensal",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Referência",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Vigência",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalMaturityCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalMaturityCode"
+  },
+  "title" : "External Maturity",
+  "description" : "Codes for maturity",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Mensal",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Referência",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Vigência",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

@@ -25,7 +25,7 @@
     "breakingRuleReason": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Justification for the breaking rule operation",
-      "$comment": "Consult External Code List table ExternalBreakingRuleReasonCode. Required when breakingRuleIndicator is true"
+      "$comment": "Consult External Code List table ExternalBreakingRulesReasonCode. Required when breakingRuleIndicator is true"
     }
   },
   "required": [],

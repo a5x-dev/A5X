@@ -71,11 +71,12 @@
             "description": "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)",
             "$comment": "Consult External Code List table ExternalOptionTypeCode"
         },
-        "optionStyle": {
+        "exerciseStyle": {
             "type": "string",
-            "maxLength": 4,
+            "minLength": 1,
+            "maxLength": 20,
             "description": "Option style expressed as an ISO 20022 code (AMER or EURO)",
-            "$comment": "Consult External Code List table ExternalOptionStyleCode"
+            "$comment": "Consult External Code List table ExternalExerciseStyleCode"
         },
         "expirationDate": {
             "type": "string",
@@ -115,7 +116,7 @@
         "market",
         "tickerSymbol",
         "optionType",
-        "optionStyle",
+        "exerciseStyle",
         "expirationDate",
         "exercisePrice",
         "premium",

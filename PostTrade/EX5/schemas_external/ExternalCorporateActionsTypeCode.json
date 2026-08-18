@@ -1,44 +1,36 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Corporate Actions Type",
-  "description": "Codes for corporate actions type",
-  "oneOf": [
-    {
-      "type": "string",
-      "description": "Evento em recursos financeiros",
-      "const": "A"
-    },
-    {
-      "type": "string",
-      "description": "Evento em recursos financeiros e ativos",
-      "const": "B"
-    },
-    {
-      "type": "string",
-      "description": "Evento em ativos sobre o mesmo ativo-objeto",
-      "const": "C"
-    },
-    {
-      "type": "string",
-      "description": "Evento em ativos sobre ativo-objeto diferente",
-      "const": "D"
-    },
-    {
-      "type": "string",
-      "description": "Evento com geração de direito",
-      "const": "E"
-    },
-    {
-      "type": "string",
-      "description": "Evento manual",
-      "const": "F"
-    }
-  ],
-  "examples": [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E"
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCorporateActionsTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCorporateActionsTypeCode"
+  },
+  "title" : "External Corporate Actions Type",
+  "description" : "Codes for corporate actions type",
+  "oneOf" : [ {
+    "type" : "string",
+    "description" : "Evento em recursos financeiros",
+    "const" : "A"
+  }, {
+    "type" : "string",
+    "description" : "Evento em recursos financeiros e ativos",
+    "const" : "B"
+  }, {
+    "type" : "string",
+    "description" : "Evento em ativos sobre o mesmo ativo-objeto",
+    "const" : "C"
+  }, {
+    "type" : "string",
+    "description" : "Evento em ativos sobre ativo-objeto diferente",
+    "const" : "D"
+  }, {
+    "type" : "string",
+    "description" : "Evento com geração de direito",
+    "const" : "E"
+  }, {
+    "type" : "string",
+    "description" : "Evento manual",
+    "const" : "F"
+  } ],
+  "examples" : [ "A", "B", "C", "D", "E" ]
 }

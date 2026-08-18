@@ -17,14 +17,14 @@
     "allocationStatusCode": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Status information for the allocation including processing codes",
-      "$comment": "Consult table ExternalAllocationInstructionStatus. Contains status codes and optional rule identification for rejected allocations"
+      "$comment": "Consult table ExternalAllocationInstructionStatusCode. Contains status codes and optional rule identification for rejected allocations"
     },
     "errorReasonAllocation": {
       "type": "array",
       "items": {
-        "$ref": "../../objects/business/ExternalCodeList.json",
+        "$ref": "../../objects/business/ExternalCodeTextList.json",
         "description": "Error reason information for the allocation",
-        "$comment": "Consult table ExternalErrorCodeAllocation. Contains error codes and optional rule identification for rejected allocations"
+        "$comment": "Consult table ExternalAllocationErrorCode. Contains error codes and optional rule identification for rejected allocations"
       },
       "minItems": 1,
       "maxItems": 60
@@ -55,8 +55,8 @@
       },
       "allocationStatusCode": 1,
       "errorReasonAllocation": [
-        1,
-        2
+        "ALC00001",
+        "ALC00002"
       ],
       "accountOriginIdentification": {
         "accountType": 1,

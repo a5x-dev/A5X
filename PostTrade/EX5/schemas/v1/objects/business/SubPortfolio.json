@@ -17,7 +17,7 @@
     "riskMeasure" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Request type code",
-      "$comment" : "Consult External Code List table ExternalRiskMeasure"
+      "$comment" : "Consult External Code List table ExternalRiskMeasureCode"
     },
     "holdingPeriod" : {
       "type" : "integer",

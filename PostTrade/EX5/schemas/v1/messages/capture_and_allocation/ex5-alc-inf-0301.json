@@ -9,11 +9,11 @@
   "description": "Inform GiveUp",
   "type": "object",
   "properties": {
-    "participantIdentification": {
+    "participantOriginIdentification": {
       "$ref": "../../objects/business/PartyId.json",
       "description": "Identification of the participant."
     },
-    "accountIdentification": {
+    "accountOriginIdentification": {
       "$ref": "../../objects/business/Account.json",
       "description": "Identification of the account associated with the trade."
     },
@@ -92,8 +92,8 @@
     }
   },
   "required": [
-    "participantIdentification",
-    "accountIdentification",
+    "participantOriginIdentification",
+    "accountOriginIdentification",
     "participantDestinationIdentification",
     "accountDestinationIdentification",
     "giveUp",
@@ -106,11 +106,11 @@
   "additionalProperties": false,
   "examples": [
     {
-      "participantIdentification": {
+      "participantOriginIdentification": {
         "id": 999,
         "category": 3
       },
-      "accountIdentification": {
+      "accountOriginIdentification": {
         "accountType": 1,
         "id": 123456789
       },

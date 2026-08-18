@@ -52,11 +52,13 @@
     },
     "state": {
       "$ref": "../../objects/business/ExternalCodeTextList.json",
-      "description": "Consult External Text List table ExternalStateCode. Required only if country is Brazil (BR)"
+      "description":"Required only if country is Brazil (BR)",
+      "$comment": "Consult External Text List table ExternalStateCode."
     },
     "country": {
       "$ref": "../../objects/business/ExternalCodeTextList.json",
-      "description": "Consult External Text List table ExternalCountryCode"
+      "description":"country",
+      "$comment": "Consult External Text List table ExternalCountryCode"
     },
     "phoneNumber": {
       "type": "string",

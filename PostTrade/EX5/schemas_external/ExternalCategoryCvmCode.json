@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Category Cvm",
-  "description": "Codes for category cvm",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "A",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "B",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Outros",
-      "const": 99
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    99
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCategoryCvmCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCategoryCvmCode"
+  },
+  "title" : "External Category Cvm",
+  "description" : "Codes for category cvm",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "A",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "B",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Outros",
+    "const" : 99
+  } ],
+  "examples" : [ 1, 2, 99 ]
 }

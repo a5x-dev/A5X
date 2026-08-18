@@ -27,7 +27,7 @@
     "profile": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Define the account profile for PTRM setup",
-      "$comment": "Consult External Code List table ExternalPTRMProfile"
+      "$comment": "Consult External Code List table ExternalPTRMProfileCode"
     },
     "registrationDate": {
       "$ref": "../../types/ISODate.json",

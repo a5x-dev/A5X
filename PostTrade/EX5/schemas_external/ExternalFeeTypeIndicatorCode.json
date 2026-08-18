@@ -1,21 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Fee Type Indicator",
-  "description": "Codes for fee type indicator",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Valor em Reais",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Valor Percentual",
-      "const": 2
-    }
-  ],
-  "examples": [
-    1,
-    2
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeTypeIndicatorCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeTypeIndicatorCode"
+  },
+  "title" : "External Fee Type Indicator",
+  "description" : "Codes for fee type indicator",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Valor em Reais",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Valor Percentual",
+    "const" : 2
+  } ],
+  "examples" : [ 1, 2 ]
 }

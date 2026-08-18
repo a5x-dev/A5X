@@ -24,7 +24,7 @@
       "description": "SELIC bond code"
     },
     "brazilianFederalGovernmentBondTypeCode": {
-      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Brazilian Federal Government Bond Type classifier",
       "$comment": "Consult External Code List table ExternalBrazilianFederalGovernmentBondTypeCode"
     },
@@ -47,7 +47,7 @@
       "issueDate": "2024-01-01",
       "expirationDate": "2029-01-01",
       "selicCode": "LTN001",
-      "brazilianFederalGovernmentBondTypeCode": "LTN",
+      "brazilianFederalGovernmentBondTypeCode": 6,
       "baseDate": "2024-01-01",
       "baseDatePrice": {
         "amount": "1000.00",

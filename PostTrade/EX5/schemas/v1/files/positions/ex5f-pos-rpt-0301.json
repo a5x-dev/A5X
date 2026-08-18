@@ -25,11 +25,25 @@
       "minimum" : 1, 
       "description" : "Clearing Member identifier provided by A5X"
     }, 
+    "clearingMemberIdentificationCategory": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Clearing member category code",
+      "$comment": "Consult External Code List table ExternalParticipantCategoryCode"
+    },
     "participantDestinationIdentificationId" : {
       "type" : "integer", 
       "maximum" : 999999, 
       "minimum" : 1, 
       "description" : "Participant identifier provided by A5X"
+    },
+    "participantDestinationIdentificationCategory": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Participant category code",
+      "$comment": "Consult External Code List table ExternalParticipantCategoryCode"
     }, 
     "accountIdentification" : {
       "type" : "integer", 
@@ -72,7 +86,7 @@
     "market" : {
       "type" : "integer", 
       "minimum" : 1, 
-      "maximum" : 999999, 
+      "maximum" : 999999999, 
       "description" : "Market type - second level of market classification in post-trading process", 
       "$comment" : "Consult External Code List table"
     }, 
@@ -99,7 +113,7 @@
     "optionType" : {
       "type" : "integer", 
       "minimum" : 1, 
-      "maximum" : 999999, 
+      "maximum" : 999999999, 
       "description" : "Option type identification. CALL (right to buy underlying asset) or PUTT (right to sell underlying asset)", 
       "$comment" : "Consult External Code List table ExternalOptionTypeCode"
     }, 
@@ -362,15 +376,16 @@
   }, 
   "required" : [
     "referenceDate", 
-    "clearingMemberIdentificationId", 
+    "clearingMemberIdentificationId",
+    "clearingMemberIdentificationCategory", 
     "participantDestinationIdentificationId", 
+    "participantDestinationIdentificationCategory",
     "accountIdentification", 
     "financialInstrumentIdentificationId", 
     "financialInstrumentIdentificationSource", 
     "financialInstrumentIdentificationExchange", 
     "market", 
-    "roundLotContractSize", 
-    "asset", 
+    "roundLotContractSize",  
     "expiryDate"
   ], 
   "additionalProperties" : false

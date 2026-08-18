@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Lien Contract Type",
-  "description": "Codes for lien contract type",
-  "oneOf": [
-    {
-      "type": "string",
-      "description": "CREDOR",
-      "const": "CR"
-    },
-    {
-      "type": "string",
-      "description": "DEVEDOR",
-      "const": "DE"
-    },
-    {
-      "type": "string",
-      "description": "DIRETO",
-      "const": "DI"
-    }
-  ],
-  "examples": [
-    "CR",
-    "DE",
-    "DI"
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalLienContractTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalLienContractTypeCode"
+  },
+  "title" : "External Lien Contract Type",
+  "description" : "Codes for lien contract type",
+  "oneOf" : [ {
+    "type" : "string",
+    "description" : "CREDOR",
+    "const" : "CR"
+  }, {
+    "type" : "string",
+    "description" : "DEVEDOR",
+    "const" : "DE"
+  }, {
+    "type" : "string",
+    "description" : "DIRETO",
+    "const" : "DI"
+  } ],
+  "examples" : [ "CR", "DE", "DI" ]
 }

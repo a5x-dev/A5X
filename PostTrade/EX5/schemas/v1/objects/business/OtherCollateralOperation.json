@@ -28,7 +28,7 @@
     "collateralType" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Provides details about the collateral.",
-      "comment" : "Consult External Code List table ExternalCollateralTypeCode"
+      "$comment" : "Consult External Code List table ExternalCollateralTypeCode"
     },
     "quantity" : {
       "$ref" : "../../types/PositiveInteger.json",

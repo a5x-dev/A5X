@@ -1,21 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Net Result Status",
-  "description": "Codes for net result status",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Accepted",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Rejected",
-      "const": 2
-    }
-  ],
-  "examples": [
-    1,
-    2
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalNetResultStatusCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalNetResultStatusCode"
+  },
+  "title" : "External Net Result Status",
+  "description" : "Codes for net result status",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Accepted",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Rejected",
+    "const" : 2
+  } ],
+  "examples" : [ 1, 2 ]
 }

@@ -11,7 +11,8 @@
   "properties": {
     "documentType": {
       "$ref": "../../objects/business/ExternalCodeList.json",
-      "description": "Consult External Code List table ExternalIdentificationTypeCode. IMMUTABLE: Can only be set during creation (OperationType=1). Prohibited in update operations (OperationType=2)"
+      "description": "IMMUTABLE: Can only be set during creation (OperationType=1). Prohibited in update operations (OperationType=2)",
+      "$comment": "Consult External Code List table ExternalIdentificationTypeCode."
     },
     "documentNumber": {
       "type": "string",

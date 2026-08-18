@@ -79,8 +79,8 @@
           },
           "allocationStatusCode": 1,
           "errorReasonAllocation": [
-            1,
-            2
+           "ALC00001",
+           "ALC00002"
           ],
           "accountOriginIdentification": {
             "accountType": 1,

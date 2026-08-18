@@ -1,21 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "ExternalTransactionOriginTypeCode",
-  "description": "Codes for transaction origin types",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Tela",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Mensageria",
-      "const": 2
-    }
-  ],
-  "examples": [
-    1,
-    2
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalTransactionOriginTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalTransactionOriginTypeCode"
+  },
+  "title" : "ExternalTransactionOriginTypeCode",
+  "description" : "Codes for transaction origin types",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Tela",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Mensageria",
+    "const" : 2
+  } ],
+  "examples" : [ 1, 2 ]
 }

@@ -18,7 +18,7 @@
     "strategyStatus" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Specifies whether the position is related to a strategy trade.",
-      "$comment" : "Consult External Code List table ExternalStrategyStatus"
+      "$comment" : "Consult External Code List table ExternalStrategyStatusCode"
     },
     "longPosition" : {
       "type" : "integer",

@@ -22,21 +22,21 @@
     "feeProductGroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Fee family",
       "$comment": "Consult External Code List table ExternalFeeProductGroupCode"
     },
     "feeProductSubgroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Second level of fee family, when applicable",
       "$comment": "Consult External Code List table ExternalFeeProductGroupCode"
     },
     "market": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Market type - second level of market classification in post-trade process",
       "$comment": "Consult External Code List table ExternalMarketCode"
     },
@@ -48,16 +48,16 @@
     "securityCategory": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Instrument type identifier",
       "$comment": "Consult External Code List table ExternalSecurityCategoryCode"
     },
-    "calcType": {
+    "calculationType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Indicates if calculation is Progressive or Regressive",
-      "$comment": "Consult External Code List table ExternalCalcTypeCode"
+      "$comment": "Consult External Code List table ExternalFeeCalculationTypeCode"
     },
     "contractFactor": {
       "type": "integer",
@@ -68,21 +68,21 @@
     "feeBase": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Indicates the fee base",
       "$comment": "Consult External Code List table ExternalFeeBaseCode"
     },
     "operationType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Operation type for fee calculation",
       "$comment": "Consult External Code List table ExternalOperationTypeCode"
     },
     "operationSubType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Operation subtype for fee calculation",
       "$comment": "Consult External Code List table ExternalOperationTypeCode"
     },
@@ -137,7 +137,7 @@
     "fixedValueType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Fixed fee value type",
       "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
     },
@@ -151,7 +151,7 @@
     "additionalValueType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Additional value type indicator",
       "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
     },
@@ -177,7 +177,7 @@
     "indicatorType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Indicator type used for value conversion to Brazilian Real",
       "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
     }

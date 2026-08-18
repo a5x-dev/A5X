@@ -1,21 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "ExternalCalculationTypeCode",
-  "description": "Codes for calculation type",
-  "oneOf": [
-    {
-      "type": "string",
-      "description": "Official Risk Calculation",
-      "const": "OF"
-    },
-    {
-      "type": "string",
-      "description": "High Frequency Risk Calculation",
-      "const": "HF"
-    }
-  ],
-  "examples": [
-    "OF",
-    "HF"
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCalculationTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCalculationTypeCode"
+  },
+  "title" : "ExternalCalculationTypeCode",
+  "description" : "Codes for calculation type",
+  "oneOf" : [ {
+    "type" : "string",
+    "description" : "Official Risk Calculation",
+    "const" : "OF"
+  }, {
+    "type" : "string",
+    "description" : "High Frequency Risk Calculation",
+    "const" : "HF"
+  } ],
+  "examples" : [ "OF", "HF" ]
 }

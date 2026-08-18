@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Settlement Agreement Status",
-  "description": "Codes for settlement agreement status",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "PENDENTE DE PROCESSAMENTO",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "PROCESSADO",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "REJEITADO",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalSettlementAgreementStatusCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalSettlementAgreementStatusCode"
+  },
+  "title" : "External Settlement Agreement Status",
+  "description" : "Codes for settlement agreement status",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "PENDENTE DE PROCESSAMENTO",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "PROCESSADO",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "REJEITADO",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

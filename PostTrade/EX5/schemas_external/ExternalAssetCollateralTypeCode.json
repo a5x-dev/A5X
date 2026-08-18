@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Asset Collateral Type",
-  "description": "Codes for asset collateral type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Garantia Real",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Garantia Flutuante",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Quirografaria",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAssetCollateralTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAssetCollateralTypeCode"
+  },
+  "title" : "External Asset Collateral Type",
+  "description" : "Codes for asset collateral type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Garantia Real",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Garantia Flutuante",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Quirografaria",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

@@ -18,7 +18,7 @@
     "statusCode": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Processing status of the allocation instruction",
-      "$comment": "Consult External Code List table ExternalAllocationInstructionStatus"
+      "$comment": "Consult External Code List table ExternalAllocationInstructionStatusCode"
     },
     "errorIdentification": {
       "type": "array",

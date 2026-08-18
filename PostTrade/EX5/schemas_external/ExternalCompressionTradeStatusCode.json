@@ -1,21 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Compression Trade Status",
-  "description": "Codes for compression trade status",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Added",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Removed",
-      "const": 2
-    }
-  ],
-  "examples": [
-    1,
-    2
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCompressionTradeStatusCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCompressionTradeStatusCode"
+  },
+  "title" : "External Compression Trade Status",
+  "description" : "Codes for compression trade status",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Added",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Removed",
+    "const" : 2
+  } ],
+  "examples" : [ 1, 2 ]
 }

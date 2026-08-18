@@ -1,21 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Broker Dealer O T C Request Type",
-  "description": "Codes for broker dealer o t c request type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Inclusion",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Exclusion",
-      "const": 2
-    }
-  ],
-  "examples": [
-    1,
-    2
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBrokerDealerOTCRequestTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBrokerDealerOTCRequestTypeCode"
+  },
+  "title" : "External Broker Dealer O T C Request Type",
+  "description" : "Codes for broker dealer o t c request type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Inclusion",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Exclusion",
+    "const" : 2
+  } ],
+  "examples" : [ 1, 2 ]
 }

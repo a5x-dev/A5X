@@ -75,7 +75,7 @@
         "source" : "8",
         "exchange" : "A5XB"
       },
-      "shortLongIndicator" : "1",
+      "shortLongIndicator" : 1,
       "quantity" : "200.00"
     } ]
   } ]

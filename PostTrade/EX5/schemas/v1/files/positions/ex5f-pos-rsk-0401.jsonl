@@ -104,7 +104,7 @@
       "type" : "string",
       "description" : "Quantity requested for transfer/reallocation for this position"
     },
-    "side" : {
+    "buySellIndicator" : {
       "type" : "string",
       "description" : "Coded list to specify the side of the trade",
       "$comment" : "Consult External Code List table ExternalBuySellIndicatorCode"

@@ -87,7 +87,7 @@
       "maxLength": 30,
       "description": "Commodity associated with the instrument (Asset)"
     },
-    "securityCategoryCode": {
+    "securityCategory": {
       "type": "string",
       "minLength": 1,
       "maxLength": 6,
@@ -182,7 +182,7 @@
       "minimum": 1,
       "maximum": 999999,
       "description": "Indicates if calculation is Progressive or Regressive",
-      "$comment": "Consult External Code List table ExternalCalcType"
+      "$comment": "Consult External Code List table ExternalFeeCalculationTypeCode"
     },
     "additionalValueType": {
       "type": "integer",

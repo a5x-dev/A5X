@@ -1,39 +1,32 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Breaking Rules Reason",
-  "description": "Codes for Breaking Rules reason",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Participant´s system failure.",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Client error",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Operational error - participant",
-      "const": 3
-    },
-    {
-      "type": "number",
-      "description": "A5X system failure",
-      "const": 4
-    },
-    {
-      "type": "number",
-      "description": "Account changing between accounts with same ownership",
-      "const": 5
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBreakingRulesReasonCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBreakingRulesReasonCode"
+  },
+  "title" : "External Breaking Rules Reason",
+  "description" : "Codes for Breaking Rules reason",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Participant's system failure.",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Client error",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Operational error - participant",
+    "const" : 3
+  }, {
+    "type" : "number",
+    "description" : "A5X system failure",
+    "const" : 4
+  }, {
+    "type" : "number",
+    "description" : "Account changing between accounts with same ownership",
+    "const" : 5
+  } ],
+  "examples" : [ 1, 2, 3, 4, 5 ]
 }

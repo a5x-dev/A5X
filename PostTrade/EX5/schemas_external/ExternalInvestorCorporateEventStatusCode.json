@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Investor Corporate Event Status",
-  "description": "Codes for investor corporate event status",
-  "oneOf": [
-    {
-      "type": "string",
-      "description": "ATIVO",
-      "const": "A"
-    },
-    {
-      "type": "string",
-      "description": "CREDITADO",
-      "const": "C"
-    },
-    {
-      "type": "string",
-      "description": "EXCLUÍDO",
-      "const": "E"
-    }
-  ],
-  "examples": [
-    "A",
-    "C",
-    "E"
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalInvestorCorporateEventStatusCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalInvestorCorporateEventStatusCode"
+  },
+  "title" : "External Investor Corporate Event Status",
+  "description" : "Codes for investor corporate event status",
+  "oneOf" : [ {
+    "type" : "string",
+    "description" : "ATIVO",
+    "const" : "A"
+  }, {
+    "type" : "string",
+    "description" : "CREDITADO",
+    "const" : "C"
+  }, {
+    "type" : "string",
+    "description" : "EXCLUÍDO",
+    "const" : "E"
+  } ],
+  "examples" : [ "A", "C", "E" ]
 }

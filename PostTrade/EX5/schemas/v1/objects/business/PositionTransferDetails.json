@@ -14,7 +14,7 @@
       "description" : "Financial instrument identification"
     },
     "shortLongIndicator" : {
-      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Indicates whether the position is long or short",
       "$comment" : "Consult External Code List table ExternalShortLongCode"
     },
@@ -31,7 +31,7 @@
       "source" : "8",
       "exchange" : "A5XB"
     },
-    "shortLongIndicator" : "2",
+    "shortLongIndicator" : 2,
     "quantity" : "200.00"
   }, {
     "instrumentIdentification" : {
@@ -39,7 +39,7 @@
       "source" : "8",
       "exchange" : "A5XB"
     },
-    "shortLongIndicator" : "1",
+    "shortLongIndicator" : 1,
     "quantity" : "100.00"
   } ]
 }

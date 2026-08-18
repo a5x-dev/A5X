@@ -104,8 +104,10 @@
       "type" : "string",
       "description" : "Quantity requested for transfer/reallocation for this position"
     },
-    "side" : {
-      "type" : "string",
+    "buySellIndicator" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999,
       "description" : "Coded list to specify the side of the trade",
       "$comment" : "Consult External Code List table ExternalBuySellIndicatorCode"
     },
@@ -122,6 +124,6 @@
       "description" : "Risk value of the position"
     }
   },
-  "required" : [ "frequency", "reportDateAndTime", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "participantIdentificationId", "participantIdentificationCategory", "positionTransferReference", "accountIdentificationId" ],
+  "required" : [ "frequency", "reportDateAndTime", "clearingMemberIdentificationId", "clearingMemberIdentificationCategory", "participantIdentificationId", "participantIdentificationCategory", "accountIdentificationId" ],
   "additionalProperties" : false
 }

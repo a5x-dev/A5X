@@ -1,39 +1,32 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Trading Session Sub Identification",
-  "description": "Codes for trading session sub identification",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Opening Auction Call",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Continuous (Regular)",
-      "const": 3
-    },
-    {
-      "type": "number",
-      "description": "Closing Auction Call",
-      "const": 4
-    },
-    {
-      "type": "number",
-      "description": "Re-Opening Auction Call",
-      "const": 6
-    },
-    {
-      "type": "number",
-      "description": "Closing Price Cross",
-      "const": 8
-    }
-  ],
-  "examples": [
-    2,
-    3,
-    4,
-    6,
-    8
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalTradingSessionSubIdentificationCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalTradingSessionSubIdentificationCode"
+  },
+  "title" : "External Trading Session Sub Identification",
+  "description" : "Codes for trading session sub identification",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Opening Auction Call",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Continuous (Regular)",
+    "const" : 3
+  }, {
+    "type" : "number",
+    "description" : "Closing Auction Call",
+    "const" : 4
+  }, {
+    "type" : "number",
+    "description" : "Re-Opening Auction Call",
+    "const" : 6
+  }, {
+    "type" : "number",
+    "description" : "Closing Price Cross",
+    "const" : 8
+  } ],
+  "examples" : [ 2, 3, 4, 6, 8 ]
 }

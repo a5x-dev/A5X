@@ -18,12 +18,12 @@
     "compressionGroupStatus": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Compression Group status code",
-      "$comment": "Consult External Code List table External Compression Group Status Code"
+      "$comment": "Consult External Code List table ExternalCompressionGroupStatusCode"
     },
     "compressionGroupReason": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Compression Group reason",
-      "$comment": "Consult External Code List table External Compression Group Reason Code"
+      "$comment": "Consult External Code List table ExternalCompressionGroupReasonCode"
     },
     "previousCompressionTradeIdentification": {
       "type": "string",

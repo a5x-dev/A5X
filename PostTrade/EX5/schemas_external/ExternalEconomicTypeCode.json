@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Economic Type",
-  "description": "Codes for economic type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Indicador Econômico",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Taxa de Câmbio",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Moeda",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalEconomicTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalEconomicTypeCode"
+  },
+  "title" : "External Economic Type",
+  "description" : "Codes for economic type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Indicador Econômico",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Taxa de Câmbio",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Moeda",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

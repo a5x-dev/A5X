@@ -28,7 +28,7 @@
     "clearingMemberIdentificationCategory": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 99,
       "description": "Participant category code",
       "$comment": "Consult External Code List table ExternalParticipantCategoryCode."
     },
@@ -41,7 +41,7 @@
     "participantIdentificationCategory": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 99,
       "description": "Participant category code",
       "$comment": "Consult External Code List table ExternalParticipantCategoryCode."
     },
@@ -93,7 +93,7 @@
       "maxLength": 30,
       "description": "Commodity associated with the instrument"
     },
-    "strategTradeDate": {
+    "strategyTradeDate": {
       "type": "string",
       "format": "date",
       "description": "Strategy Trade Date"
@@ -232,9 +232,9 @@
     "strategyBuySellIndicator",
     "strategyQuantity",
     "strategyLegNumber",
-    "strategyLegIdentification",
-    "strategyLegSource",
-    "strategyLegExchange",
+    "strategyLegFinancialInstrumentIdentificationId",
+    "strategyLegFinancialInstrumentIdentificationSource",
+    "strategyLegFinancialInstrumentIdentificationExchange",
     "strategyLegMarket",
     "strategyLegBuySellIndicator",
     "strategyLegDealPrice",

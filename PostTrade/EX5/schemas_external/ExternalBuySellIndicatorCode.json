@@ -1,18 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "ExternalBuySellIndicatorCode",
-  "description": "Codes for buy/sell indicator",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Buy",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Sell",
-      "const": 2
-    }
-  ],
-  "examples": [1, 2]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBuySellIndicatorCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBuySellIndicatorCode"
+  },
+  "title" : "ExternalBuySellIndicatorCode",
+  "description" : "Codes for buy/sell indicator",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Buy",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Sell",
+    "const" : 2
+  } ],
+  "examples" : [ 1, 2 ]
 }

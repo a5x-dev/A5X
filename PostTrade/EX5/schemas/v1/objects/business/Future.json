@@ -133,7 +133,7 @@
       "$comment": "Consult External Code List table ExternalExerciseStyleCode"
     },
     "optionType": {
-      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Specifies whether an option is call or put",
       "$comment": "Consult External Code List table ExternalOptionTypeCode"
     },
@@ -209,7 +209,7 @@
         "currency": "BRL"
       },
       "exerciseStyle": "AMER",
-      "optionType": "type",
+      "optionType": 1,
       "premiumUpfrontIndicator": true,
       "openingPositionLimitDate": "2024-12-31",
       "targetInstrumentIdentification": [

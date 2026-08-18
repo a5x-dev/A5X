@@ -1,0 +1,50 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:CollateralDetailQuantities",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:CollateralDetailQuantities"
+  },
+  "title": "Collateral Detail Quantities",
+  "description": "Quantities associated with a collateral position (deposited, accepted, valued, delivery and blocked)",
+  "type": "object",
+  "properties": {
+    "depositedQuantity": {
+      "$ref": "../../types/PositiveInteger.json",
+      "description": "Deposited collateral quantity"
+    },
+    "acceptedQuantity": {
+      "$ref": "../../types/PositiveInteger.json",
+      "description": "Accepted collateral quantity for coverage"
+    },
+    "valuedQuantity": {
+      "$ref": "../../types/PositiveInteger.json",
+      "description": "Valued collateral quantity"
+    },
+    "deliveryQuantity": {
+      "$ref": "../../types/PositiveInteger.json",
+      "description": "Distributed or delivered collateral quantity"
+    },
+    "blockedQuantity": {
+      "$ref": "../../types/PositiveInteger.json",
+      "description": "Blocked collateral quantity by clearing"
+    }
+  },
+  "required": [
+    "depositedQuantity",
+    "acceptedQuantity",
+    "valuedQuantity",
+    "deliveryQuantity",
+    "blockedQuantity"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "depositedQuantity": 22,
+      "acceptedQuantity": 23,
+      "valuedQuantity": 25,
+      "deliveryQuantity": 1,
+      "blockedQuantity": 1
+    }
+  ]
+}

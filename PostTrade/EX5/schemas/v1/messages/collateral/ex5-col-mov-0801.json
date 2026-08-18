@@ -39,7 +39,7 @@
   "additionalProperties" : true,
   "examples" : [ {
     "reportParameters" : {
-      "frequency" : 2,
+      "frequency" : "DAIL",
       "reportNumber" : "00132",
       "reportDateAndTime" : "2024-06-15T16:40:36.51Z"
     },

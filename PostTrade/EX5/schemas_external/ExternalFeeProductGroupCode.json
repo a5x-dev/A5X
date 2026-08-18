@@ -1,39 +1,32 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Fee Product Group",
-  "description": "Codes for fee product group",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": " Família e Subfamília A",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": " Família e Subfamília B",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": " Família e Subfamília C",
-      "const": 3
-    },
-    {
-      "type": "number",
-      "description": " Família e Subfamília D",
-      "const": 4
-    },
-    {
-      "type": "number",
-      "description": " Família e Subfamília E",
-      "const": 5
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeProductGroupCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeProductGroupCode"
+  },
+  "title" : "External Fee Product Group",
+  "description" : "Codes for fee product group",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : " Família e Subfamília A",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : " Família e Subfamília B",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : " Família e Subfamília C",
+    "const" : 3
+  }, {
+    "type" : "number",
+    "description" : " Família e Subfamília D",
+    "const" : 4
+  }, {
+    "type" : "number",
+    "description" : " Família e Subfamília E",
+    "const" : 5
+  } ],
+  "examples" : [ 1, 2, 3, 4, 5 ]
 }

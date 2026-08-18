@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Breaking Rules Delay Responsibility",
-  "description": "Codes for Breaking Rules delay responsibility",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Origin",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Destination",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "A5X",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBreakingRulesResponsibilityCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBreakingRulesResponsibilityCode"
+  },
+  "title" : "External Breaking Rules Delay Responsibility",
+  "description" : "Codes for Breaking Rules delay responsibility",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Origin",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Destination",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "A5X",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

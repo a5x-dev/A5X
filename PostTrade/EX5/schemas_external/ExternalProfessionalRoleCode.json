@@ -1,69 +1,61 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema#",
-  "title": "ExternalProfessionalRoleCode",
-  "description": "Codes for professional role",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Operador Supervisor",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Operador",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Assessor",
-      "const": 3
-    },
-    {
-      "type": "number",
-      "description": "Assessor Bancário Responsável",
-      "const": 4
-    },
-    {
-      "type": "number",
-      "description": "Assessor Bancário",
-      "const": 5
-    },
-    {
-      "type": "number",
-      "description": "Profissional área comercial",
-      "const": 6
-    },
-    {
-      "type": "number",
-      "description": "Profissional de middle ou back office",
-      "const": 7
-    },
-    {
-      "type": "number",
-      "description": "Profissional de risco",
-      "const": 8
-    },
-    {
-      "type": "number",
-      "description": "Profissional de cadastro",
-      "const": 9
-    },
-    {
-      "type": "number",
-      "description": "Profissional de compliance",
-      "const": 10
-    },
-    {
-      "type": "number",
-      "description": "Profissional de custódia",
-      "const": 11
-    },
-    {
-      "type": "number",
-      "description": "Profissional de liquidação",
-      "const": 12
-    }
-  ],
-  "additionalProperties": false,
-  "examples": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  "$schema" : "https://json-schema.org/draft/2020-12/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalProfessionalRoleCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalProfessionalRoleCode"
+  },
+  "title" : "ExternalProfessionalRoleCode",
+  "description" : "Codes for professional role",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Operador Supervisor",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Operador",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Assessor",
+    "const" : 3
+  }, {
+    "type" : "number",
+    "description" : "Assessor Bancário Responsável",
+    "const" : 4
+  }, {
+    "type" : "number",
+    "description" : "Assessor Bancário",
+    "const" : 5
+  }, {
+    "type" : "number",
+    "description" : "Profissional área comercial",
+    "const" : 6
+  }, {
+    "type" : "number",
+    "description" : "Profissional de middle ou back office",
+    "const" : 7
+  }, {
+    "type" : "number",
+    "description" : "Profissional de risco",
+    "const" : 8
+  }, {
+    "type" : "number",
+    "description" : "Profissional de cadastro",
+    "const" : 9
+  }, {
+    "type" : "number",
+    "description" : "Profissional de compliance",
+    "const" : 10
+  }, {
+    "type" : "number",
+    "description" : "Profissional de custódia",
+    "const" : 11
+  }, {
+    "type" : "number",
+    "description" : "Profissional de liquidação",
+    "const" : 12
+  } ],
+  "additionalProperties" : false,
+  "examples" : [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ]
 }

@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Technical Reserve",
-  "description": "Codes for technical reserve",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "NONE",
-      "const": 0
-    },
-    {
-      "type": "number",
-      "description": "LINK",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "UNLINK",
-      "const": 2
-    }
-  ],
-  "examples": [
-    0,
-    1,
-    2
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalTechnicalReserveCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalTechnicalReserveCode"
+  },
+  "title" : "External Technical Reserve",
+  "description" : "Codes for technical reserve",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "NONE",
+    "const" : 0
+  }, {
+    "type" : "number",
+    "description" : "LINK",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "UNLINK",
+    "const" : 2
+  } ],
+  "examples" : [ 0, 1, 2 ]
 }

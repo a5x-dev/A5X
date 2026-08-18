@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "ExternalAssessmentStatusCode",
-  "description": "Codes for assessment status",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Approved",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Rejected",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Pending",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAssessmentStatusCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAssessmentStatusCode"
+  },
+  "title" : "ExternalAssessmentStatusCode",
+  "description" : "Codes for assessment status",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Approved",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Rejected",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Pending",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

@@ -206,7 +206,7 @@
     "financialInstrumentIdentificationExchange", 
     "market", 
     "asset", 
-    "corporateActionCode", 
+    "corporateActionType", 
     "corporateActionIdentification", 
     "afterApplyingCorporateActionsTickerSymbol", 
     "afterApplyingCorporateActionsLongQuantity", 

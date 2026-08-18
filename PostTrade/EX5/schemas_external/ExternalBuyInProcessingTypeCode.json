@@ -1,21 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Buy In Processing Type",
-  "description": "Codes for buy in processing type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Manual",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Automático",
-      "const": 2
-    }
-  ],
-  "examples": [
-    1,
-    2
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBuyInProcessingTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBuyInProcessingTypeCode"
+  },
+  "title" : "External Buy In Processing Type",
+  "description" : "Codes for buy in processing type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Manual",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Automático",
+    "const" : 2
+  } ],
+  "examples" : [ 1, 2 ]
 }

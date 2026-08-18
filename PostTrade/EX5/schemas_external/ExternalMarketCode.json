@@ -1,74 +1,60 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Market",
-  "description": "Codes for market",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "CASH",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "FUTURES",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "OPTIONS ON SPOT",
-      "const": 3
-    },
-    {
-      "type": "number",
-      "description": "OPTIONS ON FUTURE",
-      "const": 4
-    },
-    {
-      "type": "number",
-      "description": "FIXED INCOME",
-      "const": 5
-    },
-    {
-      "type": "number",
-      "description": "EQUITY",
-      "const": 10
-    },
-    {
-      "type": "number",
-      "description": "CALL EQUITY OPTION",
-      "const": 70
-    },
-    {
-      "type": "number",
-      "description": "PUT EQUITY OPTION",
-      "const": 80
-    },
-    {
-      "type": "number",
-      "description": "INDICATORS",
-      "const": 85
-    },
-    {
-      "type": "number",
-      "description": "CURVES",
-      "const": 86
-    },
-    {
-      "type": "number",
-      "description": "SURFACES",
-      "const": 87
-    },
-    {
-      "type": "number",
-      "description": "FPR",
-      "const": 88
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    5,
-    10,
-    88
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalMarketCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalMarketCode"
+  },
+  "title" : "External Market",
+  "description" : "Codes for market",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "CASH",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "FUTURES",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "OPTIONS ON SPOT",
+    "const" : 3
+  }, {
+    "type" : "number",
+    "description" : "OPTIONS ON FUTURE",
+    "const" : 4
+  }, {
+    "type" : "number",
+    "description" : "FIXED INCOME",
+    "const" : 5
+  }, {
+    "type" : "number",
+    "description" : "EQUITY",
+    "const" : 10
+  }, {
+    "type" : "number",
+    "description" : "CALL EQUITY OPTION",
+    "const" : 70
+  }, {
+    "type" : "number",
+    "description" : "PUT EQUITY OPTION",
+    "const" : 80
+  }, {
+    "type" : "number",
+    "description" : "INDICATORS",
+    "const" : 85
+  }, {
+    "type" : "number",
+    "description" : "CURVES",
+    "const" : 86
+  }, {
+    "type" : "number",
+    "description" : "SURFACES",
+    "const" : 87
+  }, {
+    "type" : "number",
+    "description" : "FPR",
+    "const" : 88
+  } ],
+  "examples" : [ 1, 2, 5, 10, 88 ]
 }

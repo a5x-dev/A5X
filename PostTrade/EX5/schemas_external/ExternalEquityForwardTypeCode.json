@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Equity Forward Type",
-  "description": "Codes for equity forward type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Flexible",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Common",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Gold",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalEquityForwardTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalEquityForwardTypeCode"
+  },
+  "title" : "External Equity Forward Type",
+  "description" : "Codes for equity forward type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Flexible",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Common",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Gold",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

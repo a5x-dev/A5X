@@ -46,7 +46,7 @@
       "description": "Indicates if the operation is derived from block capture."
     },
     "grossTradeAmount": {
-      "$ref": "../../types/DecimalNumber.json",
+      "$ref": "../../types/DecimalNumber6Decimais.json",
       "description": "Gross trade amount"
     },
     "compressionGroup": {

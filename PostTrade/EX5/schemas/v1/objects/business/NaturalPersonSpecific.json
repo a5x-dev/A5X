@@ -21,7 +21,7 @@
     "birthPlace" : {
       "$ref" : "../../objects/business/ExternalCodeTextList.json",
       "description" : "Place of birth (Local de Nascimento)",
-      "$comment" : "Consult External Code List table ExternalCityCode. Required only if country is Brazil (BR). Required only if country is Brazil (BR)"
+      "$comment" : "Required only if country is Brazil (BR). Required only if country is Brazil (BR)"
     },
     "nationality" : {
       "$ref" : "../../objects/business/ExternalCodeTextList.json",

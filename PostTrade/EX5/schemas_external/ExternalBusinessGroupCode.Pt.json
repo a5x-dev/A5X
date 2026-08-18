@@ -1,79 +1,69 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema#",
-  "title": "ExternalBusinessGroupCode",
-  "description": "Codes for business group",
-  "oneOf": [
-    {
-      "type": "string",
-      "description": "Alocação",
-      "const": "ALC"
-    },
-    {
-      "type": "string",
-      "description": "Garantias",
-      "const": "COL"
-    },
-    {
-      "type": "string",
-      "description": "Tarifação",
-      "const": "FEE"
-    },
-    {
-      "type": "string",
-      "description": "Instrumento",
-      "const": "INS"
-    },
-    {
-      "type": "string",
-      "description": "Chamada de Margem",
-      "const": "MRG"
-    },
-    {
-      "type": "string",
-      "description": "Posição",
-      "const": "POS"
-    },
-    {
-      "type": "string",
-      "description": "Precificação",
-      "const": "PRC"
-    },
-    {
-      "type": "string",
-      "description": "Público",
-      "const": "PUB"
-    },
-    {
-      "type": "string",
-      "description": "Serviços Qualificados",
-      "const": "QLF"
-    },
-    {
-      "type": "string",
-      "description": "Cadastro",
-      "const": "REG"
-    },
-    {
-      "type": "string",
-      "description": "Risco",
-      "const": "RSK"
-    },
-    {
-      "type": "string",
-      "description": "Liquidação",
-      "const": "STL"
-    },
-    {
-      "type": "string",
-      "description": "Técnico",
-      "const": "TEC"
-    },
-    {
-      "type": "string",
-      "description": "Negociação",
-      "const": "TRD"
-    }
-  ],
-  "additionalProperties": false,
-  "examples": ["ALC", "COL", "FEE", "INS", "MRG", "POS", "PRC", "PUB", "QLF", "REG", "RSK", "STL", "TEC", "TRD"]
+  "$schema" : "https://json-schema.org/draft/2020-12/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBusinessGroupCode.Pt",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBusinessGroupCode.Pt"
+  },
+  "title" : "ExternalBusinessGroupCode",
+  "description" : "Codes for business group",
+  "oneOf" : [ {
+    "type" : "string",
+    "description" : "Alocação",
+    "const" : "ALC"
+  }, {
+    "type" : "string",
+    "description" : "Garantias",
+    "const" : "COL"
+  }, {
+    "type" : "string",
+    "description" : "Tarifação",
+    "const" : "FEE"
+  }, {
+    "type" : "string",
+    "description" : "Instrumento",
+    "const" : "INS"
+  }, {
+    "type" : "string",
+    "description" : "Chamada de Margem",
+    "const" : "MRG"
+  }, {
+    "type" : "string",
+    "description" : "Posição",
+    "const" : "POS"
+  }, {
+    "type" : "string",
+    "description" : "Precificação",
+    "const" : "PRC"
+  }, {
+    "type" : "string",
+    "description" : "Público",
+    "const" : "PUB"
+  }, {
+    "type" : "string",
+    "description" : "Serviços Qualificados",
+    "const" : "QLF"
+  }, {
+    "type" : "string",
+    "description" : "Cadastro",
+    "const" : "REG"
+  }, {
+    "type" : "string",
+    "description" : "Risco",
+    "const" : "RSK"
+  }, {
+    "type" : "string",
+    "description" : "Liquidação",
+    "const" : "STL"
+  }, {
+    "type" : "string",
+    "description" : "Técnico",
+    "const" : "TEC"
+  }, {
+    "type" : "string",
+    "description" : "Negociação",
+    "const" : "TRD"
+  } ],
+  "additionalProperties" : false,
+  "examples" : [ "ALC", "COL", "FEE", "INS", "MRG", "POS", "PRC", "PUB", "QLF", "REG", "RSK", "STL", "TEC", "TRD" ]
 }

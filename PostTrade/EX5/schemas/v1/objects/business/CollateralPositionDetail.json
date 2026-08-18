@@ -1,0 +1,133 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:CollateralPositionDetail",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:CollateralPositionDetail"
+  },
+  "title": "Collateral Position Detail",
+  "description": "Provides collateral identification, financial instrument, quantity and value information for a posted collateral position",
+  "type": "object",
+  "properties": {
+    "referenceDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Reference date of the collateral position"
+    },
+    "collateralCoverageType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Purpose for which the collateral is allocated",
+      "$comment": "Consult External Code List table ExternalCollateralCoverageTypeCode"
+    },
+    "assetNumber": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Collateral asset number"
+    },
+    "holderIndicator": {
+      "type": "boolean",
+      "description": "Indicates whether the collateral belongs to the identified holder"
+    },
+    "coverageMarginIndicator": {
+      "type": "boolean",
+      "description": "Indicates whether the collateral is identified for margin coverage"
+    },
+    "collateralType": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Collateral type code",
+      "$comment": "Consult External Code List table ExternalCollateralTypeCode"
+    },
+    "collateralSubType": {
+      "type": "string",
+      "maxLength": 35,
+      "description": "Additional classification for the collateral"
+    },
+    "collateralClientCategory": {
+      "$ref": "../../objects/business/ExternalCodeList.json",
+      "description": "Category of the collateral holder",
+      "$comment": "Consult External Code List table ExternalCollateralClientCategoryCode"
+    },
+    "collateralReference": {
+      "type": "string",
+      "maxLength": 35,
+      "description": "Collateral reference or identification (ticker symbol)"
+    },
+    "financialInstrumentIdentification": {
+      "$ref": "../../objects/business/InstrumentIdentification.json",
+      "description": "Identification of the financial instrument"
+    },
+    "maturityDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Collateral maturity date when applicable"
+    },
+    "collateralQuantities": {
+      "$ref": "../../objects/business/CollateralDetailQuantities.json",
+      "description": "Quantities associated with the collateral position"
+    },
+    "collateralValue": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Collateral value after taking into account the haircut"
+    },
+    "withdrawalBlockedValue": {
+      "$ref": "../../objects/business/MonetaryValue.json",
+      "description": "Blocked value by clearing. This field has 2 decimal places. Valor bloqueado para retirada pela clearing. Este campo possui 2 casas decimais"
+    },
+    "isin": {
+      "$ref": "../../types/Isin.json",
+      "description": "International Securities Identification Number - Standardized international code for unique identification of financial instruments"
+    },
+    "portfolio": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Collateral portfolio identification"
+    }
+  },
+  "required": [
+    "collateralCoverageType",
+    "assetNumber",
+    "collateralType",
+    "collateralClientCategory",
+    "collateralReference",
+    "financialInstrumentIdentification",
+    "collateralQuantities",
+    "portfolio"
+  ],
+  "additionalProperties": true,
+  "examples": [
+    {
+      "referenceDate": "2022-05-26",
+      "collateralCoverageType": 1,
+      "assetNumber": "000000202100000173821",
+      "holderIndicator": true,
+      "coverageMarginIndicator": true,
+      "collateralType": 3,
+      "collateralSubType": "FEDERAL_BOND",
+      "collateralClientCategory": 1,
+      "collateralReference": "ABCD",
+      "financialInstrumentIdentification": {
+        "id": "100000109699",
+        "source": "8",
+        "exchange": "A5XB"
+      },
+      "maturityDate": "2025-12-31",
+      "collateralQuantities": {
+        "depositedQuantity": 22,
+        "acceptedQuantity": 23,
+        "valuedQuantity": 25,
+        "deliveryQuantity": 1,
+        "blockedQuantity": 1
+      },
+      "collateralValue": {
+        "amount": "2222.76"
+      },
+      "withdrawalBlockedValue": {
+        "currency": "BRL",
+        "amount": "5000.00"
+      },
+      "isin": "BREVWZT1PUO6",
+      "portfolio": "5590-5"
+    }
+  ]
+}

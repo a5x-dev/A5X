@@ -1,39 +1,32 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Corporate Action Sub Type",
-  "description": "Codes for corporate action sub type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "JCP",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Dividendos",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Rendimento",
-      "const": 3
-    },
-    {
-      "type": "number",
-      "description": "Bonificação em Dinheiro",
-      "const": 4
-    },
-    {
-      "type": "number",
-      "description": "Rendimento Líquido",
-      "const": 5
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCorporateActionSubTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCorporateActionSubTypeCode"
+  },
+  "title" : "External Corporate Action Sub Type",
+  "description" : "Codes for corporate action sub type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "JCP",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Dividendos",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Rendimento",
+    "const" : 3
+  }, {
+    "type" : "number",
+    "description" : "Bonificação em Dinheiro",
+    "const" : 4
+  }, {
+    "type" : "number",
+    "description" : "Rendimento Líquido",
+    "const" : 5
+  } ],
+  "examples" : [ 1, 2, 3, 4, 5 ]
 }

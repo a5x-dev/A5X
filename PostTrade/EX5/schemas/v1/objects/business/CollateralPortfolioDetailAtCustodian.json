@@ -1,0 +1,69 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:CollateralPortfolioDetailAtCustodian",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:CollateralPortfolioDetailAtCustodian"
+  },
+  "title": "Collateral Portfolio Detail at Custodian",
+  "description": "Collateral portfolio detail held at a custodian, extending CollateralPositionDetail with settlement participant information",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "../../objects/business/CollateralPositionDetail.json"
+    },
+    {
+      "properties": {
+        "settlementParticipantIdentification": {
+          "$ref": "../../objects/business/PartyId.json",
+          "description": "Identification of the full trading participant or settlement participant related to the collateral"
+        },
+        "settlementAccountIdentification": {
+          "$ref": "../../objects/business/AccountIdentification.json",
+          "description": "Investor or account identification at the full trading or settlement participant"
+        }
+      }
+    }
+  ],
+  "examples": [
+    {
+      "referenceDate": "2022-05-26",
+      "collateralCoverageType": 1,
+      "assetNumber": "000000202100000173821",
+      "holderIndicator": true,
+      "coverageMarginIndicator": true,
+      "collateralType": 3,
+      "collateralClientCategory": 1,
+      "collateralReference": "ABCD",
+      "financialInstrumentIdentification": {
+        "id": "200000153650",
+        "source": "8",
+        "exchange": "A5XB"
+      },
+      "collateralQuantities": {
+        "depositedQuantity": 40,
+        "acceptedQuantity": 40,
+        "valuedQuantity": 40,
+        "deliveryQuantity": 1,
+        "blockedQuantity": 1
+      },
+      "collateralValue": {
+        "currency": "BRL",
+        "amount": "1402.93"
+      },
+      "withdrawalBlockedValue": {
+        "currency": "BRL",
+        "amount": "5000.00"
+      },
+      "isin": "BREVWZT1PUO6",
+      "portfolio": "5590-5",
+      "settlementParticipantIdentification": {
+        "id": 935,
+        "category": 1
+      },
+      "settlementAccountIdentification": {
+        "id": 77
+      }
+    }
+  ]
+}

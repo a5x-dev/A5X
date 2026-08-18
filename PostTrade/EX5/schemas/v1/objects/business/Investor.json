@@ -124,7 +124,7 @@
     "nonResidentClassification": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Non-resident classification - Legal Entity NRES only",
-      "$comment": "Consult External Code List table ExternalNonResidentClassification"
+      "$comment": "Consult External Code List table ExternalNonResidentClassificationCode"
     },
     "isINRPortifolioOwner": {
       "type": "boolean",

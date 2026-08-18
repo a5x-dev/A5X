@@ -1,39 +1,32 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Securities Settlement Transaction Status",
-  "description": "Codes for securities settlement transaction status",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Recebido",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Pendente",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Rejeitado",
-      "const": 3
-    },
-    {
-      "type": "number",
-      "description": "Cancelado",
-      "const": 4
-    },
-    {
-      "type": "number",
-      "description": "Erro",
-      "const": 5
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalSecuritiesSettlementTransactionStatusCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalSecuritiesSettlementTransactionStatusCode"
+  },
+  "title" : "External Securities Settlement Transaction Status",
+  "description" : "Codes for securities settlement transaction status",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Recebido",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Pendente",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Rejeitado",
+    "const" : 3
+  }, {
+    "type" : "number",
+    "description" : "Cancelado",
+    "const" : 4
+  }, {
+    "type" : "number",
+    "description" : "Erro",
+    "const" : 5
+  } ],
+  "examples" : [ 1, 2, 3, 4, 5 ]
 }

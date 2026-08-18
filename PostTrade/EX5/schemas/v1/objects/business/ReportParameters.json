@@ -10,7 +10,7 @@
   "type" : "object",
   "properties" : {
     "frequency" : {
-      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
       "description" : "Frequency of the report",
       "$comment" : "Consult External Code List table ExternalEventFrequency6Code"
     },
@@ -27,7 +27,7 @@
   "required" : [ "frequency", "reportDateAndTime" ],
   "additionalProperties" : false,
   "examples" : [ {
-    "frequency" : 2,
+    "frequency" : "DAIL",
     "reportNumber" : "00132",
     "reportDateAndTime" : "2015-09-18T12:00:00Z"
   } ]

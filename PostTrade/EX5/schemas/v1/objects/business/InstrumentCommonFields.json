@@ -54,7 +54,7 @@
     "securityCategory": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Instrument type identifier",
-      "$comment": "Consult External Code List table ExternalSecurityCategory"
+      "$comment": "Consult External Code List table ExternalSecurityCategoryCode"
     }
   },
   "required": [

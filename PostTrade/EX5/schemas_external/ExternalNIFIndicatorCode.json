@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "ExternalNIFIndicatorCode",
-  "description": "Codes for n i f indicator",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Sim",
-      "const": 0
-    },
-    {
-      "type": "number",
-      "description": "Não - investidor isento de identificação fiscal",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Não - Jurisdição não exige identificação fiscal",
-      "const": 2
-    }
-  ],
-  "examples": [
-    0,
-    1,
-    2
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalNIFIndicatorCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalNIFIndicatorCode"
+  },
+  "title" : "ExternalNIFIndicatorCode",
+  "description" : "Codes for n i f indicator",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Sim",
+    "const" : 0
+  }, {
+    "type" : "number",
+    "description" : "Não - investidor isento de identificação fiscal",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Não - Jurisdição não exige identificação fiscal",
+    "const" : 2
+  } ],
+  "examples" : [ 0, 1, 2 ]
 }

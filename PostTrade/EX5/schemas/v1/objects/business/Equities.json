@@ -10,7 +10,7 @@
   "type": "object",
   "properties": {
     "governanceIndicator": {
-      "$ref": "../../objects/business/ExternalCodeTextList.json",
+      "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Governance indicator code",
       "$comment": "Consult External Code List table ExternalGovernanceIndicatorCode"
     },
@@ -109,7 +109,7 @@
   "additionalProperties": true,
   "examples": [
     {
-      "governanceIndicator": "N1",
+      "governanceIndicator": 2,
       "rightsIssuePrice": {
         "amount": "15.75",
         "currency": "USD"

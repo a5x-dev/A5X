@@ -1,39 +1,32 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Asset Sub Type",
-  "description": "Codes for asset sub type",
-  "oneOf": [
-    {
-      "type": "string",
-      "description": "Ações",
-      "const": "ACAO"
-    },
-    {
-      "type": "string",
-      "description": "Certificado de Recebíveis do Agronegócio",
-      "const": "CRA"
-    },
-    {
-      "type": "string",
-      "description": "Certificado de Recebíveis Imobiliários",
-      "const": "CRI"
-    },
-    {
-      "type": "string",
-      "description": "Debênture",
-      "const": "DEB "
-    },
-    {
-      "type": "string",
-      "description": "Outros",
-      "const": "OUT "
-    }
-  ],
-  "examples": [
-    "ACAO",
-    "CRA",
-    "CRI",
-    "DEB ",
-    "OUT "
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAssetSubTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAssetSubTypeCode"
+  },
+  "title" : "External Asset Sub Type",
+  "description" : "Codes for asset sub type",
+  "oneOf" : [ {
+    "type" : "string",
+    "description" : "Ações",
+    "const" : "ACAO"
+  }, {
+    "type" : "string",
+    "description" : "Certificado de Recebíveis do Agronegócio",
+    "const" : "CRA"
+  }, {
+    "type" : "string",
+    "description" : "Certificado de Recebíveis Imobiliários",
+    "const" : "CRI"
+  }, {
+    "type" : "string",
+    "description" : "Debênture",
+    "const" : "DEB "
+  }, {
+    "type" : "string",
+    "description" : "Outros",
+    "const" : "OUT "
+  } ],
+  "examples" : [ "ACAO", "CRA", "CRI", "DEB ", "OUT " ]
 }

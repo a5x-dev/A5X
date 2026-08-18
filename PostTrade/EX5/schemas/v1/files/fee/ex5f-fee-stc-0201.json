@@ -190,7 +190,7 @@
       "minimum": 1,
       "maximum": 999999,
       "description": "Indicates if calculation is Progressive or Regressive",
-      "$comment": "Consult External Code List table ExternalCalcTypeCode. Field will not be filled when component deals with maturity settlement or exercise"
+      "$comment": "Consult External Code List table ExternalFeeCalculationTypeCode. Field will not be filled when component deals with maturity settlement or exercise"
     },
     "additionalValueType": {
       "type": "integer",

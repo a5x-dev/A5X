@@ -1,5 +1,5 @@
-{
-  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+﻿{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
   "$id" : "urn:a5x:ex5:schema:v1:positions:ex5f-pos-evt-0201",
   "$metadata" : {
     "domain" : "positions",
@@ -12,175 +12,175 @@
     "referenceDate" : {
       "type" : "string",
       "format" : "date-time",
-      "description" : "Data de referência da informação."
+      "description" : "Reference date of the information"
     },
     "tickerSymbol" : {
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 35,
-      "description" : "Código que identifica um instrumento"
+      "description" : "Ticker symbol that identifies stocks traded on stock exchange"
     },
     "financialInstrumentIdentificationId" : {
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 35,
-      "description" : "Identificação proprietária de um instrumento"
+      "description" : "Proprietary identification of an instrument"
     },
     "financialInstrumentIdentificationSource" : {
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 35,
-      "description" : "Fonte da identificação do instrumento"
+      "description" : "Source of the instrument identification"
     },
     "financialInstrumentIdentificationExchange" : {
       "type" : "string",
       "minLength" : 3,
       "maxLength" : 20,
-      "description" : "Código identificador da Bolsa em que o instrumento foi negociado"
+      "description" : "Identifier code of the exchange where the instrument is listed"
     },
     "underlyingInstrumentIdentificationId" : {
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 35,
-      "description" : "Identificador do instrumento subjacente"
+      "description" : "Underlying instrument identifier"
     },
     "underlyingInstrumentIdentificationSource" : {
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 35,
-      "description" : "Fonte da identificação do instrumento"
+      "description" : "Source of the instrument identification"
     },
     "underlyingInstrumentIdentificationExchange" : {
       "type" : "string",
       "minLength" : 3,
       "maxLength" : 20,
-      "description" : "Código identificador da Bolsa em que o instrumento foi negociado"
+      "description" : "Identifier code of the exchange where the instrument is listed"
     },
     "underlyingISIN" : {
       "type" : "string",
       "maxLength" : 12,
       "pattern" : "^BR[A-Z0-9]{4}[A-Z0-9]{3}[A-Z0-9]{2}\\d$",
-      "description" : "ISIN do instrumento subjacente"
+      "description" : "ISIN of the underlying instrument"
     },
     "eventStatus" : {
       "type" : "integer",
       "minimum" : 0,
       "maximum" : 999999,
-      "description" : "Situação do evento informando",
-      "$comment" : "Consultar a lista na tabela ExternalEventStatus"
+      "description" : "Event status code",
+      "$comment" : "Consult External Code List table ExternalEventStatusCode"
     },
     "corporateActionIdentification" : {
       "type" : "integer",
       "minimum" : 0,
       "maximum" : 999999,
-      "description" : "Identificação do evento",
-      "$comment" : "Consultar a lista na tabela ExternalCorporateActionCode"
+      "description" : "Corporate action event identification",
+      "$comment" : "Consult External Code List table ExternalCorporateActionCode"
     },
     "corporateActionType" : {
       "type" : "integer",
       "minimum" : 0,
       "maximum" : 999999,
-      "description" : "Classificação do Evento",
-      "$comment" : "Consultar a lista na tabela ExternalCorporateActionsTypeCode"
+      "description" : "Corporate action type classification",
+      "$comment" : "Consult External Code List table ExternalCorporateActionsTypeCode"
     },
     "voluntaryIndicator" : {
       "type" : "boolean",
-      "description" : "Indica se evento será voluntário ou involuntário"
+      "description" : "Indicates whether the event is voluntary or involuntary"
     },
     "recordDate" : {
       "type" : "string",
       "format" : "date-time",
-      "description" : "Data Com direito ao evento corporativo"
+      "description" : "Record date - date with rights to the corporate action"
     },
     "exDate" : {
       "type" : "string",
       "format" : "date-time",
-      "description" : "Data Ex direito ao evento corporativo"
+      "description" : "Ex-date - date without rights to the corporate action"
     },
     "effectiveDate" : {
       "type" : "string",
       "format" : "date-time",
-      "description" : "Data de efetivação do evento corporativo"
+      "description" : "Effective date of the corporate action"
     },
     "paymentDate" : {
       "type" : "string",
       "format" : "date-time",
-      "description" : "Data de pagamento do evento corporativo"
+      "description" : "Payment date of the corporate action"
     },
     "eventCalculationType" : {
       "type" : "integer",
       "minimum" : 0,
       "maximum" : 999999,
-      "description" : "Indica o tipo de cálculo aplicado ao evento (fator ou percentual)",
-      "$comment" : "Consultar a lista na tabela ExternalEventCalculationType"
+      "description" : "Indicates the calculation type applied to the event (factor or percentage)",
+      "$comment" : "Consult External Code List table ExternalEventCalculationTypeCode"
     },
     "eventCalculationMethod" : {
       "type" : "integer",
       "minimum" : 0,
       "maximum" : 999999,
-      "description" : "Indica o método de cálculo aplicado ao evento",
-      "$comment" : "Consultar a lista na tabela ExternalEventCalculationMethodType"
+      "description" : "Indicates the calculation method applied to the event",
+      "$comment" : "Consult External Code List table ExternalEventCalculationMethodTypeCode"
     },
     "eventPrice" : {
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 20,
       "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
-      "description" : "Valor Financeiro Evento"
+      "description" : "Event financial value"
     },
     "eventPercentage" : {
       "type" : "string",
-      "description" : "Percentual Evento"
+      "description" : "Event percentage"
     },
     "eventFactor" : {
       "type" : "number",
-      "description" : "Fator Evento"
+      "description" : "Event factor"
     },
     "externalEventIdentification" : {
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 35,
-      "description" : "ID do processo na bolsa correspondente ao evento no ativo underlying"
+      "description" : "Exchange process ID corresponding to the event on the underlying asset"
     },
     "taxIndicator" : {
       "type" : "boolean",
-      "description" : "Indica se o evento será tributado."
+      "description" : "Indicates whether the event will be taxed"
     },
     "afterApplyingCorporateActionsIsin" : {
       "type" : "string",
       "maxLength" : 12,
       "pattern" : "^BR[A-Z0-9]{4}[A-Z0-9]{3}[A-Z0-9]{2}\\d$",
-      "description" : "ISIN após aplicação do evento corporativo"
+      "description" : "ISIN after applying the corporate action"
     },
     "afterApplyingCorporateActionsTickerSymbol" : {
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 35,
-      "description" : "Ticker Symbol após aplicação do evento corporativo"
+      "description" : "Ticker symbol after applying the corporate action"
     },
     "afterApplyingCorporateActionsUnderlyingIsin" : {
       "type" : "string",
       "maxLength" : 12,
       "pattern" : "^BR[A-Z0-9]{4}[A-Z0-9]{3}[A-Z0-9]{2}\\d$",
-      "description" : "ISIN do ativo subjacente após aplicação do evento corporativo"
+      "description" : "Underlying asset ISIN after applying the corporate action"
     },
     "beforeApplyingCorporateActionsIsin" : {
       "type" : "string",
       "maxLength" : 12,
       "pattern" : "^BR[A-Z0-9]{4}[A-Z0-9]{3}[A-Z0-9]{2}\\d$",
-      "description" : "ISIN antes do evento corporativo"
+      "description" : "ISIN before the corporate action"
     },
     "beforeApplyingCorporateActionsTickerSymbol" : {
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 35,
-      "description" : "Ticker Symbol antes do evento corporativo"
+      "description" : "Ticker symbol before the corporate action"
     },
     "beforeApplyingCorporateActionsUnderlyingIsin" : {
       "type" : "string",
       "maxLength" : 12,
       "pattern" : "^BR[A-Z0-9]{4}[A-Z0-9]{3}[A-Z0-9]{2}\\d$",
-      "description" : "ISIN do ativo subjacente antes do evento corporativo"
+      "description" : "Underlying asset ISIN before the corporate action"
     }
   },
   "required" : [
@@ -201,7 +201,7 @@
     "effectiveDate",
     "eventCalculationType",
     "eventCalculationMethod",
-    "externalEventID",
+    "externalEventIdentification",
     "taxIndicator"
   ],
   "additionalProperties" : false

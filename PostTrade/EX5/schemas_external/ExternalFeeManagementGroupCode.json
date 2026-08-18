@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External FeeManagementGroupCode",
-  "description": "Codes for fee group type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "NACIONAL",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "INTERNACIONAL",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "OUTROS",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeManagementGroupCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeManagementGroupCode"
+  },
+  "title" : "External FeeManagementGroupCode",
+  "description" : "Codes for fee group type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "NACIONAL",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "INTERNACIONAL",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "OUTROS",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

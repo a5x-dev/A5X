@@ -1,34 +1,33 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema#",
-  "title": "ExternalIncidentCategoryCode",
-  "description": "Codes for incident category",
-  "oneOf": [
-    {
-      "type": "string",
-      "description": "Incident related to network issues",
-      "const": "NETWORK"
-    },
-    {
-      "type": "string",
-      "description": "Incident related to hardware issues",
-      "const": "HARDWARE"
-    },
-    {
-      "type": "string",
-      "description": "Incident related to software issues",
-      "const": "SOFTWARE"
-    },
-    {
-      "type": "string",
-      "description": "Incident related to security issues",
-      "const": "SECURITY"
-    },
-    {
-      "type": "string",
-      "description": "Incident not fitting other categories",
-      "const": "OTHER"
-    }
-  ],
-  "additionalProperties": false,
-  "examples": ["NETWORK", "HARDWARE", "SOFTWARE", "SECURITY", "OTHER"]
+  "$schema" : "https://json-schema.org/draft/2020-12/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalIncidentCategoryCode.En",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalIncidentCategoryCode.En"
+  },
+  "title" : "ExternalIncidentCategoryCode",
+  "description" : "Codes for incident category",
+  "oneOf" : [ {
+    "type" : "string",
+    "description" : "Incident related to network issues",
+    "const" : "NETWORK"
+  }, {
+    "type" : "string",
+    "description" : "Incident related to hardware issues",
+    "const" : "HARDWARE"
+  }, {
+    "type" : "string",
+    "description" : "Incident related to software issues",
+    "const" : "SOFTWARE"
+  }, {
+    "type" : "string",
+    "description" : "Incident related to security issues",
+    "const" : "SECURITY"
+  }, {
+    "type" : "string",
+    "description" : "Incident not fitting other categories",
+    "const" : "OTHER"
+  } ],
+  "additionalProperties" : false,
+  "examples" : [ "NETWORK", "HARDWARE", "SOFTWARE", "SECURITY", "OTHER" ]
 }

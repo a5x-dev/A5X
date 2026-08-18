@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Conversion Criteria Type",
-  "description": "Codes for conversion criteria type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Linear",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Exponential",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Non available",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalConversionCriteriaTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalConversionCriteriaTypeCode"
+  },
+  "title" : "External Conversion Criteria Type",
+  "description" : "Codes for conversion criteria type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Linear",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Exponential",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Non available",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

@@ -1,45 +1,36 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Segment",
-  "description": "Codes for segment",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "EQUITY-CASH",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "EQUITY-DERIVATE",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "FIXED INCOME",
-      "const": 3
-    },
-    {
-      "type": "number",
-      "description": "FINANCIAL",
-      "const": 5
-    },
-    {
-      "type": "number",
-      "description": "GOV. BONDS",
-      "const": 8
-    },   
-    {
-      "type": "number",
-      "description": "FPR",
-      "const": 14
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3,
-    5,
-    8,
-    14
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalSegmentCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalSegmentCode"
+  },
+  "title" : "External Segment",
+  "description" : "Codes for segment",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "EQUITY-CASH",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "EQUITY-DERIVATE",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "FIXED INCOME",
+    "const" : 3
+  }, {
+    "type" : "number",
+    "description" : "FINANCIAL",
+    "const" : 5
+  }, {
+    "type" : "number",
+    "description" : "GOV. BONDS",
+    "const" : 8
+  }, {
+    "type" : "number",
+    "description" : "FPR",
+    "const" : 14
+  } ],
+  "examples" : [ 1, 2, 3, 5, 8, 14 ]
 }

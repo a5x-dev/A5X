@@ -55,6 +55,11 @@
     },
     {
       "type": "string",
+      "description": "Schema validation failure",
+      "const": "TEC00011"
+    },
+    {
+      "type": "string",
       "description": "Processing timeout",
       "const": "TEC10001"
     },

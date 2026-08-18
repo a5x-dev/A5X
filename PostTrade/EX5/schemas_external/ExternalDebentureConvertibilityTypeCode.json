@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Debenture Convertibility Type",
-  "description": "Codes for debenture convertibility type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Conversíveis",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Não Conversíveis",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Permutáveis",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalDebentureConvertibilityTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalDebentureConvertibilityTypeCode"
+  },
+  "title" : "External Debenture Convertibility Type",
+  "description" : "Codes for debenture convertibility type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Conversíveis",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Não Conversíveis",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Permutáveis",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

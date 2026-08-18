@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Settlement Group",
-  "description": "Codes for settlement group",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Regular",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Entry",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Buy-In",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalSettlementGroupCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalSettlementGroupCode"
+  },
+  "title" : "External Settlement Group",
+  "description" : "Codes for settlement group",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Regular",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Entry",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Buy-In",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

@@ -1,0 +1,192 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-col-04",
+  "$metadata": {
+    "domain": "qualifiedServices",
+    "schemaId": "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-col-04"
+  },
+  "title": "Collateral Administration File",
+  "description": "Consolidated collateral administration file containing posted collateral, collateral portfolio details at custodians and required margin information (QUALIF004)",
+  "type": "object",
+  "properties": {
+    "participantIdentificationRequester": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Identification of the participant requesting the information"
+    },
+    "accountIdentificationRequester": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Identification of the requester account"
+    },
+    "participantIdentificationRequested": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Identification of the participant for which the information was requested"
+    },
+    "accountIdentificationRequested": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Identification of the requested account"
+    },
+    "postedCollateral": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/CollateralPositionDetail.json"
+      },
+      "minItems": 0,
+      "maxItems": 10000,
+      "description": "Posted collateral details for the participant and account"
+    },
+    "collateralPortfolioDetailsAtCustodians": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/CollateralPortfolioDetailAtCustodian.json"
+      },
+      "minItems": 0,
+      "maxItems": 10000,
+      "description": "Collateral portfolio details held at custodians"
+    },
+    "requiredMargin": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/CollateralRequiredMargin.json"
+      },
+      "minItems": 0,
+      "maxItems": 10000,
+      "description": "Required margin information"
+    }
+  },
+  "required": [
+    "participantIdentificationRequester",
+    "participantIdentificationRequested"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "participantIdentificationRequester": {
+        "id": 935,
+        "category": 1
+      },
+      "accountIdentificationRequester": {
+        "id": 77
+      },
+      "participantIdentificationRequested": {
+        "id": 935,
+        "category": 1
+      },
+      "accountIdentificationRequested": {
+        "id": 77
+      },
+      "postedCollateral": [
+        {
+          "referenceDate": "2022-05-26",
+          "collateralCoverageType": 1,
+          "assetNumber": "000000202100000173821",
+          "holderIndicator": true,
+          "coverageMarginIndicator": true,
+          "collateralType": 3,
+          "collateralSubType": "FEDERAL_BOND",
+          "collateralClientCategory": 1,
+          "collateralReference": "ABCD22",
+          "financialInstrumentIdentification": {
+            "id": "100000109699",
+            "source": "8",
+            "exchange": "A5XB"
+          },
+          "maturityDate": "2025-12-31",
+          "collateralQuantities": {
+           "depositedQuantity": 22,
+           "acceptedQuantity": 23,
+           "valuedQuantity": 25,
+           "deliveryQuantity": 1,
+           "blockedQuantity": 1
+          },
+          "collateralValue": {
+            "currency": "BRL",
+            "amount": "5000.00"
+          },
+          "withdrawalBlockedValue": {
+            "currency": "BRL",
+            "amount": "5000.00"
+          },
+          "isin": "BREVWZT1PUO7",
+          "portfolio": "5590-5"
+        }
+      ],
+      "collateralPortfolioDetailsAtCustodians": [
+        {
+          "referenceDate": "2022-05-26",
+          "collateralCoverageType": 1,
+          "assetNumber": "000000202100000173821",
+          "holderIndicator": true,
+          "coverageMarginIndicator": true,
+          "collateralType": 3,
+          "collateralClientCategory": 1,
+          "collateralReference": "ABCD",
+          "financialInstrumentIdentification": {
+            "id": "200000153650",
+            "source": "8",
+            "exchange": "A5XB"
+          },
+          "collateralQuantities": {
+            "depositedQuantity": 40,
+            "acceptedQuantity": 40,
+            "valuedQuantity": 40,
+            "deliveryQuantity": 1,
+            "blockedQuantity": 1
+          },
+          "collateralValue": {
+            "currency": "BRL",
+            "amount": "1402.93"
+          },
+          "withdrawalBlockedValue": {
+            "currency": "BRL",
+            "amount": "5000.00"
+          },
+          "isin": "BREVWZT1PUO6",
+          "portfolio": "002",
+          "settlementParticipantIdentification": {
+            "id": 935,
+            "category": 1
+          },
+          "settlementAccountIdentification": {
+            "id": 77
+          }
+        }
+      ],
+      "requiredMargin": [
+        {
+          "tradeDate": "2022-05-26",
+          "informationType": 2,
+          "collateralCoverageType": 1,
+          "riskWithoutCollateral": "300000.00",
+          "initialMargin": {
+            "currency": "BRL",
+            "amount": "50000.00"
+          },
+          "theoreticalAdditionalMargin": {
+            "currency": "BRL",
+            "amount": "50000.00"
+          },
+          "totalTheoreticalMargin": {
+            "currency": "BRL",
+            "amount": "50000.00"
+          },
+          "contingentVariationMargin": {
+            "currency": "BRL",
+            "amount": "50000.00"
+          },
+          "optionPremiumMargin": {
+            "currency": "BRL",
+            "amount": "50000.00"
+          },
+          "totalCollateralValue": {
+            "currency": "BRL",
+            "amount": "50000.00"
+          },
+          "collateralBalance": {
+            "currency": "BRL",
+            "amount": "50000.00"
+          }
+        }
+      ]
+    }
+  ]
+}

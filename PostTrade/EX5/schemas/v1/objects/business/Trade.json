@@ -33,7 +33,7 @@
     "statusCode": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Trade status code",
-      "$comment": "Consult External Code List table ExternalTradeStatusCode"
+      "$comment": "Consult External Code List table ExternalStatusAllocationAdviceCode"
     }
   },
   "required": [

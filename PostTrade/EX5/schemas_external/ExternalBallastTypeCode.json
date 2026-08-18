@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Ballast Type",
-  "description": "Codes for ballast type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Ações",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "ADRs",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Outros",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBallastTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBallastTypeCode"
+  },
+  "title" : "External Ballast Type",
+  "description" : "Codes for ballast type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Ações",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "ADRs",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Outros",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

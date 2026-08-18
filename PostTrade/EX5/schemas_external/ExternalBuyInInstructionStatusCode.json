@@ -1,44 +1,36 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Buy In Instruction Status",
-  "description": "Codes for buy in instruction status",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Aguardando Aprovação",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Execução Aprovada",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Execução Reprovada",
-      "const": 3
-    },
-    {
-      "type": "number",
-      "description": "Erro",
-      "const": 4
-    },
-    {
-      "type": "number",
-      "description": "Aguardando Análise Câmara",
-      "const": 5
-    },
-    {
-      "type": "number",
-      "description": "Solicitado Revisão",
-      "const": 6
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBuyInInstructionStatusCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBuyInInstructionStatusCode"
+  },
+  "title" : "External Buy In Instruction Status",
+  "description" : "Codes for buy in instruction status",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Aguardando Aprovação",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Execução Aprovada",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Execução Reprovada",
+    "const" : 3
+  }, {
+    "type" : "number",
+    "description" : "Erro",
+    "const" : 4
+  }, {
+    "type" : "number",
+    "description" : "Aguardando Análise Câmara",
+    "const" : 5
+  }, {
+    "type" : "number",
+    "description" : "Solicitado Revisão",
+    "const" : 6
+  } ],
+  "examples" : [ 1, 2, 3, 4, 5 ]
 }

@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Confirmation Request Type",
-  "description": "Codes for confirmation request type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "NotConfirmed",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "PartialIntermConfirmed",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "FullIntermConfirmed",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalConfirmationRequestTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalConfirmationRequestTypeCode"
+  },
+  "title" : "External Confirmation Request Type",
+  "description" : "Codes for confirmation request type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "NotConfirmed",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "PartialIntermConfirmed",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "FullIntermConfirmed",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

@@ -1,33 +1,28 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Securities Movement Transaction Type ",
-  "description": "Codes for securities movement transaction type ",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "DEPOSITO",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "RETIRADA",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "TRANSFERENCIA",
-      "const": 3
-    },
-    {
-      "type": "number",
-      "description": "LIQUIDAÇÃO",
-      "const": 4
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3,
-    4
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalSecuritiesMovementTransactionTypeCode ",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalSecuritiesMovementTransactionTypeCode "
+  },
+  "title" : "External Securities Movement Transaction Type ",
+  "description" : "Codes for securities movement transaction type ",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "DEPOSITO",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "RETIRADA",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "TRANSFERENCIA",
+    "const" : 3
+  }, {
+    "type" : "number",
+    "description" : "LIQUIDAÇÃO",
+    "const" : 4
+  } ],
+  "examples" : [ 1, 2, 3, 4 ]
 }

@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Transfer Type",
-  "description": "Codes for transfer type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Participant Internal",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "ClearingHouse initiated",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Normal",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalTransferTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalTransferTypeCode"
+  },
+  "title" : "External Transfer Type",
+  "description" : "Codes for transfer type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Participant Internal",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "ClearingHouse initiated",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Normal",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

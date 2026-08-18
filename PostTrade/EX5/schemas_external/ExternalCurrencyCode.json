@@ -1,183 +1,712 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "ExternalCurrencyCode",
-  "description": "Currency codes identifying the currency of a financial transaction",
-  "oneOf": [
-    { "type": "string", "const": "AED", "description": "Dirham dos Emirados" },
-    { "type": "string", "const": "AFN", "description": "Afegane" },
-    { "type": "string", "const": "ALL", "description": "Lek" },
-    { "type": "string", "const": "AMD", "description": "Dram" },
-    { "type": "string", "const": "ANG", "description": "Florim" },
-    { "type": "string", "const": "AOA", "description": "Kwanza" },
-    { "type": "string", "const": "ARS", "description": "Peso Argentino" },
-    { "type": "string", "const": "AUD", "description": "Dólar australiano" },
-    { "type": "string", "const": "AWG", "description": "Florim de Aruba" },
-    { "type": "string", "const": "AZN", "description": "Manat do Azerbaijão" },
-    { "type": "string", "const": "BAM", "description": "Marco convertível" },
-    { "type": "string", "const": "BBD", "description": "Dólar de Barbados" },
-    { "type": "string", "const": "BDT", "description": "Taka" },
-    { "type": "string", "const": "BGN", "description": "Lev" },
-    { "type": "string", "const": "BHD", "description": "Dinar do Bahrein" },
-    { "type": "string", "const": "BIF", "description": "Franco do Burundi" },
-    { "type": "string", "const": "BMD", "description": "Dólar de Bermuda" },
-    { "type": "string", "const": "BND", "description": "Dólar do Brunei" },
-    { "type": "string", "const": "BOB", "description": "Boliviano" },
-    { "type": "string", "const": "BOV", "description": "Boliviano Mvdol" },
-    { "type": "string", "const": "BRL", "description": "Real" },
-    { "type": "string", "const": "BSD", "description": "Dólar das Bahamas" },
-    { "type": "string", "const": "BTN", "description": "Ngultrum" },
-    { "type": "string", "const": "BWP", "description": "Pula" },
-    { "type": "string", "const": "BYR", "description": "Rublo bielorrusso" },
-    { "type": "string", "const": "BZD", "description": "Dólar do Belize" },
-    { "type": "string", "const": "CAD", "description": "Dólar canadense" },
-    { "type": "string", "const": "CDF", "description": "Franco congolês" },
-    { "type": "string", "const": "CHE", "description": "WIR euro (moeda complementar)" },
-    { "type": "string", "const": "CHF", "description": "Franco suíço" },
-    { "type": "string", "const": "CHW", "description": "WIR franc (moeda complementar)" },
-    { "type": "string", "const": "CLF", "description": "Unidade de Fomento (código de fundos)" },
-    { "type": "string", "const": "CLP", "description": "Peso chileno" },
-    { "type": "string", "const": "CNY", "description": "Renminbi" },
-    { "type": "string", "const": "COP", "description": "Peso colombiano" },
-    { "type": "string", "const": "COU", "description": "Unidade de Valor Real" },
-    { "type": "string", "const": "CRC", "description": "Colon da Costa Rica" },
-    { "type": "string", "const": "CUC", "description": "Cuban convertible peso" },
-    { "type": "string", "const": "CUP", "description": "Peso cubano" },
-    { "type": "string", "const": "CVE", "description": "Escudo cabo-verdiano" },
-    { "type": "string", "const": "CZK", "description": "Coroa" },
-    { "type": "string", "const": "DJF", "description": "Franco do Djibouti" },
-    { "type": "string", "const": "DKK", "description": "Coroa dinamarquesa" },
-    { "type": "string", "const": "DOP", "description": "Peso" },
-    { "type": "string", "const": "DZD", "description": "Dinar argelino" },
-    { "type": "string", "const": "ECS", "description": "Sucre (O dólar americano USD é a moeda corrente no país)" },
-    { "type": "string", "const": "EGP", "description": "Libra egípcia" },
-    { "type": "string", "const": "ERN", "description": "Nakfa" },
-    { "type": "string", "const": "ETB", "description": "Birr etíope" },
-    { "type": "string", "const": "EUR", "description": "Euro" },
-    { "type": "string", "const": "FJD", "description": "Dólar das Fiji" },
-    { "type": "string", "const": "FKP", "description": "Libra das Malvinas" },
-    { "type": "string", "const": "GBP", "description": "Libra Esterlina" },
-    { "type": "string", "const": "GEL", "description": "Lari" },
-    { "type": "string", "const": "GHS", "description": "Cedi" },
-    { "type": "string", "const": "GIP", "description": "Libra de Gibraltar" },
-    { "type": "string", "const": "GMD", "description": "Dalasi" },
-    { "type": "string", "const": "GNF", "description": "Franco da Guiné" },
-    { "type": "string", "const": "GTQ", "description": "Quetzal guatemalteco" },
-    { "type": "string", "const": "GWP", "description": "Peso da Guiné-Bissau" },
-    { "type": "string", "const": "GYD", "description": "Dólar da Guiana" },
-    { "type": "string", "const": "HKD", "description": "Dólar de Hong Kong" },
-    { "type": "string", "const": "HNL", "description": "Lempira" },
-    { "type": "string", "const": "HRK", "description": "Kuna" },
-    { "type": "string", "const": "HTG", "description": "Gourde" },
-    { "type": "string", "const": "HUF", "description": "Forint" },
-    { "type": "string", "const": "IDR", "description": "Rupia indonésia" },
-    { "type": "string", "const": "ILS", "description": "Shekel" },
-    { "type": "string", "const": "INR", "description": "Rupia indiana" },
-    { "type": "string", "const": "IQD", "description": "Dinar iraquiano" },
-    { "type": "string", "const": "IRR", "description": "Rial iraniano" },
-    { "type": "string", "const": "ISK", "description": "Krona islandesa" },
-    { "type": "string", "const": "JMD", "description": "Dólar jamaicano" },
-    { "type": "string", "const": "JOD", "description": "Dinar jordano" },
-    { "type": "string", "const": "JPY", "description": "Iene" },
-    { "type": "string", "const": "KES", "description": "Xelim queniano" },
-    { "type": "string", "const": "KGS", "description": "Som" },
-    { "type": "string", "const": "KHR", "description": "Riel" },
-    { "type": "string", "const": "KMF", "description": "Franco das Comoros" },
-    { "type": "string", "const": "KPW", "description": "Won norte coreano" },
-    { "type": "string", "const": "KRW", "description": "Won sul coreano" },
-    { "type": "string", "const": "KWD", "description": "Dinar do Kuwait" },
-    { "type": "string", "const": "KYD", "description": "Dólar das Ilhas Caimão" },
-    { "type": "string", "const": "KZT", "description": "Tenge" },
-    { "type": "string", "const": "LAK", "description": "Kip" },
-    { "type": "string", "const": "LBP", "description": "Libra libanesa" },
-    { "type": "string", "const": "LKR", "description": "Rupia do Sri Lanka" },
-    { "type": "string", "const": "LRD", "description": "Dólar da Libéria" },
-    { "type": "string", "const": "LSL", "description": "Loti" },
-    { "type": "string", "const": "LTL", "description": "Litas" },
-    { "type": "string", "const": "LVL", "description": "Lats" },
-    { "type": "string", "const": "LYD", "description": "Dinar da Líbia" },
-    { "type": "string", "const": "MAD", "description": "Dirham marroquino" },
-    { "type": "string", "const": "MDL", "description": "Leu" },
-    { "type": "string", "const": "MGA", "description": "Ariary" },
-    { "type": "string", "const": "MKD", "description": "Denar" },
-    { "type": "string", "const": "MMK", "description": "Kyat" },
-    { "type": "string", "const": "MNT", "description": "Tugrik" },
-    { "type": "string", "const": "MOP", "description": "Pataca" },
-    { "type": "string", "const": "MRO", "description": "Ouguiya" },
-    { "type": "string", "const": "MUR", "description": "Rupia da Maurícia" },
-    { "type": "string", "const": "MVR", "description": "Rufiyaa" },
-    { "type": "string", "const": "MWK", "description": "Kwacha" },
-    { "type": "string", "const": "MXN", "description": "Peso mexicano" },
-    { "type": "string", "const": "MXV", "description": "Unidade Mexicana de Investimento" },
-    { "type": "string", "const": "MYR", "description": "Ringgit" },
-    { "type": "string", "const": "MZN", "description": "Metical" },
-    { "type": "string", "const": "NAD", "description": "Dólar da Namíbia" },
-    { "type": "string", "const": "NGN", "description": "Naira" },
-    { "type": "string", "const": "NIO", "description": "Cordoba Oro" },
-    { "type": "string", "const": "NOK", "description": "Coroa norueguesa" },
-    { "type": "string", "const": "NPR", "description": "Rupia nepalesa" },
-    { "type": "string", "const": "NZD", "description": "Dólar da Nova Zelândia" },
-    { "type": "string", "const": "OMR", "description": "Rial Omani" },
-    { "type": "string", "const": "PAB", "description": "Balboa (O dólar americano USD é a moeda corrente no país)" },
-    { "type": "string", "const": "PEN", "description": "Nuevo Sol" },
-    { "type": "string", "const": "PGK", "description": "Kina" },
-    { "type": "string", "const": "PHP", "description": "Peso filipino" },
-    { "type": "string", "const": "PKR", "description": "Rupia paquistanesa" },
-    { "type": "string", "const": "PLN", "description": "Zloty" },
-    { "type": "string", "const": "PYG", "description": "Guarani" },
-    { "type": "string", "const": "QAR", "description": "Rial do Qatar" },
-    { "type": "string", "const": "RON", "description": "RON" },
-    { "type": "string", "const": "RSD", "description": "Dinar Sérvio" },
-    { "type": "string", "const": "RUB", "description": "Rublo" },
-    { "type": "string", "const": "RWF", "description": "Franco do Ruanda" },
-    { "type": "string", "const": "SAR", "description": "Riyal" },
-    { "type": "string", "const": "SBD", "description": "Dólar das Ilhas Salomão" },
-    { "type": "string", "const": "SCR", "description": "Rupia das Seychelles" },
-    { "type": "string", "const": "SDG", "description": "Dinar sudanês" },
-    { "type": "string", "const": "SEK", "description": "Coroa Sueca" },
-    { "type": "string", "const": "SGD", "description": "Dólar de Cingapura" },
-    { "type": "string", "const": "SHP", "description": "Libra de Santa Helena" },
-    { "type": "string", "const": "SLL", "description": "Leone" },
-    { "type": "string", "const": "SOS", "description": "Xelim somali" },
-    { "type": "string", "const": "SRD", "description": "Dólar do Suriname" },
-    { "type": "string", "const": "STD", "description": "Dobra" },
-    { "type": "string", "const": "SVC", "description": "Colon de El Salvador" },
-    { "type": "string", "const": "SYP", "description": "Libra da Síria" },
-    { "type": "string", "const": "SZL", "description": "Lilangeni" },
-    { "type": "string", "const": "THB", "description": "Baht" },
-    { "type": "string", "const": "TJS", "description": "Somoni" },
-    { "type": "string", "const": "TMT", "description": "Manat turcomano" },
-    { "type": "string", "const": "TND", "description": "Dinar tunisino" },
-    { "type": "string", "const": "TOP", "description": "Pa'anga" },
-    { "type": "string", "const": "TRY", "description": "Nova Lira turca" },
-    { "type": "string", "const": "TTD", "description": "Dólar de Trindade e Tobago" },
-    { "type": "string", "const": "TWD", "description": "Novo Dólar de Taiwan" },
-    { "type": "string", "const": "TZS", "description": "Xelim da Tanzânia" },
-    { "type": "string", "const": "UAH", "description": "Hryvnia" },
-    { "type": "string", "const": "UGX", "description": "Xelim do Uganda" },
-    { "type": "string", "const": "USD", "description": "Dólar Americano" },
-    { "type": "string", "const": "USN", "description": "United States dollar (next day) (funds code)" },
-    { "type": "string", "const": "USS", "description": "United States dollar (same day) (funds code)" },
-    { "type": "string", "const": "UYI", "description": "Peso do Uruguay em Unidades Indexadas" },
-    { "type": "string", "const": "UYU", "description": "Peso Uruguaio" },
-    { "type": "string", "const": "UZS", "description": "Som Uzbeque" },
-    { "type": "string", "const": "VEF", "description": "Venezuelan bolívar fuerte" },
-    { "type": "string", "const": "VND", "description": "Dong" },
-    { "type": "string", "const": "VUV", "description": "Vatu" },
-    { "type": "string", "const": "WST", "description": "Tala" },
-    { "type": "string", "const": "XAF", "description": "Franco CFA BEAC" },
-    { "type": "string", "const": "XAG", "description": "Prata" },
-    { "type": "string", "const": "XAU", "description": "Ouro" },
-    { "type": "string", "const": "XCD", "description": "Dólar das Caraíbas Orientais" },
-    { "type": "string", "const": "XDR", "description": "Special Drawing Rights" },
-    { "type": "string", "const": "XFU", "description": "UIC franc (special settlement currency)" },
-    { "type": "string", "const": "XOF", "description": "Franco CFA BCEAO" },
-    { "type": "string", "const": "XPD", "description": "Paládio" },
-    { "type": "string", "const": "XPF", "description": "Franco CFP" },
-    { "type": "string", "const": "XPT", "description": "Platina" },
-    { "type": "string", "const": "YER", "description": "Rial do Iémene" },
-    { "type": "string", "const": "ZAR", "description": "Rand" },
-    { "type": "string", "const": "ZMK", "description": "Kwacha" },
-    { "type": "string", "const": "ZWL", "description": "Zimbabwe dollar" }
-  ],
-  "examples": ["BRL", "USD", "EUR", "GBP", "JPY", "ARS", "CLP", "COP", "MXN", "PEN"]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCurrencyCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCurrencyCode"
+  },
+  "title" : "ExternalCurrencyCode",
+  "description" : "Currency codes identifying the currency of a financial transaction",
+  "oneOf" : [ {
+    "type" : "string",
+    "const" : "AED",
+    "description" : "Dirham dos Emirados"
+  }, {
+    "type" : "string",
+    "const" : "AFN",
+    "description" : "Afegane"
+  }, {
+    "type" : "string",
+    "const" : "ALL",
+    "description" : "Lek"
+  }, {
+    "type" : "string",
+    "const" : "AMD",
+    "description" : "Dram"
+  }, {
+    "type" : "string",
+    "const" : "ANG",
+    "description" : "Florim"
+  }, {
+    "type" : "string",
+    "const" : "AOA",
+    "description" : "Kwanza"
+  }, {
+    "type" : "string",
+    "const" : "ARS",
+    "description" : "Peso Argentino"
+  }, {
+    "type" : "string",
+    "const" : "AUD",
+    "description" : "Dólar australiano"
+  }, {
+    "type" : "string",
+    "const" : "AWG",
+    "description" : "Florim de Aruba"
+  }, {
+    "type" : "string",
+    "const" : "AZN",
+    "description" : "Manat do Azerbaijão"
+  }, {
+    "type" : "string",
+    "const" : "BAM",
+    "description" : "Marco convertível"
+  }, {
+    "type" : "string",
+    "const" : "BBD",
+    "description" : "Dólar de Barbados"
+  }, {
+    "type" : "string",
+    "const" : "BDT",
+    "description" : "Taka"
+  }, {
+    "type" : "string",
+    "const" : "BGN",
+    "description" : "Lev"
+  }, {
+    "type" : "string",
+    "const" : "BHD",
+    "description" : "Dinar do Bahrein"
+  }, {
+    "type" : "string",
+    "const" : "BIF",
+    "description" : "Franco do Burundi"
+  }, {
+    "type" : "string",
+    "const" : "BMD",
+    "description" : "Dólar de Bermuda"
+  }, {
+    "type" : "string",
+    "const" : "BND",
+    "description" : "Dólar do Brunei"
+  }, {
+    "type" : "string",
+    "const" : "BOB",
+    "description" : "Boliviano"
+  }, {
+    "type" : "string",
+    "const" : "BOV",
+    "description" : "Boliviano Mvdol"
+  }, {
+    "type" : "string",
+    "const" : "BRL",
+    "description" : "Real"
+  }, {
+    "type" : "string",
+    "const" : "BSD",
+    "description" : "Dólar das Bahamas"
+  }, {
+    "type" : "string",
+    "const" : "BTN",
+    "description" : "Ngultrum"
+  }, {
+    "type" : "string",
+    "const" : "BWP",
+    "description" : "Pula"
+  }, {
+    "type" : "string",
+    "const" : "BYR",
+    "description" : "Rublo bielorrusso"
+  }, {
+    "type" : "string",
+    "const" : "BZD",
+    "description" : "Dólar do Belize"
+  }, {
+    "type" : "string",
+    "const" : "CAD",
+    "description" : "Dólar canadense"
+  }, {
+    "type" : "string",
+    "const" : "CDF",
+    "description" : "Franco congolês"
+  }, {
+    "type" : "string",
+    "const" : "CHE",
+    "description" : "WIR euro (moeda complementar)"
+  }, {
+    "type" : "string",
+    "const" : "CHF",
+    "description" : "Franco suíço"
+  }, {
+    "type" : "string",
+    "const" : "CHW",
+    "description" : "WIR franc (moeda complementar)"
+  }, {
+    "type" : "string",
+    "const" : "CLF",
+    "description" : "Unidade de Fomento (código de fundos)"
+  }, {
+    "type" : "string",
+    "const" : "CLP",
+    "description" : "Peso chileno"
+  }, {
+    "type" : "string",
+    "const" : "CNY",
+    "description" : "Renminbi"
+  }, {
+    "type" : "string",
+    "const" : "COP",
+    "description" : "Peso colombiano"
+  }, {
+    "type" : "string",
+    "const" : "COU",
+    "description" : "Unidade de Valor Real"
+  }, {
+    "type" : "string",
+    "const" : "CRC",
+    "description" : "Colon da Costa Rica"
+  }, {
+    "type" : "string",
+    "const" : "CUC",
+    "description" : "Cuban convertible peso"
+  }, {
+    "type" : "string",
+    "const" : "CUP",
+    "description" : "Peso cubano"
+  }, {
+    "type" : "string",
+    "const" : "CVE",
+    "description" : "Escudo cabo-verdiano"
+  }, {
+    "type" : "string",
+    "const" : "CZK",
+    "description" : "Coroa"
+  }, {
+    "type" : "string",
+    "const" : "DJF",
+    "description" : "Franco do Djibouti"
+  }, {
+    "type" : "string",
+    "const" : "DKK",
+    "description" : "Coroa dinamarquesa"
+  }, {
+    "type" : "string",
+    "const" : "DOP",
+    "description" : "Peso"
+  }, {
+    "type" : "string",
+    "const" : "DZD",
+    "description" : "Dinar argelino"
+  }, {
+    "type" : "string",
+    "const" : "ECS",
+    "description" : "Sucre (O dólar americano USD é a moeda corrente no país)"
+  }, {
+    "type" : "string",
+    "const" : "EGP",
+    "description" : "Libra egípcia"
+  }, {
+    "type" : "string",
+    "const" : "ERN",
+    "description" : "Nakfa"
+  }, {
+    "type" : "string",
+    "const" : "ETB",
+    "description" : "Birr etíope"
+  }, {
+    "type" : "string",
+    "const" : "EUR",
+    "description" : "Euro"
+  }, {
+    "type" : "string",
+    "const" : "FJD",
+    "description" : "Dólar das Fiji"
+  }, {
+    "type" : "string",
+    "const" : "FKP",
+    "description" : "Libra das Malvinas"
+  }, {
+    "type" : "string",
+    "const" : "GBP",
+    "description" : "Libra Esterlina"
+  }, {
+    "type" : "string",
+    "const" : "GEL",
+    "description" : "Lari"
+  }, {
+    "type" : "string",
+    "const" : "GHS",
+    "description" : "Cedi"
+  }, {
+    "type" : "string",
+    "const" : "GIP",
+    "description" : "Libra de Gibraltar"
+  }, {
+    "type" : "string",
+    "const" : "GMD",
+    "description" : "Dalasi"
+  }, {
+    "type" : "string",
+    "const" : "GNF",
+    "description" : "Franco da Guiné"
+  }, {
+    "type" : "string",
+    "const" : "GTQ",
+    "description" : "Quetzal guatemalteco"
+  }, {
+    "type" : "string",
+    "const" : "GWP",
+    "description" : "Peso da Guiné-Bissau"
+  }, {
+    "type" : "string",
+    "const" : "GYD",
+    "description" : "Dólar da Guiana"
+  }, {
+    "type" : "string",
+    "const" : "HKD",
+    "description" : "Dólar de Hong Kong"
+  }, {
+    "type" : "string",
+    "const" : "HNL",
+    "description" : "Lempira"
+  }, {
+    "type" : "string",
+    "const" : "HRK",
+    "description" : "Kuna"
+  }, {
+    "type" : "string",
+    "const" : "HTG",
+    "description" : "Gourde"
+  }, {
+    "type" : "string",
+    "const" : "HUF",
+    "description" : "Forint"
+  }, {
+    "type" : "string",
+    "const" : "IDR",
+    "description" : "Rupia indonésia"
+  }, {
+    "type" : "string",
+    "const" : "ILS",
+    "description" : "Shekel"
+  }, {
+    "type" : "string",
+    "const" : "INR",
+    "description" : "Rupia indiana"
+  }, {
+    "type" : "string",
+    "const" : "IQD",
+    "description" : "Dinar iraquiano"
+  }, {
+    "type" : "string",
+    "const" : "IRR",
+    "description" : "Rial iraniano"
+  }, {
+    "type" : "string",
+    "const" : "ISK",
+    "description" : "Krona islandesa"
+  }, {
+    "type" : "string",
+    "const" : "JMD",
+    "description" : "Dólar jamaicano"
+  }, {
+    "type" : "string",
+    "const" : "JOD",
+    "description" : "Dinar jordano"
+  }, {
+    "type" : "string",
+    "const" : "JPY",
+    "description" : "Iene"
+  }, {
+    "type" : "string",
+    "const" : "KES",
+    "description" : "Xelim queniano"
+  }, {
+    "type" : "string",
+    "const" : "KGS",
+    "description" : "Som"
+  }, {
+    "type" : "string",
+    "const" : "KHR",
+    "description" : "Riel"
+  }, {
+    "type" : "string",
+    "const" : "KMF",
+    "description" : "Franco das Comoros"
+  }, {
+    "type" : "string",
+    "const" : "KPW",
+    "description" : "Won norte coreano"
+  }, {
+    "type" : "string",
+    "const" : "KRW",
+    "description" : "Won sul coreano"
+  }, {
+    "type" : "string",
+    "const" : "KWD",
+    "description" : "Dinar do Kuwait"
+  }, {
+    "type" : "string",
+    "const" : "KYD",
+    "description" : "Dólar das Ilhas Caimão"
+  }, {
+    "type" : "string",
+    "const" : "KZT",
+    "description" : "Tenge"
+  }, {
+    "type" : "string",
+    "const" : "LAK",
+    "description" : "Kip"
+  }, {
+    "type" : "string",
+    "const" : "LBP",
+    "description" : "Libra libanesa"
+  }, {
+    "type" : "string",
+    "const" : "LKR",
+    "description" : "Rupia do Sri Lanka"
+  }, {
+    "type" : "string",
+    "const" : "LRD",
+    "description" : "Dólar da Libéria"
+  }, {
+    "type" : "string",
+    "const" : "LSL",
+    "description" : "Loti"
+  }, {
+    "type" : "string",
+    "const" : "LTL",
+    "description" : "Litas"
+  }, {
+    "type" : "string",
+    "const" : "LVL",
+    "description" : "Lats"
+  }, {
+    "type" : "string",
+    "const" : "LYD",
+    "description" : "Dinar da Líbia"
+  }, {
+    "type" : "string",
+    "const" : "MAD",
+    "description" : "Dirham marroquino"
+  }, {
+    "type" : "string",
+    "const" : "MDL",
+    "description" : "Leu"
+  }, {
+    "type" : "string",
+    "const" : "MGA",
+    "description" : "Ariary"
+  }, {
+    "type" : "string",
+    "const" : "MKD",
+    "description" : "Denar"
+  }, {
+    "type" : "string",
+    "const" : "MMK",
+    "description" : "Kyat"
+  }, {
+    "type" : "string",
+    "const" : "MNT",
+    "description" : "Tugrik"
+  }, {
+    "type" : "string",
+    "const" : "MOP",
+    "description" : "Pataca"
+  }, {
+    "type" : "string",
+    "const" : "MRO",
+    "description" : "Ouguiya"
+  }, {
+    "type" : "string",
+    "const" : "MUR",
+    "description" : "Rupia da Maurícia"
+  }, {
+    "type" : "string",
+    "const" : "MVR",
+    "description" : "Rufiyaa"
+  }, {
+    "type" : "string",
+    "const" : "MWK",
+    "description" : "Kwacha"
+  }, {
+    "type" : "string",
+    "const" : "MXN",
+    "description" : "Peso mexicano"
+  }, {
+    "type" : "string",
+    "const" : "MXV",
+    "description" : "Unidade Mexicana de Investimento"
+  }, {
+    "type" : "string",
+    "const" : "MYR",
+    "description" : "Ringgit"
+  }, {
+    "type" : "string",
+    "const" : "MZN",
+    "description" : "Metical"
+  }, {
+    "type" : "string",
+    "const" : "NAD",
+    "description" : "Dólar da Namíbia"
+  }, {
+    "type" : "string",
+    "const" : "NGN",
+    "description" : "Naira"
+  }, {
+    "type" : "string",
+    "const" : "NIO",
+    "description" : "Cordoba Oro"
+  }, {
+    "type" : "string",
+    "const" : "NOK",
+    "description" : "Coroa norueguesa"
+  }, {
+    "type" : "string",
+    "const" : "NPR",
+    "description" : "Rupia nepalesa"
+  }, {
+    "type" : "string",
+    "const" : "NZD",
+    "description" : "Dólar da Nova Zelândia"
+  }, {
+    "type" : "string",
+    "const" : "OMR",
+    "description" : "Rial Omani"
+  }, {
+    "type" : "string",
+    "const" : "PAB",
+    "description" : "Balboa (O dólar americano USD é a moeda corrente no país)"
+  }, {
+    "type" : "string",
+    "const" : "PEN",
+    "description" : "Nuevo Sol"
+  }, {
+    "type" : "string",
+    "const" : "PGK",
+    "description" : "Kina"
+  }, {
+    "type" : "string",
+    "const" : "PHP",
+    "description" : "Peso filipino"
+  }, {
+    "type" : "string",
+    "const" : "PKR",
+    "description" : "Rupia paquistanesa"
+  }, {
+    "type" : "string",
+    "const" : "PLN",
+    "description" : "Zloty"
+  }, {
+    "type" : "string",
+    "const" : "PYG",
+    "description" : "Guarani"
+  }, {
+    "type" : "string",
+    "const" : "QAR",
+    "description" : "Rial do Qatar"
+  }, {
+    "type" : "string",
+    "const" : "RON",
+    "description" : "RON"
+  }, {
+    "type" : "string",
+    "const" : "RSD",
+    "description" : "Dinar Sérvio"
+  }, {
+    "type" : "string",
+    "const" : "RUB",
+    "description" : "Rublo"
+  }, {
+    "type" : "string",
+    "const" : "RWF",
+    "description" : "Franco do Ruanda"
+  }, {
+    "type" : "string",
+    "const" : "SAR",
+    "description" : "Riyal"
+  }, {
+    "type" : "string",
+    "const" : "SBD",
+    "description" : "Dólar das Ilhas Salomão"
+  }, {
+    "type" : "string",
+    "const" : "SCR",
+    "description" : "Rupia das Seychelles"
+  }, {
+    "type" : "string",
+    "const" : "SDG",
+    "description" : "Dinar sudanês"
+  }, {
+    "type" : "string",
+    "const" : "SEK",
+    "description" : "Coroa Sueca"
+  }, {
+    "type" : "string",
+    "const" : "SGD",
+    "description" : "Dólar de Cingapura"
+  }, {
+    "type" : "string",
+    "const" : "SHP",
+    "description" : "Libra de Santa Helena"
+  }, {
+    "type" : "string",
+    "const" : "SLL",
+    "description" : "Leone"
+  }, {
+    "type" : "string",
+    "const" : "SOS",
+    "description" : "Xelim somali"
+  }, {
+    "type" : "string",
+    "const" : "SRD",
+    "description" : "Dólar do Suriname"
+  }, {
+    "type" : "string",
+    "const" : "STD",
+    "description" : "Dobra"
+  }, {
+    "type" : "string",
+    "const" : "SVC",
+    "description" : "Colon de El Salvador"
+  }, {
+    "type" : "string",
+    "const" : "SYP",
+    "description" : "Libra da Síria"
+  }, {
+    "type" : "string",
+    "const" : "SZL",
+    "description" : "Lilangeni"
+  }, {
+    "type" : "string",
+    "const" : "THB",
+    "description" : "Baht"
+  }, {
+    "type" : "string",
+    "const" : "TJS",
+    "description" : "Somoni"
+  }, {
+    "type" : "string",
+    "const" : "TMT",
+    "description" : "Manat turcomano"
+  }, {
+    "type" : "string",
+    "const" : "TND",
+    "description" : "Dinar tunisino"
+  }, {
+    "type" : "string",
+    "const" : "TOP",
+    "description" : "Pa'anga"
+  }, {
+    "type" : "string",
+    "const" : "TRY",
+    "description" : "Nova Lira turca"
+  }, {
+    "type" : "string",
+    "const" : "TTD",
+    "description" : "Dólar de Trindade e Tobago"
+  }, {
+    "type" : "string",
+    "const" : "TWD",
+    "description" : "Novo Dólar de Taiwan"
+  }, {
+    "type" : "string",
+    "const" : "TZS",
+    "description" : "Xelim da Tanzânia"
+  }, {
+    "type" : "string",
+    "const" : "UAH",
+    "description" : "Hryvnia"
+  }, {
+    "type" : "string",
+    "const" : "UGX",
+    "description" : "Xelim do Uganda"
+  }, {
+    "type" : "string",
+    "const" : "USD",
+    "description" : "Dólar Americano"
+  }, {
+    "type" : "string",
+    "const" : "USN",
+    "description" : "United States dollar (next day) (funds code)"
+  }, {
+    "type" : "string",
+    "const" : "USS",
+    "description" : "United States dollar (same day) (funds code)"
+  }, {
+    "type" : "string",
+    "const" : "UYI",
+    "description" : "Peso do Uruguay em Unidades Indexadas"
+  }, {
+    "type" : "string",
+    "const" : "UYU",
+    "description" : "Peso Uruguaio"
+  }, {
+    "type" : "string",
+    "const" : "UZS",
+    "description" : "Som Uzbeque"
+  }, {
+    "type" : "string",
+    "const" : "VEF",
+    "description" : "Venezuelan bolívar fuerte"
+  }, {
+    "type" : "string",
+    "const" : "VND",
+    "description" : "Dong"
+  }, {
+    "type" : "string",
+    "const" : "VUV",
+    "description" : "Vatu"
+  }, {
+    "type" : "string",
+    "const" : "WST",
+    "description" : "Tala"
+  }, {
+    "type" : "string",
+    "const" : "XAF",
+    "description" : "Franco CFA BEAC"
+  }, {
+    "type" : "string",
+    "const" : "XAG",
+    "description" : "Prata"
+  }, {
+    "type" : "string",
+    "const" : "XAU",
+    "description" : "Ouro"
+  }, {
+    "type" : "string",
+    "const" : "XCD",
+    "description" : "Dólar das Caraíbas Orientais"
+  }, {
+    "type" : "string",
+    "const" : "XDR",
+    "description" : "Special Drawing Rights"
+  }, {
+    "type" : "string",
+    "const" : "XFU",
+    "description" : "UIC franc (special settlement currency)"
+  }, {
+    "type" : "string",
+    "const" : "XOF",
+    "description" : "Franco CFA BCEAO"
+  }, {
+    "type" : "string",
+    "const" : "XPD",
+    "description" : "Paládio"
+  }, {
+    "type" : "string",
+    "const" : "XPF",
+    "description" : "Franco CFP"
+  }, {
+    "type" : "string",
+    "const" : "XPT",
+    "description" : "Platina"
+  }, {
+    "type" : "string",
+    "const" : "YER",
+    "description" : "Rial do Iémene"
+  }, {
+    "type" : "string",
+    "const" : "ZAR",
+    "description" : "Rand"
+  }, {
+    "type" : "string",
+    "const" : "ZMK",
+    "description" : "Kwacha"
+  }, {
+    "type" : "string",
+    "const" : "ZWL",
+    "description" : "Zimbabwe dollar"
+  } ],
+  "examples" : [ "BRL", "USD", "EUR", "GBP", "JPY", "ARS", "CLP", "COP", "MXN", "PEN" ]
 }

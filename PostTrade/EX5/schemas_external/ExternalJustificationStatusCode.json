@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Justification Status",
-  "description": "Codes for justification status",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Fully Justified",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Not justified",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Partly Justified",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalJustificationStatusCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalJustificationStatusCode"
+  },
+  "title" : "External Justification Status",
+  "description" : "Codes for justification status",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Fully Justified",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Not justified",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Partly Justified",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

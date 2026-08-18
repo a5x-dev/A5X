@@ -1,94 +1,80 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "ExternalStatusAllocationAdviceCode",
-  "description": "Codes for status allocation advice",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Successfully processed",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Error code",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Pending give up approval",
-      "const": 3
-    },
-    {
-      "type": "number",
-      "description": "Give up approved",
-      "const": 4
-    },
-    {
-      "type": "number",
-      "description": "Give up rejected",
-      "const": 5
-    },
-    {
-      "type": "number",
-      "description": "Pending due to risk assessment",
-      "const": 6
-    },
-    {
-      "type": "number",
-      "description": "Pending breaking rule approval",
-      "const": 7
-    },
-    {
-      "type": "number",
-      "description": "Pending take up cancel approval",
-      "const": 8
-    },
-    {
-      "type": "number",
-      "description": "Take up cancel approved",
-      "const": 9
-    },
-    {
-      "type": "number",
-      "description": "Take up cancel rejected",
-      "const": 10
-    },
-    {
-      "type": "number",
-      "description": "Breaking rule rejected",
-      "const": 12
-    },
-    {
-      "type": "number",
-      "description": "Risk approval rejected",
-      "const": 15
-    },
-    {
-      "type": "number",
-      "description": "Pending clearing house give up approval",
-      "const": 22
-    },
-    {
-      "type": "number",
-      "description": "Pending clearing house take up cancelation approval",
-      "const": 23
-    },
-    {
-      "type": "number",
-      "description": "New trade",
-      "const": 24
-    },
-    {
-      "type": "number",
-      "description": "Cancelled trade",
-      "const": 25
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3,
-    4,
-    5
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalStatusAllocationAdviceCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalStatusAllocationAdviceCode"
+  },
+  "title" : "ExternalStatusAllocationAdviceCode",
+  "description" : "Codes for status allocation advice",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Successfully processed",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Error code",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Pending give up approval",
+    "const" : 3
+  }, {
+    "type" : "number",
+    "description" : "Give up approved",
+    "const" : 4
+  }, {
+    "type" : "number",
+    "description" : "Give up rejected",
+    "const" : 5
+  }, {
+    "type" : "number",
+    "description" : "Pending due to risk assessment",
+    "const" : 6
+  }, {
+    "type" : "number",
+    "description" : "Pending breaking rule approval",
+    "const" : 7
+  }, {
+    "type" : "number",
+    "description" : "Pending take up cancel approval",
+    "const" : 8
+  }, {
+    "type" : "number",
+    "description" : "Take up cancel approved",
+    "const" : 9
+  }, {
+    "type" : "number",
+    "description" : "Take up cancel rejected",
+    "const" : 10
+  }, {
+    "type" : "number",
+    "description" : "Breaking rule rejected",
+    "const" : 12
+  }, {
+    "type" : "number",
+    "description" : "Risk approval rejected",
+    "const" : 15
+  }, {
+    "type" : "number",
+    "description" : "Pending clearing house give up approval",
+    "const" : 22
+  }, {
+    "type" : "number",
+    "description" : "Pending clearing house take up cancelation approval",
+    "const" : 23
+  }, {
+    "type" : "number",
+    "description" : "New trade",
+    "const" : 24
+  }, {
+    "type" : "number",
+    "description" : "Cancelled trade",
+    "const" : 25
+  }, {
+    "type" : "number",
+    "description" : "EOD error account allocation",
+    "const" : 26
+  } ],
+  "examples" : [ 1, 2, 3, 4, 5 ]
 }

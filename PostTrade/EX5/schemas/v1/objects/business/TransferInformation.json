@@ -12,7 +12,7 @@
     "statusCode" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Provides a proprietary status of each processing requested",
-      "$comment" : "Consult External Code List table ExternalPositionTransferRequestStatus"
+      "$comment" : "Consult External Code List table ExternalPositionTransferRequestStatusCode"
     },
     "errorIdentification" : {
       "type" : "array",

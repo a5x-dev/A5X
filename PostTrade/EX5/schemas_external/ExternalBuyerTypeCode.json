@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Buyer Type",
-  "description": "Codes for buyer type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "NONE",
-      "const": 0
-    },
-    {
-      "type": "number",
-      "description": "OBLIGED",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "NOT OBLIGED",
-      "const": 2
-    }
-  ],
-  "examples": [
-    0,
-    1,
-    2
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBuyerTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalBuyerTypeCode"
+  },
+  "title" : "External Buyer Type",
+  "description" : "Codes for buyer type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "NONE",
+    "const" : 0
+  }, {
+    "type" : "number",
+    "description" : "OBLIGED",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "NOT OBLIGED",
+    "const" : 2
+  } ],
+  "examples" : [ 0, 1, 2 ]
 }

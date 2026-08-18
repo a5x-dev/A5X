@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "ExternalCustomerClassificationRiskCode",
-  "description": "Codes for customer classification risk",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "ALTO",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "MÉDIO",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "BAIXO",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCustomerClassificationRiskCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalCustomerClassificationRiskCode"
+  },
+  "title" : "ExternalCustomerClassificationRiskCode",
+  "description" : "Codes for customer classification risk",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "ALTO",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "MÉDIO",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "BAIXO",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }

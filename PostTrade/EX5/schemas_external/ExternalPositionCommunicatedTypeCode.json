@@ -1,21 +1,20 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Position Communicated Type",
-  "description": "Codes for position communicated type",
-  "oneOf": [
-    {
-      "type": "string",
-      "description": "Final",
-      "const": "F"
-    },
-    {
-      "type": "string",
-      "description": "Modificada",
-      "const": "M"
-    }
-  ],
-  "examples": [
-    "F",
-    "M"
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalPositionCommunicatedTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalPositionCommunicatedTypeCode"
+  },
+  "title" : "External Position Communicated Type",
+  "description" : "Codes for position communicated type",
+  "oneOf" : [ {
+    "type" : "string",
+    "description" : "Final",
+    "const" : "F"
+  }, {
+    "type" : "string",
+    "description" : "Modificada",
+    "const" : "M"
+  } ],
+  "examples" : [ "F", "M" ]
 }

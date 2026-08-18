@@ -1,39 +1,32 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Foward Request Type",
-  "description": "Codes for foward request type",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Early settlement request",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Custodian indication",
-      "const": 2
-    },
-    {
-      "type": "string",
-      "description": "",
-      "const": null
-    },
-    {
-      "type": "string",
-      "description": "",
-      "const": null
-    },
-    {
-      "type": "string",
-      "description": "",
-      "const": null
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    null,
-    null,
-    null
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFowardRequestTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFowardRequestTypeCode"
+  },
+  "title" : "External Foward Request Type",
+  "description" : "Codes for foward request type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Early settlement request",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Custodian indication",
+    "const" : 2
+  }, {
+    "type" : "string",
+    "description" : "",
+    "const" : null
+  }, {
+    "type" : "string",
+    "description" : "",
+    "const" : null
+  }, {
+    "type" : "string",
+    "description" : "",
+    "const" : null
+  } ],
+  "examples" : [ 1, 2, null, null, null ]
 }

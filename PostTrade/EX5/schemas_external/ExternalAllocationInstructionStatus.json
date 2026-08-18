@@ -1,27 +1,24 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "External Allocation Instruction Status",
-  "description": "Codes for allocation instruction status",
-  "oneOf": [
-    {
-      "type": "number",
-      "description": "Allocation Completed - OK",
-      "const": 1
-    },
-    {
-      "type": "number",
-      "description": "Allocation Partially Completed",
-      "const": 2
-    },
-    {
-      "type": "number",
-      "description": "Allocation with Total Error",
-      "const": 3
-    }
-  ],
-  "examples": [
-    1,
-    2,
-    3
-  ]
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAllocationInstructionStatus",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAllocationInstructionStatus"
+  },
+  "title" : "External Allocation Instruction Status",
+  "description" : "Codes for allocation instruction status",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Allocation Completed - OK",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Allocation Partially Completed",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Allocation with Total Error",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
 }
