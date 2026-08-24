@@ -37,7 +37,23 @@
     "collateralPortfolioDetailsAtCustodians": {
       "type": "array",
       "items": {
-        "$ref": "../../objects/business/CollateralPortfolioDetailAtCustodian.json"
+        "allOf": [
+          {
+            "$ref": "../../objects/business/CollateralPositionDetail.json"
+          },
+          {
+            "properties": {
+              "settlementParticipantIdentification": {
+                "$ref": "../../objects/business/PartyId.json",
+                "description": "Identification of the full trading participant or settlement participant related to the collateral"
+              },
+              "settlementAccountIdentification": {
+                "$ref": "../../objects/business/AccountIdentification.json",
+                "description": "Investor or account identification at the full trading or settlement participant"
+              }
+            }
+          }
+        ]
       },
       "minItems": 0,
       "maxItems": 10000,

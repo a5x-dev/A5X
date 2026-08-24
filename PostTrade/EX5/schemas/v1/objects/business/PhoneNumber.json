@@ -19,9 +19,8 @@
       "$comment": "Consult External Code List table ExternalPhoneTypeCode"
     },
     "phoneNumber": {
-      "type": "string",
-      "maxLength": 20,
-      "description": "Phone number in international format (E.164 standard)"
+      "$ref": "../../types/PhoneNumberE164.json",
+      "description": "Phone number in international format (E.164 standard), e.g. +5511912345678"
     }
   },
   "required": [
@@ -34,7 +33,7 @@
     {
       "isPrimary": true,
       "phoneType": 1,
-      "phoneNumber": "+55-11-91234-5678"
+      "phoneNumber": "+5511912345678"
     }
   ]
 }

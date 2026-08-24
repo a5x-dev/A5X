@@ -1,0 +1,15 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:types:PhoneNumberE164",
+  "$metadata" : {
+    "domain" : "types",
+    "schemaId" : "urn:a5x:ex5:schema:v1:types:PhoneNumberE164"
+  },
+  "title" : "Phone Number (E.164)",
+  "description" : "Phone number in E.164 format: mandatory '+' prefix, country code starting with 1-9 and at most 15 digits in total, with no spaces, parentheses or separators",
+  "type" : "string",
+  "pattern" : "^\\+[1-9][0-9]{1,14}$",
+  "minLength" : 3,
+  "maxLength" : 16,
+  "examples" : [ "+5511912345678", "+551130456789", "+12125550199" ]
+}

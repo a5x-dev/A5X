@@ -61,9 +61,8 @@
       "$comment": "Consult External Text List table ExternalCountryCode"
     },
     "phoneNumber": {
-      "type": "string",
-      "maxLength": 20,
-      "description": "Phone number with country code"
+      "$ref": "../../types/PhoneNumberE164.json",
+      "description": "Phone number in E.164 format, with the mandatory '+' prefix and the country code, e.g. +5511912345678"
     },
     "email": {
       "type": "string",
@@ -90,7 +89,7 @@
       "cityName": "São Paulo",
       "state": "SP",
       "country": "BRA",
-      "phoneNumber": "+55-11-91234-5678",
+      "phoneNumber": "+5511912345678",
       "email": "central@xpto.com.br"
     }
   ]

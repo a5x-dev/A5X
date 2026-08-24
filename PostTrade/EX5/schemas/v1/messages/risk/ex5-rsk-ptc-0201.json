@@ -48,9 +48,13 @@
     "operationalLimit" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Total operational limit calculated as the sum of all related risk components."
+    },
+    "consolidatedOperationalLimitWithoutIntradayRiskLimit" : {
+      "$ref" : "../../objects/business/MonetaryValue.json",
+      "description" : "Consolidated operational limit calculated without the intraday risk limit component."
     }
   },
-  "required" : [ "triggerResult", "participantIdentification", "tradeDate", "intradayRiskLimitAssigned", "operationalLimitCollateral", "riskExposure", "nonAllocatedRisk", "investorRiskExposure", "additionalMargin", "operationalLimit" ],
+  "required" : [ "triggerResult", "participantIdentification", "tradeDate", "intradayRiskLimitAssigned", "operationalLimitCollateral", "riskExposure", "nonAllocatedRisk", "investorRiskExposure", "additionalMargin", "operationalLimit", "consolidatedOperationalLimitWithoutIntradayRiskLimit" ],
   "additionalProperties" : false,
   "examples" : [ {
     "triggerResult" : {
@@ -90,6 +94,9 @@
     "operationalLimit" : {
       "amount" : "658000.00",
       "currency" : "BRL"
+    },
+    "consolidatedOperationalLimitWithoutIntradayRiskLimit" : {
+      "amount" : "408000.00"
     }
   } ]
 }

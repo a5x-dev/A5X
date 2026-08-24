@@ -46,31 +46,31 @@
   }, {
     "type" : "number",
     "description" : "BENEFICIARIO FINAL",
-    "const" : 155
+    "const" : 455
   }, {
     "type" : "number",
     "description" : "CUSTODIANTE DE INVESTIDOR NÃO RESIDENTE",
-    "const" : 156
+    "const" : 2001
   }, {
     "type" : "number",
     "description" : "REPRESENTANTE LEGAL DE INVESTIDOR NÃO RESIDENTE",
-    "const" : 157
+    "const" : 456
   }, {
     "type" : "number",
     "description" : "REPRESENTANTE TRIBUTÁRIO DE INVESTIDOR NÃO RESIDENTE",
-    "const" : 158
+    "const" : 457
   }, {
     "type" : "number",
     "description" : "ADMINISTRADOR DE CARTEIRA",
-    "const" : 159
+    "const" : 458
   }, {
     "type" : "number",
     "description" : "REPRESENTANTE LEGAL",
-    "const" : 160
+    "const" : 459
   }, {
     "type" : "number",
     "description" : "PESSOA AUTORIZADA A EMITIR ORDENS",
-    "const" : 161
+    "const" : 460
   } ],
-  "examples" : [ 73, 123, 157 ]
+  "examples" : [ 73, 123, 456 ]
 }

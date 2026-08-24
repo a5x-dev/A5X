@@ -261,7 +261,7 @@
             "cityName": "São Paulo",
             "state": "SP",
             "country": "BRA",
-            "phoneNumber": "+55-11-91234-5678",
+            "phoneNumber": "+5511912345678",
             "email": "central@xpto.com.br"
           }
         }
@@ -297,7 +297,7 @@
           "cityName": "São Paulo",
           "state": "SP",
           "country": "BRA",
-          "phoneNumber": "+55-11-91234-5678",
+          "phoneNumber": "+5511912345678",
           "email": "central@xpto.com.br"
         }
       ],
@@ -305,7 +305,7 @@
         {
           "isPrimary": true,
           "phoneType": 1,
-          "phoneNumber": "+55-11-91234-5678"
+          "phoneNumber": "+5511912345678"
         }
       ],
       "emails": [
