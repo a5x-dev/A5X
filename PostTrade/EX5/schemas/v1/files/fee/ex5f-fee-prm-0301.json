@@ -69,8 +69,7 @@
       "type": "integer",
       "minimum": 1,
       "maximum": 999999999,
-      "description": "Indicates the fee base",
-      "$comment": "Consult External Code List table ExternalFeeBaseCode"
+      "description": "Indicates the fee base"
     },
     "operationType": {
       "type": "integer",
@@ -120,10 +119,9 @@
       "description": "Maximum spread for option exercise or maturity settlement"
     },
     "feeValueType": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999999,
       "description": "Fee value type",
       "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
     },

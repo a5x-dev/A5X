@@ -12,7 +12,7 @@
     "professionalRole" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Type of professional role or activity",
-      "$comment" : "Consult External Code List table ExternalProfessionalMappingRoleCode "
+      "$comment" : "Consult External Code List table ExternalProfessionalRoleCode "
     },
     "startDate" : {
       "$ref" : "../../types/ISODate.json",

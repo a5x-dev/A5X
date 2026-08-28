@@ -71,7 +71,7 @@
     "Market": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Market type - second level market classification in post-trading process",
       "$comment": "Consult External Code List table ExternalMarketCode"
     },
@@ -81,11 +81,11 @@
       "description": "Commodity associated with the instrument"
     },
     "SecurityCategory": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 6,
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999999,
       "description": "Instrument type identifier",
-      "$comment": "Consult External Code List table SecurityCategory"
+      "$comment": "Consult External Code List table ExternalSecurityCategoryCode"
     },
     "Quantity": {
       "type": "string",
@@ -111,16 +111,16 @@
     "FeeProductGroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Fee family code",
-      "$comment": "Consult External Code List table ExternalFeeProductGroup"
+      "$comment": "Consult External Code List table ExternalFeeProductGroupCode"
     },
     "FeeComponent": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Calculated fee component code",
-      "$comment": "Consult External Code List table ExternalFeeComponent"
+      "$comment": "Consult External Code List table ExternalFeeComponentCode"
     },
     "BaseFeeValue": {
       "type": "string",
@@ -146,9 +146,9 @@
     "FeeProductSubgroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Second level of fee family, when applicable",
-      "$comment": "Consult External Code List table ExternalFeeProductGroup"
+      "$comment": "Consult External Code List table ExternalFeeProductGroupCode"
     },
     "ContractFactor": {
       "type": "integer",
@@ -215,16 +215,16 @@
     "CalcType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Indicates if calculation is Progressive or Regressive",
       "$comment": "Consult External Code List table ExternalFeeCalculationTypeCode"
     },
     "AdditionalValueType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Additional value type indicator",
-      "$comment": "Consult External Code List table ExternalFeetypeindicator"
+      "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
     },
     "AdditionalValue": {
       "type": "string",

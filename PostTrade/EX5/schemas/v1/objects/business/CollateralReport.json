@@ -50,7 +50,7 @@
     "collateralClientCategory" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Provides client category",
-      "$comment" : "Consult External Code List table ExternalCollateralClientCategoryCode"
+      "$comment" : "Consult External Code List table ExternalCollateralClientCategoryTypeCode"
     },
     "valuationDateTime" : {
       "$ref" : "../../types/ISODateTime.json",

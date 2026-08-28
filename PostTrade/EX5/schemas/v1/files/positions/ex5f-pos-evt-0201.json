@@ -67,7 +67,7 @@
       "minimum" : 0,
       "maximum" : 999999,
       "description" : "Event status code",
-      "$comment" : "Consult External Code List table ExternalEventStatusCode"
+      "$comment" : "Consult External Code List table ExternalCorporateActionStatusCode"
     },
     "corporateActionIdentification" : {
       "type" : "integer",
@@ -77,9 +77,9 @@
       "$comment" : "Consult External Code List table ExternalCorporateActionCode"
     },
     "corporateActionType" : {
-      "type" : "integer",
-      "minimum" : 0,
-      "maximum" : 999999,
+      "type" : "string", 
+      "maxLength" : 15, 
+      "minLength" : 1, 
       "description" : "Corporate action type classification",
       "$comment" : "Consult External Code List table ExternalCorporateActionsTypeCode"
     },

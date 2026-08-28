@@ -1,28 +1,56 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalPTRMProfile",
-  "$metadata" : {
-    "domain" : "schemas_external",
-    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalPTRMProfile"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:schemas_external:ExternalPTRMProfile",
+  "$metadata": {
+    "domain": "schemas_external",
+    "schemaId": "urn:a5x:ex5:schema:v1:schemas_external:ExternalPTRMProfile"
   },
-  "title" : "ExternalPTRMProfile",
-  "description" : "External code list for PTRM (Pre-Trade Risk Management) profiles",
-  "oneOf" : [ {
-    "type" : "number",
-    "description" : "HFT - High Frequency Trading",
-    "const" : 1
-  }, {
-    "type" : "number",
-    "description" : "RLP - Retail Liquidity Provider",
-    "const" : 2
-  }, {
-    "type" : "number",
-    "description" : "Tesouraria - Treasury",
-    "const" : 3
-  }, {
-    "type" : "number",
-    "description" : "Não Patrocinado",
-    "const" : 4
-  } ],
-  "examples" : [ 1, 2, 3 ]
+  "title": "ExternalPTRMProfile",
+  "description": "External code list for PTRM (Pre-Trade Risk Management) profiles",
+  "oneOf": [
+    {
+      "type": "number",
+      "description": "HFT - High Frequency Trading",
+      "const": 1
+    },
+    {
+      "type": "number",
+      "description": "RLP - Retail Liquidity Provider",
+      "const": 2
+    },
+    {
+      "type": "number",
+      "description": "Tesouraria - Treasury",
+      "const": 3
+    },
+    {
+      "type": "number",
+      "description": "MM - Market Maker",
+      "const": 4
+    },
+    {
+      "type": "number",
+      "description": "Institutional",
+      "const": 5
+    },
+    {
+      "type": "number",
+      "description": "Retail",
+      "const": 6
+    },
+    {
+      "type": "number",
+      "description": "Other",
+      "const": 7
+    }
+  ],
+  "examples": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ]
 }

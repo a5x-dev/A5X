@@ -1,0 +1,1339 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:schemas_external:ExternalRegistrationErrorCode.Pt",
+  "$metadata": {
+    "domain": "schemas_external",
+    "schemaId": "urn:a5x:ex5:schema:v1:schemas_external:ExternalRegistrationErrorCode.Pt"
+  },
+  "title": "ExternalRegistrationErrorCode",
+  "description": "Error codes for registration operations",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Documento NIF necessário",
+      "const": "REG10101"
+    },
+    {
+      "type": "string",
+      "description": "Cotistas de fundo exclusivo não informados",
+      "const": "REG10102"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de documento do representante qualificado é obrigatório",
+      "const": "REG10103"
+    },
+    {
+      "type": "string",
+      "description": "Informações completas do cônjuge não informadas",
+      "const": "REG10104"
+    },
+    {
+      "type": "string",
+      "description": "Telefone principal não informado",
+      "const": "REG10105"
+    },
+    {
+      "type": "string",
+      "description": "E-mail principal não informado",
+      "const": "REG10106"
+    },
+    {
+      "type": "string",
+      "description": "Bairro é obrigatório",
+      "const": "REG10107"
+    },
+    {
+      "type": "string",
+      "description": "Estado é obrigatório",
+      "const": "REG10108"
+    },
+    {
+      "type": "string",
+      "description": "Administrador de carteiras é obrigatório",
+      "const": "REG10109"
+    },
+    {
+      "type": "string",
+      "description": "Procurador é obrigatório",
+      "const": "REG10110"
+    },
+    {
+      "type": "string",
+      "description": "Endereço principal não informado",
+      "const": "REG10111"
+    },
+    {
+      "type": "string",
+      "description": "Campo obrigatório não preenchido",
+      "const": "REG10112"
+    },
+    {
+      "type": "string",
+      "description": "Contas não informadas",
+      "const": "REG10113"
+    },
+    {
+      "type": "string",
+      "description": "Representante legal é obrigatório para investidor estrangeiro",
+      "const": "REG10114"
+    },
+    {
+      "type": "string",
+      "description": "Aprovação automática de repasse é obrigatória",
+      "const": "REG10115"
+    },
+    {
+      "type": "string",
+      "description": "Tipo da conta é obrigatório",
+      "const": "REG10116"
+    },
+    {
+      "type": "string",
+      "description": "ID da conta é obrigatório",
+      "const": "REG10117"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de pessoa é obrigatório",
+      "const": "REG10118"
+    },
+    {
+      "type": "string",
+      "description": "Situação de residência é obrigatória",
+      "const": "REG10119"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de documento principal é obrigatório",
+      "const": "REG10120"
+    },
+    {
+      "type": "string",
+      "description": "Número do documento é obrigatório",
+      "const": "REG10121"
+    },
+    {
+      "type": "string",
+      "description": "Nome completo / Razão social é obrigatório",
+      "const": "REG10122"
+    },
+    {
+      "type": "string",
+      "description": "Data de nascimento é obrigatória",
+      "const": "REG10123"
+    },
+    {
+      "type": "string",
+      "description": "Nacionalidade é obrigatória",
+      "const": "REG10124"
+    },
+    {
+      "type": "string",
+      "description": "País de residência é obrigatório",
+      "const": "REG10125"
+    },
+    {
+      "type": "string",
+      "description": "Código da categoria do participante é obrigatório",
+      "const": "REG10126"
+    },
+    {
+      "type": "string",
+      "description": "Código do participante é obrigatório",
+      "const": "REG10127"
+    },
+    {
+      "type": "string",
+      "description": "Campo emancipado é obrigatório para pessoa física",
+      "const": "REG10128"
+    },
+    {
+      "type": "string",
+      "description": "Ocupação é obrigatória para pessoa física",
+      "const": "REG10129"
+    },
+    {
+      "type": "string",
+      "description": "Indicador de pessoa politicamente exposta é obrigatório",
+      "const": "REG10130"
+    },
+    {
+      "type": "string",
+      "description": "Renda anual é obrigatória para PF residente",
+      "const": "REG10131"
+    },
+    {
+      "type": "string",
+      "description": "Moeda da renda anual é obrigatória",
+      "const": "REG10132"
+    },
+    {
+      "type": "string",
+      "description": "Data da informação de renda anual é obrigatória",
+      "const": "REG10133"
+    },
+    {
+      "type": "string",
+      "description": "Situação patrimonial é obrigatória para PF residente",
+      "const": "REG10134"
+    },
+    {
+      "type": "string",
+      "description": "Moeda da situação patrimonial é obrigatória",
+      "const": "REG10135"
+    },
+    {
+      "type": "string",
+      "description": "Data da informação patrimonial é obrigatória",
+      "const": "REG10136"
+    },
+    {
+      "type": "string",
+      "description": "Status NIF é obrigatório para não residente",
+      "const": "REG10137"
+    },
+    {
+      "type": "string",
+      "description": "CPF adicional é obrigatório para não residente com CVM",
+      "const": "REG10138"
+    },
+    {
+      "type": "string",
+      "description": "Nome do intermediário estrangeiro é obrigatório para cadastro simplificado",
+      "const": "REG10139"
+    },
+    {
+      "type": "string",
+      "description": "Jurisdição de origem é obrigatória quando forma de constituição é preenchida",
+      "const": "REG10140"
+    },
+    {
+      "type": "string",
+      "description": "Forma de constituição é obrigatória quando jurisdição é preenchida",
+      "const": "REG10141"
+    },
+    {
+      "type": "string",
+      "description": "Número da conta bancária internacional é obrigatório",
+      "const": "REG10142"
+    },
+    {
+      "type": "string",
+      "description": "IBAN é obrigatório para conta bancária internacional",
+      "const": "REG10143"
+    },
+    {
+      "type": "string",
+      "description": "Código SWIFT é obrigatório para conta bancária internacional",
+      "const": "REG10144"
+    },
+    {
+      "type": "string",
+      "description": "Nome do banco do beneficiário é obrigatório",
+      "const": "REG10145"
+    },
+    {
+      "type": "string",
+      "description": "País do banco do beneficiário é obrigatório",
+      "const": "REG10146"
+    },
+    {
+      "type": "string",
+      "description": "Moeda de transferência é obrigatória (somente USD ou EUR)",
+      "const": "REG10147"
+    },
+    {
+      "type": "string",
+      "description": "Razão social é obrigatória para pessoa jurídica",
+      "const": "REG10148"
+    },
+    {
+      "type": "string",
+      "description": "Data de constituição é obrigatória para pessoa jurídica",
+      "const": "REG10149"
+    },
+    {
+      "type": "string",
+      "description": "Atividade econômica é obrigatória para pessoa jurídica",
+      "const": "REG10150"
+    },
+    {
+      "type": "string",
+      "description": "Indicador sem fins lucrativos é obrigatório para PJ",
+      "const": "REG10151"
+    },
+    {
+      "type": "string",
+      "description": "Faturamento é obrigatório para PJ residente",
+      "const": "REG10152"
+    },
+    {
+      "type": "string",
+      "description": "Indicador de fundo exclusivo é obrigatório para CNAE de fundo",
+      "const": "REG10153"
+    },
+    {
+      "type": "string",
+      "description": "Classificação de não residente é obrigatória para PJ não residente",
+      "const": "REG10154"
+    },
+    {
+      "type": "string",
+      "description": "Indicador de trust ou veículo similar é obrigatório para PJ não residente",
+      "const": "REG10155"
+    },
+    {
+      "type": "string",
+      "description": "CNPJ adicional é obrigatório para PJ não residente com CVM",
+      "const": "REG10156"
+    },
+    {
+      "type": "string",
+      "description": "Indicador de proprietário de portfólio INR é obrigatório para PJ não residente",
+      "const": "REG10157"
+    },
+    {
+      "type": "string",
+      "description": "Conta de custódia é obrigatória",
+      "const": "REG10158"
+    },
+    {
+      "type": "string",
+      "description": "Indicador LIFO/FIFO é obrigatório",
+      "const": "REG10159"
+    },
+    {
+      "type": "string",
+      "description": "Tipo do endereço é obrigatório",
+      "const": "REG10160"
+    },
+    {
+      "type": "string",
+      "description": "País do endereço é obrigatório",
+      "const": "REG10161"
+    },
+    {
+      "type": "string",
+      "description": "CEP / código postal é obrigatório",
+      "const": "REG10162"
+    },
+    {
+      "type": "string",
+      "description": "Logradouro é obrigatório",
+      "const": "REG10163"
+    },
+    {
+      "type": "string",
+      "description": "Número do endereço é obrigatório",
+      "const": "REG10164"
+    },
+    {
+      "type": "string",
+      "description": "Cidade é obrigatória",
+      "const": "REG10165"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de e-mail é obrigatório",
+      "const": "REG10166"
+    },
+    {
+      "type": "string",
+      "description": "Endereço de e-mail é obrigatório",
+      "const": "REG10167"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de telefone é obrigatório",
+      "const": "REG10168"
+    },
+    {
+      "type": "string",
+      "description": "DDI do telefone é obrigatório",
+      "const": "REG10169"
+    },
+    {
+      "type": "string",
+      "description": "DDD do telefone é obrigatório",
+      "const": "REG10170"
+    },
+    {
+      "type": "string",
+      "description": "Número do telefone é obrigatório",
+      "const": "REG10171"
+    },
+    {
+      "type": "string",
+      "description": "Mapeamento de endereço na conta é obrigatório",
+      "const": "REG10172"
+    },
+    {
+      "type": "string",
+      "description": "Mapeamento de e-mail na conta é obrigatório",
+      "const": "REG10173"
+    },
+    {
+      "type": "string",
+      "description": "Mapeamento de telefone na conta é obrigatório",
+      "const": "REG10174"
+    },
+    {
+      "type": "string",
+      "description": "Responsável (Tutor/Pai/Mãe) é obrigatório para menor não emancipado",
+      "const": "REG10175"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de relacionamento é obrigatório",
+      "const": "REG10176"
+    },
+    {
+      "type": "string",
+      "description": "Nome completo do relacionamento é obrigatório",
+      "const": "REG10177"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de documento do relacionamento é obrigatório",
+      "const": "REG10178"
+    },
+    {
+      "type": "string",
+      "description": "Número do documento do relacionamento é obrigatório",
+      "const": "REG10179"
+    },
+    {
+      "type": "string",
+      "description": "E-mail do relacionamento é obrigatório",
+      "const": "REG10180"
+    },
+    {
+      "type": "string",
+      "description": "Telefone do relacionamento é obrigatório",
+      "const": "REG10181"
+    },
+    {
+      "type": "string",
+      "description": "Razão social é obrigatória para PJ no relacionamento",
+      "const": "REG10182"
+    },
+    {
+      "type": "string",
+      "description": "CPF ou CNPJ é obrigatório para representante legal de INR",
+      "const": "REG10183"
+    },
+    {
+      "type": "string",
+      "description": "Data de nascimento do relacionamento é obrigatória para PF",
+      "const": "REG10184"
+    },
+    {
+      "type": "string",
+      "description": "Nacionalidade do relacionamento é obrigatória",
+      "const": "REG10185"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de transmissão de ordens é obrigatório",
+      "const": "REG10186"
+    },
+    {
+      "type": "string",
+      "description": "Procurador é obrigatório conforme tipo de transmissão de ordens",
+      "const": "REG10187"
+    },
+    {
+      "type": "string",
+      "description": "Administrador de carteiras é obrigatório conforme tipo de transmissão de ordens",
+      "const": "REG10188"
+    },
+    {
+      "type": "string",
+      "description": "Representante legal é obrigatório para PJ NRES com CVM",
+      "const": "REG10189"
+    },
+    {
+      "type": "string",
+      "description": "Tutor ou responsável é obrigatório para menor não emancipado",
+      "const": "REG10190"
+    },
+    {
+      "type": "string",
+      "description": "Endereço do relacionamento é obrigatório",
+      "const": "REG10191"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de pessoa do relacionamento é obrigatório",
+      "const": "REG10192"
+    },
+    {
+      "type": "string",
+      "description": "Data de início do relacionamento é obrigatória",
+      "const": "REG10193"
+    },
+    {
+      "type": "string",
+      "description": "Ocupação do relacionamento é obrigatória para PF",
+      "const": "REG10194"
+    },
+    {
+      "type": "string",
+      "description": "Indicador PEP do relacionamento é obrigatório",
+      "const": "REG10195"
+    },
+    {
+      "type": "string",
+      "description": "Moeda inválida para conta bancária",
+      "const": "REG10201"
+    },
+    {
+      "type": "string",
+      "description": "CNPJ Inválido",
+      "const": "REG10202"
+    },
+    {
+      "type": "string",
+      "description": "CPF Inválido",
+      "const": "REG10203"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de documento inválido",
+      "const": "REG10204"
+    },
+    {
+      "type": "string",
+      "description": "Documentos inválidos",
+      "const": "REG10205"
+    },
+    {
+      "type": "string",
+      "description": "Endereços inválidos",
+      "const": "REG10206"
+    },
+    {
+      "type": "string",
+      "description": "E-mail com formato inválido",
+      "const": "REG10207"
+    },
+    {
+      "type": "string",
+      "description": "Data futura inválida",
+      "const": "REG10208"
+    },
+    {
+      "type": "string",
+      "description": "Código inválido",
+      "const": "REG10209"
+    },
+    {
+      "type": "string",
+      "description": "Tamanho inválido para o campo",
+      "const": "REG10210"
+    },
+    {
+      "type": "string",
+      "description": "Endereços de e-mail inválidos",
+      "const": "REG10211"
+    },
+    {
+      "type": "string",
+      "description": "Números de telefone inválidos",
+      "const": "REG10212"
+    },
+    {
+      "type": "string",
+      "description": "Conta bancária inválida",
+      "const": "REG10213"
+    },
+    {
+      "type": "string",
+      "description": "Código 55 inválido",
+      "const": "REG10214"
+    },
+    {
+      "type": "string",
+      "description": "Representantes qualificados inválidos",
+      "const": "REG10215"
+    },
+    {
+      "type": "string",
+      "description": "Cotistas de fundo exclusivo inválidos",
+      "const": "REG10216"
+    },
+    {
+      "type": "string",
+      "description": "Participante inválido para conta Por Conta e Ordem",
+      "const": "REG10217"
+    },
+    {
+      "type": "string",
+      "description": "Código de intermediario Open Light inválido",
+      "const": "REG10218"
+    },
+    {
+      "type": "string",
+      "description": "Contas inválidas",
+      "const": "REG10219"
+    },
+    {
+      "type": "string",
+      "description": "Atualização inválida",
+      "const": "REG10220"
+    },
+    {
+      "type": "string",
+      "description": "Bolsa inválida",
+      "const": "REG10221"
+    },
+    {
+      "type": "string",
+      "description": "Marca inválida",
+      "const": "REG10222"
+    },
+    {
+      "type": "string",
+      "description": "Relacionamento inválido para participante de origem",
+      "const": "REG10223"
+    },
+    {
+      "type": "string",
+      "description": "Titular inválido para conta Por Conta e Ordem",
+      "const": "REG10224"
+    },
+    {
+      "type": "string",
+      "description": "Mapeamento inválido para tipo de participante",
+      "const": "REG10225"
+    },
+    {
+      "type": "string",
+      "description": "Pais inválido",
+      "const": "REG10226"
+    },
+    {
+      "type": "string",
+      "description": "Conta inválida para Por Conta e Ordem",
+      "const": "REG10227"
+    },
+    {
+      "type": "string",
+      "description": "Conta inválida",
+      "const": "REG10228"
+    },
+    {
+      "type": "string",
+      "description": "Aprovação automatica de give-up inválida para o tipo",
+      "const": "REG10229"
+    },
+    {
+      "type": "string",
+      "description": "Consolidação de posicao inválida para o tipo",
+      "const": "REG10230"
+    },
+    {
+      "type": "string",
+      "description": "Grupo de gestao inválido para o tipo",
+      "const": "REG10231"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de conta inválido",
+      "const": "REG10232"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de participante inválido",
+      "const": "REG10233"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de conta inválido para vinculo de give-up",
+      "const": "REG10234"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de vinculo inválido",
+      "const": "REG10235"
+    },
+    {
+      "type": "string",
+      "description": "Grupo de gestao inválido",
+      "const": "REG10236"
+    },
+    {
+      "type": "string",
+      "description": "Data inválida",
+      "const": "REG10237"
+    },
+    {
+      "type": "string",
+      "description": "Certificacoes inválidas",
+      "const": "REG10238"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de relacionamento inválido",
+      "const": "REG10239"
+    },
+    {
+      "type": "string",
+      "description": "Papel profissional inválido",
+      "const": "REG10240"
+    },
+    {
+      "type": "string",
+      "description": "Código identificador bancario (BIC) inválido",
+      "const": "REG10241"
+    },
+    {
+      "type": "string",
+      "description": "Tipo inválido",
+      "const": "REG10242"
+    },
+    {
+      "type": "string",
+      "description": "Ativação de vinculo inválida",
+      "const": "REG10243"
+    },
+    {
+      "type": "string",
+      "description": "Finalidade inválida",
+      "const": "REG10244"
+    },
+    {
+      "type": "string",
+      "description": "Código de profissao inválido",
+      "const": "REG10245"
+    },
+    {
+      "type": "string",
+      "description": "CPF inválido para pessoa fisica",
+      "const": "REG10246"
+    },
+    {
+      "type": "string",
+      "description": "Código de finalidade inválido para o tipo",
+      "const": "REG10247"
+    },
+    {
+      "type": "string",
+      "description": "Campo inválido",
+      "const": "REG10248"
+    },
+    {
+      "type": "string",
+      "description": "Atualização inválida para usuario externo",
+      "const": "REG10249"
+    },
+    {
+      "type": "string",
+      "description": "Investidor inválido",
+      "const": "REG10250"
+    },
+    {
+      "type": "string",
+      "description": "Formato do e-mail é inválido",
+      "const": "REG10251"
+    },
+    {
+      "type": "string",
+      "description": "Formato do e-mail do relacionamento é inválido",
+      "const": "REG10252"
+    },
+    {
+      "type": "string",
+      "description": "Formato do telefone é inválido",
+      "const": "REG10253"
+    },
+    {
+      "type": "string",
+      "description": "Formato do telefone do relacionamento é inválido",
+      "const": "REG10254"
+    },
+    {
+      "type": "string",
+      "description": "CEP do endereço principal é inválido",
+      "const": "REG10255"
+    },
+    {
+      "type": "string",
+      "description": "CEP do endereço do relacionamento é inválido",
+      "const": "REG10256"
+    },
+    {
+      "type": "string",
+      "description": "País do endereço principal é inválido",
+      "const": "REG10257"
+    },
+    {
+      "type": "string",
+      "description": "País do endereço do relacionamento é inválido",
+      "const": "REG10258"
+    },
+    {
+      "type": "string",
+      "description": "Estado do endereço principal é inválido",
+      "const": "REG10259"
+    },
+    {
+      "type": "string",
+      "description": "Estado do endereço do relacionamento é inválido",
+      "const": "REG10260"
+    },
+    {
+      "type": "string",
+      "description": "Número de CPF é inválido",
+      "const": "REG10261"
+    },
+    {
+      "type": "string",
+      "description": "Número de CNPJ é inválido",
+      "const": "REG10262"
+    },
+    {
+      "type": "string",
+      "description": "Número de CVM é inválido",
+      "const": "REG10263"
+    },
+    {
+      "type": "string",
+      "description": "CPF do relacionamento é inválido",
+      "const": "REG10264"
+    },
+    {
+      "type": "string",
+      "description": "CNPJ do relacionamento é inválido",
+      "const": "REG10265"
+    },
+    {
+      "type": "string",
+      "description": "Data de nascimento é inválida",
+      "const": "REG10266"
+    },
+    {
+      "type": "string",
+      "description": "Data de constituição é inválida",
+      "const": "REG10267"
+    },
+    {
+      "type": "string",
+      "description": "Data de nascimento do relacionamento é inválida",
+      "const": "REG10268"
+    },
+    {
+      "type": "string",
+      "description": "Data de nascimento não pode ser futura",
+      "const": "REG10269"
+    },
+    {
+      "type": "string",
+      "description": "Data de constituição não pode ser futura",
+      "const": "REG10270"
+    },
+    {
+      "type": "string",
+      "description": "Data da renda anual é inválida",
+      "const": "REG10271"
+    },
+    {
+      "type": "string",
+      "description": "Data da situação patrimonial é inválida",
+      "const": "REG10272"
+    },
+    {
+      "type": "string",
+      "description": "Valor da renda anual é inválido (deve ser > 0)",
+      "const": "REG10273"
+    },
+    {
+      "type": "string",
+      "description": "Valor da situação patrimonial é inválido (deve ser > 0)",
+      "const": "REG10274"
+    },
+    {
+      "type": "string",
+      "description": "Código de nacionalidade é inválido (ISO 3166-1 alpha3)",
+      "const": "REG10275"
+    },
+    {
+      "type": "string",
+      "description": "Código do país de residência é inválido (ISO 3166-1 alpha3)",
+      "const": "REG10276"
+    },
+    {
+      "type": "string",
+      "description": "ID da conta é inválido (máx. 7 dígitos)",
+      "const": "REG10277"
+    },
+    {
+      "type": "string",
+      "description": "Código do participante é inválido (6 dígitos)",
+      "const": "REG10278"
+    },
+    {
+      "type": "string",
+      "description": "Código de tipo de pessoa é inválido",
+      "const": "REG10279"
+    },
+    {
+      "type": "string",
+      "description": "Código de situação de residência é inválido",
+      "const": "REG10280"
+    },
+    {
+      "type": "string",
+      "description": "Código de tipo de conta é inválido",
+      "const": "REG10281"
+    },
+    {
+      "type": "string",
+      "description": "Código de tipo de documento é inválido",
+      "const": "REG10282"
+    },
+    {
+      "type": "string",
+      "description": "Código de ocupação é inválido",
+      "const": "REG10283"
+    },
+    {
+      "type": "string",
+      "description": "Código de atividade econômica é inválido",
+      "const": "REG10284"
+    },
+    {
+      "type": "string",
+      "description": "Código de categoria do participante é inválido",
+      "const": "REG10285"
+    },
+    {
+      "type": "string",
+      "description": "Código de status NIF é inválido",
+      "const": "REG10286"
+    },
+    {
+      "type": "string",
+      "description": "Código de classificação de não residente é inválido",
+      "const": "REG10287"
+    },
+    {
+      "type": "string",
+      "description": "Formato do IBAN é inválido",
+      "const": "REG10288"
+    },
+    {
+      "type": "string",
+      "description": "Formato do código SWIFT é inválido",
+      "const": "REG10289"
+    },
+    {
+      "type": "string",
+      "description": "Moeda de transferência inválida (somente USD ou EUR)",
+      "const": "REG10290"
+    },
+    {
+      "type": "string",
+      "description": "Código de jurisdição inválido (EUA, FRA, NLD, CYM, LUX)",
+      "const": "REG10291"
+    },
+    {
+      "type": "string",
+      "description": "Forma de constituição inválida para a jurisdição",
+      "const": "REG10292"
+    },
+    {
+      "type": "string",
+      "description": "Nome excede 60 caracteres",
+      "const": "REG10293"
+    },
+    {
+      "type": "string",
+      "description": "Documento excede 35 caracteres",
+      "const": "REG10294"
+    },
+    {
+      "type": "string",
+      "description": "Logradouro excede 70 caracteres",
+      "const": "REG10295"
+    },
+    {
+      "type": "string",
+      "description": "Número do endereço excede 6 caracteres",
+      "const": "REG10296"
+    },
+    {
+      "type": "string",
+      "description": "E-mail excede 100 caracteres",
+      "const": "REG10297"
+    },
+    {
+      "type": "string",
+      "description": "País do endereço principal deve ser BRA para residente",
+      "const": "REG10298"
+    },
+    {
+      "type": "string",
+      "description": "Número do telefone principal é inválido",
+      "const": "REG10299"
+    },
+    {
+      "type": "string",
+      "description": "Número do telefone do relacionamento é inválido",
+      "const": "REG10300"
+    },
+    {
+      "type": "string",
+      "description": "Código de moeda é inválido",
+      "const": "REG10301"
+    },
+    {
+      "type": "string",
+      "description": "Código de tipo de relacionamento é inválido",
+      "const": "REG10302"
+    },
+    {
+      "type": "string",
+      "description": "Código de tipo de transmissão de ordens é inválido",
+      "const": "REG10303"
+    },
+    {
+      "type": "string",
+      "description": "Código de estado civil é inválido",
+      "const": "REG10304"
+    },
+    {
+      "type": "string",
+      "description": "Código de tipo de endereço é inválido",
+      "const": "REG10305"
+    },
+    {
+      "type": "string",
+      "description": "Código de tipo de e-mail é inválido",
+      "const": "REG10306"
+    },
+    {
+      "type": "string",
+      "description": "Código de tipo de telefone é inválido",
+      "const": "REG10307"
+    },
+    {
+      "type": "string",
+      "description": "Código da marca inválido ou não cadastrado para o participante",
+      "const": "REG10308"
+    },
+    {
+      "type": "string",
+      "description": "Código do intermediário light inválido ou não cadastrado",
+      "const": "REG10309"
+    },
+    {
+      "type": "string",
+      "description": "Data de vencimento do documento é inválida",
+      "const": "REG10310"
+    },
+    {
+      "type": "string",
+      "description": "Nome do relacionamento excede 60 caracteres",
+      "const": "REG10311"
+    },
+    {
+      "type": "string",
+      "description": "Nome do cônjuge excede 60 caracteres",
+      "const": "REG10312"
+    },
+    {
+      "type": "string",
+      "description": "Documento do cônjuge é inválido",
+      "const": "REG10313"
+    },
+    {
+      "type": "string",
+      "description": "Nome do intermediário estrangeiro excede 60 caracteres",
+      "const": "REG10314"
+    },
+    {
+      "type": "string",
+      "description": "Status da conta inválido",
+      "const": "REG10315"
+    },
+    {
+      "type": "string",
+      "description": "Não é possível editar investidor inativo",
+      "const": "REG20402"
+    },
+    {
+      "type": "string",
+      "description": "Conta já existe",
+      "const": "REG30100"
+    },
+    {
+      "type": "string",
+      "description": "Conta já existe e pertence a outro investidor",
+      "const": "REG30101"
+    },
+    {
+      "type": "string",
+      "description": "Código 55 inserido deve já existir",
+      "const": "REG30201"
+    },
+    {
+      "type": "string",
+      "description": "Banco não está registrado",
+      "const": "REG30202"
+    },
+    {
+      "type": "string",
+      "description": "Documento duplicado",
+      "const": "REG30203"
+    },
+    {
+      "type": "string",
+      "description": "Participante inválido",
+      "const": "REG30301"
+    },
+    {
+      "type": "string",
+      "description": "Investidor inválido para o tipo de conta",
+      "const": "REG30401"
+    },
+    {
+      "type": "string",
+      "description": "Conta do tipo deve pertencer a um participante",
+      "const": "REG30402"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de conta inválido para o participante",
+      "const": "REG30403"
+    },
+    {
+      "type": "string",
+      "description": "Classificação de risco do cliente inválida",
+      "const": "REG30501"
+    },
+    {
+      "type": "string",
+      "description": "Usuário externo não pode atualizar conta",
+      "const": "REG40101"
+    },
+    {
+      "type": "string",
+      "description": "Investidor não pode ter uma conta Admincon",
+      "const": "REG40301"
+    },
+    {
+      "type": "string",
+      "description": "Não é possível atualizar de/para este status",
+      "const": "REG40302"
+    },
+    {
+      "type": "string",
+      "description": "Não é possível atualizar registro reprovado",
+      "const": "REG40303"
+    },
+    {
+      "type": "string",
+      "description": "Não é possível atualizar a partir do status ativo",
+      "const": "REG40304"
+    },
+    {
+      "type": "string",
+      "description": "Reativação não permitida",
+      "const": "REG40305"
+    },
+    {
+      "type": "string",
+      "description": "Participante inválido para Por Conta e Ordem",
+      "const": "REG40401"
+    },
+    {
+      "type": "string",
+      "description": "Conta do tipo deve pertencer a um participante",
+      "const": "REG40402"
+    },
+    {
+      "type": "string",
+      "description": "Tipo de conta inválido para o participante",
+      "const": "REG40403"
+    },
+    {
+      "type": "string",
+      "description": "Jurisdição de Origem inválida",
+      "const": "REG50101"
+    },
+    {
+      "type": "string",
+      "description": "Forma de Constituição inválida",
+      "const": "REG50102"
+    },
+    {
+      "type": "string",
+      "description": "Investidor estrangeiro deve ter CNPJ",
+      "const": "REG50103"
+    },
+    {
+      "type": "string",
+      "description": "Investidor estrangeiro deve ter CPF",
+      "const": "REG50104"
+    },
+    {
+      "type": "string",
+      "description": "Deve informar se é fundo exclusivo",
+      "const": "REG50105"
+    },
+    {
+      "type": "string",
+      "description": "Investidor deve ter CPF",
+      "const": "REG50106"
+    },
+    {
+      "type": "string",
+      "description": "Investidor deve ter CNPJ",
+      "const": "REG50107"
+    },
+    {
+      "type": "string",
+      "description": "Deve informar o motivo",
+      "const": "REG50108"
+    },
+    {
+      "type": "string",
+      "description": "Representantes legais devem ter CNPJ ou CPF",
+      "const": "REG50109"
+    },
+    {
+      "type": "string",
+      "description": "Necessita de tutor ou responsável para menor não emancipado",
+      "const": "REG50110"
+    },
+    {
+      "type": "string",
+      "description": "Investidor ainda possui contas ativas ou em análise",
+      "const": "REG50111"
+    },
+    {
+      "type": "string",
+      "description": "Para residentes, apenas endereços brasileiros são válidos",
+      "const": "REG50112"
+    },
+    {
+      "type": "string",
+      "description": "Investidor ainda possui vínculo de conta ativo",
+      "const": "REG50113"
+    },
+    {
+      "type": "string",
+      "description": "Profissional está suspenso ou inativo",
+      "const": "REG50114"
+    },
+    {
+      "type": "string",
+      "description": "Contas devem ter o mesmo titular",
+      "const": "REG50115"
+    },
+    {
+      "type": "string",
+      "description": "Conta da parte ja e contraparte",
+      "const": "REG50116"
+    },
+    {
+      "type": "string",
+      "description": "Conta da contraparte ja e parte",
+      "const": "REG50117"
+    },
+    {
+      "type": "string",
+      "description": "Contas de corretagem devem ter o mesmo titular",
+      "const": "REG50118"
+    },
+    {
+      "type": "string",
+      "description": "Vinculo deve ser entre os mesmos participantes",
+      "const": "REG50119"
+    },
+    {
+      "type": "string",
+      "description": "Não é possivel editar conta inativa",
+      "const": "REG50120"
+    },
+    {
+      "type": "string",
+      "description": "Pessoa possui relacionamento ativo",
+      "const": "REG50121"
+    },
+    {
+      "type": "string",
+      "description": "Não é um participante ativo",
+      "const": "REG50122"
+    },
+    {
+      "type": "string",
+      "description": "Documento da empresa obrigatório",
+      "const": "REG50123"
+    },
+    {
+      "type": "string",
+      "description": "Nome da empresa obrigatório",
+      "const": "REG50124"
+    },
+    {
+      "type": "string",
+      "description": "Data de fim do relacionamento possui valor",
+      "const": "REG50125"
+    },
+    {
+      "type": "string",
+      "description": "Validar dados do investidor",
+      "const": "REG50126"
+    },
+    {
+      "type": "string",
+      "description": "Não é possivel atualizar o status",
+      "const": "REG50127"
+    },
+    {
+      "type": "string",
+      "description": "Vinculo deve ser entre participantes diferentes",
+      "const": "REG50128"
+    },
+    {
+      "type": "string",
+      "description": "Ja possui vinculo",
+      "const": "REG50129"
+    },
+    {
+      "type": "string",
+      "description": "Vinculo nao encontrado",
+      "const": "REG50130"
+    },
+    {
+      "type": "string",
+      "description": "Mapeamento ja existe",
+      "const": "REG50131"
+    },
+    {
+      "type": "string",
+      "description": "Documento nao encontrado",
+      "const": "REG50132"
+    },
+    {
+      "type": "string",
+      "description": "Investidor não está ativo",
+      "const": "REG50133"
+    },
+    {
+      "type": "string",
+      "description": "Não foi possivel criar código 99",
+      "const": "REG50134"
+    }
+  ],
+  "examples": [
+    "REG10101",
+    "REG10102",
+    "REG10103",
+    "REG10104",
+    "REG10105"
+  ]
+}

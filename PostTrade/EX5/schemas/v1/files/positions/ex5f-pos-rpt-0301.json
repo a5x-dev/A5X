@@ -87,9 +87,9 @@
       "type" : "integer", 
       "minimum" : 1, 
       "maximum" : 999999999, 
-      "description" : "Market type - second level of market classification in post-trading process", 
-      "$comment" : "Consult External Code List table"
-    }, 
+      "description" : "Market type - second level of market classification in post-trading process",
+      "$comment" : "Consult External Code List table ExternalMarketCode"
+    },
     "roundLotContractSize" : {
       "type" : "number", 
       "description" : "Decimal value representing the size of a round lot contract"

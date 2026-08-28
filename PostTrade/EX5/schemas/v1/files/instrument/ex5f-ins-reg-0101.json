@@ -59,14 +59,14 @@
     "market": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Market where the commodity is registered - 2nd level of commodity registration",
       "$comment": "Consult External Code List table ExternalMarketCode"
     },
     "segment" : {
       "type" : "integer",
       "minimum" : 1,
-      "maximum" : 999999,
+      "maximum" : 999999999,
       "description": "Segment where the commodity is registered - 1st level of commodity registration",
       "$comment" : "Consult External Code List table ExternalSegmentCode"
     },
@@ -88,10 +88,10 @@
     },
     "securityCategory": {
       "type": "integer",
-      "minimum": 1,
-      "maximum": 999999,
+      "minimum": 0,
+      "maximum": 999999999,
       "description": "Instrument type identifier",
-      "$comment": "Consultar a lista na tabela ExternalSecurityCategory"
+      "$comment": "Consultar a lista na tabela ExternalSecurityCategoryCode"
     },
     "isin": {
       "type": "string",
@@ -158,9 +158,9 @@
     "brazilianFederalGovernmentBondTypeCode": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Brazilian Federal Government Bond type classifier",
-      "$comment": "Consultar a lista na tabela ExternalBrazilianFederalGovermmentBondType"
+      "$comment": "Consultar a lista na tabela ExternalBrazilianFederalGovernmentBondTypeCode"
     },
     "maturityValueAmount": {
       "type": "string",
@@ -180,7 +180,7 @@
     "programLevel": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Identifies the program type",
       "$comment": "Consultar a lista na tabela ExternalProgramLevelTypeCode"
     },
@@ -209,8 +209,8 @@
     },
     "paymentType": {
       "type": "integer",
-      "minimum": 1,
-      "maximum": 999999,
+      "minimum": 0,
+      "maximum": 999999999,
       "description": "Trade settlement type",
       "$comment": "Consult External Code List table ExternalPaymentTypeCode"
    
@@ -319,21 +319,21 @@
     "assetCollateralType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Identifies the security collateral type",
       "$comment": "Consultar a lista na tabela ExternalAssetCollateralTypeCode"
     },
     "assetAdditionalCollateralType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Identifies the additional collateral type of the security",
       "$comment": "Consultar a lista na tabela ExternalAssetAdditionalCollateralTypeCode"
     },
     "assetSubordinatedType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Identifies the subordination type of the security",
       "$comment": "Consultar a lista na tabela ExternalAssetSubordinatedTypeCode"
     },
@@ -352,14 +352,14 @@
     "interestRateCorrectionType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Provides the interest rate correction type",
       "$comment": "Consultar a lista na tabela ExternalInterestRateCorrectionTypeCode"
     },
     "interestRateCorrectionTimeBase": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Provides the basis for interest rate correction time base",
       "$comment": "Consultar a lista na tabela ExternalInterestRateCorrectionTimeBase"
     },
@@ -408,24 +408,24 @@
     },
     "valueTypeCode": {
       "type": "integer",
-      "minimum": 1,
-      "maximum": 999999,
+      "minimum": 0,
+      "maximum": 999999999,
       "description": "Code that defines the instrument value type",
       "$comment": "Consultar a lista na tabela ExternalValueTypeCode"
     },
     "baseCode": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Number of days for instrument calculation (252, 360, 365, etc)",
       "$comment": "Consultar a lista na tabela ExternalInterestRateCorrectionTimeBaseCode"
     },
     "conversionCriteria": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Conversion criteria type",
-      "$comment": "Consultar a lista na tabela ExternalInterestRateCorrectionTypeCode"
+      "$comment": "Consultar a lista na tabela ExternalConversionCriteriaTypeCode"
     },
     "maturityDateTargetPoint": {
       "type": "integer",
@@ -439,8 +439,8 @@
     },
     "deliveryType": {
       "type": "integer",
-      "minimum": 1,
-      "maximum": 999999,
+      "minimum": 0,
+      "maximum": 999999999,
       "description": "Delivery type identification number",
       "$comment": "Consultar a lista na tabela ExternalDeliveryTypeCode"
     },

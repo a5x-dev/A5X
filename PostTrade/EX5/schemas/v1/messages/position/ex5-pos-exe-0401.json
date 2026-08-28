@@ -30,9 +30,11 @@
       "allOf" : [ {
         "$ref" : "../../objects/business/Instrument.json"
       }, {
-        "expiryDate": {
-          "type": "string",
-          "format": "localDate"
+        "properties": {
+          "expiryDate": {
+            "type": "string",
+          "format" : "date"
+          }
         }
       } ],
       "description" : "Financial instrument information, including ISIN and ticker symbol"

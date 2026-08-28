@@ -17,7 +17,7 @@
     "exerciseStyle": {
       "$ref": "../../objects/business/ExternalCodeTextList.json",
       "description": "Style of the option exercise (e.g., American, European)",
-      "$comment": "Consult External Code List table ExternalOptionExerciseStyleCode"
+      "$comment": "Consult External Code List table ExternalExerciseStyleCode"
     },
     "optionType": {
       "$ref": "../../objects/business/ExternalCodeList.json",

@@ -1,5 +1,5 @@
 {
-  "$schema" : "https://json-schema.org/draft/2020-12/schema#",
+  "$schema" : "http://json-schema.org/draft-07/schema#",
   "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalRiskErrorCode.Pt",
   "$metadata" : {
     "domain" : "schemas_external",
@@ -29,7 +29,7 @@
     "const" : "RSK00005"
   }, {
     "type" : "string",
-    "description" : "marginRunId inválido",
+    "description" : "MarginRunId inválido",
     "const" : "RSK00006"
   }, {
     "type" : "string",

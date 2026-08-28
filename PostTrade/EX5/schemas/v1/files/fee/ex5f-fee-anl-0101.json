@@ -102,8 +102,8 @@
       "description": "Commodity associated with the instrument"
     },
     "securityCategory": {
-      "type": "string",
-      "minimum": 1,
+      "type": "integer",
+      "minimum": 0,
       "maximum": 999999999,
       "description": "Instrument type identifier",
       "$comment": "Consult External Code List table ExternalSecurityCategoryCode"

@@ -161,7 +161,7 @@
       "minimum": 1,
       "maximum": 999999999,
       "description": "Indicates if trade was executed during regular hours or after market",
-      "$comment": "Consult External Code List table ExternalTradingSessionIdCode"
+      "$comment": "Consult External Code List table ExternalTradingSessionIdentificationCode"
     },
     "tradeRegistrationOrigin": {
       "type": "string",
@@ -174,7 +174,7 @@
       "minimum": 1,
       "maximum": 999999999,
       "description": "Identifies the phase group in trading session",
-      "$comment": "Consult External Code List table ExternalTradingSessionSubIdCode"
+      "$comment": "Consult External Code List table ExternalTradingSessionSubIdentificationCode"
     },
     "securityTradingStatus": {
       "type": "integer",

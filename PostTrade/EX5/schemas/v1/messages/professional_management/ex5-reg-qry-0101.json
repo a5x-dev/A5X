@@ -68,7 +68,7 @@
       "type": "array",
       "items": {
         "$ref": "../../objects/business/ExternalCodeList.json",
-        "$comment": "Consult External Code List table ExternalProfessionalMappingRoleCode"
+        "$comment": "Consult External Code List table ExternalProfessionalRoleCode"
       },
       "description": "Type of professional role",
       "maxItems": 50

@@ -23,14 +23,7 @@
     "type" : "number",
     "description" : "POR CONTA E ORDEM",
     "const" : 8
-  }, {
-    "type" : "number",
-    "description" : "REPASSE COM APROVAÇÃO AUTOMÁTICA",
-    "const" : 11
-  }, {
-    "type" : "number",
-    "description" : "CONSOLIDAÇÃO DE TARIFAÇÃO",
-    "const" : 12
   } ],
-  "examples" : [ 1, 5, 3, 4, 5 ]
+  "additionalProperties": false,
+  "examples" : [ 1, 5, 6, 8 ]
 }

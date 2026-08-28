@@ -83,7 +83,7 @@
     "market": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Market type - second level of market classification in post-trade process",
       "$comment": "Consult External Code List table ExternalMarketCode"
     },
@@ -93,9 +93,9 @@
       "description": "Commodity associated with the instrument"
     },
     "securityCategory": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 6,
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999999,
       "description": "Instrument type identifier",
       "$comment": "Consult External Code List table ExternalSecurityCategoryCode"
     },
@@ -124,14 +124,14 @@
     "feeProductGroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Fee family",
       "$comment": "Consult External Code List table ExternalFeeProductGroupCode"
     },
     "feeComponent": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Calculated fee component",
       "$comment": "Consult External Code List table ExternalFeeComponentCode"
     },
@@ -161,7 +161,7 @@
     "feeProductSubgroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Represents the second level of fee family, when applicable",
       "$comment": "Consult External Code List table ExternalFeeProductGroupCode. Field will be filled when product uses second level of fee family"
     },
@@ -188,14 +188,14 @@
     "calculationType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Indicates if calculation is Progressive or Regressive",
       "$comment": "Consult External Code List table ExternalFeeCalculationTypeCode. Field will not be filled when component deals with maturity settlement or exercise"
     },
     "additionalValueType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999,
+      "maximum": 999999999,
       "description": "Additional value type indicator",
       "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
     },

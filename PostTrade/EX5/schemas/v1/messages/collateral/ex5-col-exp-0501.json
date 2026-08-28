@@ -28,7 +28,7 @@
     "collateralReportType" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Provides type of requested report",
-      "comment" : "Consult External Code List table ExternalCollateralReportTypeCode"
+      "$comment" : "Consult External Code List table ExternalCollateralReportTypeCode"
     },
     "collateralCoverageInformation" : {
       "$ref" : "../../objects/business/CollateralCoverageInformation.json",

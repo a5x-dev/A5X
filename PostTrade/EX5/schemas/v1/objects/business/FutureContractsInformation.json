@@ -24,7 +24,7 @@
     "conversionCriteria": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Type of conversion criteria, for example, linear, exponential, not available",
-      "$comment": "Consult External Code List table ExternalInterestRateCorrectionTypeCode"
+      "$comment": "Consult External Code List table ExternalConversionCriteriaTypeCode"
     },
     "maturityDateTargetPoint": {
       "type": "integer",

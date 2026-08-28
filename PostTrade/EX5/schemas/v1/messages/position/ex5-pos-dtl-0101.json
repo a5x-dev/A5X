@@ -13,9 +13,9 @@
       "$ref" : "../../objects/business/PartyId.json",
       "description" : "Provides details about the clearing member identification"
     },
-    "participantInformation" : {
-      "$ref" : "../../objects/business/ParticipantAndAccount.json",
-      "description" : "Provides details about the origin participant and account identification"
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Provides details about the origin participant identification"
     },
     "financialInstruments" : {
       "type" : "array",
@@ -32,21 +32,16 @@
       "examples" : [ 1, 2 ]
     }
   },
-  "required" : [ "participantInformation", "financialInstruments", "reportType" ],
+  "required" : [ "participantIdentification", "financialInstruments", "reportType" ],
   "additionalProperties" : false,
   "examples" : [ {
     "clearingMemberIdentification" : {
       "id" : 999,
       "category" : 2
     },
-    "participantInformation" : {
-      "participantIdentification" : {
-        "id" : 789012,
-        "category" : 3
-      },
-      "accountIdentification" : {
-        "id" : 123456789
-      }
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
     },
     "financialInstruments" : [ {
       "id" : "100000000000001",

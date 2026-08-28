@@ -10,7 +10,9 @@
   "type" : "object",
   "properties" : {
     "frequency" : {
-      "type" : "integer",
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 15,
       "description" : "Frequency of the report",
       "$comment" : "Consult External Code List table EventFrequency6Code"
     },
@@ -59,7 +61,9 @@
       "description" : "Account identifier defined by the participant"
     },
     "originPositionType" : {
-      "type" : "integer",
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 15,
       "description" : "Type of origin position",
       "$comment" : "Consult ExternalOriginPositionTypeCode"
     },
@@ -98,7 +102,7 @@
     "strategyStatus" : {
       "type" : "integer",
       "description" : "Specifies whether the positions are related to a strategy trade",
-      "$comment" : "Consult External Code List table ExternalStrategyIndicator"
+      "$comment" : "Consult External Code List table ExternalStrategyStatus"
     },
     "quantity" : {
       "type" : "string",

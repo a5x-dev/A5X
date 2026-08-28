@@ -112,7 +112,7 @@
     },
     "tradeTransactionType": {
       "type": "integer",
-      "minimum": 1,
+      "minimum": 0,
       "maximum": 999999999,
       "description": "Trade transaction type code",
       "$comment": "Consult External Code List table ExternalTradeTransactionTypeCode"
@@ -149,7 +149,7 @@
       "minimum": 1,
       "maximum": 999999999,
       "description": "Indicates if trade was executed during regular hours or after market",
-      "$comment": "Consult External Code List table ExternalTradingSessionIdCode"
+      "$comment": "Consult External Code List table ExternalTradingSessionIdentificationCode"
     },
     "tradeRegistrationOrigin": {
       "type": "string",

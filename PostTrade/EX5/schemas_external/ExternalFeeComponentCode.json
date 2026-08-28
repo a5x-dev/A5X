@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeComponentsCode",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeComponentCode",
   "$metadata" : {
     "domain" : "schemas_external",
-    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeComponentsCode"
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeComponentCode"
   },
   "title" : "External Fee Components",
   "description" : "Codes for fee components",

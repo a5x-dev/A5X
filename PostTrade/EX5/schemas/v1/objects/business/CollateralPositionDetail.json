@@ -46,7 +46,7 @@
     "collateralClientCategory": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Category of the collateral holder",
-      "$comment": "Consult External Code List table ExternalCollateralClientCategoryCode"
+      "$comment": "Consult External Code List table ExternalCollateralClientCategoryTypeCode"
     },
     "collateralReference": {
       "type": "string",

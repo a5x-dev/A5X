@@ -79,7 +79,7 @@
     "conversionCriteria": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Type of conversion criteria",
-      "$comment": "Consult External Code List table ExternalCriteriaTypeCode"
+      "$comment": "Consult External Code List table ExternalConversionCriteriaTypeCode"
     },
     "maturityDateTargetPoint": {
       "type": "integer",

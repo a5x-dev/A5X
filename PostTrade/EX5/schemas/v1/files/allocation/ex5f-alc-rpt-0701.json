@@ -135,9 +135,9 @@
       ]
     },
     "tradeTransactionType": {
-      "type": "string",
-      "maxLength": 35,
-      "minLength": 1,
+       "type": "integer",
+      "minimum": 0,
+      "maximum": 999999999,
       "description": "Trade transaction type code",
       "$comment": "Consult External Code List table ExternalTradeTransactionTypeCode"
     },
@@ -209,7 +209,7 @@
       "minimum": 1,
       "maximum": 999999999,
       "description": "Indicates if trade was executed during regular hours or after market",
-      "$comment": "Consult External Code List table ExternalTradingSessionIdCode",
+      "$comment": "Consult External Code List table ExternalTradingSessionIdentificationCode",
       "examples": [
         1,
         2,
@@ -218,9 +218,9 @@
       ]
     },
     "securityTradingStatus": {
-      "type": "string",
-      "maxLength": 35,
-      "minLength": 1,
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999999,
       "description": "Security trading status code",
       "$comment": "Consult External Code List table ExternalSecurityTradingStatusCode"
     },
@@ -229,7 +229,7 @@
       "minimum": 1,
       "maximum": 999999999,
       "description": "Identifies the phase group in trading session",
-      "$comment": "Consult External Code List table ExternalTradingSessionSubIdCode",
+      "$comment": "Consult External Code List table ExternalTradingSessionSubIdentificationCode",
       "examples": [
         1,
         2,
