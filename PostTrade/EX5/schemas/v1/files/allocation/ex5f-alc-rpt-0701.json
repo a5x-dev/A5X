@@ -135,7 +135,7 @@
       ]
     },
     "tradeTransactionType": {
-       "type": "integer",
+      "type": "integer",
       "minimum": 0,
       "maximum": 999999999,
       "description": "Trade transaction type code",
@@ -297,12 +297,12 @@
     "averagePriceGroupIdentification",
     "averagePrice",
     "averagePriceQuantity",
-    "allocationGroupIdentification",
     "averageExecutionTime",
     "averageCreationTime",
     "tradeDate",
     "buySellIndicator",
     "tradeIdentification",
+    "tradeQuantity",
     "dealPrice",
     "participantOriginIdentificationId",
     "participantOriginIdentificationCategory"

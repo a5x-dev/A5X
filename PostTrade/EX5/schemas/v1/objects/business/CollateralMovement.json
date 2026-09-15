@@ -16,7 +16,7 @@
     },
     "assetNumber" : {
       "type" : "string",
-      "maxLength" : 35,
+      "maxLength" : 40,
       "minLength" : 1,
       "description" : "A number that unambiguously identifies the collateral."
     },

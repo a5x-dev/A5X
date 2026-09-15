@@ -21,7 +21,7 @@
     },
     "assetNumber" : {
       "type" : "string",
-      "maxLength" : 35,
+      "maxLength" : 40,
       "minLength" : 1,
       "description" : "Identifies the register number of the collateral deposit assigned by the central counterparty"
     },

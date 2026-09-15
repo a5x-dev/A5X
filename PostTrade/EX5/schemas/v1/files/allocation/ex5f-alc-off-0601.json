@@ -110,7 +110,7 @@
     },
     "accountPreviousType": {
       "type": "integer",
-      "minimum": 1,
+      "minimum": 0,
       "maximum": 999999999,
       "description": "Account type identification that will be registered",
       "$comment": "Consult External Code List table ExternalSecurityAccountTypeCode"
@@ -142,7 +142,7 @@
     },
     "accountOriginType": {
       "type": "integer",
-      "minimum": 1,
+      "minimum": 0,
       "maximum": 999999999,
       "description": "Account type identification that will be registered",
       "$comment": "Consult External Code List table ExternalSecurityAccountTypeCode"
@@ -243,7 +243,7 @@
     "segment",
     "dealPrice",
     "quantity",
-    "participantOriginIdentification",
+    "participantOriginIdentificationId",
     "participantOriginIdentificationCategory",
     "accountOriginIdentification",
     "participantDestinationIdentificationId",

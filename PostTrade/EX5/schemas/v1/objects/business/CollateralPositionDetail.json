@@ -9,11 +9,6 @@
   "description": "Provides collateral identification, financial instrument, quantity and value information for a posted collateral position",
   "type": "object",
   "properties": {
-    "referenceDate": {
-      "type": "string",
-      "format": "date",
-      "description": "Reference date of the collateral position"
-    },
     "collateralCoverageType": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Purpose for which the collateral is allocated",
@@ -21,7 +16,7 @@
     },
     "assetNumber": {
       "type": "string",
-      "maxLength": 35,
+      "maxLength": 40,
       "minLength": 1,
       "description": "Collateral asset number"
     },
@@ -62,17 +57,9 @@
       "format": "date",
       "description": "Collateral maturity date when applicable"
     },
-    "collateralQuantities": {
-      "$ref": "../../objects/business/CollateralDetailQuantities.json",
-      "description": "Quantities associated with the collateral position"
-    },
-    "collateralValue": {
-      "$ref": "../../objects/business/MonetaryValue.json",
-      "description": "Collateral value after taking into account the haircut"
-    },
-    "withdrawalBlockedValue": {
-      "$ref": "../../objects/business/MonetaryValue.json",
-      "description": "Blocked value by clearing. This field has 2 decimal places. Valor bloqueado para retirada pela clearing. Este campo possui 2 casas decimais"
+    "collateralDetailInformation": {
+      "$ref": "../../objects/business/CollateralDetailInformation.json",
+      "description": "Value and quantity information associated with the collateral position"
     },
     "isin": {
       "$ref": "../../types/Isin.json",
@@ -87,24 +74,22 @@
   "required": [
     "collateralCoverageType",
     "assetNumber",
+    "holderIndicator",
+    "coverageMarginIndicator",
     "collateralType",
-    "collateralClientCategory",
     "collateralReference",
     "financialInstrumentIdentification",
-    "collateralQuantities",
-    "portfolio"
+    "collateralDetailInformation"
   ],
-  "additionalProperties": true,
+  "additionalProperties": false,
   "examples": [
     {
-      "referenceDate": "2022-05-26",
       "collateralCoverageType": 1,
       "assetNumber": "000000202100000173821",
       "holderIndicator": true,
       "coverageMarginIndicator": true,
       "collateralType": 3,
       "collateralSubType": "FEDERAL_BOND",
-      "collateralClientCategory": 1,
       "collateralReference": "ABCD",
       "financialInstrumentIdentification": {
         "id": "100000109699",
@@ -112,22 +97,45 @@
         "exchange": "A5XB"
       },
       "maturityDate": "2025-12-31",
-      "collateralQuantities": {
-        "depositedQuantity": 22,
-        "acceptedQuantity": 23,
-        "valuedQuantity": 25,
-        "deliveryQuantity": 1,
-        "blockedQuantity": 1
-      },
-      "collateralValue": {
-        "amount": "2222.76"
-      },
-      "withdrawalBlockedValue": {
-        "currency": "BRL",
-        "amount": "5000.00"
+      "collateralDetailInformation": {
+        "depositedQuantity": 1000,
+        "valuedQuantity": 950,
+        "deliveryQuantity": 100,
+        "blockedQuantity": 50,
+        "collateralValue": {
+          "amount": "2870147502.59"
+        },
+        "withdrawalBlockedValue": {
+          "amount": "0.00"
+        }
       },
       "isin": "BREVWZT1PUO6",
       "portfolio": "5590-5"
+    },
+    {
+      "collateralCoverageType": 1,
+      "assetNumber": "000000202100000173822",
+      "holderIndicator": false,
+      "coverageMarginIndicator": true,
+      "collateralType": 3,
+      "collateralReference": "EFGH",
+      "financialInstrumentIdentification": {
+        "id": "100000109700",
+        "source": "8",
+        "exchange": "A5XB"
+      },
+      "collateralDetailInformation": {
+        "depositedQuantity": 500,
+        "valuedQuantity": 480,
+        "deliveryQuantity": 10,
+        "blockedQuantity": 5,
+        "collateralValue": {
+          "amount": "2222.76"
+        },
+        "withdrawalBlockedValue": {
+          "amount": "5000.00"
+        }
+      }
     }
   ]
 }

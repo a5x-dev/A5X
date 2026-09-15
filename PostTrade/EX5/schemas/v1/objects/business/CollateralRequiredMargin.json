@@ -9,98 +9,122 @@
   "description": "Required margin and collateral balance information for a participant account",
   "type": "object",
   "properties": {
+    "participantIdentificationRequester": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Identification of the participant that requested the required margin information"
+    },
+    "accountIdentificationRequester": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Identification of the account that requested the required margin information"
+    },
+    "participantIdentificationRequested": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Identification of the participant to which the required margin information refers"
+    },
+    "accountIdentificationRequested": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Identification of the account to which the required margin information refers"
+    },
     "tradeDate": {
       "type": "string",
       "format": "date",
       "description": "Reference date of the required margin information"
     },
-    "informationType": {
-      "$ref": "../../objects/business/ExternalCodeList.json",
-      "description": "Type of margin information",
-      "$comment": "Consult External Code List table ExternalInformationTypeCode"
+    "collateralCoverageInformation": {
+      "$ref": "../../objects/business/CollateralCoverageInformation.json",
+      "description": "Collateral coverage information (information type and collateral coverage type)"
     },
-    "collateralCoverageType": {
-      "$ref": "../../objects/business/ExternalCodeList.json",
-      "description": "Collateral coverage type",
-      "$comment": "Consult External Code List table ExternalCollateralCoverageTypeCode"
-    },
-    "riskWithoutCollateral": {
-      "$ref": "../../types/DecimalNumber.json",
-      "description": "Risk amount before collateral coverage"
-    },
-    "initialMargin": {
-      "$ref": "../../objects/business/MonetaryValue.json",
-      "description": "Initial Margin calculated for Margin Account."
-    },
-    "theoreticalAdditionalMargin": {
-      "$ref": "../../objects/business/MonetaryValue.json",
-      "description": "Theoretical additional margin amount"
-    },
-    "totalTheoreticalMargin": {
-      "$ref": "../../objects/business/MonetaryValue.json",
-      "description": "Total theoretical margin amount (initial + additional)"
-    },
-    "contingentVariationMargin": {
-      "$ref": "../../objects/business/MonetaryValue.json",
-      "description": "Contingent variation margin amount"
-    },
-    "optionPremiumMargin": {
-      "$ref": "../../objects/business/MonetaryValue.json",
-      "description": "Option premium margin amount"
-    },
-    "totalCollateralValue": {
-      "$ref": "../../objects/business/MonetaryValue.json",
-      "description": "Total value of collateral posted"
-    },
-    "collateralBalance": {
-      "$ref": "../../objects/business/MonetaryValue.json",
-      "description": "Resulting collateral balance. Negative values indicate a collateral deficit"
+    "marginInformation": {
+      "type": "object",
+      "description": "Margin metrics and resulting collateral balance",
+      "properties": {
+        "riskWithoutCollateral": {
+          "$ref": "../../objects/business/MonetaryValue.json",
+          "description": "Risk amount before collateral coverage"
+        },
+        "initialMargin": {
+          "$ref": "../../objects/business/MonetaryValue.json",
+          "description": "Initial Margin calculated for Margin Account."
+        },
+        "theoreticalAdditionalMargin": {
+          "$ref": "../../objects/business/MonetaryValue.json",
+          "description": "Theoretical additional margin amount"
+        },
+        "totalTheoreticalMargin": {
+          "$ref": "../../objects/business/MonetaryValue.json",
+          "description": "Total theoretical margin amount (initial + additional)"
+        },
+        "contingentVariationMargin": {
+          "$ref": "../../objects/business/MonetaryValue.json",
+          "description": "Contingent variation margin amount"
+        },
+        "optionPremiumMargin": {
+          "$ref": "../../objects/business/MonetaryValue.json",
+          "description": "Option premium margin amount"
+        },
+        "totalCollateralValue": {
+          "$ref": "../../objects/business/MonetaryValue.json",
+          "description": "Total value of collateral posted"
+        },
+        "collateralBalance": {
+          "$ref": "../../objects/business/MonetaryValue.json",
+          "description": "Resulting collateral balance. Negative values indicate a collateral deficit"
+        }
+      },
+      "required": [
+        "riskWithoutCollateral",
+        "initialMargin",
+        "totalCollateralValue",
+        "collateralBalance"
+      ],
+      "additionalProperties": false
     }
   },
   "required": [
+    "participantIdentificationRequester",
+    "accountIdentificationRequester",
+    "participantIdentificationRequested",
+    "accountIdentificationRequested",
     "tradeDate",
-    "collateralCoverageType",
-    "riskWithoutCollateral",
-    "initialMargin",
-    "totalTheoreticalMargin",
-    "totalCollateralValue",
-    "collateralBalance"
+    "collateralCoverageInformation",
+    "marginInformation"
   ],
   "additionalProperties": false,
   "examples": [
     {
+      "participantIdentificationRequester": {
+        "id": 999,
+        "category": 3
+      },
+      "accountIdentificationRequester": {
+        "id": 529876543
+      },
+      "participantIdentificationRequested": {
+        "id": 888,
+        "category": 4
+      },
+      "accountIdentificationRequested": {
+        "id": 123456789
+      },
       "tradeDate": "2022-05-26",
-      "informationType": 2,
-      "collateralCoverageType": 1,
-      "riskWithoutCollateral": "300000.00",
-      "initialMargin": {
-          "currency" : "BRL",
-          "amount" : "50000.00"
+      "collateralCoverageInformation": {
+        "informationType": 2,
+        "collateralCoverageType": 1
       },
-      "theoreticalAdditionalMargin": {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-      },
-      "totalTheoreticalMargin": {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-      },
-      "contingentVariationMargin": {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-      },
-      "optionPremiumMargin": {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-      },
-      "totalCollateralValue": {
-          "currency" : "BRL",
-          "amount" : "50000.00"
+      "marginInformation": {
+        "riskWithoutCollateral": {
+          "amount": "2870147502.59"
         },
-      "collateralBalance": {
-          "currency" : "BRL",
-          "amount" : "50000.00"
+        "initialMargin": {
+          "amount": "300000.00"
+        },
+        "totalCollateralValue": {
+          "amount": "2046500729.22"
+        },
+        "collateralBalance": {
+          "amount": "50000.00"
         }
+      }
     }
   ]
 }

@@ -18,7 +18,7 @@
     },
     "assetNumber" : {
       "type" : "string",
-      "maxLength" : 35,
+      "maxLength" : 40,
       "minLength" : 1,
       "description" : "Identifica o número de registro do depósito de garantia atribuído pela contraparte central",
       "examples" : [ "AST-001", "REG-98765", "DEP-456" ]

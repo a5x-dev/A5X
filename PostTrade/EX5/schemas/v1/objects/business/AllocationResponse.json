@@ -17,7 +17,7 @@
     "allocationStatusCode": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Status information for the allocation including processing codes",
-      "$comment": "Consult table ExternalAllocationInstructionStatusCode. Contains status codes and optional rule identification for rejected allocations"
+      "$comment": "Consult table ExternalStatusAllocationAdviceCode. Contains status codes and optional rule identification for rejected allocations"
     },
     "errorReasonAllocation": {
       "type": "array",

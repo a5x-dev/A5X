@@ -17,6 +17,10 @@
       "$ref" : "../../objects/business/PartyId.json",
       "description" : "Provides details about the origin participant identification"
     },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/AccountIdentification.json",
+      "description" : "Identification of the account associated with the trade"
+    },
     "financialInstruments" : {
       "type" : "array",
       "items" : {
@@ -42,6 +46,9 @@
     "participantIdentification" : {
       "id" : 789012,
       "category" : 3
+    },
+    "accountIdentification" : {
+      "id" : 529876543
     },
     "financialInstruments" : [ {
       "id" : "100000000000001",

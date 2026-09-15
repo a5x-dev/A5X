@@ -1,0 +1,102 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:PostedCollateralGroup",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:PostedCollateralGroup"
+  },
+  "title": "Posted Collateral Group",
+  "description": "Account group holding all applicable posted collateral for one account, carrying its own complete participant/account identification",
+  "type": "object",
+  "properties": {
+    "participantIdentificationRequester": {
+      "$ref": "../../objects/business/PartyId.json"
+    },
+    "accountIdentificationRequester": {
+      "$ref": "../../objects/business/AccountIdentification.json"
+    },
+    "participantIdentificationRequested": {
+      "$ref": "../../objects/business/PartyId.json"
+    },
+    "accountIdentificationRequested": {
+      "$ref": "../../objects/business/AccountIdentification.json"
+    },
+    "referenceDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Reference date of the account group"
+    },
+    "collateralDetails": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/CollateralPositionDetail.json"
+      },
+      "minItems": 0,
+      "maxItems": 10000,
+      "description": "Collateral details for this account group"
+    },
+    "custodianIdentification": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Optional custodian participant identification (present for self-custody collateral)"
+    },
+    "custodianAccountIdentification": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Optional custodian account identification (present for self-custody collateral)"
+    }
+  },
+  "required": [
+    "participantIdentificationRequester",
+    "accountIdentificationRequester",
+    "participantIdentificationRequested",
+    "accountIdentificationRequested",
+    "referenceDate",
+    "collateralDetails"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "participantIdentificationRequester": {
+        "id": 935,
+        "category": 1
+      },
+      "accountIdentificationRequester": {
+        "id": 10021
+      },
+      "participantIdentificationRequested": {
+        "id": 935,
+        "category": 1
+      },
+      "accountIdentificationRequested": {
+        "id": 10021
+      },
+      "referenceDate": "2022-05-26",
+      "collateralDetails": [
+        {
+          "collateralCoverageType": 1,
+          "assetNumber": "0000002021000000611",
+          "holderIndicator": true,
+          "coverageMarginIndicator": false,
+          "collateralType": 8,
+          "collateralReference": "Real - Netting",
+          "financialInstrumentIdentification": {
+            "id": "10000001",
+            "source": "8",
+            "exchange": "BVMF"
+          },
+          "collateralDetailInformation": {
+            "depositedQuantity": 2000,
+            "valuedQuantity": 1800,
+            "deliveryQuantity": 100,
+            "blockedQuantity": 50,
+            "collateralValue": {
+              "amount": "2870147502.59"
+            },
+            "withdrawalBlockedValue": {
+              "amount": "0.00"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

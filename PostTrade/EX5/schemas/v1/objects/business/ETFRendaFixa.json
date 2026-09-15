@@ -54,7 +54,7 @@
     "interestRateCorrectionType": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Provides the interest correction type",
-      "$comment": "Consult External Code List table ExternalInterestRateCorrectionTypeCode"
+      "$comment": "Consult External Code List table ExternalConversionCriteriaTypeCode"
     },
     "interestRateCorrectionTimeBase": {
       "$ref": "../../objects/business/ExternalCodeList.json",

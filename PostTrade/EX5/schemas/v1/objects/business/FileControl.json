@@ -1,0 +1,87 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:FileControl",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:FileControl"
+  },
+  "title" : "File Control",
+  "description" : "File control header for the QUALIF004 report with control metadata and requester/requested participant identification at the file level",
+  "type" : "object",
+  "properties" : {
+    "fileCode" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 35,
+      "description" : "File code identifying the report file"
+    },
+    "reportParameters" : {
+      "$ref" : "../../objects/business/ReportParameters.json",
+      "description" : "Report parameters with frequency, report number and report date/time"
+    },
+    "tradeDate" : {
+      "type" : "string",
+      "format" : "date",
+      "description" : "Trade date of the file (YYYY-MM-DD)"
+    },
+    "informationType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Information regarding the party collateral position",
+      "$comment" : "Consult External Code List table ExternalInformationTypeCode"
+    },
+    "participantIdentificationRequester" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Requester participant identification at the file level"
+    },
+    "participantIdentificationRequested" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Requested participant identification at the file level"
+    },
+    "movementNumber" : {
+      "type" : "string",
+      "description" : "Movement number of the file"
+    },
+    "totalRecords" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "description" : "Total number of records in the file"
+    }
+  },
+  "required" : [ "fileCode", "reportParameters", "tradeDate", "participantIdentificationRequester", "participantIdentificationRequested" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "fileCode" : "QUALIF004",
+    "reportParameters" : {
+      "frequency" : "DALI",
+      "reportNumber" : "00001",
+      "reportDateAndTime" : "2022-05-27T00:00:00Z"
+    },
+    "tradeDate" : "2022-05-26",
+    "informationType" : 2,
+    "participantIdentificationRequester" : {
+      "id" : 935,
+      "category" : 1
+    },
+    "participantIdentificationRequested" : {
+      "id" : 935,
+      "category" : 1
+    },
+    "movementNumber" : "000000001",
+    "totalRecords" : 65
+  }, {
+    "fileCode" : "QUALIF004",
+    "reportParameters" : {
+      "frequency" : "DALI",
+      "reportDateAndTime" : "2022-05-27T00:00:00Z"
+    },
+    "tradeDate" : "2022-05-26",
+    "participantIdentificationRequester" : {
+      "id" : 444,
+      "category" : 3
+    },
+    "participantIdentificationRequested" : {
+      "id" : 789012,
+      "category" : 4
+    }
+  } ]
+}

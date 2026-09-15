@@ -17,7 +17,7 @@
     },
     "assetNumber" : {
       "type" : "string",
-      "maxLength" : 35,
+      "maxLength" : 40,
       "minLength" : 1,
       "description" : "A number that unambiguously identifies the collateral. Provides the deposit record number",
       "examples" : [ "AST123456789", "COL-2024-001", "ASSET-789012" ]

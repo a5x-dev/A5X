@@ -10,8 +10,8 @@
   "type" : "object",
   "properties" : {
     "accountIdentification" : {
-      "$ref" : "../../objects/business/AccountIdentification.json",
-      "description" : "Identification of the account associated with the trade"
+      "$ref" : "../../objects/business/Account.json",
+      "description" : "Identification of the account associated with the trade, using proprietary scheme"
     },
     "trade" : {
       "allOf" : [ {
@@ -60,15 +60,16 @@
     }
   },
   "required" : [ "accountIdentification", "trade", "participantIdentification", "instrument", "transactionDateTime", "tradeQuantity", "giveUpOnCaptureIndicator" ],
-  "example" : [ {
+  "examples" : [ {
     "accountIdentification" : {
+      "accountType" : 1,
       "id" : 123456789
     },
     "trade" : {
       "tradeDate" : "2025-08-25",
       "buySellIndicator" : 1,
       "tradeIdentification" : "TRADE12345612345678923456789",
-      "allocationIdentification" : "ALLOC98765432109876543210987654321",
+      "allocationIdentification" : "ALLOC2023121501",
       "statusCode" : 1
     },
     "participantIdentification" : {

@@ -11,7 +11,7 @@
   "properties" : {
     "assetNumber" : {
       "type" : "string",
-      "maxLength" : 35,
+      "maxLength" : 40,
       "minLength" : 1,
       "description" : "Asset number registered in the central depository"
     },

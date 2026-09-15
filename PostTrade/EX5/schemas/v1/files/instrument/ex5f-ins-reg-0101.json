@@ -40,8 +40,8 @@
     },
     "financialInstrumentIdentificationExchange": {
       "type": "string",
-      "minLength": 3,
-      "maxLength": 8,
+      "minLength": 4,
+      "maxLength": 4,
       "description": "Exchange or market identifier where the financial instrument is listed or traded"
     },
     "asset": {
@@ -277,7 +277,7 @@
     },
     "financialUndererlyingInstrumentIdentificationExchange": {
       "type": "string",
-      "minLength": 1,
+      "minLength": 4,
       "maxLength": 4,
       "description": "Underlying financial instrument exchange identifier"
     },
@@ -291,7 +291,7 @@
     "daysToSettlement": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 9999,
+      "maximum": 4,
       "description": "Days to settlement"
     },
     "rightsIssuePriceAmount": {
@@ -354,7 +354,7 @@
       "minimum": 1,
       "maximum": 999999999,
       "description": "Provides the interest rate correction type",
-      "$comment": "Consultar a lista na tabela ExternalInterestRateCorrectionTypeCode"
+      "$comment": "Consultar a lista na tabela ExternalConversionCriteriaTypeCode"
     },
     "interestRateCorrectionTimeBase": {
       "type": "integer",
@@ -536,7 +536,7 @@
     },
     "targetInstrumentIdentificationSecurityExchange": {
       "type": "string",
-      "minLength": 1,
+      "minLength": 4,
       "maxLength": 4,
       "description": "Target financial instrument exchange identifier"
     },
@@ -572,7 +572,7 @@
     },
     "target3InstrumentIdentificationSecurityExchange": {
       "type": "string",
-      "minLength": 1,
+      "minLength": 4,
       "maxLength": 4,
       "description": "Third target financial instrument exchange identifier"
     },

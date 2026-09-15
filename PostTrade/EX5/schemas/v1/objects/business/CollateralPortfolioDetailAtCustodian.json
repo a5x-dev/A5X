@@ -1,0 +1,113 @@
+﻿{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:CollateralPortfolioDetailAtCustodian",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:CollateralPortfolioDetailAtCustodian"
+  },
+  "title": "Collateral Portfolio Detail At Custodian",
+  "description": "Account group representing the collateral portfolio view held at custodians, carrying its own complete identification and settlement pair",
+  "type": "object",
+  "properties": {
+    "participantIdentificationRequester": {
+      "$ref": "../../objects/business/PartyId.json"
+    },
+    "accountIdentificationRequester": {
+      "$ref": "../../objects/business/AccountIdentification.json"
+    },
+    "participantIdentificationRequested": {
+      "$ref": "../../objects/business/PartyId.json"
+    },
+    "accountIdentificationRequested": {
+      "$ref": "../../objects/business/AccountIdentification.json"
+    },
+    "referenceDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Reference date of the account group"
+    },
+    "collateralDetails": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/CollateralPositionDetail.json"
+      },
+      "minItems": 0,
+      "maxItems": 10000,
+      "description": "Collateral details for this account group"
+    },
+    "settlementParticipantIdentification": {
+      "$ref": "../../objects/business/PartyId.json",
+      "description": "Settlement participant identification at group level"
+    },
+    "settlementAccountIdentification": {
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Settlement account identification at group level"
+    }
+  },
+  "required": [
+    "participantIdentificationRequester",
+    "accountIdentificationRequester",
+    "participantIdentificationRequested",
+    "accountIdentificationRequested",
+    "referenceDate",
+    "collateralDetails",
+    "settlementParticipantIdentification",
+    "settlementAccountIdentification"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "participantIdentificationRequester": {
+        "id": 935,
+        "category": 1
+      },
+      "accountIdentificationRequester": {
+        "id": 544111635
+      },
+      "participantIdentificationRequested": {
+        "id": 935,
+        "category": 1
+      },
+      "accountIdentificationRequested": {
+        "id": 544111635
+      },
+      "referenceDate": "2022-05-26",
+      "collateralDetails": [
+        {
+          "collateralCoverageType": 1,
+          "assetNumber": "0000002021000001729",
+          "holderIndicator": true,
+          "coverageMarginIndicator": false,
+          "collateralType": 3,
+          "collateralReference": "PETR4",
+          "financialInstrumentIdentification": {
+            "id": "200000153650",
+            "source": "8",
+            "exchange": "BVMF"
+          },
+          "collateralDetailInformation": {
+            "depositedQuantity": 10,
+            "valuedQuantity": 10,
+            "deliveryQuantity": 1,
+            "blockedQuantity": 1,
+            "collateralValue": {
+              "amount": "380.97"
+            },
+            "withdrawalBlockedValue": {
+              "amount": "0.00"
+            }
+          },
+          "isin": "BRI5TVA9PP77",
+          "portfolio": "23906"
+        }
+      ],
+      "settlementParticipantIdentification": {
+        "id": 935,
+        "category": 1
+      },
+      "settlementAccountIdentification": {
+        "id": 544111635
+      }
+    }
+  ]
+}

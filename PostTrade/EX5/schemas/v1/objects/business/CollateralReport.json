@@ -19,7 +19,6 @@
           "$ref" : "../../objects/business/DocumentIdentifier.json"
         },
         {
-          "$ref" : "../../objects/business/DocumentIdentifier.json",
           "properties" : {
             "country" : {
               "$ref" : "../../objects/business/ExternalCodeTextList.json",
