@@ -1,13 +1,15 @@
 #pragma once
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
+#include <string>
 
 namespace a5x::trading::native {
 
 /**
  * News
- * Message Type: CB
+ * Message Type: Z
  */
 struct NativeNews {
     /** Identity of the matching partition */
@@ -23,34 +25,34 @@ struct NativeNews {
     uint8_t urgency;
 
     /** Headline or subject of the announcement */
-    uint8_t headline[100];
+    std::string headline;
 
     /** Text of the announcement */
-    uint8_t text[750];
+    std::string text;
 
     /** Pipe separated list of symbols of instruments the announcements relates to */
-    uint8_t instruments[100];
+    std::string instruments;
 
     /** Pipe separated list of symbols of underlyings the instruments relates to */
-    uint8_t underlyings[100];
+    std::string underlyings;
 
     /** Pipe separated list of firms that the announcement should be sent to */
-    uint8_t firmList[54];
+    std::string firmList;
 
     /** Pipe separated list of users that the announcement should be sent to */
-    uint8_t userList[54];
+    std::string userList;
 
     static void parse(NativeNews& msg, const uint8_t* data) {
         msg.partitionId = data[0];
         std::memcpy(&msg.sequenceNumber, data + 1, 8);
         std::memcpy(&msg.origTime, data + 9, 8);
         msg.urgency = data[17];
-        std::memcpy(msg.headline, data + 18, 100);
-        std::memcpy(msg.text, data + 118, 750);
-        std::memcpy(msg.instruments, data + 868, 100);
-        std::memcpy(msg.underlyings, data + 968, 100);
-        std::memcpy(msg.firmList, data + 1068, 54);
-        std::memcpy(msg.userList, data + 1122, 54);
+        msg.headline.assign(reinterpret_cast<const char*>(data + 18), strnlen(reinterpret_cast<const char*>(data + 18), 100));
+        msg.text.assign(reinterpret_cast<const char*>(data + 118), strnlen(reinterpret_cast<const char*>(data + 118), 750));
+        msg.instruments.assign(reinterpret_cast<const char*>(data + 868), strnlen(reinterpret_cast<const char*>(data + 868), 100));
+        msg.underlyings.assign(reinterpret_cast<const char*>(data + 968), strnlen(reinterpret_cast<const char*>(data + 968), 100));
+        msg.firmList.assign(reinterpret_cast<const char*>(data + 1068), strnlen(reinterpret_cast<const char*>(data + 1068), 54));
+        msg.userList.assign(reinterpret_cast<const char*>(data + 1122), strnlen(reinterpret_cast<const char*>(data + 1122), 54));
     }
 
     static void encode(const NativeNews& msg, uint8_t* data) {
@@ -58,12 +60,12 @@ struct NativeNews {
         std::memcpy(data + 1, &msg.sequenceNumber, 8);
         std::memcpy(data + 9, &msg.origTime, 8);
         data[17] = msg.urgency;
-        std::memcpy(data + 18, msg.headline, 100);
-        std::memcpy(data + 118, msg.text, 750);
-        std::memcpy(data + 868, msg.instruments, 100);
-        std::memcpy(data + 968, msg.underlyings, 100);
-        std::memcpy(data + 1068, msg.firmList, 54);
-        std::memcpy(data + 1122, msg.userList, 54);
+        std::memset(data + 18, 0, 100); std::memcpy(data + 18, msg.headline.c_str(), std::min(msg.headline.size(), size_t(100)));
+        std::memset(data + 118, 0, 750); std::memcpy(data + 118, msg.text.c_str(), std::min(msg.text.size(), size_t(750)));
+        std::memset(data + 868, 0, 100); std::memcpy(data + 868, msg.instruments.c_str(), std::min(msg.instruments.size(), size_t(100)));
+        std::memset(data + 968, 0, 100); std::memcpy(data + 968, msg.underlyings.c_str(), std::min(msg.underlyings.size(), size_t(100)));
+        std::memset(data + 1068, 0, 54); std::memcpy(data + 1068, msg.firmList.c_str(), std::min(msg.firmList.size(), size_t(54)));
+        std::memset(data + 1122, 0, 54); std::memcpy(data + 1122, msg.userList.c_str(), std::min(msg.userList.size(), size_t(54)));
     }
 };
 

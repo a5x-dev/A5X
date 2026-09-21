@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -17,7 +16,7 @@ public class MitchReplayResponse {
 	/**
 	 * Sequence number of the first message in range to be retransmitted. This will be zero if Status is not 'A'
 	 */
-	public BigInteger firstMessage;
+	public long firstMessage;
 
 	/**
 	 * Number of messages to be resent. This will be zero if Status is not 'A'
@@ -37,7 +36,7 @@ public class MitchReplayResponse {
 	 */
 	public static void parse(MitchReplayResponse pReplayResponse, ByteBuffer pData) {
 		pReplayResponse.marketDataGroup = pData.get();
-		pReplayResponse.firstMessage = BitUtils.byteArrayToUInt64(pData, false);
+		pReplayResponse.firstMessage = pData.getLong();
 		pReplayResponse.count = BitUtils.byteArrayToUInt16(pData, false);
 		pReplayResponse.status = pData.get();
 	}
@@ -50,7 +49,7 @@ public class MitchReplayResponse {
 	 */
 	public static void encode(MitchReplayResponse pReplayResponse, ByteBuffer pData) {
 		pData.put(pReplayResponse.marketDataGroup);
-		BitUtils.uint64ToByteArray(pReplayResponse.firstMessage, pData, false);
+		pData.putLong(pReplayResponse.firstMessage);
 		BitUtils.uint16ToByteArray(pReplayResponse.count, pData, false);
 		pData.put(pReplayResponse.status);
 	}

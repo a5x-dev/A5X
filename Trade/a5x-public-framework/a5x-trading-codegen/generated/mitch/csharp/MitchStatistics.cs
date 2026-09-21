@@ -1,5 +1,4 @@
 using System;
-using System.Numerics;
 using System.Text;
 
 namespace A5X.Trading.Mitch.Model
@@ -32,12 +31,12 @@ namespace A5X.Trading.Mitch.Model
         public decimal PriceAsDecimal => Price / 10000m;
 
         /// <summary>
-        /// A = Auction Trade, B = Regular Trade, C = Mid Point, D = Last Regular Trade, E = Last Auction, F = Manual, H = VWAP, I = Previous Close, T = Theoretical Price, L = VWAP n Volume, U = Best Bid, V = Best Offer, W = None, X = VWAP of Last n Trades, Y = Reference Price, Z = Price Unavailable
+        /// A = Auction Trade, B = Regular Trade, D = Last Regular Trade, E = Last Auction, F = Manual, I = Previous Close, T = Theoretical Price, W = None, Y = Reference Price, Z = Price Unavailable
         /// </summary>
         public byte OpenCloseIndicator { get; set; }
 
         /// <summary>
-        /// 1 = Regular, 2 = Off-Book, 9 = Bulletin Board
+        /// 1 = Regular
         /// </summary>
         public byte SubBook { get; set; }
 

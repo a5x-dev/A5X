@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -34,7 +33,7 @@ public class MitchAuctionTrade {
 	/**
 	 * Unique identifier of the trade
 	 */
-	public BigInteger tradeId;
+	public long tradeId;
 
 	/**
 	 * Converted price of the executed volatility of the options instrument
@@ -60,7 +59,7 @@ public class MitchAuctionTrade {
 	/**
 	 * Date and time when the trade was executed [Epoch]
 	 */
-	public BigInteger tradingDateTime;
+	public long tradingDateTime;
 
 	/**
 	 * Instrument identification code
@@ -102,15 +101,15 @@ public class MitchAuctionTrade {
 	/**
 	 * Date and time when the trade was published by the trading venue [Epoch]
 	 */
-	public BigInteger publicationDateTime;
+	public long publicationDateTime;
 
 	/**
-	 * Indicates if the trade has been cancelled (Value = CANC)
+	 * PTCancellationFlag. Indicates if the trade represented by the message has been cancelled (Value = CANC)
 	 */
 	public String cancellationFlag;
 
 	/**
-	 * Indicates if the trade has been amended (Value = AMND)
+	 * PTAmendmentFlag. Indicates if the trade represented by the message has been amended (Value = AMND)
 	 */
 	public String amendmentFlag;
 
@@ -130,11 +129,11 @@ public class MitchAuctionTrade {
 		pAuctionTrade.executedQuantity = BitUtils.byteArrayToUInt32(pData, false);
 		pAuctionTrade.price = pData.getLong();
 		pAuctionTrade.instrumentId = BitUtils.byteArrayToUInt32(pData, false);
-		pAuctionTrade.tradeId = BitUtils.byteArrayToUInt64(pData, false);
+		pAuctionTrade.tradeId = pData.getLong();
 		pAuctionTrade.lastOptPx = pData.getLong();
 		pAuctionTrade.volatility = pData.getLong();
 		pAuctionTrade.underlyingReferencePrice = pData.getLong();
-		pAuctionTrade.tradingDateTime = BitUtils.byteArrayToUInt64(pData, false);
+		pAuctionTrade.tradingDateTime = pData.getLong();
 		byte[] instrumentIdentificationCodeBytes = new byte[12];
 		pData.get(instrumentIdentificationCodeBytes);
 		pAuctionTrade.instrumentIdentificationCode = new String(instrumentIdentificationCodeBytes).trim();
@@ -150,7 +149,7 @@ public class MitchAuctionTrade {
 		byte[] notionalCurrencyBytes = new byte[3];
 		pData.get(notionalCurrencyBytes);
 		pAuctionTrade.notionalCurrency = new String(notionalCurrencyBytes).trim();
-		pAuctionTrade.publicationDateTime = BitUtils.byteArrayToUInt64(pData, false);
+		pAuctionTrade.publicationDateTime = pData.getLong();
 		byte[] cancellationFlagBytes = new byte[4];
 		pData.get(cancellationFlagBytes);
 		pAuctionTrade.cancellationFlag = new String(cancellationFlagBytes).trim();
@@ -171,37 +170,43 @@ public class MitchAuctionTrade {
 		BitUtils.uint32ToByteArray(pAuctionTrade.executedQuantity, pData, false);
 		pData.putLong(pAuctionTrade.price);
 		BitUtils.uint32ToByteArray(pAuctionTrade.instrumentId, pData, false);
-		BitUtils.uint64ToByteArray(pAuctionTrade.tradeId, pData, false);
+		pData.putLong(pAuctionTrade.tradeId);
 		pData.putLong(pAuctionTrade.lastOptPx);
 		pData.putLong(pAuctionTrade.volatility);
 		pData.putLong(pAuctionTrade.underlyingReferencePrice);
-		BitUtils.uint64ToByteArray(pAuctionTrade.tradingDateTime, pData, false);
+		pData.putLong(pAuctionTrade.tradingDateTime);
 		byte[] instrumentIdentificationCodeBytes = new byte[12];
-		byte[] instrumentIdentificationCodeSrc = pAuctionTrade.instrumentIdentificationCode.getBytes();
+		java.util.Arrays.fill(instrumentIdentificationCodeBytes, (byte) ' ');
+		byte[] instrumentIdentificationCodeSrc = pAuctionTrade.instrumentIdentificationCode == null ? new byte[0] : pAuctionTrade.instrumentIdentificationCode.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(instrumentIdentificationCodeSrc, 0, instrumentIdentificationCodeBytes, 0, Math.min(instrumentIdentificationCodeSrc.length, 12));
 		pData.put(instrumentIdentificationCodeBytes);
 		BitUtils.uint8ToByte(pAuctionTrade.instrumentIdentificationCodeType, pData);
 		byte[] currencyBytes = new byte[3];
-		byte[] currencySrc = pAuctionTrade.currency.getBytes();
+		java.util.Arrays.fill(currencyBytes, (byte) ' ');
+		byte[] currencySrc = pAuctionTrade.currency == null ? new byte[0] : pAuctionTrade.currency.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(currencySrc, 0, currencyBytes, 0, Math.min(currencySrc.length, 3));
 		pData.put(currencyBytes);
 		byte[] venueOfExecutionBytes = new byte[4];
-		byte[] venueOfExecutionSrc = pAuctionTrade.venueOfExecution.getBytes();
+		java.util.Arrays.fill(venueOfExecutionBytes, (byte) ' ');
+		byte[] venueOfExecutionSrc = pAuctionTrade.venueOfExecution == null ? new byte[0] : pAuctionTrade.venueOfExecution.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(venueOfExecutionSrc, 0, venueOfExecutionBytes, 0, Math.min(venueOfExecutionSrc.length, 4));
 		pData.put(venueOfExecutionBytes);
 		BitUtils.uint8ToByte(pAuctionTrade.priceNotation, pData);
 		pData.putLong(pAuctionTrade.notionalAmount);
 		byte[] notionalCurrencyBytes = new byte[3];
-		byte[] notionalCurrencySrc = pAuctionTrade.notionalCurrency.getBytes();
+		java.util.Arrays.fill(notionalCurrencyBytes, (byte) ' ');
+		byte[] notionalCurrencySrc = pAuctionTrade.notionalCurrency == null ? new byte[0] : pAuctionTrade.notionalCurrency.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(notionalCurrencySrc, 0, notionalCurrencyBytes, 0, Math.min(notionalCurrencySrc.length, 3));
 		pData.put(notionalCurrencyBytes);
-		BitUtils.uint64ToByteArray(pAuctionTrade.publicationDateTime, pData, false);
+		pData.putLong(pAuctionTrade.publicationDateTime);
 		byte[] cancellationFlagBytes = new byte[4];
-		byte[] cancellationFlagSrc = pAuctionTrade.cancellationFlag.getBytes();
+		java.util.Arrays.fill(cancellationFlagBytes, (byte) ' ');
+		byte[] cancellationFlagSrc = pAuctionTrade.cancellationFlag == null ? new byte[0] : pAuctionTrade.cancellationFlag.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(cancellationFlagSrc, 0, cancellationFlagBytes, 0, Math.min(cancellationFlagSrc.length, 4));
 		pData.put(cancellationFlagBytes);
 		byte[] amendmentFlagBytes = new byte[4];
-		byte[] amendmentFlagSrc = pAuctionTrade.amendmentFlag.getBytes();
+		java.util.Arrays.fill(amendmentFlagBytes, (byte) ' ');
+		byte[] amendmentFlagSrc = pAuctionTrade.amendmentFlag == null ? new byte[0] : pAuctionTrade.amendmentFlag.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(amendmentFlagSrc, 0, amendmentFlagBytes, 0, Math.min(amendmentFlagSrc.length, 4));
 		pData.put(amendmentFlagBytes);
 		pData.put(pAuctionTrade.auctionType);

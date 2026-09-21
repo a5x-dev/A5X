@@ -9,10 +9,8 @@ namespace A5X.Trading.Native.Model
     /// </summary>
     public class NativeOrderReplaceRequest
     {
-        /// <summary>Limit price. Ignored if Order Type is not Limit (2) or Stop Limit (4)</summary>
-        public int LimitPrice { get; set; }
-
-        public decimal LimitPriceAsDecimal => LimitPrice / 10000m;
+        /// <summary>Limit price. This field will be ignored if the Order Type is not Limit (2) or Stop Limit (4)</summary>
+        public long LimitPrice { get; set; }
 
         /// <summary>Total order quantity</summary>
         public uint OrderQuantity { get; set; }
@@ -24,33 +22,25 @@ namespace A5X.Trading.Native.Model
         public byte Side { get; set; }
 
         /// <summary>Client specified identifier of the order</summary>
-        public byte[] ClientOrderId { get; set; }
+        public string ClientOrderId { get; set; }
 
         /// <summary>Client specified identifier of the order being modified</summary>
-        public byte[] OrigClientOrderId { get; set; }
+        public string OrigClientOrderId { get; set; }
 
-        /// <summary>Server specified identifier of the order being cancelled</summary>
-        public byte[] OrderId { get; set; }
-
-        /// <summary>Identifier of the Trader Account. Required field</summary>
+        /// <summary>Identifier of the Trader Account. This is a required field</summary>
         public ulong Account { get; set; }
 
         /// <summary>Sender Location assigned to the Trader ID/Firm</summary>
-        public byte[] SenderLocation { get; set; }
+        public string SenderLocation { get; set; }
 
-        /// <summary>Stop price/Trigger price. Ignored if Order Type is not Stop (3) or Stop Limit (4)</summary>
-        public int StopPrice { get; set; }
+        /// <summary>Stop price/Trigger price. This field will be ignored if the Order Type is not Stop (3) or Stop Limit (4)</summary>
+        public long StopPrice { get; set; }
 
-        public decimal StopPriceAsDecimal => StopPrice / 10000m;
-
-        /// <summary>Maximum quantity to be displayed. Negative value to ignore</summary>
+        /// <summary>Maximum quantity to be displayed. A negative value should be used if this field is to be ignored</summary>
         public uint DisplayQuantity { get; set; }
 
         /// <summary>1 = Regular</summary>
         public byte OrderBook { get; set; }
-
-        /// <summary>Bit 0: Passive Only (0 = No, 1 = Yes)</summary>
-        public byte ExecutionInstruction { get; set; }
 
         /// <summary>1 = Market, 2 = Limit, 3 = Stop, 4 = Stop Limit, 5 = Market to Limit, 51 = RLP</summary>
         public byte OrderType { get; set; }
@@ -63,42 +53,38 @@ namespace A5X.Trading.Native.Model
 
         public static void Parse(NativeOrderReplaceRequest msg, Span<byte> data)
         {
-            msg.LimitPrice = BitConverter.ToInt32(data.Slice(0, 4));
-            msg.OrderQuantity = BitConverter.ToUInt32(data.Slice(4, 4));
-            msg.InstrumentId = BitConverter.ToUInt32(data.Slice(8, 4));
-            msg.Side = data[12];
-            msg.ClientOrderId = data.Slice(13, 10).ToArray();
-            msg.OrigClientOrderId = data.Slice(23, 10).ToArray();
-            msg.OrderId = data.Slice(33, 12).ToArray();
-            msg.Account = BitConverter.ToUInt64(data.Slice(45, 8));
-            msg.SenderLocation = data.Slice(53, 10).ToArray();
-            msg.StopPrice = BitConverter.ToInt32(data.Slice(63, 4));
-            msg.DisplayQuantity = BitConverter.ToUInt32(data.Slice(67, 4));
-            msg.OrderBook = data[71];
-            msg.ExecutionInstruction = data[72];
-            msg.OrderType = data[73];
-            msg.TimeInForce = data[74];
-            msg.ExpireTime = BitConverter.ToUInt64(data.Slice(75, 8));
+            msg.LimitPrice = BitConverter.ToInt64(data.Slice(0, 8));
+            msg.OrderQuantity = BitConverter.ToUInt32(data.Slice(8, 4));
+            msg.InstrumentId = BitConverter.ToUInt32(data.Slice(12, 4));
+            msg.Side = data[16];
+            msg.ClientOrderId = Encoding.ASCII.GetString(data.Slice(17, 10)).TrimEnd('\0');
+            msg.OrigClientOrderId = Encoding.ASCII.GetString(data.Slice(27, 10)).TrimEnd('\0');
+            msg.Account = BitConverter.ToUInt64(data.Slice(37, 8));
+            msg.SenderLocation = Encoding.ASCII.GetString(data.Slice(45, 10)).TrimEnd('\0');
+            msg.StopPrice = BitConverter.ToInt64(data.Slice(55, 8));
+            msg.DisplayQuantity = BitConverter.ToUInt32(data.Slice(63, 4));
+            msg.OrderBook = data[67];
+            msg.OrderType = data[68];
+            msg.TimeInForce = data[69];
+            msg.ExpireTime = BitConverter.ToUInt64(data.Slice(70, 8));
         }
 
         public static void Encode(NativeOrderReplaceRequest msg, Span<byte> data)
         {
-            BitConverter.TryWriteBytes(data.Slice(0, 4), msg.LimitPrice);
-            BitConverter.TryWriteBytes(data.Slice(4, 4), msg.OrderQuantity);
-            BitConverter.TryWriteBytes(data.Slice(8, 4), msg.InstrumentId);
-            data[12] = msg.Side;
-            msg.ClientOrderId.CopyTo(data.Slice(13, 10));
-            msg.OrigClientOrderId.CopyTo(data.Slice(23, 10));
-            msg.OrderId.CopyTo(data.Slice(33, 12));
-            BitConverter.TryWriteBytes(data.Slice(45, 8), msg.Account);
-            msg.SenderLocation.CopyTo(data.Slice(53, 10));
-            BitConverter.TryWriteBytes(data.Slice(63, 4), msg.StopPrice);
-            BitConverter.TryWriteBytes(data.Slice(67, 4), msg.DisplayQuantity);
-            data[71] = msg.OrderBook;
-            data[72] = msg.ExecutionInstruction;
-            data[73] = msg.OrderType;
-            data[74] = msg.TimeInForce;
-            BitConverter.TryWriteBytes(data.Slice(75, 8), msg.ExpireTime);
+            BitConverter.TryWriteBytes(data.Slice(0, 8), msg.LimitPrice);
+            BitConverter.TryWriteBytes(data.Slice(8, 4), msg.OrderQuantity);
+            BitConverter.TryWriteBytes(data.Slice(12, 4), msg.InstrumentId);
+            data[16] = msg.Side;
+            Encoding.ASCII.GetBytes((msg.ClientOrderId ?? string.Empty).PadRight(10, '\0')).AsSpan(0, 10).CopyTo(data.Slice(17, 10));
+            Encoding.ASCII.GetBytes((msg.OrigClientOrderId ?? string.Empty).PadRight(10, '\0')).AsSpan(0, 10).CopyTo(data.Slice(27, 10));
+            BitConverter.TryWriteBytes(data.Slice(37, 8), msg.Account);
+            Encoding.ASCII.GetBytes((msg.SenderLocation ?? string.Empty).PadRight(10, '\0')).AsSpan(0, 10).CopyTo(data.Slice(45, 10));
+            BitConverter.TryWriteBytes(data.Slice(55, 8), msg.StopPrice);
+            BitConverter.TryWriteBytes(data.Slice(63, 4), msg.DisplayQuantity);
+            data[67] = msg.OrderBook;
+            data[68] = msg.OrderType;
+            data[69] = msg.TimeInForce;
+            BitConverter.TryWriteBytes(data.Slice(70, 8), msg.ExpireTime);
         }
     }
 }

@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -42,7 +41,7 @@ public class MitchTopOfBook {
 	public java.math.BigDecimal priceAsDecimal() { return java.math.BigDecimal.valueOf(price, 4); }
 
 	/**
-	 * Cumulative visible size at best price
+	 * Cumulative visible size at best price. This will be set to zero on a delete action
 	 */
 	public long quantity;
 

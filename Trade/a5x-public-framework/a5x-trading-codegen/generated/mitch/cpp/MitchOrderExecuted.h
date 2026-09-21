@@ -1,6 +1,7 @@
 #ifndef MITCHORDEREXECUTED_H
 #define MITCHORDEREXECUTED_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>
@@ -73,11 +74,11 @@ struct MitchOrderExecuted {
     /// Date and time when the trade was published by the trading venue [Epoch]
     uint64_t publicationDateTime;
 
-    /// Firm ID of the party firm
-    std::string firm;
+    /// Buyer Firm ID
+    std::string buyerFirm;
 
-    /// Firm ID of the counter party firm
-    std::string contraFirm;
+    /// Seller Firm ID
+    std::string sellerFirm;
 
     static void parse(MitchOrderExecuted& msg, const uint8_t* data) {
         size_t offset = 0;
@@ -119,11 +120,11 @@ struct MitchOrderExecuted {
         offset += 3;
         std::memcpy(&msg.publicationDateTime, data + offset, 8);
         offset += 8;
-        msg.firm = std::string(reinterpret_cast<const char*>(data + offset), 6);
-        msg.firm.erase(msg.firm.find_last_not_of(' ') + 1);
+        msg.buyerFirm = std::string(reinterpret_cast<const char*>(data + offset), 6);
+        msg.buyerFirm.erase(msg.buyerFirm.find_last_not_of(' ') + 1);
         offset += 6;
-        msg.contraFirm = std::string(reinterpret_cast<const char*>(data + offset), 6);
-        msg.contraFirm.erase(msg.contraFirm.find_last_not_of(' ') + 1);
+        msg.sellerFirm = std::string(reinterpret_cast<const char*>(data + offset), 6);
+        msg.sellerFirm.erase(msg.sellerFirm.find_last_not_of(' ') + 1);
         offset += 6;
     }
 
@@ -168,10 +169,10 @@ struct MitchOrderExecuted {
         std::memcpy(data + offset, &msg.publicationDateTime, 8);
         offset += 8;
         std::memset(data + offset, ' ', 6);
-        std::memcpy(data + offset, msg.firm.c_str(), std::min(msg.firm.size(), size_t(6)));
+        std::memcpy(data + offset, msg.buyerFirm.c_str(), std::min(msg.buyerFirm.size(), size_t(6)));
         offset += 6;
         std::memset(data + offset, ' ', 6);
-        std::memcpy(data + offset, msg.contraFirm.c_str(), std::min(msg.contraFirm.size(), size_t(6)));
+        std::memcpy(data + offset, msg.sellerFirm.c_str(), std::min(msg.sellerFirm.size(), size_t(6)));
         offset += 6;
     }
 };

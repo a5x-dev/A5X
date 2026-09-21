@@ -1,5 +1,4 @@
 using System;
-using System.Numerics;
 using System.Text;
 
 namespace A5X.Trading.Mitch.Model
@@ -17,7 +16,7 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Identifier for the order
         /// </summary>
-        public BigInteger OrderId { get; set; }
+        public ulong OrderId { get; set; }
 
         /// <summary>
         /// Quantity executed
@@ -39,7 +38,7 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Unique identifier of the trade
         /// </summary>
-        public BigInteger TradeId { get; set; }
+        public ulong TradeId { get; set; }
 
         /// <summary>
         /// Converted price of the executed volatility of the options instrument
@@ -65,7 +64,7 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Date and time when the trade was executed [Epoch]
         /// </summary>
-        public BigInteger TradingDateTime { get; set; }
+        public ulong TradingDateTime { get; set; }
 
         /// <summary>
         /// Instrument identification code
@@ -107,25 +106,25 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Date and time when the trade was published by the trading venue [Epoch]
         /// </summary>
-        public BigInteger PublicationDateTime { get; set; }
+        public ulong PublicationDateTime { get; set; }
 
         /// <summary>
-        /// Firm ID of the party firm
+        /// Buyer Firm ID
         /// </summary>
-        public string Firm { get; set; }
+        public string BuyerFirm { get; set; }
 
         /// <summary>
-        /// Firm ID of the counter party firm
+        /// Seller Firm ID
         /// </summary>
-        public string ContraFirm { get; set; }
+        public string SellerFirm { get; set; }
 
         /// <summary>
-        /// Indicates if the trade has been cancelled (Value = CANC)
+        /// PTCancellationFlag. Indicates if the trade represented by the message has been cancelled (Value = CANC)
         /// </summary>
         public string CancellationFlag { get; set; }
 
         /// <summary>
-        /// Indicates if the trade has been amended (Value = AMND)
+        /// PTAmendmentFlag. Indicates if the trade represented by the message has been amended (Value = AMND)
         /// </summary>
         public string AmendmentFlag { get; set; }
 
@@ -137,7 +136,7 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Bit 0: Trade Condition Flag, Bit 1: Internal Crossed Trade, Bit 5: RLP
         /// </summary>
-        public object Flags { get; set; }
+        public byte Flags { get; set; }
 
         /// <summary>
         /// A = Re-Opening Auction, C = Closing Auction, O = Opening Auction
@@ -149,7 +148,7 @@ namespace A5X.Trading.Mitch.Model
             int offset = 0;
             msg.Nanosecond = BitConverter.ToUInt32(data.Slice(offset, 4));
             offset += 4;
-            msg.OrderId = new BigInteger(data.Slice(offset, 8));
+            msg.OrderId = BitConverter.ToUInt64(data.Slice(offset, 8));
             offset += 8;
             msg.ExecutedQuantity = BitConverter.ToUInt32(data.Slice(offset, 4));
             offset += 4;
@@ -157,7 +156,7 @@ namespace A5X.Trading.Mitch.Model
             offset += 8;
             msg.InstrumentId = BitConverter.ToUInt32(data.Slice(offset, 4));
             offset += 4;
-            msg.TradeId = new BigInteger(data.Slice(offset, 8));
+            msg.TradeId = BitConverter.ToUInt64(data.Slice(offset, 8));
             offset += 8;
             msg.LastOptPx = BitConverter.ToInt64(data.Slice(offset, 8));
             offset += 8;
@@ -165,7 +164,7 @@ namespace A5X.Trading.Mitch.Model
             offset += 8;
             msg.UnderlyingReferencePrice = BitConverter.ToInt64(data.Slice(offset, 8));
             offset += 8;
-            msg.TradingDateTime = new BigInteger(data.Slice(offset, 8));
+            msg.TradingDateTime = BitConverter.ToUInt64(data.Slice(offset, 8));
             offset += 8;
             msg.InstrumentIdentificationCode = Encoding.ASCII.GetString(data.Slice(offset, 12)).TrimEnd();
             offset += 12;
@@ -179,17 +178,18 @@ namespace A5X.Trading.Mitch.Model
             offset += 8;
             msg.NotionalCurrency = Encoding.ASCII.GetString(data.Slice(offset, 3)).TrimEnd();
             offset += 3;
-            msg.PublicationDateTime = new BigInteger(data.Slice(offset, 8));
+            msg.PublicationDateTime = BitConverter.ToUInt64(data.Slice(offset, 8));
             offset += 8;
-            msg.Firm = Encoding.ASCII.GetString(data.Slice(offset, 6)).TrimEnd();
+            msg.BuyerFirm = Encoding.ASCII.GetString(data.Slice(offset, 6)).TrimEnd();
             offset += 6;
-            msg.ContraFirm = Encoding.ASCII.GetString(data.Slice(offset, 6)).TrimEnd();
+            msg.SellerFirm = Encoding.ASCII.GetString(data.Slice(offset, 6)).TrimEnd();
             offset += 6;
             msg.CancellationFlag = Encoding.ASCII.GetString(data.Slice(offset, 4)).TrimEnd();
             offset += 4;
             msg.AmendmentFlag = Encoding.ASCII.GetString(data.Slice(offset, 4)).TrimEnd();
             offset += 4;
             msg.SubBook = data[offset++];
+            msg.Flags = data[offset++];
             msg.AuctionType = data[offset++];
         }
 
@@ -198,7 +198,7 @@ namespace A5X.Trading.Mitch.Model
             int offset = 0;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.Nanosecond);
             offset += 4;
-            msg.OrderId.TryWriteBytes(data.Slice(offset, 8), out _);
+            BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.OrderId);
             offset += 8;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.ExecutedQuantity);
             offset += 4;
@@ -206,7 +206,7 @@ namespace A5X.Trading.Mitch.Model
             offset += 8;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.InstrumentId);
             offset += 4;
-            msg.TradeId.TryWriteBytes(data.Slice(offset, 8), out _);
+            BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.TradeId);
             offset += 8;
             BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.LastOptPx);
             offset += 8;
@@ -214,39 +214,40 @@ namespace A5X.Trading.Mitch.Model
             offset += 8;
             BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.UnderlyingReferencePrice);
             offset += 8;
-            msg.TradingDateTime.TryWriteBytes(data.Slice(offset, 8), out _);
+            BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.TradingDateTime);
             offset += 8;
-            var instrumentIdentificationCodeBytes = Encoding.ASCII.GetBytes(msg.InstrumentIdentificationCode.PadRight(12));
+            var instrumentIdentificationCodeBytes = Encoding.ASCII.GetBytes((msg.InstrumentIdentificationCode ?? string.Empty).PadRight(12));
             instrumentIdentificationCodeBytes.AsSpan(0, 12).CopyTo(data.Slice(offset, 12));
             offset += 12;
             data[offset++] = (byte)msg.InstrumentIdentificationCodeType;
-            var currencyBytes = Encoding.ASCII.GetBytes(msg.Currency.PadRight(3));
+            var currencyBytes = Encoding.ASCII.GetBytes((msg.Currency ?? string.Empty).PadRight(3));
             currencyBytes.AsSpan(0, 3).CopyTo(data.Slice(offset, 3));
             offset += 3;
-            var venueOfExecutionBytes = Encoding.ASCII.GetBytes(msg.VenueOfExecution.PadRight(4));
+            var venueOfExecutionBytes = Encoding.ASCII.GetBytes((msg.VenueOfExecution ?? string.Empty).PadRight(4));
             venueOfExecutionBytes.AsSpan(0, 4).CopyTo(data.Slice(offset, 4));
             offset += 4;
             data[offset++] = (byte)msg.PriceNotation;
             BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.NotionalAmount);
             offset += 8;
-            var notionalCurrencyBytes = Encoding.ASCII.GetBytes(msg.NotionalCurrency.PadRight(3));
+            var notionalCurrencyBytes = Encoding.ASCII.GetBytes((msg.NotionalCurrency ?? string.Empty).PadRight(3));
             notionalCurrencyBytes.AsSpan(0, 3).CopyTo(data.Slice(offset, 3));
             offset += 3;
-            msg.PublicationDateTime.TryWriteBytes(data.Slice(offset, 8), out _);
+            BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.PublicationDateTime);
             offset += 8;
-            var firmBytes = Encoding.ASCII.GetBytes(msg.Firm.PadRight(6));
-            firmBytes.AsSpan(0, 6).CopyTo(data.Slice(offset, 6));
+            var buyerFirmBytes = Encoding.ASCII.GetBytes((msg.BuyerFirm ?? string.Empty).PadRight(6));
+            buyerFirmBytes.AsSpan(0, 6).CopyTo(data.Slice(offset, 6));
             offset += 6;
-            var contraFirmBytes = Encoding.ASCII.GetBytes(msg.ContraFirm.PadRight(6));
-            contraFirmBytes.AsSpan(0, 6).CopyTo(data.Slice(offset, 6));
+            var sellerFirmBytes = Encoding.ASCII.GetBytes((msg.SellerFirm ?? string.Empty).PadRight(6));
+            sellerFirmBytes.AsSpan(0, 6).CopyTo(data.Slice(offset, 6));
             offset += 6;
-            var cancellationFlagBytes = Encoding.ASCII.GetBytes(msg.CancellationFlag.PadRight(4));
+            var cancellationFlagBytes = Encoding.ASCII.GetBytes((msg.CancellationFlag ?? string.Empty).PadRight(4));
             cancellationFlagBytes.AsSpan(0, 4).CopyTo(data.Slice(offset, 4));
             offset += 4;
-            var amendmentFlagBytes = Encoding.ASCII.GetBytes(msg.AmendmentFlag.PadRight(4));
+            var amendmentFlagBytes = Encoding.ASCII.GetBytes((msg.AmendmentFlag ?? string.Empty).PadRight(4));
             amendmentFlagBytes.AsSpan(0, 4).CopyTo(data.Slice(offset, 4));
             offset += 4;
             data[offset++] = (byte)msg.SubBook;
+            data[offset++] = (byte)msg.Flags;
             data[offset++] = (byte)msg.AuctionType;
         }
     }

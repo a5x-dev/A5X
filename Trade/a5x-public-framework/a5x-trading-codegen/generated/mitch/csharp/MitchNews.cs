@@ -1,5 +1,4 @@
 using System;
-using System.Numerics;
 using System.Text;
 
 namespace A5X.Trading.Mitch.Model
@@ -17,7 +16,7 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Time the announcement was published (EPOCH)
         /// </summary>
-        public BigInteger Time { get; set; }
+        public ulong Time { get; set; }
 
         /// <summary>
         /// 0 = Regular, 1 = High Priority, 2 = Low Priority
@@ -49,7 +48,7 @@ namespace A5X.Trading.Mitch.Model
             int offset = 0;
             msg.Nanosecond = BitConverter.ToUInt32(data.Slice(offset, 4));
             offset += 4;
-            msg.Time = new BigInteger(data.Slice(offset, 8));
+            msg.Time = BitConverter.ToUInt64(data.Slice(offset, 8));
             offset += 8;
             msg.Urgency = data[offset++];
             msg.Headline = Encoding.ASCII.GetString(data.Slice(offset, 100)).TrimEnd();
@@ -67,19 +66,19 @@ namespace A5X.Trading.Mitch.Model
             int offset = 0;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.Nanosecond);
             offset += 4;
-            msg.Time.TryWriteBytes(data.Slice(offset, 8), out _);
+            BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.Time);
             offset += 8;
             data[offset++] = (byte)msg.Urgency;
-            var headlineBytes = Encoding.ASCII.GetBytes(msg.Headline.PadRight(100));
+            var headlineBytes = Encoding.ASCII.GetBytes((msg.Headline ?? string.Empty).PadRight(100));
             headlineBytes.AsSpan(0, 100).CopyTo(data.Slice(offset, 100));
             offset += 100;
-            var textBytes = Encoding.ASCII.GetBytes(msg.Text.PadRight(750));
+            var textBytes = Encoding.ASCII.GetBytes((msg.Text ?? string.Empty).PadRight(750));
             textBytes.AsSpan(0, 750).CopyTo(data.Slice(offset, 750));
             offset += 750;
-            var instrumentIdsBytes = Encoding.ASCII.GetBytes(msg.InstrumentIds.PadRight(100));
+            var instrumentIdsBytes = Encoding.ASCII.GetBytes((msg.InstrumentIds ?? string.Empty).PadRight(100));
             instrumentIdsBytes.AsSpan(0, 100).CopyTo(data.Slice(offset, 100));
             offset += 100;
-            var underlyingInstrumentIdsBytes = Encoding.ASCII.GetBytes(msg.UnderlyingInstrumentIds.PadRight(100));
+            var underlyingInstrumentIdsBytes = Encoding.ASCII.GetBytes((msg.UnderlyingInstrumentIds ?? string.Empty).PadRight(100));
             underlyingInstrumentIdsBytes.AsSpan(0, 100).CopyTo(data.Slice(offset, 100));
             offset += 100;
         }

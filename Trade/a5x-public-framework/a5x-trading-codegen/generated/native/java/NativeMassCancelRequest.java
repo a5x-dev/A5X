@@ -1,6 +1,7 @@
 package br.com.a5x.trd.pub.nativ.model;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Mass Cancel Request
@@ -9,7 +10,7 @@ import java.nio.ByteBuffer;
 public class NativeMassCancelRequest {
 
     /** Client specified identifier of the rejected message if available */
-    public byte[] clientOrderId = new byte[10];
+    public String clientOrderId = "";
 
     /** 3 = Firm Interest for Instrument, 4 = Firm Interest for Segment, 7 = All Interest for Client, 8 = All Interest for Firm, 9 = Client Interest for Instrument, 14 = Client Interest for Underlying, 15 = Client Interest for Segment, 22 = Firm Interest for Underlying */
     public int massCancelType;
@@ -18,7 +19,7 @@ public class NativeMassCancelRequest {
     public long instrumentId;
 
     /** Identifier of the segment */
-    public byte[] segment = new byte[10];
+    public String segment = "";
 
     /** 0 = Order, 3 = Quote */
     public int interestType;
@@ -27,7 +28,13 @@ public class NativeMassCancelRequest {
     public int orderBook;
 
     /** Sender Location assigned to the Trader ID/Firm */
-    public byte[] senderLocation = new byte[10];
+    public String senderLocation = "";
+
+    /** Entering Trader ID */
+    public String enteringTrader = "";
+
+    /** Desk ID through which the request is placed from */
+    public String deskId = "";
 
     public static void parse(NativeMassCancelRequest msg, ByteBuffer data) {
         msg.clientOrderId = readAlpha(data, 10);
@@ -37,6 +44,8 @@ public class NativeMassCancelRequest {
         msg.interestType = Byte.toUnsignedInt(data.get());
         msg.orderBook = Byte.toUnsignedInt(data.get());
         msg.senderLocation = readAlpha(data, 10);
+        msg.enteringTrader = readAlpha(data, 15);
+        msg.deskId = readAlpha(data, 15);
     }
 
     public static void encode(NativeMassCancelRequest msg, ByteBuffer data) {
@@ -47,29 +56,40 @@ public class NativeMassCancelRequest {
         data.put((byte) msg.interestType);
         data.put((byte) msg.orderBook);
         writeAlpha(data, msg.senderLocation, 10);
+        writeAlpha(data, msg.enteringTrader, 15);
+        writeAlpha(data, msg.deskId, 15);
     }
 
     @Override
     public String toString() {
         return "NativeMassCancelRequest{" +
-                "clientOrderId=" + new String(clientOrderId).trim() + ", " +
+                "clientOrderId=" + clientOrderId + ", " +
                 "massCancelType=" + massCancelType + ", " +
                 "instrumentId=" + instrumentId + ", " +
-                "segment=" + new String(segment).trim() + ", " +
+                "segment=" + segment + ", " +
                 "interestType=" + interestType + ", " +
                 "orderBook=" + orderBook + ", " +
-                "senderLocation=" + new String(senderLocation).trim() + '}';
+                "senderLocation=" + senderLocation + ", " +
+                "enteringTrader=" + enteringTrader + ", " +
+                "deskId=" + deskId + '}';
     }
 
-    private static byte[] readAlpha(ByteBuffer data, int length) {
-        byte[] result = new byte[length];
-        data.get(result);
-        return result;
+    private static String readAlpha(ByteBuffer data, int length) {
+        byte[] raw = new byte[length];
+        data.get(raw);
+        int end = 0;
+        while (end < length && raw[end] != 0) {
+            end++;
+        }
+        return new String(raw, 0, end, StandardCharsets.US_ASCII);
     }
 
-    private static void writeAlpha(ByteBuffer data, byte[] value, int length) {
-        byte[] temp = new byte[length];
-        System.arraycopy(value, 0, temp, 0, Math.min(value.length, length));
-        data.put(temp);
+    private static void writeAlpha(ByteBuffer data, String value, int length) {
+        byte[] out = new byte[length];
+        if (value != null) {
+            byte[] src = value.getBytes(StandardCharsets.US_ASCII);
+            System.arraycopy(src, 0, out, 0, Math.min(src.length, length));
+        }
+        data.put(out);
     }
 }

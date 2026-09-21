@@ -25,6 +25,7 @@ namespace A5X.Trading.Mitch
         public MitchExtendedStatistics ExtendedStatistics { get; set; } = new MitchExtendedStatistics();
         public MitchSymbolStatus SymbolStatus { get; set; } = new MitchSymbolStatus();
         public MitchTopOfBook TopOfBook { get; set; } = new MitchTopOfBook();
+        public MitchDeletePricePoint DeletePricePoint { get; set; } = new MitchDeletePricePoint();
         public MitchTrade Trade { get; set; } = new MitchTrade();
         public MitchNews News { get; set; } = new MitchNews();
         public MitchLoginRequest LoginRequest { get; set; } = new MitchLoginRequest();
@@ -97,6 +98,9 @@ namespace A5X.Trading.Mitch
                     break;
                 case (char)0x71:
                     MitchTopOfBook.Parse(TopOfBook, data.Slice(offset));
+                    break;
+                case (char)0x72:
+                    MitchDeletePricePoint.Parse(DeletePricePoint, data.Slice(offset));
                     break;
                 case (char)0x50:
                     MitchTrade.Parse(Trade, data.Slice(offset));

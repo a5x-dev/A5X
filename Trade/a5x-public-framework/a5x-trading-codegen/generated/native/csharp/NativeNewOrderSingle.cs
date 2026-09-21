@@ -9,10 +9,8 @@ namespace A5X.Trading.Native.Model
     /// </summary>
     public class NativeNewOrderSingle
     {
-        /// <summary>Limit price</summary>
-        public int LimitPrice { get; set; }
-
-        public decimal LimitPriceAsDecimal => LimitPrice / 10000m;
+        /// <summary>Limit price. This field will be ignored if the Order Type is not Limit (2) or Stop Limit (4)</summary>
+        public long LimitPrice { get; set; }
 
         /// <summary>Total order quantity</summary>
         public uint OrderQuantity { get; set; }
@@ -24,26 +22,24 @@ namespace A5X.Trading.Native.Model
         public byte Side { get; set; }
 
         /// <summary>Entering Trader ID</summary>
-        public byte[] EnteringTrader { get; set; }
+        public string EnteringTrader { get; set; }
 
         /// <summary>Client specified identifier of the order</summary>
-        public byte[] ClientOrderId { get; set; }
+        public string ClientOrderId { get; set; }
 
-        /// <summary>Identifier of the Trader Account</summary>
+        /// <summary>Identifier of the Trader Account. This is a required field</summary>
         public ulong Account { get; set; }
 
         /// <summary>Sender Location assigned to the Trader ID/Firm</summary>
-        public byte[] SenderLocation { get; set; }
+        public string SenderLocation { get; set; }
 
         /// <summary>Client specified identifier of order relevant to self-execution</summary>
-        public byte[] NoTradeKey { get; set; }
+        public string NoTradeKey { get; set; }
 
-        /// <summary>Stop price/Trigger price</summary>
-        public int StopPrice { get; set; }
+        /// <summary>Stop price/Trigger price. This field will be ignored if the Order Type is not Stop (3) or Stop Limit (4)</summary>
+        public long StopPrice { get; set; }
 
-        public decimal StopPriceAsDecimal => StopPrice / 10000m;
-
-        /// <summary>Maximum quantity to be displayed</summary>
+        /// <summary>Max Floor. Maximum quantity to be displayed. A negative value should be used if this field is to be ignored</summary>
         public uint DisplayQuantity { get; set; }
 
         /// <summary>0 = Do Not Cancel, 1 = Cancel</summary>
@@ -71,59 +67,59 @@ namespace A5X.Trading.Native.Model
         public ulong ExpireTime { get; set; }
 
         /// <summary>Free format text field</summary>
-        public byte[] Memo { get; set; }
+        public string Memo { get; set; }
 
         /// <summary>Desk ID through which the order is placed from</summary>
-        public byte[] DeskId { get; set; }
+        public string DeskId { get; set; }
 
         public static void Parse(NativeNewOrderSingle msg, Span<byte> data)
         {
-            msg.LimitPrice = BitConverter.ToInt32(data.Slice(0, 4));
-            msg.OrderQuantity = BitConverter.ToUInt32(data.Slice(4, 4));
-            msg.InstrumentId = BitConverter.ToUInt32(data.Slice(8, 4));
-            msg.Side = data[12];
-            msg.EnteringTrader = data.Slice(13, 15).ToArray();
-            msg.ClientOrderId = data.Slice(28, 10).ToArray();
-            msg.Account = BitConverter.ToUInt64(data.Slice(38, 8));
-            msg.SenderLocation = data.Slice(46, 10).ToArray();
-            msg.NoTradeKey = data.Slice(56, 10).ToArray();
-            msg.StopPrice = BitConverter.ToInt32(data.Slice(66, 4));
-            msg.DisplayQuantity = BitConverter.ToUInt32(data.Slice(70, 4));
-            msg.CancelOnDisconnect = data[74];
-            msg.Anonymity = data[75];
-            msg.OrderBook = data[76];
-            msg.ExecutionInstruction = data[77];
-            msg.RoutingInstruction = data[78];
-            msg.OrderType = data[79];
-            msg.TimeInForce = data[80];
-            msg.ExpireTime = BitConverter.ToUInt64(data.Slice(81, 8));
-            msg.Memo = data.Slice(89, 15).ToArray();
-            msg.DeskId = data.Slice(104, 15).ToArray();
+            msg.LimitPrice = BitConverter.ToInt64(data.Slice(0, 8));
+            msg.OrderQuantity = BitConverter.ToUInt32(data.Slice(8, 4));
+            msg.InstrumentId = BitConverter.ToUInt32(data.Slice(12, 4));
+            msg.Side = data[16];
+            msg.EnteringTrader = Encoding.ASCII.GetString(data.Slice(17, 15)).TrimEnd('\0');
+            msg.ClientOrderId = Encoding.ASCII.GetString(data.Slice(32, 10)).TrimEnd('\0');
+            msg.Account = BitConverter.ToUInt64(data.Slice(42, 8));
+            msg.SenderLocation = Encoding.ASCII.GetString(data.Slice(50, 10)).TrimEnd('\0');
+            msg.NoTradeKey = Encoding.ASCII.GetString(data.Slice(60, 10)).TrimEnd('\0');
+            msg.StopPrice = BitConverter.ToInt64(data.Slice(70, 8));
+            msg.DisplayQuantity = BitConverter.ToUInt32(data.Slice(78, 4));
+            msg.CancelOnDisconnect = data[82];
+            msg.Anonymity = data[83];
+            msg.OrderBook = data[84];
+            msg.ExecutionInstruction = data[85];
+            msg.RoutingInstruction = data[86];
+            msg.OrderType = data[87];
+            msg.TimeInForce = data[88];
+            msg.ExpireTime = BitConverter.ToUInt64(data.Slice(89, 8));
+            msg.Memo = Encoding.ASCII.GetString(data.Slice(97, 15)).TrimEnd('\0');
+            msg.DeskId = Encoding.ASCII.GetString(data.Slice(112, 15)).TrimEnd('\0');
         }
 
         public static void Encode(NativeNewOrderSingle msg, Span<byte> data)
         {
-            BitConverter.TryWriteBytes(data.Slice(0, 4), msg.LimitPrice);
-            BitConverter.TryWriteBytes(data.Slice(4, 4), msg.OrderQuantity);
-            BitConverter.TryWriteBytes(data.Slice(8, 4), msg.InstrumentId);
-            data[12] = msg.Side;
-            msg.EnteringTrader.CopyTo(data.Slice(13, 15));
-            msg.ClientOrderId.CopyTo(data.Slice(28, 10));
-            BitConverter.TryWriteBytes(data.Slice(38, 8), msg.Account);
-            msg.SenderLocation.CopyTo(data.Slice(46, 10));
-            msg.NoTradeKey.CopyTo(data.Slice(56, 10));
-            BitConverter.TryWriteBytes(data.Slice(66, 4), msg.StopPrice);
-            BitConverter.TryWriteBytes(data.Slice(70, 4), msg.DisplayQuantity);
-            data[74] = msg.CancelOnDisconnect;
-            data[75] = msg.Anonymity;
-            data[76] = msg.OrderBook;
-            data[77] = msg.ExecutionInstruction;
-            data[78] = msg.RoutingInstruction;
-            data[79] = msg.OrderType;
-            data[80] = msg.TimeInForce;
-            BitConverter.TryWriteBytes(data.Slice(81, 8), msg.ExpireTime);
-            msg.Memo.CopyTo(data.Slice(89, 15));
-            msg.DeskId.CopyTo(data.Slice(104, 15));
+            BitConverter.TryWriteBytes(data.Slice(0, 8), msg.LimitPrice);
+            BitConverter.TryWriteBytes(data.Slice(8, 4), msg.OrderQuantity);
+            BitConverter.TryWriteBytes(data.Slice(12, 4), msg.InstrumentId);
+            data[16] = msg.Side;
+            Encoding.ASCII.GetBytes((msg.EnteringTrader ?? string.Empty).PadRight(15, '\0')).AsSpan(0, 15).CopyTo(data.Slice(17, 15));
+            Encoding.ASCII.GetBytes((msg.ClientOrderId ?? string.Empty).PadRight(10, '\0')).AsSpan(0, 10).CopyTo(data.Slice(32, 10));
+            BitConverter.TryWriteBytes(data.Slice(42, 8), msg.Account);
+            Encoding.ASCII.GetBytes((msg.SenderLocation ?? string.Empty).PadRight(10, '\0')).AsSpan(0, 10).CopyTo(data.Slice(50, 10));
+            Encoding.ASCII.GetBytes((msg.NoTradeKey ?? string.Empty).PadRight(10, '\0')).AsSpan(0, 10).CopyTo(data.Slice(60, 10));
+            BitConverter.TryWriteBytes(data.Slice(70, 8), msg.StopPrice);
+            BitConverter.TryWriteBytes(data.Slice(78, 4), msg.DisplayQuantity);
+            data[82] = msg.CancelOnDisconnect;
+            data[83] = msg.Anonymity;
+            data[84] = msg.OrderBook;
+            data[85] = msg.ExecutionInstruction;
+            data[86] = msg.RoutingInstruction;
+            data[87] = msg.OrderType;
+            data[88] = msg.TimeInForce;
+            BitConverter.TryWriteBytes(data.Slice(89, 8), msg.ExpireTime);
+            Encoding.ASCII.GetBytes((msg.Memo ?? string.Empty).PadRight(15, '\0')).AsSpan(0, 15).CopyTo(data.Slice(97, 15));
+            Encoding.ASCII.GetBytes((msg.DeskId ?? string.Empty).PadRight(15, '\0')).AsSpan(0, 15).CopyTo(data.Slice(112, 15));
         }
     }
 }

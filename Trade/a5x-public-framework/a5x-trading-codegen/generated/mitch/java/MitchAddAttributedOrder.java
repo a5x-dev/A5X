@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -17,7 +16,7 @@ public class MitchAddAttributedOrder {
 	/**
 	 * Unique identifier of the order
 	 */
-	public BigInteger orderId;
+	public long orderId;
 
 	/**
 	 * B = Buy, S = Sell
@@ -59,7 +58,7 @@ public class MitchAddAttributedOrder {
 	 */
 	public static void parse(MitchAddAttributedOrder pAddAttributedOrder, ByteBuffer pData) {
 		pAddAttributedOrder.nanosecond = BitUtils.byteArrayToUInt32(pData, false);
-		pAddAttributedOrder.orderId = BitUtils.byteArrayToUInt64(pData, false);
+		pAddAttributedOrder.orderId = pData.getLong();
 		pAddAttributedOrder.side = pData.get();
 		pAddAttributedOrder.quantity = BitUtils.byteArrayToUInt32(pData, false);
 		pAddAttributedOrder.instrumentId = BitUtils.byteArrayToUInt32(pData, false);
@@ -78,13 +77,14 @@ public class MitchAddAttributedOrder {
 	 */
 	public static void encode(MitchAddAttributedOrder pAddAttributedOrder, ByteBuffer pData) {
 		BitUtils.uint32ToByteArray(pAddAttributedOrder.nanosecond, pData, false);
-		BitUtils.uint64ToByteArray(pAddAttributedOrder.orderId, pData, false);
+		pData.putLong(pAddAttributedOrder.orderId);
 		pData.put(pAddAttributedOrder.side);
 		BitUtils.uint32ToByteArray(pAddAttributedOrder.quantity, pData, false);
 		BitUtils.uint32ToByteArray(pAddAttributedOrder.instrumentId, pData, false);
 		pData.putLong(pAddAttributedOrder.price);
 		byte[] firmBytes = new byte[6];
-		byte[] firmSrc = pAddAttributedOrder.firm.getBytes();
+		java.util.Arrays.fill(firmBytes, (byte) ' ');
+		byte[] firmSrc = pAddAttributedOrder.firm == null ? new byte[0] : pAddAttributedOrder.firm.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(firmSrc, 0, firmBytes, 0, Math.min(firmSrc.length, 6));
 		pData.put(firmBytes);
 		pData.put(pAddAttributedOrder.flags);

@@ -1,15 +1,16 @@
 package br.com.a5x.trd.pub.nativ.model;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Mass Quote Acknowledgement
- * Message Type: b
+ * Message Type: J
  */
 public class NativeMassQuoteAcknowledgement {
 
     /** Mass Quote ID of the Mass Quote message */
-    public byte[] massQuoteId = new byte[10];
+    public String massQuoteId = "";
 
     /** Identity of the matching partition */
     public int partitionId;
@@ -30,22 +31,22 @@ public class NativeMassQuoteAcknowledgement {
     public long account;
 
     /** Sender Location assigned to the Trader ID/Firm */
-    public byte[] senderLocation = new byte[10];
+    public String senderLocation = "";
 
     /** 1 = Regular */
     public int orderBook;
 
     /** Entering Trader ID */
-    public byte[] enteringTrader = new byte[15];
+    public String enteringTrader = "";
 
     /** Client specified identifier of order relevant to self-execution */
-    public byte[] noTradeKey = new byte[10];
+    public String noTradeKey = "";
 
     /** Free format text field. Echoed in reports */
-    public byte[] memo = new byte[15];
+    public String memo = "";
 
     /** Desk ID through which the order is placed from */
-    public byte[] deskId = new byte[15];
+    public String deskId = "";
 
     /** 1 = Regular (Day Session), 2 = Non-Regular (Night Session) */
     public int tradingPhase;
@@ -97,33 +98,40 @@ public class NativeMassQuoteAcknowledgement {
     @Override
     public String toString() {
         return "NativeMassQuoteAcknowledgement{" +
-                "massQuoteId=" + new String(massQuoteId).trim() + ", " +
+                "massQuoteId=" + massQuoteId + ", " +
                 "partitionId=" + partitionId + ", " +
                 "status=" + status + ", " +
                 "rejectCode=" + rejectCode + ", " +
                 "transactTime=" + transactTime + ", " +
                 "anonymity=" + anonymity + ", " +
                 "account=" + account + ", " +
-                "senderLocation=" + new String(senderLocation).trim() + ", " +
+                "senderLocation=" + senderLocation + ", " +
                 "orderBook=" + orderBook + ", " +
-                "enteringTrader=" + new String(enteringTrader).trim() + ", " +
-                "noTradeKey=" + new String(noTradeKey).trim() + ", " +
-                "memo=" + new String(memo).trim() + ", " +
-                "deskId=" + new String(deskId).trim() + ", " +
+                "enteringTrader=" + enteringTrader + ", " +
+                "noTradeKey=" + noTradeKey + ", " +
+                "memo=" + memo + ", " +
+                "deskId=" + deskId + ", " +
                 "tradingPhase=" + tradingPhase + ", " +
                 "routingSeq=" + routingSeq + ", " +
                 "totalQuoteEntries=" + totalQuoteEntries + '}';
     }
 
-    private static byte[] readAlpha(ByteBuffer data, int length) {
-        byte[] result = new byte[length];
-        data.get(result);
-        return result;
+    private static String readAlpha(ByteBuffer data, int length) {
+        byte[] raw = new byte[length];
+        data.get(raw);
+        int end = 0;
+        while (end < length && raw[end] != 0) {
+            end++;
+        }
+        return new String(raw, 0, end, StandardCharsets.US_ASCII);
     }
 
-    private static void writeAlpha(ByteBuffer data, byte[] value, int length) {
-        byte[] temp = new byte[length];
-        System.arraycopy(value, 0, temp, 0, Math.min(value.length, length));
-        data.put(temp);
+    private static void writeAlpha(ByteBuffer data, String value, int length) {
+        byte[] out = new byte[length];
+        if (value != null) {
+            byte[] src = value.getBytes(StandardCharsets.US_ASCII);
+            System.arraycopy(src, 0, out, 0, Math.min(src.length, length));
+        }
+        data.put(out);
     }
 }

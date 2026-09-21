@@ -1,6 +1,7 @@
 #ifndef MITCHTRADE_H
 #define MITCHTRADE_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>
@@ -73,23 +74,23 @@ struct MitchTrade {
     /// Date and time when the trade was published by the trading venue [Epoch]
     uint64_t publicationDateTime;
 
-    /// Firm ID of the party firm
-    std::string firm;
+    /// Buyer Firm ID
+    std::string buyerFirm;
 
-    /// Firm ID of the counter party firm
-    std::string contraFirm;
+    /// Seller Firm ID
+    std::string sellerFirm;
 
-    /// Indicates if the trade has been cancelled (Value = CANC)
+    /// PTCancellationFlag. Indicates if the trade represented by the message has been cancelled (Value = CANC)
     std::string cancellationFlag;
 
-    /// Indicates if the trade has been amended (Value = AMND)
+    /// PTAmendmentFlag. Indicates if the trade represented by the message has been amended (Value = AMND)
     std::string amendmentFlag;
 
     /// 1 = Regular, 11 = Negotiated Trades
     uint8_t subBook;
 
     /// Bit 0: Trade Condition Flag, Bit 1: Internal Crossed Trade, Bit 5: RLP
-    void* flags;
+    uint8_t flags;
 
     static void parse(MitchTrade& msg, const uint8_t* data) {
         size_t offset = 0;
@@ -131,11 +132,11 @@ struct MitchTrade {
         offset += 3;
         std::memcpy(&msg.publicationDateTime, data + offset, 8);
         offset += 8;
-        msg.firm = std::string(reinterpret_cast<const char*>(data + offset), 6);
-        msg.firm.erase(msg.firm.find_last_not_of(' ') + 1);
+        msg.buyerFirm = std::string(reinterpret_cast<const char*>(data + offset), 6);
+        msg.buyerFirm.erase(msg.buyerFirm.find_last_not_of(' ') + 1);
         offset += 6;
-        msg.contraFirm = std::string(reinterpret_cast<const char*>(data + offset), 6);
-        msg.contraFirm.erase(msg.contraFirm.find_last_not_of(' ') + 1);
+        msg.sellerFirm = std::string(reinterpret_cast<const char*>(data + offset), 6);
+        msg.sellerFirm.erase(msg.sellerFirm.find_last_not_of(' ') + 1);
         offset += 6;
         msg.cancellationFlag = std::string(reinterpret_cast<const char*>(data + offset), 4);
         msg.cancellationFlag.erase(msg.cancellationFlag.find_last_not_of(' ') + 1);
@@ -144,6 +145,7 @@ struct MitchTrade {
         msg.amendmentFlag.erase(msg.amendmentFlag.find_last_not_of(' ') + 1);
         offset += 4;
         msg.subBook = data[offset++];
+        msg.flags = data[offset++];
     }
 
     static void encode(const MitchTrade& msg, uint8_t* data) {
@@ -187,10 +189,10 @@ struct MitchTrade {
         std::memcpy(data + offset, &msg.publicationDateTime, 8);
         offset += 8;
         std::memset(data + offset, ' ', 6);
-        std::memcpy(data + offset, msg.firm.c_str(), std::min(msg.firm.size(), size_t(6)));
+        std::memcpy(data + offset, msg.buyerFirm.c_str(), std::min(msg.buyerFirm.size(), size_t(6)));
         offset += 6;
         std::memset(data + offset, ' ', 6);
-        std::memcpy(data + offset, msg.contraFirm.c_str(), std::min(msg.contraFirm.size(), size_t(6)));
+        std::memcpy(data + offset, msg.sellerFirm.c_str(), std::min(msg.sellerFirm.size(), size_t(6)));
         offset += 6;
         std::memset(data + offset, ' ', 4);
         std::memcpy(data + offset, msg.cancellationFlag.c_str(), std::min(msg.cancellationFlag.size(), size_t(4)));
@@ -199,6 +201,7 @@ struct MitchTrade {
         std::memcpy(data + offset, msg.amendmentFlag.c_str(), std::min(msg.amendmentFlag.size(), size_t(4)));
         offset += 4;
         data[offset++] = msg.subBook;
+        data[offset++] = msg.flags;
     }
 };
 

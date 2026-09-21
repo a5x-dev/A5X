@@ -27,7 +27,7 @@ f.nativeexecutionreport_executionId = ProtoField.string("native.nativeexecutionr
 f.nativeexecutionreport_clientOrderId = ProtoField.string("native.nativeexecutionreport.clientOrderId", "ClientOrderId")
 f.nativeexecutionreport_orderId = ProtoField.string("native.nativeexecutionreport.orderId", "OrderId")
 f.nativeexecutionreport_publicOrderId = ProtoField.string("native.nativeexecutionreport.publicOrderId", "PublicOrderId")
-f.nativeexecutionreport_executedPrice = ProtoField.int32("native.nativeexecutionreport.executedPrice", "ExecutedPrice", base.DEC)
+f.nativeexecutionreport_executedPrice = ProtoField.int64("native.nativeexecutionreport.executedPrice", "ExecutedPrice", base.DEC)
 f.nativeexecutionreport_transactTime = ProtoField.uint64("native.nativeexecutionreport.transactTime", "TransactTime", base.DEC)
 f.nativeexecutionreport_account = ProtoField.uint64("native.nativeexecutionreport.account", "Account", base.DEC)
 f.nativeexecutionreport_senderLocation = ProtoField.string("native.nativeexecutionreport.senderLocation", "SenderLocation")
@@ -58,7 +58,7 @@ f.nativeordercancelreject_rejectCode = ProtoField.int32("native.nativeordercance
 f.nativeordercancelreject_orderBook = ProtoField.uint8("native.nativeordercancelreject.orderBook", "OrderBook", base.DEC)
 f.nativeordercancelreject_transactTime = ProtoField.uint64("native.nativeordercancelreject.transactTime", "TransactTime", base.DEC)
 f.nativeordercancelreject_senderLocation = ProtoField.string("native.nativeordercancelreject.senderLocation", "SenderLocation")
-f.nativenewordersingle_limitPrice = ProtoField.int32("native.nativenewordersingle.limitPrice", "LimitPrice", base.DEC)
+f.nativenewordersingle_limitPrice = ProtoField.int64("native.nativenewordersingle.limitPrice", "LimitPrice", base.DEC)
 f.nativenewordersingle_orderQuantity = ProtoField.uint32("native.nativenewordersingle.orderQuantity", "OrderQuantity", base.DEC)
 f.nativenewordersingle_instrumentId = ProtoField.uint32("native.nativenewordersingle.instrumentId", "InstrumentId", base.DEC)
 f.nativenewordersingle_side = ProtoField.uint8("native.nativenewordersingle.side", "Side", base.DEC)
@@ -67,7 +67,7 @@ f.nativenewordersingle_clientOrderId = ProtoField.string("native.nativeneworders
 f.nativenewordersingle_account = ProtoField.uint64("native.nativenewordersingle.account", "Account", base.DEC)
 f.nativenewordersingle_senderLocation = ProtoField.string("native.nativenewordersingle.senderLocation", "SenderLocation")
 f.nativenewordersingle_noTradeKey = ProtoField.string("native.nativenewordersingle.noTradeKey", "NoTradeKey")
-f.nativenewordersingle_stopPrice = ProtoField.int32("native.nativenewordersingle.stopPrice", "StopPrice", base.DEC)
+f.nativenewordersingle_stopPrice = ProtoField.int64("native.nativenewordersingle.stopPrice", "StopPrice", base.DEC)
 f.nativenewordersingle_displayQuantity = ProtoField.uint32("native.nativenewordersingle.displayQuantity", "DisplayQuantity", base.DEC)
 f.nativenewordersingle_cancelOnDisconnect = ProtoField.uint8("native.nativenewordersingle.cancelOnDisconnect", "CancelOnDisconnect", base.DEC)
 f.nativenewordersingle_anonymity = ProtoField.uint8("native.nativenewordersingle.anonymity", "Anonymity", base.DEC)
@@ -86,19 +86,17 @@ f.nativeordercancelrequest_instrumentId = ProtoField.uint32("native.nativeorderc
 f.nativeordercancelrequest_side = ProtoField.uint8("native.nativeordercancelrequest.side", "Side", base.DEC)
 f.nativeordercancelrequest_orderBook = ProtoField.uint8("native.nativeordercancelrequest.orderBook", "OrderBook", base.DEC)
 f.nativeordercancelrequest_senderLocation = ProtoField.string("native.nativeordercancelrequest.senderLocation", "SenderLocation")
-f.nativeorderreplacerequest_limitPrice = ProtoField.int32("native.nativeorderreplacerequest.limitPrice", "LimitPrice", base.DEC)
+f.nativeorderreplacerequest_limitPrice = ProtoField.int64("native.nativeorderreplacerequest.limitPrice", "LimitPrice", base.DEC)
 f.nativeorderreplacerequest_orderQuantity = ProtoField.uint32("native.nativeorderreplacerequest.orderQuantity", "OrderQuantity", base.DEC)
 f.nativeorderreplacerequest_instrumentId = ProtoField.uint32("native.nativeorderreplacerequest.instrumentId", "InstrumentId", base.DEC)
 f.nativeorderreplacerequest_side = ProtoField.uint8("native.nativeorderreplacerequest.side", "Side", base.DEC)
 f.nativeorderreplacerequest_clientOrderId = ProtoField.string("native.nativeorderreplacerequest.clientOrderId", "ClientOrderId")
 f.nativeorderreplacerequest_origClientOrderId = ProtoField.string("native.nativeorderreplacerequest.origClientOrderId", "OrigClientOrderId")
-f.nativeorderreplacerequest_orderId = ProtoField.string("native.nativeorderreplacerequest.orderId", "OrderId")
 f.nativeorderreplacerequest_account = ProtoField.uint64("native.nativeorderreplacerequest.account", "Account", base.DEC)
 f.nativeorderreplacerequest_senderLocation = ProtoField.string("native.nativeorderreplacerequest.senderLocation", "SenderLocation")
-f.nativeorderreplacerequest_stopPrice = ProtoField.int32("native.nativeorderreplacerequest.stopPrice", "StopPrice", base.DEC)
+f.nativeorderreplacerequest_stopPrice = ProtoField.int64("native.nativeorderreplacerequest.stopPrice", "StopPrice", base.DEC)
 f.nativeorderreplacerequest_displayQuantity = ProtoField.uint32("native.nativeorderreplacerequest.displayQuantity", "DisplayQuantity", base.DEC)
 f.nativeorderreplacerequest_orderBook = ProtoField.uint8("native.nativeorderreplacerequest.orderBook", "OrderBook", base.DEC)
-f.nativeorderreplacerequest_executionInstruction = ProtoField.uint8("native.nativeorderreplacerequest.executionInstruction", "ExecutionInstruction", base.DEC)
 f.nativeorderreplacerequest_orderType = ProtoField.uint8("native.nativeorderreplacerequest.orderType", "OrderType", base.DEC)
 f.nativeorderreplacerequest_timeInForce = ProtoField.uint8("native.nativeorderreplacerequest.timeInForce", "TimeInForce", base.DEC)
 f.nativeorderreplacerequest_expireTime = ProtoField.uint64("native.nativeorderreplacerequest.expireTime", "ExpireTime", base.DEC)
@@ -109,7 +107,7 @@ f.nativetransmissioncomplete_status = ProtoField.uint8("native.nativetransmissio
 f.nativesystemstatus_partitionId = ProtoField.uint8("native.nativesystemstatus.partitionId", "PartitionId", base.DEC)
 f.nativesystemstatus_status = ProtoField.uint8("native.nativesystemstatus.status", "Status", base.DEC)
 f.nativenewordercross_crossId = ProtoField.string("native.nativenewordercross.crossId", "CrossId")
-f.nativenewordercross_limitPrice = ProtoField.int32("native.nativenewordercross.limitPrice", "LimitPrice", base.DEC)
+f.nativenewordercross_limitPrice = ProtoField.int64("native.nativenewordercross.limitPrice", "LimitPrice", base.DEC)
 f.nativenewordercross_orderQuantity = ProtoField.uint32("native.nativenewordercross.orderQuantity", "OrderQuantity", base.DEC)
 f.nativenewordercross_enteringTrader = ProtoField.string("native.nativenewordercross.enteringTrader", "EnteringTrader")
 f.nativenewordercross_instrumentId = ProtoField.uint32("native.nativenewordercross.instrumentId", "InstrumentId", base.DEC)
@@ -134,6 +132,8 @@ f.nativemasscancelrequest_segment = ProtoField.string("native.nativemasscancelre
 f.nativemasscancelrequest_interestType = ProtoField.uint8("native.nativemasscancelrequest.interestType", "InterestType", base.DEC)
 f.nativemasscancelrequest_orderBook = ProtoField.uint8("native.nativemasscancelrequest.orderBook", "OrderBook", base.DEC)
 f.nativemasscancelrequest_senderLocation = ProtoField.string("native.nativemasscancelrequest.senderLocation", "SenderLocation")
+f.nativemasscancelrequest_enteringTrader = ProtoField.string("native.nativemasscancelrequest.enteringTrader", "EnteringTrader")
+f.nativemasscancelrequest_deskId = ProtoField.string("native.nativemasscancelrequest.deskId", "DeskId")
 f.nativemasscancelreport_partitionId = ProtoField.uint8("native.nativemasscancelreport.partitionId", "PartitionId", base.DEC)
 f.nativemasscancelreport_sequenceNumber = ProtoField.uint64("native.nativemasscancelreport.sequenceNumber", "SequenceNumber", base.DEC)
 f.nativemasscancelreport_clientOrderId = ProtoField.string("native.nativemasscancelreport.clientOrderId", "ClientOrderId")
@@ -182,7 +182,7 @@ f.nativequotestatusreport_sequenceNumber = ProtoField.uint64("native.nativequote
 f.nativequotestatusreport_quoteMsgId = ProtoField.string("native.nativequotestatusreport.quoteMsgId", "QuoteMsgId")
 f.nativequotestatusreport_quoteStatus = ProtoField.uint8("native.nativequotestatusreport.quoteStatus", "QuoteStatus", base.DEC)
 f.nativequotestatusreport_rejectCode = ProtoField.int32("native.nativequotestatusreport.rejectCode", "RejectCode", base.DEC)
-f.nativequotestatusreport_orderBook = ProtoField.uint32("native.nativequotestatusreport.orderBook", "OrderBook", base.DEC)
+f.nativequotestatusreport_orderBook = ProtoField.uint8("native.nativequotestatusreport.orderBook", "OrderBook", base.DEC)
 f.nativequotestatusreport_transactTime = ProtoField.uint64("native.nativequotestatusreport.transactTime", "TransactTime", base.DEC)
 f.nativequotestatusreport_anonymity = ProtoField.uint8("native.nativequotestatusreport.anonymity", "Anonymity", base.DEC)
 f.nativequotestatusreport_instrumentId = ProtoField.uint32("native.nativequotestatusreport.instrumentId", "InstrumentId", base.DEC)
@@ -193,6 +193,22 @@ f.nativequotestatusreport_senderLocation = ProtoField.string("native.nativequote
 f.nativequotestatusreport_enteringTrader = ProtoField.string("native.nativequotestatusreport.enteringTrader", "EnteringTrader")
 f.nativequotestatusreport_memo = ProtoField.string("native.nativequotestatusreport.memo", "Memo")
 f.nativequotestatusreport_deskId = ProtoField.string("native.nativequotestatusreport.deskId", "DeskId")
+f.nativemmpresetrequest_requestId = ProtoField.int32("native.nativemmpresetrequest.requestId", "RequestId", base.DEC)
+f.nativemmpresetrequest_segment = ProtoField.string("native.nativemmpresetrequest.segment", "Segment")
+f.nativemmpresetrequest_partitionId = ProtoField.uint8("native.nativemmpresetrequest.partitionId", "PartitionId", base.DEC)
+f.nativemmpresetrequest_enteringTrader = ProtoField.string("native.nativemmpresetrequest.enteringTrader", "EnteringTrader")
+f.nativemmpresetrequest_deskId = ProtoField.string("native.nativemmpresetrequest.deskId", "DeskId")
+f.nativemmpresetrequest_senderLocation = ProtoField.string("native.nativemmpresetrequest.senderLocation", "SenderLocation")
+f.nativemmpresetrequest_memo = ProtoField.string("native.nativemmpresetrequest.memo", "Memo")
+f.nativemmpresetacknowledgement_requestId = ProtoField.int32("native.nativemmpresetacknowledgement.requestId", "RequestId", base.DEC)
+f.nativemmpresetacknowledgement_segment = ProtoField.string("native.nativemmpresetacknowledgement.segment", "Segment")
+f.nativemmpresetacknowledgement_partitionId = ProtoField.uint8("native.nativemmpresetacknowledgement.partitionId", "PartitionId", base.DEC)
+f.nativemmpresetacknowledgement_enteringTrader = ProtoField.string("native.nativemmpresetacknowledgement.enteringTrader", "EnteringTrader")
+f.nativemmpresetacknowledgement_deskId = ProtoField.string("native.nativemmpresetacknowledgement.deskId", "DeskId")
+f.nativemmpresetacknowledgement_senderLocation = ProtoField.string("native.nativemmpresetacknowledgement.senderLocation", "SenderLocation")
+f.nativemmpresetacknowledgement_memo = ProtoField.string("native.nativemmpresetacknowledgement.memo", "Memo")
+f.nativemmpresetacknowledgement_status = ProtoField.uint8("native.nativemmpresetacknowledgement.status", "Status", base.DEC)
+f.nativemmpresetacknowledgement_rejectCode = ProtoField.int32("native.nativemmpresetacknowledgement.rejectCode", "RejectCode", base.DEC)
 
 local message_types = {
     ["A"] = "NativeLogon",
@@ -209,14 +225,16 @@ local message_types = {
     ["N"] = "NativeMissedMessageRequestAck",
     ["P"] = "NativeTransmissionComplete",
     ["n"] = "NativeSystemStatus",
-    ["u"] = "NativeNewOrderCross",
+    ["C"] = "NativeNewOrderCross",
     ["j"] = "NativeBusinessReject",
     ["q"] = "NativeMassCancelRequest",
     ["r"] = "NativeMassCancelReport",
-    ["CB"] = "NativeNews",
+    ["Z"] = "NativeNews",
     ["i"] = "NativeMassQuote",
-    ["b"] = "NativeMassQuoteAcknowledgement",
-    ["AI"] = "NativeQuoteStatusReport",
+    ["J"] = "NativeMassQuoteAcknowledgement",
+    ["c"] = "NativeQuoteStatusReport",
+    ["}"] = "NativeMMPResetRequest",
+    ["~"] = "NativeMMPResetAcknowledgement",
 }
 
 function native_proto.dissector(buffer, pinfo, tree)
@@ -303,8 +321,8 @@ function native_proto.dissector(buffer, pinfo, tree)
         offset = offset + 12
         subtree:add(f.nativeexecutionreport_publicOrderId, buffer(offset, 12))
         offset = offset + 12
-        do local v = buffer(offset, 4):le_int() subtree:add(f.nativeexecutionreport_executedPrice, buffer(offset, 4)):set_text("ExecutedPrice: " .. string.format("%.4f", v / 10000000.0)) end
-        offset = offset + 4
+        subtree:add(f.nativeexecutionreport_executedPrice, buffer(offset, 8))
+        offset = offset + 8
         subtree:add(f.nativeexecutionreport_transactTime, buffer(offset, 8))
         offset = offset + 8
         subtree:add(f.nativeexecutionreport_account, buffer(offset, 8))
@@ -373,8 +391,8 @@ function native_proto.dissector(buffer, pinfo, tree)
 
     if msgtype == "D" then
         -- NativeNewOrderSingle
-        do local v = buffer(offset, 4):le_int() subtree:add(f.nativenewordersingle_limitPrice, buffer(offset, 4)):set_text("LimitPrice: " .. string.format("%.4f", v / 10000000.0)) end
-        offset = offset + 4
+        subtree:add(f.nativenewordersingle_limitPrice, buffer(offset, 8))
+        offset = offset + 8
         subtree:add(f.nativenewordersingle_orderQuantity, buffer(offset, 4))
         offset = offset + 4
         subtree:add(f.nativenewordersingle_instrumentId, buffer(offset, 4))
@@ -391,8 +409,8 @@ function native_proto.dissector(buffer, pinfo, tree)
         offset = offset + 10
         subtree:add(f.nativenewordersingle_noTradeKey, buffer(offset, 10))
         offset = offset + 10
-        do local v = buffer(offset, 4):le_int() subtree:add(f.nativenewordersingle_stopPrice, buffer(offset, 4)):set_text("StopPrice: " .. string.format("%.4f", v / 10000000.0)) end
-        offset = offset + 4
+        subtree:add(f.nativenewordersingle_stopPrice, buffer(offset, 8))
+        offset = offset + 8
         subtree:add(f.nativenewordersingle_displayQuantity, buffer(offset, 4))
         offset = offset + 4
         subtree:add(f.nativenewordersingle_cancelOnDisconnect, buffer(offset, 1))
@@ -437,8 +455,8 @@ function native_proto.dissector(buffer, pinfo, tree)
 
     if msgtype == "G" then
         -- NativeOrderReplaceRequest
-        do local v = buffer(offset, 4):le_int() subtree:add(f.nativeorderreplacerequest_limitPrice, buffer(offset, 4)):set_text("LimitPrice: " .. string.format("%.4f", v / 10000000.0)) end
-        offset = offset + 4
+        subtree:add(f.nativeorderreplacerequest_limitPrice, buffer(offset, 8))
+        offset = offset + 8
         subtree:add(f.nativeorderreplacerequest_orderQuantity, buffer(offset, 4))
         offset = offset + 4
         subtree:add(f.nativeorderreplacerequest_instrumentId, buffer(offset, 4))
@@ -449,19 +467,15 @@ function native_proto.dissector(buffer, pinfo, tree)
         offset = offset + 10
         subtree:add(f.nativeorderreplacerequest_origClientOrderId, buffer(offset, 10))
         offset = offset + 10
-        subtree:add(f.nativeorderreplacerequest_orderId, buffer(offset, 12))
-        offset = offset + 12
         subtree:add(f.nativeorderreplacerequest_account, buffer(offset, 8))
         offset = offset + 8
         subtree:add(f.nativeorderreplacerequest_senderLocation, buffer(offset, 10))
         offset = offset + 10
-        do local v = buffer(offset, 4):le_int() subtree:add(f.nativeorderreplacerequest_stopPrice, buffer(offset, 4)):set_text("StopPrice: " .. string.format("%.4f", v / 10000000.0)) end
-        offset = offset + 4
+        subtree:add(f.nativeorderreplacerequest_stopPrice, buffer(offset, 8))
+        offset = offset + 8
         subtree:add(f.nativeorderreplacerequest_displayQuantity, buffer(offset, 4))
         offset = offset + 4
         subtree:add(f.nativeorderreplacerequest_orderBook, buffer(offset, 1))
-        offset = offset + 1
-        subtree:add(f.nativeorderreplacerequest_executionInstruction, buffer(offset, 1))
         offset = offset + 1
         subtree:add(f.nativeorderreplacerequest_orderType, buffer(offset, 1))
         offset = offset + 1
@@ -499,12 +513,12 @@ function native_proto.dissector(buffer, pinfo, tree)
         offset = offset + 1
     end
 
-    if msgtype == "u" then
+    if msgtype == "C" then
         -- NativeNewOrderCross
         subtree:add(f.nativenewordercross_crossId, buffer(offset, 10))
         offset = offset + 10
-        do local v = buffer(offset, 4):le_int() subtree:add(f.nativenewordercross_limitPrice, buffer(offset, 4)):set_text("LimitPrice: " .. string.format("%.4f", v / 10000000.0)) end
-        offset = offset + 4
+        subtree:add(f.nativenewordercross_limitPrice, buffer(offset, 8))
+        offset = offset + 8
         subtree:add(f.nativenewordercross_orderQuantity, buffer(offset, 4))
         offset = offset + 4
         subtree:add(f.nativenewordercross_enteringTrader, buffer(offset, 15))
@@ -561,6 +575,10 @@ function native_proto.dissector(buffer, pinfo, tree)
         offset = offset + 1
         subtree:add(f.nativemasscancelrequest_senderLocation, buffer(offset, 10))
         offset = offset + 10
+        subtree:add(f.nativemasscancelrequest_enteringTrader, buffer(offset, 15))
+        offset = offset + 15
+        subtree:add(f.nativemasscancelrequest_deskId, buffer(offset, 15))
+        offset = offset + 15
     end
 
     if msgtype == "r" then
@@ -579,7 +597,7 @@ function native_proto.dissector(buffer, pinfo, tree)
         offset = offset + 1
     end
 
-    if msgtype == "CB" then
+    if msgtype == "Z" then
         -- NativeNews
         subtree:add(f.nativenews_partitionId, buffer(offset, 1))
         offset = offset + 1
@@ -629,7 +647,7 @@ function native_proto.dissector(buffer, pinfo, tree)
         offset = offset + 2
     end
 
-    if msgtype == "b" then
+    if msgtype == "J" then
         -- NativeMassQuoteAcknowledgement
         subtree:add(f.nativemassquoteacknowledgement_massQuoteId, buffer(offset, 10))
         offset = offset + 10
@@ -665,7 +683,7 @@ function native_proto.dissector(buffer, pinfo, tree)
         offset = offset + 2
     end
 
-    if msgtype == "AI" then
+    if msgtype == "c" then
         -- NativeQuoteStatusReport
         subtree:add(f.nativequotestatusreport_partitionId, buffer(offset, 1))
         offset = offset + 1
@@ -677,8 +695,8 @@ function native_proto.dissector(buffer, pinfo, tree)
         offset = offset + 1
         subtree:add(f.nativequotestatusreport_rejectCode, buffer(offset, 4))
         offset = offset + 4
-        subtree:add(f.nativequotestatusreport_orderBook, buffer(offset, 4))
-        offset = offset + 4
+        subtree:add(f.nativequotestatusreport_orderBook, buffer(offset, 1))
+        offset = offset + 1
         subtree:add(f.nativequotestatusreport_transactTime, buffer(offset, 8))
         offset = offset + 8
         subtree:add(f.nativequotestatusreport_anonymity, buffer(offset, 1))
@@ -699,6 +717,46 @@ function native_proto.dissector(buffer, pinfo, tree)
         offset = offset + 15
         subtree:add(f.nativequotestatusreport_deskId, buffer(offset, 15))
         offset = offset + 15
+    end
+
+    if msgtype == "}" then
+        -- NativeMMPResetRequest
+        subtree:add(f.nativemmpresetrequest_requestId, buffer(offset, 4))
+        offset = offset + 4
+        subtree:add(f.nativemmpresetrequest_segment, buffer(offset, 10))
+        offset = offset + 10
+        subtree:add(f.nativemmpresetrequest_partitionId, buffer(offset, 1))
+        offset = offset + 1
+        subtree:add(f.nativemmpresetrequest_enteringTrader, buffer(offset, 15))
+        offset = offset + 15
+        subtree:add(f.nativemmpresetrequest_deskId, buffer(offset, 15))
+        offset = offset + 15
+        subtree:add(f.nativemmpresetrequest_senderLocation, buffer(offset, 10))
+        offset = offset + 10
+        subtree:add(f.nativemmpresetrequest_memo, buffer(offset, 15))
+        offset = offset + 15
+    end
+
+    if msgtype == "~" then
+        -- NativeMMPResetAcknowledgement
+        subtree:add(f.nativemmpresetacknowledgement_requestId, buffer(offset, 4))
+        offset = offset + 4
+        subtree:add(f.nativemmpresetacknowledgement_segment, buffer(offset, 10))
+        offset = offset + 10
+        subtree:add(f.nativemmpresetacknowledgement_partitionId, buffer(offset, 1))
+        offset = offset + 1
+        subtree:add(f.nativemmpresetacknowledgement_enteringTrader, buffer(offset, 15))
+        offset = offset + 15
+        subtree:add(f.nativemmpresetacknowledgement_deskId, buffer(offset, 15))
+        offset = offset + 15
+        subtree:add(f.nativemmpresetacknowledgement_senderLocation, buffer(offset, 10))
+        offset = offset + 10
+        subtree:add(f.nativemmpresetacknowledgement_memo, buffer(offset, 15))
+        offset = offset + 15
+        subtree:add(f.nativemmpresetacknowledgement_status, buffer(offset, 1))
+        offset = offset + 1
+        subtree:add(f.nativemmpresetacknowledgement_rejectCode, buffer(offset, 4))
+        offset = offset + 4
     end
 
 end

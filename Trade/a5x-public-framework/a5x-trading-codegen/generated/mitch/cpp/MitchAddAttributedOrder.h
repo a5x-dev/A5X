@@ -1,6 +1,7 @@
 #ifndef MITCHADDATTRIBUTEDORDER_H
 #define MITCHADDATTRIBUTEDORDER_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>
@@ -33,7 +34,7 @@ struct MitchAddAttributedOrder {
     std::string firm;
 
     /// Bit 4: Market Order (0 = No, 1 = Yes), Bit 5: Bulletin Board (0 = No, 1 = Yes)
-    void* flags;
+    uint8_t flags;
 
     static void parse(MitchAddAttributedOrder& msg, const uint8_t* data) {
         size_t offset = 0;
@@ -51,6 +52,7 @@ struct MitchAddAttributedOrder {
         msg.firm = std::string(reinterpret_cast<const char*>(data + offset), 6);
         msg.firm.erase(msg.firm.find_last_not_of(' ') + 1);
         offset += 6;
+        msg.flags = data[offset++];
     }
 
     static void encode(const MitchAddAttributedOrder& msg, uint8_t* data) {
@@ -69,6 +71,7 @@ struct MitchAddAttributedOrder {
         std::memset(data + offset, ' ', 6);
         std::memcpy(data + offset, msg.firm.c_str(), std::min(msg.firm.size(), size_t(6)));
         offset += 6;
+        data[offset++] = msg.flags;
     }
 };
 

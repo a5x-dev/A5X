@@ -1,6 +1,7 @@
 #ifndef MITCHORDERMODIFIED_H
 #define MITCHORDERMODIFIED_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>
@@ -32,7 +33,7 @@ struct MitchOrderModified {
     double oldPriceAsDecimal() const { return oldPrice / 10000.0; }
 
     /// Bit 0: Priority Flag (0 = Priority Lost, 1 = Priority Retained)
-    void* flags;
+    uint8_t flags;
 
     static void parse(MitchOrderModified& msg, const uint8_t* data) {
         size_t offset = 0;
@@ -48,6 +49,7 @@ struct MitchOrderModified {
         offset += 4;
         std::memcpy(&msg.oldPrice, data + offset, 8);
         offset += 8;
+        msg.flags = data[offset++];
     }
 
     static void encode(const MitchOrderModified& msg, uint8_t* data) {
@@ -64,6 +66,7 @@ struct MitchOrderModified {
         offset += 4;
         std::memcpy(data + offset, &msg.oldPrice, 8);
         offset += 8;
+        data[offset++] = msg.flags;
     }
 };
 

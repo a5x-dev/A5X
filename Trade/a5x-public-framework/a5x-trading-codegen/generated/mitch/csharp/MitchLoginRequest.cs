@@ -1,5 +1,4 @@
 using System;
-using System.Numerics;
 using System.Text;
 
 namespace A5X.Trading.Mitch.Model
@@ -45,16 +44,16 @@ namespace A5X.Trading.Mitch.Model
         public static void Encode(MitchLoginRequest msg, Span<byte> data)
         {
             int offset = 0;
-            var usernameBytes = Encoding.ASCII.GetBytes(msg.Username.PadRight(6));
+            var usernameBytes = Encoding.ASCII.GetBytes((msg.Username ?? string.Empty).PadRight(6));
             usernameBytes.AsSpan(0, 6).CopyTo(data.Slice(offset, 6));
             offset += 6;
-            var passwordBytes = Encoding.ASCII.GetBytes(msg.Password.PadRight(10));
+            var passwordBytes = Encoding.ASCII.GetBytes((msg.Password ?? string.Empty).PadRight(10));
             passwordBytes.AsSpan(0, 10).CopyTo(data.Slice(offset, 10));
             offset += 10;
-            var ipAddressBytes = Encoding.ASCII.GetBytes(msg.IpAddress.PadRight(15));
+            var ipAddressBytes = Encoding.ASCII.GetBytes((msg.IpAddress ?? string.Empty).PadRight(15));
             ipAddressBytes.AsSpan(0, 15).CopyTo(data.Slice(offset, 15));
             offset += 15;
-            var certifiedSolutionBytes = Encoding.ASCII.GetBytes(msg.CertifiedSolution.PadRight(44));
+            var certifiedSolutionBytes = Encoding.ASCII.GetBytes((msg.CertifiedSolution ?? string.Empty).PadRight(44));
             certifiedSolutionBytes.AsSpan(0, 44).CopyTo(data.Slice(offset, 44));
             offset += 44;
         }

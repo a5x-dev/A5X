@@ -1,6 +1,7 @@
 #ifndef MITCHEXTENDEDSTATISTICS_H
 #define MITCHEXTENDEDSTATISTICS_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>

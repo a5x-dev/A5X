@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -32,12 +31,12 @@ public class MitchStatistics {
 	public java.math.BigDecimal priceAsDecimal() { return java.math.BigDecimal.valueOf(price, 4); }
 
 	/**
-	 * A = Auction Trade, B = Regular Trade, C = Mid Point, D = Last Regular Trade, E = Last Auction, F = Manual, H = VWAP, I = Previous Close, T = Theoretical Price, L = VWAP n Volume, U = Best Bid, V = Best Offer, W = None, X = VWAP of Last n Trades, Y = Reference Price, Z = Price Unavailable
+	 * A = Auction Trade, B = Regular Trade, D = Last Regular Trade, E = Last Auction, F = Manual, I = Previous Close, T = Theoretical Price, W = None, Y = Reference Price, Z = Price Unavailable
 	 */
 	public byte openCloseIndicator;
 
 	/**
-	 * 1 = Regular, 2 = Off-Book, 9 = Bulletin Board
+	 * 1 = Regular
 	 */
 	public int subBook;
 

@@ -8,10 +8,24 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="types" type="mitch:TypesType" minOccurs="0"/>
+                <xs:element name="header" type="mitch:HeaderType" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element name="message" type="mitch:MessageType" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+    <!--
+        Transport framing that wraps the payload messages. MITCH prefixes every UDP packet
+        with a unit header; describing it here is what lets a consumer decode a capture from
+        this file alone, without cross-referencing the gateway documentation.
+    -->
+    <xs:complexType name="HeaderType">
+        <xs:sequence>
+            <xs:element name="field" type="mitch:FieldType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="description" type="xs:string"/>
+    </xs:complexType>
 
     <!--
         Declarative catalog of the wire data types this protocol uses. The generators map the
@@ -31,6 +45,8 @@
         <xs:attribute name="encoding" type="xs:string" use="required"/>
         <xs:attribute name="impliedDecimals" type="xs:nonNegativeInteger"/>
         <xs:attribute name="padding" type="mitch:Padding"/>
+        <!-- Literal layout of an ASCII-encoded type, for example YYYYMMDD or HH:MM:SS. -->
+        <xs:attribute name="format" type="xs:string"/>
         <!--
             The type each generator emits. For the shared core these values are identical to
             the ones in native-messages.xml, so a given wire type surfaces as the same language

@@ -1,6 +1,7 @@
 #ifndef MITCHNEWS_H
 #define MITCHNEWS_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>

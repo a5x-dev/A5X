@@ -1,5 +1,4 @@
 using System;
-using System.Numerics;
 using System.Text;
 
 namespace A5X.Trading.Mitch.Model
@@ -22,7 +21,7 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Bit 0: Regular (0=No, 1=Yes), Bit 5: Bulletin Board (0=No, 1=Yes)
         /// </summary>
-        public object SubBook { get; set; }
+        public byte SubBook { get; set; }
 
         /// <summary>
         /// 1 = Update, 2 = Delete
@@ -42,7 +41,7 @@ namespace A5X.Trading.Mitch.Model
         public decimal PriceAsDecimal => Price / 10000m;
 
         /// <summary>
-        /// Cumulative visible size at best price
+        /// Cumulative visible size at best price. This will be set to zero on a delete action
         /// </summary>
         public uint Quantity { get; set; }
 
@@ -54,7 +53,7 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Reserved for future use
         /// </summary>
-        public byte[] ReservedField = new byte[2] { get; set; }
+        public byte[] ReservedField { get; set; } = new byte[2];
 
         /// <summary>
         /// Cumulative visible orders at Best price. This will be set to zero on a delete action
@@ -68,6 +67,7 @@ namespace A5X.Trading.Mitch.Model
             offset += 4;
             msg.InstrumentId = BitConverter.ToUInt32(data.Slice(offset, 4));
             offset += 4;
+            msg.SubBook = data[offset++];
             msg.Action = data[offset++];
             msg.Side = data[offset++];
             msg.Price = BitConverter.ToInt64(data.Slice(offset, 8));
@@ -89,6 +89,7 @@ namespace A5X.Trading.Mitch.Model
             offset += 4;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.InstrumentId);
             offset += 4;
+            data[offset++] = (byte)msg.SubBook;
             data[offset++] = (byte)msg.Action;
             data[offset++] = (byte)msg.Side;
             BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.Price);

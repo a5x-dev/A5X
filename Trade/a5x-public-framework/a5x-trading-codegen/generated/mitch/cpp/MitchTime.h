@@ -1,6 +1,7 @@
 #ifndef MITCHTIME_H
 #define MITCHTIME_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>

@@ -1,6 +1,7 @@
 #ifndef MITCHREPLAYRESPONSE_H
 #define MITCHREPLAYRESPONSE_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>
@@ -16,7 +17,7 @@ struct MitchReplayResponse {
     uint64_t firstMessage;
 
     /// Number of messages to be resent. This will be zero if Status is not 'A'
-    void* count;
+    uint16_t count;
 
     /// A = Request Accepted, D = Request Limit Reached, I = Invalid Market Data Group, O = Out of Range, U = Replay Unavailable, c = Concurrent Limit Reached, d = Unsupported Message Type, e = Failed (Other)
     uint8_t status;
@@ -26,6 +27,8 @@ struct MitchReplayResponse {
         msg.marketDataGroup = data[offset++];
         std::memcpy(&msg.firstMessage, data + offset, 8);
         offset += 8;
+        std::memcpy(&msg.count, data + offset, 2);
+        offset += 2;
         msg.status = data[offset++];
     }
 
@@ -34,6 +37,8 @@ struct MitchReplayResponse {
         data[offset++] = msg.marketDataGroup;
         std::memcpy(data + offset, &msg.firstMessage, 8);
         offset += 8;
+        std::memcpy(data + offset, &msg.count, 2);
+        offset += 2;
         data[offset++] = msg.status;
     }
 };

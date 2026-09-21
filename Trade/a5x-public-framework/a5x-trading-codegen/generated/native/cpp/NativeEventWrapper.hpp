@@ -24,6 +24,8 @@
 #include "NativeMassQuote.hpp"
 #include "NativeMassQuoteAcknowledgement.hpp"
 #include "NativeQuoteStatusReport.hpp"
+#include "NativeMMPResetRequest.hpp"
+#include "NativeMMPResetAcknowledgement.hpp"
 
 namespace a5x::trading::native {
 
@@ -52,6 +54,8 @@ public:
     virtual void onNativeMassQuote(const NativeMassQuote& msg) = 0;
     virtual void onNativeMassQuoteAcknowledgement(const NativeMassQuoteAcknowledgement& msg) = 0;
     virtual void onNativeQuoteStatusReport(const NativeQuoteStatusReport& msg) = 0;
+    virtual void onNativeMMPResetRequest(const NativeMMPResetRequest& msg) = 0;
+    virtual void onNativeMMPResetAcknowledgement(const NativeMMPResetAcknowledgement& msg) = 0;
 };
 
 class NativeEventWrapper {
@@ -151,7 +155,7 @@ public:
                 handler.onNativeSystemStatus(nativeSystemStatus);
                 break;
             }
-            case 'u': {
+            case 'C': {
                 NativeNewOrderCross nativeNewOrderCross;
                 NativeNewOrderCross::parse(nativeNewOrderCross, data + 4);
                 handler.onNativeNewOrderCross(nativeNewOrderCross);
@@ -175,7 +179,7 @@ public:
                 handler.onNativeMassCancelReport(nativeMassCancelReport);
                 break;
             }
-            case 'CB': {
+            case 'Z': {
                 NativeNews nativeNews;
                 NativeNews::parse(nativeNews, data + 4);
                 handler.onNativeNews(nativeNews);
@@ -187,16 +191,28 @@ public:
                 handler.onNativeMassQuote(nativeMassQuote);
                 break;
             }
-            case 'b': {
+            case 'J': {
                 NativeMassQuoteAcknowledgement nativeMassQuoteAcknowledgement;
                 NativeMassQuoteAcknowledgement::parse(nativeMassQuoteAcknowledgement, data + 4);
                 handler.onNativeMassQuoteAcknowledgement(nativeMassQuoteAcknowledgement);
                 break;
             }
-            case 'AI': {
+            case 'c': {
                 NativeQuoteStatusReport nativeQuoteStatusReport;
                 NativeQuoteStatusReport::parse(nativeQuoteStatusReport, data + 4);
                 handler.onNativeQuoteStatusReport(nativeQuoteStatusReport);
+                break;
+            }
+            case '}': {
+                NativeMMPResetRequest nativeMMPResetRequest;
+                NativeMMPResetRequest::parse(nativeMMPResetRequest, data + 4);
+                handler.onNativeMMPResetRequest(nativeMMPResetRequest);
+                break;
+            }
+            case '~': {
+                NativeMMPResetAcknowledgement nativeMMPResetAcknowledgement;
+                NativeMMPResetAcknowledgement::parse(nativeMMPResetAcknowledgement, data + 4);
+                handler.onNativeMMPResetAcknowledgement(nativeMMPResetAcknowledgement);
                 break;
             }
             default:

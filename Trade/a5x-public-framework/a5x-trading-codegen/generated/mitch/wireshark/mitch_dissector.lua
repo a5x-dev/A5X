@@ -66,8 +66,8 @@ fields.f_mitchorderexecuted_pricenotation = ProtoField.uint8("mitch.mitchorderex
 fields.f_mitchorderexecuted_notionalamount = ProtoField.int64("mitch.mitchorderexecuted.notionalamount", "notionalAmount", base.DEC)
 fields.f_mitchorderexecuted_notionalcurrency = ProtoField.string("mitch.mitchorderexecuted.notionalcurrency", "notionalCurrency", base.ASCII)
 fields.f_mitchorderexecuted_publicationdatetime = ProtoField.uint64("mitch.mitchorderexecuted.publicationdatetime", "publicationDateTime", base.DEC)
-fields.f_mitchorderexecuted_firm = ProtoField.string("mitch.mitchorderexecuted.firm", "firm", base.ASCII)
-fields.f_mitchorderexecuted_contrafirm = ProtoField.string("mitch.mitchorderexecuted.contrafirm", "contraFirm", base.ASCII)
+fields.f_mitchorderexecuted_buyerfirm = ProtoField.string("mitch.mitchorderexecuted.buyerfirm", "buyerFirm", base.ASCII)
+fields.f_mitchorderexecuted_sellerfirm = ProtoField.string("mitch.mitchorderexecuted.sellerfirm", "sellerFirm", base.ASCII)
 fields.f_mitchorderexecutedwithpricesize_nanosecond = ProtoField.uint32("mitch.mitchorderexecutedwithpricesize.nanosecond", "nanosecond", base.DEC)
 fields.f_mitchorderexecutedwithpricesize_orderid = ProtoField.uint64("mitch.mitchorderexecutedwithpricesize.orderid", "orderId", base.DEC)
 fields.f_mitchorderexecutedwithpricesize_executedquantity = ProtoField.uint32("mitch.mitchorderexecutedwithpricesize.executedquantity", "executedQuantity", base.DEC)
@@ -86,8 +86,8 @@ fields.f_mitchorderexecutedwithpricesize_pricenotation = ProtoField.uint8("mitch
 fields.f_mitchorderexecutedwithpricesize_notionalamount = ProtoField.int64("mitch.mitchorderexecutedwithpricesize.notionalamount", "notionalAmount", base.DEC)
 fields.f_mitchorderexecutedwithpricesize_notionalcurrency = ProtoField.string("mitch.mitchorderexecutedwithpricesize.notionalcurrency", "notionalCurrency", base.ASCII)
 fields.f_mitchorderexecutedwithpricesize_publicationdatetime = ProtoField.uint64("mitch.mitchorderexecutedwithpricesize.publicationdatetime", "publicationDateTime", base.DEC)
-fields.f_mitchorderexecutedwithpricesize_firm = ProtoField.string("mitch.mitchorderexecutedwithpricesize.firm", "firm", base.ASCII)
-fields.f_mitchorderexecutedwithpricesize_contrafirm = ProtoField.string("mitch.mitchorderexecutedwithpricesize.contrafirm", "contraFirm", base.ASCII)
+fields.f_mitchorderexecutedwithpricesize_buyerfirm = ProtoField.string("mitch.mitchorderexecutedwithpricesize.buyerfirm", "buyerFirm", base.ASCII)
+fields.f_mitchorderexecutedwithpricesize_sellerfirm = ProtoField.string("mitch.mitchorderexecutedwithpricesize.sellerfirm", "sellerFirm", base.ASCII)
 fields.f_mitchorderexecutedwithpricesize_displayquantity = ProtoField.uint32("mitch.mitchorderexecutedwithpricesize.displayquantity", "displayQuantity", base.DEC)
 fields.f_mitchorderexecutedwithpricesize_printable = ProtoField.uint8("mitch.mitchorderexecutedwithpricesize.printable", "printable", base.HEX)
 fields.f_mitchauctioninfo_nanosecond = ProtoField.uint32("mitch.mitchauctioninfo.nanosecond", "nanosecond", base.DEC)
@@ -135,8 +135,8 @@ fields.f_mitchrecoverytrade_pricenotation = ProtoField.uint8("mitch.mitchrecover
 fields.f_mitchrecoverytrade_notionalamount = ProtoField.int64("mitch.mitchrecoverytrade.notionalamount", "notionalAmount", base.DEC)
 fields.f_mitchrecoverytrade_notionalcurrency = ProtoField.string("mitch.mitchrecoverytrade.notionalcurrency", "notionalCurrency", base.ASCII)
 fields.f_mitchrecoverytrade_publicationdatetime = ProtoField.uint64("mitch.mitchrecoverytrade.publicationdatetime", "publicationDateTime", base.DEC)
-fields.f_mitchrecoverytrade_firm = ProtoField.string("mitch.mitchrecoverytrade.firm", "firm", base.ASCII)
-fields.f_mitchrecoverytrade_contrafirm = ProtoField.string("mitch.mitchrecoverytrade.contrafirm", "contraFirm", base.ASCII)
+fields.f_mitchrecoverytrade_buyerfirm = ProtoField.string("mitch.mitchrecoverytrade.buyerfirm", "buyerFirm", base.ASCII)
+fields.f_mitchrecoverytrade_sellerfirm = ProtoField.string("mitch.mitchrecoverytrade.sellerfirm", "sellerFirm", base.ASCII)
 fields.f_mitchrecoverytrade_cancellationflag = ProtoField.string("mitch.mitchrecoverytrade.cancellationflag", "cancellationFlag", base.ASCII)
 fields.f_mitchrecoverytrade_amendmentflag = ProtoField.string("mitch.mitchrecoverytrade.amendmentflag", "amendmentFlag", base.ASCII)
 fields.f_mitchrecoverytrade_subbook = ProtoField.uint8("mitch.mitchrecoverytrade.subbook", "subBook", base.DEC)
@@ -186,6 +186,13 @@ fields.f_mitchtopofbook_quantity = ProtoField.uint32("mitch.mitchtopofbook.quant
 fields.f_mitchtopofbook_marketorderquantity = ProtoField.uint32("mitch.mitchtopofbook.marketorderquantity", "marketOrderQuantity", base.DEC)
 fields.f_mitchtopofbook_reservedfield = ProtoField.bytes("mitch.mitchtopofbook.reservedfield", "reservedField", base.SPACE)
 fields.f_mitchtopofbook_splits = ProtoField.uint32("mitch.mitchtopofbook.splits", "splits", base.DEC)
+fields.f_mitchdeletepricepoint_nanosecond = ProtoField.uint32("mitch.mitchdeletepricepoint.nanosecond", "nanosecond", base.DEC)
+fields.f_mitchdeletepricepoint_instrumentid = ProtoField.uint32("mitch.mitchdeletepricepoint.instrumentid", "instrumentId", base.DEC)
+fields.f_mitchdeletepricepoint_subbook = ProtoField.bytes("mitch.mitchdeletepricepoint.subbook", "subBook", base.NONE)
+fields.f_mitchdeletepricepoint_side = ProtoField.uint8("mitch.mitchdeletepricepoint.side", "side", base.HEX)
+fields.f_mitchdeletepricepoint_pricelevel = ProtoField.bytes("mitch.mitchdeletepricepoint.pricelevel", "priceLevel", base.NONE)
+fields.f_mitchdeletepricepoint_reservedfield = ProtoField.bytes("mitch.mitchdeletepricepoint.reservedfield", "reservedField", base.SPACE)
+fields.f_mitchdeletepricepoint_rfqid = ProtoField.string("mitch.mitchdeletepricepoint.rfqid", "rfqId", base.ASCII)
 fields.f_mitchtrade_nanosecond = ProtoField.uint32("mitch.mitchtrade.nanosecond", "nanosecond", base.DEC)
 fields.f_mitchtrade_orderid = ProtoField.uint64("mitch.mitchtrade.orderid", "orderId", base.DEC)
 fields.f_mitchtrade_executedquantity = ProtoField.uint32("mitch.mitchtrade.executedquantity", "executedQuantity", base.DEC)
@@ -204,8 +211,8 @@ fields.f_mitchtrade_pricenotation = ProtoField.uint8("mitch.mitchtrade.pricenota
 fields.f_mitchtrade_notionalamount = ProtoField.int64("mitch.mitchtrade.notionalamount", "notionalAmount", base.DEC)
 fields.f_mitchtrade_notionalcurrency = ProtoField.string("mitch.mitchtrade.notionalcurrency", "notionalCurrency", base.ASCII)
 fields.f_mitchtrade_publicationdatetime = ProtoField.uint64("mitch.mitchtrade.publicationdatetime", "publicationDateTime", base.DEC)
-fields.f_mitchtrade_firm = ProtoField.string("mitch.mitchtrade.firm", "firm", base.ASCII)
-fields.f_mitchtrade_contrafirm = ProtoField.string("mitch.mitchtrade.contrafirm", "contraFirm", base.ASCII)
+fields.f_mitchtrade_buyerfirm = ProtoField.string("mitch.mitchtrade.buyerfirm", "buyerFirm", base.ASCII)
+fields.f_mitchtrade_sellerfirm = ProtoField.string("mitch.mitchtrade.sellerfirm", "sellerFirm", base.ASCII)
 fields.f_mitchtrade_cancellationflag = ProtoField.string("mitch.mitchtrade.cancellationflag", "cancellationFlag", base.ASCII)
 fields.f_mitchtrade_amendmentflag = ProtoField.string("mitch.mitchtrade.amendmentflag", "amendmentFlag", base.ASCII)
 fields.f_mitchtrade_subbook = ProtoField.uint8("mitch.mitchtrade.subbook", "subBook", base.DEC)
@@ -340,8 +347,8 @@ mitch_proto.fields = {
     fields.f_mitchorderexecuted_notionalamount,
     fields.f_mitchorderexecuted_notionalcurrency,
     fields.f_mitchorderexecuted_publicationdatetime,
-    fields.f_mitchorderexecuted_firm,
-    fields.f_mitchorderexecuted_contrafirm,
+    fields.f_mitchorderexecuted_buyerfirm,
+    fields.f_mitchorderexecuted_sellerfirm,
     fields.f_mitchorderexecutedwithpricesize_nanosecond,
     fields.f_mitchorderexecutedwithpricesize_orderid,
     fields.f_mitchorderexecutedwithpricesize_executedquantity,
@@ -360,8 +367,8 @@ mitch_proto.fields = {
     fields.f_mitchorderexecutedwithpricesize_notionalamount,
     fields.f_mitchorderexecutedwithpricesize_notionalcurrency,
     fields.f_mitchorderexecutedwithpricesize_publicationdatetime,
-    fields.f_mitchorderexecutedwithpricesize_firm,
-    fields.f_mitchorderexecutedwithpricesize_contrafirm,
+    fields.f_mitchorderexecutedwithpricesize_buyerfirm,
+    fields.f_mitchorderexecutedwithpricesize_sellerfirm,
     fields.f_mitchorderexecutedwithpricesize_displayquantity,
     fields.f_mitchorderexecutedwithpricesize_printable,
     fields.f_mitchauctioninfo_nanosecond,
@@ -409,8 +416,8 @@ mitch_proto.fields = {
     fields.f_mitchrecoverytrade_notionalamount,
     fields.f_mitchrecoverytrade_notionalcurrency,
     fields.f_mitchrecoverytrade_publicationdatetime,
-    fields.f_mitchrecoverytrade_firm,
-    fields.f_mitchrecoverytrade_contrafirm,
+    fields.f_mitchrecoverytrade_buyerfirm,
+    fields.f_mitchrecoverytrade_sellerfirm,
     fields.f_mitchrecoverytrade_cancellationflag,
     fields.f_mitchrecoverytrade_amendmentflag,
     fields.f_mitchrecoverytrade_subbook,
@@ -460,6 +467,13 @@ mitch_proto.fields = {
     fields.f_mitchtopofbook_marketorderquantity,
     fields.f_mitchtopofbook_reservedfield,
     fields.f_mitchtopofbook_splits,
+    fields.f_mitchdeletepricepoint_nanosecond,
+    fields.f_mitchdeletepricepoint_instrumentid,
+    fields.f_mitchdeletepricepoint_subbook,
+    fields.f_mitchdeletepricepoint_side,
+    fields.f_mitchdeletepricepoint_pricelevel,
+    fields.f_mitchdeletepricepoint_reservedfield,
+    fields.f_mitchdeletepricepoint_rfqid,
     fields.f_mitchtrade_nanosecond,
     fields.f_mitchtrade_orderid,
     fields.f_mitchtrade_executedquantity,
@@ -478,8 +492,8 @@ mitch_proto.fields = {
     fields.f_mitchtrade_notionalamount,
     fields.f_mitchtrade_notionalcurrency,
     fields.f_mitchtrade_publicationdatetime,
-    fields.f_mitchtrade_firm,
-    fields.f_mitchtrade_contrafirm,
+    fields.f_mitchtrade_buyerfirm,
+    fields.f_mitchtrade_sellerfirm,
     fields.f_mitchtrade_cancellationflag,
     fields.f_mitchtrade_amendmentflag,
     fields.f_mitchtrade_subbook,
@@ -578,6 +592,7 @@ local msg_types = {
     [0x80] = "MitchExtendedStatistics",
     [0x48] = "MitchSymbolStatus",
     [0x71] = "MitchTopOfBook",
+    [0x72] = "MitchDeletePricePoint",
     [0x50] = "MitchTrade",
     [0x75] = "MitchNews",
     [0x01] = "MitchLoginRequest",
@@ -753,9 +768,9 @@ function mitch_proto.dissector(buffer, pinfo, tree)
             offset = offset + 3
             msg_tree:add_le(fields.f_mitchorderexecuted_publicationdatetime, buffer(offset, 8))
             offset = offset + 8
-            msg_tree:add(fields.f_mitchorderexecuted_firm, buffer(offset, 6))
+            msg_tree:add(fields.f_mitchorderexecuted_buyerfirm, buffer(offset, 6))
             offset = offset + 6
-            msg_tree:add(fields.f_mitchorderexecuted_contrafirm, buffer(offset, 6))
+            msg_tree:add(fields.f_mitchorderexecuted_sellerfirm, buffer(offset, 6))
             offset = offset + 6
         elseif msg_type == 0x43 then
             -- MitchOrderExecutedWithPriceSize
@@ -795,9 +810,9 @@ function mitch_proto.dissector(buffer, pinfo, tree)
             offset = offset + 3
             msg_tree:add_le(fields.f_mitchorderexecutedwithpricesize_publicationdatetime, buffer(offset, 8))
             offset = offset + 8
-            msg_tree:add(fields.f_mitchorderexecutedwithpricesize_firm, buffer(offset, 6))
+            msg_tree:add(fields.f_mitchorderexecutedwithpricesize_buyerfirm, buffer(offset, 6))
             offset = offset + 6
-            msg_tree:add(fields.f_mitchorderexecutedwithpricesize_contrafirm, buffer(offset, 6))
+            msg_tree:add(fields.f_mitchorderexecutedwithpricesize_sellerfirm, buffer(offset, 6))
             offset = offset + 6
             msg_tree:add_le(fields.f_mitchorderexecutedwithpricesize_displayquantity, buffer(offset, 4))
             offset = offset + 4
@@ -899,9 +914,9 @@ function mitch_proto.dissector(buffer, pinfo, tree)
             offset = offset + 3
             msg_tree:add_le(fields.f_mitchrecoverytrade_publicationdatetime, buffer(offset, 8))
             offset = offset + 8
-            msg_tree:add(fields.f_mitchrecoverytrade_firm, buffer(offset, 6))
+            msg_tree:add(fields.f_mitchrecoverytrade_buyerfirm, buffer(offset, 6))
             offset = offset + 6
-            msg_tree:add(fields.f_mitchrecoverytrade_contrafirm, buffer(offset, 6))
+            msg_tree:add(fields.f_mitchrecoverytrade_sellerfirm, buffer(offset, 6))
             offset = offset + 6
             msg_tree:add(fields.f_mitchrecoverytrade_cancellationflag, buffer(offset, 4))
             offset = offset + 4
@@ -1009,6 +1024,22 @@ function mitch_proto.dissector(buffer, pinfo, tree)
             offset = offset + 2
             msg_tree:add_le(fields.f_mitchtopofbook_splits, buffer(offset, 4))
             offset = offset + 4
+        elseif msg_type == 0x72 then
+            -- MitchDeletePricePoint
+            msg_tree:add_le(fields.f_mitchdeletepricepoint_nanosecond, buffer(offset, 4))
+            offset = offset + 4
+            msg_tree:add_le(fields.f_mitchdeletepricepoint_instrumentid, buffer(offset, 4))
+            offset = offset + 4
+            msg_tree:add_le(fields.f_mitchdeletepricepoint_subbook, buffer(offset, 1))
+            offset = offset + 1
+            msg_tree:add_le(fields.f_mitchdeletepricepoint_side, buffer(offset, 1))
+            offset = offset + 1
+            msg_tree:add_le(fields.f_mitchdeletepricepoint_pricelevel, buffer(offset, 2))
+            offset = offset + 2
+            msg_tree:add_le(fields.f_mitchdeletepricepoint_reservedfield, buffer(offset, 1))
+            offset = offset + 1
+            msg_tree:add(fields.f_mitchdeletepricepoint_rfqid, buffer(offset, 10))
+            offset = offset + 10
         elseif msg_type == 0x50 then
             -- MitchTrade
             msg_tree:add_le(fields.f_mitchtrade_nanosecond, buffer(offset, 4))
@@ -1047,9 +1078,9 @@ function mitch_proto.dissector(buffer, pinfo, tree)
             offset = offset + 3
             msg_tree:add_le(fields.f_mitchtrade_publicationdatetime, buffer(offset, 8))
             offset = offset + 8
-            msg_tree:add(fields.f_mitchtrade_firm, buffer(offset, 6))
+            msg_tree:add(fields.f_mitchtrade_buyerfirm, buffer(offset, 6))
             offset = offset + 6
-            msg_tree:add(fields.f_mitchtrade_contrafirm, buffer(offset, 6))
+            msg_tree:add(fields.f_mitchtrade_sellerfirm, buffer(offset, 6))
             offset = offset + 6
             msg_tree:add(fields.f_mitchtrade_cancellationflag, buffer(offset, 4))
             offset = offset + 4

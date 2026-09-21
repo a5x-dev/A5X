@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -40,9 +39,9 @@ public class MitchSymbolStatus {
 	public int sessionChangeReason;
 
 	/**
-	 * New session end time (EPOCH). The field will contain only spaces if Session Change Reason is '0' or '9'
+	 * New session end time specified in terms of local time for server (UTC) [Epoch in microseconds UTC]. The field will contain only spaces if Session Change Reason is '0' or '9'
 	 */
-	public BigInteger newEndTime;
+	public long newEndTime;
 
 	/**
 	 * 1 = Regular, 2 = Off-Book, 9 = Bulletin Board, 11 = Negotiated Trades
@@ -64,7 +63,7 @@ public class MitchSymbolStatus {
 		pData.get(haltReasonBytes);
 		pSymbolStatus.haltReason = new String(haltReasonBytes).trim();
 		pSymbolStatus.sessionChangeReason = BitUtils.byteToUInt8(pData);
-		pSymbolStatus.newEndTime = BitUtils.byteArrayToUInt64(pData, false);
+		pSymbolStatus.newEndTime = pData.getLong();
 		pSymbolStatus.subBook = BitUtils.byteToUInt8(pData);
 	}
 
@@ -80,11 +79,12 @@ public class MitchSymbolStatus {
 		pData.put(pSymbolStatus.tradingStatus);
 		pData.put(pSymbolStatus.flags);
 		byte[] haltReasonBytes = new byte[4];
-		byte[] haltReasonSrc = pSymbolStatus.haltReason.getBytes();
+		java.util.Arrays.fill(haltReasonBytes, (byte) ' ');
+		byte[] haltReasonSrc = pSymbolStatus.haltReason == null ? new byte[0] : pSymbolStatus.haltReason.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(haltReasonSrc, 0, haltReasonBytes, 0, Math.min(haltReasonSrc.length, 4));
 		pData.put(haltReasonBytes);
 		BitUtils.uint8ToByte(pSymbolStatus.sessionChangeReason, pData);
-		BitUtils.uint64ToByteArray(pSymbolStatus.newEndTime, pData, false);
+		pData.putLong(pSymbolStatus.newEndTime);
 		BitUtils.uint8ToByte(pSymbolStatus.subBook, pData);
 	}
 

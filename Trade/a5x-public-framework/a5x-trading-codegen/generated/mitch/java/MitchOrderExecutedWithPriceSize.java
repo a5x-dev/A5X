@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -17,7 +16,7 @@ public class MitchOrderExecutedWithPriceSize {
 	/**
 	 * Identifier for the order
 	 */
-	public BigInteger orderId;
+	public long orderId;
 
 	/**
 	 * Quantity executed
@@ -39,7 +38,7 @@ public class MitchOrderExecutedWithPriceSize {
 	/**
 	 * Unique identifier of the trade
 	 */
-	public BigInteger tradeId;
+	public long tradeId;
 
 	/**
 	 * Converted price of the executed volatility of the options instrument
@@ -65,7 +64,7 @@ public class MitchOrderExecutedWithPriceSize {
 	/**
 	 * Date and time when the trade was executed [Epoch]
 	 */
-	public BigInteger tradingDateTime;
+	public long tradingDateTime;
 
 	/**
 	 * Instrument identification code
@@ -107,17 +106,17 @@ public class MitchOrderExecutedWithPriceSize {
 	/**
 	 * Date and time when the trade was published by the trading venue [Epoch]
 	 */
-	public BigInteger publicationDateTime;
+	public long publicationDateTime;
 
 	/**
-	 * Firm ID of the party firm
+	 * Buyer Firm ID
 	 */
-	public String firm;
+	public String buyerFirm;
 
 	/**
-	 * Firm ID of the counter party firm
+	 * Seller Firm ID
 	 */
-	public String contraFirm;
+	public String sellerFirm;
 
 	/**
 	 * Displayed quantity of the order after the execution
@@ -137,15 +136,15 @@ public class MitchOrderExecutedWithPriceSize {
 	 */
 	public static void parse(MitchOrderExecutedWithPriceSize pOrderExecutedWithPriceSize, ByteBuffer pData) {
 		pOrderExecutedWithPriceSize.nanosecond = BitUtils.byteArrayToUInt32(pData, false);
-		pOrderExecutedWithPriceSize.orderId = BitUtils.byteArrayToUInt64(pData, false);
+		pOrderExecutedWithPriceSize.orderId = pData.getLong();
 		pOrderExecutedWithPriceSize.executedQuantity = BitUtils.byteArrayToUInt32(pData, false);
 		pOrderExecutedWithPriceSize.price = pData.getLong();
 		pOrderExecutedWithPriceSize.instrumentId = BitUtils.byteArrayToUInt32(pData, false);
-		pOrderExecutedWithPriceSize.tradeId = BitUtils.byteArrayToUInt64(pData, false);
+		pOrderExecutedWithPriceSize.tradeId = pData.getLong();
 		pOrderExecutedWithPriceSize.lastOptPx = pData.getLong();
 		pOrderExecutedWithPriceSize.volatility = pData.getLong();
 		pOrderExecutedWithPriceSize.underlyingReferencePrice = pData.getLong();
-		pOrderExecutedWithPriceSize.tradingDateTime = BitUtils.byteArrayToUInt64(pData, false);
+		pOrderExecutedWithPriceSize.tradingDateTime = pData.getLong();
 		byte[] instrumentIdentificationCodeBytes = new byte[12];
 		pData.get(instrumentIdentificationCodeBytes);
 		pOrderExecutedWithPriceSize.instrumentIdentificationCode = new String(instrumentIdentificationCodeBytes).trim();
@@ -161,13 +160,13 @@ public class MitchOrderExecutedWithPriceSize {
 		byte[] notionalCurrencyBytes = new byte[3];
 		pData.get(notionalCurrencyBytes);
 		pOrderExecutedWithPriceSize.notionalCurrency = new String(notionalCurrencyBytes).trim();
-		pOrderExecutedWithPriceSize.publicationDateTime = BitUtils.byteArrayToUInt64(pData, false);
-		byte[] firmBytes = new byte[6];
-		pData.get(firmBytes);
-		pOrderExecutedWithPriceSize.firm = new String(firmBytes).trim();
-		byte[] contraFirmBytes = new byte[6];
-		pData.get(contraFirmBytes);
-		pOrderExecutedWithPriceSize.contraFirm = new String(contraFirmBytes).trim();
+		pOrderExecutedWithPriceSize.publicationDateTime = pData.getLong();
+		byte[] buyerFirmBytes = new byte[6];
+		pData.get(buyerFirmBytes);
+		pOrderExecutedWithPriceSize.buyerFirm = new String(buyerFirmBytes).trim();
+		byte[] sellerFirmBytes = new byte[6];
+		pData.get(sellerFirmBytes);
+		pOrderExecutedWithPriceSize.sellerFirm = new String(sellerFirmBytes).trim();
 		pOrderExecutedWithPriceSize.displayQuantity = BitUtils.byteArrayToUInt32(pData, false);
 		pOrderExecutedWithPriceSize.printable = pData.get();
 	}
@@ -180,49 +179,55 @@ public class MitchOrderExecutedWithPriceSize {
 	 */
 	public static void encode(MitchOrderExecutedWithPriceSize pOrderExecutedWithPriceSize, ByteBuffer pData) {
 		BitUtils.uint32ToByteArray(pOrderExecutedWithPriceSize.nanosecond, pData, false);
-		BitUtils.uint64ToByteArray(pOrderExecutedWithPriceSize.orderId, pData, false);
+		pData.putLong(pOrderExecutedWithPriceSize.orderId);
 		BitUtils.uint32ToByteArray(pOrderExecutedWithPriceSize.executedQuantity, pData, false);
 		pData.putLong(pOrderExecutedWithPriceSize.price);
 		BitUtils.uint32ToByteArray(pOrderExecutedWithPriceSize.instrumentId, pData, false);
-		BitUtils.uint64ToByteArray(pOrderExecutedWithPriceSize.tradeId, pData, false);
+		pData.putLong(pOrderExecutedWithPriceSize.tradeId);
 		pData.putLong(pOrderExecutedWithPriceSize.lastOptPx);
 		pData.putLong(pOrderExecutedWithPriceSize.volatility);
 		pData.putLong(pOrderExecutedWithPriceSize.underlyingReferencePrice);
-		BitUtils.uint64ToByteArray(pOrderExecutedWithPriceSize.tradingDateTime, pData, false);
+		pData.putLong(pOrderExecutedWithPriceSize.tradingDateTime);
 		byte[] instrumentIdentificationCodeBytes = new byte[12];
-		byte[] instrumentIdentificationCodeSrc = pOrderExecutedWithPriceSize.instrumentIdentificationCode.getBytes();
+		java.util.Arrays.fill(instrumentIdentificationCodeBytes, (byte) ' ');
+		byte[] instrumentIdentificationCodeSrc = pOrderExecutedWithPriceSize.instrumentIdentificationCode == null ? new byte[0] : pOrderExecutedWithPriceSize.instrumentIdentificationCode.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(instrumentIdentificationCodeSrc, 0, instrumentIdentificationCodeBytes, 0, Math.min(instrumentIdentificationCodeSrc.length, 12));
 		pData.put(instrumentIdentificationCodeBytes);
 		BitUtils.uint8ToByte(pOrderExecutedWithPriceSize.instrumentIdentificationCodeType, pData);
 		byte[] currencyBytes = new byte[3];
-		byte[] currencySrc = pOrderExecutedWithPriceSize.currency.getBytes();
+		java.util.Arrays.fill(currencyBytes, (byte) ' ');
+		byte[] currencySrc = pOrderExecutedWithPriceSize.currency == null ? new byte[0] : pOrderExecutedWithPriceSize.currency.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(currencySrc, 0, currencyBytes, 0, Math.min(currencySrc.length, 3));
 		pData.put(currencyBytes);
 		byte[] venueOfExecutionBytes = new byte[4];
-		byte[] venueOfExecutionSrc = pOrderExecutedWithPriceSize.venueOfExecution.getBytes();
+		java.util.Arrays.fill(venueOfExecutionBytes, (byte) ' ');
+		byte[] venueOfExecutionSrc = pOrderExecutedWithPriceSize.venueOfExecution == null ? new byte[0] : pOrderExecutedWithPriceSize.venueOfExecution.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(venueOfExecutionSrc, 0, venueOfExecutionBytes, 0, Math.min(venueOfExecutionSrc.length, 4));
 		pData.put(venueOfExecutionBytes);
 		BitUtils.uint8ToByte(pOrderExecutedWithPriceSize.priceNotation, pData);
 		pData.putLong(pOrderExecutedWithPriceSize.notionalAmount);
 		byte[] notionalCurrencyBytes = new byte[3];
-		byte[] notionalCurrencySrc = pOrderExecutedWithPriceSize.notionalCurrency.getBytes();
+		java.util.Arrays.fill(notionalCurrencyBytes, (byte) ' ');
+		byte[] notionalCurrencySrc = pOrderExecutedWithPriceSize.notionalCurrency == null ? new byte[0] : pOrderExecutedWithPriceSize.notionalCurrency.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(notionalCurrencySrc, 0, notionalCurrencyBytes, 0, Math.min(notionalCurrencySrc.length, 3));
 		pData.put(notionalCurrencyBytes);
-		BitUtils.uint64ToByteArray(pOrderExecutedWithPriceSize.publicationDateTime, pData, false);
-		byte[] firmBytes = new byte[6];
-		byte[] firmSrc = pOrderExecutedWithPriceSize.firm.getBytes();
-		System.arraycopy(firmSrc, 0, firmBytes, 0, Math.min(firmSrc.length, 6));
-		pData.put(firmBytes);
-		byte[] contraFirmBytes = new byte[6];
-		byte[] contraFirmSrc = pOrderExecutedWithPriceSize.contraFirm.getBytes();
-		System.arraycopy(contraFirmSrc, 0, contraFirmBytes, 0, Math.min(contraFirmSrc.length, 6));
-		pData.put(contraFirmBytes);
+		pData.putLong(pOrderExecutedWithPriceSize.publicationDateTime);
+		byte[] buyerFirmBytes = new byte[6];
+		java.util.Arrays.fill(buyerFirmBytes, (byte) ' ');
+		byte[] buyerFirmSrc = pOrderExecutedWithPriceSize.buyerFirm == null ? new byte[0] : pOrderExecutedWithPriceSize.buyerFirm.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
+		System.arraycopy(buyerFirmSrc, 0, buyerFirmBytes, 0, Math.min(buyerFirmSrc.length, 6));
+		pData.put(buyerFirmBytes);
+		byte[] sellerFirmBytes = new byte[6];
+		java.util.Arrays.fill(sellerFirmBytes, (byte) ' ');
+		byte[] sellerFirmSrc = pOrderExecutedWithPriceSize.sellerFirm == null ? new byte[0] : pOrderExecutedWithPriceSize.sellerFirm.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
+		System.arraycopy(sellerFirmSrc, 0, sellerFirmBytes, 0, Math.min(sellerFirmSrc.length, 6));
+		pData.put(sellerFirmBytes);
 		BitUtils.uint32ToByteArray(pOrderExecutedWithPriceSize.displayQuantity, pData, false);
 		pData.put(pOrderExecutedWithPriceSize.printable);
 	}
 
 	@Override
 	public String toString() {
-		return "MitchOrderExecutedWithPriceSize [" + "nanosecond=" + nanosecond + ", orderId=" + orderId + ", executedQuantity=" + executedQuantity + ", price=" + price + ", instrumentId=" + instrumentId + ", tradeId=" + tradeId + ", lastOptPx=" + lastOptPx + ", volatility=" + volatility + ", underlyingReferencePrice=" + underlyingReferencePrice + ", tradingDateTime=" + tradingDateTime + ", instrumentIdentificationCode=" + instrumentIdentificationCode + ", instrumentIdentificationCodeType=" + instrumentIdentificationCodeType + ", currency=" + currency + ", venueOfExecution=" + venueOfExecution + ", priceNotation=" + priceNotation + ", notionalAmount=" + notionalAmount + ", notionalCurrency=" + notionalCurrency + ", publicationDateTime=" + publicationDateTime + ", firm=" + firm + ", contraFirm=" + contraFirm + ", displayQuantity=" + displayQuantity + ", printable=" + printable + "]";
+		return "MitchOrderExecutedWithPriceSize [" + "nanosecond=" + nanosecond + ", orderId=" + orderId + ", executedQuantity=" + executedQuantity + ", price=" + price + ", instrumentId=" + instrumentId + ", tradeId=" + tradeId + ", lastOptPx=" + lastOptPx + ", volatility=" + volatility + ", underlyingReferencePrice=" + underlyingReferencePrice + ", tradingDateTime=" + tradingDateTime + ", instrumentIdentificationCode=" + instrumentIdentificationCode + ", instrumentIdentificationCodeType=" + instrumentIdentificationCodeType + ", currency=" + currency + ", venueOfExecution=" + venueOfExecution + ", priceNotation=" + priceNotation + ", notionalAmount=" + notionalAmount + ", notionalCurrency=" + notionalCurrency + ", publicationDateTime=" + publicationDateTime + ", buyerFirm=" + buyerFirm + ", sellerFirm=" + sellerFirm + ", displayQuantity=" + displayQuantity + ", printable=" + printable + "]";
 	}
 }

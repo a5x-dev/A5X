@@ -1,6 +1,7 @@
 package br.com.a5x.trd.pub.nativ.model;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 /**
  * New order single
@@ -8,8 +9,8 @@ import java.nio.ByteBuffer;
  */
 public class NativeNewOrderSingle {
 
-    /** Limit price */
-    public int limitPrice;
+    /** Limit price. This field will be ignored if the Order Type is not Limit (2) or Stop Limit (4) */
+    public long limitPrice;
 
     public java.math.BigDecimal limitPriceAsDecimal() { return java.math.BigDecimal.valueOf(limitPrice, 4); }
 
@@ -23,26 +24,26 @@ public class NativeNewOrderSingle {
     public int side;
 
     /** Entering Trader ID */
-    public byte[] enteringTrader = new byte[15];
+    public String enteringTrader = "";
 
     /** Client specified identifier of the order */
-    public byte[] clientOrderId = new byte[10];
+    public String clientOrderId = "";
 
-    /** Identifier of the Trader Account */
+    /** Identifier of the Trader Account. This is a required field */
     public long account;
 
     /** Sender Location assigned to the Trader ID/Firm */
-    public byte[] senderLocation = new byte[10];
+    public String senderLocation = "";
 
     /** Client specified identifier of order relevant to self-execution */
-    public byte[] noTradeKey = new byte[10];
+    public String noTradeKey = "";
 
-    /** Stop price/Trigger price */
-    public int stopPrice;
+    /** Stop price/Trigger price. This field will be ignored if the Order Type is not Stop (3) or Stop Limit (4) */
+    public long stopPrice;
 
     public java.math.BigDecimal stopPriceAsDecimal() { return java.math.BigDecimal.valueOf(stopPrice, 4); }
 
-    /** Maximum quantity to be displayed */
+    /** Max Floor. Maximum quantity to be displayed. A negative value should be used if this field is to be ignored */
     public long displayQuantity;
 
     /** 0 = Do Not Cancel, 1 = Cancel */
@@ -70,13 +71,13 @@ public class NativeNewOrderSingle {
     public long expireTime;
 
     /** Free format text field */
-    public byte[] memo = new byte[15];
+    public String memo = "";
 
     /** Desk ID through which the order is placed from */
-    public byte[] deskId = new byte[15];
+    public String deskId = "";
 
     public static void parse(NativeNewOrderSingle msg, ByteBuffer data) {
-        msg.limitPrice = data.getInt();
+        msg.limitPrice = data.getLong();
         msg.orderQuantity = Integer.toUnsignedLong(data.getInt());
         msg.instrumentId = Integer.toUnsignedLong(data.getInt());
         msg.side = Byte.toUnsignedInt(data.get());
@@ -85,7 +86,7 @@ public class NativeNewOrderSingle {
         msg.account = data.getLong();
         msg.senderLocation = readAlpha(data, 10);
         msg.noTradeKey = readAlpha(data, 10);
-        msg.stopPrice = data.getInt();
+        msg.stopPrice = data.getLong();
         msg.displayQuantity = Integer.toUnsignedLong(data.getInt());
         msg.cancelOnDisconnect = Byte.toUnsignedInt(data.get());
         msg.anonymity = Byte.toUnsignedInt(data.get());
@@ -100,7 +101,7 @@ public class NativeNewOrderSingle {
     }
 
     public static void encode(NativeNewOrderSingle msg, ByteBuffer data) {
-        data.putInt(msg.limitPrice);
+        data.putLong(msg.limitPrice);
         data.putInt((int) msg.orderQuantity);
         data.putInt((int) msg.instrumentId);
         data.put((byte) msg.side);
@@ -109,7 +110,7 @@ public class NativeNewOrderSingle {
         data.putLong(msg.account);
         writeAlpha(data, msg.senderLocation, 10);
         writeAlpha(data, msg.noTradeKey, 10);
-        data.putInt(msg.stopPrice);
+        data.putLong(msg.stopPrice);
         data.putInt((int) msg.displayQuantity);
         data.put((byte) msg.cancelOnDisconnect);
         data.put((byte) msg.anonymity);
@@ -130,11 +131,11 @@ public class NativeNewOrderSingle {
                 "orderQuantity=" + orderQuantity + ", " +
                 "instrumentId=" + instrumentId + ", " +
                 "side=" + side + ", " +
-                "enteringTrader=" + new String(enteringTrader).trim() + ", " +
-                "clientOrderId=" + new String(clientOrderId).trim() + ", " +
+                "enteringTrader=" + enteringTrader + ", " +
+                "clientOrderId=" + clientOrderId + ", " +
                 "account=" + account + ", " +
-                "senderLocation=" + new String(senderLocation).trim() + ", " +
-                "noTradeKey=" + new String(noTradeKey).trim() + ", " +
+                "senderLocation=" + senderLocation + ", " +
+                "noTradeKey=" + noTradeKey + ", " +
                 "stopPrice=" + stopPrice + ", " +
                 "displayQuantity=" + displayQuantity + ", " +
                 "cancelOnDisconnect=" + cancelOnDisconnect + ", " +
@@ -145,19 +146,26 @@ public class NativeNewOrderSingle {
                 "orderType=" + orderType + ", " +
                 "timeInForce=" + timeInForce + ", " +
                 "expireTime=" + expireTime + ", " +
-                "memo=" + new String(memo).trim() + ", " +
-                "deskId=" + new String(deskId).trim() + '}';
+                "memo=" + memo + ", " +
+                "deskId=" + deskId + '}';
     }
 
-    private static byte[] readAlpha(ByteBuffer data, int length) {
-        byte[] result = new byte[length];
-        data.get(result);
-        return result;
+    private static String readAlpha(ByteBuffer data, int length) {
+        byte[] raw = new byte[length];
+        data.get(raw);
+        int end = 0;
+        while (end < length && raw[end] != 0) {
+            end++;
+        }
+        return new String(raw, 0, end, StandardCharsets.US_ASCII);
     }
 
-    private static void writeAlpha(ByteBuffer data, byte[] value, int length) {
-        byte[] temp = new byte[length];
-        System.arraycopy(value, 0, temp, 0, Math.min(value.length, length));
-        data.put(temp);
+    private static void writeAlpha(ByteBuffer data, String value, int length) {
+        byte[] out = new byte[length];
+        if (value != null) {
+            byte[] src = value.getBytes(StandardCharsets.US_ASCII);
+            System.arraycopy(src, 0, out, 0, Math.min(src.length, length));
+        }
+        data.put(out);
     }
 }

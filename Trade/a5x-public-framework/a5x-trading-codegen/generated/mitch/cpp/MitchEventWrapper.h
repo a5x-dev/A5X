@@ -20,6 +20,7 @@
 #include "MitchExtendedStatistics.h"
 #include "MitchSymbolStatus.h"
 #include "MitchTopOfBook.h"
+#include "MitchDeletePricePoint.h"
 #include "MitchTrade.h"
 #include "MitchNews.h"
 #include "MitchLoginRequest.h"
@@ -54,6 +55,7 @@ public:
     MitchExtendedStatistics extendedStatistics;
     MitchSymbolStatus symbolStatus;
     MitchTopOfBook topOfBook;
+    MitchDeletePricePoint deletePricePoint;
     MitchTrade trade;
     MitchNews news;
     MitchLoginRequest loginRequest;
@@ -125,6 +127,9 @@ public:
                 break;
             case 0x71:
                 MitchTopOfBook::parse(&topOfBook, data + offset);
+                break;
+            case 0x72:
+                MitchDeletePricePoint::parse(&deletePricePoint, data + offset);
                 break;
             case 0x50:
                 MitchTrade::parse(&trade, data + offset);

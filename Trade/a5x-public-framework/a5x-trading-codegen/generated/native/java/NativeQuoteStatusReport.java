@@ -1,10 +1,11 @@
 package br.com.a5x.trd.pub.nativ.model;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Quote Status Report
- * Message Type: AI
+ * Message Type: c
  */
 public class NativeQuoteStatusReport {
 
@@ -15,7 +16,7 @@ public class NativeQuoteStatusReport {
     public long sequenceNumber;
 
     /** Client specified identifier of the quote if available. Null filled otherwise */
-    public byte[] quoteMsgId = new byte[10];
+    public String quoteMsgId = "";
 
     /** 6 = Removed from Market, 7 = Expired, 17 = Cancelled */
     public int quoteStatus;
@@ -24,7 +25,7 @@ public class NativeQuoteStatusReport {
     public int rejectCode;
 
     /** 1 = Regular */
-    public long orderBook;
+    public int orderBook;
 
     /** Time the message was generated in epoch format */
     public long transactTime;
@@ -36,25 +37,25 @@ public class NativeQuoteStatusReport {
     public long instrumentId;
 
     /** The system generated unique ID for the Bid Side */
-    public byte[] bidId = new byte[10];
+    public String bidId = "";
 
     /** The system generated unique ID for the Offer Side */
-    public byte[] offerId = new byte[10];
+    public String offerId = "";
 
     /** Identifier of the Account */
     public long account;
 
     /** Sender Location assigned to the Trader ID/Firm */
-    public byte[] senderLocation = new byte[10];
+    public String senderLocation = "";
 
     /** Entering Trader ID */
-    public byte[] enteringTrader = new byte[15];
+    public String enteringTrader = "";
 
     /** Free format text field. Echoed in reports */
-    public byte[] memo = new byte[15];
+    public String memo = "";
 
     /** Desk ID through which the order is placed from */
-    public byte[] deskId = new byte[15];
+    public String deskId = "";
 
     public static void parse(NativeQuoteStatusReport msg, ByteBuffer data) {
         msg.partitionId = Byte.toUnsignedInt(data.get());
@@ -62,7 +63,7 @@ public class NativeQuoteStatusReport {
         msg.quoteMsgId = readAlpha(data, 10);
         msg.quoteStatus = Byte.toUnsignedInt(data.get());
         msg.rejectCode = data.getInt();
-        msg.orderBook = Integer.toUnsignedLong(data.getInt());
+        msg.orderBook = Byte.toUnsignedInt(data.get());
         msg.transactTime = data.getLong();
         msg.anonymity = Byte.toUnsignedInt(data.get());
         msg.instrumentId = Integer.toUnsignedLong(data.getInt());
@@ -81,7 +82,7 @@ public class NativeQuoteStatusReport {
         writeAlpha(data, msg.quoteMsgId, 10);
         data.put((byte) msg.quoteStatus);
         data.putInt(msg.rejectCode);
-        data.putInt((int) msg.orderBook);
+        data.put((byte) msg.orderBook);
         data.putLong(msg.transactTime);
         data.put((byte) msg.anonymity);
         data.putInt((int) msg.instrumentId);
@@ -99,31 +100,38 @@ public class NativeQuoteStatusReport {
         return "NativeQuoteStatusReport{" +
                 "partitionId=" + partitionId + ", " +
                 "sequenceNumber=" + sequenceNumber + ", " +
-                "quoteMsgId=" + new String(quoteMsgId).trim() + ", " +
+                "quoteMsgId=" + quoteMsgId + ", " +
                 "quoteStatus=" + quoteStatus + ", " +
                 "rejectCode=" + rejectCode + ", " +
                 "orderBook=" + orderBook + ", " +
                 "transactTime=" + transactTime + ", " +
                 "anonymity=" + anonymity + ", " +
                 "instrumentId=" + instrumentId + ", " +
-                "bidId=" + new String(bidId).trim() + ", " +
-                "offerId=" + new String(offerId).trim() + ", " +
+                "bidId=" + bidId + ", " +
+                "offerId=" + offerId + ", " +
                 "account=" + account + ", " +
-                "senderLocation=" + new String(senderLocation).trim() + ", " +
-                "enteringTrader=" + new String(enteringTrader).trim() + ", " +
-                "memo=" + new String(memo).trim() + ", " +
-                "deskId=" + new String(deskId).trim() + '}';
+                "senderLocation=" + senderLocation + ", " +
+                "enteringTrader=" + enteringTrader + ", " +
+                "memo=" + memo + ", " +
+                "deskId=" + deskId + '}';
     }
 
-    private static byte[] readAlpha(ByteBuffer data, int length) {
-        byte[] result = new byte[length];
-        data.get(result);
-        return result;
+    private static String readAlpha(ByteBuffer data, int length) {
+        byte[] raw = new byte[length];
+        data.get(raw);
+        int end = 0;
+        while (end < length && raw[end] != 0) {
+            end++;
+        }
+        return new String(raw, 0, end, StandardCharsets.US_ASCII);
     }
 
-    private static void writeAlpha(ByteBuffer data, byte[] value, int length) {
-        byte[] temp = new byte[length];
-        System.arraycopy(value, 0, temp, 0, Math.min(value.length, length));
-        data.put(temp);
+    private static void writeAlpha(ByteBuffer data, String value, int length) {
+        byte[] out = new byte[length];
+        if (value != null) {
+            byte[] src = value.getBytes(StandardCharsets.US_ASCII);
+            System.arraycopy(src, 0, out, 0, Math.min(src.length, length));
+        }
+        data.put(out);
     }
 }

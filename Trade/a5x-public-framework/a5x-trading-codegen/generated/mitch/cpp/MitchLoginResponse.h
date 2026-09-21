@@ -1,6 +1,7 @@
 #ifndef MITCHLOGINRESPONSE_H
 #define MITCHLOGINRESPONSE_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>

@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -17,7 +16,7 @@ public class MitchReplayRequest {
 	/**
 	 * Sequence number of the first message in range to be retransmitted
 	 */
-	public BigInteger firstMessage;
+	public long firstMessage;
 
 	/**
 	 * Number of messages to be resent
@@ -32,7 +31,7 @@ public class MitchReplayRequest {
 	 */
 	public static void parse(MitchReplayRequest pReplayRequest, ByteBuffer pData) {
 		pReplayRequest.marketDataGroup = pData.get();
-		pReplayRequest.firstMessage = BitUtils.byteArrayToUInt64(pData, false);
+		pReplayRequest.firstMessage = pData.getLong();
 		pReplayRequest.count = BitUtils.byteArrayToUInt16(pData, false);
 	}
 
@@ -44,7 +43,7 @@ public class MitchReplayRequest {
 	 */
 	public static void encode(MitchReplayRequest pReplayRequest, ByteBuffer pData) {
 		pData.put(pReplayRequest.marketDataGroup);
-		BitUtils.uint64ToByteArray(pReplayRequest.firstMessage, pData, false);
+		pData.putLong(pReplayRequest.firstMessage);
 		BitUtils.uint16ToByteArray(pReplayRequest.count, pData, false);
 	}
 

@@ -1,5 +1,4 @@
 using System;
-using System.Numerics;
 using System.Text;
 
 namespace A5X.Trading.Mitch.Model
@@ -27,7 +26,7 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Reserved for future use
         /// </summary>
-        public object Flags { get; set; }
+        public byte Flags { get; set; }
 
         /// <summary>
         /// Reason for the trading halt. This field will contain only spaces if Trading Status is not 'H'
@@ -40,9 +39,9 @@ namespace A5X.Trading.Mitch.Model
         public byte SessionChangeReason { get; set; }
 
         /// <summary>
-        /// New session end time (EPOCH). The field will contain only spaces if Session Change Reason is '0' or '9'
+        /// New session end time specified in terms of local time for server (UTC) [Epoch in microseconds UTC]. The field will contain only spaces if Session Change Reason is '0' or '9'
         /// </summary>
-        public BigInteger NewEndTime { get; set; }
+        public ulong NewEndTime { get; set; }
 
         /// <summary>
         /// 1 = Regular, 2 = Off-Book, 9 = Bulletin Board, 11 = Negotiated Trades
@@ -57,10 +56,11 @@ namespace A5X.Trading.Mitch.Model
             msg.InstrumentId = BitConverter.ToUInt32(data.Slice(offset, 4));
             offset += 4;
             msg.TradingStatus = data[offset++];
+            msg.Flags = data[offset++];
             msg.HaltReason = Encoding.ASCII.GetString(data.Slice(offset, 4)).TrimEnd();
             offset += 4;
             msg.SessionChangeReason = data[offset++];
-            msg.NewEndTime = new BigInteger(data.Slice(offset, 8));
+            msg.NewEndTime = BitConverter.ToUInt64(data.Slice(offset, 8));
             offset += 8;
             msg.SubBook = data[offset++];
         }
@@ -73,11 +73,12 @@ namespace A5X.Trading.Mitch.Model
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.InstrumentId);
             offset += 4;
             data[offset++] = (byte)msg.TradingStatus;
-            var haltReasonBytes = Encoding.ASCII.GetBytes(msg.HaltReason.PadRight(4));
+            data[offset++] = (byte)msg.Flags;
+            var haltReasonBytes = Encoding.ASCII.GetBytes((msg.HaltReason ?? string.Empty).PadRight(4));
             haltReasonBytes.AsSpan(0, 4).CopyTo(data.Slice(offset, 4));
             offset += 4;
             data[offset++] = (byte)msg.SessionChangeReason;
-            msg.NewEndTime.TryWriteBytes(data.Slice(offset, 8), out _);
+            BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.NewEndTime);
             offset += 8;
             data[offset++] = (byte)msg.SubBook;
         }

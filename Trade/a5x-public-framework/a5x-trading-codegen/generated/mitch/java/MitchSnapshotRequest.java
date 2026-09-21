@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -12,7 +11,7 @@ public class MitchSnapshotRequest {
 	/**
 	 * Sequence number from which client can build the order book
 	 */
-	public BigInteger sequenceNumber;
+	public long sequenceNumber;
 
 	/**
 	 * Segment the request relates to. The field should contain only spaces if it does not relate to a segment
@@ -37,7 +36,7 @@ public class MitchSnapshotRequest {
 	/**
 	 * Sending time of the last processed trade (EPOCH time in seconds). This field is ignored if the Snapshot Type is not Trades (3) or News (5)
 	 */
-	public BigInteger recoverFromTime;
+	public long recoverFromTime;
 
 	/**
 	 * Optional identifier of the request
@@ -51,14 +50,14 @@ public class MitchSnapshotRequest {
 	 * @param pData the ByteBuffer containing message data (little-endian)
 	 */
 	public static void parse(MitchSnapshotRequest pSnapshotRequest, ByteBuffer pData) {
-		pSnapshotRequest.sequenceNumber = BitUtils.byteArrayToUInt64(pData, false);
+		pSnapshotRequest.sequenceNumber = pData.getLong();
 		byte[] segmentBytes = new byte[10];
 		pData.get(segmentBytes);
 		pSnapshotRequest.segment = new String(segmentBytes).trim();
 		pSnapshotRequest.instrumentId = BitUtils.byteArrayToUInt32(pData, false);
 		pSnapshotRequest.subBook = pData.get();
 		pSnapshotRequest.snapshotType = BitUtils.byteToUInt8(pData);
-		pSnapshotRequest.recoverFromTime = BitUtils.byteArrayToUInt64(pData, false);
+		pSnapshotRequest.recoverFromTime = pData.getLong();
 		pSnapshotRequest.requestId = BitUtils.byteArrayToUInt32(pData, false);
 	}
 
@@ -69,15 +68,16 @@ public class MitchSnapshotRequest {
 	 * @param pData the ByteBuffer to write message data (little-endian)
 	 */
 	public static void encode(MitchSnapshotRequest pSnapshotRequest, ByteBuffer pData) {
-		BitUtils.uint64ToByteArray(pSnapshotRequest.sequenceNumber, pData, false);
+		pData.putLong(pSnapshotRequest.sequenceNumber);
 		byte[] segmentBytes = new byte[10];
-		byte[] segmentSrc = pSnapshotRequest.segment.getBytes();
+		java.util.Arrays.fill(segmentBytes, (byte) ' ');
+		byte[] segmentSrc = pSnapshotRequest.segment == null ? new byte[0] : pSnapshotRequest.segment.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(segmentSrc, 0, segmentBytes, 0, Math.min(segmentSrc.length, 10));
 		pData.put(segmentBytes);
 		BitUtils.uint32ToByteArray(pSnapshotRequest.instrumentId, pData, false);
 		pData.put(pSnapshotRequest.subBook);
 		BitUtils.uint8ToByte(pSnapshotRequest.snapshotType, pData);
-		BitUtils.uint64ToByteArray(pSnapshotRequest.recoverFromTime, pData, false);
+		pData.putLong(pSnapshotRequest.recoverFromTime);
 		BitUtils.uint32ToByteArray(pSnapshotRequest.requestId, pData, false);
 	}
 

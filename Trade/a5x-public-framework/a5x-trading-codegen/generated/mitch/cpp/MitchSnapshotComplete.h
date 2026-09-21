@@ -1,6 +1,7 @@
 #ifndef MITCHSNAPSHOTCOMPLETE_H
 #define MITCHSNAPSHOTCOMPLETE_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>
@@ -19,7 +20,7 @@ struct MitchSnapshotComplete {
     uint32_t instrumentId;
 
     /// Bit 0: Regular (0=No, 1=Yes), Bit 1: Off-Book (0=No, 1=Yes), Bit 5: Bulletin Board (0=No, 1=Yes), Bit 6: Negotiated Trades (0=No, 1=Yes)
-    void* subBook;
+    uint8_t subBook;
 
     /// H=Halt, T=Regular Trading, a=Opening Auction Call, b=Post-Close, c=Market Closed, d=Closing Auction Call, e=Re-Opening Auction Call, I=Pause, n=Order Entry, u=Closing Price Cross, w=No Active Session, y=Pre-Trading, m=No Cancel Period. Only indicated if message is sent as book level complete and Snapshot Type is Order Book (0) or Statistics (4)
     uint8_t tradingStatus;
@@ -39,6 +40,7 @@ struct MitchSnapshotComplete {
         offset += 10;
         std::memcpy(&msg.instrumentId, data + offset, 4);
         offset += 4;
+        msg.subBook = data[offset++];
         msg.tradingStatus = data[offset++];
         msg.snapshotType = data[offset++];
         std::memcpy(&msg.requestId, data + offset, 4);
@@ -54,6 +56,7 @@ struct MitchSnapshotComplete {
         offset += 10;
         std::memcpy(data + offset, &msg.instrumentId, 4);
         offset += 4;
+        data[offset++] = msg.subBook;
         data[offset++] = msg.tradingStatus;
         data[offset++] = msg.snapshotType;
         std::memcpy(data + offset, &msg.requestId, 4);

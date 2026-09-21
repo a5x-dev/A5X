@@ -26,6 +26,8 @@ namespace A5X.Trading.Native
         void OnNativeMassQuote(NativeMassQuote msg);
         void OnNativeMassQuoteAcknowledgement(NativeMassQuoteAcknowledgement msg);
         void OnNativeQuoteStatusReport(NativeQuoteStatusReport msg);
+        void OnNativeMMPResetRequest(NativeMMPResetRequest msg);
+        void OnNativeMMPResetAcknowledgement(NativeMMPResetAcknowledgement msg);
     }
 
     public static class NativeEventWrapper
@@ -112,7 +114,7 @@ namespace A5X.Trading.Native
                     NativeSystemStatus.Parse(nativeSystemStatus, data.Slice(4));
                     handler.OnNativeSystemStatus(nativeSystemStatus);
                     break;
-                case 'u':
+                case 'C':
                     var nativeNewOrderCross = new NativeNewOrderCross();
                     NativeNewOrderCross.Parse(nativeNewOrderCross, data.Slice(4));
                     handler.OnNativeNewOrderCross(nativeNewOrderCross);
@@ -132,7 +134,7 @@ namespace A5X.Trading.Native
                     NativeMassCancelReport.Parse(nativeMassCancelReport, data.Slice(4));
                     handler.OnNativeMassCancelReport(nativeMassCancelReport);
                     break;
-                case 'CB':
+                case 'Z':
                     var nativeNews = new NativeNews();
                     NativeNews.Parse(nativeNews, data.Slice(4));
                     handler.OnNativeNews(nativeNews);
@@ -142,15 +144,25 @@ namespace A5X.Trading.Native
                     NativeMassQuote.Parse(nativeMassQuote, data.Slice(4));
                     handler.OnNativeMassQuote(nativeMassQuote);
                     break;
-                case 'b':
+                case 'J':
                     var nativeMassQuoteAcknowledgement = new NativeMassQuoteAcknowledgement();
                     NativeMassQuoteAcknowledgement.Parse(nativeMassQuoteAcknowledgement, data.Slice(4));
                     handler.OnNativeMassQuoteAcknowledgement(nativeMassQuoteAcknowledgement);
                     break;
-                case 'AI':
+                case 'c':
                     var nativeQuoteStatusReport = new NativeQuoteStatusReport();
                     NativeQuoteStatusReport.Parse(nativeQuoteStatusReport, data.Slice(4));
                     handler.OnNativeQuoteStatusReport(nativeQuoteStatusReport);
+                    break;
+                case '}':
+                    var nativeMMPResetRequest = new NativeMMPResetRequest();
+                    NativeMMPResetRequest.Parse(nativeMMPResetRequest, data.Slice(4));
+                    handler.OnNativeMMPResetRequest(nativeMMPResetRequest);
+                    break;
+                case '~':
+                    var nativeMMPResetAcknowledgement = new NativeMMPResetAcknowledgement();
+                    NativeMMPResetAcknowledgement.Parse(nativeMMPResetAcknowledgement, data.Slice(4));
+                    handler.OnNativeMMPResetAcknowledgement(nativeMMPResetAcknowledgement);
                     break;
                 default:
                     throw new ArgumentException($"Unknown message type: {(char)messageType}");

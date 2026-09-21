@@ -1,5 +1,4 @@
 using System;
-using System.Numerics;
 using System.Text;
 
 namespace A5X.Trading.Mitch.Model
@@ -17,12 +16,12 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Sequence number of the first message in range to be retransmitted. This will be zero if Status is not 'A'
         /// </summary>
-        public BigInteger FirstMessage { get; set; }
+        public ulong FirstMessage { get; set; }
 
         /// <summary>
         /// Number of messages to be resent. This will be zero if Status is not 'A'
         /// </summary>
-        public object Count { get; set; }
+        public ushort Count { get; set; }
 
         /// <summary>
         /// A = Request Accepted, D = Request Limit Reached, I = Invalid Market Data Group, O = Out of Range, U = Replay Unavailable, c = Concurrent Limit Reached, d = Unsupported Message Type, e = Failed (Other)
@@ -33,8 +32,10 @@ namespace A5X.Trading.Mitch.Model
         {
             int offset = 0;
             msg.MarketDataGroup = data[offset++];
-            msg.FirstMessage = new BigInteger(data.Slice(offset, 8));
+            msg.FirstMessage = BitConverter.ToUInt64(data.Slice(offset, 8));
             offset += 8;
+            msg.Count = BitConverter.ToUInt16(data.Slice(offset, 2));
+            offset += 2;
             msg.Status = data[offset++];
         }
 
@@ -42,8 +43,10 @@ namespace A5X.Trading.Mitch.Model
         {
             int offset = 0;
             data[offset++] = (byte)msg.MarketDataGroup;
-            msg.FirstMessage.TryWriteBytes(data.Slice(offset, 8), out _);
+            BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.FirstMessage);
             offset += 8;
+            BitConverter.TryWriteBytes(data.Slice(offset, 2), msg.Count);
+            offset += 2;
             data[offset++] = (byte)msg.Status;
         }
     }

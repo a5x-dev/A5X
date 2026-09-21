@@ -1,18 +1,19 @@
 package br.com.a5x.trd.pub.nativ.model;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 /**
  * New Order Cross
- * Message Type: u
+ * Message Type: C
  */
 public class NativeNewOrderCross {
 
     /** Identifier of the cross order. Only alphanumeric values allowed */
-    public byte[] crossId = new byte[10];
+    public String crossId = "";
 
     /** Price of the cross order */
-    public int limitPrice;
+    public long limitPrice;
 
     public java.math.BigDecimal limitPriceAsDecimal() { return java.math.BigDecimal.valueOf(limitPrice, 4); }
 
@@ -20,25 +21,25 @@ public class NativeNewOrderCross {
     public long orderQuantity;
 
     /** Entering Trader ID */
-    public byte[] enteringTrader = new byte[15];
+    public String enteringTrader = "";
 
     /** Numeric Identifier of the instrument */
     public long instrumentId;
 
     /** Sender Location assigned to the Trader ID/Firm */
-    public byte[] senderLocation = new byte[10];
+    public String senderLocation = "";
 
     /** 5 = Internal Cross. Any other value rejected */
     public int crossType;
 
     /** Client specified identifier of the buy side. Required */
-    public byte[] buySideClientOrderId = new byte[10];
+    public String buySideClientOrderId = "";
 
     /** Identifier of the buyer's trading account. Required */
     public long buySideAccountId;
 
     /** Client specified identifier of the sell side. Required */
-    public byte[] sellSideClientOrderId = new byte[10];
+    public String sellSideClientOrderId = "";
 
     /** Identifier of the seller's trading account. Required */
     public long sellSideAccountId;
@@ -50,14 +51,14 @@ public class NativeNewOrderCross {
     public int timeInForce;
 
     /** Desk ID through which the order is placed from */
-    public byte[] deskId = new byte[15];
+    public String deskId = "";
 
     /** Free format text field. Echoed in reports */
-    public byte[] memo = new byte[15];
+    public String memo = "";
 
     public static void parse(NativeNewOrderCross msg, ByteBuffer data) {
         msg.crossId = readAlpha(data, 10);
-        msg.limitPrice = data.getInt();
+        msg.limitPrice = data.getLong();
         msg.orderQuantity = Integer.toUnsignedLong(data.getInt());
         msg.enteringTrader = readAlpha(data, 15);
         msg.instrumentId = Integer.toUnsignedLong(data.getInt());
@@ -75,7 +76,7 @@ public class NativeNewOrderCross {
 
     public static void encode(NativeNewOrderCross msg, ByteBuffer data) {
         writeAlpha(data, msg.crossId, 10);
-        data.putInt(msg.limitPrice);
+        data.putLong(msg.limitPrice);
         data.putInt((int) msg.orderQuantity);
         writeAlpha(data, msg.enteringTrader, 15);
         data.putInt((int) msg.instrumentId);
@@ -94,32 +95,39 @@ public class NativeNewOrderCross {
     @Override
     public String toString() {
         return "NativeNewOrderCross{" +
-                "crossId=" + new String(crossId).trim() + ", " +
+                "crossId=" + crossId + ", " +
                 "limitPrice=" + limitPrice + ", " +
                 "orderQuantity=" + orderQuantity + ", " +
-                "enteringTrader=" + new String(enteringTrader).trim() + ", " +
+                "enteringTrader=" + enteringTrader + ", " +
                 "instrumentId=" + instrumentId + ", " +
-                "senderLocation=" + new String(senderLocation).trim() + ", " +
+                "senderLocation=" + senderLocation + ", " +
                 "crossType=" + crossType + ", " +
-                "buySideClientOrderId=" + new String(buySideClientOrderId).trim() + ", " +
+                "buySideClientOrderId=" + buySideClientOrderId + ", " +
                 "buySideAccountId=" + buySideAccountId + ", " +
-                "sellSideClientOrderId=" + new String(sellSideClientOrderId).trim() + ", " +
+                "sellSideClientOrderId=" + sellSideClientOrderId + ", " +
                 "sellSideAccountId=" + sellSideAccountId + ", " +
                 "orderType=" + orderType + ", " +
                 "timeInForce=" + timeInForce + ", " +
-                "deskId=" + new String(deskId).trim() + ", " +
-                "memo=" + new String(memo).trim() + '}';
+                "deskId=" + deskId + ", " +
+                "memo=" + memo + '}';
     }
 
-    private static byte[] readAlpha(ByteBuffer data, int length) {
-        byte[] result = new byte[length];
-        data.get(result);
-        return result;
+    private static String readAlpha(ByteBuffer data, int length) {
+        byte[] raw = new byte[length];
+        data.get(raw);
+        int end = 0;
+        while (end < length && raw[end] != 0) {
+            end++;
+        }
+        return new String(raw, 0, end, StandardCharsets.US_ASCII);
     }
 
-    private static void writeAlpha(ByteBuffer data, byte[] value, int length) {
-        byte[] temp = new byte[length];
-        System.arraycopy(value, 0, temp, 0, Math.min(value.length, length));
-        data.put(temp);
+    private static void writeAlpha(ByteBuffer data, String value, int length) {
+        byte[] out = new byte[length];
+        if (value != null) {
+            byte[] src = value.getBytes(StandardCharsets.US_ASCII);
+            System.arraycopy(src, 0, out, 0, Math.min(src.length, length));
+        }
+        data.put(out);
     }
 }

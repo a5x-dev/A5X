@@ -1,7 +1,9 @@
 #pragma once
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
+#include <string>
 
 namespace a5x::trading::native {
 
@@ -10,10 +12,8 @@ namespace a5x::trading::native {
  * Message Type: D
  */
 struct NativeNewOrderSingle {
-    /** Limit price */
-    int32_t limitPrice;
-
-    double limitPriceAsDecimal() const { return limitPrice / 10000.0; }
+    /** Limit price. This field will be ignored if the Order Type is not Limit (2) or Stop Limit (4) */
+    int64_t limitPrice;
 
     /** Total order quantity */
     uint32_t orderQuantity;
@@ -25,26 +25,24 @@ struct NativeNewOrderSingle {
     uint8_t side;
 
     /** Entering Trader ID */
-    uint8_t enteringTrader[15];
+    std::string enteringTrader;
 
     /** Client specified identifier of the order */
-    uint8_t clientOrderId[10];
+    std::string clientOrderId;
 
-    /** Identifier of the Trader Account */
+    /** Identifier of the Trader Account. This is a required field */
     uint64_t account;
 
     /** Sender Location assigned to the Trader ID/Firm */
-    uint8_t senderLocation[10];
+    std::string senderLocation;
 
     /** Client specified identifier of order relevant to self-execution */
-    uint8_t noTradeKey[10];
+    std::string noTradeKey;
 
-    /** Stop price/Trigger price */
-    int32_t stopPrice;
+    /** Stop price/Trigger price. This field will be ignored if the Order Type is not Stop (3) or Stop Limit (4) */
+    int64_t stopPrice;
 
-    double stopPriceAsDecimal() const { return stopPrice / 10000.0; }
-
-    /** Maximum quantity to be displayed */
+    /** Max Floor. Maximum quantity to be displayed. A negative value should be used if this field is to be ignored */
     uint32_t displayQuantity;
 
     /** 0 = Do Not Cancel, 1 = Cancel */
@@ -72,57 +70,57 @@ struct NativeNewOrderSingle {
     uint64_t expireTime;
 
     /** Free format text field */
-    uint8_t memo[15];
+    std::string memo;
 
     /** Desk ID through which the order is placed from */
-    uint8_t deskId[15];
+    std::string deskId;
 
     static void parse(NativeNewOrderSingle& msg, const uint8_t* data) {
-        std::memcpy(&msg.limitPrice, data + 0, 4);
-        std::memcpy(&msg.orderQuantity, data + 4, 4);
-        std::memcpy(&msg.instrumentId, data + 8, 4);
-        msg.side = data[12];
-        std::memcpy(msg.enteringTrader, data + 13, 15);
-        std::memcpy(msg.clientOrderId, data + 28, 10);
-        std::memcpy(&msg.account, data + 38, 8);
-        std::memcpy(msg.senderLocation, data + 46, 10);
-        std::memcpy(msg.noTradeKey, data + 56, 10);
-        std::memcpy(&msg.stopPrice, data + 66, 4);
-        std::memcpy(&msg.displayQuantity, data + 70, 4);
-        msg.cancelOnDisconnect = data[74];
-        msg.anonymity = data[75];
-        msg.orderBook = data[76];
-        msg.executionInstruction = data[77];
-        msg.routingInstruction = data[78];
-        msg.orderType = data[79];
-        msg.timeInForce = data[80];
-        std::memcpy(&msg.expireTime, data + 81, 8);
-        std::memcpy(msg.memo, data + 89, 15);
-        std::memcpy(msg.deskId, data + 104, 15);
+        std::memcpy(&msg.limitPrice, data + 0, 8);
+        std::memcpy(&msg.orderQuantity, data + 8, 4);
+        std::memcpy(&msg.instrumentId, data + 12, 4);
+        msg.side = data[16];
+        msg.enteringTrader.assign(reinterpret_cast<const char*>(data + 17), strnlen(reinterpret_cast<const char*>(data + 17), 15));
+        msg.clientOrderId.assign(reinterpret_cast<const char*>(data + 32), strnlen(reinterpret_cast<const char*>(data + 32), 10));
+        std::memcpy(&msg.account, data + 42, 8);
+        msg.senderLocation.assign(reinterpret_cast<const char*>(data + 50), strnlen(reinterpret_cast<const char*>(data + 50), 10));
+        msg.noTradeKey.assign(reinterpret_cast<const char*>(data + 60), strnlen(reinterpret_cast<const char*>(data + 60), 10));
+        std::memcpy(&msg.stopPrice, data + 70, 8);
+        std::memcpy(&msg.displayQuantity, data + 78, 4);
+        msg.cancelOnDisconnect = data[82];
+        msg.anonymity = data[83];
+        msg.orderBook = data[84];
+        msg.executionInstruction = data[85];
+        msg.routingInstruction = data[86];
+        msg.orderType = data[87];
+        msg.timeInForce = data[88];
+        std::memcpy(&msg.expireTime, data + 89, 8);
+        msg.memo.assign(reinterpret_cast<const char*>(data + 97), strnlen(reinterpret_cast<const char*>(data + 97), 15));
+        msg.deskId.assign(reinterpret_cast<const char*>(data + 112), strnlen(reinterpret_cast<const char*>(data + 112), 15));
     }
 
     static void encode(const NativeNewOrderSingle& msg, uint8_t* data) {
-        std::memcpy(data + 0, &msg.limitPrice, 4);
-        std::memcpy(data + 4, &msg.orderQuantity, 4);
-        std::memcpy(data + 8, &msg.instrumentId, 4);
-        data[12] = msg.side;
-        std::memcpy(data + 13, msg.enteringTrader, 15);
-        std::memcpy(data + 28, msg.clientOrderId, 10);
-        std::memcpy(data + 38, &msg.account, 8);
-        std::memcpy(data + 46, msg.senderLocation, 10);
-        std::memcpy(data + 56, msg.noTradeKey, 10);
-        std::memcpy(data + 66, &msg.stopPrice, 4);
-        std::memcpy(data + 70, &msg.displayQuantity, 4);
-        data[74] = msg.cancelOnDisconnect;
-        data[75] = msg.anonymity;
-        data[76] = msg.orderBook;
-        data[77] = msg.executionInstruction;
-        data[78] = msg.routingInstruction;
-        data[79] = msg.orderType;
-        data[80] = msg.timeInForce;
-        std::memcpy(data + 81, &msg.expireTime, 8);
-        std::memcpy(data + 89, msg.memo, 15);
-        std::memcpy(data + 104, msg.deskId, 15);
+        std::memcpy(data + 0, &msg.limitPrice, 8);
+        std::memcpy(data + 8, &msg.orderQuantity, 4);
+        std::memcpy(data + 12, &msg.instrumentId, 4);
+        data[16] = msg.side;
+        std::memset(data + 17, 0, 15); std::memcpy(data + 17, msg.enteringTrader.c_str(), std::min(msg.enteringTrader.size(), size_t(15)));
+        std::memset(data + 32, 0, 10); std::memcpy(data + 32, msg.clientOrderId.c_str(), std::min(msg.clientOrderId.size(), size_t(10)));
+        std::memcpy(data + 42, &msg.account, 8);
+        std::memset(data + 50, 0, 10); std::memcpy(data + 50, msg.senderLocation.c_str(), std::min(msg.senderLocation.size(), size_t(10)));
+        std::memset(data + 60, 0, 10); std::memcpy(data + 60, msg.noTradeKey.c_str(), std::min(msg.noTradeKey.size(), size_t(10)));
+        std::memcpy(data + 70, &msg.stopPrice, 8);
+        std::memcpy(data + 78, &msg.displayQuantity, 4);
+        data[82] = msg.cancelOnDisconnect;
+        data[83] = msg.anonymity;
+        data[84] = msg.orderBook;
+        data[85] = msg.executionInstruction;
+        data[86] = msg.routingInstruction;
+        data[87] = msg.orderType;
+        data[88] = msg.timeInForce;
+        std::memcpy(data + 89, &msg.expireTime, 8);
+        std::memset(data + 97, 0, 15); std::memcpy(data + 97, msg.memo.c_str(), std::min(msg.memo.size(), size_t(15)));
+        std::memset(data + 112, 0, 15); std::memcpy(data + 112, msg.deskId.c_str(), std::min(msg.deskId.size(), size_t(15)));
     }
 };
 

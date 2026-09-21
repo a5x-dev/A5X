@@ -1,46 +1,46 @@
 #pragma once
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
+#include <string>
 
 namespace a5x::trading::native {
 
 /**
  * New Order Cross
- * Message Type: u
+ * Message Type: C
  */
 struct NativeNewOrderCross {
     /** Identifier of the cross order. Only alphanumeric values allowed */
-    uint8_t crossId[10];
+    std::string crossId;
 
     /** Price of the cross order */
-    int32_t limitPrice;
-
-    double limitPriceAsDecimal() const { return limitPrice / 10000.0; }
+    int64_t limitPrice;
 
     /** Total order quantity of the cross order */
     uint32_t orderQuantity;
 
     /** Entering Trader ID */
-    uint8_t enteringTrader[15];
+    std::string enteringTrader;
 
     /** Numeric Identifier of the instrument */
     uint32_t instrumentId;
 
     /** Sender Location assigned to the Trader ID/Firm */
-    uint8_t senderLocation[10];
+    std::string senderLocation;
 
     /** 5 = Internal Cross. Any other value rejected */
     uint8_t crossType;
 
     /** Client specified identifier of the buy side. Required */
-    uint8_t buySideClientOrderId[10];
+    std::string buySideClientOrderId;
 
     /** Identifier of the buyer's trading account. Required */
     uint64_t buySideAccountId;
 
     /** Client specified identifier of the sell side. Required */
-    uint8_t sellSideClientOrderId[10];
+    std::string sellSideClientOrderId;
 
     /** Identifier of the seller's trading account. Required */
     uint64_t sellSideAccountId;
@@ -52,45 +52,45 @@ struct NativeNewOrderCross {
     uint8_t timeInForce;
 
     /** Desk ID through which the order is placed from */
-    uint8_t deskId[15];
+    std::string deskId;
 
     /** Free format text field. Echoed in reports */
-    uint8_t memo[15];
+    std::string memo;
 
     static void parse(NativeNewOrderCross& msg, const uint8_t* data) {
-        std::memcpy(msg.crossId, data + 0, 10);
-        std::memcpy(&msg.limitPrice, data + 10, 4);
-        std::memcpy(&msg.orderQuantity, data + 14, 4);
-        std::memcpy(msg.enteringTrader, data + 18, 15);
-        std::memcpy(&msg.instrumentId, data + 33, 4);
-        std::memcpy(msg.senderLocation, data + 37, 10);
-        msg.crossType = data[47];
-        std::memcpy(msg.buySideClientOrderId, data + 48, 10);
-        std::memcpy(&msg.buySideAccountId, data + 58, 8);
-        std::memcpy(msg.sellSideClientOrderId, data + 66, 10);
-        std::memcpy(&msg.sellSideAccountId, data + 76, 8);
-        msg.orderType = data[84];
-        msg.timeInForce = data[85];
-        std::memcpy(msg.deskId, data + 86, 15);
-        std::memcpy(msg.memo, data + 101, 15);
+        msg.crossId.assign(reinterpret_cast<const char*>(data + 0), strnlen(reinterpret_cast<const char*>(data + 0), 10));
+        std::memcpy(&msg.limitPrice, data + 10, 8);
+        std::memcpy(&msg.orderQuantity, data + 18, 4);
+        msg.enteringTrader.assign(reinterpret_cast<const char*>(data + 22), strnlen(reinterpret_cast<const char*>(data + 22), 15));
+        std::memcpy(&msg.instrumentId, data + 37, 4);
+        msg.senderLocation.assign(reinterpret_cast<const char*>(data + 41), strnlen(reinterpret_cast<const char*>(data + 41), 10));
+        msg.crossType = data[51];
+        msg.buySideClientOrderId.assign(reinterpret_cast<const char*>(data + 52), strnlen(reinterpret_cast<const char*>(data + 52), 10));
+        std::memcpy(&msg.buySideAccountId, data + 62, 8);
+        msg.sellSideClientOrderId.assign(reinterpret_cast<const char*>(data + 70), strnlen(reinterpret_cast<const char*>(data + 70), 10));
+        std::memcpy(&msg.sellSideAccountId, data + 80, 8);
+        msg.orderType = data[88];
+        msg.timeInForce = data[89];
+        msg.deskId.assign(reinterpret_cast<const char*>(data + 90), strnlen(reinterpret_cast<const char*>(data + 90), 15));
+        msg.memo.assign(reinterpret_cast<const char*>(data + 105), strnlen(reinterpret_cast<const char*>(data + 105), 15));
     }
 
     static void encode(const NativeNewOrderCross& msg, uint8_t* data) {
-        std::memcpy(data + 0, msg.crossId, 10);
-        std::memcpy(data + 10, &msg.limitPrice, 4);
-        std::memcpy(data + 14, &msg.orderQuantity, 4);
-        std::memcpy(data + 18, msg.enteringTrader, 15);
-        std::memcpy(data + 33, &msg.instrumentId, 4);
-        std::memcpy(data + 37, msg.senderLocation, 10);
-        data[47] = msg.crossType;
-        std::memcpy(data + 48, msg.buySideClientOrderId, 10);
-        std::memcpy(data + 58, &msg.buySideAccountId, 8);
-        std::memcpy(data + 66, msg.sellSideClientOrderId, 10);
-        std::memcpy(data + 76, &msg.sellSideAccountId, 8);
-        data[84] = msg.orderType;
-        data[85] = msg.timeInForce;
-        std::memcpy(data + 86, msg.deskId, 15);
-        std::memcpy(data + 101, msg.memo, 15);
+        std::memset(data + 0, 0, 10); std::memcpy(data + 0, msg.crossId.c_str(), std::min(msg.crossId.size(), size_t(10)));
+        std::memcpy(data + 10, &msg.limitPrice, 8);
+        std::memcpy(data + 18, &msg.orderQuantity, 4);
+        std::memset(data + 22, 0, 15); std::memcpy(data + 22, msg.enteringTrader.c_str(), std::min(msg.enteringTrader.size(), size_t(15)));
+        std::memcpy(data + 37, &msg.instrumentId, 4);
+        std::memset(data + 41, 0, 10); std::memcpy(data + 41, msg.senderLocation.c_str(), std::min(msg.senderLocation.size(), size_t(10)));
+        data[51] = msg.crossType;
+        std::memset(data + 52, 0, 10); std::memcpy(data + 52, msg.buySideClientOrderId.c_str(), std::min(msg.buySideClientOrderId.size(), size_t(10)));
+        std::memcpy(data + 62, &msg.buySideAccountId, 8);
+        std::memset(data + 70, 0, 10); std::memcpy(data + 70, msg.sellSideClientOrderId.c_str(), std::min(msg.sellSideClientOrderId.size(), size_t(10)));
+        std::memcpy(data + 80, &msg.sellSideAccountId, 8);
+        data[88] = msg.orderType;
+        data[89] = msg.timeInForce;
+        std::memset(data + 90, 0, 15); std::memcpy(data + 90, msg.deskId.c_str(), std::min(msg.deskId.size(), size_t(15)));
+        std::memset(data + 105, 0, 15); std::memcpy(data + 105, msg.memo.c_str(), std::min(msg.memo.size(), size_t(15)));
     }
 };
 

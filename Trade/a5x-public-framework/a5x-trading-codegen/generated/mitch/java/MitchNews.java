@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -17,7 +16,7 @@ public class MitchNews {
 	/**
 	 * Time the announcement was published (EPOCH)
 	 */
-	public BigInteger time;
+	public long time;
 
 	/**
 	 * 0 = Regular, 1 = High Priority, 2 = Low Priority
@@ -52,7 +51,7 @@ public class MitchNews {
 	 */
 	public static void parse(MitchNews pNews, ByteBuffer pData) {
 		pNews.nanosecond = BitUtils.byteArrayToUInt32(pData, false);
-		pNews.time = BitUtils.byteArrayToUInt64(pData, false);
+		pNews.time = pData.getLong();
 		pNews.urgency = pData.get();
 		byte[] headlineBytes = new byte[100];
 		pData.get(headlineBytes);
@@ -76,22 +75,26 @@ public class MitchNews {
 	 */
 	public static void encode(MitchNews pNews, ByteBuffer pData) {
 		BitUtils.uint32ToByteArray(pNews.nanosecond, pData, false);
-		BitUtils.uint64ToByteArray(pNews.time, pData, false);
+		pData.putLong(pNews.time);
 		pData.put(pNews.urgency);
 		byte[] headlineBytes = new byte[100];
-		byte[] headlineSrc = pNews.headline.getBytes();
+		java.util.Arrays.fill(headlineBytes, (byte) ' ');
+		byte[] headlineSrc = pNews.headline == null ? new byte[0] : pNews.headline.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(headlineSrc, 0, headlineBytes, 0, Math.min(headlineSrc.length, 100));
 		pData.put(headlineBytes);
 		byte[] textBytes = new byte[750];
-		byte[] textSrc = pNews.text.getBytes();
+		java.util.Arrays.fill(textBytes, (byte) ' ');
+		byte[] textSrc = pNews.text == null ? new byte[0] : pNews.text.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(textSrc, 0, textBytes, 0, Math.min(textSrc.length, 750));
 		pData.put(textBytes);
 		byte[] instrumentIdsBytes = new byte[100];
-		byte[] instrumentIdsSrc = pNews.instrumentIds.getBytes();
+		java.util.Arrays.fill(instrumentIdsBytes, (byte) ' ');
+		byte[] instrumentIdsSrc = pNews.instrumentIds == null ? new byte[0] : pNews.instrumentIds.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(instrumentIdsSrc, 0, instrumentIdsBytes, 0, Math.min(instrumentIdsSrc.length, 100));
 		pData.put(instrumentIdsBytes);
 		byte[] underlyingInstrumentIdsBytes = new byte[100];
-		byte[] underlyingInstrumentIdsSrc = pNews.underlyingInstrumentIds.getBytes();
+		java.util.Arrays.fill(underlyingInstrumentIdsBytes, (byte) ' ');
+		byte[] underlyingInstrumentIdsSrc = pNews.underlyingInstrumentIds == null ? new byte[0] : pNews.underlyingInstrumentIds.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(underlyingInstrumentIdsSrc, 0, underlyingInstrumentIdsBytes, 0, Math.min(underlyingInstrumentIdsSrc.length, 100));
 		pData.put(underlyingInstrumentIdsBytes);
 	}

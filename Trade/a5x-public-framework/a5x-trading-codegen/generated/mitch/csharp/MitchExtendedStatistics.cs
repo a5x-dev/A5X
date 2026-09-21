@@ -1,5 +1,4 @@
 using System;
-using System.Numerics;
 using System.Text;
 
 namespace A5X.Trading.Mitch.Model
@@ -60,7 +59,7 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Reserved for future use
         /// </summary>
-        public byte[] ReservedField = new byte[8] { get; set; }
+        public byte[] ReservedField { get; set; } = new byte[8];
 
         /// <summary>
         /// 1 = Regular, 2 = Off-Book, 11 = Negotiated Trades

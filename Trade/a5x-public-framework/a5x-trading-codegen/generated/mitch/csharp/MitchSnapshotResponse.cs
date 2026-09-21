@@ -1,5 +1,4 @@
 using System;
-using System.Numerics;
 using System.Text;
 
 namespace A5X.Trading.Mitch.Model
@@ -12,7 +11,7 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Sequence number with which the snapshot is synchronized. This will be zero if Status is not 'A'. Ignore if Snapshot Type is not Order Book (0)
         /// </summary>
-        public BigInteger SequenceNumber { get; set; }
+        public ulong SequenceNumber { get; set; }
 
         /// <summary>
         /// Number of orders that will be transmitted in the snapshot. This will be zero if Order Book is empty or Status is not 'A'. However, if the Snapshot Request was submitted for multiple order books, this field will be set to zero. Ignore if Snapshot Type is not Order Book (0)
@@ -37,7 +36,7 @@ namespace A5X.Trading.Mitch.Model
         public static void Parse(MitchSnapshotResponse msg, Span<byte> data)
         {
             int offset = 0;
-            msg.SequenceNumber = new BigInteger(data.Slice(offset, 8));
+            msg.SequenceNumber = BitConverter.ToUInt64(data.Slice(offset, 8));
             offset += 8;
             msg.OrderCount = BitConverter.ToUInt32(data.Slice(offset, 4));
             offset += 4;
@@ -50,7 +49,7 @@ namespace A5X.Trading.Mitch.Model
         public static void Encode(MitchSnapshotResponse msg, Span<byte> data)
         {
             int offset = 0;
-            msg.SequenceNumber.TryWriteBytes(data.Slice(offset, 8), out _);
+            BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.SequenceNumber);
             offset += 8;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.OrderCount);
             offset += 4;

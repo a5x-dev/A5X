@@ -1,6 +1,7 @@
 #ifndef MITCHTOPOFBOOK_H
 #define MITCHTOPOFBOOK_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>
@@ -16,7 +17,7 @@ struct MitchTopOfBook {
     uint32_t instrumentId;
 
     /// Bit 0: Regular (0=No, 1=Yes), Bit 5: Bulletin Board (0=No, 1=Yes)
-    void* subBook;
+    uint8_t subBook;
 
     /// 1 = Update, 2 = Delete
     uint8_t action;
@@ -29,7 +30,7 @@ struct MitchTopOfBook {
 
     double priceAsDecimal() const { return price / 10000.0; }
 
-    /// Cumulative visible size at best price
+    /// Cumulative visible size at best price. This will be set to zero on a delete action
     uint32_t quantity;
 
     /// Cumulative visible size of market orders
@@ -47,6 +48,7 @@ struct MitchTopOfBook {
         offset += 4;
         std::memcpy(&msg.instrumentId, data + offset, 4);
         offset += 4;
+        msg.subBook = data[offset++];
         msg.action = data[offset++];
         msg.side = data[offset++];
         std::memcpy(&msg.price, data + offset, 8);
@@ -67,6 +69,7 @@ struct MitchTopOfBook {
         offset += 4;
         std::memcpy(data + offset, &msg.instrumentId, 4);
         offset += 4;
+        data[offset++] = msg.subBook;
         data[offset++] = msg.action;
         data[offset++] = msg.side;
         std::memcpy(data + offset, &msg.price, 8);

@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -17,7 +16,7 @@ public class MitchOrderModified {
 	/**
 	 * Unique identifier of the order
 	 */
-	public BigInteger orderId;
+	public long orderId;
 
 	/**
 	 * New displayed quantity of the order
@@ -56,7 +55,7 @@ public class MitchOrderModified {
 	 */
 	public static void parse(MitchOrderModified pOrderModified, ByteBuffer pData) {
 		pOrderModified.nanosecond = BitUtils.byteArrayToUInt32(pData, false);
-		pOrderModified.orderId = BitUtils.byteArrayToUInt64(pData, false);
+		pOrderModified.orderId = pData.getLong();
 		pOrderModified.newQuantity = BitUtils.byteArrayToUInt32(pData, false);
 		pOrderModified.newPrice = pData.getLong();
 		pOrderModified.oldQuantity = BitUtils.byteArrayToUInt32(pData, false);
@@ -72,7 +71,7 @@ public class MitchOrderModified {
 	 */
 	public static void encode(MitchOrderModified pOrderModified, ByteBuffer pData) {
 		BitUtils.uint32ToByteArray(pOrderModified.nanosecond, pData, false);
-		BitUtils.uint64ToByteArray(pOrderModified.orderId, pData, false);
+		pData.putLong(pOrderModified.orderId);
 		BitUtils.uint32ToByteArray(pOrderModified.newQuantity, pData, false);
 		pData.putLong(pOrderModified.newPrice);
 		BitUtils.uint32ToByteArray(pOrderModified.oldQuantity, pData, false);

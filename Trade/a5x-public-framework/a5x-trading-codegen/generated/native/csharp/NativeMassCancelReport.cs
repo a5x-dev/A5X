@@ -16,7 +16,7 @@ namespace A5X.Trading.Native.Model
         public ulong SequenceNumber { get; set; }
 
         /// <summary>Client specified identifier of the rejected message if available</summary>
-        public byte[] ClientOrderId { get; set; }
+        public string ClientOrderId { get; set; }
 
         /// <summary>0 = Rejected, 7 = Accepted</summary>
         public byte Status { get; set; }
@@ -31,7 +31,7 @@ namespace A5X.Trading.Native.Model
         {
             msg.PartitionId = data[0];
             msg.SequenceNumber = BitConverter.ToUInt64(data.Slice(1, 8));
-            msg.ClientOrderId = data.Slice(9, 10).ToArray();
+            msg.ClientOrderId = Encoding.ASCII.GetString(data.Slice(9, 10)).TrimEnd('\0');
             msg.Status = data[19];
             msg.RejectCode = BitConverter.ToUInt32(data.Slice(20, 4));
             msg.OrderBook = data[24];
@@ -41,7 +41,7 @@ namespace A5X.Trading.Native.Model
         {
             data[0] = msg.PartitionId;
             BitConverter.TryWriteBytes(data.Slice(1, 8), msg.SequenceNumber);
-            msg.ClientOrderId.CopyTo(data.Slice(9, 10));
+            Encoding.ASCII.GetBytes((msg.ClientOrderId ?? string.Empty).PadRight(10, '\0')).AsSpan(0, 10).CopyTo(data.Slice(9, 10));
             data[19] = msg.Status;
             BitConverter.TryWriteBytes(data.Slice(20, 4), msg.RejectCode);
             data[24] = msg.OrderBook;

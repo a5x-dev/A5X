@@ -1,6 +1,7 @@
 #ifndef MITCHSNAPSHOTRESPONSE_H
 #define MITCHSNAPSHOTRESPONSE_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>

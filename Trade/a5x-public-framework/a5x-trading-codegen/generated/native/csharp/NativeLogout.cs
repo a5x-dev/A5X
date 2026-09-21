@@ -10,16 +10,16 @@ namespace A5X.Trading.Native.Model
     public class NativeLogout
     {
         /// <summary>Reason for the logout</summary>
-        public byte[] Reason { get; set; }
+        public string Reason { get; set; }
 
         public static void Parse(NativeLogout msg, Span<byte> data)
         {
-            msg.Reason = data.Slice(0, 20).ToArray();
+            msg.Reason = Encoding.ASCII.GetString(data.Slice(0, 20)).TrimEnd('\0');
         }
 
         public static void Encode(NativeLogout msg, Span<byte> data)
         {
-            msg.Reason.CopyTo(data.Slice(0, 20));
+            Encoding.ASCII.GetBytes((msg.Reason ?? string.Empty).PadRight(20, '\0')).AsSpan(0, 20).CopyTo(data.Slice(0, 20));
         }
     }
 }

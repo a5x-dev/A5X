@@ -14,13 +14,13 @@
         DataDictionary=fix-dc-messages.xml
 
     Scope
-    -----
+    =====
     Drop Copy is a receive oriented service. The only application message a client sends is
     Order Mass Status Request (AF); everything else is server generated. The service cannot be
     used to submit orders or to receive market data.
 
     Differences from the OrderEntry dictionary (fix-oe-messages.xml)
-    ---------------------------------------------------------------
+    ===============================================================
     * Header adds OnBehalfOfCompID (115). The gateway stamps it on server initiated
       application messages with the CompID of the connection that originated the order being
       drop copied.
@@ -31,7 +31,7 @@
     * Adds RFQID (30006) on Quote Status Report.
 
     Notes on fidelity
-    -----------------
+    =================
     1. The <header> block lists exactly the fields the specification documents. The standard
        FIX 4.4 header carries further optional fields; add them if your engine emits them.
     2. A5X reuses tags introduced after FIX 4.4 (ApplVerID 1128, SessionStatus 1409,
@@ -65,7 +65,7 @@
 
     <messages>
 
-        <!-- ============================== Administrative ============================== -->
+        <!-- ====================== Administrative ======================= -->
 
         <message name="Heartbeat" msgtype="0" msgcat="admin">
             <field name="TestReqID" required="N"/>
@@ -109,7 +109,7 @@
             <field name="CertifiedSolution" required="Y"/>
         </message>
 
-        <!-- ============================== Application ================================= -->
+        <!-- ======================== Application ======================== -->
 
         <!--
             The only client initiated application message on the Drop Copy gateway. Used to
@@ -319,7 +319,7 @@
 
     <fields>
 
-        <!-- ------------------------------ Session / header ------------------------------ -->
+        <!-- ===================== Session / header ====================== -->
         <field number="8" name="BeginString" type="STRING"/>
         <field number="9" name="BodyLength" type="LENGTH"/>
         <field number="10" name="CheckSum" type="STRING"/>
@@ -351,7 +351,7 @@
             <value enum="j" description="BUSINESS_MESSAGE_REJECT"/>
         </field>
 
-        <!-- ------------------------------ Administrative ------------------------------ -->
+        <!-- ====================== Administrative ======================= -->
         <field number="7" name="BeginSeqNo" type="SEQNUM"/>
         <field number="16" name="EndSeqNo" type="SEQNUM"/>
         <field number="36" name="NewSeqNo" type="SEQNUM"/>
@@ -402,7 +402,7 @@
             <value enum="104" description="APPLICATION_NOT_AVAILABLE"/>
         </field>
 
-        <!-- ------------------------------ Order identification ------------------------ -->
+        <!-- =================== Order identification ==================== -->
         <field number="1" name="Account" type="STRING"/>
         <field number="11" name="ClOrdID" type="STRING"/>
         <field number="17" name="ExecID" type="STRING"/>
@@ -415,7 +415,7 @@
         <field number="880" name="TrdMatchID" type="STRING"/>
         <field number="1180" name="ApplID" type="STRING"/>
 
-        <!-- ------------------------------ Mass status request ------------------------- -->
+        <!-- ==================== Mass status request ==================== -->
         <field number="584" name="MassStatusReqID" type="STRING"/>
 
         <field number="585" name="MassStatusReqType" type="INT">
@@ -424,7 +424,7 @@
             <value enum="100" description="OPEN_ORDERS_FOR_SEGMENT_AND_PARTY"/>
         </field>
 
-        <!-- ------------------------------ Instrument ---------------------------------- -->
+        <!-- ======================== Instrument ========================= -->
         <field number="48" name="SecurityID" type="STRING"/>
         <field number="55" name="Symbol" type="STRING"/>
         <field number="305" name="UnderlyingSecurityIDSource" type="STRING"/>
@@ -436,7 +436,7 @@
             <value enum="8" description="EXCHANGE_SYMBOL"/>
         </field>
 
-        <!-- ------------------------------ Order attributes ---------------------------- -->
+        <!-- ===================== Order attributes ====================== -->
         <field number="6" name="AvgPx" type="PRICE"/>
         <field number="14" name="CumQty" type="QTY"/>
         <field number="30" name="LastMkt" type="EXCHANGE"/>
@@ -491,7 +491,7 @@
             <value enum="5" description="INTERNAL_CROSS"/>
         </field>
 
-        <!-- ------------------------------ Execution / status -------------------------- -->
+        <!-- ==================== Execution / status ===================== -->
         <field number="102" name="CxlRejReason" type="INT"/>
         <field number="103" name="OrdRejReason" type="INT"/>
 
@@ -565,7 +565,7 @@
         </field>
         <field number="379" name="BusinessRejectRefID" type="STRING"/>
 
-        <!-- ------------------------------ Parties ------------------------------------- -->
+        <!-- ========================== Parties ========================== -->
         <field number="448" name="PartyID" type="STRING"/>
         <field number="453" name="NoPartyIDs" type="NUMINGROUP"/>
 
@@ -583,7 +583,7 @@
             <value enum="1001" description="ORDER_ORIGINATION_SESSION"/>
         </field>
 
-        <!-- ------------------------------ Quoting ------------------------------------- -->
+        <!-- ========================== Quoting ========================== -->
         <field number="117" name="QuoteID" type="STRING"/>
         <field number="131" name="QuoteReqID" type="STRING"/>
         <field number="132" name="BidPx" type="PRICE"/>
@@ -623,7 +623,7 @@
             <value enum="17" description="CANCELLED"/>
         </field>
 
-        <!-- ------------------------------ News --------------------------------------- -->
+        <!-- =========================== News ============================ -->
         <field number="33" name="NoLinesOfText" type="NUMINGROUP"/>
         <field number="42" name="OrigTime" type="UTCTIMESTAMP"/>
         <field number="61" name="Urgency" type="CHAR"/>
@@ -638,7 +638,7 @@
             <value enum="10" description="OTHER"/>
         </field>
 
-        <!-- ------------------------------ Trading session ----------------------------- -->
+        <!-- ====================== Trading session ====================== -->
         <field number="336" name="TradingSessionID" type="STRING">
             <value enum="20" description="TRADING_SYSTEM"/>
         </field>
@@ -647,7 +647,7 @@
             <value enum="3" description="CLOSED"/>
         </field>
 
-        <!-- ------------------------- A5X exchange defined tags ------------------------ -->
+        <!-- ================= A5X exchange defined tags ================= -->
         <field number="5149" name="Memo" type="STRING"/>
 
         <!-- NoTradeKey is a plain identifier, not a repeating group counter. -->

@@ -1,6 +1,7 @@
 #ifndef MITCHORDERDELETED_H
 #define MITCHORDERDELETED_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>

@@ -1,10 +1,11 @@
 package br.com.a5x.trd.pub.nativ.model;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 /**
  * News
- * Message Type: CB
+ * Message Type: Z
  */
 public class NativeNews {
 
@@ -21,22 +22,22 @@ public class NativeNews {
     public int urgency;
 
     /** Headline or subject of the announcement */
-    public byte[] headline = new byte[100];
+    public String headline = "";
 
     /** Text of the announcement */
-    public byte[] text = new byte[750];
+    public String text = "";
 
     /** Pipe separated list of symbols of instruments the announcements relates to */
-    public byte[] instruments = new byte[100];
+    public String instruments = "";
 
     /** Pipe separated list of symbols of underlyings the instruments relates to */
-    public byte[] underlyings = new byte[100];
+    public String underlyings = "";
 
     /** Pipe separated list of firms that the announcement should be sent to */
-    public byte[] firmList = new byte[54];
+    public String firmList = "";
 
     /** Pipe separated list of users that the announcement should be sent to */
-    public byte[] userList = new byte[54];
+    public String userList = "";
 
     public static void parse(NativeNews msg, ByteBuffer data) {
         msg.partitionId = Byte.toUnsignedInt(data.get());
@@ -71,23 +72,30 @@ public class NativeNews {
                 "sequenceNumber=" + sequenceNumber + ", " +
                 "origTime=" + origTime + ", " +
                 "urgency=" + urgency + ", " +
-                "headline=" + new String(headline).trim() + ", " +
-                "text=" + new String(text).trim() + ", " +
-                "instruments=" + new String(instruments).trim() + ", " +
-                "underlyings=" + new String(underlyings).trim() + ", " +
-                "firmList=" + new String(firmList).trim() + ", " +
-                "userList=" + new String(userList).trim() + '}';
+                "headline=" + headline + ", " +
+                "text=" + text + ", " +
+                "instruments=" + instruments + ", " +
+                "underlyings=" + underlyings + ", " +
+                "firmList=" + firmList + ", " +
+                "userList=" + userList + '}';
     }
 
-    private static byte[] readAlpha(ByteBuffer data, int length) {
-        byte[] result = new byte[length];
-        data.get(result);
-        return result;
+    private static String readAlpha(ByteBuffer data, int length) {
+        byte[] raw = new byte[length];
+        data.get(raw);
+        int end = 0;
+        while (end < length && raw[end] != 0) {
+            end++;
+        }
+        return new String(raw, 0, end, StandardCharsets.US_ASCII);
     }
 
-    private static void writeAlpha(ByteBuffer data, byte[] value, int length) {
-        byte[] temp = new byte[length];
-        System.arraycopy(value, 0, temp, 0, Math.min(value.length, length));
-        data.put(temp);
+    private static void writeAlpha(ByteBuffer data, String value, int length) {
+        byte[] out = new byte[length];
+        if (value != null) {
+            byte[] src = value.getBytes(StandardCharsets.US_ASCII);
+            System.arraycopy(src, 0, out, 0, Math.min(src.length, length));
+        }
+        data.put(out);
     }
 }

@@ -1,6 +1,7 @@
 #ifndef MITCHLOGOUTREQUEST_H
 #define MITCHLOGOUTREQUEST_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>

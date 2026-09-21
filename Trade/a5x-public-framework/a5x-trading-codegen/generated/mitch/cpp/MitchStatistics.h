@@ -1,6 +1,7 @@
 #ifndef MITCHSTATISTICS_H
 #define MITCHSTATISTICS_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>
@@ -23,10 +24,10 @@ struct MitchStatistics {
 
     double priceAsDecimal() const { return price / 10000.0; }
 
-    /// A = Auction Trade, B = Regular Trade, C = Mid Point, D = Last Regular Trade, E = Last Auction, F = Manual, H = VWAP, I = Previous Close, T = Theoretical Price, L = VWAP n Volume, U = Best Bid, V = Best Offer, W = None, X = VWAP of Last n Trades, Y = Reference Price, Z = Price Unavailable
+    /// A = Auction Trade, B = Regular Trade, D = Last Regular Trade, E = Last Auction, F = Manual, I = Previous Close, T = Theoretical Price, W = None, Y = Reference Price, Z = Price Unavailable
     uint8_t openCloseIndicator;
 
-    /// 1 = Regular, 2 = Off-Book, 9 = Bulletin Board
+    /// 1 = Regular
     uint8_t subBook;
 
     static void parse(MitchStatistics& msg, const uint8_t* data) {

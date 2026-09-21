@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -12,7 +11,7 @@ public class MitchSnapshotComplete {
 	/**
 	 * Sequence number with which the snapshot is synchronized
 	 */
-	public BigInteger sequenceNumber;
+	public long sequenceNumber;
 
 	/**
 	 * Segment the snapshot relates to. The field will contain only spaces if it does not relate to a segment
@@ -51,7 +50,7 @@ public class MitchSnapshotComplete {
 	 * @param pData the ByteBuffer containing message data (little-endian)
 	 */
 	public static void parse(MitchSnapshotComplete pSnapshotComplete, ByteBuffer pData) {
-		pSnapshotComplete.sequenceNumber = BitUtils.byteArrayToUInt64(pData, false);
+		pSnapshotComplete.sequenceNumber = pData.getLong();
 		byte[] segmentBytes = new byte[10];
 		pData.get(segmentBytes);
 		pSnapshotComplete.segment = new String(segmentBytes).trim();
@@ -69,9 +68,10 @@ public class MitchSnapshotComplete {
 	 * @param pData the ByteBuffer to write message data (little-endian)
 	 */
 	public static void encode(MitchSnapshotComplete pSnapshotComplete, ByteBuffer pData) {
-		BitUtils.uint64ToByteArray(pSnapshotComplete.sequenceNumber, pData, false);
+		pData.putLong(pSnapshotComplete.sequenceNumber);
 		byte[] segmentBytes = new byte[10];
-		byte[] segmentSrc = pSnapshotComplete.segment.getBytes();
+		java.util.Arrays.fill(segmentBytes, (byte) ' ');
+		byte[] segmentSrc = pSnapshotComplete.segment == null ? new byte[0] : pSnapshotComplete.segment.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(segmentSrc, 0, segmentBytes, 0, Math.min(segmentSrc.length, 10));
 		pData.put(segmentBytes);
 		BitUtils.uint32ToByteArray(pSnapshotComplete.instrumentId, pData, false);

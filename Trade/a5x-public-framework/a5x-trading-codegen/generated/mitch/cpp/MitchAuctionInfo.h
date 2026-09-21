@@ -1,6 +1,7 @@
 #ifndef MITCHAUCTIONINFO_H
 #define MITCHAUCTIONINFO_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>

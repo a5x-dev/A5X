@@ -1,6 +1,7 @@
 package br.com.a5x.trd.pub.nativ.model;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Logon request
@@ -9,22 +10,22 @@ import java.nio.ByteBuffer;
 public class NativeLogon {
 
     /** CompID assigned to the client */
-    public byte[] compId = new byte[11];
+    public String compId = "";
 
     /** Password assigned to the CompID */
-    public byte[] password = new byte[25];
+    public String password = "";
 
     /** New password for CompID */
-    public byte[] newPassword = new byte[25];
+    public String newPassword = "";
 
-    /** Protocol version (1-9) */
+    /** Specifies the version of protocol. The system will only accept values from 1-9. If left empty, the system will consider the default value defined in system */
     public int protocolVersion;
 
     /** Original IP Address the user */
-    public byte[] ipAddress = new byte[15];
+    public String ipAddress = "";
 
     /** Nome da solução certificada */
-    public byte[] certifiedSolution = new byte[44];
+    public String certifiedSolution = "";
 
     public static void parse(NativeLogon msg, ByteBuffer data) {
         msg.compId = readAlpha(data, 11);
@@ -47,23 +48,30 @@ public class NativeLogon {
     @Override
     public String toString() {
         return "NativeLogon{" +
-                "compId=" + new String(compId).trim() + ", " +
-                "password=" + new String(password).trim() + ", " +
-                "newPassword=" + new String(newPassword).trim() + ", " +
+                "compId=" + compId + ", " +
+                "password=" + password + ", " +
+                "newPassword=" + newPassword + ", " +
                 "protocolVersion=" + protocolVersion + ", " +
-                "ipAddress=" + new String(ipAddress).trim() + ", " +
-                "certifiedSolution=" + new String(certifiedSolution).trim() + '}';
+                "ipAddress=" + ipAddress + ", " +
+                "certifiedSolution=" + certifiedSolution + '}';
     }
 
-    private static byte[] readAlpha(ByteBuffer data, int length) {
-        byte[] result = new byte[length];
-        data.get(result);
-        return result;
+    private static String readAlpha(ByteBuffer data, int length) {
+        byte[] raw = new byte[length];
+        data.get(raw);
+        int end = 0;
+        while (end < length && raw[end] != 0) {
+            end++;
+        }
+        return new String(raw, 0, end, StandardCharsets.US_ASCII);
     }
 
-    private static void writeAlpha(ByteBuffer data, byte[] value, int length) {
-        byte[] temp = new byte[length];
-        System.arraycopy(value, 0, temp, 0, Math.min(value.length, length));
-        data.put(temp);
+    private static void writeAlpha(ByteBuffer data, String value, int length) {
+        byte[] out = new byte[length];
+        if (value != null) {
+            byte[] src = value.getBytes(StandardCharsets.US_ASCII);
+            System.arraycopy(src, 0, out, 0, Math.min(src.length, length));
+        }
+        data.put(out);
     }
 }

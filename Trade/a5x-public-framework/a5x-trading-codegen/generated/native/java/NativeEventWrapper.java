@@ -34,6 +34,8 @@ public class NativeEventWrapper {
         void onNativeMassQuote(NativeMassQuote msg);
         void onNativeMassQuoteAcknowledgement(NativeMassQuoteAcknowledgement msg);
         void onNativeQuoteStatusReport(NativeQuoteStatusReport msg);
+        void onNativeMMPResetRequest(NativeMMPResetRequest msg);
+        void onNativeMMPResetAcknowledgement(NativeMMPResetAcknowledgement msg);
     }
 
     public static void parse(ByteBuffer data, INativePackageHandler handler) {
@@ -116,7 +118,7 @@ public class NativeEventWrapper {
                 NativeSystemStatus.parse(nativeSystemStatus, data);
                 handler.onNativeSystemStatus(nativeSystemStatus);
                 break;
-            case 'u':
+            case 'C':
                 NativeNewOrderCross nativeNewOrderCross = new NativeNewOrderCross();
                 NativeNewOrderCross.parse(nativeNewOrderCross, data);
                 handler.onNativeNewOrderCross(nativeNewOrderCross);
@@ -136,7 +138,7 @@ public class NativeEventWrapper {
                 NativeMassCancelReport.parse(nativeMassCancelReport, data);
                 handler.onNativeMassCancelReport(nativeMassCancelReport);
                 break;
-            case 'CB':
+            case 'Z':
                 NativeNews nativeNews = new NativeNews();
                 NativeNews.parse(nativeNews, data);
                 handler.onNativeNews(nativeNews);
@@ -146,15 +148,25 @@ public class NativeEventWrapper {
                 NativeMassQuote.parse(nativeMassQuote, data);
                 handler.onNativeMassQuote(nativeMassQuote);
                 break;
-            case 'b':
+            case 'J':
                 NativeMassQuoteAcknowledgement nativeMassQuoteAcknowledgement = new NativeMassQuoteAcknowledgement();
                 NativeMassQuoteAcknowledgement.parse(nativeMassQuoteAcknowledgement, data);
                 handler.onNativeMassQuoteAcknowledgement(nativeMassQuoteAcknowledgement);
                 break;
-            case 'AI':
+            case 'c':
                 NativeQuoteStatusReport nativeQuoteStatusReport = new NativeQuoteStatusReport();
                 NativeQuoteStatusReport.parse(nativeQuoteStatusReport, data);
                 handler.onNativeQuoteStatusReport(nativeQuoteStatusReport);
+                break;
+            case '}':
+                NativeMMPResetRequest nativeMMPResetRequest = new NativeMMPResetRequest();
+                NativeMMPResetRequest.parse(nativeMMPResetRequest, data);
+                handler.onNativeMMPResetRequest(nativeMMPResetRequest);
+                break;
+            case '~':
+                NativeMMPResetAcknowledgement nativeMMPResetAcknowledgement = new NativeMMPResetAcknowledgement();
+                NativeMMPResetAcknowledgement.parse(nativeMMPResetAcknowledgement, data);
+                handler.onNativeMMPResetAcknowledgement(nativeMMPResetAcknowledgement);
                 break;
             default:
                 throw new IllegalArgumentException("Unknown message type: " + (char) messageType);
@@ -210,7 +222,7 @@ public class NativeEventWrapper {
             data.put((byte) 'n');
             NativeSystemStatus.encode((NativeSystemStatus) msg, data);
         } else if (msg instanceof NativeNewOrderCross) {
-            data.put((byte) 'u');
+            data.put((byte) 'C');
             NativeNewOrderCross.encode((NativeNewOrderCross) msg, data);
         } else if (msg instanceof NativeBusinessReject) {
             data.put((byte) 'j');
@@ -222,17 +234,23 @@ public class NativeEventWrapper {
             data.put((byte) 'r');
             NativeMassCancelReport.encode((NativeMassCancelReport) msg, data);
         } else if (msg instanceof NativeNews) {
-            data.put((byte) 'CB');
+            data.put((byte) 'Z');
             NativeNews.encode((NativeNews) msg, data);
         } else if (msg instanceof NativeMassQuote) {
             data.put((byte) 'i');
             NativeMassQuote.encode((NativeMassQuote) msg, data);
         } else if (msg instanceof NativeMassQuoteAcknowledgement) {
-            data.put((byte) 'b');
+            data.put((byte) 'J');
             NativeMassQuoteAcknowledgement.encode((NativeMassQuoteAcknowledgement) msg, data);
         } else if (msg instanceof NativeQuoteStatusReport) {
-            data.put((byte) 'AI');
+            data.put((byte) 'c');
             NativeQuoteStatusReport.encode((NativeQuoteStatusReport) msg, data);
+        } else if (msg instanceof NativeMMPResetRequest) {
+            data.put((byte) '}');
+            NativeMMPResetRequest.encode((NativeMMPResetRequest) msg, data);
+        } else if (msg instanceof NativeMMPResetAcknowledgement) {
+            data.put((byte) '~');
+            NativeMMPResetAcknowledgement.encode((NativeMMPResetAcknowledgement) msg, data);
         } else {
             throw new IllegalArgumentException("Unknown message type: " + msg.getClass().getName());
         }

@@ -1,6 +1,7 @@
 package br.com.a5x.trd.pub.nativ.model;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Execution report
@@ -15,19 +16,19 @@ public class NativeExecutionReport {
     public long sequenceNumber;
 
     /** Identifier of the Execution Report. Identifier of the trade being cancelled or corrected if Execution Type is Trade Cancel (H) */
-    public byte[] executionId = new byte[21];
+    public String executionId = "";
 
     /** Client specified identifier of the order, cancel request or modification requests */
-    public byte[] clientOrderId = new byte[10];
+    public String clientOrderId = "";
 
     /** Server specified identifier of the order */
-    public byte[] orderId = new byte[12];
+    public String orderId = "";
 
     /** Server specified public order identifier of the order */
-    public byte[] publicOrderId = new byte[12];
+    public String publicOrderId = "";
 
-    /** Executed price. Ignore if Execution Type is not Trade (F) */
-    public int executedPrice;
+    /** Executed price. This field should be ignored if Execution Type is not Trade (F) */
+    public long executedPrice;
 
     public java.math.BigDecimal executedPriceAsDecimal() { return java.math.BigDecimal.valueOf(executedPrice, 4); }
 
@@ -38,13 +39,13 @@ public class NativeExecutionReport {
     public long account;
 
     /** Sender Location assigned to the Trader ID/Firm */
-    public byte[] senderLocation = new byte[10];
+    public String senderLocation = "";
 
     /** Numeric Identifier of the instrument */
     public long instrumentId;
 
     /** Identifier of the cross order. Only alphanumeric values allowed */
-    public byte[] crossId = new byte[10];
+    public String crossId = "";
 
     /** Executed quantity. Ignore if Execution Type is not Trade (F) */
     public long executedQuantity;
@@ -53,7 +54,7 @@ public class NativeExecutionReport {
     public long leavesQuantity;
 
     /** 0 = New, 4 = Cancelled, 5 = Modified, 8 = Rejected, 9 = Suspended, A = Pending New, C = Expired, D = Restated, E = Pending Replace, F = Trade, H = Trade Cancel, L = Triggered */
-    public byte[] executionType = new byte[1];
+    public String executionType = "";
 
     /** 0 = New, 1 = Partially Filled, 2 = Filled, 4 = Cancelled, 6 = Expired, 8 = Rejected, 9 = Suspended, 12 = Pending New, 14 = Pending Replace */
     public int orderStatus;
@@ -86,19 +87,19 @@ public class NativeExecutionReport {
     public int tradingPhase;
 
     /** MIC Code of the instrument as set up under Execution Venue in Reference Data */
-    public byte[] executionVenue = new byte[4];
+    public String executionVenue = "";
 
     /** Entering Trader ID */
-    public byte[] enteringTrader = new byte[15];
+    public String enteringTrader = "";
 
     /** Free format text field. Echoed in reports */
-    public byte[] memo = new byte[15];
+    public String memo = "";
 
     /** Desk ID through which the order is placed from */
-    public byte[] deskId = new byte[15];
+    public String deskId = "";
 
     /** Client specified identifier of order relevant to self-execution */
-    public byte[] noTradeKey = new byte[10];
+    public String noTradeKey = "";
 
     public static void parse(NativeExecutionReport msg, ByteBuffer data) {
         msg.partitionId = Byte.toUnsignedInt(data.get());
@@ -107,7 +108,7 @@ public class NativeExecutionReport {
         msg.clientOrderId = readAlpha(data, 10);
         msg.orderId = readAlpha(data, 12);
         msg.publicOrderId = readAlpha(data, 12);
-        msg.executedPrice = data.getInt();
+        msg.executedPrice = data.getLong();
         msg.transactTime = data.getLong();
         msg.account = data.getLong();
         msg.senderLocation = readAlpha(data, 10);
@@ -140,7 +141,7 @@ public class NativeExecutionReport {
         writeAlpha(data, msg.clientOrderId, 10);
         writeAlpha(data, msg.orderId, 12);
         writeAlpha(data, msg.publicOrderId, 12);
-        data.putInt(msg.executedPrice);
+        data.putLong(msg.executedPrice);
         data.putLong(msg.transactTime);
         data.putLong(msg.account);
         writeAlpha(data, msg.senderLocation, 10);
@@ -171,19 +172,19 @@ public class NativeExecutionReport {
         return "NativeExecutionReport{" +
                 "partitionId=" + partitionId + ", " +
                 "sequenceNumber=" + sequenceNumber + ", " +
-                "executionId=" + new String(executionId).trim() + ", " +
-                "clientOrderId=" + new String(clientOrderId).trim() + ", " +
-                "orderId=" + new String(orderId).trim() + ", " +
-                "publicOrderId=" + new String(publicOrderId).trim() + ", " +
+                "executionId=" + executionId + ", " +
+                "clientOrderId=" + clientOrderId + ", " +
+                "orderId=" + orderId + ", " +
+                "publicOrderId=" + publicOrderId + ", " +
                 "executedPrice=" + executedPrice + ", " +
                 "transactTime=" + transactTime + ", " +
                 "account=" + account + ", " +
-                "senderLocation=" + new String(senderLocation).trim() + ", " +
+                "senderLocation=" + senderLocation + ", " +
                 "instrumentId=" + instrumentId + ", " +
-                "crossId=" + new String(crossId).trim() + ", " +
+                "crossId=" + crossId + ", " +
                 "executedQuantity=" + executedQuantity + ", " +
                 "leavesQuantity=" + leavesQuantity + ", " +
-                "executionType=" + new String(executionType).trim() + ", " +
+                "executionType=" + executionType + ", " +
                 "orderStatus=" + orderStatus + ", " +
                 "rejectCode=" + rejectCode + ", " +
                 "workingIndicator=" + workingIndicator + ", " +
@@ -194,22 +195,29 @@ public class NativeExecutionReport {
                 "crossType=" + crossType + ", " +
                 "routingInstruction=" + routingInstruction + ", " +
                 "tradingPhase=" + tradingPhase + ", " +
-                "executionVenue=" + new String(executionVenue).trim() + ", " +
-                "enteringTrader=" + new String(enteringTrader).trim() + ", " +
-                "memo=" + new String(memo).trim() + ", " +
-                "deskId=" + new String(deskId).trim() + ", " +
-                "noTradeKey=" + new String(noTradeKey).trim() + '}';
+                "executionVenue=" + executionVenue + ", " +
+                "enteringTrader=" + enteringTrader + ", " +
+                "memo=" + memo + ", " +
+                "deskId=" + deskId + ", " +
+                "noTradeKey=" + noTradeKey + '}';
     }
 
-    private static byte[] readAlpha(ByteBuffer data, int length) {
-        byte[] result = new byte[length];
-        data.get(result);
-        return result;
+    private static String readAlpha(ByteBuffer data, int length) {
+        byte[] raw = new byte[length];
+        data.get(raw);
+        int end = 0;
+        while (end < length && raw[end] != 0) {
+            end++;
+        }
+        return new String(raw, 0, end, StandardCharsets.US_ASCII);
     }
 
-    private static void writeAlpha(ByteBuffer data, byte[] value, int length) {
-        byte[] temp = new byte[length];
-        System.arraycopy(value, 0, temp, 0, Math.min(value.length, length));
-        data.put(temp);
+    private static void writeAlpha(ByteBuffer data, String value, int length) {
+        byte[] out = new byte[length];
+        if (value != null) {
+            byte[] src = value.getBytes(StandardCharsets.US_ASCII);
+            System.arraycopy(src, 0, out, 0, Math.min(src.length, length));
+        }
+        data.put(out);
     }
 }

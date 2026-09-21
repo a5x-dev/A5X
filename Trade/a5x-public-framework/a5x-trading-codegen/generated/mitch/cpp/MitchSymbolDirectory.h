@@ -1,6 +1,7 @@
 #ifndef MITCHSYMBOLDIRECTORY_H
 #define MITCHSYMBOLDIRECTORY_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>
@@ -28,7 +29,7 @@ struct MitchSymbolDirectory {
     std::string segment;
 
     /// Date an instrument expires or matures. This field will contain only spaces if the instrument is not a derivative or fixed income instrument
-    void* expirationDate;
+    std::string expirationDate;
 
     /// Symbol of the underlying instrument. This field will contain only spaces if the instrument is not a derivative
     std::string underlying;
@@ -48,7 +49,7 @@ struct MitchSymbolDirectory {
     std::string issuer;
 
     /// Date instrument was issued. This field will contain all spaces if the instrument is not a fixed income instrument
-    void* issueDate;
+    std::string issueDate;
 
     /// Rate of interest applied to the face value. This is a percentage field (e.g. 0.05 represents 5%)
     int32_t coupon;
@@ -56,10 +57,10 @@ struct MitchSymbolDirectory {
     double couponAsDecimal() const { return coupon / 10000.0; }
 
     /// Bit 0: Inverse Order Book (0 = No, 1 = Yes)
-    void* flags;
+    uint8_t flags;
 
     /// Bit 0: Regular (0=No, 1=Yes), Bit 1: Off-Book (0=No, 1=Yes), Bit 5: Bulletin Board (0=No, 1=Yes), Bit 6: Negotiated Trades (0=No, 1=Yes)
-    void* subBook;
+    uint8_t subBook;
 
     /// Pipe separated field. Identifies the type of Corporate Actions applicable on the instrument for the current Trading day
     std::string corporateAction;
@@ -146,6 +147,9 @@ struct MitchSymbolDirectory {
         msg.segment = std::string(reinterpret_cast<const char*>(data + offset), 10);
         msg.segment.erase(msg.segment.find_last_not_of(' ') + 1);
         offset += 10;
+        msg.expirationDate = std::string(reinterpret_cast<const char*>(data + offset), 8);
+        msg.expirationDate.erase(msg.expirationDate.find_last_not_of(' ') + 1);
+        offset += 8;
         msg.underlying = std::string(reinterpret_cast<const char*>(data + offset), 25);
         msg.underlying.erase(msg.underlying.find_last_not_of(' ') + 1);
         offset += 25;
@@ -159,8 +163,13 @@ struct MitchSymbolDirectory {
         msg.issuer = std::string(reinterpret_cast<const char*>(data + offset), 6);
         msg.issuer.erase(msg.issuer.find_last_not_of(' ') + 1);
         offset += 6;
+        msg.issueDate = std::string(reinterpret_cast<const char*>(data + offset), 8);
+        msg.issueDate.erase(msg.issueDate.find_last_not_of(' ') + 1);
+        offset += 8;
         std::memcpy(&msg.coupon, data + offset, 4);
         offset += 4;
+        msg.flags = data[offset++];
+        msg.subBook = data[offset++];
         msg.corporateAction = std::string(reinterpret_cast<const char*>(data + offset), 5);
         msg.corporateAction.erase(msg.corporateAction.find_last_not_of(' ') + 1);
         offset += 5;
@@ -230,6 +239,9 @@ struct MitchSymbolDirectory {
         std::memset(data + offset, ' ', 10);
         std::memcpy(data + offset, msg.segment.c_str(), std::min(msg.segment.size(), size_t(10)));
         offset += 10;
+        std::memset(data + offset, ' ', 8);
+        std::memcpy(data + offset, msg.expirationDate.c_str(), std::min(msg.expirationDate.size(), size_t(8)));
+        offset += 8;
         std::memset(data + offset, ' ', 25);
         std::memcpy(data + offset, msg.underlying.c_str(), std::min(msg.underlying.size(), size_t(25)));
         offset += 25;
@@ -243,8 +255,13 @@ struct MitchSymbolDirectory {
         std::memset(data + offset, ' ', 6);
         std::memcpy(data + offset, msg.issuer.c_str(), std::min(msg.issuer.size(), size_t(6)));
         offset += 6;
+        std::memset(data + offset, ' ', 8);
+        std::memcpy(data + offset, msg.issueDate.c_str(), std::min(msg.issueDate.size(), size_t(8)));
+        offset += 8;
         std::memcpy(data + offset, &msg.coupon, 4);
         offset += 4;
+        data[offset++] = msg.flags;
+        data[offset++] = msg.subBook;
         std::memset(data + offset, ' ', 5);
         std::memcpy(data + offset, msg.corporateAction.c_str(), std::min(msg.corporateAction.size(), size_t(5)));
         offset += 5;

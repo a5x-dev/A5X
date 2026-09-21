@@ -1,6 +1,7 @@
 package br.com.a5x.trd.pub.nativ.model;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Order cancel request
@@ -9,13 +10,13 @@ import java.nio.ByteBuffer;
 public class NativeOrderCancelRequest {
 
     /** Client specified identifier of the request */
-    public byte[] clientOrderId = new byte[10];
+    public String clientOrderId = "";
 
     /** Client specified identifier of the order or quote being cancelled */
-    public byte[] origClientOrderId = new byte[10];
+    public String origClientOrderId = "";
 
     /** Server specified identifier of the order being cancelled */
-    public byte[] orderId = new byte[12];
+    public String orderId = "";
 
     /** Numeric Identifier of the instrument */
     public long instrumentId;
@@ -27,7 +28,7 @@ public class NativeOrderCancelRequest {
     public int orderBook;
 
     /** Sender Location assigned to the Trader ID/Firm */
-    public byte[] senderLocation = new byte[10];
+    public String senderLocation = "";
 
     public static void parse(NativeOrderCancelRequest msg, ByteBuffer data) {
         msg.clientOrderId = readAlpha(data, 10);
@@ -52,24 +53,31 @@ public class NativeOrderCancelRequest {
     @Override
     public String toString() {
         return "NativeOrderCancelRequest{" +
-                "clientOrderId=" + new String(clientOrderId).trim() + ", " +
-                "origClientOrderId=" + new String(origClientOrderId).trim() + ", " +
-                "orderId=" + new String(orderId).trim() + ", " +
+                "clientOrderId=" + clientOrderId + ", " +
+                "origClientOrderId=" + origClientOrderId + ", " +
+                "orderId=" + orderId + ", " +
                 "instrumentId=" + instrumentId + ", " +
                 "side=" + side + ", " +
                 "orderBook=" + orderBook + ", " +
-                "senderLocation=" + new String(senderLocation).trim() + '}';
+                "senderLocation=" + senderLocation + '}';
     }
 
-    private static byte[] readAlpha(ByteBuffer data, int length) {
-        byte[] result = new byte[length];
-        data.get(result);
-        return result;
+    private static String readAlpha(ByteBuffer data, int length) {
+        byte[] raw = new byte[length];
+        data.get(raw);
+        int end = 0;
+        while (end < length && raw[end] != 0) {
+            end++;
+        }
+        return new String(raw, 0, end, StandardCharsets.US_ASCII);
     }
 
-    private static void writeAlpha(ByteBuffer data, byte[] value, int length) {
-        byte[] temp = new byte[length];
-        System.arraycopy(value, 0, temp, 0, Math.min(value.length, length));
-        data.put(temp);
+    private static void writeAlpha(ByteBuffer data, String value, int length) {
+        byte[] out = new byte[length];
+        if (value != null) {
+            byte[] src = value.getBytes(StandardCharsets.US_ASCII);
+            System.arraycopy(src, 0, out, 0, Math.min(src.length, length));
+        }
+        data.put(out);
     }
 }

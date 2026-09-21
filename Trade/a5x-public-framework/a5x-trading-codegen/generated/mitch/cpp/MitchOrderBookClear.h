@@ -1,6 +1,7 @@
 #ifndef MITCHORDERBOOKCLEAR_H
 #define MITCHORDERBOOKCLEAR_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>

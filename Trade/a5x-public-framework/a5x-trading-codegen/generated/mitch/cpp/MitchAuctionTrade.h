@@ -1,6 +1,7 @@
 #ifndef MITCHAUCTIONTRADE_H
 #define MITCHAUCTIONTRADE_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>
@@ -70,10 +71,10 @@ struct MitchAuctionTrade {
     /// Date and time when the trade was published by the trading venue [Epoch]
     uint64_t publicationDateTime;
 
-    /// Indicates if the trade has been cancelled (Value = CANC)
+    /// PTCancellationFlag. Indicates if the trade represented by the message has been cancelled (Value = CANC)
     std::string cancellationFlag;
 
-    /// Indicates if the trade has been amended (Value = AMND)
+    /// PTAmendmentFlag. Indicates if the trade represented by the message has been amended (Value = AMND)
     std::string amendmentFlag;
 
     /// A = Re-Opening Auction, C = Closing Auction, O = Opening Auction

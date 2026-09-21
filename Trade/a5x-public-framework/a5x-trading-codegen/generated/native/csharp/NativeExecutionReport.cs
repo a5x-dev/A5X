@@ -16,21 +16,19 @@ namespace A5X.Trading.Native.Model
         public ulong SequenceNumber { get; set; }
 
         /// <summary>Identifier of the Execution Report. Identifier of the trade being cancelled or corrected if Execution Type is Trade Cancel (H)</summary>
-        public byte[] ExecutionId { get; set; }
+        public string ExecutionId { get; set; }
 
         /// <summary>Client specified identifier of the order, cancel request or modification requests</summary>
-        public byte[] ClientOrderId { get; set; }
+        public string ClientOrderId { get; set; }
 
         /// <summary>Server specified identifier of the order</summary>
-        public byte[] OrderId { get; set; }
+        public string OrderId { get; set; }
 
         /// <summary>Server specified public order identifier of the order</summary>
-        public byte[] PublicOrderId { get; set; }
+        public string PublicOrderId { get; set; }
 
-        /// <summary>Executed price. Ignore if Execution Type is not Trade (F)</summary>
-        public int ExecutedPrice { get; set; }
-
-        public decimal ExecutedPriceAsDecimal => ExecutedPrice / 10000m;
+        /// <summary>Executed price. This field should be ignored if Execution Type is not Trade (F)</summary>
+        public long ExecutedPrice { get; set; }
 
         /// <summary>Time the transaction occurred in epoch format</summary>
         public ulong TransactTime { get; set; }
@@ -39,13 +37,13 @@ namespace A5X.Trading.Native.Model
         public ulong Account { get; set; }
 
         /// <summary>Sender Location assigned to the Trader ID/Firm</summary>
-        public byte[] SenderLocation { get; set; }
+        public string SenderLocation { get; set; }
 
         /// <summary>Numeric Identifier of the instrument</summary>
         public uint InstrumentId { get; set; }
 
         /// <summary>Identifier of the cross order. Only alphanumeric values allowed</summary>
-        public byte[] CrossId { get; set; }
+        public string CrossId { get; set; }
 
         /// <summary>Executed quantity. Ignore if Execution Type is not Trade (F)</summary>
         public uint ExecutedQuantity { get; set; }
@@ -54,7 +52,7 @@ namespace A5X.Trading.Native.Model
         public uint LeavesQuantity { get; set; }
 
         /// <summary>0 = New, 4 = Cancelled, 5 = Modified, 8 = Rejected, 9 = Suspended, A = Pending New, C = Expired, D = Restated, E = Pending Replace, F = Trade, H = Trade Cancel, L = Triggered</summary>
-        public byte[] ExecutionType { get; set; }
+        public string ExecutionType { get; set; }
 
         /// <summary>0 = New, 1 = Partially Filled, 2 = Filled, 4 = Cancelled, 6 = Expired, 8 = Rejected, 9 = Suspended, 12 = Pending New, 14 = Pending Replace</summary>
         public byte OrderStatus { get; set; }
@@ -87,86 +85,86 @@ namespace A5X.Trading.Native.Model
         public byte TradingPhase { get; set; }
 
         /// <summary>MIC Code of the instrument as set up under Execution Venue in Reference Data</summary>
-        public byte[] ExecutionVenue { get; set; }
+        public string ExecutionVenue { get; set; }
 
         /// <summary>Entering Trader ID</summary>
-        public byte[] EnteringTrader { get; set; }
+        public string EnteringTrader { get; set; }
 
         /// <summary>Free format text field. Echoed in reports</summary>
-        public byte[] Memo { get; set; }
+        public string Memo { get; set; }
 
         /// <summary>Desk ID through which the order is placed from</summary>
-        public byte[] DeskId { get; set; }
+        public string DeskId { get; set; }
 
         /// <summary>Client specified identifier of order relevant to self-execution</summary>
-        public byte[] NoTradeKey { get; set; }
+        public string NoTradeKey { get; set; }
 
         public static void Parse(NativeExecutionReport msg, Span<byte> data)
         {
             msg.PartitionId = data[0];
             msg.SequenceNumber = BitConverter.ToUInt64(data.Slice(1, 8));
-            msg.ExecutionId = data.Slice(9, 21).ToArray();
-            msg.ClientOrderId = data.Slice(30, 10).ToArray();
-            msg.OrderId = data.Slice(40, 12).ToArray();
-            msg.PublicOrderId = data.Slice(52, 12).ToArray();
-            msg.ExecutedPrice = BitConverter.ToInt32(data.Slice(64, 4));
-            msg.TransactTime = BitConverter.ToUInt64(data.Slice(68, 8));
-            msg.Account = BitConverter.ToUInt64(data.Slice(76, 8));
-            msg.SenderLocation = data.Slice(84, 10).ToArray();
-            msg.InstrumentId = BitConverter.ToUInt32(data.Slice(94, 4));
-            msg.CrossId = data.Slice(98, 10).ToArray();
-            msg.ExecutedQuantity = BitConverter.ToUInt32(data.Slice(108, 4));
-            msg.LeavesQuantity = BitConverter.ToUInt32(data.Slice(112, 4));
-            msg.ExecutionType = data.Slice(116, 1).ToArray();
-            msg.OrderStatus = data[117];
-            msg.RejectCode = BitConverter.ToUInt32(data.Slice(118, 4));
-            msg.WorkingIndicator = data[122];
-            msg.Side = data[123];
-            msg.RestatementReason = data[124];
-            msg.OrderBook = data[125];
-            msg.IndicatorFlags = data[126];
-            msg.CrossType = data[127];
-            msg.RoutingInstruction = data[128];
-            msg.TradingPhase = data[129];
-            msg.ExecutionVenue = data.Slice(130, 4).ToArray();
-            msg.EnteringTrader = data.Slice(134, 15).ToArray();
-            msg.Memo = data.Slice(149, 15).ToArray();
-            msg.DeskId = data.Slice(164, 15).ToArray();
-            msg.NoTradeKey = data.Slice(179, 10).ToArray();
+            msg.ExecutionId = Encoding.ASCII.GetString(data.Slice(9, 21)).TrimEnd('\0');
+            msg.ClientOrderId = Encoding.ASCII.GetString(data.Slice(30, 10)).TrimEnd('\0');
+            msg.OrderId = Encoding.ASCII.GetString(data.Slice(40, 12)).TrimEnd('\0');
+            msg.PublicOrderId = Encoding.ASCII.GetString(data.Slice(52, 12)).TrimEnd('\0');
+            msg.ExecutedPrice = BitConverter.ToInt64(data.Slice(64, 8));
+            msg.TransactTime = BitConverter.ToUInt64(data.Slice(72, 8));
+            msg.Account = BitConverter.ToUInt64(data.Slice(80, 8));
+            msg.SenderLocation = Encoding.ASCII.GetString(data.Slice(88, 10)).TrimEnd('\0');
+            msg.InstrumentId = BitConverter.ToUInt32(data.Slice(98, 4));
+            msg.CrossId = Encoding.ASCII.GetString(data.Slice(102, 10)).TrimEnd('\0');
+            msg.ExecutedQuantity = BitConverter.ToUInt32(data.Slice(112, 4));
+            msg.LeavesQuantity = BitConverter.ToUInt32(data.Slice(116, 4));
+            msg.ExecutionType = Encoding.ASCII.GetString(data.Slice(120, 1)).TrimEnd('\0');
+            msg.OrderStatus = data[121];
+            msg.RejectCode = BitConverter.ToUInt32(data.Slice(122, 4));
+            msg.WorkingIndicator = data[126];
+            msg.Side = data[127];
+            msg.RestatementReason = data[128];
+            msg.OrderBook = data[129];
+            msg.IndicatorFlags = data[130];
+            msg.CrossType = data[131];
+            msg.RoutingInstruction = data[132];
+            msg.TradingPhase = data[133];
+            msg.ExecutionVenue = Encoding.ASCII.GetString(data.Slice(134, 4)).TrimEnd('\0');
+            msg.EnteringTrader = Encoding.ASCII.GetString(data.Slice(138, 15)).TrimEnd('\0');
+            msg.Memo = Encoding.ASCII.GetString(data.Slice(153, 15)).TrimEnd('\0');
+            msg.DeskId = Encoding.ASCII.GetString(data.Slice(168, 15)).TrimEnd('\0');
+            msg.NoTradeKey = Encoding.ASCII.GetString(data.Slice(183, 10)).TrimEnd('\0');
         }
 
         public static void Encode(NativeExecutionReport msg, Span<byte> data)
         {
             data[0] = msg.PartitionId;
             BitConverter.TryWriteBytes(data.Slice(1, 8), msg.SequenceNumber);
-            msg.ExecutionId.CopyTo(data.Slice(9, 21));
-            msg.ClientOrderId.CopyTo(data.Slice(30, 10));
-            msg.OrderId.CopyTo(data.Slice(40, 12));
-            msg.PublicOrderId.CopyTo(data.Slice(52, 12));
-            BitConverter.TryWriteBytes(data.Slice(64, 4), msg.ExecutedPrice);
-            BitConverter.TryWriteBytes(data.Slice(68, 8), msg.TransactTime);
-            BitConverter.TryWriteBytes(data.Slice(76, 8), msg.Account);
-            msg.SenderLocation.CopyTo(data.Slice(84, 10));
-            BitConverter.TryWriteBytes(data.Slice(94, 4), msg.InstrumentId);
-            msg.CrossId.CopyTo(data.Slice(98, 10));
-            BitConverter.TryWriteBytes(data.Slice(108, 4), msg.ExecutedQuantity);
-            BitConverter.TryWriteBytes(data.Slice(112, 4), msg.LeavesQuantity);
-            msg.ExecutionType.CopyTo(data.Slice(116, 1));
-            data[117] = msg.OrderStatus;
-            BitConverter.TryWriteBytes(data.Slice(118, 4), msg.RejectCode);
-            data[122] = msg.WorkingIndicator;
-            data[123] = msg.Side;
-            data[124] = msg.RestatementReason;
-            data[125] = msg.OrderBook;
-            data[126] = msg.IndicatorFlags;
-            data[127] = msg.CrossType;
-            data[128] = msg.RoutingInstruction;
-            data[129] = msg.TradingPhase;
-            msg.ExecutionVenue.CopyTo(data.Slice(130, 4));
-            msg.EnteringTrader.CopyTo(data.Slice(134, 15));
-            msg.Memo.CopyTo(data.Slice(149, 15));
-            msg.DeskId.CopyTo(data.Slice(164, 15));
-            msg.NoTradeKey.CopyTo(data.Slice(179, 10));
+            Encoding.ASCII.GetBytes((msg.ExecutionId ?? string.Empty).PadRight(21, '\0')).AsSpan(0, 21).CopyTo(data.Slice(9, 21));
+            Encoding.ASCII.GetBytes((msg.ClientOrderId ?? string.Empty).PadRight(10, '\0')).AsSpan(0, 10).CopyTo(data.Slice(30, 10));
+            Encoding.ASCII.GetBytes((msg.OrderId ?? string.Empty).PadRight(12, '\0')).AsSpan(0, 12).CopyTo(data.Slice(40, 12));
+            Encoding.ASCII.GetBytes((msg.PublicOrderId ?? string.Empty).PadRight(12, '\0')).AsSpan(0, 12).CopyTo(data.Slice(52, 12));
+            BitConverter.TryWriteBytes(data.Slice(64, 8), msg.ExecutedPrice);
+            BitConverter.TryWriteBytes(data.Slice(72, 8), msg.TransactTime);
+            BitConverter.TryWriteBytes(data.Slice(80, 8), msg.Account);
+            Encoding.ASCII.GetBytes((msg.SenderLocation ?? string.Empty).PadRight(10, '\0')).AsSpan(0, 10).CopyTo(data.Slice(88, 10));
+            BitConverter.TryWriteBytes(data.Slice(98, 4), msg.InstrumentId);
+            Encoding.ASCII.GetBytes((msg.CrossId ?? string.Empty).PadRight(10, '\0')).AsSpan(0, 10).CopyTo(data.Slice(102, 10));
+            BitConverter.TryWriteBytes(data.Slice(112, 4), msg.ExecutedQuantity);
+            BitConverter.TryWriteBytes(data.Slice(116, 4), msg.LeavesQuantity);
+            Encoding.ASCII.GetBytes((msg.ExecutionType ?? string.Empty).PadRight(1, '\0')).AsSpan(0, 1).CopyTo(data.Slice(120, 1));
+            data[121] = msg.OrderStatus;
+            BitConverter.TryWriteBytes(data.Slice(122, 4), msg.RejectCode);
+            data[126] = msg.WorkingIndicator;
+            data[127] = msg.Side;
+            data[128] = msg.RestatementReason;
+            data[129] = msg.OrderBook;
+            data[130] = msg.IndicatorFlags;
+            data[131] = msg.CrossType;
+            data[132] = msg.RoutingInstruction;
+            data[133] = msg.TradingPhase;
+            Encoding.ASCII.GetBytes((msg.ExecutionVenue ?? string.Empty).PadRight(4, '\0')).AsSpan(0, 4).CopyTo(data.Slice(134, 4));
+            Encoding.ASCII.GetBytes((msg.EnteringTrader ?? string.Empty).PadRight(15, '\0')).AsSpan(0, 15).CopyTo(data.Slice(138, 15));
+            Encoding.ASCII.GetBytes((msg.Memo ?? string.Empty).PadRight(15, '\0')).AsSpan(0, 15).CopyTo(data.Slice(153, 15));
+            Encoding.ASCII.GetBytes((msg.DeskId ?? string.Empty).PadRight(15, '\0')).AsSpan(0, 15).CopyTo(data.Slice(168, 15));
+            Encoding.ASCII.GetBytes((msg.NoTradeKey ?? string.Empty).PadRight(10, '\0')).AsSpan(0, 10).CopyTo(data.Slice(183, 10));
         }
     }
 }

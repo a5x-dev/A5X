@@ -1,5 +1,4 @@
 using System;
-using System.Numerics;
 using System.Text;
 
 namespace A5X.Trading.Mitch.Model
@@ -42,7 +41,7 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Date an instrument expires or matures. This field will contain only spaces if the instrument is not a derivative or fixed income instrument
         /// </summary>
-        public object ExpirationDate { get; set; }
+        public string ExpirationDate { get; set; }
 
         /// <summary>
         /// Symbol of the underlying instrument. This field will contain only spaces if the instrument is not a derivative
@@ -74,7 +73,7 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Date instrument was issued. This field will contain all spaces if the instrument is not a fixed income instrument
         /// </summary>
-        public object IssueDate { get; set; }
+        public string IssueDate { get; set; }
 
         /// <summary>
         /// Rate of interest applied to the face value. This is a percentage field (e.g. 0.05 represents 5%)
@@ -86,12 +85,12 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Bit 0: Inverse Order Book (0 = No, 1 = Yes)
         /// </summary>
-        public object Flags { get; set; }
+        public byte Flags { get; set; }
 
         /// <summary>
         /// Bit 0: Regular (0=No, 1=Yes), Bit 1: Off-Book (0=No, 1=Yes), Bit 5: Bulletin Board (0=No, 1=Yes), Bit 6: Negotiated Trades (0=No, 1=Yes)
         /// </summary>
-        public object SubBook { get; set; }
+        public byte SubBook { get; set; }
 
         /// <summary>
         /// Pipe separated field. Identifies the type of Corporate Actions applicable on the instrument for the current Trading day
@@ -217,6 +216,8 @@ namespace A5X.Trading.Mitch.Model
             offset += 12;
             msg.Segment = Encoding.ASCII.GetString(data.Slice(offset, 10)).TrimEnd();
             offset += 10;
+            msg.ExpirationDate = Encoding.ASCII.GetString(data.Slice(offset, 8)).TrimEnd();
+            offset += 8;
             msg.Underlying = Encoding.ASCII.GetString(data.Slice(offset, 25)).TrimEnd();
             offset += 25;
             msg.UnderlyingInstrumentId = BitConverter.ToUInt32(data.Slice(offset, 4));
@@ -227,8 +228,12 @@ namespace A5X.Trading.Mitch.Model
             offset += 1;
             msg.Issuer = Encoding.ASCII.GetString(data.Slice(offset, 6)).TrimEnd();
             offset += 6;
+            msg.IssueDate = Encoding.ASCII.GetString(data.Slice(offset, 8)).TrimEnd();
+            offset += 8;
             msg.Coupon = BitConverter.ToInt32(data.Slice(offset, 4));
             offset += 4;
+            msg.Flags = data[offset++];
+            msg.SubBook = data[offset++];
             msg.CorporateAction = Encoding.ASCII.GetString(data.Slice(offset, 5)).TrimEnd();
             offset += 5;
             msg.PartitionId = Encoding.ASCII.GetString(data.Slice(offset, 1)).TrimEnd();
@@ -275,70 +280,78 @@ namespace A5X.Trading.Mitch.Model
             int offset = 0;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.Nanosecond);
             offset += 4;
-            var symbolBytes = Encoding.ASCII.GetBytes(msg.Symbol.PadRight(25));
+            var symbolBytes = Encoding.ASCII.GetBytes((msg.Symbol ?? string.Empty).PadRight(25));
             symbolBytes.AsSpan(0, 25).CopyTo(data.Slice(offset, 25));
             offset += 25;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.InstrumentId);
             offset += 4;
-            var symbolStatusBytes = Encoding.ASCII.GetBytes(msg.SymbolStatus.PadRight(1));
+            var symbolStatusBytes = Encoding.ASCII.GetBytes((msg.SymbolStatus ?? string.Empty).PadRight(1));
             symbolStatusBytes.AsSpan(0, 1).CopyTo(data.Slice(offset, 1));
             offset += 1;
-            var identificationNumberBytes = Encoding.ASCII.GetBytes(msg.IdentificationNumber.PadRight(12));
+            var identificationNumberBytes = Encoding.ASCII.GetBytes((msg.IdentificationNumber ?? string.Empty).PadRight(12));
             identificationNumberBytes.AsSpan(0, 12).CopyTo(data.Slice(offset, 12));
             offset += 12;
-            var segmentBytes = Encoding.ASCII.GetBytes(msg.Segment.PadRight(10));
+            var segmentBytes = Encoding.ASCII.GetBytes((msg.Segment ?? string.Empty).PadRight(10));
             segmentBytes.AsSpan(0, 10).CopyTo(data.Slice(offset, 10));
             offset += 10;
-            var underlyingBytes = Encoding.ASCII.GetBytes(msg.Underlying.PadRight(25));
+            var expirationDateBytes = Encoding.ASCII.GetBytes((msg.ExpirationDate ?? string.Empty).PadRight(8));
+            expirationDateBytes.AsSpan(0, 8).CopyTo(data.Slice(offset, 8));
+            offset += 8;
+            var underlyingBytes = Encoding.ASCII.GetBytes((msg.Underlying ?? string.Empty).PadRight(25));
             underlyingBytes.AsSpan(0, 25).CopyTo(data.Slice(offset, 25));
             offset += 25;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.UnderlyingInstrumentId);
             offset += 4;
             BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.StrikePrice);
             offset += 8;
-            var optionTypeBytes = Encoding.ASCII.GetBytes(msg.OptionType.PadRight(1));
+            var optionTypeBytes = Encoding.ASCII.GetBytes((msg.OptionType ?? string.Empty).PadRight(1));
             optionTypeBytes.AsSpan(0, 1).CopyTo(data.Slice(offset, 1));
             offset += 1;
-            var issuerBytes = Encoding.ASCII.GetBytes(msg.Issuer.PadRight(6));
+            var issuerBytes = Encoding.ASCII.GetBytes((msg.Issuer ?? string.Empty).PadRight(6));
             issuerBytes.AsSpan(0, 6).CopyTo(data.Slice(offset, 6));
             offset += 6;
+            var issueDateBytes = Encoding.ASCII.GetBytes((msg.IssueDate ?? string.Empty).PadRight(8));
+            issueDateBytes.AsSpan(0, 8).CopyTo(data.Slice(offset, 8));
+            offset += 8;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.Coupon);
             offset += 4;
-            var corporateActionBytes = Encoding.ASCII.GetBytes(msg.CorporateAction.PadRight(5));
+            data[offset++] = (byte)msg.Flags;
+            data[offset++] = (byte)msg.SubBook;
+            var corporateActionBytes = Encoding.ASCII.GetBytes((msg.CorporateAction ?? string.Empty).PadRight(5));
             corporateActionBytes.AsSpan(0, 5).CopyTo(data.Slice(offset, 5));
             offset += 5;
-            var partitionIdBytes = Encoding.ASCII.GetBytes(msg.PartitionId.PadRight(1));
+            var partitionIdBytes = Encoding.ASCII.GetBytes((msg.PartitionId ?? string.Empty).PadRight(1));
             partitionIdBytes.AsSpan(0, 1).CopyTo(data.Slice(offset, 1));
             offset += 1;
-            var exerciseStyleBytes = Encoding.ASCII.GetBytes(msg.ExerciseStyle.PadRight(1));
+            var exerciseStyleBytes = Encoding.ASCII.GetBytes((msg.ExerciseStyle ?? string.Empty).PadRight(1));
             exerciseStyleBytes.AsSpan(0, 1).CopyTo(data.Slice(offset, 1));
             offset += 1;
-            var leg1SymbolBytes = Encoding.ASCII.GetBytes(msg.Leg1Symbol.PadRight(25));
+            var leg1SymbolBytes = Encoding.ASCII.GetBytes((msg.Leg1Symbol ?? string.Empty).PadRight(25));
             leg1SymbolBytes.AsSpan(0, 25).CopyTo(data.Slice(offset, 25));
             offset += 25;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.Leg1InstrumentId);
             offset += 4;
-            var leg2SymbolBytes = Encoding.ASCII.GetBytes(msg.Leg2Symbol.PadRight(25));
+            var leg2SymbolBytes = Encoding.ASCII.GetBytes((msg.Leg2Symbol ?? string.Empty).PadRight(25));
             leg2SymbolBytes.AsSpan(0, 25).CopyTo(data.Slice(offset, 25));
             offset += 25;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.Leg2InstrumentId);
             offset += 4;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.ContractMultiplier);
             offset += 4;
-            var settlementMethodBytes = Encoding.ASCII.GetBytes(msg.SettlementMethod.PadRight(1));
+            var settlementMethodBytes = Encoding.ASCII.GetBytes((msg.SettlementMethod ?? string.Empty).PadRight(1));
             settlementMethodBytes.AsSpan(0, 1).CopyTo(data.Slice(offset, 1));
             offset += 1;
             data[offset++] = (byte)msg.TestInstrument;
-            var venueOfExecutionBytes = Encoding.ASCII.GetBytes(msg.VenueOfExecution.PadRight(4));
+            var venueOfExecutionBytes = Encoding.ASCII.GetBytes((msg.VenueOfExecution ?? string.Empty).PadRight(4));
             venueOfExecutionBytes.AsSpan(0, 4).CopyTo(data.Slice(offset, 4));
             offset += 4;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.LotSize);
             offset += 4;
-            var securityDescriptionBytes = Encoding.ASCII.GetBytes(msg.SecurityDescription.PadRight(110));
+            var securityDescriptionBytes = Encoding.ASCII.GetBytes((msg.SecurityDescription ?? string.Empty).PadRight(110));
             securityDescriptionBytes.AsSpan(0, 110).CopyTo(data.Slice(offset, 110));
             offset += 110;
             data[offset++] = (byte)msg.ListMethod;
-            var currencyBytes = Encoding.ASCII.GetBytes(msg.Currency.PadRight(3));
+            var currencyBytes = Encoding.ASCII.GetBytes((msg.Currency ?? string.Empty).PadRight(3));
             currencyBytes.AsSpan(0, 3).CopyTo(data.Slice(offset, 3));
             offset += 3;
             BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.TickSize);
@@ -350,7 +363,7 @@ namespace A5X.Trading.Mitch.Model
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.MaximumSizeQty);
             offset += 4;
             data[offset++] = (byte)msg.SecurityType;
-            var assetNameBytes = Encoding.ASCII.GetBytes(msg.AssetName.PadRight(6));
+            var assetNameBytes = Encoding.ASCII.GetBytes((msg.AssetName ?? string.Empty).PadRight(6));
             assetNameBytes.AsSpan(0, 6).CopyTo(data.Slice(offset, 6));
             offset += 6;
         }

@@ -1,6 +1,7 @@
 #ifndef MITCHSNAPSHOTREQUEST_H
 #define MITCHSNAPSHOTREQUEST_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>
@@ -19,7 +20,7 @@ struct MitchSnapshotRequest {
     uint32_t instrumentId;
 
     /// Bit 0: Regular (0=No, 1=Yes), Bit 1: Off-Book (0=No, 1=Yes), Bit 5: Bulletin Board (0=No, 1=Yes), Bit 6: Negotiated Trades (0=No, 1=Yes)
-    void* subBook;
+    uint8_t subBook;
 
     /// 0=Order Book, 1=Symbol Status, 2=Instrument, 3=Trades, 4=Statistics, 5=News, 8=Top of Book
     uint8_t snapshotType;
@@ -39,6 +40,7 @@ struct MitchSnapshotRequest {
         offset += 10;
         std::memcpy(&msg.instrumentId, data + offset, 4);
         offset += 4;
+        msg.subBook = data[offset++];
         msg.snapshotType = data[offset++];
         std::memcpy(&msg.recoverFromTime, data + offset, 8);
         offset += 8;
@@ -55,6 +57,7 @@ struct MitchSnapshotRequest {
         offset += 10;
         std::memcpy(data + offset, &msg.instrumentId, 4);
         offset += 4;
+        data[offset++] = msg.subBook;
         data[offset++] = msg.snapshotType;
         std::memcpy(data + offset, &msg.recoverFromTime, 8);
         offset += 8;

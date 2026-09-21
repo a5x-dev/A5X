@@ -1,5 +1,4 @@
 using System;
-using System.Numerics;
 using System.Text;
 
 namespace A5X.Trading.Mitch.Model
@@ -17,7 +16,7 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Unique identifier of the order
         /// </summary>
-        public BigInteger OrderId { get; set; }
+        public ulong OrderId { get; set; }
 
         /// <summary>
         /// New displayed quantity of the order
@@ -46,14 +45,14 @@ namespace A5X.Trading.Mitch.Model
         /// <summary>
         /// Bit 0: Priority Flag (0 = Priority Lost, 1 = Priority Retained)
         /// </summary>
-        public object Flags { get; set; }
+        public byte Flags { get; set; }
 
         public static void Parse(MitchOrderModified msg, Span<byte> data)
         {
             int offset = 0;
             msg.Nanosecond = BitConverter.ToUInt32(data.Slice(offset, 4));
             offset += 4;
-            msg.OrderId = new BigInteger(data.Slice(offset, 8));
+            msg.OrderId = BitConverter.ToUInt64(data.Slice(offset, 8));
             offset += 8;
             msg.NewQuantity = BitConverter.ToUInt32(data.Slice(offset, 4));
             offset += 4;
@@ -63,6 +62,7 @@ namespace A5X.Trading.Mitch.Model
             offset += 4;
             msg.OldPrice = BitConverter.ToInt64(data.Slice(offset, 8));
             offset += 8;
+            msg.Flags = data[offset++];
         }
 
         public static void Encode(MitchOrderModified msg, Span<byte> data)
@@ -70,7 +70,7 @@ namespace A5X.Trading.Mitch.Model
             int offset = 0;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.Nanosecond);
             offset += 4;
-            msg.OrderId.TryWriteBytes(data.Slice(offset, 8), out _);
+            BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.OrderId);
             offset += 8;
             BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.NewQuantity);
             offset += 4;
@@ -80,6 +80,7 @@ namespace A5X.Trading.Mitch.Model
             offset += 4;
             BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.OldPrice);
             offset += 8;
+            data[offset++] = (byte)msg.Flags;
         }
     }
 }

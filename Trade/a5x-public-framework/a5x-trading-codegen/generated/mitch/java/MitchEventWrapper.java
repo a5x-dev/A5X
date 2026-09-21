@@ -26,6 +26,7 @@ public class MitchEventWrapper {
 	public MitchExtendedStatistics extendedStatistics = new MitchExtendedStatistics();
 	public MitchSymbolStatus symbolStatus = new MitchSymbolStatus();
 	public MitchTopOfBook topOfBook = new MitchTopOfBook();
+	public MitchDeletePricePoint deletePricePoint = new MitchDeletePricePoint();
 	public MitchTrade trade = new MitchTrade();
 	public MitchNews news = new MitchNews();
 	public MitchLoginRequest loginRequest = new MitchLoginRequest();
@@ -116,6 +117,10 @@ public class MitchEventWrapper {
 		}
 		case (char)0x71: {
 			MitchTopOfBook.parse(topOfBook, pData);
+			break;
+		}
+		case (char)0x72: {
+			MitchDeletePricePoint.parse(deletePricePoint, pData);
 			break;
 		}
 		case (char)0x50: {

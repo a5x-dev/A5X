@@ -1,6 +1,7 @@
 #ifndef MITCHSYMBOLSTATUS_H
 #define MITCHSYMBOLSTATUS_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>
@@ -19,7 +20,7 @@ struct MitchSymbolStatus {
     uint8_t tradingStatus;
 
     /// Reserved for future use
-    void* flags;
+    uint8_t flags;
 
     /// Reason for the trading halt. This field will contain only spaces if Trading Status is not 'H'
     std::string haltReason;
@@ -27,7 +28,7 @@ struct MitchSymbolStatus {
     /// 0 = Scheduled Transition, 1 = Extended by Market Ops, 2 = Shortened by Market Ops, 3 = Market Order Extension, 4 = Price Monitoring Extension, 5 = Circuit Breaker Tripped, 9 = Unavailable, 10 = No Cancel Period Start
     uint8_t sessionChangeReason;
 
-    /// New session end time (EPOCH). The field will contain only spaces if Session Change Reason is '0' or '9'
+    /// New session end time specified in terms of local time for server (UTC) [Epoch in microseconds UTC]. The field will contain only spaces if Session Change Reason is '0' or '9'
     uint64_t newEndTime;
 
     /// 1 = Regular, 2 = Off-Book, 9 = Bulletin Board, 11 = Negotiated Trades
@@ -40,6 +41,7 @@ struct MitchSymbolStatus {
         std::memcpy(&msg.instrumentId, data + offset, 4);
         offset += 4;
         msg.tradingStatus = data[offset++];
+        msg.flags = data[offset++];
         msg.haltReason = std::string(reinterpret_cast<const char*>(data + offset), 4);
         msg.haltReason.erase(msg.haltReason.find_last_not_of(' ') + 1);
         offset += 4;
@@ -56,6 +58,7 @@ struct MitchSymbolStatus {
         std::memcpy(data + offset, &msg.instrumentId, 4);
         offset += 4;
         data[offset++] = msg.tradingStatus;
+        data[offset++] = msg.flags;
         std::memset(data + offset, ' ', 4);
         std::memcpy(data + offset, msg.haltReason.c_str(), std::min(msg.haltReason.size(), size_t(4)));
         offset += 4;

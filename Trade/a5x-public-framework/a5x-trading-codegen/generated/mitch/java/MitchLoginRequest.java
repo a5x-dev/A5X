@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -58,19 +57,23 @@ public class MitchLoginRequest {
 	 */
 	public static void encode(MitchLoginRequest pLoginRequest, ByteBuffer pData) {
 		byte[] usernameBytes = new byte[6];
-		byte[] usernameSrc = pLoginRequest.username.getBytes();
+		java.util.Arrays.fill(usernameBytes, (byte) ' ');
+		byte[] usernameSrc = pLoginRequest.username == null ? new byte[0] : pLoginRequest.username.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(usernameSrc, 0, usernameBytes, 0, Math.min(usernameSrc.length, 6));
 		pData.put(usernameBytes);
 		byte[] passwordBytes = new byte[10];
-		byte[] passwordSrc = pLoginRequest.password.getBytes();
+		java.util.Arrays.fill(passwordBytes, (byte) ' ');
+		byte[] passwordSrc = pLoginRequest.password == null ? new byte[0] : pLoginRequest.password.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(passwordSrc, 0, passwordBytes, 0, Math.min(passwordSrc.length, 10));
 		pData.put(passwordBytes);
 		byte[] ipAddressBytes = new byte[15];
-		byte[] ipAddressSrc = pLoginRequest.ipAddress.getBytes();
+		java.util.Arrays.fill(ipAddressBytes, (byte) ' ');
+		byte[] ipAddressSrc = pLoginRequest.ipAddress == null ? new byte[0] : pLoginRequest.ipAddress.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(ipAddressSrc, 0, ipAddressBytes, 0, Math.min(ipAddressSrc.length, 15));
 		pData.put(ipAddressBytes);
 		byte[] certifiedSolutionBytes = new byte[44];
-		byte[] certifiedSolutionSrc = pLoginRequest.certifiedSolution.getBytes();
+		java.util.Arrays.fill(certifiedSolutionBytes, (byte) ' ');
+		byte[] certifiedSolutionSrc = pLoginRequest.certifiedSolution == null ? new byte[0] : pLoginRequest.certifiedSolution.getBytes(java.nio.charset.StandardCharsets.US_ASCII);
 		System.arraycopy(certifiedSolutionSrc, 0, certifiedSolutionBytes, 0, Math.min(certifiedSolutionSrc.length, 44));
 		pData.put(certifiedSolutionBytes);
 	}

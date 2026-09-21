@@ -1,6 +1,7 @@
 package br.com.a5x.trd.pub.nativ.model;
 
 import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Logout message
@@ -9,7 +10,7 @@ import java.nio.ByteBuffer;
 public class NativeLogout {
 
     /** Reason for the logout */
-    public byte[] reason = new byte[20];
+    public String reason = "";
 
     public static void parse(NativeLogout msg, ByteBuffer data) {
         msg.reason = readAlpha(data, 20);
@@ -22,18 +23,25 @@ public class NativeLogout {
     @Override
     public String toString() {
         return "NativeLogout{" +
-                "reason=" + new String(reason).trim() + '}';
+                "reason=" + reason + '}';
     }
 
-    private static byte[] readAlpha(ByteBuffer data, int length) {
-        byte[] result = new byte[length];
-        data.get(result);
-        return result;
+    private static String readAlpha(ByteBuffer data, int length) {
+        byte[] raw = new byte[length];
+        data.get(raw);
+        int end = 0;
+        while (end < length && raw[end] != 0) {
+            end++;
+        }
+        return new String(raw, 0, end, StandardCharsets.US_ASCII);
     }
 
-    private static void writeAlpha(ByteBuffer data, byte[] value, int length) {
-        byte[] temp = new byte[length];
-        System.arraycopy(value, 0, temp, 0, Math.min(value.length, length));
-        data.put(temp);
+    private static void writeAlpha(ByteBuffer data, String value, int length) {
+        byte[] out = new byte[length];
+        if (value != null) {
+            byte[] src = value.getBytes(StandardCharsets.US_ASCII);
+            System.arraycopy(src, 0, out, 0, Math.min(src.length, length));
+        }
+        data.put(out);
     }
 }

@@ -1,6 +1,5 @@
 package br.com.a5x.trd.pub.mitch.model;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import br.com.a5x.trd.pub.fw.utils.BitUtils;
@@ -12,7 +11,7 @@ public class MitchSnapshotResponse {
 	/**
 	 * Sequence number with which the snapshot is synchronized. This will be zero if Status is not 'A'. Ignore if Snapshot Type is not Order Book (0)
 	 */
-	public BigInteger sequenceNumber;
+	public long sequenceNumber;
 
 	/**
 	 * Number of orders that will be transmitted in the snapshot. This will be zero if Order Book is empty or Status is not 'A'. However, if the Snapshot Request was submitted for multiple order books, this field will be set to zero. Ignore if Snapshot Type is not Order Book (0)
@@ -41,7 +40,7 @@ public class MitchSnapshotResponse {
 	 * @param pData the ByteBuffer containing message data (little-endian)
 	 */
 	public static void parse(MitchSnapshotResponse pSnapshotResponse, ByteBuffer pData) {
-		pSnapshotResponse.sequenceNumber = BitUtils.byteArrayToUInt64(pData, false);
+		pSnapshotResponse.sequenceNumber = pData.getLong();
 		pSnapshotResponse.orderCount = BitUtils.byteArrayToUInt32(pData, false);
 		pSnapshotResponse.status = pData.get();
 		pSnapshotResponse.snapshotType = BitUtils.byteToUInt8(pData);
@@ -55,7 +54,7 @@ public class MitchSnapshotResponse {
 	 * @param pData the ByteBuffer to write message data (little-endian)
 	 */
 	public static void encode(MitchSnapshotResponse pSnapshotResponse, ByteBuffer pData) {
-		BitUtils.uint64ToByteArray(pSnapshotResponse.sequenceNumber, pData, false);
+		pData.putLong(pSnapshotResponse.sequenceNumber);
 		BitUtils.uint32ToByteArray(pSnapshotResponse.orderCount, pData, false);
 		pData.put(pSnapshotResponse.status);
 		BitUtils.uint8ToByte(pSnapshotResponse.snapshotType, pData);

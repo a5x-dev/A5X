@@ -15,7 +15,7 @@
         DataDictionary=fix-oe-messages.xml
 
     Notes on scope and fidelity
-    ---------------------------
+    ===========================
     1. The <header> block lists exactly the fields the A5X specification documents. The
        standard FIX 4.4 header carries further optional fields (SenderSubID, OnBehalfOfCompID,
        LastMsgSeqNumProcessed, ...). Add them here if your engine is configured to emit them.
@@ -185,6 +185,7 @@
             <field name="MassCancelRequestType" required="Y"/>
             <field name="OrigClOrdID" required="N"/>
             <field name="OrderID" required="N"/>
+            <component name="Parties" required="Y"/>
             <component name="TargetParties" required="N"/>
             <component name="Parties" required="Y"/>
             <field name="SecurityID" required="Y"/>
@@ -314,6 +315,7 @@
             <field name="QuoteMsgID" required="Y"/>
             <field name="QuoteCancelType" required="Y"/>
             <field name="OrderBook" required="N"/>
+            <component name="Parties" required="Y"/>
             <component name="TargetParties" required="N"/>
             <group name="NoQuoteEntries" required="N">
                 <field name="SecurityID" required="N"/>
@@ -413,6 +415,27 @@
             <field name="TradSesStatus" required="Y"/>
         </message>
 
+        <message name="MMPResetRequest" msgtype="UR" msgcat="app">
+            <field name="ApplID" required="Y"/>
+            <field name="MMPResetReqID" required="Y"/>
+            <component name="Parties" required="Y"/>
+            <field name="MarketSegmentID" required="Y"/>
+            <field name="TransactTime" required="N"/>
+            <field name="Memo" required="N"/>
+        </message>
+
+        <message name="MMPResetAcknowledgement" msgtype="UA" msgcat="app">
+            <field name="ApplID" required="Y"/>
+            <field name="MMPResetReqID" required="Y"/>
+            <component name="Parties" required="Y"/>
+            <field name="MarketSegmentID" required="Y"/>
+            <field name="MMPResetStatus" required="Y"/>
+            <field name="MMPResetRejCode" required="N"/>
+            <field name="Text" required="N"/>
+            <field name="TransactTime" required="N"/>
+            <field name="Memo" required="N"/>
+        </message>
+
     </messages>
 
     <components>
@@ -431,6 +454,8 @@
             </group>
         </component>
 
+
+
         <component name="TargetParties">
             <group name="NoTargetPartyIDs" required="N">
                 <field name="TargetPartyID" required="N"/>
@@ -443,7 +468,7 @@
 
     <fields>
 
-        <!-- ------------------------------ Session / header ------------------------------ -->
+        <!-- ============================== Session / header ============================== -->
         <field number="8" name="BeginString" type="STRING"/>
         <field number="9" name="BodyLength" type="LENGTH"/>
         <field number="10" name="CheckSum" type="STRING"/>
@@ -479,9 +504,11 @@
             <value enum="q" description="ORDER_MASS_CANCEL_REQUEST"/>
             <value enum="r" description="ORDER_MASS_CANCEL_REPORT"/>
             <value enum="s" description="NEW_ORDER_CROSS"/>
+            <value enum="UA" description="MMP_RESET_ACKNOWLEDGEMENT"/>
+            <value enum="UR" description="MMP_RESET_REQUEST"/>
         </field>
 
-        <!-- ------------------------------ Administrative ------------------------------ -->
+        <!-- ============================== Administrative ============================== -->
         <field number="7" name="BeginSeqNo" type="SEQNUM"/>
         <field number="16" name="EndSeqNo" type="SEQNUM"/>
         <field number="36" name="NewSeqNo" type="SEQNUM"/>
@@ -532,7 +559,7 @@
             <value enum="104" description="APPLICATION_NOT_AVAILABLE"/>
         </field>
 
-        <!-- ------------------------------ Order identification ------------------------ -->
+        <!-- ============================== Order identification ======================== -->
         <field number="1" name="Account" type="STRING"/>
         <field number="11" name="ClOrdID" type="STRING"/>
         <field number="17" name="ExecID" type="STRING"/>
@@ -546,7 +573,7 @@
         <field number="1180" name="ApplID" type="STRING"/>
         <field number="1369" name="MassActionReportID" type="STRING"/>
 
-        <!-- ------------------------------ Instrument ---------------------------------- -->
+        <!-- ============================== Instrument ================================== -->
         <field number="48" name="SecurityID" type="STRING"/>
         <field number="55" name="Symbol" type="STRING"/>
         <field number="305" name="UnderlyingSecurityIDSource" type="STRING"/>
@@ -558,7 +585,7 @@
             <value enum="8" description="EXCHANGE_SYMBOL"/>
         </field>
 
-        <!-- ------------------------------ Order attributes ---------------------------- -->
+        <!-- ============================== Order attributes ============================ -->
         <field number="6" name="AvgPx" type="PRICE"/>
         <field number="14" name="CumQty" type="QTY"/>
         <field number="30" name="LastMkt" type="EXCHANGE"/>
@@ -616,7 +643,9 @@
             <value enum="5" description="INTERNAL_CROSS"/>
         </field>
 
-        <!-- ------------------------------ Execution / status -------------------------- -->
+        <field number="552" name="NoSides" type="NUMINGROUP"/>
+
+        <!-- ============================== Execution / status ========================== -->
         <field number="102" name="CxlRejReason" type="INT"/>
         <field number="103" name="OrdRejReason" type="INT"/>
         <field number="532" name="MassCancelRejectReason" type="INT"/>
@@ -690,7 +719,7 @@
         </field>
         <field number="379" name="BusinessRejectRefID" type="STRING"/>
 
-        <!-- ------------------------------ Mass cancel --------------------------------- -->
+        <!-- ============================== Mass cancel ================================= -->
         <field number="530" name="MassCancelRequestType" type="CHAR">
             <value enum="1" description="CANCEL_ALL_ORDERS_FOR_INSTRUMENT"/>
             <value enum="2" description="CANCEL_ALL_ORDERS_FOR_UNDERLYING"/>
@@ -707,7 +736,7 @@
             <value enum="z" description="CANCELLED_ALL_ORDERS_FOR_PARTITION"/>
         </field>
 
-        <!-- ------------------------------ Parties ------------------------------------- -->
+        <!-- ============================== Parties ===================================== -->
         <field number="448" name="PartyID" type="STRING"/>
         <field number="453" name="NoPartyIDs" type="NUMINGROUP"/>
         <field number="1461" name="NoTargetPartyIDs" type="NUMINGROUP"/>
@@ -736,7 +765,7 @@
             <value enum="53" description="TRADING_MNEMONIC"/>
         </field>
 
-        <!-- ------------------------------ Quoting ------------------------------------- -->
+        <!-- ============================== Quoting ===================================== -->
         <field number="117" name="QuoteID" type="STRING"/>
         <field number="131" name="QuoteReqID" type="STRING"/>
         <field number="132" name="BidPx" type="PRICE"/>
@@ -777,7 +806,7 @@
             <value enum="17" description="CANCELLED"/>
         </field>
 
-        <!-- ------------------------------ News --------------------------------------- -->
+        <!-- ============================== News ======================================= -->
         <field number="33" name="NoLinesOfText" type="NUMINGROUP"/>
         <field number="42" name="OrigTime" type="UTCTIMESTAMP"/>
         <field number="61" name="Urgency" type="CHAR"/>
@@ -792,7 +821,7 @@
             <value enum="10" description="OTHER"/>
         </field>
 
-        <!-- ------------------------------ Trading session ----------------------------- -->
+        <!-- ============================== Trading session ============================= -->
         <field number="336" name="TradingSessionID" type="STRING">
             <value enum="20" description="TRADING_SYSTEM"/>
         </field>
@@ -801,7 +830,7 @@
             <value enum="3" description="CLOSED"/>
         </field>
 
-        <!-- ------------------------- A5X exchange defined tags ------------------------ -->
+        <!-- ========================= A5X exchange defined tags ======================== -->
         <field number="5149" name="Memo" type="STRING"/>
 
         <!-- NoTradeKey is a plain identifier, not a repeating group counter. -->
@@ -836,6 +865,16 @@
             <value enum="2" description="WAIVED_PRIORITY"/>
             <value enum="3" description="BROKER_ONLY"/>
         </field>
+
+        <!-- ======================= Market Maker Protection (custom) ================== -->
+        <field number="23001" name="MMPResetReqID" type="INT"/>
+
+        <field number="23002" name="MMPResetStatus" type="INT">
+            <value enum="0" description="ACCEPTED"/>
+            <value enum="1" description="REJECTED"/>
+        </field>
+
+        <field number="23003" name="MMPResetRejCode" type="INT"/>
 
     </fields>
 

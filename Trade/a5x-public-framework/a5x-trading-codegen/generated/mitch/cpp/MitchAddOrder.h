@@ -1,6 +1,7 @@
 #ifndef MITCHADDORDER_H
 #define MITCHADDORDER_H
 
+#include <algorithm>
 #include <cstdint>
 #include <cstring>
 #include <string>
@@ -30,7 +31,7 @@ struct MitchAddOrder {
     double priceAsDecimal() const { return price / 10000.0; }
 
     /// Bit 4: Market Order (0 = No, 1 = Yes), Bit 5: Bulletin Board (0 = No, 1 = Yes)
-    void* flags;
+    uint8_t flags;
 
     static void parse(MitchAddOrder& msg, const uint8_t* data) {
         size_t offset = 0;
@@ -45,6 +46,7 @@ struct MitchAddOrder {
         offset += 4;
         std::memcpy(&msg.price, data + offset, 8);
         offset += 8;
+        msg.flags = data[offset++];
     }
 
     static void encode(const MitchAddOrder& msg, uint8_t* data) {
@@ -60,6 +62,7 @@ struct MitchAddOrder {
         offset += 4;
         std::memcpy(data + offset, &msg.price, 8);
         offset += 8;
+        data[offset++] = msg.flags;
     }
 };
 
