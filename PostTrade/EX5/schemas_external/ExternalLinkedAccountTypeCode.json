@@ -13,7 +13,7 @@
     "const" : 1
   }, {
     "type" : "number",
-    "description" : "REPASSE COM APROVAÇÃO MANUAL",
+    "description" : "REPASSE",
     "const" : 5
   }, {
     "type" : "number",

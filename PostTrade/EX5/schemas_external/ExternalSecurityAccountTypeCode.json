@@ -41,12 +41,16 @@
     "const" : 20
   }, {
     "type" : "number",
+    "description" : "FORMADOR DE MERCADO",
+    "const" : 22
+  }, {
+    "type" : "number",
     "description" : "ERRO OPERACIONAL COMPRA",
     "const" : 50
-  }, {
+  }, { 
     "type" : "number",
     "description" : "ERRO OPERACIONAL VENDA",
     "const" : 51
   } ],
-  "examples" : [ 1, 2, 3 ]
+  "examples" : [ 1, 2, 3, 11, 10, 6, 7, 20, 22, 50, 51 ]
 }

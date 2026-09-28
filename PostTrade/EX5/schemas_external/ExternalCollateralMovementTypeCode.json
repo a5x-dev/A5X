@@ -9,6 +9,10 @@
   "description" : "Codes for collateral movement type",
   "oneOf" : [ {
     "type" : "number",
+    "description" : "Todos",
+    "const" : 0
+  }, {
+    "type" : "number",
     "description" : "Depósito",
     "const" : 1
   }, {
@@ -24,5 +28,5 @@
     "description" : "Transferência",
     "const" : 4
   } ],
-  "examples" : [ 1, 2, 3, 4 ]
+  "examples" : [ 0, 1, 2, 3, 4 ]
 }

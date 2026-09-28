@@ -60,6 +60,7 @@
     }
   },
   "required" : [ "accountIdentification", "trade", "participantIdentification", "instrument", "transactionDateTime", "tradeQuantity", "giveUpOnCaptureIndicator" ],
+  "additionalProperties" : false,
   "examples" : [ {
     "accountIdentification" : {
       "accountType" : 1,

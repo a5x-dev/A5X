@@ -165,7 +165,7 @@
     },
     "tradeMatchIdentification": {
       "type": "string",
-      "maxLength": 10,
+      "maxLength": 35,
       "minLength": 1,
       "description": "Trade match identification"
     },

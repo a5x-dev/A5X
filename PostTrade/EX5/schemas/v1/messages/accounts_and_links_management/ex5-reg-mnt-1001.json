@@ -128,7 +128,7 @@
     "emails",
     "phoneNumber"
   ],
-  "additionalProperties": true,
+  "additionalProperties": false,
   "examples": [
     {
       "participantIdentification": {

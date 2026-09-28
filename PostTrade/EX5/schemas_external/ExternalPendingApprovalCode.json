@@ -25,11 +25,11 @@
     "const" : 4
   }, {
     "type" : "number",
-    "description" : "Destination TP DP",
+    "description" : "Destination Intermediary",
     "const" : 5
   }, {
     "type" : "number",
-    "description" : "Origin TP DP",
+    "description" : "Origin Intermediary",
     "const" : 6
   } ],
   "examples" : [ 1, 2, 3, 4, 5 ]

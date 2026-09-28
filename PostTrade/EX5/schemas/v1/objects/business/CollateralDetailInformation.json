@@ -29,6 +29,11 @@
       "description" : "Blocked quantity by clearing. Quantidade bloqueada pela Clearing",
       "examples" : [ 50, 0 ]
     },
+    "haircutRate" : {
+      "$ref" : "../../types/DecimalNumber.json",
+      "description" : "Haircut percentage (0-100) applied to the market value of the instrument to determine the accepted collateral value. Percentual de desagio aplicado ao valor de mercado do instrumento para apuracao do valor aceito como garantia.",
+      "examples" : [ "15.00", "7.50", "100.00" ]
+    },
     "collateralValue" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Collateral accepted value after taking into account the haircut. This field has 2 decimal places. Valor aceito da garantia após ser aplicado o percentual de deságio do valor de mercado. Este campo possui 2 casas decimais"
@@ -45,6 +50,7 @@
     "valuedQuantity" : 950,
     "deliveryQuantity" : 100,
     "blockedQuantity" : 50,
+    "haircutRate" : "15.00",
     "collateralValue" : {
       "currency" : "BRL",
       "amount" : "95000.50"

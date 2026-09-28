@@ -26,25 +26,16 @@
       "description": "Operator document identification (type and number)",
       "maxItems": 1000
     },
-    "professionalMappingType": {
+    "professionalRole": {
       "type": "array",
       "items": {
         "$ref": "../../objects/business/ExternalCodeList.json",
-        "$comment": "Consult External Professional Mapping table ExternalProfessionalMappingTypeCode"
+        "$comment": "Consult External Professional Mapping table ExternalProfessionalRoleCode"
       },
       "description": "Professional mapping information",
       "maxItems": 50
     },
-    "mappingType": {
-      "type": "array",
-      "items": {
-        "$ref": "../../objects/business/ExternalCodeList.json",
-        "$comment": "Consult External Code List table ExternalMappingTypeCode"
-      },
-      "description": "Type of professional mapping",
-      "maxItems": 50
-    },
-    "mappingStatus": {
+    "status": {
       "type": "array",
       "items": {
         "$ref": "../../objects/business/ExternalCodeList.json",
@@ -108,7 +99,7 @@
           "documentNumber": "12345678902"
         }
       ],
-      "mappingStatus": [
+      "status": [
         6,
         5
       ]
@@ -118,13 +109,13 @@
         "start": "2023-01-01",
         "end": "2023-01-31"
       },
-      "professionalMappingType": [
+      "professionalRole": [
         100,
         101,
         102,
         103
       ],
-      "mappingStatus": [
+      "status": [
         6,
         5
       ]

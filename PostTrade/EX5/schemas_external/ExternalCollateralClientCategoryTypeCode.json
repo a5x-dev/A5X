@@ -13,7 +13,7 @@
     "const" : 1
   }, {
     "type" : "number",
-    "description" : "Pessoa física não residente",
+    "description" : "Pessoa física não residente com CVM",
     "const" : 3
   }, {
     "type" : "number",
@@ -21,7 +21,7 @@
     "const" : 4
   }, {
     "type" : "number",
-    "description" : "Pessoa jurídica não residente",
+    "description" : "Pessoa jurídica não residente com CVM",
     "const" : 6
   } ],
   "examples" : [ 1, 3, 4, 6 ]

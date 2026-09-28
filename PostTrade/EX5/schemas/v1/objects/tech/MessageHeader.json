@@ -83,6 +83,7 @@
     "sender",
     "target"
   ],
+  "additionalProperties": false,
   "examples": [
     {
       "businessMessageIdentification": "5I0009992026022300000000000000000100001",

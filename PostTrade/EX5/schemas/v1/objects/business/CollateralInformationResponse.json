@@ -22,6 +22,13 @@
       "description" : "A number that unambiguously identifies the collateral. Provides the deposit record number",
       "examples" : [ "AST123456789", "COL-2024-001", "ASSET-789012" ]
     },
+    "relatedAssetNumber" : {
+      "type" : "string",
+      "maxLength" : 35,
+      "minLength" : 1,
+      "description" : "When the posted collateral originates from a distribution, identifies the single source asset being distributed. Quando a garantia depositada e oriunda de uma distribuicao, identifica o unico ativo origem que esta sendo distribuido.",
+      "examples" : [ "7c4a9e02-15bd-4831-9f70-2ae6d8b41c5" ]
+    },
     "holderIndicator" : {
       "type" : "boolean",
       "description" : "Identifies if the deposit was made by the collateral holder",
@@ -30,6 +37,11 @@
     "coverageMarginIndicator" : {
       "type" : "boolean",
       "description" : "Identifies if the collateral covers the margin",
+      "examples" : [ true, false ]
+    },
+    "wrongWayRiskIndicator" : {
+      "type" : "boolean",
+      "description" : "Indicates unfavorable correlation (Wrong Way Risk) between the pledged asset and the client who pledged it. When true, the asset is not valued as collateral: haircut is 100% and valued quantity is zero. Indica correlacao desfavoravel entre o ativo depositado e o comitente.",
       "examples" : [ true, false ]
     },
     "collateralType" : {
@@ -72,8 +84,10 @@
     "properties" : {
       "collateralCoverageType" : true,
       "assetNumber" : true,
+      "relatedAssetNumber" : true,
       "holderIndicator" : true,
       "coverageMarginIndicator" : true,
+      "wrongWayRiskIndicator" : true,
       "collateralType" : true,
       "collateralSubType" : true,
       "financialInstrumentIdentification" : true,
@@ -85,8 +99,10 @@
     "properties" : {
       "collateralCoverageType" : true,
       "assetNumber" : true,
+      "relatedAssetNumber" : true,
       "holderIndicator" : true,
       "coverageMarginIndicator" : true,
+      "wrongWayRiskIndicator" : true,
       "collateralType" : true,
       "collateralSubType" : true,
       "financialInstrumentIdentification" : true,
@@ -98,8 +114,10 @@
     "properties" : {
       "collateralCoverageType" : true,
       "assetNumber" : true,
+      "relatedAssetNumber" : true,
       "holderIndicator" : true,
       "coverageMarginIndicator" : true,
+      "wrongWayRiskIndicator" : true,
       "collateralType" : true,
       "collateralSubType" : true,
       "financialInstrumentIdentification" : true,
@@ -111,8 +129,10 @@
     "properties" : {
       "collateralCoverageType" : true,
       "assetNumber" : true,
+      "relatedAssetNumber" : true,
       "holderIndicator" : true,
       "coverageMarginIndicator" : true,
+      "wrongWayRiskIndicator" : true,
       "collateralType" : true,
       "collateralSubType" : true,
       "financialInstrumentIdentification" : true,
@@ -125,8 +145,10 @@
   "examples" : [ {
     "collateralCoverageType" : 1,
     "assetNumber" : "2015000000348",
+    "relatedAssetNumber" : "7c4a9e02-15bd-4831-9f70-2ae6d8b41c5",
     "holderIndicator" : true,
     "coverageMarginIndicator" : true,
+    "wrongWayRiskIndicator" : false,
     "collateralType" : 2,
     "collateralSubType" : "ABC",
     "financialInstrumentIdentification" : {

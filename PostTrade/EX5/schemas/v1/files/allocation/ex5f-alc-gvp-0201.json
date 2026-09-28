@@ -132,7 +132,7 @@
     },
     "secondaryTradeMatchIdentification": {
       "type": "string",
-      "maxLength": 10,
+      "maxLength": 35,
       "minLength": 1,
       "description": "Secondary trade match identification"
     },
@@ -191,7 +191,7 @@
     },
     "tradeMatchIdentification": {
       "type": "string",
-      "maxLength": 10,
+      "maxLength": 35,
       "minLength": 1,
       "description": "Trade match identification"
     },

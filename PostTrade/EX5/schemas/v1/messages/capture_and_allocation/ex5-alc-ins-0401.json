@@ -43,6 +43,7 @@
     }
   },
   "required" : [ "allocationIdentification", "participantIdentification", "trade", "instrument", "allocationDistribution" ],
+  "additionalProperties" : false,
   "examples" : [ {
     "allocationIdentification" : "23456123456789234567890",
     "participantIdentification" : {

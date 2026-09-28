@@ -27,7 +27,7 @@
     "participantIdentification",
     "investorRiskInformation"
   ],
-  "additionalProperties" : true,
+  "additionalProperties" : false,
   "examples": [
     {
       "clearingMemberIdentification": {

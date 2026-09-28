@@ -20,6 +20,12 @@
       "minLength" : 1,
       "description" : "A number that unambiguously identifies the collateral."
     },
+    "relatedAssetNumber": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "description": "When the movement involves collateral distribution, identifies the source asset being distributed. Quando a movimentacao envolve distribuicao de garantias, identifica o ativo origem que esta sendo distribuido."
+    },
     "collateralCoverageType" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Collateral coverage identification",
@@ -38,7 +44,7 @@
     "operationStatus" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
       "description" : "Provides operation status of collateral.",
-      "$comment" : "Consult External Code List table ExternalApprovalStatusCode"
+      "$comment" : "Consult External Code List table ExternalCollateralStatusCode"
     },
     "financialInstrumentIdentification" : {
       "$ref" : "../../objects/business/InstrumentIdentification.json",
@@ -104,6 +110,7 @@
   "examples" : [ {
     "collateralMovementType" : 1,
     "assetNumber" : "2015000000348",
+    "relatedAssetNumber": "7c4a9e02-15bd-4831-9f70-2ae6d8b41c5",
     "collateralCoverageType" : 1,
     "collateralType" : 4,
     "collateralSubType" : "ABC",

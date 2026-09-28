@@ -72,8 +72,10 @@
       "collateralDetails" : [ {
         "collateralCoverageType" : 1,
         "assetNumber" : "2015000000348",
+        "relatedAssetNumber" : "7c4a9e02-15bd-4831-9f70-2ae6d8b41c5",
         "holderIndicator" : true,
         "coverageMarginIndicator" : true,
+        "wrongWayRiskIndicator" : false,
         "collateralType" : 2,
         "collateralSubType" : "ABC",
         "financialInstrumentIdentification" : {
@@ -92,6 +94,7 @@
           "valuedQuantity" : "950.25",
           "deliveryQuantity" : "100.00",
           "blockedQuantity" : "50.25",
+          "haircutRate" : "15.00",
           "collateralValue" : {
             "currency" : "BRL",
             "amount" : "95000.50"
@@ -105,6 +108,10 @@
       "collateralBalanceInformation" : {
         "currency" : "BRL",
         "amount" : "150000.75"
+      },
+      "accountProjectedCollateralBalance" : {
+        "currency" : "BRL",
+        "amount" : "142350.20"
       }
     } ]
   } ]

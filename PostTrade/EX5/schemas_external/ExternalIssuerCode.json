@@ -21,7 +21,7 @@
     "const" : 3
   }, {
     "type" : "number",
-    "description" : "DETRAN-DEPARTAMENTO DE TRÂNSITO",
+    "description" : "DEPARTAMENTO DE TRÂNSITO",
     "const" : 4
   }, {
     "type" : "number",

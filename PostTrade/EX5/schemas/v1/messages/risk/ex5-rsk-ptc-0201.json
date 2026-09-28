@@ -15,7 +15,10 @@
     },
     "participantIdentification" : {
       "$ref" : "../../objects/business/PartyId.json",
-      "description" : "Provides details about the participant identification."
+      "description" : "Provides details about the participant identification.",
+      "$metadata" : {
+        "destinationParty" : true
+      }
     },
     "tradeDate" : {
       "$ref" : "../../types/ISODate.json",
@@ -51,7 +54,7 @@
     },
     "consolidatedOperationalLimitWithoutIntradayRiskLimit" : {
       "$ref" : "../../objects/business/MonetaryValue.json",
-      "description" : "Consolidated operational limit calculated without the intraday risk limit component."
+      "description" : "Consolidated operational limit excluding the intraday risk limit assigned to the participant. Limite operacional consolidado desconsiderando o limite de risco intradiario atribuido."
     }
   },
   "required" : [ "triggerResult", "participantIdentification", "tradeDate", "intradayRiskLimitAssigned", "operationalLimitCollateral", "riskExposure", "nonAllocatedRisk", "investorRiskExposure", "additionalMargin", "operationalLimit", "consolidatedOperationalLimitWithoutIntradayRiskLimit" ],
@@ -96,7 +99,8 @@
       "currency" : "BRL"
     },
     "consolidatedOperationalLimitWithoutIntradayRiskLimit" : {
-      "amount" : "408000.00"
+      "amount" : "408000.00",
+      "currency" : "BRL"
     }
   } ]
 }

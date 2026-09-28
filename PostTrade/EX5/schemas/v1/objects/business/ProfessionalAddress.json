@@ -73,7 +73,6 @@
   "required": [
     "street",
     "number",
-    "cityName",
     "country",
     "state",
     "phoneNumber",
@@ -87,7 +86,6 @@
       "complement": "Apto 101",
       "neighborhood": "Centro",
       "postalCode": "01234-567",
-      "cityName": "Sao Paulo",
       "state": "SP",
       "country": "BRA",
       "phoneNumber": "+5511912345678",

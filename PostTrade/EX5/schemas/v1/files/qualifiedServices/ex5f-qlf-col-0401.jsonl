@@ -1,4 +1,4 @@
-﻿{
+{
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-col-04",
   "$metadata": {
@@ -50,7 +50,7 @@
       "fileControl": {
         "fileCode": "QUALIF004",
         "reportParameters": {
-          "frequency": "DALI",
+          "frequency": "DAIL",
           "reportNumber": "00001",
           "reportDateAndTime": "2022-05-27T00:00:00Z"
         },
@@ -68,231 +68,231 @@
         "totalRecords": 65
       },
       "postedCollateral": [
-          {
-            "participantIdentificationRequester": {
-              "id": 935,
-              "category": 1
-            },
-            "accountIdentificationRequester": {
-              "id": 10021
-            },
-            "participantIdentificationRequested": {
-              "id": 935,
-              "category": 1
-            },
-            "accountIdentificationRequested": {
-              "id": 10021
-            },
-            "referenceDate": "2022-05-26",
-            "collateralDetails": [
-              {
-                "collateralCoverageType": 1,
-                "assetNumber": "0000002021000000611",
-                "holderIndicator": true,
-                "coverageMarginIndicator": false,
-                "collateralType": 8,
-                "collateralReference": "Real - Netting",
-                "financialInstrumentIdentification": {
-                  "id": "10000001",
-                  "source": "8",
-                  "exchange": "BVMF"
+        {
+          "participantIdentificationRequester": {
+            "id": 935,
+            "category": 1
+          },
+          "accountIdentificationRequester": {
+            "id": 10021
+          },
+          "participantIdentificationRequested": {
+            "id": 935,
+            "category": 1
+          },
+          "accountIdentificationRequested": {
+            "id": 10021
+          },
+          "referenceDate": "2022-05-26",
+          "collateralDetails": [
+            {
+              "collateralCoverageType": 1,
+              "assetNumber": "0000002021000000611",
+              "holderIndicator": true,
+              "coverageMarginIndicator": false,
+              "collateralType": 8,
+              "collateralReference": "Real - Netting",
+              "financialInstrumentIdentification": {
+                "id": "10000001",
+                "source": "8",
+                "exchange": "BVMF"
+              },
+              "collateralDetailInformation": {
+                "depositedQuantity": 2000,
+                "valuedQuantity": 1800,
+                "deliveryQuantity": 100,
+                "blockedQuantity": 50,
+                "collateralValue": {
+                  "amount": "2870147502.59"
                 },
-                "collateralDetailInformation": {
-                  "depositedQuantity": 2000,
-                  "valuedQuantity": 1800,
-                  "deliveryQuantity": 100,
-                  "blockedQuantity": 50,
-                  "collateralValue": {
-                    "amount": "2870147502.59"
-                  },
-                  "withdrawalBlockedValue": {
-                    "amount": "0.00"
-                  }
+                "withdrawalBlockedValue": {
+                  "amount": "0.00"
                 }
               }
-            ]
+            }
+          ]
+        },
+        {
+          "participantIdentificationRequester": {
+            "id": 935,
+            "category": 1
           },
-          {
-            "participantIdentificationRequester": {
-              "id": 935,
-              "category": 1
-            },
-            "accountIdentificationRequester": {
-              "id": 544111635
-            },
-            "participantIdentificationRequested": {
-              "id": 935,
-              "category": 1
-            },
-            "accountIdentificationRequested": {
-              "id": 544111635
-            },
-            "referenceDate": "2022-05-26",
-            "collateralDetails": [
-              {
-                "collateralCoverageType": 1,
-                "assetNumber": "0000002021000001729",
-                "holderIndicator": true,
-                "coverageMarginIndicator": false,
-                "collateralType": 3,
-                "collateralReference": "PETR4",
-                "financialInstrumentIdentification": {
-                  "id": "200000153650",
-                  "source": "8",
-                  "exchange": "BVMF"
-                },
-                "collateralDetailInformation": {
-                  "depositedQuantity": 10,
-                  "valuedQuantity": 10,
-                  "deliveryQuantity": 1,
-                  "blockedQuantity": 1,
-                  "collateralValue": {
-                    "amount": "380.97"
-                  },
-                  "withdrawalBlockedValue": {
-                    "amount": "0.00"
-                  }
-                },
-                "isin": "BRI5TVA9PP77",
-                "portfolio": "23906"
-              }
-            ],
-            "custodianIdentification": {
-              "id": 935,
-              "category": 1
-            },
-            "custodianAccountIdentification": {
-              "id": 544111635
-            }
-          }
-        ],
-        "collateralPortfolioDetailsAtCustodians": [
-          {
-            "participantIdentificationRequester": {
-              "id": 935,
-              "category": 1
-            },
-            "accountIdentificationRequester": {
-              "id": 544111635
-            },
-            "participantIdentificationRequested": {
-              "id": 935,
-              "category": 1
-            },
-            "accountIdentificationRequested": {
-              "id": 544111635
-            },
-            "referenceDate": "2022-05-26",
-            "collateralDetails": [
-              {
-                "collateralCoverageType": 1,
-                "assetNumber": "0000002021000001729",
-                "holderIndicator": true,
-                "coverageMarginIndicator": false,
-                "collateralType": 3,
-                "collateralReference": "PETR4",
-                "financialInstrumentIdentification": {
-                  "id": "200000153650",
-                  "source": "8",
-                  "exchange": "BVMF"
-                },
-                "collateralDetailInformation": {
-                  "depositedQuantity": 10,
-                  "valuedQuantity": 10,
-                  "deliveryQuantity": 1,
-                  "blockedQuantity": 1,
-                  "collateralValue": {
-                    "amount": "380.97"
-                  },
-                  "withdrawalBlockedValue": {
-                    "amount": "0.00"
-                  }
-                },
-                "isin": "BRI5TVA9PP77",
-                "portfolio": "23906"
-              }
-            ],
-            "settlementParticipantIdentification": {
-              "id": 935,
-              "category": 1
-            },
-            "settlementAccountIdentification": {
-              "id": 544111635
-            }
-          }
-        ],
-        "requiredMargin": [
-          {
-            "participantIdentificationRequester": {
-              "id": 935,
-              "category": 1
-            },
-            "accountIdentificationRequester": {
-              "id": 10021
-            },
-            "participantIdentificationRequested": {
-              "id": 935,
-              "category": 1
-            },
-            "accountIdentificationRequested": {
-              "id": 10021
-            },
-            "tradeDate": "2022-05-26",
-            "collateralCoverageInformation": {
-              "informationType": 2,
-              "collateralCoverageType": 1
-            },
-            "marginInformation": {
-              "riskWithoutCollateral": {
-                "amount": "3498360274.71"
-              },
-              "initialMargin": {
-                "amount": "823646773.37"
-              },
-              "totalCollateralValue": {
-                "amount": "2870147502.59"
-              },
-              "collateralBalance": {
-                "amount": "-823646773.37"
-              }
-            }
+          "accountIdentificationRequester": {
+            "id": 544111635
           },
-          {
-            "participantIdentificationRequester": {
-              "id": 935,
-              "category": 1
-            },
-            "accountIdentificationRequester": {
-              "id": 544111635
-            },
-            "participantIdentificationRequested": {
-              "id": 935,
-              "category": 1
-            },
-            "accountIdentificationRequested": {
-              "id": 544111635
-            },
-            "tradeDate": "2022-05-26",
-            "collateralCoverageInformation": {
-              "informationType": 2,
-              "collateralCoverageType": 1
-            },
-            "marginInformation": {
-              "riskWithoutCollateral": {
-                "amount": "535021.38"
+          "participantIdentificationRequested": {
+            "id": 935,
+            "category": 1
+          },
+          "accountIdentificationRequested": {
+            "id": 544111635
+          },
+          "referenceDate": "2022-05-26",
+          "collateralDetails": [
+            {
+              "collateralCoverageType": 1,
+              "assetNumber": "0000002021000001729",
+              "holderIndicator": true,
+              "coverageMarginIndicator": false,
+              "collateralType": 3,
+              "collateralReference": "PETR4",
+              "financialInstrumentIdentification": {
+                "id": "200000153650",
+                "source": "8",
+                "exchange": "BVMF"
               },
-              "initialMargin": {
-                "amount": "150420.11"
+              "collateralDetailInformation": {
+                "depositedQuantity": 10,
+                "valuedQuantity": 10,
+                "deliveryQuantity": 1,
+                "blockedQuantity": 1,
+                "collateralValue": {
+                  "amount": "380.97"
+                },
+                "withdrawalBlockedValue": {
+                  "amount": "0.00"
+                }
               },
-              "totalCollateralValue": {
-                "amount": "380.97"
+              "isin": "BRI5TVA9PP77",
+              "portfolio": "23906"
+            }
+          ],
+          "custodianIdentification": {
+            "id": 935,
+            "category": 1
+          },
+          "custodianAccountIdentification": {
+            "id": 544111635
+          }
+        }
+      ],
+      "collateralPortfolioDetailsAtCustodians": [
+        {
+          "participantIdentificationRequester": {
+            "id": 935,
+            "category": 1
+          },
+          "accountIdentificationRequester": {
+            "id": 544111635
+          },
+          "participantIdentificationRequested": {
+            "id": 935,
+            "category": 1
+          },
+          "accountIdentificationRequested": {
+            "id": 544111635
+          },
+          "referenceDate": "2022-05-26",
+          "collateralDetails": [
+            {
+              "collateralCoverageType": 1,
+              "assetNumber": "0000002021000001729",
+              "holderIndicator": true,
+              "coverageMarginIndicator": false,
+              "collateralType": 3,
+              "collateralReference": "PETR4",
+              "financialInstrumentIdentification": {
+                "id": "200000153650",
+                "source": "8",
+                "exchange": "BVMF"
               },
-              "collateralBalance": {
-                "amount": "-150039.14"
-              }
+              "collateralDetailInformation": {
+                "depositedQuantity": 10,
+                "valuedQuantity": 10,
+                "deliveryQuantity": 1,
+                "blockedQuantity": 1,
+                "collateralValue": {
+                  "amount": "380.97"
+                },
+                "withdrawalBlockedValue": {
+                  "amount": "0.00"
+                }
+              },
+              "isin": "BRI5TVA9PP77",
+              "portfolio": "23906"
+            }
+          ],
+          "settlementParticipantIdentification": {
+            "id": 935,
+            "category": 1
+          },
+          "settlementAccountIdentification": {
+            "id": 544111635
+          }
+        }
+      ],
+      "requiredMargin": [
+        {
+          "participantIdentificationRequester": {
+            "id": 935,
+            "category": 1
+          },
+          "accountIdentificationRequester": {
+            "id": 10021
+          },
+          "participantIdentificationRequested": {
+            "id": 935,
+            "category": 1
+          },
+          "accountIdentificationRequested": {
+            "id": 10021
+          },
+          "tradeDate": "2022-05-26",
+          "collateralCoverageInformation": {
+            "informationType": 2,
+            "collateralCoverageType": 1
+          },
+          "marginInformation": {
+            "riskWithoutCollateral": {
+              "amount": "3498360274.71"
+            },
+            "initialMargin": {
+              "amount": "823646773.37"
+            },
+            "totalCollateralValue": {
+              "amount": "2870147502.59"
+            },
+            "collateralBalance": {
+              "amount": "-823646773.37"
             }
           }
-        ]
+        },
+        {
+          "participantIdentificationRequester": {
+            "id": 935,
+            "category": 1
+          },
+          "accountIdentificationRequester": {
+            "id": 544111635
+          },
+          "participantIdentificationRequested": {
+            "id": 935,
+            "category": 1
+          },
+          "accountIdentificationRequested": {
+            "id": 544111635
+          },
+          "tradeDate": "2022-05-26",
+          "collateralCoverageInformation": {
+            "informationType": 2,
+            "collateralCoverageType": 1
+          },
+          "marginInformation": {
+            "riskWithoutCollateral": {
+              "amount": "535021.38"
+            },
+            "initialMargin": {
+              "amount": "150420.11"
+            },
+            "totalCollateralValue": {
+              "amount": "380.97"
+            },
+            "collateralBalance": {
+              "amount": "-150039.14"
+            }
+          }
+        }
+      ]
     }
   ]
 }

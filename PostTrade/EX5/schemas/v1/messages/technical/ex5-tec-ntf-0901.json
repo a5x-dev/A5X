@@ -63,11 +63,15 @@
       "throttleChanges": [
         {
           "sessionName": "C000935TRD001",
+          "previousThrottleIn": 100,
+          "newThrottleIn": 150,
           "previousThrottleOut": 100,
           "newThrottleOut": 150
         },
         {
-          "sessionName": "C000935COL002",
+          "sessionName": "C000935TRD002",
+          "previousThrottleIn": 80,
+          "newThrottleIn": 150,
           "previousThrottleOut": 80,
           "newThrottleOut": 150
         }

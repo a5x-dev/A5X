@@ -32,9 +32,10 @@
     "filelink" : {
       "type" : "string",
       "description" : "Link of the generated file",
+      "$comment" : "Carries a download URL, not a file name. An S3 presigned URL (SigV4) already exceeds 255 characters with the mandatory X-Amz-* parameters, and goes past 1500 when the credential is temporary and X-Amz-Security-Token is appended. The 2048 ceiling is the historical URL limit adopted by browsers and proxies: it covers the presigned URL with room to spare and still bounds the field, which shares a Kafka topic with every other technical report.",
       "minLength" : 1,
-      "maxLength" : 255,
-      "examples" : [ "links_85_20240601.csv" ]
+      "maxLength" : 2048,
+      "examples" : [ "https://a5x-reports-prod.s3.sa-east-1.amazonaws.com/ex5/tech/EX5F-COL-MRG-0101-20250101-1.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20250101%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250101T143015Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=8f2c1b9a4d7e6035ac18be29f04d7a61c3b85e920df4671ab2c9e38d5074f1a6" ]
     },
     "filePath" : {
       "type" : "string",
@@ -73,7 +74,7 @@
       "errorDescription" : "COD12452"
     }],
     "fileName" : "EX5F-COL-MRG-0101-20250101-1.csv",
-    "filelink" : "http://example.com/EX5F-COL-MRG-0101-20250101-1.csv.csv",
+    "filelink" : "https://a5x-reports-prod.s3.sa-east-1.amazonaws.com/ex5/tech/EX5F-COL-MRG-0101-20250101-1.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIOSFODNN7EXAMPLE%2F20250101%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250101T143015Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=8f2c1b9a4d7e6035ac18be29f04d7a61c3b85e920df4671ab2c9e38d5074f1a6",
     "filePath" : "/home/user/documents/EX5F-COL-MRG-0101-20250101-1.csv.csv",
     "timestamp" : "2024-01-15T14:30:15Z",
     "reportName" : "EX5F-COL-MRG-0101",

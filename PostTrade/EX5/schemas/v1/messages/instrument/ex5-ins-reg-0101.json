@@ -53,7 +53,7 @@
       ]
     }
   ],
-  "additionalProperties": true,
+  "additionalProperties": false,
   "examples": [
     {
       "financialInstrumentIdentification": {

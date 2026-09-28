@@ -50,6 +50,7 @@
     "instrument",
     "allocationStatus"
   ],
+  "additionalProperties": false,
   "examples": [
     {
       "participantIdentification": {

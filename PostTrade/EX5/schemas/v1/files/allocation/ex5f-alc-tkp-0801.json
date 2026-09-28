@@ -91,9 +91,11 @@
       "description": "Rate expressed as a decimal between 0 and 1 defining the outstanding principal of the financial instrument (for factored securities)."
     },
     "exercisePrice": {
-      "type": "number",
-      "multipleOf": 1.0E-10,
-      "description": "Monetary amount of the exercise price with high precision (up to 10 decimal places)"
+      "type": "string",
+      "maxLength": 20,
+      "minLength": 1,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Monetary amount of the exercise price"
     },
     "tradeDate": {
       "type": "string",
@@ -134,7 +136,7 @@
     },
     "secondaryTradeMatchIdentification": {
       "type": "string",
-      "maxLength": 10,
+      "maxLength": 35,
       "minLength": 1,
       "description": "Secondary trade match identification"
     },
@@ -193,7 +195,7 @@
     },
     "tradeMatchIdentification": {
       "type": "string",
-      "maxLength": 10,
+      "maxLength": 35,
       "minLength": 1,
       "description": "Trade match identification"
     },
@@ -295,8 +297,11 @@
       "$comment": "Consult External Code List table ExternalSecurityAccountTypeCode"
     },
     "quantity": {
-      "type": "number",
-      "description": "Quantity expressed as a number"
+      "type": "string",
+      "maxLength": 20,
+      "minLength": 1,
+      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "description": "Quantity"
     },
     "allocationIdentification": {
       "type": "string",

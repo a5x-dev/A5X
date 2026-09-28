@@ -59,6 +59,7 @@
       "collateralMovementReportDetails" : [ {
         "collateralMovementType" : 1,
         "assetNumber" : "2015000000348",
+        "relatedAssetNumber": "7c4a9e02-15bd-4831-9f70-2ae6d8b41c5",
         "collateralCoverageType" : 1,
         "collateralType" : 4,
         "collateralSubType" : "ABC",
