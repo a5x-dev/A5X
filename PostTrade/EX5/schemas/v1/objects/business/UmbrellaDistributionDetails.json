@@ -73,7 +73,7 @@
       },
       "collateralIdentification" : "2",
       "operationValue" : {
-        "amount" : "1000.00",
+        "amount" : 1000.00,
         "currency" : "BRL"
       },
       "accountIdentification" : {

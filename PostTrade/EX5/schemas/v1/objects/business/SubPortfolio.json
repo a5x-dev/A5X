@@ -24,15 +24,15 @@
       "description" : "Holding Period of the sub-portfolio"
     },
     "initialMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "The Initial Margin of the sub-portfolio. This could be either Net IM of SP or Gross IM of SP or even a combination of Net IM and Gross IM."
     },
     "netInitialMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "The Net Initial Margin of the sub-portfolio"
     },
     "grossInitialMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "The Gross Initial Margin of the sub-portfolio."
     }
   },
@@ -50,18 +50,9 @@
       "currency" : "BRL",
       "riskMeasure" : 2,
       "holdingPeriod" : 2,
-      "initialMargin" : {
-        "currency" : "BRL",
-        "amount" : "50000.00"
-      },
-      "netInitialMargin" : {
-        "currency" : "BRL",
-        "amount" : "50000.00"
-      },
-      "grossInitialMargin" : {
-        "currency" : "BRL",
-        "amount" : "50000.00"
-      }
+      "initialMargin" : 50000.00,
+      "netInitialMargin" : 50000.00,
+      "grossInitialMargin" : 50000.00
     }
   ]
 }

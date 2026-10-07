@@ -35,7 +35,7 @@
     },
     "thirdAssetNumber" : {
       "type" : "string",
-      "maxLength" : 35,
+      "maxLength" : 40,
       "minLength" : 1,
       "description" : "Identifies the registration number of the collateral deposit assigned by the central counterparty when the collateral is provided by a third party."
     }
@@ -47,7 +47,7 @@
     "assetNumber" : "AAPL",
     "quantity" : 100,
     "collateralValue" : {
-      "amount" : "24000.00",
+      "amount" : 24000.00,
       "currency" : "BRL"
     },
     "statusInformation" : {

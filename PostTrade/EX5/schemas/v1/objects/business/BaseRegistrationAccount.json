@@ -9,6 +9,10 @@
     "description": "Fields to Natural Person and Legal entity composition message",
     "type": "object",
     "properties": {
+        "participantIdentification": {
+            "$ref": "../../objects/business/PartyId.json",
+            "description": "Participant identification using existing PartyId structure"
+        },
         "person": {
             "$ref": "../../objects/business/Person.json",
             "description": "Basic person information"

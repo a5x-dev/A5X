@@ -50,7 +50,7 @@
       "brazilianFederalGovernmentBondTypeCode": 6,
       "baseDate": "2024-01-01",
       "baseDatePrice": {
-        "amount": "1000.00",
+        "amount": 1000.00,
         "currency": "BRL"
       }
     }

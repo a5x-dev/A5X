@@ -44,11 +44,11 @@
     "collateralIdentification" : "1",
     "quantity" : 150,
     "operationValue" : {
-      "amount" : "1000.00",
+      "amount" : 1000.00,
       "currency" : "BRL"
     },
     "collateralValue" : {
-      "amount" : "75000.00",
+      "amount" : 75000.00,
       "currency" : "BRL"
     },
     "collateralCommandDistributionStatus" : {

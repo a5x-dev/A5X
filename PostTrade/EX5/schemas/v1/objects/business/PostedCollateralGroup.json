@@ -89,10 +89,10 @@
             "deliveryQuantity": 100,
             "blockedQuantity": 50,
             "collateralValue": {
-              "amount": "2870147502.59"
+              "amount": 2870147502.59
             },
             "withdrawalBlockedValue": {
-              "amount": "0.00"
+              "amount": 0.00
             }
           }
         }

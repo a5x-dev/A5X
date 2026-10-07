@@ -1,0 +1,32 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeBase",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeBase"
+  },
+  "title" : "External Fee Base",
+  "description" : "Codes for the fee measurement base",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Notional",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "US$ por contrato",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "R$ por contrato",
+    "const" : 3
+  }, {
+    "type" : "number",
+    "description" : "Premio",
+    "const" : 4
+  }, {
+    "type" : "number",
+    "description" : "Desagio",
+    "const" : 5
+  } ],
+  "examples" : [ 1, 2, 3, 4, 5 ]
+}

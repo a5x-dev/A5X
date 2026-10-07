@@ -31,10 +31,10 @@
       "category" : 3
     },
     "mapping" : [ {
-      "operationalArea": 1,
-      "professionalRole": 1,
-      "workType": 1,
-      "status": 1,
+      "operationType": 1,
+      "professionalMappingType": 1,
+      "mappingType": 1,
+      "mappingStatus": 1,
       "participantOriginIdentification": {
         "id": 888,
         "category": 3

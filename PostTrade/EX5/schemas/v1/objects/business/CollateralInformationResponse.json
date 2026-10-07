@@ -24,7 +24,7 @@
     },
     "relatedAssetNumber" : {
       "type" : "string",
-      "maxLength" : 35,
+      "maxLength" : 40,
       "minLength" : 1,
       "description" : "When the posted collateral originates from a distribution, identifies the single source asset being distributed. Quando a garantia depositada e oriunda de uma distribuicao, identifica o unico ativo origem que esta sendo distribuido.",
       "examples" : [ "7c4a9e02-15bd-4831-9f70-2ae6d8b41c5" ]
@@ -169,11 +169,11 @@
       "blockedQuantity" : 50,
       "collateralValue" : {
         "currency" : "BRL",
-        "amount" : "95000.50"
+        "amount" : 95000.50
       },
       "withdrawalBlockedValue" : {
         "currency" : "BRL",
-        "amount" : "5000.00"
+        "amount" : 5000.00
       }
     }
   } ]

@@ -15,6 +15,10 @@
     "type" : "number",
     "description" : "Valor Percentual",
     "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Valor em Dolar",
+    "const" : 3
   } ],
-  "examples" : [ 1, 2 ]
+  "examples" : [ 1, 2, 3 ]
 }

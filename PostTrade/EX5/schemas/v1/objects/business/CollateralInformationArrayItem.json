@@ -53,7 +53,7 @@
       "maxItems" : 60
     },
     "collateralBalanceInformation" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../objects/business/PositiveMonetaryValue.json",
       "description" : "This block provides information about collateral balance of all collateral which cover margin"
     },
     "accountProjectedCollateralBalance" : {
@@ -100,24 +100,24 @@
         "valuedQuantity" : 950,
         "deliveryQuantity" : 100,
         "blockedQuantity" : 50,
-        "haircutRate" : "15.00",
+        "haircutRate" : 15.00,
         "collateralValue" : {
           "currency" : "BRL",
-          "amount" : "95000.50"
+          "amount" : 95000.50
         },
         "withdrawalBlockedValue" : {
           "currency" : "BRL",
-          "amount" : "5000.00"
+          "amount" : 5000.00
         }
       }
     } ],
     "collateralBalanceInformation" : {
       "currency" : "BRL",
-      "amount" : "150000.75"
+      "amount" : 150000.75
     },
     "accountProjectedCollateralBalance" : {
       "currency" : "BRL",
-      "amount" : "142350.20"
+      "amount" : 142350.20
     }
   } ]
 }

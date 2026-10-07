@@ -56,7 +56,7 @@
     "assigneeAccount" : "ASSIGNEE-001",
     "quantity" : 250,
     "collateralValue" : {
-      "amount" : "24000.00",
+      "amount" : 24000.00,
       "currency" : "BRL"
     }
   } ]

@@ -16,23 +16,23 @@
       "description": "Run ID of the margin calculation instance."
     },
     "totalMargin": {
-      "$ref": "../../objects/business/MonetaryValue.json",
+      "$ref": "../../types/SignedDecimalNumber.json",
       "description": "Summation of IM and Additional Margin calculated for Margin Account. Soma de IM e Margem Adicional calculada para Conta de Margem"
     },
     "initialMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Initial Margin calculated for Margin Account. Margem inicial calculada para conta de margem"
     },
     "totalAdditionalMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Summation of all the Additional Margins calculated for Margin Account except for Concentration Position Limit. Soma de todas as Margens Adicionais calculadas para a Conta de Margem, exceto para o Limite de Posição de Concentração"
     },
     "contingentVariationMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Contingent Variation Margin calculated for the Margin Account"
     },
     "netLiquidityValue" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Net Liquidating value for the Margin Account. Valor líquido de liquidação da conta de margem"
     }
   },
@@ -47,26 +47,11 @@
   "examples" : [
     {
       "marginRunId": "MR-20240101-001",
-      "totalMargin" : {
-        "currency" : "BRL",
-        "amount" : "150000.50"
-      },
-      "initialMargin" : {
-        "currency" : "BRL",
-        "amount" : "100000.25"
-      },
-      "totalAdditionalMargin" : {
-        "currency" : "BRL",
-        "amount" : "50000.25"
-      },
-      "contingentVariationMargin" : {
-        "currency" : "BRL",
-        "amount" : "25000.00"
-      },
-      "netLiquidityValue" : {
-        "currency" : "BRL",
-        "amount" : "200000.75"
-      }
+      "totalMargin" : 150000.50,
+      "initialMargin" : 100000.25,
+      "totalAdditionalMargin" : 50000.25,
+      "contingentVariationMargin" : 25000.00,
+      "netLiquidityValue" : 200000.75
     }
   ]
 }

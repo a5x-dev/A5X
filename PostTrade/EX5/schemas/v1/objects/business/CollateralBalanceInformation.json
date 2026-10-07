@@ -14,10 +14,10 @@
       "description" : "Total value of the collateral (post-haircut) held by the exposed party. This field has 2 decimal places. Somatória de todas as garantias que cobrem margem. Este campo possui 2 casas decimais",
       "examples" : [ {
         "currency" : "BRL",
-        "amount" : "150000.75"
+        "amount" : 150000.75
       }, {
         "currency" : "USD",
-        "amount" : "28500.50"
+        "amount" : 28500.50
       } ]
     }
   },
@@ -26,7 +26,7 @@
   "examples" : [ {
     "totalValueOfCollateral" : {
       "currency" : "BRL",
-      "amount" : "150000.75"
+      "amount" : 150000.75
     }
   } ]
 }

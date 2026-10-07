@@ -44,7 +44,7 @@
   "examples" : [ {
     "reportParameters" : {
       "frequency" : "DAIL",
-      "reportNumber" : "00132",
+      "reportNumber" : 132,
       "reportDateAndTime" : "2024-06-15T16:40:36.51Z"
     },
     "tradeDate" : "2024-06-15T16:40:36.51Z",
@@ -94,24 +94,24 @@
           "valuedQuantity" : 950,
           "deliveryQuantity" : 100,
           "blockedQuantity" : 50,
-          "haircutRate" : "15.00",
+          "haircutRate" : 15.00,
           "collateralValue" : {
             "currency" : "BRL",
-            "amount" : "95000.50"
+            "amount" : 95000.50
           },
           "withdrawalBlockedValue" : {
             "currency" : "BRL",
-            "amount" : "5000.00"
+            "amount" : 5000.00
           }
         }
       } ],
       "collateralBalanceInformation" : {
         "currency" : "BRL",
-        "amount" : "150000.75"
+        "amount" : 150000.75
       },
       "accountProjectedCollateralBalance" : {
         "currency" : "BRL",
-        "amount" : "142350.20"
+        "amount" : 142350.20
       }
     } ]
   } ]

@@ -90,7 +90,7 @@
       "cashCollateralProposal" : [ {
         "collateralIdentification" : "1",
         "operationValue" : {
-          "amount" : "25000.00",
+          "amount" : 25000.00,
           "currency" : "BRL"
         },
         "depositType" : 1,

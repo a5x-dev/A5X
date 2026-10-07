@@ -9,6 +9,10 @@
   "description" : "Message providing aggregated account risk details and sub-portfolio breakdown",
   "type" : "object",
   "properties" : {
+    "currency" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Currency applied to every monetary value."
+    },
     "triggerResult" : {
       "$ref" : "../../objects/business/TriggerResult.json",
       "description" : "Details of the trigger result for the risk position."
@@ -42,6 +46,7 @@
   "additionalProperties" : false,
   "examples" : [
     {
+      "currency" : "BRL",
       "triggerResult" : {
         "marginRunId" : "MR-20251003-001",
         "timeStamp" : "2025-10-03T12:00:00Z",
@@ -59,84 +64,30 @@
         "id" : 123456
       },
       "accountRiskDetails" : {
-        "totalAdditionalMargin" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "totalMargin" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "initialMargin" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "contingentVariationMargin" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "netLiquidatingValue" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "liquidityConcentrationRiskMargin" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "wrongWayRiskMargin" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "stressTestLoss" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "stressTestLossOverInitialMargin" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "primaryInitialMargin" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "netInitialMargin" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "grossInitialMargin" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "netCollateral" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "totalLiability" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        },
-        "collateralBalanceIntraday" : {
-          "currency" : "BRL",
-          "amount" : "50000.00"
-        }
+        "totalAdditionalMargin" : 50000.00,
+        "totalMargin" : 50000.00,
+        "initialMargin" : 50000.00,
+        "contingentVariationMargin" : 50000.00,
+        "netLiquidatingValue" : 50000.00,
+        "liquidityConcentrationRiskMargin" : 50000.00,
+        "wrongWayRiskMargin" : 50000.00,
+        "stressTestLoss" : 50000.00,
+        "stressTestLossOverInitialMargin" : 50000.00,
+        "primaryInitialMargin" : 50000.00,
+        "netInitialMargin" : 50000.00,
+        "grossInitialMargin" : 50000.00,
+        "netCollateral" : 50000.00,
+        "totalLiability" : 50000.00,
+        "collateralBalanceIntraday" : 50000.00
       },
       "subPortfolios" : [
         {
           "currency" : "BRL",
           "riskMeasure" : 2,
           "holdingPeriod" : 2,
-          "initialMargin" : {
-            "amount" : "120000.00",
-            "currency" : "BRL"
-          },
-          "netInitialMargin" : {
-            "amount" : "120000.00",
-            "currency" : "BRL"
-          },
-          "grossInitialMargin" : {
-            "amount" : "120000.00",
-            "currency" : "BRL"
-          }
+          "initialMargin" : 120000.00,
+          "netInitialMargin" : 120000.00,
+          "grossInitialMargin" : 120000.00
         }
       ]
     }

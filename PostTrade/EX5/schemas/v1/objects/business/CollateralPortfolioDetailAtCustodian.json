@@ -91,10 +91,10 @@
             "deliveryQuantity": 1,
             "blockedQuantity": 1,
             "collateralValue": {
-              "amount": "380.97"
+              "amount": 380.97
             },
             "withdrawalBlockedValue": {
-              "amount": "0.00"
+              "amount": 0.00
             }
           },
           "isin": "BRI5TVA9PP77",

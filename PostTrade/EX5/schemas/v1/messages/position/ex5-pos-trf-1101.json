@@ -70,7 +70,7 @@
   "examples" : [ {
     "pagination" : {
       "paginationSet": "SET1",
-      "pageNumber" : "1",
+      "pageNumber" : 1,
       "lastPageIndicator" : true
     },
     "positionTransferInformation" : {
@@ -99,7 +99,6 @@
         "isin" : "BRPETRTNP524",
         "tickerSymbol" : "PETR4T"
       },
-      "settlementDate" : "2025-08-15",
       "shortLongIndicator" : 1,
       "quantity" : "200.00"
     } ],

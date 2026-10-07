@@ -40,11 +40,11 @@
     "collateralIdentification" : "1",
     "assetNumber" : "AAPL",
     "operationValue" : {
-      "amount" : "25000.00",
+      "amount" : 25000.00,
       "currency" : "BRL"
     },
     "collateralValue" : {
-      "amount" : "25000.00",
+      "amount" : 25000.00,
       "currency" : "BRL"
     },
     "statusInformation" : {

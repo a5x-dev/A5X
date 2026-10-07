@@ -34,11 +34,11 @@
     "collateralIdentification" : "CASH-REF-001",
     "operationValue" : {
       "currency" : "BRL",
-      "amount" : "100000.00"
+      "amount" : 100000.00
     },
     "collateralValue" : {
       "currency" : "BRL",
-      "amount" : "100000.00"
+      "amount" : 100000.00
     },
     "collateralStatus" : {
       "statusCode" : 1,

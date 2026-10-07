@@ -31,11 +31,11 @@
   "examples" : [ {
     "operationValue" : {
       "currency" : "BRL",
-      "amount" : "100000.00"
+      "amount" : 100000.00
     },
     "operationAcceptValue" : {
       "currency" : "BRL",
-      "amount" : "95000.00"
+      "amount" : 95000.00
     },
     "operationQuantity" : 1000,
     "operationAcceptQuantity" : 950

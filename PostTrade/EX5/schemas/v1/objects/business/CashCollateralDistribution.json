@@ -37,7 +37,7 @@
     "collateralIdentification" : "1",
     "assetNumber" : "2015000000349",
     "operationValue" : {
-      "amount" : "1000.00",
+      "amount" : 1000.00,
       "currency" : "BRL"
     }
   } ]

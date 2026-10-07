@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-mrg-02",
+  "$id": "urn:a5x:ex5:schema:v1:business:InstrumentMarginRate",
   "$metadata": {
-    "domain": "risk",
-    "schemaId": "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-mrg-02"
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:InstrumentMarginRate"
   },
   "title": "Instrument Margin Rate",
-  "description": "Margin or rate calculated for an instrument",
+  "description": "Margin or rate calculated for a single instrument",
   "type": "object",
   "properties": {
     "financialInstrumentIdentification": {
@@ -25,11 +25,11 @@
       "$comment": "Consult External Code List table ExternalCurrencyCode"
     },
     "marketPrice": {
-      "$ref": "../../types/DecimalNumber.json",
+      "$ref": "../../types/UnsignedDecimalNumber.json",
       "description": "Market price of the instrument, up to 2 decimal places"
     },
     "collateralMarginRate": {
-      "$ref": "../../types/DecimalNumber.json",
+      "$ref": "../../types/UnsignedDecimalNumber.json",
       "description": "Margin rate in percentage (0-100), up to 4 decimal places"
     },
     "riskPositionValueLong": {
@@ -39,6 +39,10 @@
     "riskPositionValueShort": {
       "$ref": "../../objects/business/MonetaryValue.json",
       "description": "Value of the sold position considered for risk"
+    },
+    "dailyLiquidityLimit": {
+      "$ref" : "../../types/PositiveInteger.json",
+      "description": "Daily liquidity limit (LLD) from instrument."
     }
   },
   "required": [
@@ -52,18 +56,18 @@
       "financialInstrumentIdentification": {
         "id": "100000000000001",
         "source": "8",
-        "exchange": "A5X"
+        "exchange": "A5XB"
       },
       "tickerSymbol": "PETR4",
       "currency": "BRL",
-      "marketPrice": "35.50",
-      "collateralMarginRate": "7.1253",
+      "marketPrice": 35.50,
+      "collateralMarginRate": 7.12,
       "riskPositionValueLong": {
-        "amount": "150000.00",
+        "amount": 150000.00,
         "currency": "BRL"
       },
       "riskPositionValueShort": {
-        "amount": "250000.00",
+        "amount": 250000.00,
         "currency": "BRL"
       }
     }

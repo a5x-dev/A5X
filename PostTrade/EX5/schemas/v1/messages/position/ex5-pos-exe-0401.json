@@ -9,12 +9,12 @@
   "description" : "Closed positions resulting from the exercise of options or the expiration of futures contracts",
   "type" : "object",
   "properties" : {
-    "PositionDate" : {
+    "positionDate" : {
       "type" : "string",
       "format" : "date",
       "description" : "Reference date of the information."
     },
-    "clearingmemberIdentification" : {
+    "clearingMemberIdentification" : {
       "$ref" : "../../objects/business/PartyId.json",
       "description" : "Identification of the clearing member"
     },
@@ -39,7 +39,7 @@
       } ],
       "description" : "Financial instrument information, including ISIN and ticker symbol"
     },
-    "OptionInformation" : {
+    "optionInformation" : {
       "allOf" : [ {
         "$ref" : "../../objects/business/OptionInformation.json"
       }, {
@@ -47,20 +47,20 @@
       } ],
       "description" : "Specific information for options"
     },
-    "FutureInformation" : {
+    "futureInformation" : {
       "allOf" : [ {
         "$ref" : "../../objects/business/FutureInformation.json"
       }, {
-        "required" : [ "ExpiredLongQuantity", "ExpiredShortQuantity", "VariationMarginCredit", "VariationMarginDebit" ]
+        "required" : [ "expiredLongQuantity", "expiredShortQuantity", "variationMarginCredit", "variationMarginDebit" ]
       } ],
       "description" : "Specific information for futures"
     }
   },
-  "required" : [ "PositionDate", "clearingmemberIdentification", "participantIdentification", "accountIdentification", "instrument" ],
+  "required" : [ "positionDate", "clearingMemberIdentification", "participantIdentification", "accountIdentification", "instrument" ],
   "additionalProperties" : false,
   "examples" : [ {
-    "PositionDate" : "2024-01-15",
-    "clearingmemberIdentification" : {
+    "positionDate" : "2024-01-15",
+    "clearingMemberIdentification" : {
       "id" : 888,
       "category" : 2
     },
@@ -72,16 +72,15 @@
       "id" : 123467
     },
     "instrument" : {
-
       "financialInstrumentIdentification": {
         "id": "100000000000001",
         "source": "8",
         "exchange": "A5XB"
       },
       "tickerSymbol" : "DFZ0001",
-      "expireDate": "2025-11-23"
+      "expiryDate": "2025-11-23"
     },
-    "OptionInformation" : {
+    "optionInformation" : {
       "optionType" : 1,
       "optionStyle" : "EURO",
       "exercisePrice" : "25.5",

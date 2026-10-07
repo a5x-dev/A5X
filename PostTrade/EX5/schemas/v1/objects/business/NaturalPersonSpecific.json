@@ -72,11 +72,11 @@
     "civilStatus" : 1,
     "occupation" : 252105,
     "annualIncome" : {
-      "amount" : "150000.00",
+      "amount" : 150000.00,
       "currency" : "USD"
     },
     "patrimony" : {
-      "amount" : "750000.00",
+      "amount" : 750000.00,
       "currency" : "USD"
     },
     "simplifiedRegistrationForNonResident" : false,

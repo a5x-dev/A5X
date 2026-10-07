@@ -24,7 +24,7 @@
       "description": "Expiry date of the instrument for the margin position"
     },
     "netPosition": {
-      "$ref": "../../types/DecimalNumber.json",
+      "$ref": "../../types/SignedDecimalNumber.json",
       "description": "Value of the net position for the margin position (Long Position - Short Position)"
     },
     "netValue": {
@@ -40,11 +40,11 @@
       "description": "IM sub portfolio of the instrument for the margin position"
     },
     "longPosition": {
-      "$ref": "../../types/DecimalNumber.json",
+      "$ref": "../../types/SignedDecimalNumber.json",
       "description": "Amount of long position for the margin position"
     },
     "shortPosition": {
-      "$ref": "../../types/DecimalNumber.json",
+      "$ref": "../../types/SignedDecimalNumber.json",
       "description": "Amount of short position for the margin position"
     },
     "longValue": {
@@ -70,24 +70,24 @@
       },
       "tickerSymbol": "PETR4",
       "expirationDate": "2025-12-15",
-      "netPosition": "50",
+      "netPosition": 50,
       "netValue": {
-        "amount": "75000.00",
+        "amount": 75000.00,
         "currency": "BRL"
       },
       "broughtForwardNetValue": {
-        "amount": "70000.00",
+        "amount": 70000.00,
         "currency": "BRL"
       },
       "imSubPortfolio": "SP1",
-      "longPosition": "100",
-      "shortPosition": "50",
+      "longPosition": 100,
+      "shortPosition": 50,
       "longValue": {
-        "amount": "75000.00",
+        "amount": 75000.00,
         "currency": "BRL"
       },
       "shortValue": {
-        "amount": "75000.00",
+        "amount": 75000.00,
         "currency": "BRL"
       }}
   ]

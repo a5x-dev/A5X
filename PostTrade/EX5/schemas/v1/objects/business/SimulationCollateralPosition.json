@@ -38,7 +38,7 @@
       "tickerSymbol": "ABC999",
       "financialValue": {
         "currency": "BRL",
-        "amount": "150000.75"
+        "amount": 150000.75
       }
     }
   ]

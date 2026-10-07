@@ -16,34 +16,28 @@
       "examples" : [ 1 ]
     },
     "totalValueOfCollateral" : {
-      "$ref" : "../../types/DecimalNumber.json",
-      "description" : "Total value of the collateral (post-haircut) held by the exposed party. This field has 2 decimal places",
-      "examples" : [ "1000000.50", "250000.00", "0.00" ]
+      "$ref" : "../../types/UnsignedDecimalNumber.json",
+      "description" : "Total value of the collateral (post-haircut) held by the exposed party. This field has 2 decimal places"
     },
     "riskWithoutCollateral" : {
-      "$ref" : "../../types/DecimalNumber.json",
-      "description" : "Risk Exposure without collaterals at EoD. This field has 2 decimal places",
-      "examples" : [ "500000.25", "0.00", "150000.75" ]
+      "$ref" : "../../types/SignedDecimalNumber.json",
+      "description" : "Risk Exposure without collaterals at EoD. This field has 2 decimal places"
     },
     "additionalMargin" : {
-      "$ref" : "../../types/DecimalNumber.json",
-      "description" : "Additional Margin based on positions limit. This field has 2 decimal places",
-      "examples" : [ "25000.00", "0.00", "75000.50" ]
+      "$ref" : "../../types/SignedDecimalNumber.json",
+      "description" : "Additional Margin based on positions limit. This field has 2 decimal places"
     },
     "toBeSettledValue" : {
-      "$ref" : "../../types/DecimalNumber.json",
-      "description" : "To be settled value",
-      "examples" : [ "10000.00", "0.00", "5000.25" ]
+      "$ref" : "../../types/SignedDecimalNumber.json",
+      "description" : "To be settled value"
     },
     "marginCall" : {
-      "$ref" : "../../types/DecimalNumber.json",
-      "description" : "Margin Call",
-      "examples" : [ "50000.00", "0.00", "25000.75" ]
+      "$ref" : "../../types/UnsignedDecimalNumber.json",
+      "description" : "Margin Call"
     },
     "collateralBalance" : {
-      "$ref" : "../../types/DecimalNumber.json",
-      "description" : "Remaining value (positive value) or debit (negative value) of collateral. This field has 2 decimal places",
-      "examples" : [ "100000.50", "-25000.00", "0.00" ]
+      "$ref" : "../../types/SignedDecimalNumber.json",
+      "description" : "Remaining value (positive value) or debit (negative value) of collateral. This field has 2 decimal places"
     },
     "informationType" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
@@ -56,21 +50,21 @@
   "additionalProperties" : false,
   "examples" : [ {
     "collateralCoverageType" : 1,
-    "totalValueOfCollateral" : "1000000.50",
-    "riskWithoutCollateral" : "500000.25",
-    "additionalMargin" : "25000.00",
-    "toBeSettledValue" : "10000.00",
-    "marginCall" : "50000.00",
-    "collateralBalance" : "100000.50",
+    "totalValueOfCollateral" : 1000000.50,
+    "riskWithoutCollateral" : 500000.25,
+    "additionalMargin" : 25000.00,
+    "toBeSettledValue" : 10000.00,
+    "marginCall" : 50000.00,
+    "collateralBalance" : 100000.50,
     "informationType" : 1
   }, {
     "collateralCoverageType" : 2,
-    "totalValueOfCollateral" : "750000.00",
-    "riskWithoutCollateral" : "300000.00",
-    "additionalMargin" : "15000.00",
-    "toBeSettledValue" : "5000.00",
-    "marginCall" : "25000.00",
-    "collateralBalance" : "50000.00",
+    "totalValueOfCollateral" : 750000.00,
+    "riskWithoutCollateral" : 300000.00,
+    "additionalMargin" : 15000.00,
+    "toBeSettledValue" : 5000.00,
+    "marginCall" : 25000.00,
+    "collateralBalance" : 50000.00,
     "informationType" : 2
   } ]
 }

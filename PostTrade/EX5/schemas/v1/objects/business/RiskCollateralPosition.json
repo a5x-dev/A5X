@@ -45,7 +45,7 @@
       "tickerSymbol": "PETR4",
       "quantity": 1000,
       "collateralValue": {
-        "amount": "150000.00",
+        "amount": 150000.00,
         "currency": "BRL"
       }
     }

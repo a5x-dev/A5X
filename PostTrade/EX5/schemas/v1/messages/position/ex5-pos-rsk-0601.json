@@ -27,7 +27,7 @@
   "examples" : [ {
     "pagination" : {
       "paginationSet": "SET1",
-      "pageNumber" : "1",
+      "pageNumber" : 1,
       "lastPageIndicator" : true
     },
     "positionTransferDetails" : [ {

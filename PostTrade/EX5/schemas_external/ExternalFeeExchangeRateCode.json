@@ -1,0 +1,16 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeExchangeRateCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeExchangeRateCode"
+  },
+  "title" : "External Fee Exchange Rate Code",
+  "description" : "Codes for the exchange rate source used to convert the fee value to Brazilian Real",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Dolar A5X",
+    "const" : 1
+  } ],
+  "examples" : [ 1 ]
+}

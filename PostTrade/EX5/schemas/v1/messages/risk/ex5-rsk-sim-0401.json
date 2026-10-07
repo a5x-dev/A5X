@@ -82,11 +82,11 @@
       "shortPosition" : 2,
       "longValue" : {
         "currency" : "BRL",
-        "amount" : "25000.00"
+        "amount" : 25000.00
       },
       "shortValue" : {
         "currency" : "BRL",
-        "amount" : "25000.00"
+        "amount" : 25000.00
       }
     } ],
     "simulationCollateralPosition" : [ {
@@ -96,7 +96,7 @@
       "tickerSymbol" : "ABC999",
       "financialValue" : {
         "currency" : "BRL",
-        "amount" : "150000.75"
+        "amount" : 150000.75
       }
     } ]
   } ]

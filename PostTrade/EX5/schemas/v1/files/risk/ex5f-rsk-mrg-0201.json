@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-mrg-02",
+  "$metadata": {
+    "domain": "risk",
+    "schemaId": "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-mrg-02"
+  },
+  "title": "Instrument Margin Rates File",
+  "description": "Single file containing margin and shock values for all instruments",
+  "type": "object",
+  "properties": {
+    "reportParameters": {
+      "$ref": "../../objects/business/ReportParameters.json",
+      "description": "Report parameters identifying the report emission"
+    },
+    "triggerResult": {
+      "$ref": "../../objects/business/TriggerResult.json",
+      "description": "Details of the trigger of the risk calculation that originated the values"
+    },
+    "tradeDate": {
+      "$ref": "../../types/ISODate.json",
+      "description": "Reference date of the margin and shock values"
+    },
+    "instrumentMarginRates": {
+      "type": "array",
+      "items": {
+        "$ref": "../../objects/business/InstrumentMarginRate.json"
+      },
+      "minItems": 1,
+      "description": "Margin and shock values for all instruments in the reference date"
+    }
+  },
+  "required": [
+    "reportParameters",
+    "tradeDate",
+    "instrumentMarginRates"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "reportParameters": {
+        "frequency": "DAIL",
+        "reportNumber": 132,
+        "reportDateAndTime": "2026-09-08T22:30:00Z"
+      },
+      "tradeDate": "2026-09-08",
+      "instrumentMarginRates": [
+        {
+          "financialInstrumentIdentification": {
+            "id": "100000000000001",
+            "source": "8",
+            "exchange": "A5XB"
+          },
+          "tickerSymbol": "PETR4",
+          "currency": "BRL",
+          "marketPrice": 35.50,
+          "collateralMarginRate": 7.12,
+          "riskPositionValueLong": {
+            "amount": 150000.00,
+            "currency": "BRL"
+          },
+          "riskPositionValueShort": {
+            "amount": 250000.00,
+            "currency": "BRL"
+          }
+        },
+        {
+          "financialInstrumentIdentification": {
+            "id": "100000000000002",
+            "source": "8",
+            "exchange": "A5XB"
+          },
+          "tickerSymbol": "VALE3",
+          "currency": "BRL",
+          "marketPrice": 62.10,
+          "collateralMarginRate": 8.44,
+          "riskPositionValueLong": {
+            "amount": 310000.00,
+            "currency": "BRL"
+          },
+          "riskPositionValueShort": {
+            "amount": 120000.00,
+            "currency": "BRL"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -66,7 +66,6 @@
         "accountDestinationIdentification": {
           "id": 5002
         },
-        "managementGroup": 1,
         "positionConsolidation": true,
         "automaticAcceptance": true
       },

@@ -52,7 +52,7 @@
   "examples" : [ {
     "triggerResult" : {
       "marginRunId" : "MR-20251003-001",
-      "timeStamp" : "2025-10-03 12:00:00",
+      "timeStamp" : "2025-10-03T12:00:00Z",
       "calculationType" : "HF"
     },
     "clearingMemberIdentification" : {
@@ -71,11 +71,12 @@
       "financialInstrumentIdentification" : {
         "id" : "100000000000001",
         "source" : "8",
-        "exchange" : "A5X"
+        "exchange" : "A5XB"
       },
       "tickerSymbol" : "PETR4",
+      "quantity" : 1000,
       "collateralValue" : {
-        "amount" : "150000.00",
+        "amount" : 150000.00,
         "currency" : "BRL"
       }
     }],
@@ -83,28 +84,28 @@
       "financialInstrumentIdentification" : {
         "id" : "100000000000002",
         "source" : "8",
-        "exchange" : "A5X"
+        "exchange" : "A5XB"
       },
       "tickerSymbol" : "VALE3",
-      "expiryDate" : "2025-12-15",
-      "netPosition" : "50",
+      "expirationDate" : "2025-12-15",
+      "netPosition" : 50,
       "netValue" : {
-        "amount" : "75000.00",
+        "amount" : 75000.00,
         "currency" : "BRL"
       },
       "broughtForwardNetValue" : {
-        "amount" : "70000.00",
+        "amount" : 70000.00,
         "currency" : "BRL"
       },
       "imSubPortfolio" : "SP1",
-      "longPosition" : "100",
-      "shortPosition" : "50",
+      "longPosition" : 100,
+      "shortPosition" : 50,
       "longValue" : {
-        "amount" : "150000.00",
+        "amount" : 150000.00,
         "currency" : "BRL"
       },
       "shortValue" : {
-        "amount" : "75000.00",
+        "amount" : 75000.00,
         "currency" : "BRL"
       }
     }]

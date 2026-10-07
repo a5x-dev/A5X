@@ -9,24 +9,40 @@
   "description" : "Codes for fee product group",
   "oneOf" : [ {
     "type" : "number",
-    "description" : " Família e Subfamília A",
+    "description" : "SSF - Futuro de acao",
     "const" : 1
   }, {
     "type" : "number",
-    "description" : " Família e Subfamília B",
+    "description" : "SSO - Opcao de acao",
     "const" : 2
   }, {
     "type" : "number",
-    "description" : " Família e Subfamília C",
+    "description" : "FXF - Futuro de cambio",
     "const" : 3
   }, {
     "type" : "number",
-    "description" : " Família e Subfamília D",
+    "description" : "FXO - Opcao de cambio",
     "const" : 4
   }, {
     "type" : "number",
-    "description" : " Família e Subfamília E",
+    "description" : "EIF - Futuro de indice",
     "const" : 5
+  }, {
+    "type" : "number",
+    "description" : "EIO - Opcao de indice",
+    "const" : 6
+  }, {
+    "type" : "number",
+    "description" : "CRF - Futuro de cripto",
+    "const" : 7
+  }, {
+    "type" : "number",
+    "description" : "CRO - Opcao de cripto",
+    "const" : 8
+  }, {
+    "type" : "number",
+    "description" : "IRF - Futuro de taxa de juros",
+    "const" : 9
   } ],
-  "examples" : [ 1, 2, 3, 4, 5 ]
+  "examples" : [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }

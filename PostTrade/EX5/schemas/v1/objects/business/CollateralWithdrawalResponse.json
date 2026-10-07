@@ -69,7 +69,7 @@
           "quantity": 100,
           "collateralValue": {
             "currency": "BRL",
-            "amount": "100000.00"
+            "amount": 100000.00
           },
           "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
         }
@@ -79,11 +79,11 @@
           "collateralIdentification": "CASH-REF-001",
           "operationValue": {
             "currency": "BRL",
-            "amount": "100000.00"
+            "amount": 100000.00
           },
           "collateralValue": {
             "currency": "BRL",
-            "amount": "100000.00"
+            "amount": 100000.00
           },
           "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
         }
@@ -94,7 +94,7 @@
           "quantity": 100,
           "collateralValue": {
             "currency": "BRL",
-            "amount": "100000.00"
+            "amount": 100000.00
           },
           "selicOperationCode": "65499",
           "assignerAccount": "ASSIGNER-ACC-001",
@@ -119,7 +119,7 @@
           "quantity": 100,
           "collateralValue": {
             "currency": "BRL",
-            "amount": "100000.00"
+            "amount": 100000.00
           },
           "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
         }

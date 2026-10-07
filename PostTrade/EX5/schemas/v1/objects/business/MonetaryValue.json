@@ -10,10 +10,8 @@
   "type" : "object",
   "properties" : {
     "amount" : {
-      "type" : "string",
-      "pattern" : "^\\d{1,15}(\\.\\d{1,2})?$",
-      "description" : "Monetary amount with up to 2 decimal places",
-      "examples" : [ "1000.00", "15750.50", "250000" ]
+      "$ref" : "../../types/SignedDecimalNumber.json",
+      "description" : "Monetary amount with up to 6 decimal places (accepts negative values)"
     },
     "currency" : {
       "$ref" : "../../objects/business/ExternalCodeTextList.json",
@@ -23,10 +21,9 @@
   },
   "required" : [ "amount" ],
   "additionalProperties" : true,
-  "examples" : [ {
-    "amount" : "1000.00"
-  }, {
-    "amount" : "50000.00",
-    "currency" : "USD"
-  } ]
+  "examples" : [
+    { "amount" : 1000.00 },
+    { "amount" : -50000.00, "currency" : "USD" },
+    { "amount" : 1000.123456, "currency" : "BRL" }
+  ]
 }

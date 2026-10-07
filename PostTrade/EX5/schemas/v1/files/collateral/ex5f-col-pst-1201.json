@@ -44,8 +44,8 @@
   "examples" : [ {
     "reportParameters" : {
       "frequency" : "DAIL",
-      "reportNumber" : "00132",
-      "reportDateAndTime" : "2015-09-18"
+      "reportNumber" : 132,
+      "reportDateAndTime" : "2015-09-18T12:00:00Z"
     },
     "tradeDate" : "2024-06-15T16:40:36.51Z",
     "informationType" : 2,
@@ -53,7 +53,7 @@
       "id" : 123456,
       "category" : 2
     },
-    "participantInformation" : {
+    "participantIdentification" : {
       "id" : 654321,
       "category" : 1
     },
@@ -81,7 +81,7 @@
         "financialInstrumentIdentification" : {
           "id" : "100000000000001",
           "source" : "8",
-          "exchange" : "A5X"
+          "exchange" : "A5XB"
         },
         "federalBondCollateralInformation" : {
           "collateralReference" : "FB-REF-001",
@@ -90,28 +90,28 @@
           "assigneeAccount" : "ASSIGNEE-ACC-001"
         },
         "collateralDetailInformation" : {
-          "depositedQuantity" : "1000.50",
-          "valuedQuantity" : "950.25",
-          "deliveryQuantity" : "100.00",
-          "blockedQuantity" : "50.25",
-          "haircutRate" : "15.00",
+          "depositedQuantity" : 1000,
+          "valuedQuantity" : 950,
+          "deliveryQuantity" : 100,
+          "blockedQuantity" : 50,
+          "haircutRate" : 15.00,
           "collateralValue" : {
             "currency" : "BRL",
-            "amount" : "95000.50"
+            "amount" : 95000.50
           },
           "withdrawalBlockedValue" : {
             "currency" : "BRL",
-            "amount" : "5000.00"
+            "amount" : 5000.00
           }
         }
       } ],
       "collateralBalanceInformation" : {
         "currency" : "BRL",
-        "amount" : "150000.75"
+        "amount" : 150000.75
       },
       "accountProjectedCollateralBalance" : {
         "currency" : "BRL",
-        "amount" : "142350.20"
+        "amount" : 142350.20
       }
     } ]
   } ]

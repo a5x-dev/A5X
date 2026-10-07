@@ -51,7 +51,7 @@
         "fileCode": "QUALIF004",
         "reportParameters": {
           "frequency": "DAIL",
-          "reportNumber": "00001",
+          "reportNumber": 1,
           "reportDateAndTime": "2022-05-27T00:00:00Z"
         },
         "tradeDate": "2022-05-26",
@@ -103,10 +103,10 @@
                 "deliveryQuantity": 100,
                 "blockedQuantity": 50,
                 "collateralValue": {
-                  "amount": "2870147502.59"
+                  "amount": 2870147502.59
                 },
                 "withdrawalBlockedValue": {
-                  "amount": "0.00"
+                  "amount": 0.00
                 }
               }
             }
@@ -147,10 +147,10 @@
                 "deliveryQuantity": 1,
                 "blockedQuantity": 1,
                 "collateralValue": {
-                  "amount": "380.97"
+                  "amount": 380.97
                 },
                 "withdrawalBlockedValue": {
-                  "amount": "0.00"
+                  "amount": 0.00
                 }
               },
               "isin": "BRI5TVA9PP77",
@@ -202,10 +202,10 @@
                 "deliveryQuantity": 1,
                 "blockedQuantity": 1,
                 "collateralValue": {
-                  "amount": "380.97"
+                  "amount": 380.97
                 },
                 "withdrawalBlockedValue": {
-                  "amount": "0.00"
+                  "amount": 0.00
                 }
               },
               "isin": "BRI5TVA9PP77",
@@ -244,16 +244,16 @@
           },
           "marginInformation": {
             "riskWithoutCollateral": {
-              "amount": "3498360274.71"
+              "amount": 3498360274.71
             },
             "initialMargin": {
-              "amount": "823646773.37"
+              "amount": 823646773.37
             },
             "totalCollateralValue": {
-              "amount": "2870147502.59"
+              "amount": 2870147502.59
             },
             "collateralBalance": {
-              "amount": "-823646773.37"
+              "amount": -823646773.37
             }
           }
         },
@@ -279,16 +279,16 @@
           },
           "marginInformation": {
             "riskWithoutCollateral": {
-              "amount": "535021.38"
+              "amount": 535021.38
             },
             "initialMargin": {
-              "amount": "150420.11"
+              "amount": 150420.11
             },
             "totalCollateralValue": {
-              "amount": "380.97"
+              "amount": 380.97
             },
             "collateralBalance": {
-              "amount": "-150039.14"
+              "amount": -150039.14
             }
           }
         }

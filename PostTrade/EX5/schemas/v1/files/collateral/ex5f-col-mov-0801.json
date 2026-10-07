@@ -40,8 +40,8 @@
   "examples" : [ {
     "reportParameters" : {
       "frequency" : "DAIL",
-      "reportNumber" : "00132",
-      "reportDateAndTime" : "2015-09-18"
+      "reportNumber" : 132,
+      "reportDateAndTime" : "2015-09-18T12:00:00Z"
     },
     "tradeDate" : "2015-09-22T16:40:36.51Z",
     "clearingMemberIdentification" : {
@@ -67,7 +67,7 @@
         "financialInstrumentIdentification" : {
           "id" : "100000000000001",
           "source" : "8",
-          "exchange" : "A5X"
+          "exchange" : "A5XB"
         },
         "federalBondCollateralMovement" : {
           "collateralReference" : "FB-REF-001",
@@ -79,14 +79,14 @@
         "collateralDetailMovement" : {
           "operationValue" : {
             "currency" : "BRL",
-            "amount" : "100000.00"
+            "amount" : 100000.00
           },
           "operationAcceptValue" : {
             "currency" : "BRL",
-            "amount" : "95000.00"
+            "amount" : 95000.00
           },
-          "operationQuantity" : "1000.50",
-          "operationAcceptQuantity" : "950.25"
+          "operationQuantity" : 1000,
+          "operationAcceptQuantity" : 950
         }
       } ]
     } ]

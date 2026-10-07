@@ -107,15 +107,15 @@
       "corporateActionStartDate": "2024-06-01",
       "exDistributionNumber": 10,
       "marketCapitalisation": {
-        "amount": "500000000.00",
+        "amount": 500000000.00,
         "currency": "BRL"
       },
       "firstPrice": {
-        "amount": "50.00",
+        "amount": 50.00,
         "currency": "BRL"
       },
       "lastPrice": {
-        "amount": "55.00",
+        "amount": 55.00,
         "currency": "BRL"
       },
       "underlyingInstrumentIdentification": {

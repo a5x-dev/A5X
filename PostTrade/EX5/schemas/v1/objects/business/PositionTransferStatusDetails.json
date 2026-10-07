@@ -13,10 +13,6 @@
       "$ref": "../../objects/business/Instrument.json",
       "description": "Financial instrument information, including ISIN and ticker symbol"
     },
-    "settlementDate": {
-      "$ref": "../../types/ISODate.json",
-      "description": "Settlement date for the position transfer"
-    },
     "shortLongIndicator": {
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Indicates whether the position is long or short",
@@ -28,7 +24,6 @@
   },
   "required": [
     "instrument",
-    "settlementDate",
     "shortLongIndicator",
     "quantity"
   ],
@@ -44,7 +39,6 @@
         "isin": "BRI5TVA9PP77",
         "tickerSymbol": "DFZ0001"
       },
-      "settlementDate": "2024-01-15",
       "shortLongIndicator": 1,
       "quantity": "1000.50"
     }

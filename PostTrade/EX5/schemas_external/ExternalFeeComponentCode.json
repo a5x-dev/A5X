@@ -9,108 +9,40 @@
   "description" : "Codes for fee components",
   "oneOf" : [ {
     "type" : "number",
-    "description" : "Exchange Fee Normal",
+    "description" : "Emolumento DayTrade Taker",
     "const" : 1
   }, {
     "type" : "number",
-    "description" : "Exchange Fee Normal Class A",
+    "description" : "Emolumento DayTrade Maker",
     "const" : 2
   }, {
     "type" : "number",
-    "description" : "Exchange Fee Normal Class B",
+    "description" : "Emolumento Nao DayTrade Taker",
     "const" : 3
   }, {
     "type" : "number",
-    "description" : "Exchange Fee Normal Class C",
+    "description" : "Emolumento Nao DayTrade Maker",
     "const" : 4
   }, {
     "type" : "number",
-    "description" : "Exchange Fee Normal Class D",
+    "description" : "Registro DayTrade Taker",
     "const" : 5
   }, {
     "type" : "number",
-    "description" : "Exchange Fee Daytrade Class A",
+    "description" : "Registro DayTrade Maker",
     "const" : 6
   }, {
     "type" : "number",
-    "description" : "Exchange Fee Daytrade Class B",
+    "description" : "Registro Nao DayTrade Taker",
     "const" : 7
   }, {
     "type" : "number",
-    "description" : "Exchange Fee Daytrade Class C",
+    "description" : "Registro Nao DayTrade Maker",
     "const" : 8
   }, {
     "type" : "number",
-    "description" : "Exchange Fee Daytrade Class D",
+    "description" : "Liquidacao",
     "const" : 9
-  }, {
-    "type" : "number",
-    "description" : "Clearing Fee Normal Class A",
-    "const" : 10
-  }, {
-    "type" : "number",
-    "description" : "Clearing Fee Normal Class B",
-    "const" : 11
-  }, {
-    "type" : "number",
-    "description" : "Clearing Fee Normal Class C",
-    "const" : 12
-  }, {
-    "type" : "number",
-    "description" : "Clearing Fee Normal Class D",
-    "const" : 13
-  }, {
-    "type" : "number",
-    "description" : "Clearing Fee Daytrade Class A",
-    "const" : 14
-  }, {
-    "type" : "number",
-    "description" : "Clearing Fee Daytrade Class B",
-    "const" : 15
-  }, {
-    "type" : "number",
-    "description" : "Clearing Fee Daytrade Class C",
-    "const" : 16
-  }, {
-    "type" : "number",
-    "description" : "Clearing Fee Daytrade Class D",
-    "const" : 17
-  }, {
-    "type" : "number",
-    "description" : "Settlement Fee Class A",
-    "const" : 18
-  }, {
-    "type" : "number",
-    "description" : "Settlement Fee Class B",
-    "const" : 19
-  }, {
-    "type" : "number",
-    "description" : "Settlement Fee Class C",
-    "const" : 20
-  }, {
-    "type" : "number",
-    "description" : "Exercise Fee Class A",
-    "const" : 21
-  }, {
-    "type" : "number",
-    "description" : "Exercise Fee Class B",
-    "const" : 22
-  }, {
-    "type" : "number",
-    "description" : "Exercise Fee Class C",
-    "const" : 23
-  }, {
-    "type" : "number",
-    "description" : "Strategy Fee Class A",
-    "const" : 24
-  }, {
-    "type" : "number",
-    "description" : "Strategy Fee Class B",
-    "const" : 25
-  }, {
-    "type" : "number",
-    "description" : "Strategy Fee Class C",
-    "const" : 26
   } ],
-  "examples" : [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26 ]
+  "examples" : [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }

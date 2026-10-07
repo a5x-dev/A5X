@@ -183,7 +183,7 @@
       "corporationName": "EXAMPLE FUTURES CORP",
       "tradingStartDate": "2024-01-01",
       "lastPrice": {
-        "amount": "150.00",
+        "amount": 150.00,
         "currency": "BRL"
       },
       "underlyingInstrumentIdentification": {

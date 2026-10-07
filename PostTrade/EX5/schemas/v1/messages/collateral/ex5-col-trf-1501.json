@@ -82,7 +82,7 @@
         },
         "centralDepositoryOperationNumber" : "123456789",
         "activeCurrencyAndAmount" : {
-          "amount" : "1000.00",
+          "amount" : 1000.00,
           "currency" : "BRL"
         }
       } ]

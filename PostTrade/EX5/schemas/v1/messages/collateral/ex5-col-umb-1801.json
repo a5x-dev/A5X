@@ -53,11 +53,11 @@
           "collateralIdentification": "2",
           "quantity": 2000,
           "operationValue": {
-            "amount": "1000.00",
+            "amount": 1000.00,
             "currency": "BRL"
           },
           "collateralValue": {
-            "amount": "75000.00",
+            "amount": 75000.00,
             "currency": "BRL"
           },
           "collateralStatus": {

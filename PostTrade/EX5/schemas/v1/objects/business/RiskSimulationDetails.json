@@ -19,31 +19,31 @@
       "description" : "Timestamp of the risk simulation result"
     },
     "totalLiability" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Consolidated result of investor risk assessment"
     },
     "initialMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Initial margin value at account level"
     },
     "contingentVariationMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Contingent variation margin value at account level"
     },
     "netLiquidatingValue" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Net liquidity value at account level"
     },
     "netCollateral" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Net collateral value at account level"
     },
     "liquidityConcentrationRiskMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Value of liquidity and concentration risk at account level"
     },
     "wrongWayRiskMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Value of correlation risk at account level"
     },
     "systemStatusMessage" : {
@@ -70,34 +70,13 @@
     {
       "riskSimulationId" : "Simulation123",
       "timestamp" : "2025-10-02T12:34:56Z",
-      "totalLiability" : {
-        "currency" : "BRL",
-        "amount" : "500000.00"
-      },
-      "initialMargin" : {
-        "currency" : "BRL",
-        "amount" : "100000.25"
-      },
-      "contingentVariationMargin" : {
-        "currency" : "BRL",
-        "amount" : "75000.50"
-      },
-      "netLiquidatingValue" : {
-        "currency" : "BRL",
-        "amount" : "200000.75"
-      },
-      "netCollateral" : {
-        "currency" : "BRL",
-        "amount" : "180000.00"
-      },
-      "liquidityConcentrationRiskMargin" : {
-        "currency" : "BRL",
-        "amount" : "50000.00"
-      },
-      "wrongWayRiskMargin" : {
-        "currency" : "BRL",
-        "amount" : "25000.25"
-      },
+      "totalLiability" : 500000.00,
+      "initialMargin" : 100000.25,
+      "contingentVariationMargin" : 75000.50,
+      "netLiquidatingValue" : 200000.75,
+      "netCollateral" : 180000.00,
+      "liquidityConcentrationRiskMargin" : 50000.00,
+      "wrongWayRiskMargin" : 25000.25,
       "systemStatusMessage" : "Simulation Successful. Excluded Instrument(s): XXXX",
       "userComment" : "Result under base scenario; revise foreign exchange exposure"
     }

@@ -40,11 +40,6 @@
       "$ref": "../../objects/business/AccountIdentification.json",
       "description": "Provides details about the account identification"
     },
-    "managementGroup": {
-      "$ref": "../../objects/business/ExternalCodeList.json",
-      "description": "Management group for the link",
-      "$comment": "Consult External Code List table ExternalFeeManagementGroupCode."
-    },
     "positionConsolidation": {
       "type": "boolean",
       "description": "Enables position consolidation between linked accounts",
@@ -83,7 +78,6 @@
       "accountDestinationIdentification": {
         "id": 5002
       },
-      "managementGroup": 1,
       "positionConsolidation": true,
       "automaticAcceptance": true
     }

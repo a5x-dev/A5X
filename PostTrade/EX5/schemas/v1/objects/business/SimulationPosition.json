@@ -48,11 +48,11 @@
     "shortPosition" : 2,
     "longValue" : {
       "currency" : "BRL",
-      "amount" : "25000.00"
+      "amount" : 25000.00
     },
     "shortValue" : {
       "currency" : "BRL",
-      "amount" : "25000.00"
+      "amount" : 25000.00
     }
   } ]
 }

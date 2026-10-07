@@ -15,27 +15,27 @@
       "$comment" : "Consult External Code List table ExternalCollateralCoverageTypeCode"
     },
     "totalValueOfCollateral" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/UnsignedDecimalNumber.json",
       "description" : "Total value of the collateral (post-haircut) held by the exposed party. This field has 2 decimal places"
     },
     "riskWithoutCollateral" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Risk Exposure without collaterals at EoD. This field has 2 decimal places"
     },
     "additionalMargin" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Additional Margin based on positions limit. This field has 2 decimal places"
     },
     "toBeSettledValue" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "To be settled value"
     },
     "marginCall" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/UnsignedDecimalNumber.json",
       "description" : "Margin Call"
     },
     "collateralBalance" : {
-      "$ref" : "../../types/DecimalNumber.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Remaining value (positive value) or debit (negative value) of collateral. This field has 2 decimal places"
     },
     "informationType" : {
@@ -55,19 +55,19 @@
         {
           "properties" : {
             "intradayRiskLimitAssigned" : {
-              "$ref" : "../../types/DecimalNumber.json",
+              "$ref" : "../../types/UnsignedDecimalNumber.json",
               "description" : "This block contains the value of the intraday risk limit determined by the responsible in the chain of responsibility"
             },
             "riskWithoutCollateralIntraday" : {
-              "$ref" : "../../types/DecimalNumber.json",
+              "$ref" : "../../types/SignedDecimalNumber.json",
               "description" : "Risk Exposure without collaterals at EoD"
             },
             "collateralBalanceIntraday" : {
-              "$ref" : "../../objects/business/MonetaryValue.json",
+              "$ref" : "../../types/SignedDecimalNumber.json",
               "description" : "Intraday remaining value (positive value) or debit (negative value) of collateral. This field has 2 decimal places"
             },
             "projectedBalance" : {
-              "$ref" : "../../objects/business/MonetaryValue.json",
+              "$ref" : "../../types/SignedDecimalNumber.json",
               "description" : "Remaining value (positive value) or debit (negative value) of collateral considering intraday and official margin run. This field has 2 decimal places"
             }
           }
@@ -101,68 +101,32 @@
   "examples" : [
     {
       "collateralCoverageType" : 2,
-      "totalValueOfCollateral" : "750000.00",
-      "riskWithoutCollateral" : "300000.00",
-      "additionalMargin" : "15000.00",
-      "toBeSettledValue" : "5000.00",
-      "marginCall" : "25000.00",
-      "collateralBalance" : "50000.00",
+      "totalValueOfCollateral" : 750000.00,
+      "riskWithoutCollateral" : 300000.00,
+      "additionalMargin" : 15000.00,
+      "toBeSettledValue" : 5000.00,
+      "marginCall" : 25000.00,
+      "collateralBalance" : 50000.00,
       "informationType" : 2,
       "additionalInformationOfficialCollCall" : {
         "marginRunId": "MR-20240101-001",
-        "totalMargin" : {
-          "currency" : "BRL",
-          "amount" : "150000.50"
-        },
-        "initialMargin" : {
-          "currency" : "BRL",
-          "amount" : "100000.25"
-        },
-        "totalAdditionalMargin" : {
-          "currency" : "BRL",
-          "amount" : "50000.25"
-        },
-        "contingentVariationMargin" : {
-          "currency" : "BRL",
-          "amount" : "25000.00"
-        },
-        "netLiquidityValue" : {
-          "currency" : "BRL",
-          "amount" : "200000.75"
-        }
+        "totalMargin" : 150000.50,
+        "initialMargin" : 100000.25,
+        "totalAdditionalMargin" : 50000.25,
+        "contingentVariationMargin" : 25000.00,
+        "netLiquidityValue" : 200000.75
       },
       "additionalInformationIntradayCollCall" : {
         "marginRunId": "MR-20240101-001",
-        "totalMargin" : {
-          "currency" : "BRL",
-          "amount" : "150000.50"
-        },
-        "initialMargin" : {
-          "currency" : "BRL",
-          "amount" : "100000.25"
-        },
-        "totalAdditionalMargin" : {
-          "currency" : "BRL",
-          "amount" : "50000.25"
-        },
-        "contingentVariationMargin" : {
-          "currency" : "BRL",
-          "amount" : "25000.00"
-        },
-        "netLiquidityValue" : {
-          "currency" : "BRL",
-          "amount" : "200000.75"
-        },
-        "intradayRiskLimitAssigned" : "1000000.12",
-        "riskWithoutCollateralIntraday" : "500000.25",
-        "collateralBalanceIntraday" : {
-          "currency" : "BRL",
-          "amount" : "75000.00"
-        },
-        "projectedBalance" : {
-          "currency" : "BRL",
-          "amount" : "120000.50"
-        }
+        "totalMargin" : 150000.50,
+        "initialMargin" : 100000.25,
+        "totalAdditionalMargin" : 50000.25,
+        "contingentVariationMargin" : 25000.00,
+        "netLiquidityValue" : 200000.75,
+        "intradayRiskLimitAssigned" : 1000000.12,
+        "riskWithoutCollateralIntraday" : 500000.25,
+        "collateralBalanceIntraday" : 75000.00,
+        "projectedBalance" : 120000.50
       }
     }
   ]

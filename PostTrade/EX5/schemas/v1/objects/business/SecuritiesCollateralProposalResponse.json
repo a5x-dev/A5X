@@ -42,7 +42,7 @@
     "quantity" : 100,
     "collateralValue" : {
       "currency" : "USD",
-      "amount" : "1000.0"
+      "amount" : 1000.0
     },
     "statusInformation" : {
       "statusCode" : 1,

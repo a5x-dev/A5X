@@ -40,7 +40,7 @@
   "examples" : [ {
     "reportParameters" : {
       "frequency" : "DAIL",
-      "reportNumber" : "00132",
+      "reportNumber" : 132,
       "reportDateAndTime" : "2024-06-15T16:40:36.51Z"
     },
     "tradeDate" : "2015-09-22T16:40:36.51Z",
@@ -79,11 +79,11 @@
         "collateralDetailMovement" : {
           "operationValue" : {
             "currency" : "BRL",
-            "amount" : "100000.00"
+            "amount" : 100000.00
           },
           "operationAcceptValue" : {
             "currency" : "BRL",
-            "amount" : "95000.00"
+            "amount" : 95000.00
           },
           "operationQuantity" : 1000,
           "operationAcceptQuantity" : 950

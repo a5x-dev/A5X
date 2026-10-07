@@ -101,7 +101,7 @@
       },
       "centralDepositoryOperationNumber" : "123456789",
       "activeCurrencyAndAmount" : {
-        "amount" : "1000.00",
+        "amount" : 1000.00,
         "currency" : "BRL"
       }
     } ]
@@ -111,11 +111,11 @@
       "collateralIdentification" : "1",
       "assetNumber" : "2015000000349",
       "operationValue" : {
-        "amount" : "25000.00",
+        "amount" : 25000.00,
         "currency" : "BRL"
       },
       "collateralValue" : {
-        "amount" : "24000.00",
+        "amount" : 24000.00,
         "currency" : "BRL"
       }
     } ]
@@ -128,7 +128,7 @@
       "assigneeAccount" : "ASSIGNEE-001",
       "quantity" : 250,
       "collateralValue" : {
-        "amount" : "24000.00",
+        "amount" : 24000.00,
         "currency" : "BRL"
       }
     } ]
@@ -139,7 +139,7 @@
       "assetNumber" : "AST-REG-12345",
       "quantity" : 1500,
       "collateralValue" : {
-        "amount" : "150000.50",
+        "amount" : 150000.50,
         "currency" : "BRL"
         }
     } ]

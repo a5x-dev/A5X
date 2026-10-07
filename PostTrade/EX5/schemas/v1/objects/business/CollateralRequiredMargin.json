@@ -113,16 +113,16 @@
       },
       "marginInformation": {
         "riskWithoutCollateral": {
-          "amount": "2870147502.59"
+          "amount": 2870147502.59
         },
         "initialMargin": {
-          "amount": "300000.00"
+          "amount": 300000.00
         },
         "totalCollateralValue": {
-          "amount": "2046500729.22"
+          "amount": 2046500729.22
         },
         "collateralBalance": {
-          "amount": "50000.00"
+          "amount": 50000.00
         }
       }
     }

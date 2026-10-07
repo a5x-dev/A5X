@@ -41,7 +41,7 @@
       "assetNumber" : "AST-REG-12345",
       "quantity" : 100,
       "collateralValue" : {
-        "amount" : "150000.50",
+        "amount" : 150000.50,
         "currency" : "BRL"
       }
     }

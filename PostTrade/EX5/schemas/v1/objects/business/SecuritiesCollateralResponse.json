@@ -35,7 +35,7 @@
     "quantity" : 100,
     "collateralValue" : {
       "currency" : "BRL",
-      "amount" : "100000.00"
+      "amount" : 100000.00
     },
     "collateralStatus" : {
       "statusCode" : 1,

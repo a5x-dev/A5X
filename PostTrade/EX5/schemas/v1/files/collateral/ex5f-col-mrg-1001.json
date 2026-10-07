@@ -9,6 +9,10 @@
   "description" : "Response message for collateral margin information",
   "type" : "object",
   "properties" : {
+    "currency" : {
+      "$ref" : "../../objects/business/ExternalCodeTextList.json",
+      "description" : "Currency applied to every monetary value."
+    },
     "transactionIdentification" : {
       "$ref" : "../../objects/business/TransactionIdentification.json",
       "description" : "Provides details about unique transaction identification known by the participant"
@@ -37,6 +41,7 @@
   "required" : [ "transactionIdentification", "tradeDate", "clearingMemberIdentification", "collateralInformation" ],
   "additionalProperties" : false,
   "examples" : [ {
+    "currency" : "BRL",
     "transactionIdentification" : "TXN-20240115-001",
     "tradeDate" : "2024-01-15",
     "clearingMemberIdentification" : {
@@ -53,60 +58,30 @@
       },
       "marginDetails" : [ {
         "collateralCoverageType" : 2,
-        "totalValueOfCollateral" : "750000.00",
-        "riskWithoutCollateral" : "300000.00",
-        "additionalMargin" : "15000.00",
-        "toBeSettledValue" : "5000.00",
-        "marginCall" : "25000.00",
-        "collateralBalance" : "50000.00",
+        "totalValueOfCollateral" : 750000.00,
+        "riskWithoutCollateral" : 300000.00,
+        "additionalMargin" : 15000.00,
+        "toBeSettledValue" : 5000.00,
+        "marginCall" : 25000.00,
+        "collateralBalance" : 50000.00,
         "informationType" : 2,
         "additionalInformationOfficialCollCall" : {
           "marginRunId" : "MR-20240101-001",
-          "totalMargin" : {
-            "currency" : "BRL",
-            "amount" : "150000.50"
-          },
-          "initialMargin" : {
-            "currency" : "BRL",
-            "amount" : "100000.25"
-          },
-          "totalAM" : {
-            "currency" : "BRL",
-            "amount" : "50000.25"
-          },
-          "realizedVariationMargin" : {
-            "currency" : "BRL",
-            "amount" : "25000.00"
-          },
-          "netLiquidityValue" : {
-            "currency" : "BRL",
-            "amount" : "200000.75"
-          }
+          "totalMargin" : 150000.50,
+          "initialMargin" : 100000.25,
+          "totalAdditionalMargin" : 50000.25,
+          "contingentVariationMargin" : 25000.00,
+          "netLiquidityValue" : 200000.75
         },
         "additionalInformationIntradayCollCall" : {
           "marginRunId" : "MR-20240101-001",
-          "totalMargin" : {
-            "currency" : "BRL",
-            "amount" : "150000.50"
-          },
-          "initialMargin" : {
-            "currency" : "BRL",
-            "amount" : "100000.25"
-          },
-          "totalAM" : {
-            "currency" : "BRL",
-            "amount" : "50000.25"
-          },
-          "realizedVariationMargin" : {
-            "currency" : "BRL",
-            "amount" : "25000.00"
-          },
-          "netLiquidityValue" : {
-            "currency" : "BRL",
-            "amount" : "200000.75"
-          },
-          "intradayRiskLimitAssigned" : "1000000.12",
-          "riskWithoutCollateralIntraday" : "500000.25"
+          "totalMargin" : 150000.50,
+          "initialMargin" : 100000.25,
+          "totalAdditionalMargin" : 50000.25,
+          "contingentVariationMargin" : 25000.00,
+          "netLiquidityValue" : 200000.75,
+          "intradayRiskLimitAssigned" : 1000000.12,
+          "riskWithoutCollateralIntraday" : 500000.25
         }
       } ]
     } ]

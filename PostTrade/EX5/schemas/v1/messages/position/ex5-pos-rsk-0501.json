@@ -46,39 +46,39 @@
         "positionDirection": 1,
         "totalLiability": {
           "currency": "BRL",
-          "amount": "500000.00"
+          "amount": 500000.00
         },
         "initialMargin": {
           "currency": "BRL",
-          "amount": "100000.25"
+          "amount": 100000.25
         },
         "contingentVariationMargin": {
           "currency": "BRL",
-          "amount": "75000.50"
+          "amount": 75000.50
         },
         "netLiquidatingValue": {
           "currency": "BRL",
-          "amount": "200000.75"
+          "amount": 200000.75
         },
         "liquidityConcentrationRiskMargin": {
           "currency": "BRL",
-          "amount": "50000.00"
+          "amount": 50000.00
         },
         "wrongWayRiskMargin": {
           "currency": "BRL",
-          "amount": "25000.25"
+          "amount": 25000.25
         },
         "defaultFundAdditionalMargin": {
           "currency": "BRL",
-          "amount": "15000.50"
+          "amount": 15000.50
         },
         "netCollateral": {
           "currency": "BRL",
-          "amount": "300000.00"
+          "amount": 300000.00
         },
         "requiredCollateral": {
           "currency": "BRL",
-          "amount": "250000.75"
+          "amount": 250000.75
         },
         "assessmentStatus": 2
       }

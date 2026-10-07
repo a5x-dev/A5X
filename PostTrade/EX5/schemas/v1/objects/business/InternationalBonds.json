@@ -53,7 +53,7 @@
       "issuerCountry": "USA",
       "instrumentType": "Corporate Bond",
       "issuePrice": {
-        "amount": "1000.00",
+        "amount": 1000.00,
         "currency": "BRL"
       },
       "currency": "USD"
