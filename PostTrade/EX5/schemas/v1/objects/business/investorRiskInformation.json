@@ -49,12 +49,8 @@
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Value of correlation risk at account level"
     },
-    "defaultFundAdditionalMargin" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
-      "description" : "Value of the additional margin to the settlement fund at account level"
-    },
     "netCollateral" : {
-      "$ref" : "../../objects/business/MonetaryValue.json",
+      "$ref" : "../../objects/business/PositiveMonetaryValue.json",
       "description" : "Value of the sum of all guarantees in the account level after consideration haircut"
     },
     "requiredCollateral" : {
@@ -77,7 +73,6 @@
     "netLiquidatingValue",
     "liquidityConcentrationRiskMargin",
     "wrongWayRiskMargin",
-    "defaultFundAdditionalMargin",
     "netCollateral",
     "requiredCollateral",
     "assessmentStatus"
@@ -113,10 +108,6 @@
       "wrongWayRiskMargin" : {
         "currency" : "BRL",
         "amount" : 25000.25
-      },
-      "defaultFundAdditionalMargin" : {
-        "currency" : "BRL",
-        "amount" : 15000.50
       },
       "netCollateral" : {
         "currency" : "BRL",

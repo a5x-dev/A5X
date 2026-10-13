@@ -58,7 +58,7 @@
       "description" : "Gross Initial Margin for Margin Account."
     },
     "netCollateral" : {
-      "$ref" : "../../types/SignedDecimalNumber.json",
+      "$ref" : "../../types/UnsignedDecimalNumber.json",
       "description" : "Value of the summation of all collateral for the selected Collateral Account after haircut calculation in the base currency of the Collateral Account."
     },
     "totalLiability" : {

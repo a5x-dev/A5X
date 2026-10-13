@@ -23,7 +23,10 @@
     },
     "participantIdentification" : {
       "$ref" : "../../objects/business/PartyId.json",
-      "description" : "Provides details about the participant identification"
+      "description" : "Provides details about the participant identification",
+      "$metadata" : {
+        "destinationParty" : true
+      }
     },
     "accountIdentification" : {
       "$ref" : "../../objects/business/AccountIdentification.json",

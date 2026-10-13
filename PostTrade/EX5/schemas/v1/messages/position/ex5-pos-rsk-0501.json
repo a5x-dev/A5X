@@ -68,10 +68,6 @@
           "currency": "BRL",
           "amount": 25000.25
         },
-        "defaultFundAdditionalMargin": {
-          "currency": "BRL",
-          "amount": 15000.50
-        },
         "netCollateral": {
           "currency": "BRL",
           "amount": 300000.00

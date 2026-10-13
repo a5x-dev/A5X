@@ -6,7 +6,7 @@
     "schemaId": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-01"
   },
   "title": "Professional Search Message",
-  "description": "Message for searching financial market professionals. The return will be sent in the file response ex5f-reg-rpt-0101.jsonl.",
+  "description": "Message for searching financial market professionals. The return will be sent in the file response ex5f-reg-rpt-0301.jsonl.",
   "$comment": "If sent without filter fields, returns all active professionals for the specified participant.",
   "type": "object",
   "properties": {

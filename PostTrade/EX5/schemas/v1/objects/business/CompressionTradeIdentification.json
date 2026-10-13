@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:business:CompressionTradeIdentification",
+  "$metadata": {
+    "domain": "business",
+    "schemaId": "urn:a5x:ex5:schema:v1:business:CompressionTradeIdentification"
+  },
+  "title": "Compression Trade Identification",
+  "description": "Keys of the compressed trade (the block) that link a Compression Trade message to the Trade Capture notification of the same block",
+  "type": "object",
+  "properties": {
+    "tradeIdentification": {
+      "type": "string",
+      "maxLength": 35,
+      "minLength": 1,
+      "description": "Trade identification number of the compressed trade"
+    },
+    "allocationIdentification": {
+      "type": "string",
+      "maxLength": 30,
+      "minLength": 1,
+      "description": "Allocation identification number of the compressed trade"
+    }
+  },
+  "required": [
+    "tradeIdentification"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "tradeIdentification": "3HBHYTHO5NL000",
+      "allocationIdentification": "BL1SBR4S8Y51cboW8A"
+    }
+  ]
+}

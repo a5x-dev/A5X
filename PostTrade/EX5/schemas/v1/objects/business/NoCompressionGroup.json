@@ -23,6 +23,13 @@
       "description": "Trade identification number",
       "examples": ["TRD20250101001", "TRADE-ABC-123456"]
     },
+    "allocationIdentification": {
+      "type": "string",
+      "maxLength": 30,
+      "minLength": 1,
+      "description": "Allocation identification number of the trade",
+      "examples": ["AB1SBR4S8Y51cboW8"]
+    },
     "transactionDateTime": {
       "$ref": "../../types/ISODateTime.json",
       "description": "Transaction date and time in ISO format",
@@ -49,7 +56,7 @@
       "$ref": "../../objects/business/ExternalCodeList.json",
       "description": "Status code for compression trade operation",
       "$comment": "Consult External Code List table ExternalCompressionTradeStatusCode",
-      "examples": [1, 2, 3]
+      "examples": [1, 2]
     }
   },
   "required": [
@@ -63,6 +70,7 @@
     {
       "orderIdentification": "ORD20250101001",
       "tradeIdentification": "TRD20250101001",
+      "allocationIdentification": "AB1SBR4S8Y51cboW8",
       "transactionDateTime": "2025-01-15T10:30:00Z",
       "tradeQuantity": "1000.50",
       "enteringTrade": "500.25",

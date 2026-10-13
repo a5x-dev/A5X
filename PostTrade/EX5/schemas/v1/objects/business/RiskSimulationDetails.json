@@ -35,7 +35,7 @@
       "description" : "Net liquidity value at account level"
     },
     "netCollateral" : {
-      "$ref" : "../../types/SignedDecimalNumber.json",
+      "$ref" : "../../types/UnsignedDecimalNumber.json",
       "description" : "Net collateral value at account level"
     },
     "liquidityConcentrationRiskMargin" : {

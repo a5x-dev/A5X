@@ -159,10 +159,12 @@
           "description" : "Message that contains the payload"
         }
       },
-      "required" : [ ]
+      "required" : [ ],
+      "additionalProperties" : false
     }
   },
   "required" : [ "messageHeader", "body" ],
+  "additionalProperties" : false,
   "description" : "payload Description",
   "examples" : [ {
     "messageHeader" : {
