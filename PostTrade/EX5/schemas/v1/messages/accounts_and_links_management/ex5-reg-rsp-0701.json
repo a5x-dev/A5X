@@ -11,7 +11,10 @@
   "properties": {
     "participantIdentification": {
       "$ref": "../../objects/business/PartyId.json",
-      "description": "Participant identification using existing PartyId structure"
+      "description": "Participant identification using existing PartyId structure",
+      "$metadata": {
+        "destinationParty": true
+      }
     },
     "operationType": {
       "$ref": "../../objects/business/ExternalCodeList.json",

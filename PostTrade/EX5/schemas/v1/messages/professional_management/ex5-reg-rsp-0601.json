@@ -11,7 +11,10 @@
   "properties": {
     "participantIdentification": {
       "$ref": "../../objects/business/PartyId.json",
-      "description": "Participant ID associated with the user"
+      "description": "Participant ID associated with the user",
+      "$metadata": {
+        "destinationParty": true
+      }
     },
     "operationType": {
       "$ref": "../../objects/business/ExternalCodeList.json",

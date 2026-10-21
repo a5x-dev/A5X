@@ -19,7 +19,10 @@
     },
     "participantDestinationIdentification": {
       "$ref": "../../objects/business/PartyId.json",
-      "description": "Identification of the participant taking the allocation."
+      "description": "Identification of the participant taking the allocation.",
+      "$metadata": {
+        "destinationParty": true
+      }
     },
     "accountDestinationIdentification": {
       "$ref": "../../objects/business/Account.json",

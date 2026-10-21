@@ -32,7 +32,10 @@
     },
     "participantIdentification": {
       "$ref": "../../objects/business/PartyId.json",
-      "description": "Identification of the participant using proprietary scheme"
+      "description": "Identification of the participant using proprietary scheme",
+      "$metadata": {
+        "destinationParty": true
+      }
     },
     "clearingMemberIdentification": {
       "$ref": "../../objects/business/PartyId.json",
