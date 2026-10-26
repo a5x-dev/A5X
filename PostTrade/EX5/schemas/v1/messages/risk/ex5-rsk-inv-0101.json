@@ -88,9 +88,13 @@
           "currency" : "BRL",
           "riskMeasure" : 2,
           "holdingPeriod" : 2,
-          "initialMargin" : 120000.00,
-          "netInitialMargin" : 120000.00,
-          "grossInitialMargin" : 120000.00
+          "finalInitialMargin" : 120000.00,
+          "currentInitialMargin" : 120000.00,
+          "expiryOffsetInitialMargin" : 115000.00,
+          "currentNetInitialMargin" : 120000.00,
+          "expiryOffsetNetInitialMargin" : 115000.00,
+          "currentGrossInitialMargin" : 125000.00,
+          "expiryOffsetGrossInitialMargin" : 118000.00
         }
       ]
     }

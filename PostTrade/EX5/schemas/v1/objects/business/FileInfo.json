@@ -33,7 +33,7 @@
       "type" : "string",
       "description" : "URL to access the generated file",
       "format" : "uri",
-      "examples" : [ "https://nome-do-bucket.s3.amazonaws.com/EX5F-COL-EXP-0101.zip?AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Expires=1697059200&Signature=abc123xyz789EXAMPLE%3D" ]
+      "examples" : [ "https://nome-do-bucket.s3.amazonaws.com/EX5F-COL-EXP-0101.zip?AWSAccessKeyId=EXAMPLEACCESSKEY&Expires=1697059200&Signature=abc123xyz789EXAMPLE%3D" ]
     },
     "filePath" : {
       "type" : "string",
@@ -58,7 +58,7 @@
   "examples" : [ {
     "status" : 2,
     "fileName" : "EX5F-COL-EXP-0101.zip",
-    "fileLink" : "https://nome-do-bucket.s3.amazonaws.com/EX5F-COL-EXP-0101.zip?AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE&Expires=1697059200&Signature=abc123xyz789EXAMPLE%3D",
+    "fileLink" : "https://nome-do-bucket.s3.amazonaws.com/EX5F-COL-EXP-0101.zip?AWSAccessKeyId=EXAMPLEACCESSKEY&Expires=1697059200&Signature=abc123xyz789EXAMPLE%3D",
     "filePath" : "/out/EX5F-COL-EXP-0101.zip",
     "countLines" : 1,
     "timestamp" : "2024-01-15T14:30:15Z"

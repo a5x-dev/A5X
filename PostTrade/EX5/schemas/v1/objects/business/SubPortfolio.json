@@ -23,26 +23,46 @@
       "type" : "integer",
       "description" : "Holding Period of the sub-portfolio"
     },
-    "initialMargin" : {
+    "finalInitialMargin" : {
       "$ref" : "../../types/SignedDecimalNumber.json",
-      "description" : "The Initial Margin of the sub-portfolio. This could be either Net IM of SP or Gross IM of SP or even a combination of Net IM and Gross IM."
+      "description" : "The Final Initial Margin of the sub-portfolio. This could be either the Current IM or the Expiry Offset IM, depending on configuration."
     },
-    "netInitialMargin" : {
+    "currentInitialMargin" : {
       "$ref" : "../../types/SignedDecimalNumber.json",
-      "description" : "The Net Initial Margin of the sub-portfolio"
+      "description" : "The Current Initial Margin IM(T) of the sub-portfolio. This could be either Net IM(T) or Gross IM(T) or even a combination of both, depending on configuration."
     },
-    "grossInitialMargin" : {
+    "expiryOffsetInitialMargin" : {
       "$ref" : "../../types/SignedDecimalNumber.json",
-      "description" : "The Gross Initial Margin of the sub-portfolio."
+      "description" : "The Expiry Offset Initial Margin IM(T+n) of the sub-portfolio. This could be either Net IM(T+n) or Gross IM(T+n) or even a combination of both, depending on configuration."
+    },
+    "currentNetInitialMargin" : {
+      "$ref" : "../../types/SignedDecimalNumber.json",
+      "description" : "The Current Net Initial Margin Net IM(T) of the sub-portfolio."
+    },
+    "expiryOffsetNetInitialMargin" : {
+      "$ref" : "../../types/SignedDecimalNumber.json",
+      "description" : "The Expiry Offset Net Initial Margin Net IM(T+n) of the sub-portfolio."
+    },
+    "currentGrossInitialMargin" : {
+      "$ref" : "../../types/SignedDecimalNumber.json",
+      "description" : "The Current Gross Initial Margin Gross IM(T) of the sub-portfolio."
+    },
+    "expiryOffsetGrossInitialMargin" : {
+      "$ref" : "../../types/SignedDecimalNumber.json",
+      "description" : "The Expiry Offset Gross Initial Margin Gross IM(T+n) of the sub-portfolio."
     }
   },
   "required" : [
     "currency",
     "riskMeasure",
     "holdingPeriod",
-    "initialMargin",
-    "netInitialMargin",
-    "grossInitialMargin"
+    "finalInitialMargin",
+    "currentInitialMargin",
+    "expiryOffsetInitialMargin",
+    "currentNetInitialMargin",
+    "expiryOffsetNetInitialMargin",
+    "currentGrossInitialMargin",
+    "expiryOffsetGrossInitialMargin"
   ],
   "additionalProperties" : false,
   "examples" : [
@@ -50,9 +70,13 @@
       "currency" : "BRL",
       "riskMeasure" : 2,
       "holdingPeriod" : 2,
-      "initialMargin" : 50000.00,
-      "netInitialMargin" : 50000.00,
-      "grossInitialMargin" : 50000.00
+      "finalInitialMargin" : 50000.00,
+      "currentInitialMargin" : 50000.00,
+      "expiryOffsetInitialMargin" : 48000.00,
+      "currentNetInitialMargin" : 50000.00,
+      "expiryOffsetNetInitialMargin" : 48000.00,
+      "currentGrossInitialMargin" : 52000.00,
+      "expiryOffsetGrossInitialMargin" : 49000.00
     }
   ]
 }

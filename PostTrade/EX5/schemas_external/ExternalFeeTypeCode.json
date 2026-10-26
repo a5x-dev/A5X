@@ -1,0 +1,24 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeTypeCode",
+  "$metadata" : {
+    "domain" : "schemas_external",
+    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalFeeTypeCode"
+  },
+  "title" : "External Fee Type",
+  "description" : "Codes for fee type",
+  "oneOf" : [ {
+    "type" : "number",
+    "description" : "Emolumento",
+    "const" : 1
+  }, {
+    "type" : "number",
+    "description" : "Registro",
+    "const" : 2
+  }, {
+    "type" : "number",
+    "description" : "Liquidacao",
+    "const" : 3
+  } ],
+  "examples" : [ 1, 2, 3 ]
+}

@@ -148,6 +148,8 @@
           }, {
             "$ref" : "../messages/technical/ex5-tec-ntf-0401.json"
           }, {
+            "$ref" : "../messages/technical/ex5-tec-ntf-0901.json"
+          }, {
             "$ref" : "../messages/technical/ex5-tec-req-0501.json"
           }, {
             "$ref" : "../messages/technical/ex5-tec-rpt-0601.json"
