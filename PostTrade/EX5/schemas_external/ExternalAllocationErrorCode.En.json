@@ -1,229 +1,780 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAllocationErrorCode.En",
-  "$metadata" : {
-    "domain" : "schemas_external",
-    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAllocationErrorCode.En"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:schemas_external:ExternalAllocationErrorCode.En",
+  "$metadata": {
+    "domain": "schemas_external",
+    "schemaId": "urn:a5x:ex5:schema:v1:schemas_external:ExternalAllocationErrorCode.En"
   },
-  "title" : "ExternalAllocationErrorCode",
-  "description" : "Error codes for allocation domain",
-  "oneOf" : [ {
-    "type" : "string",
-    "description" : "Buy clearing account is not specified",
-    "const" : "ALC00001"
-  }, {
-    "type" : "string",
-    "description" : "Sell clearing account is not specified",
-    "const" : "ALC00002"
-  }, {
-    "type" : "string",
-    "description" : "Buy position is not reduced from the trade when the account is partially suspended",
-    "const" : "ALC00003"
-  }, {
-    "type" : "string",
-    "description" : "Sell position is not reduced from the trade when the account is partially suspended",
-    "const" : "ALC00004"
-  }, {
-    "type" : "string",
-    "description" : "Operational Error Buy Account of [TMF ID] is not available for EOD posting",
-    "const" : "ALC00005"
-  }, {
-    "type" : "string",
-    "description" : "Operational Error Sell Account of [TMF ID] is not available for EOD posting",
-    "const" : "ALC00006"
-  }, {
-    "type" : "string",
-    "description" : "Buy position is not reduced from the trade when the Buy Beneficiary Account is partially suspended.",
-    "const" : "ALC00007"
-  }, {
-    "type" : "string",
-    "description" : "Sell position is not reduced from the trade when the Sell Beneficiary Account is partially suspended.",
-    "const" : "ALC00008"
-  }, {
-    "type" : "string",
-    "description" : "Buy Beneficiary Account specified is not active.",
-    "const" : "ALC00009"
-  }, {
-    "type" : "string",
-    "description" : "Sell Beneficiary Account specified is not active.",
-    "const" : "ALC00010"
-  }, {
-    "type" : "string",
-    "description" : "Posting is done outside the allowed time frame of [Deadline - time frame]",
-    "const" : "ALC00011"
-  }, {
-    "type" : "string",
-    "description" : "Posting is done after the [Deadline - final time] deadline.",
-    "const" : "ALC00012"
-  }, {
-    "type" : "string",
-    "description" : "Posting is not allowed from a [Source Account Type] to [Destination Account Type].",
-    "const" : "ALC00013"
-  }, {
-    "type" : "string",
-    "description" : "Posting Quantity [Posting Quantity] is not a multiple of the Trading Lot Size x Contract Multiplier of the Instrument.",
-    "const" : "ALC00014"
-  }, {
-    "type" : "string",
-    "description" : "Posting Threshold request submitted. Dual Authorisation required.",
-    "const" : "ALC00015"
-  }, {
-    "type" : "string",
-    "description" : "Authorised. Posting Threshold request is being processed.",
-    "const" : "ALC00016"
-  }, {
-    "type" : "string",
-    "description" : "Dual Authorization for Posting Threshold request rejected.",
-    "const" : "ALC00017"
-  }, {
-    "type" : "string",
-    "description" : "Posting Threshold request cancelled.",
-    "const" : "ALC00018"
-  }, {
-    "type" : "string",
-    "description" : "Error Account of [TMF ID] is not available",
-    "const" : "ALC00019"
-  }, {
-    "type" : "string",
-    "description" : "Posting is done when the allocation is in \"Pending Approval\" sub status",
-    "const" : "ALC00020"
-  }, {
-    "type" : "string",
-    "description" : "Take Up rejection is unsuccessful for [Allocation ID] - Rejection was initiated after Take Up Time for Trades.",
-    "const" : "ALC00021"
-  }, {
-    "type" : "string",
-    "description" : "Take Up approval unsuccessful since Take Up of [Allocation ID] is already approved.",
-    "const" : "ALC00022"
-  }, {
-    "type" : "string",
-    "description" : "Take Up rejection is unsuccessful since Take Up of [Allocation ID] is already rejected.",
-    "const" : "ALC00023"
-  }, {
-    "type" : "string",
-    "description" : "Take Up approval is unsuccessful since Take Up of [Allocation ID] is already rejected.",
-    "const" : "ALC00024"
-  }, {
-    "type" : "string",
-    "description" : "Break Rule Reason must be specified if Break Rule Indicator is Yes.",
-    "const" : "ALC00025"
-  }, {
-    "type" : "string",
-    "description" : "The Status of the Clearing Account specified in the request should be != Inactive",
-    "const" : "ALC00026"
-  }, {
-    "type" : "string",
-    "description" : "Status of Clearing Member specified in the request != Inactive",
-    "const" : "ALC00027"
-  }, {
-    "type" : "string",
-    "description" : "Status of Trading Member specified in the request != Inactive",
-    "const" : "ALC00028"
-  }, {
-    "type" : "string",
-    "description" : "The Clearing Account in the given position should be the same as Clearing Account specified in the request.",
-    "const" : "ALC00029"
-  }, {
-    "type" : "string",
-    "description" : "The Trading Member in the given position should be the same as Trading Member specified in the request.",
-    "const" : "ALC00030"
-  }, {
-    "type" : "string",
-    "description" : "The Clearing Member in the given position should be the same as Clearing Member specified in the request.",
-    "const" : "ALC00031"
-  }, {
-    "type" : "string",
-    "description" : "The Symbol in the given position should be the same as Symbol specified in the request.",
-    "const" : "ALC00032"
-  }, {
-    "type" : "string",
-    "description" : "Symbol of the Allocation and Symbol of the Posting Request should be the same.",
-    "const" : "ALC00033"
-  }, {
-    "type" : "string",
-    "description" : "Posting is done to a different ownership",
-    "const" : "ALC00034"
-  }, {
-    "type" : "string",
-    "description" : "Take Up rejection is unsuccessful - Posting Request in Pending Risk Validation status exists from the allocation.",
-    "const" : "ALC00035"
-  }, {
-    "type" : "string",
-    "description" : "Take Up rejection is unsuccessful - Posting Request in Pending CCP Authorization status exists from the allocation.",
-    "const" : "ALC00036"
-  }, {
-    "type" : "string",
-    "description" : "Take Up rejection is unsuccessful - Allocation has been updated due to posting.",
-    "const" : "ALC00037"
-  }, {
-    "type" : "string",
-    "description" : "Take Up actions are not allowed for the specified allocation.",
-    "const" : "ALC00038"
-  }, {
-    "type" : "string",
-    "description" : "Break Rule must be specified for Reject actions.",
-    "const" : "ALC00039"
-  }, {
-    "type" : "string",
-    "description" : "Break Rule should not be specified for Approve actions.",
-    "const" : "ALC00040"
-  }, {
-    "type" : "string",
-    "description" : "Break Rule Reason must be specified.",
-    "const" : "ALC00041"
-  }, {
-    "type" : "string",
-    "description" : "Break Rule Responsibility must be specified.",
-    "const" : "ALC00042"
-  }, {
-    "type" : "string",
-    "description" : "Take Up rejection is unsuccessful - Allocation has been updated due to posting.",
-    "const" : "ALC00043"
-  }, {
-    "type" : "string",
-    "description" : "Break Rule must be specified when posting to a Beneficiary Account with a Give Up Link after Take Up Time for Postings.",
-    "const" : "ALC00044"
-  }, {
-    "type" : "string",
-    "description" : "Posting is done when the allocation is in \"Pending Destination TMF Approval\" sub status.",
-    "const" : "ALC00045"
-  }, {
-    "type" : "string",
-    "description" : "Trade ID and Trade Side does not match with the Allocation Data",
-    "const" : "ALC00046"
-  }, {
-    "type" : "string",
-    "description" : "Technical Failure",
-    "const" : "ALC00047"
-  }, {
-    "type" : "string",
-    "description" : "Buy position is not reduced from the posting when the account is partially suspended",
-    "const" : "ALC00048"
-  }, {
-    "type" : "string",
-    "description" : "Sell position is not reduced from the posting when the account is partially suspended",
-    "const" : "ALC00049"
-  }, {
-    "type" : "string",
-    "description" : "Buy position is not reduced from the posting when the Buy Beneficiary Account is partially suspended.",
-    "const" : "ALC00050"
-  }, {
-    "type" : "string",
-    "description" : "Sell position is not reduced from the posting when the Buy Beneficiary Account is partially suspended.",
-    "const" : "ALC00051"
-  }, {
-    "type" : "string",
-    "description" : "Trading Member of the Allocation and Trading Member of the Posting Request should be the same.",
-    "const" : "ALC00052"
-  }, {
-    "type" : "string",
-    "description" : "Posting is done when the allocation is in \"Pending CCP Approval\" sub status",
-    "const" : "ALC00053"
-  }, {
-    "type" : "string",
-    "description" : "Active Master link is not available between [Source Account] and [Destination Account].",
-    "const" : "ALC00054"
-  } ],
-  "additionalProperties" : false,
-  "examples" : [ "ALC00001", "ALC00002", "ALC00003", "ALC00004", "ALC00005", "ALC00010", "ALC00015", "ALC00020", "ALC00025", "ALC00030", "ALC00035", "ALC00040", "ALC00045", "ALC00050", "ALC00054" ]
+  "title": "ExternalAllocationErrorCode",
+  "description": "Error codes for allocation domain",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Position imbalance created during trade posting",
+      "const": "ALC0000059"
+    },
+    {
+      "type": "string",
+      "description": "Quantity [Original Give Up RequestTotal Give Up Quantity] specified is higher than the available allocation quantity",
+      "const": "ALC0000703"
+    },
+    {
+      "type": "string",
+      "description": "Invalid Allocation ID [Original Give Up RequestAllocation ID] specified",
+      "const": "ALC0000704"
+    },
+    {
+      "type": "string",
+      "description": "Allocation [AllocationAllocation ID] specified is already cancelled",
+      "const": "ALC0000705"
+    },
+    {
+      "type": "string",
+      "description": "Initiating firm [Original Give Up RequestInitiating Firm] of the message is not the TMF/CMF [[AllocationTrading Member]/[AllocationClearing Member]] of the allocation",
+      "const": "ALC0000706"
+    },
+    {
+      "type": "string",
+      "description": "Invalid instrument [Original Give Up RequestInstrument ID] Specified",
+      "const": "ALC0000709"
+    },
+    {
+      "type": "string",
+      "description": "Give-Up Beneficiary firm [Original Give Up RequestBeneficiary Firm] is invalid",
+      "const": "ALC0000712"
+    },
+    {
+      "type": "string",
+      "description": "Incorrect account [Take Up RequestTake Up Account] specified for Give-Up and Take Up",
+      "const": "ALC0000714"
+    },
+    {
+      "type": "string",
+      "description": "Take Up Account CMF [Clearing AccountAccount CMF ID] not an Allowed CMF of the Beneficiary Firm [Take Up RequestBeneficiary Firm] for the trade's clearing segment",
+      "const": "ALC0000715"
+    },
+    {
+      "type": "string",
+      "description": "Specified Give up request [Take Up RequestGive Up Request ID][Original Give Up RequestGive Up Request ID] cannot be identified",
+      "const": "ALC0000716"
+    },
+    {
+      "type": "string",
+      "description": "Initiating clearing position does not have sufficient position balance",
+      "const": "ALC0000717"
+    },
+    {
+      "type": "string",
+      "description": "Specified Give Up request [Give Up RequestGive Up Request Status] status is invalid",
+      "const": "ALC0000718"
+    },
+    {
+      "type": "string",
+      "description": "Specified Take up request [Take Up RequestTake Up Request ID] cannot be identified",
+      "const": "ALC0000719"
+    },
+    {
+      "type": "string",
+      "description": "Specified Take Up request [Last Take Up RequestTake Up Request Status] status is invalid",
+      "const": "ALC0000720"
+    },
+    {
+      "type": "string",
+      "description": "Take up account [Take Up RequestTake Up Account] is not in an Active status",
+      "const": "ALC0000725"
+    },
+    {
+      "type": "string",
+      "description": "Beneficiary firm [Original Give Up RequestBeneficiary Firm] is not Active",
+      "const": "ALC0000726"
+    },
+    {
+      "type": "string",
+      "description": "Give Up request [Original Give Up RequestGive Up Request ID] submitted outside of the allowed time period",
+      "const": "ALC0000729"
+    },
+    {
+      "type": "string",
+      "description": "Give Up request [Original Give Up RequestGive Up Request ID] cancellation attempted outside of the allowed time period",
+      "const": "ALC0000730"
+    },
+    {
+      "type": "string",
+      "description": "Take Up request [Take Up RequestTake Up Request ID] submitted outside of the allowed time period",
+      "const": "ALC0000731"
+    },
+    {
+      "type": "string",
+      "description": "Valid member's [POU SettlementClearing Member] security and cash account details are not available",
+      "const": "ALC0000732"
+    },
+    {
+      "type": "string",
+      "description": "The original trade of the allocation does not exist",
+      "const": "ALC0000755"
+    },
+    {
+      "type": "string",
+      "description": "The original trade of the allocation does not exist",
+      "const": "ALC0000756"
+    },
+    {
+      "type": "string",
+      "description": "Beneficiary firm [Take Up RequestBeneficiary Firm] is not Active",
+      "const": "ALC0000786"
+    },
+    {
+      "type": "string",
+      "description": "Allocation [AllocationAllocation ID] specified is already cancelled",
+      "const": "ALC0000787"
+    },
+    {
+      "type": "string",
+      "description": "Invalid instrument [Take Up RequestInstrument ID] Specified",
+      "const": "ALC0000788"
+    },
+    {
+      "type": "string",
+      "description": "Take-up firm [Take Up RequestBeneficiary Firm] is invalid",
+      "const": "ALC0000789"
+    },
+    {
+      "type": "string",
+      "description": "Initiating clearing position does not have sufficient position balance",
+      "const": "ALC0000790"
+    },
+    {
+      "type": "string",
+      "description": "Initiating firm [Take Up RequestInitiating Firm] of the message is not the Beneficiary Firm [Take Up RequestBeneficiary Firm] of the give up request",
+      "const": "ALC0000793"
+    },
+    {
+      "type": "string",
+      "description": "Allocation request sent outside the allowed time period.",
+      "const": "ALC0001400"
+    },
+    {
+      "type": "string",
+      "description": "The specified allocation quantity is invalid.",
+      "const": "ALC0001401"
+    },
+    {
+      "type": "string",
+      "description": "The specified quantity exceeds the quantity available for allocation.",
+      "const": "ALC0001402"
+    },
+    {
+      "type": "string",
+      "description": "The specified Allocation ID is invalid.",
+      "const": "ALC0001403"
+    },
+    {
+      "type": "string",
+      "description": "Initiating firm [Posting RequestInitiating Firm] of the message is not the TMF/CMF [[AllocationTrading Member]/[AllocationClearing Member]] of the allocation",
+      "const": "ALC0001404"
+    },
+    {
+      "type": "string",
+      "description": "Invalid initiating firm [Posting RequestInitiating Firm] specified",
+      "const": "ALC0001405"
+    },
+    {
+      "type": "string",
+      "description": "Function is not authorised for the initiating  firm [Posting RequestInitiating Firm]",
+      "const": "ALC0001406"
+    },
+    {
+      "type": "string",
+      "description": "The instrument provided is invalid.",
+      "const": "ALC0001407"
+    },
+    {
+      "type": "string",
+      "description": "The instrument is not allowed for allocation.",
+      "const": "ALC0001408"
+    },
+    {
+      "type": "string",
+      "description": "Incorrect account specified for the allocation.",
+      "const": "ALC0001410"
+    },
+    {
+      "type": "string",
+      "description": "The specified account does not belong to the participant's eligible account structure.",
+      "const": "ALC0001411"
+    },
+    {
+      "type": "string",
+      "description": "The allocation source position does not have sufficient balance for this transaction.",
+      "const": "ALC0001412"
+    },
+    {
+      "type": "string",
+      "description": "The specified allocation is not available to be allocated.",
+      "const": "ALC0001414"
+    },
+    {
+      "type": "string",
+      "description": "Initiating firm [Posting RequestInitiating Firm] specified is not active",
+      "const": "ALC0001415"
+    },
+    {
+      "type": "string",
+      "description": "Instrument [Posting RequestSymbol] specified is not active",
+      "const": "ALC0001416"
+    },
+    {
+      "type": "string",
+      "description": "The specified account is not active.",
+      "const": "ALC0001417"
+    },
+    {
+      "type": "string",
+      "description": "The destination account provided cannot be the same as the source account.",
+      "const": "ALC0001418"
+    },
+    {
+      "type": "string",
+      "description": "Clearing position [Clearing Position UpdatePosition ID] is not available for posting",
+      "const": "ALC0001419"
+    },
+    {
+      "type": "string",
+      "description": "Posting request [Posting RequestPosting Request ID] amendment attempted outside of the allowed time period",
+      "const": "ALC0001422"
+    },
+    {
+      "type": "string",
+      "description": "Posting request [Posting RequestPosting Request ID] cancellation attempted outside of the allowed time period",
+      "const": "ALC0001423"
+    },
+    {
+      "type": "string",
+      "description": "Buy Trading member is not active",
+      "const": "ALC0001425"
+    },
+    {
+      "type": "string",
+      "description": "Sell Trading member is not active",
+      "const": "ALC0001426"
+    },
+    {
+      "type": "string",
+      "description": "Settlement account is not active for buy side",
+      "const": "ALC0001427"
+    },
+    {
+      "type": "string",
+      "description": "Settlement account is not active for sell side",
+      "const": "ALC0001428"
+    },
+    {
+      "type": "string",
+      "description": "Invalid posting request [Posting RequestPosting Request ID] specified",
+      "const": "ALC0001430"
+    },
+    {
+      "type": "string",
+      "description": "Posting request [Posting RequestPosting Request ID] specified is not available for cancellation",
+      "const": "ALC0001431"
+    },
+    {
+      "type": "string",
+      "description": "Posting request [Posting RequestPosting Request ID] specified is not available for amendment",
+      "const": "ALC0001432"
+    },
+    {
+      "type": "string",
+      "description": "Posting request [Posting RequestPosting Request ID] specified is not available for authorisation",
+      "const": "ALC0001433"
+    },
+    {
+      "type": "string",
+      "description": "Initiating settlement position does not have sufficient position balance",
+      "const": "ALC0001438"
+    },
+    {
+      "type": "string",
+      "description": "Invalid to Transfer after Hold/Release",
+      "const": "ALC0001439"
+    },
+    {
+      "type": "string",
+      "description": "Manual Posting not permitted for [[AllocationTrading Member]] TMF under [[AllocationClearing Member]] CMF",
+      "const": "ALC0001450"
+    },
+    {
+      "type": "string",
+      "description": "Trade source of the source allocation [AllocationTrade Source] is not an allowed trade source for the take up clearing account [Posting RequestBeneficiary Account] of the posting request",
+      "const": "ALC0001453"
+    },
+    {
+      "type": "string",
+      "description": "Allocations are not allowed between accounts with different categories.",
+      "const": "ALC5000037"
+    },
+    {
+      "type": "string",
+      "description": "Allocation is not allowed from a suspended account.",
+      "const": "ALC5000070"
+    },
+    {
+      "type": "string",
+      "description": "Give-up is not allowed from a suspended account.",
+      "const": "ALC5000080"
+    },
+    {
+      "type": "string",
+      "description": "Give-up is not allowed for the participant.",
+      "const": "ALC5000081"
+    },
+    {
+      "type": "string",
+      "description": "Take-up is not allowed due to a suspended account.",
+      "const": "ALC5000090"
+    },
+    {
+      "type": "string",
+      "description": "Take-up is not allowed for the participant.",
+      "const": "ALC5000091"
+    },
+    {
+      "type": "string",
+      "description": "Trade Give Up not allowed on allocations already in an Average Price Group",
+      "const": "ALC7000093"
+    },
+    {
+      "type": "string",
+      "description": "The Allocation ID does not exist.",
+      "const": "ALC7000095"
+    },
+    {
+      "type": "string",
+      "description": "The allocation is not in 'New' status.",
+      "const": "ALC7000096"
+    },
+    {
+      "type": "string",
+      "description": "Insufficient quantity in the allocation.",
+      "const": "ALC7000097"
+    },
+    {
+      "type": "string",
+      "description": "The account is not in 'Active' status",
+      "const": "ALC7000098"
+    },
+    {
+      "type": "string",
+      "description": "Bulk Give Up Posting [BRQ Bulk RequestBulk Request ID] failure ",
+      "const": "ALC7000099"
+    },
+    {
+      "type": "string",
+      "description": "Rejected due to an ongoing parallel process",
+      "const": "ALC7000100"
+    },
+    {
+      "type": "string",
+      "description": "Clearing Account [Original Give Up RequestGive Up Account ID] of the message is not the Clearing Account of the allocation",
+      "const": "ALC7000108"
+    },
+    {
+      "type": "string",
+      "description": "Clearing Account Category [Original Give Up RequestGive Up Account Category] of the message is not the Account Category of the allocation",
+      "const": "ALC7000109"
+    },
+    {
+      "type": "string",
+      "description": "You cannot allocate without providing the correct source account for the allocation.",
+      "const": "ALC7000110"
+    },
+    {
+      "type": "string",
+      "description": "Clearing Account Category [Posting RequestInitiating Account Category] of the message is not the Account Category of the allocation",
+      "const": "ALC7000111"
+    },
+    {
+      "type": "string",
+      "description": "The account is not valid for the participant.",
+      "const": "ALC7000113"
+    },
+    {
+      "type": "string",
+      "description": "Account category of the Take Up Message [Take Up RequestTake Up Account Category] is not the Account category of the Take Up Account",
+      "const": "ALC7000114"
+    },
+    {
+      "type": "string",
+      "description": "The account category is invalid.",
+      "const": "ALC7000115"
+    },
+    {
+      "type": "string",
+      "description": "Beneficiary Account Category [Posting RequestBeneficiary Account Category] is not the Account Category of the Beneficiary Account provided",
+      "const": "ALC7000116"
+    },
+    {
+      "type": "string",
+      "description": "Clearing Account [Original Give Up RequestGive Up Account ID] of the message is not the Clearing Account of the allocation",
+      "const": "ALC7000120"
+    },
+    {
+      "type": "string",
+      "description": "Clearing Account Category [Original Give Up RequestGive Up Account Category] of the message is not the Account Category of the allocation",
+      "const": "ALC7000121"
+    },
+    {
+      "type": "string",
+      "description": "Bulk Give Up Posting request submitted outside of the allowed time period",
+      "const": "ALC7000142"
+    },
+    {
+      "type": "string",
+      "description": "Take up Clearing Member [Take Up RequestBeneficiary Firm] is not the Take Up Clearing Member of the Give Up request [Give Up RequestBeneficiary Firm]",
+      "const": "ALC7000159"
+    },
+    {
+      "type": "string",
+      "description": "Trade Date received in the inbound instruction [Original Give Up RequestTrade Date] does not match with the Trade Date of the Allocation [AllocationTrade Date]",
+      "const": "ALC7000165"
+    },
+    {
+      "type": "string",
+      "description": "Trade Date received in the inbound instruction [Posting RequestTrade Date] does not match with the Trade Date of the Allocation [AllocationTrade Date]",
+      "const": "ALC7000166"
+    },
+    {
+      "type": "string",
+      "description": "Trade Date received in the inbound instruction [Original Give Up RequestTrade Date] does not match with the Trade Date of the Give Up Request [Give Up RequestTrade Date]",
+      "const": "ALC7000167"
+    },
+    {
+      "type": "string",
+      "description": "Trade Date received in the inbound instruction [Take Up RequestTrade Date] does not match with the Trade Date of the Give Up Request [Give Up RequestTrade Date]",
+      "const": "ALC7000168"
+    },
+    {
+      "type": "string",
+      "description": "Clearing member of the Give up request [Original Give Up RequestAllocation Clearing Member] is not equal to the clearing member [AllocationClearing Member] of the Allocation",
+      "const": "ALC7000176"
+    },
+    {
+      "type": "string",
+      "description": "Clearing member of the Give up cancellation request [Original Give Up RequestAllocation Clearing Member] is not equal to the clearing member [Give Up RequestAllocation Clearing Member] of the Give up request",
+      "const": "ALC7000178"
+    },
+    {
+      "type": "string",
+      "description": "The clearing participant of the allocation request does not match the clearing participant of the allocation.",
+      "const": "ALC7000181"
+    },
+    {
+      "type": "string",
+      "description": "Clearing member of the Split request [GiveUpPostingReqAllocation Clearing Member] is not equal to the clearing member [AllocationClearing Member] of the Allocation ",
+      "const": "ALC7000192"
+    },
+    {
+      "type": "string",
+      "description": "Target firm of the Posting Request [Posting RequestBeneficiary Firm] is Invalid",
+      "const": "ALC7000245"
+    },
+    {
+      "type": "string",
+      "description": "Initiating CCP Trade Ref specified is not equal to the CCP Trade Reference of the Allocation",
+      "const": "ALC7000279"
+    },
+    {
+      "type": "string",
+      "description": "Side specified is not equal to the side of the Allocation",
+      "const": "ALC7000280"
+    },
+    {
+      "type": "string",
+      "description": "Trade split cannot be initiate as the allocation is in an average price group",
+      "const": "ALC7000281"
+    },
+    {
+      "type": "string",
+      "description": "Allocation ID specified is not equal to the Allocation ID of the Give up Request",
+      "const": "ALC7000290"
+    },
+    {
+      "type": "string",
+      "description": "Trade source of the source allocation [AllocationTrade Source] is not an allowed trade source for the take up clearing account [Take Up RequestTake Up Account] of the take up request",
+      "const": "ALC7000294"
+    },
+    {
+      "type": "string",
+      "description": "The buy operational error account is not available for end-of-day (EOD) allocation.",
+      "const": "ALC7750005"
+    },
+    {
+      "type": "string",
+      "description": "The sell operational error account is not available for end-of-day (EOD) allocation.",
+      "const": "ALC7750006"
+    },
+    {
+      "type": "string",
+      "description": "The allocation was performed outside the allowed deadline",
+      "const": "ALC7750011"
+    },
+    {
+      "type": "string",
+      "description": "The allocation was performed after the final deadline.",
+      "const": "ALC7750012"
+    },
+    {
+      "type": "string",
+      "description": "Allocation is not allowed from the account to the account.",
+      "const": "ALC7750013"
+    },
+    {
+      "type": "string",
+      "description": "The allocated quantity is not a multiple of the instrument's allocation lot size.",
+      "const": "ALC7750014"
+    },
+    {
+      "type": "string",
+      "description": "Allocation exceeding the threshold limit. Authorization required.",
+      "const": "ALC7750015"
+    },
+    {
+      "type": "string",
+      "description": "The allocation exceeding the threshold limit is being processed.",
+      "const": "ALC7750016"
+    },
+    {
+      "type": "string",
+      "description": "Authorization for the allocation limit request was rejected.",
+      "const": "ALC7750017"
+    },
+    {
+      "type": "string",
+      "description": "Allocation limit request canceled.",
+      "const": "ALC7750018"
+    },
+    {
+      "type": "string",
+      "description": "The participant's error account is not available",
+      "const": "ALC7750019"
+    },
+    {
+      "type": "string",
+      "description": "Posting is done when the allocation is in Pending Approval sub status",
+      "const": "ALC7750020"
+    },
+    {
+      "type": "string",
+      "description": "The give-up rejection was unsuccessful because it occurred after the time allowed for the give-up.",
+      "const": "ALC7750021"
+    },
+    {
+      "type": "string",
+      "description": "The give-up approval was unsuccessful because the give-up is already approved.",
+      "const": "ALC7750022"
+    },
+    {
+      "type": "string",
+      "description": "The give-up rejection was unsuccessful because the give-up is already rejected.",
+      "const": "ALC7750023"
+    },
+    {
+      "type": "string",
+      "description": "The give-up approval was unsuccessful because the give-up is already rejected.",
+      "const": "ALC7750024"
+    },
+    {
+      "type": "string",
+      "description": "The rule breach reason must be specified if the rule breach indicator is Yes.",
+      "const": "ALC7750025"
+    },
+    {
+      "type": "string",
+      "description": "The trade ID and trade side do not match the allocation",
+      "const": "ALC7750033"
+    },
+    {
+      "type": "string",
+      "description": "Technical Failure",
+      "const": "ALC7750034"
+    },
+    {
+      "type": "string",
+      "description": "The long position reduction is not performed upon posting when the buy-side clearing account is partially suspended.",
+      "const": "ALC7750035"
+    },
+    {
+      "type": "string",
+      "description": "The short position reduction is not performed upon posting when the sell-side clearing account is partially suspended.",
+      "const": "ALC7750036"
+    },
+    {
+      "type": "string",
+      "description": "The long position reduction is not performed upon posting when the buy-side beneficiary account is partially suspended.",
+      "const": "ALC7750037"
+    },
+    {
+      "type": "string",
+      "description": "The short position reduction is not performed upon posting when the sell-side beneficiary account is partially suspended.",
+      "const": "ALC7750038"
+    },
+    {
+      "type": "string",
+      "description": "Trading Member of the Allocation and Trading Member of the Posting Request should be the same",
+      "const": "ALC7750039"
+    },
+    {
+      "type": "string",
+      "description": "The allocation symbol and the allocation request symbol must be the same.",
+      "const": "ALC7750040"
+    },
+    {
+      "type": "string",
+      "description": "Allocation to a different ownership",
+      "const": "ALC7750041"
+    },
+    {
+      "type": "string",
+      "description": "The take-up approval was unsuccessful because the allocation ID specified in the request is invalid.",
+      "const": "ALC7750042"
+    },
+    {
+      "type": "string",
+      "description": "The take-up approval was unsuccessful because the allocation symbol and the take-up request symbol must be the same.",
+      "const": "ALC7750043"
+    },
+    {
+      "type": "string",
+      "description": "Trading Member of the Allocation [Original AllocationTrading Member] and Trading Member of the Take Up Request [Takeup Approval RequestDestination Trading Member] should be the same",
+      "const": "ALC7750044"
+    },
+    {
+      "type": "string",
+      "description": "Take Up actions are not allowed for the specified allocation",
+      "const": "ALC7750045"
+    },
+    {
+      "type": "string",
+      "description": "The rule breach must be specified for rejection actions.",
+      "const": "ALC7750046"
+    },
+    {
+      "type": "string",
+      "description": "The rule breach must not be specified for approval actions.",
+      "const": "ALC7750047"
+    },
+    {
+      "type": "string",
+      "description": "The rule breach reason must be specified.",
+      "const": "ALC7750048"
+    },
+    {
+      "type": "string",
+      "description": "The rule breach responsibility must be specified.",
+      "const": "ALC7750049"
+    },
+    {
+      "type": "string",
+      "description": "The give-up rejection was unsuccessful - the allocation was updated by the allocation process.",
+      "const": "ALC7750050"
+    },
+    {
+      "type": "string",
+      "description": "The rule breach must be specified when allocating to an account with a give-up link after the give-up cutoff time for allocations",
+      "const": "ALC7750051"
+    },
+    {
+      "type": "string",
+      "description": "Posting is done when the allocation is in Pending Destination TMF Approval sub status",
+      "const": "ALC7750052"
+    },
+    {
+      "type": "string",
+      "description": "Posting is done when the allocation is in Pending CCP Approval sub status",
+      "const": "ALC7750080"
+    },
+    {
+      "type": "string",
+      "description": "There is no active master link available between the accounts.",
+      "const": "ALC7750082"
+    },
+    {
+      "type": "string",
+      "description": "The take-up rejection was unsuccessful because take-up rejections are not allowed for co-location trades.",
+      "const": "ALC7750102"
+    },
+    {
+      "type": "string",
+      "description": "Invalid allocation account.",
+      "const": "ALC7750105"
+    },
+    {
+      "type": "string",
+      "description": "The specified allocation request is not available for a risk assessment action.",
+      "const": "ALC7750106"
+    },
+    {
+      "type": "string",
+      "description": "Invalid allocation request.",
+      "const": "ALC7750107"
+    },
+    {
+      "type": "string",
+      "description": "The allocation request was unsuccessful because allocation requests are not allowed on block allocations that have not yet been closed.",
+      "const": "ALC7750108"
+    },
+    {
+      "type": "string",
+      "description": "The take-up request was unsuccessful because take-up requests are not allowed on open compressed allocations.",
+      "const": "ALC7750109"
+    },
+    {
+      "type": "string",
+      "description": "The partial allocation was unsuccessful because partial allocations are not allowed for blocks.",
+      "const": "ALC7750112"
+    },
+    {
+      "type": "string",
+      "description": "Allocations to the same account within the 'Bulk Resquest' are not allowed.",
+      "const": "ALC7750137"
+    },
+    {
+      "type": "string",
+      "description": "Block cancellation was unsuccessful because the block is not in 'Closed' status.",
+      "const": "ALC7750140"
+    },
+    {
+      "type": "string",
+      "description": "Block Cancellation unsuccessful as Block allocation is not for a Compressed Trade",
+      "const": "ALC7750141"
+    },
+    {
+      "type": "string",
+      "description": "The account is not a valid account for the automated trading session.",
+      "const": "ALC7750143"
+    },
+    {
+      "type": "string",
+      "description": "Undescribed error.",
+      "const": "ALC9999999"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    "ALC00001",
+    "ALC00002",
+    "ALC00003",
+    "ALC00004",
+    "ALC00005",
+    "ALC00010",
+    "ALC00015",
+    "ALC00020",
+    "ALC00025",
+    "ALC00030",
+    "ALC00035",
+    "ALC00040",
+    "ALC00045",
+    "ALC00050",
+    "ALC00054"
+  ]
 }

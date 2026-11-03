@@ -20,7 +20,7 @@
       "description" : "Collateral identifier given by the requestor participant"
     },
     "quantity" : {
-      "$ref" : "../../types/PositiveInteger.json",
+      "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Quantity requested to umbrella type distribution."
     },
     "accountIdentification" : {

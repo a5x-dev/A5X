@@ -69,6 +69,8 @@
       "securitiesCollateral" : [ {
         "collateralIdentification" : "1",
         "assetNumber" : "2015000000349",
+        "assignerAccount" : "ASSIGNOR-001",
+        "assigneeAccount" : "ASSIGNEE-001",
         "quantity" : 1000,
         "custodianInformationDestination" : {
           "participantIdentification" : {

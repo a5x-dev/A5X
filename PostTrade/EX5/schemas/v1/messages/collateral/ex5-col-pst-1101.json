@@ -37,7 +37,7 @@
       "description" : "Collateral coverage information details"
     }
   },
-  "required" : [ "clearingMemberIdentification", "collateralCoverageInformation" ],
+  "required" : [ "clearingMemberIdentification" ],
   "additionalProperties" : false,
   "examples" : [ {
     "clearingMemberIdentification" : {

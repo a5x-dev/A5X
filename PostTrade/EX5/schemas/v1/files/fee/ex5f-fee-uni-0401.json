@@ -34,6 +34,19 @@
       "pattern": "^[A-Za-z0-9]+$",
       "description": "Document number (alphanumeric characters only, no special characters)"
     },
+    "documentType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999,
+      "description": "Document type identification",
+      "$comment": "Consult External Code List table ExternalIdentificationTypeCode"
+    },
+    "groupIdentification": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 9,
+      "description": "Identification of the parameterized fund management or treasury group"
+    },
     "feeProductGroup": {
       "type": "integer",
       "minimum": 1,
@@ -48,6 +61,46 @@
       "description": "Calculated fee component",
       "$comment": "Consult External Code List table ExternalFeeComponentCode"
     },
+    "feeType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Fee type",
+      "$comment": "Consult External Code List table ExternalFeeTypeCode"
+    },
+    "makerTaker": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Role in price formation. Not filled when feeType is Settlement",
+      "$comment": "Consult External Code List table ExternalMakerTakerCode"
+    },
+    "tradeMode": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Trade mode nature. Not filled when feeType is Settlement",
+      "$comment": "Consult External Code List table ExternalTradeModeCode"
+    },
+    "investorType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Investor profile",
+      "$comment": "Consult External Code List table ExternalInvestorTypeCode"
+    },
+    "minimumVertex": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Minimum vertex of the term interval. Only filled for interest rate family (IRF)"
+    },
+    "maximumVertex": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Maximum vertex of the term interval. Only filled for interest rate family (IRF)"
+    },
     "feeTier": {
       "type": "integer",
       "minimum": 1,
@@ -56,17 +109,17 @@
       "$comment": "Consult fee parameter file list"
     },
     "unitCostPercentage": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "multipleOf": 0.000001,
       "description": "Unit cost value in percentage"
     },
     "financialUnitCost": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
       "description": "Unit cost value in financial terms"
     }
   },
@@ -75,8 +128,11 @@
     "participantIdentificationId",
     "participantIdentificationCategory",
     "documentNumber",
+    "documentType",
     "feeProductGroup",
     "feeComponent",
+    "feeType",
+    "investorType",
     "feeTier"
   ],
   "additionalProperties": false

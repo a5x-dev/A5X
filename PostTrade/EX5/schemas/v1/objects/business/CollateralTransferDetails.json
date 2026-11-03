@@ -55,7 +55,7 @@
         "allOf" : [ {
           "$ref" : "../../objects/business/FederalBondsTransfer.json"
         }, {
-          "required" : [ "collateralIdentification", "assetNumber", "collateralValue" ]
+          "required" : [ "collateralIdentification", "assetNumber", "collateralValue", "assignerAccount", "assigneeAccount", "quantity" ]
         } ]
       },
       "minItems" : 1,

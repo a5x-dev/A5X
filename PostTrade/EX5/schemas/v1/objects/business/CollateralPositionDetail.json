@@ -98,10 +98,10 @@
       },
       "maturityDate": "2025-12-31",
       "collateralDetailInformation": {
-        "depositedQuantity": 1000,
-        "valuedQuantity": 950,
-        "deliveryQuantity": 100,
-        "blockedQuantity": 50,
+        "depositedQuantity": 1000.00,
+        "valuedQuantity": 950.00,
+        "deliveryQuantity": 100.50,
+        "blockedQuantity": 50.00,
         "collateralValue": {
           "amount": 2870147502.59
         },
@@ -125,10 +125,10 @@
         "exchange": "A5XB"
       },
       "collateralDetailInformation": {
-        "depositedQuantity": 500,
-        "valuedQuantity": 480,
-        "deliveryQuantity": 10,
-        "blockedQuantity": 5,
+        "depositedQuantity": 500.00,
+        "valuedQuantity": 480.00,
+        "deliveryQuantity": 10.50,
+        "blockedQuantity": 5.00,
         "collateralValue": {
           "amount": 2222.76
         },

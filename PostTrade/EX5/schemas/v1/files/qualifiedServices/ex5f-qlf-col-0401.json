@@ -98,10 +98,10 @@
                 "exchange": "BVMF"
               },
               "collateralDetailInformation": {
-                "depositedQuantity": 2000,
-                "valuedQuantity": 1800,
-                "deliveryQuantity": 100,
-                "blockedQuantity": 50,
+                "depositedQuantity": 2000.00,
+                "valuedQuantity": 1800.00,
+                "deliveryQuantity": 100.50,
+                "blockedQuantity": 50.00,
                 "collateralValue": {
                   "amount": 2870147502.59
                 },
@@ -142,10 +142,10 @@
                 "exchange": "BVMF"
               },
               "collateralDetailInformation": {
-                "depositedQuantity": 10,
-                "valuedQuantity": 10,
-                "deliveryQuantity": 1,
-                "blockedQuantity": 1,
+                "depositedQuantity": 10.00,
+                "valuedQuantity": 10.00,
+                "deliveryQuantity": 1.50,
+                "blockedQuantity": 1.00,
                 "collateralValue": {
                   "amount": 380.97
                 },
@@ -197,10 +197,10 @@
                 "exchange": "BVMF"
               },
               "collateralDetailInformation": {
-                "depositedQuantity": 10,
-                "valuedQuantity": 10,
-                "deliveryQuantity": 1,
-                "blockedQuantity": 1,
+                "depositedQuantity": 10.00,
+                "valuedQuantity": 10.00,
+                "deliveryQuantity": 1.50,
+                "blockedQuantity": 1.00,
                 "collateralValue": {
                   "amount": 380.97
                 },

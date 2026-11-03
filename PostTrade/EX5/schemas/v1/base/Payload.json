@@ -88,6 +88,8 @@
           }, {
             "$ref" : "../messages/collateral/ex5-col-wtd-2001.json"
           }, {
+            "$ref" : "../messages/fee/ex5-fee-uni-0101.json"
+          }, {
             "$ref" : "../messages/instrument/ex5-ins-reg-0101.json"
           }, {
             "$ref" : "../messages/position/ex5-pos-dtl-0101.json"

@@ -45,7 +45,8 @@
     "transactionIdentification",
     "clearingMemberIdentification",
     "participantIdentification",
-    "depositResponse"
+    "depositResponse",
+    "valuationDate"
   ],
   "additionalProperties": false,
   "examples": [

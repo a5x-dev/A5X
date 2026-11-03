@@ -9,6 +9,11 @@
   "description": "Fee Parameter File Schema",
   "type": "object",
   "properties": {
+    "referenceDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Reference date of the information"
+    },
     "startDate": {
       "type": "string",
       "format": "date-time",
@@ -22,21 +27,21 @@
     "feeProductGroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999999,
+      "maximum": 99,
       "description": "Fee family",
       "$comment": "Consult External Code List table ExternalFeeProductGroupCode"
     },
     "feeProductSubgroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999999,
+      "maximum": 99,
       "description": "Second level of fee family, when applicable",
       "$comment": "Consult External Code List table ExternalFeeProductGroupCode"
     },
     "market": {
       "type": "integer",
-      "minimum": 0,
-      "maximum": 999999999,
+      "minimum": 1,
+      "maximum": 99,
       "description": "Market type - second level of market classification in post-trade process",
       "$comment": "Consult External Code List table ExternalMarketCode"
     },
@@ -48,21 +53,22 @@
     "securityCategory": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 999999999,
+      "maximum": 99,
       "description": "Instrument type identifier",
       "$comment": "Consult External Code List table ExternalSecurityCategoryCode"
     },
     "calculationType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999999,
+      "maximum": 99,
       "description": "Indicates if calculation is Progressive or Regressive",
       "$comment": "Consult External Code List table ExternalFeeCalculationTypeCode"
     },
     "contractFactor": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 99,
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
       "description": "Factor applied in fee calculation"
     },
     "feeBase": {
@@ -79,79 +85,130 @@
       "description": "Fee component. Replaces the former operationType and operationSubType fields",
       "$comment": "Consult External Code List table ExternalFeeComponentCode"
     },
-    "feeTier": {
-      "type": "string",
-      "maxLength": 30,
-      "description": "Fee tier"
+    "feeType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Fee type",
+      "$comment": "Consult External Code List table ExternalFeeTypeCode"
+    },
+    "makerTaker": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Role in price formation. Not filled when feeType is Settlement",
+      "$comment": "Consult External Code List table ExternalMakerTakerCode"
+    },
+    "tradeMode": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Trade mode nature. Not filled when feeType is Settlement",
+      "$comment": "Consult External Code List table ExternalTradeModeCode"
+    },
+    "investorType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Investor profile",
+      "$comment": "Consult External Code List table ExternalInvestorTypeCode"
+    },
+    "minimumVertex": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Minimum vertex of the term interval. Only filled for interest rate family (IRF)"
+    },
+    "maximumVertex": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Maximum vertex of the term interval. Only filled for interest rate family (IRF)"
     },
     "minimumValue": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999999999999,
       "description": "Minimum value of the tier. The unit depends on feeBase (notional, premium or number of contracts)"
     },
     "maximumValue": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999999999999,
       "description": "Maximum value of the tier. Empty on the last tier (open ceiling)"
     },
     "minimumSpread": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
+      "type": "number",
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
       "description": "Minimum spread for option exercise or maturity settlement"
     },
     "maximumSpread": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
+      "type": "number",
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
       "description": "Maximum spread for option exercise or maturity settlement"
+    },
+    "feeTier": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Fee tier"
     },
     "feeValueType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999999,
+      "maximum": 99,
       "description": "Fee value type",
       "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
     },
     "feeValue": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
       "description": "Fee value"
+    },
+    "floorValue": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
+      "description": "Floor value of the fee, when the family has a fee limit"
+    },
+    "capValue": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
+      "description": "Cap value of the fee, when the family has a fee limit"
     },
     "fixedValueType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999999,
+      "maximum": 99,
       "description": "Fixed fee value type",
       "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
     },
     "fixedValue": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
       "description": "Fixed fee value"
     },
     "additionalValueType": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999999,
+      "maximum": 99,
       "description": "Additional value type indicator",
       "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
     },
     "additionalValue": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
       "description": "Additional fee value"
     },
     "indicatorReferenceDate": {
@@ -160,10 +217,10 @@
       "description": "Reference date of the indicator used"
     },
     "indicatorValue": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
       "description": "Indicator value"
     },
     "indicatorType": {
@@ -175,13 +232,16 @@
     }
   },
   "required": [
+    "referenceDate",
     "startDate",
     "endDate",
     "feeProductGroup",
     "market",
     "asset",
-    "securityCategory",
+    "feeBase",
     "feeComponent",
+    "feeType",
+    "investorType",
     "feeTier",
     "feeValueType",
     "feeValue"

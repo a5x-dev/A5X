@@ -44,7 +44,7 @@
       "description" : "Provides the assignee account identification"
     }
   },
-  "required" : [ "collateralIdentification" ],
+  "required" : [ "collateralIdentification", "quantity", "maturityDate", "selicCode", "SELICOperationCode", "assignerAccount", "assigneeAccount" ],
   "additionalProperties" : false,
   "examples" : [ {
     "collateralIdentification" : "OTHER-001",

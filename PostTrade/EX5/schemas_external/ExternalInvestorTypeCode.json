@@ -20,7 +20,7 @@
     },
     {
       "type": "number",
-      "description": "Pessoa Física",
+      "description": "Regular",
       "const": 3
     }
   ],

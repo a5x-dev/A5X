@@ -74,7 +74,7 @@
         "exchange" : "A5XB"
       },
       "tickerSymbol" : "PETR4",
-      "quantity" : 1000,
+      "quantity" : 1000.00,
       "collateralValue" : {
         "amount" : 150000.00,
         "currency" : "BRL"

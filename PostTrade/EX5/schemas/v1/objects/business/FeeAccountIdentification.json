@@ -1,0 +1,37 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:FeeAccountIdentification",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:FeeAccountIdentification"
+  },
+  "title" : "Fee Account Identification",
+  "description" : "Account identification for fee messages, including opening date and document identifier",
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 999999999,
+      "description" : "Account identifier"
+    },
+    "openingDate" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Account opening date and start of the fee validity"
+    },
+    "documentIdentifier" : {
+      "$ref" : "../../objects/business/DocumentIdentifier.json",
+      "description" : "Document identification of the account holder, including type and number"
+    }
+  },
+  "required" : [ "id", "openingDate", "documentIdentifier" ],
+  "additionalProperties" : false,
+  "examples" : [ {
+    "id" : 529876543,
+    "openingDate" : "2026-10-03T14:32:08.512Z",
+    "documentIdentifier" : {
+      "documentType" : 5,
+      "documentNumber" : "12345678901"
+    }
+  } ]
+}

@@ -90,10 +90,10 @@
           "assigneeAccount" : "ASSIGNEE-ACC-001"
         },
         "collateralDetailInformation" : {
-          "depositedQuantity" : 1000,
-          "valuedQuantity" : 950,
-          "deliveryQuantity" : 100,
-          "blockedQuantity" : 50,
+          "depositedQuantity" : 1000.00,
+          "valuedQuantity" : 950.00,
+          "deliveryQuantity" : 100.50,
+          "blockedQuantity" : 50.00,
           "haircutRate" : 15.00,
           "collateralValue" : {
             "currency" : "BRL",

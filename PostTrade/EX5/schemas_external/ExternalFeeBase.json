@@ -27,6 +27,11 @@
     "type" : "number",
     "description" : "Desagio",
     "const" : 5
+  },
+  {
+    "type" : "number",
+    "description" : "Spread",
+    "const" : 6
   } ],
-  "examples" : [ 1, 2, 3, 4, 5 ]
+  "examples" : [ 1, 2, 3, 4, 5, 6 ]
 }

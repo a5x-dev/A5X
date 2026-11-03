@@ -1,293 +1,769 @@
 {
-  "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAllocationErrorCode.Pt",
-  "$metadata" : {
-    "domain" : "schemas_external",
-    "schemaId" : "urn:a5x:ex5:schema:v1:schemas_external:ExternalAllocationErrorCode.Pt"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:a5x:ex5:schema:v1:schemas_external:ExternalAllocationErrorCode.Pt",
+  "$metadata": {
+    "domain": "schemas_external",
+    "schemaId": "urn:a5x:ex5:schema:v1:schemas_external:ExternalAllocationErrorCode.Pt"
   },
-  "title" : "ExternalAllocationErrorCode",
-  "description" : "Error codes for allocation domain",
-  "oneOf" : [ {
-    "type" : "string",
-    "description" : "Desequilíbrio de posição gerado durante a alocação da operação.",
-    "const" : "ALC0000059"
-  }, {
-    "type" : "string",
-    "description" : "Solicitação de alocação enviada fora do período de tempo permitido.",
-    "const" : "ALC0001400"
-  }, {
-    "type" : "string",
-    "description" : "A quantidade especificada de alocação é inválida.",
-    "const" : "ALC0001401"
-  }, {
-    "type" : "string",
-    "description" : "A quantidade especificada é maior do que a quantidade disponível para a alocação.",
-    "const" : "ALC0001402"
-  }, {
-    "type" : "string",
-    "description" : "O ID de Alocação especificado é inválido.",
-    "const" : "ALC0001403"
-  }, {
-    "type" : "string",
-    "description" : "O instrumento informado é inválido.",
-    "const" : "ALC0001407"
-  }, {
-    "type" : "string",
-    "description" : "O instrumento não é permitido para alocação.",
-    "const" : "ALC0001408"
-  }, {
-    "type" : "string",
-    "description" : "Conta especificada incorreta para a alocação.",
-    "const" : "ALC0001410"
-  }, {
-    "type" : "string",
-    "description" : "A conta especificada não pertence à estrutura de contas elegíveis do participante.",
-    "const" : "ALC0001411"
-  }, {
-    "type" : "string",
-    "description" : "A posição de origem da alocação não possui saldo suficiente para esta operação.",
-    "const" : "ALC0001412"
-  }, {
-    "type" : "string",
-    "description" : "A alocação especificada não está disponível para ser alocada.",
-    "const" : "ALC0001414"
-  }, {
-    "type" : "string",
-    "description" : "A conta especificada não está ativa.",
-    "const" : "ALC0001417"
-  }, {
-    "type" : "string",
-    "description" : "A conta destino informada não pode ser igual a conta de origem.",
-    "const" : "ALC0001418"
-  }, {
-    "type" : "string",
-    "description" : "Alocações não permitida entre contas com categorias diferentes.",
-    "const" : "ALC5000037"
-  }, {
-    "type" : "string",
-    "description" : "Alocação não permitida a partir de uma conta suspensa.",
-    "const" : "ALC5000070"
-  }, {
-    "type" : "string",
-    "description" : "Give-up não permitido a partir de uma conta suspensa.",
-    "const" : "ALC5000080"
-  }, {
-    "type" : "string",
-    "description" : "Give-up não permitido para o participante.",
-    "const" : "ALC5000081"
-  }, {
-    "type" : "string",
-    "description" : "Take-up não permitido devido a conta suspensa.",
-    "const" : "ALC5000090"
-  }, {
-    "type" : "string",
-    "description" : "Take-up não permitido para o participante.",
-    "const" : "ALC5000091"
-  }, {
-    "type" : "string",
-    "description" : "O ID de Alocação não existe.",
-    "const" : "ALC7000095"
-  }, {
-    "type" : "string",
-    "description" : "A alocação não está no status 'New'.",
-    "const" : "ALC7000096"
-  }, {
-    "type" : "string",
-    "description" : "Quantidade insuficiente na alocação.",
-    "const" : "ALC7000097"
-  }, {
-    "type" : "string",
-    "description" : "A conta não está no status 'Active'",
-    "const" : "ALC7000098"
-  }, {
-    "type" : "string",
-    "description" : "Não é permitido alocar sem informar a conta origem correta da alocação.",
-    "const" : "ALC7000110"
-  }, {
-    "type" : "string",
-    "description" : "A conta não é válida para o participante.",
-    "const" : "ALC7000113"
-  }, {
-    "type" : "string",
-    "description" : "A categoria da conta é inválida.",
-    "const" : "ALC7000115"
-  }, {
-    "type" : "string",
-    "description" : "O Participante de Compensação do Pedido de Alocação não corresponde ao Participante de Compensação da Alocação.",
-    "const" : "ALC7000181"
-  }, {
-    "type" : "string",
-    "description" : "A conta de erro operacional de compra não está disponível para a alocação de fim de dia (EOD).",
-    "const" : "ALC7750005"
-  }, {
-    "type" : "string",
-    "description" : "A conta de erro operacional de venda não está disponível para a alocação de fim de dia (EOD).",
-    "const" : "ALC7750006"
-  }, {
-    "type" : "string",
-    "description" : "A alocação foi realizada fora do prazo permitido",
-    "const" : "ALC7750011"
-  }, {
-    "type" : "string",
-    "description" : "A alocação foi realizada após o prazo final.",
-    "const" : "ALC7750012"
-  }, {
-    "type" : "string",
-    "description" : "A alocação não é permitida da conta para a conta.",
-    "const" : "ALC7750013"
-  }, {
-    "type" : "string",
-    "description" : "A quantidade alocada não é um múltiplo do tamanho de lote de alocação do instrumento.",
-    "const" : "ALC7750014"
-  }, {
-    "type" : "string",
-    "description" : "A alocação com exedente de limite de Threshold. Autorização necessária.",
-    "const" : "ALC7750015"
-  }, {
-    "type" : "string",
-    "description" : "A alocação com exedente de limite de Threshold está sendo processada.",
-    "const" : "ALC7750016"
-  }, {
-    "type" : "string",
-    "description" : "Autorização para a solicitação de limite de alocação rejeitada.",
-    "const" : "ALC7750017"
-  }, {
-    "type" : "string",
-    "description" : "Solicitação de limite de alocação cancelada.",
-    "const" : "ALC7750018"
-  }, {
-    "type" : "string",
-    "description" : "A conta de erro do participante não está disponível",
-    "const" : "ALC7750019"
-  }, {
-    "type" : "string",
-    "description" : "A rejeição de repasse não foi bem-sucedida pois ocorreu após o tempo permitido para o repasse.",
-    "const" : "ALC7750021"
-  }, {
-    "type" : "string",
-    "description" : "A aprovação de repasse não foi bem-sucedida pois o repasse já está aprovado.",
-    "const" : "ALC7750022"
-  }, {
-    "type" : "string",
-    "description" : "A rejeição de repasse não foi bem-sucedida pois o repasse já está rejeitado.",
-    "const" : "ALC7750023"
-  }, {
-    "type" : "string",
-    "description" : "A aprovação de repasse não foi bem-sucedida pois o repasse já está rejeitado.",
-    "const" : "ALC7750024"
-  }, {
-    "type" : "string",
-    "description" : "O motivo da quebra de regra deve ser especificado se o indicador de quebra de regra for \"Sim\".",
-    "const" : "ALC7750025"
-  }, {
-    "type" : "string",
-    "description" : "O ID do negócio e o lado do negócio não correspondem à alocação",
-    "const" : "ALC7750033"
-  }, {
-    "type" : "string",
-    "description" : "A redução da posição compradora não é efetuada no lançamento quando a Conta de Compensação da Compra está parcialmente suspensa.",
-    "const" : "ALC7750035"
-  }, {
-    "type" : "string",
-    "description" : "A redução da posição vendedora não é efetuada no lançamento quando a Conta de Compensação da Venda está parcialmente suspensa.",
-    "const" : "ALC7750036"
-  }, {
-    "type" : "string",
-    "description" : "A redução da posição compradora não é efetuada no lançamento quando a Conta Beneficiária da Compra está parcialmente suspensa.",
-    "const" : "ALC7750037"
-  }, {
-    "type" : "string",
-    "description" : "A redução da posição vendedora não é efetuada no lançamento quando a Conta Beneficiária da Venda está parcialmente suspensa.",
-    "const" : "ALC7750038"
-  }, {
-    "type" : "string",
-    "description" : "O símbolo da alocação e o símbolo do pedido de alocação devem ser os mesmos.",
-    "const" : "ALC7750040"
-  }, {
-    "type" : "string",
-    "description" : "A alocação para uma titularidade diferente",
-    "const" : "ALC7750041"
-  }, {
-    "type" : "string",
-    "description" : "A aprovação do Take Up não foi bem-sucedida pois o ID de alocação especificado na solicitação é inválido.",
-    "const" : "ALC7750042"
-  }, {
-    "type" : "string",
-    "description" : "A aprovação do Take Up não foi bem-sucedida pois o símbolo da alocação e o símbolo da solicitação de Take Up devem ser os mesmos.",
-    "const" : "ALC7750043"
-  }, {
-    "type" : "string",
-    "description" : "A quebra de regra deve ser especificada para ações de rejeição.",
-    "const" : "ALC7750046"
-  }, {
-    "type" : "string",
-    "description" : "A quebra de regra não deve ser especificada para ações de aprovação.",
-    "const" : "ALC7750047"
-  }, {
-    "type" : "string",
-    "description" : "O motivo da quebra de regra deve ser especificado.",
-    "const" : "ALC7750048"
-  }, {
-    "type" : "string",
-    "description" : "A responsabilidade da quebra de regra deve ser especificada.",
-    "const" : "ALC7750049"
-  }, {
-    "type" : "string",
-    "description" : "A rejeição de repasse não foi bem-sucedida - a alocação foi atualizada devido ao processo de alocação.",
-    "const" : "ALC7750050"
-  }, {
-    "type" : "string",
-    "description" : "A quebra de regra deve ser especificada ao alocar para uma conta com um vínculo de repasse após o horário de repasse para alocações",
-    "const" : "ALC7750051"
-  }, {
-    "type" : "string",
-    "description" : "Não há vínculo Master ativo disponível entre as contas.",
-    "const" : "ALC7750082"
-  }, {
-    "type" : "string",
-    "description" : "A rejeição de Take Up não foi bem-sucedida, pois rejeições de Take Up não são permitidas para negócios de co-location.",
-    "const" : "ALC7750102"
-  }, {
-    "type" : "string",
-    "description" : "Conta de alocação inválida.",
-    "const" : "ALC7750105"
-  }, {
-    "type" : "string",
-    "description" : "A solicitação de alocação especificada não está disponível para ação de avaliação de risco.",
-    "const" : "ALC7750106"
-  }, {
-    "type" : "string",
-    "description" : "Solicitação de alocação inválida.",
-    "const" : "ALC7750107"
-  }, {
-    "type" : "string",
-    "description" : "O pedido de alocação não foi bem-sucedido para, pois pedidos de alocação não são permitidos em alocações de bloco que ainda não foram fechados.",
-    "const" : "ALC7750108"
-  }, {
-    "type" : "string",
-    "description" : "A solicitação de Take Up não foi bem-sucedida, pos solicitações de Take Up não são permitidas em alocações comprimidas abertas.",
-    "const" : "ALC7750109"
-  }, {
-    "type" : "string",
-    "description" : "A alocação parcial não foi bem-sucedida, pois alocações parciais não são permitidas para blocos.",
-    "const" : "ALC7750112"
-  }, {
-    "type" : "string",
-    "description" : "Alocações para a mesma conta, dentro do 'Bulk Resquest' não são permitidas.",
-    "const" : "ALC7750137"
-  }, {
-    "type" : "string",
-    "description" : "Cancelamento oe bloco não foi bem-sucedido pois o bloco não está no status 'Closed'.",
-    "const" : "ALC7750140"
-  }, {
-    "type" : "string",
-    "description" : "A Conta não é uma conta válida para Sessão de Negociação Automatizada.",
-    "const" : "ALC7750143"
-  }, {
-    "type" : "string",
-    "description" : "Erro não descrito.",
-    "const" : "ALC9999999"
-  } ],
-  "additionalProperties" : false,
-  "examples" : [ "ALC0000059", "ALC0001400", "ALC0001401", "ALC0001402" ]
+  "title": "ExternalAllocationErrorCode",
+  "description": "Error codes for allocation domain",
+  "oneOf": [
+    {
+      "type": "string",
+      "description": "Desequilíbrio de posição gerado durante a alocação da operação.",
+      "const": "ALC0000059"
+    },
+    {
+      "type": "string",
+      "description": "A quantidade especificada é maior do que a quantidade disponível para a alocação.",
+      "const": "ALC0000703"
+    },
+    {
+      "type": "string",
+      "description": "O ID de Alocação especificado é inválido.",
+      "const": "ALC0000704"
+    },
+    {
+      "type": "string",
+      "description": "A alocação especificada já está cancelada.",
+      "const": "ALC0000705"
+    },
+    {
+      "type": "string",
+      "description": "O participante solicitante não corresponde ao participante da alocação.",
+      "const": "ALC0000706"
+    },
+    {
+      "type": "string",
+      "description": "O instrumento informado é inválido.",
+      "const": "ALC0000709"
+    },
+    {
+      "type": "string",
+      "description": "O participante destino do Give-up é inválido.",
+      "const": "ALC0000712"
+    },
+    {
+      "type": "string",
+      "description": "Conta especificada incorreta para Give-up e Take-up.",
+      "const": "ALC0000714"
+    },
+    {
+      "type": "string",
+      "description": "O Participante  da conta de Take-up não é permitido para o participante destino no segmento de compensação do negócio.",
+      "const": "ALC0000715"
+    },
+    {
+      "type": "string",
+      "description": "A solicitação de Give-up especificada não pode ser identificada.",
+      "const": "ALC0000716"
+    },
+    {
+      "type": "string",
+      "description": "A posição de origem da alocação não possui saldo suficiente para esta operação.",
+      "const": "ALC0000717"
+    },
+    {
+      "type": "string",
+      "description": "O status da solicitação de Give-up especificada é inválido.",
+      "const": "ALC0000718"
+    },
+    {
+      "type": "string",
+      "description": "A solicitação de Take-up especificada não pode ser identificada.",
+      "const": "ALC0000719"
+    },
+    {
+      "type": "string",
+      "description": "O status da solicitação de Take-up especificada é inválido.",
+      "const": "ALC0000720"
+    },
+    {
+      "type": "string",
+      "description": "A conta de Take-up não está no status 'Ativo'.",
+      "const": "ALC0000725"
+    },
+    {
+      "type": "string",
+      "description": "O participante destino não está ativo.",
+      "const": "ALC0000726"
+    },
+    {
+      "type": "string",
+      "description": "Solicitação de Give-up enviada fora do período de tempo permitido.",
+      "const": "ALC0000729"
+    },
+    {
+      "type": "string",
+      "description": "Tentativa de cancelamento da solicitação de Give-up fora do período de tempo permitido.",
+      "const": "ALC0000730"
+    },
+    {
+      "type": "string",
+      "description": "Solicitação de Take-up enviada fora do período de tempo permitido.",
+      "const": "ALC0000731"
+    },
+    {
+      "type": "string",
+      "description": "Não há dados válidos de conta de custódia e conta financeira do Participante de Compensação disponíveis.",
+      "const": "ALC0000732"
+    },
+    {
+      "type": "string",
+      "description": "O negócio original da alocação não existe.",
+      "const": "ALC0000755"
+    },
+    {
+      "type": "string",
+      "description": "O negócio original da alocação não existe.",
+      "const": "ALC0000756"
+    },
+    {
+      "type": "string",
+      "description": "O participante destino não está ativo.",
+      "const": "ALC0000786"
+    },
+    {
+      "type": "string",
+      "description": "A alocação especificada já está cancelada.",
+      "const": "ALC0000787"
+    },
+    {
+      "type": "string",
+      "description": "O instrumento informado é inválido.",
+      "const": "ALC0000788"
+    },
+    {
+      "type": "string",
+      "description": "O participante de Take-up é inválido.",
+      "const": "ALC0000789"
+    },
+    {
+      "type": "string",
+      "description": "A posição de origem da alocação não possui saldo suficiente para esta operação.",
+      "const": "ALC0000790"
+    },
+    {
+      "type": "string",
+      "description": "O participante solicitante não corresponde ao participante destino da solicitação de Give-up.",
+      "const": "ALC0000793"
+    },
+    {
+      "type": "string",
+      "description": "Solicitação de alocação enviada fora do período de tempo permitido.",
+      "const": "ALC0001400"
+    },
+    {
+      "type": "string",
+      "description": "A quantidade especificada de alocação é inválida.",
+      "const": "ALC0001401"
+    },
+    {
+      "type": "string",
+      "description": "A quantidade especificada é maior do que a quantidade disponível para a alocação.",
+      "const": "ALC0001402"
+    },
+    {
+      "type": "string",
+      "description": "O ID de Alocação especificado é inválido.",
+      "const": "ALC0001403"
+    },
+    {
+      "type": "string",
+      "description": "O participante solicitante da mensagem não corresponde ao participante da alocação.",
+      "const": "ALC0001404"
+    },
+    {
+      "type": "string",
+      "description": "O participante solicitante especificado é inválido.",
+      "const": "ALC0001405"
+    },
+    {
+      "type": "string",
+      "description": "Função não autorizada para o participante solicitante.",
+      "const": "ALC0001406"
+    },
+    {
+      "type": "string",
+      "description": "O instrumento informado é inválido.",
+      "const": "ALC0001407"
+    },
+    {
+      "type": "string",
+      "description": "O instrumento não é permitido para alocação.",
+      "const": "ALC0001408"
+    },
+    {
+      "type": "string",
+      "description": "Conta especificada incorreta para a alocação.",
+      "const": "ALC0001410"
+    },
+    {
+      "type": "string",
+      "description": "A conta especificada não pertence à estrutura de contas elegíveis do participante.",
+      "const": "ALC0001411"
+    },
+    {
+      "type": "string",
+      "description": "A posição de origem da alocação não possui saldo suficiente para esta operação.",
+      "const": "ALC0001412"
+    },
+    {
+      "type": "string",
+      "description": "A alocação especificada não está disponível para ser alocada.",
+      "const": "ALC0001414"
+    },
+    {
+      "type": "string",
+      "description": "O participante solicitante especificado não está ativo.",
+      "const": "ALC0001415"
+    },
+    {
+      "type": "string",
+      "description": "O instrumento informado não está ativo.",
+      "const": "ALC0001416"
+    },
+    {
+      "type": "string",
+      "description": "A conta especificada não está ativa.",
+      "const": "ALC0001417"
+    },
+    {
+      "type": "string",
+      "description": "A conta destino informada não pode ser igual a conta de origem.",
+      "const": "ALC0001418"
+    },
+    {
+      "type": "string",
+      "description": "Negócio especificado não está disponível para ser alocado.",
+      "const": "ALC0001419"
+    },
+    {
+      "type": "string",
+      "description": "Tentativa de alteração da solicitação de alocação fora do período de tempo permitido.",
+      "const": "ALC0001422"
+    },
+    {
+      "type": "string",
+      "description": "Tentativa de cancelamento da solicitação de alocação fora do período de tempo permitido.",
+      "const": "ALC0001423"
+    },
+    {
+      "type": "string",
+      "description": "O participante comprador não está ativo.",
+      "const": "ALC0001425"
+    },
+    {
+      "type": "string",
+      "description": "O participante vendedor não está ativo.",
+      "const": "ALC0001426"
+    },
+    {
+      "type": "string",
+      "description": "A conta de liquidação não está ativa para a ponta compradora.",
+      "const": "ALC0001427"
+    },
+    {
+      "type": "string",
+      "description": "A conta de liquidação não está ativa para a ponta vendedora.",
+      "const": "ALC0001428"
+    },
+    {
+      "type": "string",
+      "description": "Solicitação de alocação inválida.",
+      "const": "ALC0001430"
+    },
+    {
+      "type": "string",
+      "description": "A solicitação de alocação especificada não está disponível para cancelamento.",
+      "const": "ALC0001431"
+    },
+    {
+      "type": "string",
+      "description": "A solicitação de alocação especificada não está disponível para alteração.",
+      "const": "ALC0001432"
+    },
+    {
+      "type": "string",
+      "description": "A solicitação de alocação especificada não está disponível para autorização.",
+      "const": "ALC0001433"
+    },
+    {
+      "type": "string",
+      "description": "A posição de liquidação de origem não possui saldo suficiente para esta operação.",
+      "const": "ALC0001438"
+    },
+    {
+      "type": "string",
+      "description": "Não é permitido transferir após bloqueio/liberação.",
+      "const": "ALC0001439"
+    },
+    {
+      "type": "string",
+      "description": "Alocação manual não permitida para o participante.",
+      "const": "ALC0001450"
+    },
+    {
+      "type": "string",
+      "description": "A origem do negócio da alocação não é permitida para a conta de Take-up informada na solicitação de alocação.",
+      "const": "ALC0001453"
+    },
+    {
+      "type": "string",
+      "description": "Alocações não permitida entre contas com categorias diferentes.",
+      "const": "ALC5000037"
+    },
+    {
+      "type": "string",
+      "description": "Alocação não permitida a partir de uma conta suspensa.",
+      "const": "ALC5000070"
+    },
+    {
+      "type": "string",
+      "description": "Give-up não permitido a partir de uma conta suspensa.",
+      "const": "ALC5000080"
+    },
+    {
+      "type": "string",
+      "description": "Give-up não permitido para o participante.",
+      "const": "ALC5000081"
+    },
+    {
+      "type": "string",
+      "description": "Take-up não permitido devido a conta suspensa.",
+      "const": "ALC5000090"
+    },
+    {
+      "type": "string",
+      "description": "Take-up não permitido para o participante.",
+      "const": "ALC5000091"
+    },
+    {
+      "type": "string",
+      "description": "Give-up não permitido para alocações que já estão em um grupo de preço médio.",
+      "const": "ALC7000093"
+    },
+    {
+      "type": "string",
+      "description": "O ID de Alocação não existe.",
+      "const": "ALC7000095"
+    },
+    {
+      "type": "string",
+      "description": "A alocação não está no status 'New'.",
+      "const": "ALC7000096"
+    },
+    {
+      "type": "string",
+      "description": "Quantidade insuficiente na alocação.",
+      "const": "ALC7000097"
+    },
+    {
+      "type": "string",
+      "description": "A conta não está no status 'Active'",
+      "const": "ALC7000098"
+    },
+    {
+      "type": "string",
+      "description": "Falha na alocação de Give-up em lote.",
+      "const": "ALC7000099"
+    },
+    {
+      "type": "string",
+      "description": "Rejeitado devido a um processo paralelo em andamento.",
+      "const": "ALC7000100"
+    },
+    {
+      "type": "string",
+      "description": "A conta informada na solicitação de Give-up não corresponde à conta da alocação.",
+      "const": "ALC7000108"
+    },
+    {
+      "type": "string",
+      "description": "A categoria da conta informada na solicitação de Give-up não corresponde à categoria da conta da alocação.",
+      "const": "ALC7000109"
+    },
+    {
+      "type": "string",
+      "description": "Não é permitido alocar sem informar a conta origem correta da alocação.",
+      "const": "ALC7000110"
+    },
+    {
+      "type": "string",
+      "description": "A categoria da conta da mensagem não corresponde à categoria da conta da alocação.",
+      "const": "ALC7000111"
+    },
+    {
+      "type": "string",
+      "description": "A conta não é válida para o participante.",
+      "const": "ALC7000113"
+    },
+    {
+      "type": "string",
+      "description": "A categoria da conta informada na mensagem de Take-up não corresponde à categoria da conta de Take-up.",
+      "const": "ALC7000114"
+    },
+    {
+      "type": "string",
+      "description": "A categoria da conta é inválida.",
+      "const": "ALC7000115"
+    },
+    {
+      "type": "string",
+      "description": "A categoria da conta destino informada não corresponde à categoria da conta destino especificada.",
+      "const": "ALC7000116"
+    },
+    {
+      "type": "string",
+      "description": "A conta de compensação da mensagem não corresponde à conta de compensação da alocação.",
+      "const": "ALC7000120"
+    },
+    {
+      "type": "string",
+      "description": "A categoria da conta de compensação da mensagem não corresponde à categoria da conta da alocação.",
+      "const": "ALC7000121"
+    },
+    {
+      "type": "string",
+      "description": "Solicitação de Give-up em lote enviada fora do período de tempo permitido.",
+      "const": "ALC7000142"
+    },
+    {
+      "type": "string",
+      "description": "O Participante de Take-up não corresponde ao Participante de Take-up da solicitação de Give-up.",
+      "const": "ALC7000159"
+    },
+    {
+      "type": "string",
+      "description": "A data do negócio informada na instrução recebida não corresponde à data do negócio da alocação.",
+      "const": "ALC7000165"
+    },
+    {
+      "type": "string",
+      "description": "A data do negócio informada na instrução recebida não corresponde à data do negócio da alocação.",
+      "const": "ALC7000166"
+    },
+    {
+      "type": "string",
+      "description": "A data do negócio informada na instrução recebida não corresponde à data do negócio da solicitação de Give-up.",
+      "const": "ALC7000167"
+    },
+    {
+      "type": "string",
+      "description": "A data do negócio informada na instrução recebida não corresponde à data do negócio da solicitação de Give-up.",
+      "const": "ALC7000168"
+    },
+    {
+      "type": "string",
+      "description": "O Participante de Compensação da solicitação de Give-up não corresponde ao Participante de Compensação da alocação.",
+      "const": "ALC7000176"
+    },
+    {
+      "type": "string",
+      "description": "O Participante da solicitação de cancelamento de Give-up não corresponde ao Participante da solicitação de Give-up.",
+      "const": "ALC7000178"
+    },
+    {
+      "type": "string",
+      "description": "O Participante de Compensação do Pedido de Alocação não corresponde ao Participante de Compensação da Alocação.",
+      "const": "ALC7000181"
+    },
+    {
+      "type": "string",
+      "description": "O Participante da solicitação de repasse não corresponde ao Participante da alocação.",
+      "const": "ALC7000192"
+    },
+    {
+      "type": "string",
+      "description": "O participante destino da solicitação de alocação é inválido.",
+      "const": "ALC7000245"
+    },
+    {
+      "type": "string",
+      "description": "A referência do negócio na CCP informada não corresponde à referência do negócio na CCP da alocação.",
+      "const": "ALC7000279"
+    },
+    {
+      "type": "string",
+      "description": "O lado informado não corresponde ao lado da alocação.",
+      "const": "ALC7000280"
+    },
+    {
+      "type": "string",
+      "description": "A divisão do negócio (split) não pode ser iniciada pois a alocação está em um grupo de preço médio.",
+      "const": "ALC7000281"
+    },
+    {
+      "type": "string",
+      "description": "O ID de Alocação informado não corresponde ao ID de Alocação da solicitação de Give-up.",
+      "const": "ALC7000290"
+    },
+    {
+      "type": "string",
+      "description": "A origem do negócio da alocação não é permitida para a conta de Take-up informada na solicitação de Take-up.",
+      "const": "ALC7000294"
+    },
+    {
+      "type": "string",
+      "description": "A conta de erro operacional de compra não está disponível para a alocação de fim de dia (EOD).",
+      "const": "ALC7750005"
+    },
+    {
+      "type": "string",
+      "description": "A conta de erro operacional de venda não está disponível para a alocação de fim de dia (EOD).",
+      "const": "ALC7750006"
+    },
+    {
+      "type": "string",
+      "description": "A alocação foi realizada fora do prazo permitido",
+      "const": "ALC7750011"
+    },
+    {
+      "type": "string",
+      "description": "A alocação foi realizada após o prazo final.",
+      "const": "ALC7750012"
+    },
+    {
+      "type": "string",
+      "description": "A alocação não é permitida da conta para a conta.",
+      "const": "ALC7750013"
+    },
+    {
+      "type": "string",
+      "description": "A quantidade alocada não é um múltiplo do tamanho de lote de alocação do instrumento.",
+      "const": "ALC7750014"
+    },
+    {
+      "type": "string",
+      "description": "A alocação com exedente de limite de Threshold. Autorização necessária.",
+      "const": "ALC7750015"
+    },
+    {
+      "type": "string",
+      "description": "A alocação com exedente de limite de Threshold está sendo processada.",
+      "const": "ALC7750016"
+    },
+    {
+      "type": "string",
+      "description": "Autorização para a solicitação de limite de alocação rejeitada.",
+      "const": "ALC7750017"
+    },
+    {
+      "type": "string",
+      "description": "Solicitação de limite de alocação cancelada.",
+      "const": "ALC7750018"
+    },
+    {
+      "type": "string",
+      "description": "A conta de erro do participante não está disponível",
+      "const": "ALC7750019"
+    },
+    {
+      "type": "string",
+      "description": "Alocação realizada enquanto a alocação está no substatus Pendente de Aprovação.",
+      "const": "ALC7750020"
+    },
+    {
+      "type": "string",
+      "description": "A rejeição de repasse não foi bem-sucedida pois ocorreu após o tempo permitido para o repasse.",
+      "const": "ALC7750021"
+    },
+    {
+      "type": "string",
+      "description": "A aprovação de repasse não foi bem-sucedida pois o repasse já está aprovado.",
+      "const": "ALC7750022"
+    },
+    {
+      "type": "string",
+      "description": "A rejeição de repasse não foi bem-sucedida pois o repasse já está rejeitado.",
+      "const": "ALC7750023"
+    },
+    {
+      "type": "string",
+      "description": "A aprovação de repasse não foi bem-sucedida pois o repasse já está rejeitado.",
+      "const": "ALC7750024"
+    },
+    {
+      "type": "string",
+      "description": "O motivo da quebra de regra deve ser especificado se o indicador de quebra de regra for Sim.",
+      "const": "ALC7750025"
+    },
+    {
+      "type": "string",
+      "description": "O ID do negócio e o lado do negócio não correspondem à alocação",
+      "const": "ALC7750033"
+    },
+    {
+      "type": "string",
+      "description": "Falha técnica.",
+      "const": "ALC7750034"
+    },
+    {
+      "type": "string",
+      "description": "A redução da posição compradora não é efetuada no lançamento quando a Conta de Compensação da Compra está parcialmente suspensa.",
+      "const": "ALC7750035"
+    },
+    {
+      "type": "string",
+      "description": "A redução da posição vendedora não é efetuada no lançamento quando a Conta de Compensação da Venda está parcialmente suspensa.",
+      "const": "ALC7750036"
+    },
+    {
+      "type": "string",
+      "description": "A redução da posição compradora não é efetuada no lançamento quando a Conta Beneficiária da Compra está parcialmente suspensa.",
+      "const": "ALC7750037"
+    },
+    {
+      "type": "string",
+      "description": "A redução da posição vendedora não é efetuada no lançamento quando a Conta Beneficiária da Venda está parcialmente suspensa.",
+      "const": "ALC7750038"
+    },
+    {
+      "type": "string",
+      "description": "O participante da alocação e o participante da solicitação de alocação devem ser os mesmos.",
+      "const": "ALC7750039"
+    },
+    {
+      "type": "string",
+      "description": "O símbolo da alocação e o símbolo do pedido de alocação devem ser os mesmos.",
+      "const": "ALC7750040"
+    },
+    {
+      "type": "string",
+      "description": "A alocação para uma titularidade diferente",
+      "const": "ALC7750041"
+    },
+    {
+      "type": "string",
+      "description": "A aprovação do Take Up não foi bem-sucedida pois o ID de alocação especificado na solicitação é inválido.",
+      "const": "ALC7750042"
+    },
+    {
+      "type": "string",
+      "description": "A aprovação do Take Up não foi bem-sucedida pois o símbolo da alocação e o símbolo da solicitação de Take Up devem ser os mesmos.",
+      "const": "ALC7750043"
+    },
+    {
+      "type": "string",
+      "description": "O participante da alocação e o participante destino da solicitação de Take-up devem ser os mesmos.",
+      "const": "ALC7750044"
+    },
+    {
+      "type": "string",
+      "description": "Ações de Take-up não são permitidas para a alocação especificada.",
+      "const": "ALC7750045"
+    },
+    {
+      "type": "string",
+      "description": "A quebra de regra deve ser especificada para ações de rejeição.",
+      "const": "ALC7750046"
+    },
+    {
+      "type": "string",
+      "description": "A quebra de regra não deve ser especificada para ações de aprovação.",
+      "const": "ALC7750047"
+    },
+    {
+      "type": "string",
+      "description": "O motivo da quebra de regra deve ser especificado.",
+      "const": "ALC7750048"
+    },
+    {
+      "type": "string",
+      "description": "A responsabilidade da quebra de regra deve ser especificada.",
+      "const": "ALC7750049"
+    },
+    {
+      "type": "string",
+      "description": "A rejeição de repasse não foi bem-sucedida - a alocação foi atualizada devido ao processo de alocação.",
+      "const": "ALC7750050"
+    },
+    {
+      "type": "string",
+      "description": "A quebra de regra deve ser especificada ao alocar para uma conta com um vínculo de repasse após o horário de repasse para alocações",
+      "const": "ALC7750051"
+    },
+    {
+      "type": "string",
+      "description": "Alocação realizada enquanto a alocação está no substatus Pendente de Aprovação do Participante Destino.",
+      "const": "ALC7750052"
+    },
+    {
+      "type": "string",
+      "description": "Alocação realizada enquanto a alocação está no substatus Pendente de Aprovação da Clearing.",
+      "const": "ALC7750080"
+    },
+    {
+      "type": "string",
+      "description": "Não há vínculo Master ativo disponível entre as contas.",
+      "const": "ALC7750082"
+    },
+    {
+      "type": "string",
+      "description": "A rejeição de Take Up não foi bem-sucedida, pois rejeições de Take Up não são permitidas para negócios de co-location.",
+      "const": "ALC7750102"
+    },
+    {
+      "type": "string",
+      "description": "Conta de alocação inválida.",
+      "const": "ALC7750105"
+    },
+    {
+      "type": "string",
+      "description": "A solicitação de alocação especificada não está disponível para ação de avaliação de risco.",
+      "const": "ALC7750106"
+    },
+    {
+      "type": "string",
+      "description": "Solicitação de alocação inválida.",
+      "const": "ALC7750107"
+    },
+    {
+      "type": "string",
+      "description": "O pedido de alocação não foi bem-sucedido para, pois pedidos de alocação não são permitidos em alocações de bloco que ainda não foram fechados.",
+      "const": "ALC7750108"
+    },
+    {
+      "type": "string",
+      "description": "A solicitação de Take Up não foi bem-sucedida, pos solicitações de Take Up não são permitidas em alocações comprimidas abertas.",
+      "const": "ALC7750109"
+    },
+    {
+      "type": "string",
+      "description": "A alocação parcial não foi bem-sucedida, pois alocações parciais não são permitidas para blocos.",
+      "const": "ALC7750112"
+    },
+    {
+      "type": "string",
+      "description": "Alocações para a mesma conta, dentro do 'Bulk Resquest' não são permitidas.",
+      "const": "ALC7750137"
+    },
+    {
+      "type": "string",
+      "description": "Cancelamento oe bloco não foi bem-sucedido pois o bloco não está no status 'Closed'.",
+      "const": "ALC7750140"
+    },
+    {
+      "type": "string",
+      "description": "O cancelamento do bloco não foi bem-sucedido, pois a alocação em bloco não se refere a um negócio comprimido.",
+      "const": "ALC7750141"
+    },
+    {
+      "type": "string",
+      "description": "A Conta não é uma conta válida para Sessão de Negociação Automatizada.",
+      "const": "ALC7750143"
+    },
+    {
+      "type": "string",
+      "description": "Erro não descrito.",
+      "const": "ALC9999999"
+    }
+  ],
+  "additionalProperties": false,
+  "examples": [
+    "ALC0000059",
+    "ALC0001400",
+    "ALC0001401",
+    "ALC0001402"
+  ]
 }

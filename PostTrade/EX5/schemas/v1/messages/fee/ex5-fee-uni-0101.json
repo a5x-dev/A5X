@@ -1,0 +1,118 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:fee:ex5-fee-uni-01",
+  "$metadata" : {
+    "domain" : "fee",
+    "schemaId" : "urn:a5x:ex5:schema:v1:fee:ex5-fee-uni-01"
+  },
+  "title" : "Fee Unit Cost Intraday",
+  "description" : "Intraday message with the unit cost of the document for a new account identified during the daily registry query",
+  "type" : "object",
+  "properties" : {
+    "referenceDate" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Reference date of the information"
+    },
+    "messageTimestamp" : {
+      "$ref" : "../../types/ISODateTime.json",
+      "description" : "Message generation timestamp"
+    },
+    "participantIdentification" : {
+      "$ref" : "../../objects/business/PartyId.json",
+      "description" : "Participant where the account was opened",
+      "$metadata" : {
+        "destinationParty" : true
+      }
+    },
+    "accountIdentification" : {
+      "$ref" : "../../objects/business/FeeAccountIdentification.json",
+      "description" : "Account identification, with document and opening date"
+    },
+    "groupIdentification" : {
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 9,
+      "description" : "Identification of the parameterized fund management or treasury group"
+    },
+    "feeParameter" : {
+      "$ref" : "../../objects/business/FeeParameter.json",
+      "description" : "Fee calculation parameters"
+    },
+    "unitCostPercentage" : {
+      "type" : "number",
+      "minimum" : 0,
+      "maximum" : 100,
+      "multipleOf" : 0.000001,
+      "description" : "Unit cost value in percentage"
+    },
+    "financialUnitCost" : {
+      "type" : "number",
+      "minimum" : 0,
+      "maximum" : 999999999.999999,
+      "multipleOf" : 0.000001,
+      "description" : "Unit cost value in financial terms"
+    }
+  },
+  "required" : [ "referenceDate", "messageTimestamp", "participantIdentification", "accountIdentification", "feeParameter" ],
+  "anyOf" : [ {
+    "required" : [ "unitCostPercentage" ]
+  }, {
+    "required" : [ "financialUnitCost" ]
+  } ],
+  "additionalProperties" : false,
+  "examples": [
+    {
+      "referenceDate": "2026-10-27T00:00:00Z",
+      "messageTimestamp": "2026-10-27T14:35:12.418Z",
+      "participantIdentification": {
+        "id": 123456,
+        "category": 3
+      },
+      "accountIdentification": {
+        "id": 529876543,
+        "openingDate": "2026-10-27T10:12:45.207Z",
+        "documentIdentifier": {
+          "documentType": 2,
+          "documentNumber": "12345678909"
+        }
+      },
+      "groupIdentification": "GRP000123",
+      "feeParameter": {
+        "feeProductGroup": 5,
+        "feeComponent": 3,
+        "feeType": 1,
+        "makerTaker": 2,
+        "tradeMode": 2,
+        "investorType": 3,
+        "feeTier": 1
+      },
+      "unitCostPercentage": 0.0025
+    },
+    {
+      "referenceDate": "2026-10-27T00:00:00Z",
+      "messageTimestamp": "2026-10-27T14:35:12.731Z",
+      "participantIdentification": {
+        "id": 123456,
+        "category": 3
+      },
+      "accountIdentification": {
+        "id": 529876544,
+        "openingDate": "2026-10-27T11:03:27.952Z",
+        "documentIdentifier": {
+          "documentType": 1,
+          "documentNumber": "12345678000195"
+        }
+      },
+      "feeParameter": {
+        "feeProductGroup": 9,
+        "feeComponent": 9,
+        "feeType": 3,
+        "investorType": 3,
+        "minimumVertex": 1,
+        "maximumVertex": 252,
+        "feeTier": 2
+      },
+      "financialUnitCost": 0.153125
+    }
+  ]
+}

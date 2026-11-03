@@ -46,22 +46,41 @@
       "maximum": 999999999,
       "description": "Account identifier defined by the participant"
     },
+    "documentNumber": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 35,
+      "pattern": "^[A-Za-z0-9]+$",
+      "description": "Document number of the account holder (alphanumeric characters only, no special characters)"
+    },
+    "documentType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999,
+      "description": "Document type identification",
+      "$comment": "Consult External Code List table ExternalIdentificationTypeCode"
+    },
+    "groupIdentification": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 9,
+      "description": "Identification of the parameterized fund management or treasury group"
+    },
     "marketMakerIndicator": {
       "type": "boolean",
       "description": "Indicates if the informed account belongs to a market maker"
-    },
-    "investorType": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 99,
-      "description": "Investor type for fee calculation",
-      "$comment": "Consult External Code List table ExternalInvestorTypeCode"
     },
     "tickerSymbol": {
       "type": "string",
       "minLength": 1,
       "maxLength": 35,
       "description": "Code that identifies an instrument"
+    },
+    "vertexIndicator": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 999999,
+      "description": "Instrument vertex in business days until maturity. Only filled for interest rate family (IRF)"
     },
     "financialInstrumentIdentificationId": {
       "type": "string",
@@ -82,8 +101,8 @@
     },
     "market": {
       "type": "integer",
-      "minimum": 0,
-      "maximum": 999999999,
+      "minimum": 1,
+      "maximum": 99,
       "description": "Market type - second level of market classification in post-trade process",
       "$comment": "Consult External Code List table ExternalMarketCode"
     },
@@ -95,59 +114,85 @@
     "securityCategory": {
       "type": "integer",
       "minimum": 0,
-      "maximum": 999999999,
+      "maximum": 99,
       "description": "Instrument type identifier",
       "$comment": "Consult External Code List table ExternalSecurityCategoryCode"
     },
     "quantity": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999999999999,
       "description": "Component quantity. Can be allocated quantity, exercised quantity or maturity settled quantity, according to indicated component"
     },
     "grossAmount": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
       "description": "Total component amount. Can be total allocated amount, exercised amount or maturity settled amount, according to indicated component"
     },
     "spread": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
-      "description": "For option exercise: Difference between exercise price and market price. For maturity settlement: Difference between settlement price and adjustment price",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
+      "description": "For option exercise: difference between exercise price and market price. For maturity settlement: difference between settlement price and adjustment price",
       "$comment": "Field will be displayed when component deals with exercise or settlement"
     },
     "feeProductGroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999999,
+      "maximum": 99,
       "description": "Fee family",
       "$comment": "Consult External Code List table ExternalFeeProductGroupCode"
     },
     "feeComponent": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999999,
+      "maximum": 99,
       "description": "Calculated fee component",
       "$comment": "Consult External Code List table ExternalFeeComponentCode"
     },
+    "feeType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Fee type",
+      "$comment": "Consult External Code List table ExternalFeeTypeCode"
+    },
+    "makerTaker": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Role in price formation. Not filled when feeType is Settlement",
+      "$comment": "Consult External Code List table ExternalMakerTakerCode"
+    },
+    "tradeMode": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Trade mode nature. Not filled when feeType is Settlement",
+      "$comment": "Consult External Code List table ExternalTradeModeCode"
+    },
+    "investorType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Investor type for fee calculation",
+      "$comment": "Consult External Code List table ExternalInvestorTypeCode"
+    },
     "baseFeeValue": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
       "description": "Base financial volume for fee calculation",
       "$comment": "Field will be filled to indicate cap/floor of product fee calculation"
     },
     "quantityFeeValue": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999999999999999,
       "description": "Base quantity for fee calculation",
       "$comment": "Field will be filled to indicate cap/floor of product fee calculation"
     },
@@ -161,51 +206,16 @@
     "feeProductSubgroup": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999999999,
+      "maximum": 99,
       "description": "Represents the second level of fee family, when applicable",
       "$comment": "Consult External Code List table ExternalFeeProductGroupCode. Field will be filled when product uses second level of fee family"
     },
     "contractFactor": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 99,
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
       "description": "Factor applied in fee calculation"
-    },
-    "unitCostPercentage": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
-      "description": "Unit cost value in percentage"
-    },
-    "financialUnitCost": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
-      "description": "Unit cost value in financial terms"
-    },
-    "calculationType": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 999999999,
-      "description": "Indicates if calculation is Progressive or Regressive",
-      "$comment": "Consult External Code List table ExternalFeeCalculationTypeCode. Field will not be filled when component deals with maturity settlement or exercise"
-    },
-    "additionalValueType": {
-      "type": "integer",
-      "minimum": 1,
-      "maximum": 999999999,
-      "description": "Additional value type indicator",
-      "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
-    },
-    "additionalValue": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,4})?$",
-      "description": "Additional value",
-      "$comment": "Field will not be filled when component deals with maturity settlement or exercise"
     },
     "appliedDiscountType": {
       "type": "integer",
@@ -215,31 +225,31 @@
       "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
     },
     "discountPercentage": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "multipleOf": 0.000001,
       "description": "Percentage granted as discount used for fee reduction"
     },
     "financialDiscount": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
       "description": "Financial value granted as discount used for fee reduction"
     },
     "financialCredit": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
       "description": "Financial value granted as credit used for fee reduction"
     },
     "creditPercentage": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "multipleOf": 0.000001,
       "description": "Percentage granted as credit used for fee reduction"
     },
     "creditOrigin": {
@@ -249,17 +259,53 @@
       "description": "Origin of the granted credit",
       "$comment": "Consult External Code List table ExternalCreditOriginCode"
     },
+    "unitCostPercentage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "multipleOf": 0.000001,
+      "description": "Unit cost value in percentage"
+    },
+    "financialUnitCost": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
+      "description": "Unit cost value in financial terms"
+    },
+    "calculationType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Indicates if calculation is Progressive or Regressive",
+      "$comment": "Consult External Code List table ExternalFeeCalculationTypeCode. Field will not be filled when component deals with maturity settlement or exercise"
+    },
+    "additionalValueType": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 99,
+      "description": "Additional value type indicator",
+      "$comment": "Consult External Code List table ExternalFeeTypeIndicatorCode"
+    },
+    "additionalValue": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999.999999,
+      "multipleOf": 0.000001,
+      "description": "Additional value",
+      "$comment": "Field will not be filled when component deals with maturity settlement or exercise"
+    },
     "feePaymentDate": {
       "type": "string",
       "format": "date-time",
       "description": "Fee settlement date"
     },
     "amount": {
-      "type": "string",
-      "minLength": 1,
-      "maxLength": 20,
-      "pattern": "^\\d{1,15}(\\.\\d{1,2})?$",
-      "description": "Financial value for payment"
+      "type": "number",
+      "minimum": 0,
+      "maximum": 999999999999999.99,
+      "multipleOf": 0.01,
+      "description": "Consolidated financial value for payment"
     }
   },
   "required": [
@@ -269,23 +315,24 @@
     "participantIdentificationId",
     "participantIdentificationCategory",
     "accountIdentificationId",
+    "documentNumber",
+    "documentType",
     "marketMakerIndicator",
-    "investorType",
     "tickerSymbol",
     "financialInstrumentIdentificationId",
     "financialInstrumentIdentificationSource",
     "financialInstrumentIdentificationExchange",
     "market",
     "asset",
-    "securityCategory",
     "quantity",
     "grossAmount",
     "feeProductGroup",
     "feeComponent",
+    "feeType",
+    "investorType",
     "feeTier",
-    "financialUnitCost",
     "feePaymentDate",
     "amount"
   ],
-  "additionalProperties": false  
+  "additionalProperties": false
 }

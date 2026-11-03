@@ -38,7 +38,7 @@
       }
     }
   },
-  "required" : [ "transactionIdentification", "clearingMemberIdentification", "participantIdentification", "WithdrawalRequest" ],
+  "required" : [ "transactionIdentification", "clearingMemberIdentification", "WithdrawalRequest", "valuationDate" ],
   "additionalProperties" : false,
   "examples" : [ {
     "transactionIdentification" : "COLL-UMB-11682",

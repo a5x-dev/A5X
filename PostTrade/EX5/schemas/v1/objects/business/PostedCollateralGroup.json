@@ -84,10 +84,10 @@
             "exchange": "BVMF"
           },
           "collateralDetailInformation": {
-            "depositedQuantity": 2000,
-            "valuedQuantity": 1800,
-            "deliveryQuantity": 100,
-            "blockedQuantity": 50,
+            "depositedQuantity": 2000.00,
+            "valuedQuantity": 1800.00,
+            "deliveryQuantity": 100.50,
+            "blockedQuantity": 50.00,
             "collateralValue": {
               "amount": 2870147502.59
             },

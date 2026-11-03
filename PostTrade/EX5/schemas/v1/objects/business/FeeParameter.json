@@ -1,0 +1,74 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$id" : "urn:a5x:ex5:schema:v1:business:FeeParameter",
+  "$metadata" : {
+    "domain" : "business",
+    "schemaId" : "urn:a5x:ex5:schema:v1:business:FeeParameter"
+  },
+  "title" : "Fee Parameter",
+  "description" : "Fee calculation parameters: calculation key and tier",
+  "type" : "object",
+  "properties" : {
+    "feeProductGroup" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Fee family",
+      "$comment" : "Consult External Code List table ExternalFeeProductGroupCode."
+    },
+    "feeComponent" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Calculated fee component",
+      "$comment" : "Consult External Code List table ExternalFeeComponentCode."
+    },
+    "feeType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Fee type",
+      "$comment" : "Consult External Code List table ExternalFeeTypeCode."
+    },
+    "makerTaker" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Role in price formation. Not filled when feeType is Settlement",
+      "$comment" : "Consult External Code List table ExternalMakerTakerCode."
+    },
+    "tradeMode" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Trade mode nature. Not filled when feeType is Settlement",
+      "$comment" : "Consult External Code List table ExternalTradeModeCode."
+    },
+    "investorType" : {
+      "$ref" : "../../objects/business/ExternalCodeList.json",
+      "description" : "Investor profile",
+      "$comment" : "Consult External Code List table ExternalInvestorTypeCode."
+    },
+    "minimumVertex" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Minimum vertex of the term interval. Only filled for interest rate family (IRF)"
+    },
+    "maximumVertex" : {
+      "type" : "integer",
+      "minimum" : 0,
+      "maximum" : 999999,
+      "description" : "Maximum vertex of the term interval. Only filled for interest rate family (IRF)"
+    },
+    "feeTier" : {
+      "type" : "integer",
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Tier used for fee calculation",
+      "$comment" : "Consult fee parameter file ex5f-fee-prm-0301"
+    }
+  },
+  "required" : [ "feeProductGroup", "feeComponent", "feeType", "investorType", "feeTier" ],
+  "additionalProperties" : false,
+  "examples": [
+    {
+      "feeProductGroup": 9,
+      "feeComponent": 9,
+      "feeType": 3,
+      "investorType": 3,
+      "minimumVertex": 1,
+      "maximumVertex": 252,
+      "feeTier": 2
+    }]
+}
