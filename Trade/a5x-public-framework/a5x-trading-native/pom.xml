@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>br.com.a5x.trd</groupId>
+		<artifactId>a5x-public-framework</artifactId>
+		<version>2.0.0</version>
+	</parent>
+	<artifactId>a5x-trading-native</artifactId>
+	<name>a5x-trading-native</name>
+	<description>A5X Native (Order Entry Binary) Gateway: generated message models, TCP framing and a client session example.</description>
+
+	<properties>
+		<!-- the models (br.com.a5x.trd.pub.nativ.model) are generated from this schema at build time -->
+		<a5x.schema>native-messages.xml</a5x.schema>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- the generator, needed only to build -->
+		<dependency>
+			<groupId>br.com.a5x.trd</groupId>
+			<artifactId>a5x-trading-codegen</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

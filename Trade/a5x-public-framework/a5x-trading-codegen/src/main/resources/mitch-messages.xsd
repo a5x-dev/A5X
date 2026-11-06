@@ -42,9 +42,27 @@
     <xs:complexType name="TypeType">
         <xs:attribute name="name" type="mitch:DataType" use="required"/>
         <xs:attribute name="wireSize" type="mitch:WireSize" use="required"/>
+        <!--
+            How the Technical Portal names this type, when that differs from the schema
+            name. Documentation only.
+        -->
+        <xs:attribute name="portalName" type="xs:string"/>
         <xs:attribute name="encoding" type="xs:string" use="required"/>
         <xs:attribute name="impliedDecimals" type="xs:nonNegativeInteger"/>
         <xs:attribute name="padding" type="mitch:Padding"/>
+        <!--
+            How a signed type carries a negative value. MITCH prices are sign-magnitude:
+            the highest bit is the sign and the other bits the absolute value, so -1.00
+            in a Long Price is 00 E1 F5 05 00 00 00 80. Native prices are two's complement.
+        -->
+        <xs:attribute name="negativeEncoding" default="twos-complement">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="twos-complement"/>
+                    <xs:enumeration value="sign-magnitude"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
         <!-- Literal layout of an ASCII-encoded type, for example YYYYMMDD or HH:MM:SS. -->
         <xs:attribute name="format" type="xs:string"/>
         <!--
@@ -98,11 +116,41 @@
     </xs:complexType>
 
     <xs:complexType name="FieldType">
+        <!--
+            Everything the portal shows about a field that the attributes below cannot
+            express. All of it is documentation: none of it changes the wire format.
+
+            text  - the description, per language. Every page is published in en and pt-br
+                    and the two have drifted apart in places, so one description attribute
+                    cannot serve both. The attribute stays as the schema's own wording;
+                    these carry what each page publishes.
+            value - an enumerated value and its meaning, for a field the page documents as
+                    a list of values underneath the field row.
+            bit   - one bit of a bitfield, likewise.
+        -->
+        <xs:sequence>
+            <xs:element name="text" type="mitch:TextType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="value" type="mitch:ValueType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="bit" type="mitch:BitType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
         <xs:attribute name="name" type="xs:string" use="required"/>
         <xs:attribute name="type" type="mitch:DataType" use="required"/>
         <xs:attribute name="length" type="xs:int"/>
         <xs:attribute name="decimals" type="xs:int"/>
         <xs:attribute name="description" type="xs:string"/>
+        <!--
+            How the Technical Portal publishes this field, when that differs from the schema
+            name, and what it says about it. Documentation only: neither has any effect on
+            the wire format or on the generated code.
+        -->
+        <xs:attribute name="portalLabel" type="xs:string"/>
+        <!--
+            What the portal prints in the type column, when that is not what the type
+            attribute would produce. Documentation only: the wire format is the type
+            attribute, always.
+        -->
+        <xs:attribute name="portalType" type="xs:string"/>
+        <xs:attribute name="portalDescription" type="xs:string"/>
     </xs:complexType>
 
     <!--
@@ -132,5 +180,33 @@
             <xs:enumeration value="datetime"/>
         </xs:restriction>
     </xs:simpleType>
+
+
+    <!-- Text carried per language, because each page is published in en and pt-br. -->
+    <xs:complexType name="TextType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="lang" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="ValueType">
+        <xs:sequence>
+            <xs:element name="text" type="mitch:TextType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <!-- The value as it travels on the wire, written the way the page writes it. -->
+        <xs:attribute name="code" type="xs:string" use="required"/>
+        <xs:attribute name="meaning" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="BitType">
+        <xs:sequence>
+            <xs:element name="text" type="mitch:TextType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="position" type="xs:int" use="required"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="meaning" type="xs:string"/>
+    </xs:complexType>
 
 </xs:schema>

@@ -118,7 +118,8 @@ class MitchCodeGeneratorTest {
         String content = Files.readString(generatedFile.toPath());
         assertTrue(content.contains("import java.nio.ByteBuffer"));
         assertTrue(content.contains("import br.com.a5x.trd.pub.fw.utils.BitUtils"));
-        // uint64 maps to long, matching the Native SDK, so BigInteger is no longer imported.
+        // uint64 is a long, changed from BigInteger for performance: BigInteger allocates on
+        // every decoded field. All 64 bits survive; a value above 2^63-1 reads as negative.
         assertFalse(content.contains("import java.math.BigInteger"));
     }
 }

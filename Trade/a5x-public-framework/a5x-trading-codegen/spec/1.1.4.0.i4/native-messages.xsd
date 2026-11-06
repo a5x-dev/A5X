@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://a5x.com.br/native"
+           xmlns:nativ="http://a5x.com.br/native"
+           elementFormDefault="qualified">
+
+    <xs:element name="messages">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="types" type="nativ:TypesType" minOccurs="0"/>
+                <xs:element name="message" type="nativ:MessageType" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!--
+        Declarative catalog of the wire data types this protocol uses. The generators map the
+        DataType enumeration below to language specific types; this block documents the wire
+        contract those mappings have to honour (width, byte order, encoding, decimal scaling).
+    -->
+    <xs:complexType name="TypesType">
+        <xs:sequence>
+            <xs:element name="type" type="nativ:TypeType" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="byteOrder" type="nativ:ByteOrder"/>
+    </xs:complexType>
+
+    <xs:complexType name="TypeType">
+        <xs:attribute name="name" type="nativ:DataType" use="required"/>
+        <xs:attribute name="wireSize" type="nativ:WireSize" use="required"/>
+        <!--
+            How the Technical Portal names this type, when that differs from the schema
+            name. Documentation only.
+        -->
+        <xs:attribute name="portalName" type="xs:string"/>
+        <xs:attribute name="encoding" type="xs:string" use="required"/>
+        <xs:attribute name="impliedDecimals" type="xs:nonNegativeInteger"/>
+        <xs:attribute name="padding" type="nativ:Padding"/>
+        <!--
+            The type each generator emits. For the shared core these values are identical to
+            the ones in mitch-messages.xml, so a given wire type surfaces as the same
+            language type in both SDKs.
+        -->
+        <xs:attribute name="javaType" type="xs:string"/>
+        <xs:attribute name="csharpType" type="xs:string"/>
+        <xs:attribute name="cppType" type="xs:string"/>
+        <xs:attribute name="description" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="MessageType">
+        <xs:sequence>
+            <xs:element name="field" type="nativ:FieldType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="messageType" type="xs:string" use="required"/>
+        <xs:attribute name="description" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="FieldType">
+        <!--
+            What the Technical Portal shows about a field that the attributes below cannot
+            express. All of it is documentation: none of it changes the wire format.
+
+            text  - the description, per language. Carried only in the internal schema;
+                    the description attribute serves this one.
+            value - an enumerated value and its meaning, for a field the page documents as
+                    a list of values underneath the field row.
+            bit   - one bit of a bitfield, likewise.
+        -->
+        <xs:sequence>
+            <xs:element name="text" type="nativ:TextType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="value" type="nativ:ValueType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="bit" type="nativ:BitType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required"/>
+        <xs:attribute name="type" type="nativ:DataType" use="required"/>
+        <xs:attribute name="length" type="xs:positiveInteger"/>
+        <xs:attribute name="description" type="xs:string"/>
+        <!--
+            How the Technical Portal publishes this field, when that differs from the schema
+            name. Documentation only: no effect on the wire format or on the generated code.
+        -->
+        <xs:attribute name="portalLabel" type="xs:string"/>
+        <xs:attribute name="portalDescription" type="xs:string"/>
+    </xs:complexType>
+
+    <!--
+        The A5X shared core vocabulary, in the same order as mitch-messages.xsd. MITCH extends
+        it with bytearray and the ASCII temporal types (date, time, extendedtime, datetime);
+        do not add those here until the Native generators handle them, since today they would
+        fall through to the default branch and be sized as a single byte.
+    -->
+    <xs:simpleType name="DataType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="alpha"/>
+            <xs:enumeration value="byte"/>
+            <xs:enumeration value="bitfield"/>
+            <xs:enumeration value="int32"/>
+            <xs:enumeration value="uint8"/>
+            <xs:enumeration value="uint16"/>
+            <xs:enumeration value="uint32"/>
+            <xs:enumeration value="uint64"/>
+            <xs:enumeration value="price4"/>
+            <xs:enumeration value="price8"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Either a fixed octet count or "variable", in which case each field carries a length. -->
+    <xs:simpleType name="WireSize">
+        <xs:union>
+            <xs:simpleType>
+                <xs:restriction base="xs:positiveInteger"/>
+            </xs:simpleType>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="variable"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+
+    <xs:simpleType name="Padding">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="null-terminated"/>
+            <xs:enumeration value="space-padded"/>
+            <xs:enumeration value="none"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ByteOrder">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="little-endian"/>
+            <xs:enumeration value="big-endian"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <!-- Text carried per language, because each page is published in en and pt-br. -->
+    <xs:complexType name="TextType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="lang" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="ValueType">
+        <xs:sequence>
+            <xs:element name="text" type="nativ:TextType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <!-- The value as it travels on the wire, written the way the page writes it. -->
+        <xs:attribute name="code" type="xs:string" use="required"/>
+        <xs:attribute name="meaning" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="BitType">
+        <xs:sequence>
+            <xs:element name="text" type="nativ:TextType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="position" type="xs:int" use="required"/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="meaning" type="xs:string"/>
+    </xs:complexType>
+
+</xs:schema>

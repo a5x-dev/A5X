@@ -25,6 +25,7 @@ public class MitchCSharpGenerator {
         StringBuilder sb = new StringBuilder();
         
         sb.append("using System;\n");
+        sb.append("using System.Buffers.Binary;\n");
         sb.append("using System.Text;\n\n");
         sb.append("namespace A5X.Trading.Mitch.Model\n{\n");
         
@@ -54,7 +55,8 @@ public class MitchCSharpGenerator {
             sb.append("\n\n");
 
             if ("price4".equals(field.getType()) || "price8".equals(field.getType())) {
-                sb.append("        public decimal ").append(capitalize(field.getName())).append("AsDecimal => ").append(capitalize(field.getName())).append(" / 10000m;\n\n");
+                int csScale = "price8".equals(field.getType()) ? 100000000 : 10000;
+                sb.append("        public decimal ").append(capitalize(field.getName())).append("AsDecimal => ").append(capitalize(field.getName())).append(" / ").append(csScale).append("m;\n\n");
             }
         }
         
@@ -116,19 +118,19 @@ public class MitchCSharpGenerator {
         
         switch (field.getType()) {
             case "uint32":
-                sb.append("            msg.").append(fieldName).append(" = BitConverter.ToUInt32(data.Slice(offset, 4));\n");
+                sb.append("            msg.").append(fieldName).append(" = BinaryPrimitives.ReadUInt32LittleEndian(data.Slice(offset, 4));\n");
                 sb.append("            offset += 4;\n");
                 break;
             case "uint64":
-                sb.append("            msg.").append(fieldName).append(" = BitConverter.ToUInt64(data.Slice(offset, 8));\n");
+                sb.append("            msg.").append(fieldName).append(" = BinaryPrimitives.ReadUInt64LittleEndian(data.Slice(offset, 8));\n");
                 sb.append("            offset += 8;\n");
                 break;
             case "uint16":
-                sb.append("            msg.").append(fieldName).append(" = BitConverter.ToUInt16(data.Slice(offset, 2));\n");
+                sb.append("            msg.").append(fieldName).append(" = BinaryPrimitives.ReadUInt16LittleEndian(data.Slice(offset, 2));\n");
                 sb.append("            offset += 2;\n");
                 break;
             case "int32":
-                sb.append("            msg.").append(fieldName).append(" = BitConverter.ToInt32(data.Slice(offset, 4));\n");
+                sb.append("            msg.").append(fieldName).append(" = BinaryPrimitives.ReadInt32LittleEndian(data.Slice(offset, 4));\n");
                 sb.append("            offset += 4;\n");
                 break;
             case "uint8":
@@ -149,11 +151,25 @@ public class MitchCSharpGenerator {
                 sb.append("            offset += ").append(field.getLength()).append(";\n");
                 break;
             case "price4":
-                sb.append("            msg.").append(fieldName).append(" = BitConverter.ToInt32(data.Slice(offset, 4));\n");
+                if (field.isSignMagnitude()) {
+                    // Sign-magnitude: bit 31 is the sign, bits 0-30 the absolute value.
+                    sb.append("            uint ").append(field.getName()).append("Raw = BinaryPrimitives.ReadUInt32LittleEndian(data.Slice(offset, 4));\n");
+                    sb.append("            msg.").append(fieldName).append(" = (").append(field.getName()).append("Raw >> 31) != 0 ? -(int)(")
+                      .append(field.getName()).append("Raw & 0x7FFFFFFFU) : (int)").append(field.getName()).append("Raw;\n");
+                } else {
+                    sb.append("            msg.").append(fieldName).append(" = BinaryPrimitives.ReadInt32LittleEndian(data.Slice(offset, 4));\n");
+                }
                 sb.append("            offset += 4;\n");
                 break;
             case "price8":
-                sb.append("            msg.").append(fieldName).append(" = BitConverter.ToInt64(data.Slice(offset, 8));\n");
+                if (field.isSignMagnitude()) {
+                    // Sign-magnitude: bit 63 is the sign, bits 0-62 the absolute value.
+                    sb.append("            ulong ").append(field.getName()).append("Raw = BinaryPrimitives.ReadUInt64LittleEndian(data.Slice(offset, 8));\n");
+                    sb.append("            msg.").append(fieldName).append(" = (").append(field.getName()).append("Raw >> 63) != 0 ? -(long)(")
+                      .append(field.getName()).append("Raw & 0x7FFFFFFFFFFFFFFFUL) : (long)").append(field.getName()).append("Raw;\n");
+                } else {
+                    sb.append("            msg.").append(fieldName).append(" = BinaryPrimitives.ReadInt64LittleEndian(data.Slice(offset, 8));\n");
+                }
                 sb.append("            offset += 8;\n");
                 break;
         }
@@ -201,11 +217,21 @@ public class MitchCSharpGenerator {
                 sb.append("            offset += ").append(field.getLength()).append(";\n");
                 break;
             case "price4":
-                sb.append("            BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.").append(fieldName).append(");\n");
+                if (field.isSignMagnitude()) {
+                    sb.append("            BinaryPrimitives.WriteUInt32LittleEndian(data.Slice(offset, 4), msg.").append(fieldName)
+                      .append(" < 0 ? (uint)(-(long)msg.").append(fieldName).append(") | 0x80000000U : (uint)msg.").append(fieldName).append(");\n");
+                } else {
+                    sb.append("            BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.").append(fieldName).append(");\n");
+                }
                 sb.append("            offset += 4;\n");
                 break;
             case "price8":
-                sb.append("            BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.").append(fieldName).append(");\n");
+                if (field.isSignMagnitude()) {
+                    sb.append("            BinaryPrimitives.WriteUInt64LittleEndian(data.Slice(offset, 8), msg.").append(fieldName)
+                      .append(" < 0 ? (ulong)(-msg.").append(fieldName).append(") | 0x8000000000000000UL : (ulong)msg.").append(fieldName).append(");\n");
+                } else {
+                    sb.append("            BitConverter.TryWriteBytes(data.Slice(offset, 8), msg.").append(fieldName).append(");\n");
+                }
                 sb.append("            offset += 8;\n");
                 break;
         }

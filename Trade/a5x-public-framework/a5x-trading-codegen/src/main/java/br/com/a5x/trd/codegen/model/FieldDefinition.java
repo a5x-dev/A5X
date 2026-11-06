@@ -6,6 +6,7 @@ public class FieldDefinition {
     private Integer length;
     private Integer decimals;
     private String description;
+    private boolean signMagnitude;
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
@@ -21,4 +22,12 @@ public class FieldDefinition {
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
+
+    /**
+     * True when the field's type declares negativeEncoding="sign-magnitude": the most
+     * significant bit is the sign and the remaining bits the absolute value, instead of
+     * two's complement. MITCH sends negative prices this way; Native does not.
+     */
+    public boolean isSignMagnitude() { return signMagnitude; }
+    public void setSignMagnitude(boolean signMagnitude) { this.signMagnitude = signMagnitude; }
 }

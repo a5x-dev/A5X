@@ -76,6 +76,6 @@ class MitchEventWrapperTest {
 		
 		assertEquals('A', wrapper.eventType);
 		assertEquals(5000, wrapper.addOrder.nanosecond);
-		assertEquals(123456L, wrapper.addOrder.orderId.longValue());
+		assertEquals(123456L, wrapper.addOrder.orderId);
 	}
 }

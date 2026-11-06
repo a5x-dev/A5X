@@ -1,0 +1,395 @@
+using System;
+using System.Buffers.Binary;
+using System.Text;
+
+namespace A5X.Trading.Mitch.Model
+{
+    /// <summary>
+    /// Used to disseminate information on each instrument
+    /// </summary>
+    public class MitchSymbolDirectory
+    {
+        /// <summary>
+        /// Nanoseconds offset from the last Time message
+        /// </summary>
+        public uint Nanosecond { get; set; }
+
+        /// <summary>
+        /// Instrument's symbol
+        /// </summary>
+        public string Symbol { get; set; }
+
+        /// <summary>
+        /// Numeric Identifier of the instrument
+        /// </summary>
+        public uint InstrumentId { get; set; }
+
+        /// <summary>
+        /// Space = Active, H = Halted, S = Suspended, a = Inactive
+        /// </summary>
+        public string SymbolStatus { get; set; }
+
+        /// <summary>
+        /// Instrument identification number (e.g. ISIN, CUSIP, etc.)
+        /// </summary>
+        public string IdentificationNumber { get; set; }
+
+        /// <summary>
+        /// Segment the instrument is assigned to
+        /// </summary>
+        public string Segment { get; set; }
+
+        /// <summary>
+        /// Date an instrument expires or matures. This field will contain only spaces if the instrument is not a derivative or fixed income instrument
+        /// </summary>
+        public string ExpirationDate { get; set; }
+
+        /// <summary>
+        /// Symbol of the underlying instrument. This field will contain only spaces if the instrument is not a derivative
+        /// </summary>
+        public string Underlying { get; set; }
+
+        /// <summary>
+        /// Numeric Identifier of the underlying instrument
+        /// </summary>
+        public uint UnderlyingInstrumentId { get; set; }
+
+        /// <summary>
+        /// Strike price of an option. The price will be zero if the instrument is not an option
+        /// </summary>
+        public long StrikePrice { get; set; }
+
+        public decimal StrikePriceAsDecimal => StrikePrice / 100000000m;
+
+        /// <summary>
+        /// Space = Not option, C = Call Option, P = Put Option
+        /// </summary>
+        public string OptionType { get; set; }
+
+        /// <summary>
+        /// Issuer of the instrument. This field will contain all spaces if the instrument is not a fixed income instrument
+        /// </summary>
+        public string Issuer { get; set; }
+
+        /// <summary>
+        /// Date instrument was issued. This field will contain all spaces if the instrument is not a fixed income instrument
+        /// </summary>
+        public string IssueDate { get; set; }
+
+        /// <summary>
+        /// Rate of interest applied to the face value. This is a percentage field (e.g. 0.05 represents 5%)
+        /// </summary>
+        public int Coupon { get; set; }
+
+        public decimal CouponAsDecimal => Coupon / 10000m;
+
+        /// <summary>
+        /// Bit 0: Inverse Order Book (0 = No, 1 = Yes)
+        /// </summary>
+        public byte Flags { get; set; }
+
+        /// <summary>
+        /// Bit 0: Regular (0=No, 1=Yes), Bit 1: Off-Book (0=No, 1=Yes), Bit 5: Bulletin Board (0=No, 1=Yes), Bit 6: Negotiated Trades (0=No, 1=Yes)
+        /// </summary>
+        public byte SubBook { get; set; }
+
+        /// <summary>
+        /// Pipe separated field. Identifies the type of Corporate Actions applicable on the instrument for the current Trading day
+        /// </summary>
+        public string CorporateAction { get; set; }
+
+        /// <summary>
+        /// Identity of the partition
+        /// </summary>
+        public string PartitionId { get; set; }
+
+        /// <summary>
+        /// Space = Not option, A = American, E = European
+        /// </summary>
+        public string ExerciseStyle { get; set; }
+
+        /// <summary>
+        /// Symbol of Leg 1 instrument. This field will contain only spaces if the instrument is not a multi-legged instrument
+        /// </summary>
+        public string Leg1Symbol { get; set; }
+
+        /// <summary>
+        /// Numeric Identifier of the leg 1 instrument
+        /// </summary>
+        public uint Leg1InstrumentId { get; set; }
+
+        /// <summary>
+        /// Symbol of Leg 2 instrument. This field will contain only spaces if the instrument is not a multi-legged instrument
+        /// </summary>
+        public string Leg2Symbol { get; set; }
+
+        /// <summary>
+        /// Numeric Identifier of the leg 2 instrument
+        /// </summary>
+        public uint Leg2InstrumentId { get; set; }
+
+        /// <summary>
+        /// Defines the multiplier of the instrument. This field will contain 0 value if the instrument does not have a contract multiplier
+        /// </summary>
+        public int ContractMultiplier { get; set; }
+
+        public decimal ContractMultiplierAsDecimal => ContractMultiplier / 10000m;
+
+        /// <summary>
+        /// Space = No method, C = Cash, P = Physical
+        /// </summary>
+        public string SettlementMethod { get; set; }
+
+        /// <summary>
+        /// 0 = Not test, 1 = Exchange only, 2 = End to end test
+        /// </summary>
+        public byte TestInstrument { get; set; }
+
+        /// <summary>
+        /// Trading venue where the symbol was originated
+        /// </summary>
+        public string VenueOfExecution { get; set; }
+
+        /// <summary>
+        /// Lot Size of the Instrument
+        /// </summary>
+        public uint LotSize { get; set; }
+
+        /// <summary>
+        /// Description of the instrument
+        /// </summary>
+        public string SecurityDescription { get; set; }
+
+        /// <summary>
+        /// P = Pre-Listed, U = User Defined
+        /// </summary>
+        public byte ListMethod { get; set; }
+
+        /// <summary>
+        /// Trading currency of the instrument
+        /// </summary>
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// Instrument Tick Size (e.g. 0.01, 0.50, 0.001)
+        /// </summary>
+        public long TickSize { get; set; }
+
+        public decimal TickSizeAsDecimal => TickSize / 100000000m;
+
+        /// <summary>
+        /// Minimum size that cross orders should have
+        /// </summary>
+        public uint MinimumCrossOrderSize { get; set; }
+
+        /// <summary>
+        /// Minimum allowed quantity of an order
+        /// </summary>
+        public uint MinimumSizeQty { get; set; }
+
+        /// <summary>
+        /// Maximum allowed quantity of an order
+        /// </summary>
+        public uint MaximumSizeQty { get; set; }
+
+        /// <summary>
+        /// 0=CORP, 1=CST, 2=FUT, 3=MLEG, 4=OOF, 5=OPT, 6=PS, 7=TB, 8=TBILL, 9=TBOND, 10=TIPS
+        /// </summary>
+        public byte SecurityType { get; set; }
+
+        /// <summary>
+        /// Asset Name (e.g. PETR)
+        /// </summary>
+        public string AssetName { get; set; }
+
+        /// <summary>
+        /// Indication of the unit on which the instrument is traded
+        /// </summary>
+        public byte PriceNotation { get; set; }
+
+        /// <summary>
+        /// The price divisor used in the calculation of the leg prices
+        /// </summary>
+        public long PriceDivisor { get; set; }
+
+        public decimal PriceDivisorAsDecimal => PriceDivisor / 100000000m;
+
+        public static void Parse(MitchSymbolDirectory msg, Span<byte> data)
+        {
+            int offset = 0;
+            msg.Nanosecond = BinaryPrimitives.ReadUInt32LittleEndian(data.Slice(offset, 4));
+            offset += 4;
+            msg.Symbol = Encoding.ASCII.GetString(data.Slice(offset, 25)).TrimEnd();
+            offset += 25;
+            msg.InstrumentId = BinaryPrimitives.ReadUInt32LittleEndian(data.Slice(offset, 4));
+            offset += 4;
+            msg.SymbolStatus = Encoding.ASCII.GetString(data.Slice(offset, 1)).TrimEnd();
+            offset += 1;
+            msg.IdentificationNumber = Encoding.ASCII.GetString(data.Slice(offset, 12)).TrimEnd();
+            offset += 12;
+            msg.Segment = Encoding.ASCII.GetString(data.Slice(offset, 10)).TrimEnd();
+            offset += 10;
+            msg.ExpirationDate = Encoding.ASCII.GetString(data.Slice(offset, 8)).TrimEnd();
+            offset += 8;
+            msg.Underlying = Encoding.ASCII.GetString(data.Slice(offset, 25)).TrimEnd();
+            offset += 25;
+            msg.UnderlyingInstrumentId = BinaryPrimitives.ReadUInt32LittleEndian(data.Slice(offset, 4));
+            offset += 4;
+            ulong strikePriceRaw = BinaryPrimitives.ReadUInt64LittleEndian(data.Slice(offset, 8));
+            msg.StrikePrice = (strikePriceRaw >> 63) != 0 ? -(long)(strikePriceRaw & 0x7FFFFFFFFFFFFFFFUL) : (long)strikePriceRaw;
+            offset += 8;
+            msg.OptionType = Encoding.ASCII.GetString(data.Slice(offset, 1)).TrimEnd();
+            offset += 1;
+            msg.Issuer = Encoding.ASCII.GetString(data.Slice(offset, 6)).TrimEnd();
+            offset += 6;
+            msg.IssueDate = Encoding.ASCII.GetString(data.Slice(offset, 8)).TrimEnd();
+            offset += 8;
+            uint couponRaw = BinaryPrimitives.ReadUInt32LittleEndian(data.Slice(offset, 4));
+            msg.Coupon = (couponRaw >> 31) != 0 ? -(int)(couponRaw & 0x7FFFFFFFU) : (int)couponRaw;
+            offset += 4;
+            msg.Flags = data[offset++];
+            msg.SubBook = data[offset++];
+            msg.CorporateAction = Encoding.ASCII.GetString(data.Slice(offset, 5)).TrimEnd();
+            offset += 5;
+            msg.PartitionId = Encoding.ASCII.GetString(data.Slice(offset, 1)).TrimEnd();
+            offset += 1;
+            msg.ExerciseStyle = Encoding.ASCII.GetString(data.Slice(offset, 1)).TrimEnd();
+            offset += 1;
+            msg.Leg1Symbol = Encoding.ASCII.GetString(data.Slice(offset, 25)).TrimEnd();
+            offset += 25;
+            msg.Leg1InstrumentId = BinaryPrimitives.ReadUInt32LittleEndian(data.Slice(offset, 4));
+            offset += 4;
+            msg.Leg2Symbol = Encoding.ASCII.GetString(data.Slice(offset, 25)).TrimEnd();
+            offset += 25;
+            msg.Leg2InstrumentId = BinaryPrimitives.ReadUInt32LittleEndian(data.Slice(offset, 4));
+            offset += 4;
+            uint contractMultiplierRaw = BinaryPrimitives.ReadUInt32LittleEndian(data.Slice(offset, 4));
+            msg.ContractMultiplier = (contractMultiplierRaw >> 31) != 0 ? -(int)(contractMultiplierRaw & 0x7FFFFFFFU) : (int)contractMultiplierRaw;
+            offset += 4;
+            msg.SettlementMethod = Encoding.ASCII.GetString(data.Slice(offset, 1)).TrimEnd();
+            offset += 1;
+            msg.TestInstrument = data[offset++];
+            msg.VenueOfExecution = Encoding.ASCII.GetString(data.Slice(offset, 4)).TrimEnd();
+            offset += 4;
+            msg.LotSize = BinaryPrimitives.ReadUInt32LittleEndian(data.Slice(offset, 4));
+            offset += 4;
+            msg.SecurityDescription = Encoding.ASCII.GetString(data.Slice(offset, 110)).TrimEnd();
+            offset += 110;
+            msg.ListMethod = data[offset++];
+            msg.Currency = Encoding.ASCII.GetString(data.Slice(offset, 3)).TrimEnd();
+            offset += 3;
+            ulong tickSizeRaw = BinaryPrimitives.ReadUInt64LittleEndian(data.Slice(offset, 8));
+            msg.TickSize = (tickSizeRaw >> 63) != 0 ? -(long)(tickSizeRaw & 0x7FFFFFFFFFFFFFFFUL) : (long)tickSizeRaw;
+            offset += 8;
+            msg.MinimumCrossOrderSize = BinaryPrimitives.ReadUInt32LittleEndian(data.Slice(offset, 4));
+            offset += 4;
+            msg.MinimumSizeQty = BinaryPrimitives.ReadUInt32LittleEndian(data.Slice(offset, 4));
+            offset += 4;
+            msg.MaximumSizeQty = BinaryPrimitives.ReadUInt32LittleEndian(data.Slice(offset, 4));
+            offset += 4;
+            msg.SecurityType = data[offset++];
+            msg.AssetName = Encoding.ASCII.GetString(data.Slice(offset, 6)).TrimEnd();
+            offset += 6;
+            msg.PriceNotation = data[offset++];
+            ulong priceDivisorRaw = BinaryPrimitives.ReadUInt64LittleEndian(data.Slice(offset, 8));
+            msg.PriceDivisor = (priceDivisorRaw >> 63) != 0 ? -(long)(priceDivisorRaw & 0x7FFFFFFFFFFFFFFFUL) : (long)priceDivisorRaw;
+            offset += 8;
+        }
+
+        public static void Encode(MitchSymbolDirectory msg, Span<byte> data)
+        {
+            int offset = 0;
+            BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.Nanosecond);
+            offset += 4;
+            var symbolBytes = Encoding.ASCII.GetBytes((msg.Symbol ?? string.Empty).PadRight(25));
+            symbolBytes.AsSpan(0, 25).CopyTo(data.Slice(offset, 25));
+            offset += 25;
+            BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.InstrumentId);
+            offset += 4;
+            var symbolStatusBytes = Encoding.ASCII.GetBytes((msg.SymbolStatus ?? string.Empty).PadRight(1));
+            symbolStatusBytes.AsSpan(0, 1).CopyTo(data.Slice(offset, 1));
+            offset += 1;
+            var identificationNumberBytes = Encoding.ASCII.GetBytes((msg.IdentificationNumber ?? string.Empty).PadRight(12));
+            identificationNumberBytes.AsSpan(0, 12).CopyTo(data.Slice(offset, 12));
+            offset += 12;
+            var segmentBytes = Encoding.ASCII.GetBytes((msg.Segment ?? string.Empty).PadRight(10));
+            segmentBytes.AsSpan(0, 10).CopyTo(data.Slice(offset, 10));
+            offset += 10;
+            var expirationDateBytes = Encoding.ASCII.GetBytes((msg.ExpirationDate ?? string.Empty).PadRight(8));
+            expirationDateBytes.AsSpan(0, 8).CopyTo(data.Slice(offset, 8));
+            offset += 8;
+            var underlyingBytes = Encoding.ASCII.GetBytes((msg.Underlying ?? string.Empty).PadRight(25));
+            underlyingBytes.AsSpan(0, 25).CopyTo(data.Slice(offset, 25));
+            offset += 25;
+            BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.UnderlyingInstrumentId);
+            offset += 4;
+            BinaryPrimitives.WriteUInt64LittleEndian(data.Slice(offset, 8), msg.StrikePrice < 0 ? (ulong)(-msg.StrikePrice) | 0x8000000000000000UL : (ulong)msg.StrikePrice);
+            offset += 8;
+            var optionTypeBytes = Encoding.ASCII.GetBytes((msg.OptionType ?? string.Empty).PadRight(1));
+            optionTypeBytes.AsSpan(0, 1).CopyTo(data.Slice(offset, 1));
+            offset += 1;
+            var issuerBytes = Encoding.ASCII.GetBytes((msg.Issuer ?? string.Empty).PadRight(6));
+            issuerBytes.AsSpan(0, 6).CopyTo(data.Slice(offset, 6));
+            offset += 6;
+            var issueDateBytes = Encoding.ASCII.GetBytes((msg.IssueDate ?? string.Empty).PadRight(8));
+            issueDateBytes.AsSpan(0, 8).CopyTo(data.Slice(offset, 8));
+            offset += 8;
+            BinaryPrimitives.WriteUInt32LittleEndian(data.Slice(offset, 4), msg.Coupon < 0 ? (uint)(-(long)msg.Coupon) | 0x80000000U : (uint)msg.Coupon);
+            offset += 4;
+            data[offset++] = (byte)msg.Flags;
+            data[offset++] = (byte)msg.SubBook;
+            var corporateActionBytes = Encoding.ASCII.GetBytes((msg.CorporateAction ?? string.Empty).PadRight(5));
+            corporateActionBytes.AsSpan(0, 5).CopyTo(data.Slice(offset, 5));
+            offset += 5;
+            var partitionIdBytes = Encoding.ASCII.GetBytes((msg.PartitionId ?? string.Empty).PadRight(1));
+            partitionIdBytes.AsSpan(0, 1).CopyTo(data.Slice(offset, 1));
+            offset += 1;
+            var exerciseStyleBytes = Encoding.ASCII.GetBytes((msg.ExerciseStyle ?? string.Empty).PadRight(1));
+            exerciseStyleBytes.AsSpan(0, 1).CopyTo(data.Slice(offset, 1));
+            offset += 1;
+            var leg1SymbolBytes = Encoding.ASCII.GetBytes((msg.Leg1Symbol ?? string.Empty).PadRight(25));
+            leg1SymbolBytes.AsSpan(0, 25).CopyTo(data.Slice(offset, 25));
+            offset += 25;
+            BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.Leg1InstrumentId);
+            offset += 4;
+            var leg2SymbolBytes = Encoding.ASCII.GetBytes((msg.Leg2Symbol ?? string.Empty).PadRight(25));
+            leg2SymbolBytes.AsSpan(0, 25).CopyTo(data.Slice(offset, 25));
+            offset += 25;
+            BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.Leg2InstrumentId);
+            offset += 4;
+            BinaryPrimitives.WriteUInt32LittleEndian(data.Slice(offset, 4), msg.ContractMultiplier < 0 ? (uint)(-(long)msg.ContractMultiplier) | 0x80000000U : (uint)msg.ContractMultiplier);
+            offset += 4;
+            var settlementMethodBytes = Encoding.ASCII.GetBytes((msg.SettlementMethod ?? string.Empty).PadRight(1));
+            settlementMethodBytes.AsSpan(0, 1).CopyTo(data.Slice(offset, 1));
+            offset += 1;
+            data[offset++] = (byte)msg.TestInstrument;
+            var venueOfExecutionBytes = Encoding.ASCII.GetBytes((msg.VenueOfExecution ?? string.Empty).PadRight(4));
+            venueOfExecutionBytes.AsSpan(0, 4).CopyTo(data.Slice(offset, 4));
+            offset += 4;
+            BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.LotSize);
+            offset += 4;
+            var securityDescriptionBytes = Encoding.ASCII.GetBytes((msg.SecurityDescription ?? string.Empty).PadRight(110));
+            securityDescriptionBytes.AsSpan(0, 110).CopyTo(data.Slice(offset, 110));
+            offset += 110;
+            data[offset++] = (byte)msg.ListMethod;
+            var currencyBytes = Encoding.ASCII.GetBytes((msg.Currency ?? string.Empty).PadRight(3));
+            currencyBytes.AsSpan(0, 3).CopyTo(data.Slice(offset, 3));
+            offset += 3;
+            BinaryPrimitives.WriteUInt64LittleEndian(data.Slice(offset, 8), msg.TickSize < 0 ? (ulong)(-msg.TickSize) | 0x8000000000000000UL : (ulong)msg.TickSize);
+            offset += 8;
+            BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.MinimumCrossOrderSize);
+            offset += 4;
+            BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.MinimumSizeQty);
+            offset += 4;
+            BitConverter.TryWriteBytes(data.Slice(offset, 4), msg.MaximumSizeQty);
+            offset += 4;
+            data[offset++] = (byte)msg.SecurityType;
+            var assetNameBytes = Encoding.ASCII.GetBytes((msg.AssetName ?? string.Empty).PadRight(6));
+            assetNameBytes.AsSpan(0, 6).CopyTo(data.Slice(offset, 6));
+            offset += 6;
+            data[offset++] = (byte)msg.PriceNotation;
+            BinaryPrimitives.WriteUInt64LittleEndian(data.Slice(offset, 8), msg.PriceDivisor < 0 ? (ulong)(-msg.PriceDivisor) | 0x8000000000000000UL : (ulong)msg.PriceDivisor);
+            offset += 8;
+        }
+    }
+}

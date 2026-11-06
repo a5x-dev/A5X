@@ -115,7 +115,6 @@
             <field name="Side" required="Y"/>
             <field name="OrderQty" required="Y"/>
             <field name="MaxFloor" required="N"/>
-            <field name="DisplayMethod" required="N"/>
             <field name="Price" required="N"/>
             <field name="StopPx" required="N"/>
             <field name="PreTradeAnonymity" required="N"/>
@@ -141,7 +140,6 @@
             <field name="Side" required="Y"/>
             <field name="OrderQty" required="Y"/>
             <field name="MaxFloor" required="N"/>
-            <field name="DisplayMethod" required="N"/>
             <field name="Price" required="N"/>
             <field name="StopPx" required="N"/>
             <field name="TransactTime" required="Y"/>
@@ -185,7 +183,6 @@
             <field name="MassCancelRequestType" required="Y"/>
             <field name="OrigClOrdID" required="N"/>
             <field name="OrderID" required="N"/>
-            <component name="Parties" required="Y"/>
             <component name="TargetParties" required="N"/>
             <component name="Parties" required="Y"/>
             <field name="SecurityID" required="Y"/>
@@ -357,10 +354,10 @@
             </group>
             <field name="Memo" required="N"/>
             <!--
-                The specification table prints tag "310001" for Trading Phase on this message.
-                Tag 31001 is used for the same TradingPhase semantic on Execution Report, and
-                310001 exceeds the practical custom tag range, so it is treated as a typo for
-                31001. Confirm with A5X before relying on this in production.
+                The specification table prints tag "310001" for Trading Phase on this
+                message. A5X confirmed on 2026-09-25 that 31001 is the correct tag and that
+                the portal table carries a typo; 31001 is also what Execution Report uses
+                for the same TradingPhase semantic. The portal correction is pending.
             -->
             <field name="TradingPhase" required="N"/>
         </message>
@@ -432,7 +429,6 @@
             <field name="MMPResetStatus" required="Y"/>
             <field name="MMPResetRejCode" required="N"/>
             <field name="Text" required="N"/>
-            <field name="TransactTime" required="N"/>
             <field name="Memo" required="N"/>
         </message>
 
@@ -448,9 +444,9 @@
         -->
         <component name="Parties">
             <group name="NoPartyIDs" required="N">
-                <field name="PartyID" required="N"/>
-                <field name="PartyIDSource" required="N"/>
-                <field name="PartyRole" required="N"/>
+                <field name="PartyID" required="Y"/>
+                <field name="PartyIDSource" required="Y"/>
+                <field name="PartyRole" required="Y"/>
             </group>
         </component>
 

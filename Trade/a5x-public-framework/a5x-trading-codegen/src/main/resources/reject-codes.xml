@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Reject codes of the A5X trading gateways, as published on the Technical Portal:
+  https://portal-tecnico.a5x.com.br/en/trading/reject-code
+
+  One <code> per row of that page, in the same order. A value may appear more than once
+  when the page lists it with two descriptions.
+-->
+<rejectCodes xmlns="http://www.a5x.com.br/trading/reject-codes"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.a5x.com.br/trading/reject-codes reject-codes.xsd">
+  <code value="1" description="Invalid User ID or password"/>
+  <code value="5" description="User Flagged for Delete"/>
+  <code value="6" description="Firm Suspended"/>
+  <code value="9" description="Account Expired"/>
+  <code value="10" description="Unauthorized Machine"/>
+  <code value="11" description="Unauthorized User"/>
+  <code value="50" description="Staggered Start"/>
+  <code value="53" description="Role Flagged for Delete"/>
+  <code value="54" description="Node Suspended"/>
+  <code value="55" description="User attached node or one or more upper nodes suspended"/>
+  <code value="56" description="Node Flagged for Delete"/>
+  <code value="57" description="Node Hierarchy Flagged for Delete"/>
+  <code value="100" description="Not logged into real-time channel"/>
+  <code value="105" description="Login request being processed"/>
+  <code value="107" description="Not logged in"/>
+  <code value="628" description="User Inactivated"/>
+  <code value="628" description="Cross Orders cannot be submitted on behalf of another executing user"/>
+  <code value="630" description="System is in End of Day"/>
+  <code value="1000" description="Invalid order size (≤ zero)"/>
+  <code value="1001" description="Invalid order size (&lt; minimum size)"/>
+  <code value="1002" description="Invalid order size (not multiple of lot size)"/>
+  <code value="1003" description="Invalid order size (&gt; maximum size)"/>
+  <code value="1004" description="Invalid order size"/>
+  <code value="1005" description="Order/Quote exceeds maximum order/quote value"/>
+  <code value="1006" description="Invalid order size (will breach maximum gross consideration)"/>
+  <code value="1007" description="Invalid order size (&lt; minimum reserve order value)"/>
+  <code value="1008" description="Invalid order size (&lt; minimum reserve order size)"/>
+  <code value="1011" description="Order exceeds maximum order size"/>
+  <code value="1012" description="Bid exceeds maximum order size"/>
+  <code value="1013" description="Offer exceeds maximum order size"/>
+  <code value="1014" description="Order/Quote breaches the net consideration limit"/>
+  <code value="1015" description="Invalid order value (&lt; minimum iceberg order value)"/>
+  <code value="1100" description="Invalid display size (&lt; zero)"/>
+  <code value="1101" description="Invalid display size (&gt; order size)"/>
+  <code value="1102" description="Invalid display size (not multiple of lot size)"/>
+  <code value="1103" description="Invalid display size"/>
+  <code value="1104" description="Orders with hidden size not permitted during auction call"/>
+  <code value="1105" description="Iceberg orders disabled for instrument"/>
+  <code value="1106" description="Fully hidden orders disabled for instrument"/>
+  <code value="1107" description="New hidden orders not permitted during auction call"/>
+  <code value="1108" description="Orders with hidden sizes not permitted for order book"/>
+  <code value="1109" description="Invalid Min Quantity (&lt; zero)"/>
+  <code value="1150" description="Invalid minimum size (&gt; order size)"/>
+  <code value="1151" description="Invalid minimum size (not multiple of lot size)"/>
+  <code value="1152" description="Orders with minimum size not permitted during auction call"/>
+  <code value="1153" description="Orders with minimum size not permitted during Pause session"/>
+  <code value="1154" description="Minimum fill orders disabled for instrument"/>
+  <code value="1155" description="Orders with minimum size not permitted for order book"/>
+  <code value="1156" description="Visible orders are not permitted to order book"/>
+  <code value="1200" description="Invalid limit price (≤ zero or no limit price)"/>
+  <code value="1201" description="Invalid limit price (not multiple of tick)"/>
+  <code value="1202" description="Invalid limit price (price band breached)"/>
+  <code value="1203" description="Invalid limit price (&gt; maximum price)"/>
+  <code value="1204" description="Invalid limit price (&lt; minimum price)"/>
+  <code value="1205" description="Invalid limit price (short sale failed tick test)"/>
+  <code value="1206" description="Invalid limit price (short sale failed bid test)"/>
+  <code value="1207" description="Invalid limit price (not equal to closing price)"/>
+  <code value="1208" description="Invalid limit price (order book locked)"/>
+  <code value="1209" description="Invalid limit price (order book crossed)"/>
+  <code value="1211" description="Last look for quote already active"/>
+  <code value="1212" description="Order is not in a last look phase"/>
+  <code value="1213" description="Order owner is not the liquidity provider"/>
+  <code value="1214" description="No benchmark instrument attached for spread trading"/>
+  <code value="1215" description="Spread trading not support for benchmark instruments"/>
+  <code value="1216" description="GTT TIF not supported for benchmark instruments"/>
+  <code value="1217" description="Price type cannot be amended"/>
+  <code value="1218" description="Cannot aggress using spread"/>
+  <code value="1219" description="Benchmark price not available"/>
+  <code value="1220" description="Spread cannot be zero"/>
+  <code value="1221" description="Trade Amendments not allowed during this session"/>
+  <code value="1223" description="Order Quantity does not match aggressing quantity"/>
+  <code value="1224" description="Price does not match aggressing price"/>
+  <code value="1225" description="Side does not match aggressing side"/>
+  <code value="1226" description="Price not equal to Static Reference Price"/>
+  <code value="1300" description="Invalid trigger price (≤ zero)"/>
+  <code value="1301" description="Invalid trigger price (not multiple of tick)"/>
+  <code value="1302" description="Stop Price cannot be specified for Trailing Stop orders"/>
+  <code value="1303" description="Stop Price cannot be amended in Trailing Stop orders"/>
+  <code value="1304" description="Trailing Offset cannot be added to Stop orders"/>
+  <code value="1305" description="Invalid stop price (price band breached)"/>
+  <code value="1400" description="Invalid order type (unknown)"/>
+  <code value="1401" description="Invalid order type (market/stop/MIT order with limit price)"/>
+  <code value="1402" description="Invalid order type (market or limit order with a stop price)"/>
+  <code value="1403" description="Market orders disabled for instrument"/>
+  <code value="1404" description="Stop orders disabled for instrument"/>
+  <code value="1405" description="Market to limit orders disabled for instrument"/>
+  <code value="1406" description="Invalid order type (market to limit order with limit price)"/>
+  <code value="1407" description="Stop orders are not permitted during this session"/>
+  <code value="1408" description="Market orders are not permitted during an auction call"/>
+  <code value="1409" description="Invalid type (only limit orders permitted for order book)"/>
+  <code value="1410" description="MIT orders disabled for instrument"/>
+  <code value="1411" description="MIT orders are not permitted during this session"/>
+  <code value="1413" description="Trailing Stop/Stop limit orders disabled for instrument"/>
+  <code value="1414" description="Market or limit order with a Trailing Offset"/>
+  <code value="1415" description="Market if Touch order with a Trailing Offset"/>
+  <code value="1416" description="LTP/BBO is not available"/>
+  <code value="1417" description="Unpriced orders are not permitted for &lt;owner id&gt;"/>
+  <code value="1418" description="Order Type amendments only allowed in Regular Trading"/>
+  <code value="1419" description="Invalid order type (Not permitted for passive only orders)"/>
+  <code value="1420" description="MinFill attribute is not supported for passive only orders"/>
+  <code value="1421" description="Passive only orders are not allowed"/>
+  <code value="1422" description="Passive only orders are not permitted during this session"/>
+  <code value="1427" description="Internal Error. Max stop order limit reached for instrument"/>
+  <code value="1427" description="Maximum stop order limit reached for instrument"/>
+  <code value="1500" description="Invalid TIF (unknown)"/>
+  <code value="1501" description="Invalid expire time (elapsed)"/>
+  <code value="1502" description="Invalid expire time (time is for a future date)"/>
+  <code value="1503" description="Invalid expire date (elapsed)"/>
+  <code value="1504" description="Invalid TIF (only &quot;Open&quot; market orders accepted in Pre-Open)"/>
+  <code value="1505" description="Invalid TIF (OPG stop/MIT orders not permitted)"/>
+  <code value="1506" description="Invalid TIF (IOC &amp; FOK not permitted during auction calls)"/>
+  <code value="1507" description="Invalid TIF (OPG not permitted outside opening auction call)"/>
+  <code value="1508" description="Invalid TIF (invalid date format)"/>
+  <code value="1509" description="No time qualifier specified"/>
+  <code value="1510" description="Invalid TIF (closing auction not configured for instrument)"/>
+  <code value="1511" description="Invalid TIF (GFA orders not supported)"/>
+  <code value="1512" description="Invalid TIF (opening auction not configured for instrument)"/>
+  <code value="1513" description="Invalid TIF (ATC stop orders not permitted)"/>
+  <code value="1514" description="Invalid TIF (GFA stop orders not permitted)"/>
+  <code value="1515" description="Invalid TIF (IOC &amp; FOK not permitted during Pause session)"/>
+  <code value="1516" description="GTD orders disabled for instrument"/>
+  <code value="1517" description="GTT orders disabled for instrument"/>
+  <code value="1518" description="FOK orders disabled for instrument"/>
+  <code value="1519" description="GTC orders disabled for instrument"/>
+  <code value="1520" description="OPG orders disabled for instrument"/>
+  <code value="1521" description="ATC orders disabled for instrument"/>
+  <code value="1522" description="Invalid TIF (Not permitted for order book)"/>
+  <code value="1523" description="Invalid TIF (CPX stop orders not permitted)"/>
+  <code value="1524" description="Invalid TIF (not permitted during this session)"/>
+  <code value="1525" description="Invalid TIF (GFA market to limit orders not permitted)"/>
+  <code value="1526" description="CPX orders disabled for instrument"/>
+  <code value="1527" description="Internal Error. Max parked order limit reached for instrument"/>
+  <code value="1528" description="IOC orders disabled for instrument"/>
+  <code value="1529" description="GTS orders disabled for instrument"/>
+  <code value="1530" description="Invalid TIF (GTS Stop/Stop Limit orders not permitted)"/>
+  <code value="1531" description="Invalid TIF (GTS orders not permitted during Pause session)"/>
+  <code value="1532" description="Invalid TIF (Not permitted for MIT orders)"/>
+  <code value="1533" description="TIF amendments not allowed for order book"/>
+  <code value="1534" description="TIF amendments not allowed"/>
+  <code value="1535" description="Invalid TIF (Not permitted for passive only orders)"/>
+  <code value="1550" description="Expired (end of day)"/>
+  <code value="1700" description="Invalid clearing details (details not provided or invalid)"/>
+  <code value="1701" description="Firm ID Not Matched for Committed Cross"/>
+  <code value="1702" description="Firm ID Not Specified for Cross Order"/>
+  <code value="1800" description="User not registered to submit interest for instrument"/>
+  <code value="1801" description="User not registered to submit interest for %s"/>
+  <code value="1802" description="Invalid order type for sponsored user (market order)"/>
+  <code value="1803" description="Invalid order type for sponsored user (stop/MIT order)"/>
+  <code value="1804" description="Invalid order type for sponsored user (quote)"/>
+  <code value="1805" description="User not registered to submit orders for other firms"/>
+  <code value="1806" description="%s not registered to submit orders for instrument"/>
+  <code value="1807" description="User not registered to submit interest for %s"/>
+  <code value="1808" description="Invalid order for sponsored user (multi-legged instrument)"/>
+  <code value="1809" description="Invalid order for sponsored user (market to limit order)"/>
+  <code value="1810" description="% is not permitted to submit short sell orders"/>
+  <code value="1812" description="Expired (Attached to Negative group)"/>
+  <code value="1900" description="Invalid side"/>
+  <code value="1901" description="Invalid order status (%d)"/>
+  <code value="1902" description="Received Prior to First Trading Date of instrument"/>
+  <code value="1903" description="Last Trading Date of instrument elapsed"/>
+  <code value="1904" description="Invalid order capacity"/>
+  <code value="1905" description="Internal Error. Invalid instrument set up. No tick structure"/>
+  <code value="1906" description="Short sales disabled for instrument"/>
+  <code value="1907" description="Named orders disabled for instrument"/>
+  <code value="1908" description="Only named orders permitted for order book"/>
+  <code value="1909" description="Short sales disabled (reference price unavailable)"/>
+  <code value="1910" description="Short sale market order failed tick test (invalid best bid)"/>
+  <code value="1911" description="Short sale market orders disabled (bid test enabled)"/>
+  <code value="1912" description="Monitoring drop copy user not connected"/>
+  <code value="1913" description="Monitoring user from sponsoring firm disconnected"/>
+  <code value="1914" description="Invalid order source [Reserved for future use]"/>
+  <code value="1915" description="Invalid side (Sell short sales not permitted for order book)"/>
+  <code value="1926" description="Internal Error. Max active orders per book limit reached"/>
+  <code value="1927" description="Internal Error. Max active order limit reached for thread"/>
+  <code value="1928" description="Internal Error. Max order limit reached for user for thread"/>
+  <code value="1929" description="Buy orders are not allowed for the auction at this time"/>
+  <code value="1930" description="Sell orders are not allowed for the auction at this time"/>
+  <code value="1931" description="Invalid Price (worse than IAP)"/>
+  <code value="1932" description="Invalid Size (greater than imbalance size)"/>
+  <code value="1933" description="Invalid counterparty group (Unknown)"/>
+  <code value="1934" description="Counterparty priority higher than the user priority"/>
+  <code value="1935" description="Counterparty group not allowed (User Priority disabled)"/>
+  <code value="1936" description="Counterparty group not allowed for order book"/>
+  <code value="1937" description="Reference price unavailable for iceberg validation"/>
+  <code value="1938" description="Cross orders disabled for Instrument"/>
+  <code value="1939" description="Quantity Not Matched for Committed Cross"/>
+  <code value="1940" description="Price Not Matched for Committed Cross"/>
+  <code value="1941" description="Cannot Enter Cross Orders (BBO Not Available)"/>
+  <code value="1942" description="Ref Price tolerance cannot be determined"/>
+  <code value="1943" description="Price Outside BBO for Cross Order"/>
+  <code value="1944" description="Price outside allowed spread for Cross Order"/>
+  <code value="1945" description="Invalid Session (Cross Orders are Not Allowed)"/>
+  <code value="1946" description="Unknown Cross Order"/>
+  <code value="1947" description="Executing firm and contra firm are not the same"/>
+  <code value="1948" description="Value cannot be determined (ref price unavailable)"/>
+  <code value="1949" description="Max Order Value Breached for Order/Quote"/>
+  <code value="1950" description="Max Daily amount breached"/>
+  <code value="2000" description="Order not found (too late to cancel or unknown order)"/>
+  <code value="2001" description="User not registered to mass cancel interest"/>
+  <code value="2002" description="User not registered to mass cancel interest for firm"/>
+  <code value="2003" description="Unknown user (submitting Trader ID)"/>
+  <code value="2004" description="Unknown instrument"/>
+  <code value="2005" description="Unknown underlying"/>
+  <code value="2006" description="Unknown segment"/>
+  <code value="2007" description="Unknown firm"/>
+  <code value="2008" description="Unknown clearing mnemonic"/>
+  <code value="2009" description="Unknown user (target Owner ID)"/>
+  <code value="2010" description="Unknown user (target Trader ID)"/>
+  <code value="2011" description="Invalid mass cancel type"/>
+  <code value="2012" description="No orders for instrument/underlying"/>
+  <code value="2014" description="Unknown Node ID"/>
+  <code value="2015" description="Matching partition suspended"/>
+  <code value="2016" description="Implied orders cannot be cancelled"/>
+  <code value="2017" description="Reference price for the underlying instrument is unavailable"/>
+  <code value="2018" description="Order cannot be cancelled during the No Cancel period"/>
+  <code value="2099" description=""/>
+  <code value="3000" description="Invalid order size (&lt; filled size)"/>
+  <code value="3001" description="Size amendment of this order is not allowed at this time"/>
+  <code value="3002" description="Size reduction of this order is not allowed at this time"/>
+  <code value="3009" description="MIT order electable on entry"/>
+  <code value="3010" description="Unsupported TIF amendment"/>
+  <code value="3100" description="Invalid display size (&gt; order size)"/>
+  <code value="3101" description="Conversion of fully hidden order to iceberg order prohibited"/>
+  <code value="3102" description="Conversion of fully hidden order to fully visible prohibited"/>
+  <code value="3103" description="Conversion of iceberg order to fully hidden order prohibited"/>
+  <code value="3104" description="Conversion of fully visible order to fully hidden prohibited"/>
+  <code value="3200" description="Price amendment of this order is not allowed at this time"/>
+  <code value="3700" description="Invalid owner (different from original order)"/>
+  <code value="3800" description="User not registered to manage interest for instrument"/>
+  <code value="3801" description="User not registered to manage interest for %s"/>
+  <code value="3900" description="Invalid side (different from original order)"/>
+  <code value="3901" description="Invalid side (side may not be amended to sell short)"/>
+  <code value="3902" description="Side may not be amended (order is a short sale)"/>
+  <code value="3903" description="Stop/MIT orders may not be amended during this session"/>
+  <code value="3904" description="Price amendment prohibited (order eligible for CPX session)"/>
+  <code value="3905" description="Invalid price (price may not be better than closing price)"/>
+  <code value="3906" description="Order type may not be amended"/>
+  <code value="3907" description="Trigger price of an elected stop/MIT order may not be amended"/>
+  <code value="3908" description="Stop/MIT order electable on entry"/>
+  <code value="3911" description="Price amendment of this order is not allowed at this time"/>
+  <code value="3912" description="Implied orders can not be amended"/>
+  <code value="3913" description="Cannot amend Cross Orders"/>
+  <code value="3914" description="Invalid exec instructions (different from original order)"/>
+  <code value="3916" description="Invalid price type (different from original quote)"/>
+  <code value="3917" description="Invalid Order Type amendment"/>
+  <code value="3918" description="Passive only attribute cannot be amended"/>
+  <code value="3919" description="Order cancellations/amendments not allowed (valid IAP exists)"/>
+  <code value="4000" description="Invalid bid size (&gt; maximum size)"/>
+  <code value="4001" description="Invalid offer size (&gt; maximum size)"/>
+  <code value="4002" description="Invalid bid size (not multiple of lot size)"/>
+  <code value="4003" description="Invalid offer size (not multiple of lot size)"/>
+  <code value="4004" description="Invalid Level ID &lt;Level ID&gt;"/>
+  <code value="4005" description="Invalid bid size (&lt; minimum size)"/>
+  <code value="4006" description="Invalid offer size (&lt; minimum size)"/>
+  <code value="4007" description="Minimum bid quantity must match the original value"/>
+  <code value="4008" description="Minimum offer quantity must match the original value"/>
+  <code value="4100" description="Invalid displayed bid size (not multiple of lot size)"/>
+  <code value="4101" description="Invalid displayed offer size (not multiple of lot size)"/>
+  <code value="4102" description="Invalid displayed bid size (&gt; bid size)"/>
+  <code value="4103" description="Invalid displayed offer size (&gt; offer size)"/>
+  <code value="4104" description="Invalid displayed bid quantity (&lt; minimum disclosed size)"/>
+  <code value="4105" description="Invalid displayed offer quantity (&lt; minimum disclosed size)"/>
+  <code value="4200" description="Invalid bid price (≤ zero)"/>
+  <code value="4201" description="Invalid offer price (≤ zero)"/>
+  <code value="4202" description="Invalid bid price (not multiple of tick)"/>
+  <code value="4203" description="Invalid offer price (not multiple of tick)"/>
+  <code value="4204" description="Invalid offer price (quote is locked or crossed)"/>
+  <code value="4205" description="Exceeds maximum quote spread"/>
+  <code value="4206" description="Price exceeds current price band"/>
+  <code value="4300" description="Specified TIF is not valid for a quote"/>
+  <code value="4301" description="Invalid TIF (OPG not permitted outside opening auction call)"/>
+  <code value="4302" description="Invalid expire time (elapsed)"/>
+  <code value="4303" description="Invalid expire time (time is for a future date)"/>
+  <code value="4305" description="Exceeds maximum quote spread"/>
+  <code value="4306" description="Invalid TIF (GFA Quotes are not supported)"/>
+  <code value="4307" description="Anonymity indication may not be amended"/>
+  <code value="4700" description="Internal Load ID mismatch"/>
+  <code value="4800" description="User not registered to submit quotes for instrument"/>
+  <code value="4900" description="Quote does not include a bid"/>
+  <code value="4901" description="Quote does not include an offer"/>
+  <code value="4902" description="Quote is same as previous quote"/>
+  <code value="4904" description="User not registered to submit quotes for other firms"/>
+  <code value="4904" description="Invalid quote (not submitted as a limit order)"/>
+  <code value="4905" description="%s not registered to submit quotes for instrument"/>
+  <code value="4905" description="Invalid quote (submitted with stop price)"/>
+  <code value="4906" description="Invalid quote (amend order message used to update quote)"/>
+  <code value="4907" description="Invalid quote (submitted in an agency capacity)"/>
+  <code value="4908" description="Quotes disabled for instrument"/>
+  <code value="4909" description="Mass quotes not permitted for order book"/>
+  <code value="4910" description="Quotes not permitted during CPX session"/>
+  <code value="4911" description="New quotes are not allowed at this time"/>
+  <code value="4912" description="Quotes are not allowed to order book"/>
+  <code value="4915" description="The total number of quote entries in a Mass Quote message exceeds the maximum quote entries allowed"/>
+  <code value="4916" description="Mass Quotes not allowed for the instrument type"/>
+  <code value="4917" description="Quotes not allowed for the instrument type"/>
+  <code value="4919" description="No effective change to quote"/>
+  <code value="4920" description="Reserved for ATOM"/>
+  <code value="4921" description="Quotes cannot be submitted for IPO instruments"/>
+  <code value="5000" description="Quote cannot be cancelled during the No Cancel period"/>
+  <code value="5100" description="Size reduction of this quote is not allowed at this time"/>
+  <code value="5200" description="Price amendment of this quote is not allowed at this time"/>
+  <code value="6000" description="User not registered to submit RFQs for instrument"/>
+  <code value="6005" description="RFQs not allowed"/>
+  <code value="6006" description="Negotiations order book not attached"/>
+  <code value="6007" description="Private RFQs not allowed for this book"/>
+  <code value="6008" description="Only private RFQs allowed for this book"/>
+  <code value="6009" description="Private RFQs not allowed"/>
+  <code value="6010" description="Public RFQs not allowed"/>
+  <code value="6011" description="Instrument not in Regular Trading"/>
+  <code value="6012" description="Duplicate RFQ ID"/>
+  <code value="6013" description="Invalid market maker for instrument"/>
+  <code value="6014" description="User not registered to submit quotes for instrument"/>
+  <code value="6015" description="Private quotes not allowed for this book"/>
+  <code value="6016" description="Instrument not in Regular Trading"/>
+  <code value="6017" description="Quote has to be Day or GTT"/>
+  <code value="6018" description="Have to specify at least one side for a quote"/>
+  <code value="6019" description="Price should be zero if size is zero"/>
+  <code value="6020" description="Invalid RFQ ID for contra-party and instrument"/>
+  <code value="6021" description="Cannot amend a single sided quote to a double sided quote"/>
+  <code value="6022" description="Cannot amend a double sided quote to a single sided quote"/>
+  <code value="6023" description="Side of a single sided quote cannot be amended"/>
+  <code value="6024" description="No market makers for the specified instrument"/>
+  <code value="6025" description="No default users"/>
+  <code value="6026" description="Already elapsed response time"/>
+  <code value="6027" description="Response Time is for a future date"/>
+  <code value="6028" description="Invalid Session"/>
+  <code value="6029" description="Invalid RFQ ID"/>
+  <code value="6030" description="Invalid Quote Message ID"/>
+  <code value="6031" description="Discrepancy in trade terms. Price."/>
+  <code value="6032" description="Size larger than contra-party quote"/>
+  <code value="6033" description="Size should be at least minimum size"/>
+  <code value="6034" description="RFQ is already rejected"/>
+  <code value="6035" description="Invalid value for Quote Response Type"/>
+  <code value="6036" description="Invalid symbol for negotiation"/>
+  <code value="6037" description="Invalid side for negotiation"/>
+  <code value="6038" description="Discrepancy in trade terms. Side"/>
+  <code value="6039" description="Already negotiated"/>
+  <code value="6040" description="Not a live quote"/>
+  <code value="6042" description="Not a live quote submitted by the market maker"/>
+  <code value="6043" description="Invalid symbol for negotiation"/>
+  <code value="6044" description="Size cannot be zero for negotiation"/>
+  <code value="6048" description="Market maker unspecified or invalid"/>
+  <code value="6050" description="Size should be zero if price is zero"/>
+  <code value="6051" description="Invalid minimum size (&gt; bid size)"/>
+  <code value="6052" description="Invalid minimum size (&gt; offer size)"/>
+  <code value="6053" description="Unknown RFQ"/>
+  <code value="6054" description="Anonymous RFQ negotiation is in progress"/>
+  <code value="6055" description="Unknown quote"/>
+  <code value="6056" description="Expiry Time exceeds private quote negotiation duration"/>
+  <code value="6057" description="Normal Book is not in Regular Trading"/>
+  <code value="6059" description="Both Bid ID and Offer ID are specified"/>
+  <code value="6063" description="No Normal book is attached"/>
+  <code value="6064" description="Price cannot be specified when matching at best"/>
+  <code value="6065" description="No Bid /offer to match with"/>
+  <code value="6066" description="Invalid quantity (not multiple of lot size)"/>
+  <code value="6067" description="User not authorized to cancel the RFQ"/>
+  <code value="6068" description="Not invited to the negotiation"/>
+  <code value="6069" description="Preferred Marker Makers should be specified"/>
+  <code value="6070" description="Exceeds the number of allowed Market Makers"/>
+  <code value="6071" description="User not authorized to accept the quote"/>
+  <code value="6072" description="RFQ quantity is not specified"/>
+  <code value="6073" description="RFQ value is less than the RFQ Min Value"/>
+  <code value="6074" description="Bid value is less than the RFQ Min Value"/>
+  <code value="6075" description="RFQ value cannot be determined (ref price unavailable)"/>
+  <code value="6076" description="Invalid RFQ/RFQ quote value (&gt; maximum RFQ/RFQ quote value)"/>
+  <code value="6077" description="Ask value is less than the RFQ Min Value"/>
+  <code value="6078" description="Minimum value is less than the RFQ Min Value"/>
+  <code value="6079" description="RFQ side is not specified"/>
+  <code value="6080" description="Manual RFQs not allowed"/>
+  <code value="6081" description="Automatic RFQs not allowed"/>
+  <code value="6082" description="Side not specified for auto RFQ"/>
+  <code value="6083" description="RFQ execution falls after the expiration time"/>
+  <code value="6084" description="Quote's price is worse than the limit price"/>
+  <code value="6085" description="Cannot execute an auto RFQ manually"/>
+  <code value="6086" description="RFQ quantity is not amendable"/>
+  <code value="6087" description="No change to the limit price"/>
+  <code value="6088" description="User not authorized to modify the RFQ"/>
+  <code value="6089" description="Duplicate Quote Msg ID"/>
+  <code value="6090" description="Auto RFQ Execution strategy unavailable"/>
+  <code value="6091" description="Anonymity cannot be specified for the auto RFQ strategy"/>
+  <code value="6092" description="Pre Trade LIS is not defined"/>
+  <code value="6093" description="Quantity not specified for auto RFQ"/>
+  <code value="6094" description="Bid size/offer size is less than the auto RFQ quantity"/>
+  <code value="6095" description="Bid Ask Prices are out of allowed price tolerance"/>
+  <code value="6096" description="Executable price is outside the market price tolerance"/>
+  <code value="6097" description="BBO is not available"/>
+  <code value="6098" description="Bid value is less than the Min RFQ Quote Value"/>
+  <code value="6099" description="Ask value is less than the Min RFQ Quote Value"/>
+  <code value="6100" description="RFQ is not eligible to be published"/>
+  <code value="6101" description="RFQ is already published"/>
+  <code value="6102" description="Interest cancelled due to suspension of user"/>
+  <code value="6103" description="Expired (auto inactivation on user logout)"/>
+  <code value="6104" description="Only a single quote can be submitted by a CompID for an RFQ"/>
+  <code value="8001" description="Duplicate Client Order ID"/>
+  <code value="8002" description="Cross orders disabled for Instrument"/>
+  <code value="8003" description="Invalid minimum cross order size (&lt;minimum cross order size)"/>
+  <code value="8004" description="Cannot Enter Cross Orders (Price range Not Available)"/>
+  <code value="8005" description="Price Outside BBO for Cross Order"/>
+  <code value="8006" description="Invalid Session (Cross Orders are Not Allowed)"/>
+  <code value="8007" description="Cross order breaches CB limits"/>
+  <code value="8008" description="Executing firm and contra firm are not the same"/>
+  <code value="8009" description="User not registered to submit Cross Orders"/>
+  <code value="9000" description="Unknown instrument"/>
+  <code value="9000" description="Unknown instrument"/>
+  <code value="9001" description="Unknown Order Book"/>
+  <code value="9002" description="Instrument Halted"/>
+  <code value="9003" description="Instrument halted or suspended"/>
+  <code value="9004" description="Instrument halted (last trading day reached)"/>
+  <code value="9005" description="Market is closed"/>
+  <code value="9006" description="Instrument halted (market suspended)"/>
+  <code value="9007" description="Instrument halted (invalid trading session)"/>
+  <code value="9008" description="Session is closed"/>
+  <code value="9009" description="Instrument halted (order book in invalid state)"/>
+  <code value="9010" description="Instrument in Open session"/>
+  <code value="9011" description="Instrument in Post-Close session"/>
+  <code value="9012" description="Instrument halted (invalid set up)"/>
+  <code value="9013" description="Instrument halted (invalid order book set up)"/>
+  <code value="9014" description="Instrument in Pre-Trading session"/>
+  <code value="9015" description="Instrument in Closing Price Publication session"/>
+  <code value="9016" description="Instrument in Closing Price Cross session"/>
+  <code value="9100" description="Unknown user (Owner ID)"/>
+  <code value="9101" description="Unknown user (Trader ID)"/>
+  <code value="9102" description="User suspended"/>
+  <code value="9103" description="User inactive"/>
+  <code value="9104" description="Invalid user (not attached to trading firm)"/>
+  <code value="9105" description="Firm inactive"/>
+  <code value="9106" description="Order exceeds risk threshold (Rejected by risk system)"/>
+  <code value="9107" description="System user is not allowed to submit orders"/>
+  <code value="9108" description="Internal Error. User Log-on Pending at Matching Engine"/>
+  <code value="9200" description="Invalid trading session (unknown)"/>
+  <code value="9200" description="Invalid trading session (unknown)"/>
+  <code value="9201" description="Invalid new order message"/>
+  <code value="9202" description="Invalid amend order message"/>
+  <code value="9203" description="Invalid cancel order message"/>
+  <code value="9204" description="Reserved by development."/>
+  <code value="9205" description="Invalid order management request. (Not the active partition)"/>
+  <code value="9206" description="Orders are not allowed to be cancelled at this time"/>
+  <code value="9207" description="Prices of orders can only be improved at this time"/>
+  <code value="9208" description="Sizes of orders can only be increased at this time"/>
+  <code value="9209" description="Orders cannot be removed from the auction call at this time"/>
+  <code value="9210" description="Amendments to buy side of quote not allowed at this time"/>
+  <code value="9211" description="Amendments to sell side of quote not allowed at this time"/>
+  <code value="9212" description="Invalid Price (not allowed at this time)"/>
+  <code value="9213" description="Invalid Price for Buy Side (worse than IAP)"/>
+  <code value="9214" description="Invalid Price for Sell Side (worse than IAP)"/>
+  <code value="9215" description="Invalid Size for Buy Side (greater than imbalance size)"/>
+  <code value="9216" description="Invalid Size for Sell Side (greater than imbalance size)"/>
+  <code value="9900" description="Required field missing"/>
+  <code value="9901" description="Invalid value in field"/>
+  <code value="9903" description="Internal Error. Concurrent login limit reached"/>
+  <code value="9904" description="Invalid gateway (not configured for sponsored access)"/>
+  <code value="9905" description="System unavailable (to sponsored users)"/>
+  <code value="9906" description="Logons not allowed at this time"/>
+  <code value="9907" description="Value not allowed for field"/>
+  <code value="9908" description="Invalid value in field"/>
+  <code value="9910" description="Required field is empty"/>
+  <code value="9911" description="Native message not supported"/>
+  <code value="9912" description="Invalid message length for native message"/>
+  <code value="9913" description="Native message version not supported"/>
+  <code value="9914" description="Invalid character in field"/>
+  <code value="9990" description="Maximum message rate exceeded"/>
+  <code value="9996" description="Quote locked or crossed"/>
+  <code value="9998" description="Matching partition suspended"/>
+  <code value="9999" description="System suspended"/>
+  <code value="10000" description="Sender Location is Required"/>
+  <code value="171208" description="Limit price cannot be null"/>
+  <code value="171400" description="Only one RLP order per side is allowed for firm"/>
+  <code value="171401" description="Invalid combination (RLP order with visible quantity)"/>
+  <code value="171402" description="Invalid TIF (RLP order with TIF other than Day)"/>
+  <code value="171403" description="RLP order with a limit/stop price"/>
+  <code value="171404" description="User not registered to submit RLP orders"/>
+  <code value="171405" description="User not registered to submit RLP orders for &lt;CompID&gt;"/>
+  <code value="171406" description="User not registered to manage RLP orders for &lt;CompID&gt;"/>
+  <code value="171407" description="Invalid Order Type and Routing Instruction combination"/>
+  <code value="171408" description="RLP orders disabled for instrument"/>
+  <code value="178010" description="Cannot Enter Cross Orders (Midpoint Not Available)"/>
+  <code value="178011" description="Cannot Enter Cross Orders (half tick executions not allowed)"/>
+  <code value="179403" description="Account ID is invalid"/>
+  <code value="179450" description="Order size exceeds permitted limits"/>
+  <code value="179451" description="Account is required for the order"/>
+  <code value="179452" description="Order size limit not set for sender location"/>
+  <code value="179453" description="Account not found"/>
+  <code value="179454" description="Give up account not set for account"/>
+  <code value="179455" description="Capture account not available"/>
+  <code value="179456" description="Unsupported Sender Location"/>
+  <code value="179457" description="One or more strategy leg size exceeds limits"/>
+  <code value="179458" description="At least one side of cross exceeds order size limit"/>
+  <code value="179459" description="Size of one or both quote sides exceeds limits"/>
+  <code value="179460" description="Action not permitted for Sender Location"/>
+  <code value="179461" description="Order size limit not set for execution account"/>
+  <code value="179462" description="Order size limit not set for give-up account"/>
+  <code value="179463" description="Order size limit not set for firm's capture account"/>
+  <code value="179600" description="Order has already been reinstated"/>
+  <code value="179601" description="Only orders can be reinstated"/>
+  <code value="179602" description="No reinstatement size"/>
+  <code value="179603" description="Trading Session is invalid or not suitable for reinstatement"/>
+</rejectCodes>

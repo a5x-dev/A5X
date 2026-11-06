@@ -2,7 +2,9 @@ package br.com.a5x.trd.codegen.mitch;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -23,7 +25,20 @@ public class MitchXmlParser {
         factory.setNamespaceAware(true);
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc = builder.parse(xmlStream);
-        
+
+        Set<String> signMagnitudeTypes = new HashSet<>();
+        NodeList typeNodes = doc.getElementsByTagNameNS("http://a5x.com.br/mitch", "type");
+        for (int i = 0; i < typeNodes.getLength(); i++) {
+            Element typeElement = (Element) typeNodes.item(i);
+            String negativeEncoding = typeElement.getAttribute("negativeEncoding");
+            if ("sign-magnitude".equals(negativeEncoding)) {
+                signMagnitudeTypes.add(typeElement.getAttribute("name"));
+            } else if (!negativeEncoding.isEmpty() && !"twos-complement".equals(negativeEncoding)) {
+                throw new IllegalArgumentException("Type " + typeElement.getAttribute("name")
+                        + ": unknown negativeEncoding \"" + negativeEncoding + "\"");
+            }
+        }
+
         NodeList messageNodes = doc.getElementsByTagNameNS("http://a5x.com.br/mitch", "message");
         
         for (int i = 0; i < messageNodes.getLength(); i++) {
@@ -43,6 +58,7 @@ public class MitchXmlParser {
                 
                 field.setName(fieldElement.getAttribute("name"));
                 field.setType(fieldElement.getAttribute("type"));
+                field.setSignMagnitude(signMagnitudeTypes.contains(field.getType()));
                 field.setDescription(fieldElement.getAttribute("description"));
                 
                 String lengthStr = fieldElement.getAttribute("length");

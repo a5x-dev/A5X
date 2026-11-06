@@ -1,7 +1,11 @@
 package br.com.a5x.trd.codegen;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
+import java.util.stream.Stream;
 
 import br.com.a5x.trd.codegen.mitch.MitchCSharpGenerator;
 import br.com.a5x.trd.codegen.mitch.MitchCodeGenerator;
@@ -17,25 +21,86 @@ import br.com.a5x.trd.codegen.nativ.NativeWrapperGenerator;
 import br.com.a5x.trd.codegen.nativ.NativeXmlParser;
 import br.com.a5x.trd.codegen.model.MessageDefinition;
 
+/**
+ * Generates the SDK from a schema.
+ *
+ * <pre>
+ * A5XCodeGenApp &lt;schema&gt; &lt;outputDir&gt; &lt;language&gt;
+ *   schema    a classpath resource (/mitch-messages.xml, the current version), a schema file,
+ *             or a directory with one sub-directory per specification version (spec/)
+ *   language  java, csharp, cpp, wireshark or all
+ * </pre>
+ *
+ * Given the spec/ directory, every version is generated: spec/&lt;version&gt;/mitch-messages.xml
+ * goes to &lt;outputDir&gt;/&lt;version&gt;/mitch, and the same for native-messages.xml.
+ */
 public class A5XCodeGenApp {
+
+	private static final String[] PROTOCOLS = { "mitch", "native" };
+
 	public static void main(String[] args) {
 		try {
 			String xmlFile = args.length > 0 ? args[0] : "/mitch-messages.xml";
 			String outputDir = args.length > 1 ? args[1] : "./generated";
 			String language = args.length > 2 ? args[2] : "java";
-			
-			InputStream xmlStream = A5XCodeGenApp.class.getResourceAsStream(xmlFile);
+
+			Path path = Path.of(xmlFile);
+			boolean ok;
+			if (Files.isDirectory(path)) {
+				ok = generateVersions(path, Path.of(outputDir), language);
+			} else {
+				ok = generate(xmlFile, outputDir, language);
+			}
+			if (!ok) {
+				System.exit(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+	}
+
+	/** One output tree per version found under specDir. */
+	public static boolean generateVersions(Path specDir, Path outputDir, String language) throws Exception {
+		List<Path> versions;
+		try (Stream<Path> children = Files.list(specDir)) {
+			versions = children.filter(Files::isDirectory).sorted().toList();
+		}
+		if (versions.isEmpty()) {
+			System.err.println("No version directory under " + specDir);
+			return false;
+		}
+		for (Path version : versions) {
+			for (String protocol : PROTOCOLS) {
+				Path xml = version.resolve(protocol + "-messages.xml");
+				if (!Files.exists(xml)) continue;
+				Path target = outputDir.resolve(version.getFileName().toString()).resolve(protocol);
+				if (!generate(xml.toString(), target.toString(), language)) return false;
+			}
+		}
+		return true;
+	}
+
+	/** A schema file, or a resource on the classpath when no such file exists. */
+	private static InputStream open(String xmlFile) throws IOException {
+		Path path = Path.of(xmlFile);
+		if (Files.isRegularFile(path)) return Files.newInputStream(path);
+		return A5XCodeGenApp.class.getResourceAsStream(xmlFile);
+	}
+
+	public static boolean generate(String xmlFile, String outputDir, String language) throws Exception {
+		try (InputStream xmlStream = open(xmlFile)) {
 			if (xmlStream == null) {
 				System.err.println("XML file not found: " + xmlFile);
-				return;
+				return false;
 			}
-			
-			boolean isNative = xmlFile.contains("native");
-			
+
+			boolean isNative = Path.of(xmlFile).getFileName().toString().contains("native");
+
 			if (isNative) {
 				NativeXmlParser parser = new NativeXmlParser();
 				List<MessageDefinition> messages = parser.parse(xmlStream);
-				
+
 				switch (language.toLowerCase()) {
 					case "java":
 						new NativeCodeGenerator().generate(messages, outputDir + "/java");
@@ -66,13 +131,13 @@ public class A5XCodeGenApp {
 						break;
 					default:
 						System.err.println("Unknown language: " + language);
-						return;
+						return false;
 				}
 				System.out.println("Generated " + messages.size() + " Native " + language + " classes in " + outputDir);
 			} else {
 				MitchXmlParser parser = new MitchXmlParser();
 				List<MessageDefinition> messages = parser.parse(xmlStream);
-				
+
 				switch (language.toLowerCase()) {
 					case "java":
 						MitchCodeGenerator javaGen = new MitchCodeGenerator();
@@ -111,14 +176,12 @@ public class A5XCodeGenApp {
 					default:
 						System.err.println("Unknown language: " + language);
 						System.err.println("Supported: java, csharp, cpp, wireshark, all");
-						return;
+						return false;
 				}
-				
+
 				System.out.println("Generated " + messages.size() + " " + language + " classes in " + outputDir);
 			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
+			return true;
 		}
 	}
 }

@@ -32,6 +32,29 @@ public class MitchCppGenerator {
         sb.append("#include <cstdint>\n");
         sb.append("#include <cstring>\n");
         sb.append("#include <string>\n\n");
+
+        // MITCH is little-endian on the wire. memcpy copies in *host* order, which happens
+        // to match on x86 and silently does not on a big-endian target. These assemble the
+        // value byte by byte, so the result never depends on the host.
+        // Every header carries the helpers, so they are guarded: including two headers in
+        // one translation unit would otherwise define them twice.
+        sb.append("#ifndef A5X_MITCH_WIRE_HELPERS\n");
+        sb.append("#define A5X_MITCH_WIRE_HELPERS\n");
+        sb.append("namespace {\n");
+        sb.append("inline uint16_t a5x_read_le16(const uint8_t* p) { uint16_t v = 0; for (int i = 1; i >= 0; --i) v = static_cast<uint16_t>((v << 8) | p[i]); return v; }\n");
+        sb.append("inline uint32_t a5x_read_le32(const uint8_t* p) { uint32_t v = 0; for (int i = 3; i >= 0; --i) v = (v << 8) | p[i]; return v; }\n");
+        sb.append("inline uint64_t a5x_read_le64(const uint8_t* p) { uint64_t v = 0; for (int i = 7; i >= 0; --i) v = (v << 8) | p[i]; return v; }\n");
+        sb.append("inline void a5x_write_le16(uint8_t* p, uint16_t v) { for (int i = 0; i < 2; ++i) p[i] = static_cast<uint8_t>(v >> (8 * i)); }\n");
+        sb.append("inline void a5x_write_le32(uint8_t* p, uint32_t v) { for (int i = 0; i < 4; ++i) p[i] = static_cast<uint8_t>(v >> (8 * i)); }\n");
+        sb.append("inline void a5x_write_le64(uint8_t* p, uint64_t v) { for (int i = 0; i < 8; ++i) p[i] = static_cast<uint8_t>(v >> (8 * i)); }\n");
+        // Sign-magnitude: the top bit is the sign, the rest the absolute value. This is how
+        // MITCH sends a negative price; it is not two's complement.
+        sb.append("inline int32_t a5x_read_sm32(const uint8_t* p) { uint32_t v = a5x_read_le32(p); int32_t m = static_cast<int32_t>(v & 0x7FFFFFFFu); return (v >> 31) ? -m : m; }\n");
+        sb.append("inline int64_t a5x_read_sm64(const uint8_t* p) { uint64_t v = a5x_read_le64(p); int64_t m = static_cast<int64_t>(v & 0x7FFFFFFFFFFFFFFFull); return (v >> 63) ? -m : m; }\n");
+        sb.append("inline void a5x_write_sm32(uint8_t* p, int32_t v) { a5x_write_le32(p, v < 0 ? (static_cast<uint32_t>(-static_cast<int64_t>(v)) | 0x80000000u) : static_cast<uint32_t>(v)); }\n");
+        sb.append("inline void a5x_write_sm64(uint8_t* p, int64_t v) { a5x_write_le64(p, v < 0 ? ((~static_cast<uint64_t>(v) + 1) | 0x8000000000000000ull) : static_cast<uint64_t>(v)); }\n");
+        sb.append("} // namespace\n");
+        sb.append("#endif // A5X_MITCH_WIRE_HELPERS\n\n");
         sb.append("namespace a5x::trading::mitch {\n\n");
         
         if (message.getDescription() != null && !message.getDescription().isEmpty()) {
@@ -52,7 +75,8 @@ public class MitchCppGenerator {
             sb.append(";\n\n");
 
             if ("price4".equals(field.getType()) || "price8".equals(field.getType())) {
-                sb.append("    double ").append(field.getName()).append("AsDecimal() const { return ").append(field.getName()).append(" / 10000.0; }\n\n");
+                int scale = "price8".equals(field.getType()) ? 100000000 : 10000;
+                sb.append("    double ").append(field.getName()).append("AsDecimal() const { return ").append(field.getName()).append(" / ").append(scale).append(".0; }\n\n");
             }
         }
         
@@ -111,19 +135,19 @@ public class MitchCppGenerator {
         
         switch (field.getType()) {
             case "uint32":
-                sb.append("        std::memcpy(&msg.").append(field.getName()).append(", data + offset, 4);\n");
+                sb.append("        msg.").append(field.getName()).append(" = a5x_read_le32(data + offset);\n");
                 sb.append("        offset += 4;\n");
                 break;
             case "uint64":
-                sb.append("        std::memcpy(&msg.").append(field.getName()).append(", data + offset, 8);\n");
+                sb.append("        msg.").append(field.getName()).append(" = a5x_read_le64(data + offset);\n");
                 sb.append("        offset += 8;\n");
                 break;
             case "uint16":
-                sb.append("        std::memcpy(&msg.").append(field.getName()).append(", data + offset, 2);\n");
+                sb.append("        msg.").append(field.getName()).append(" = a5x_read_le16(data + offset);\n");
                 sb.append("        offset += 2;\n");
                 break;
             case "int32":
-                sb.append("        std::memcpy(&msg.").append(field.getName()).append(", data + offset, 4);\n");
+                sb.append("        msg.").append(field.getName()).append(" = a5x_read_le32(data + offset);\n");
                 sb.append("        offset += 4;\n");
                 break;
             case "uint8":
@@ -145,11 +169,11 @@ public class MitchCppGenerator {
                 sb.append("        offset += ").append(field.getLength()).append(";\n");
                 break;
             case "price4":
-                sb.append("        std::memcpy(&msg.").append(field.getName()).append(", data + offset, 4);\n");
+                sb.append("        msg.").append(field.getName()).append(field.isSignMagnitude() ? " = a5x_read_sm32(" : " = a5x_read_le32(").append("data + offset);\n");
                 sb.append("        offset += 4;\n");
                 break;
             case "price8":
-                sb.append("        std::memcpy(&msg.").append(field.getName()).append(", data + offset, 8);\n");
+                sb.append("        msg.").append(field.getName()).append(field.isSignMagnitude() ? " = a5x_read_sm64(" : " = a5x_read_le64(").append("data + offset);\n");
                 sb.append("        offset += 8;\n");
                 break;
         }
@@ -162,19 +186,19 @@ public class MitchCppGenerator {
         
         switch (field.getType()) {
             case "uint32":
-                sb.append("        std::memcpy(data + offset, &msg.").append(field.getName()).append(", 4);\n");
+                sb.append("        a5x_write_le32(data + offset, msg.").append(field.getName()).append(");\n");
                 sb.append("        offset += 4;\n");
                 break;
             case "uint64":
-                sb.append("        std::memcpy(data + offset, &msg.").append(field.getName()).append(", 8);\n");
+                sb.append("        a5x_write_le64(data + offset, msg.").append(field.getName()).append(");\n");
                 sb.append("        offset += 8;\n");
                 break;
             case "uint16":
-                sb.append("        std::memcpy(data + offset, &msg.").append(field.getName()).append(", 2);\n");
+                sb.append("        a5x_write_le16(data + offset, msg.").append(field.getName()).append(");\n");
                 sb.append("        offset += 2;\n");
                 break;
             case "int32":
-                sb.append("        std::memcpy(data + offset, &msg.").append(field.getName()).append(", 4);\n");
+                sb.append("        a5x_write_le32(data + offset, msg.").append(field.getName()).append(");\n");
                 sb.append("        offset += 4;\n");
                 break;
             case "uint8":
@@ -196,11 +220,11 @@ public class MitchCppGenerator {
                 sb.append("        offset += ").append(field.getLength()).append(";\n");
                 break;
             case "price4":
-                sb.append("        std::memcpy(data + offset, &msg.").append(field.getName()).append(", 4);\n");
+                sb.append(field.isSignMagnitude() ? "        a5x_write_sm32(" : "        a5x_write_le32(").append("data + offset, msg.").append(field.getName()).append(");\n");
                 sb.append("        offset += 4;\n");
                 break;
             case "price8":
-                sb.append("        std::memcpy(data + offset, &msg.").append(field.getName()).append(", 8);\n");
+                sb.append(field.isSignMagnitude() ? "        a5x_write_sm64(" : "        a5x_write_le64(").append("data + offset, msg.").append(field.getName()).append(");\n");
                 sb.append("        offset += 8;\n");
                 break;
         }

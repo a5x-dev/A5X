@@ -53,7 +53,12 @@ public class MitchCodeGenerator {
             sb.append(";\n\n");
             
             if ("price4".equals(field.getType()) || "price8".equals(field.getType())) {
-                sb.append("\tpublic java.math.BigDecimal ").append(field.getName()).append("AsDecimal() { return java.math.BigDecimal.valueOf(").append(field.getName()).append(", 4); }\n\n");
+                // The scale follows the type: price4 carries 4 implied decimals, price8
+                // carries 8. A fixed scale of 4 misreported every price8 by 10,000x.
+                int scale = "price8".equals(field.getType()) ? 8 : 4;
+                sb.append("\tpublic java.math.BigDecimal ").append(field.getName())
+                  .append("AsDecimal() { return java.math.BigDecimal.valueOf(")
+                  .append(field.getName()).append(", ").append(scale).append("); }\n\n");
             }
         }
         
@@ -112,7 +117,7 @@ public class MitchCodeGenerator {
                 FieldDefinition field = message.getFields().get(i);
                 if (i > 0) sb.append(" + \", ");
                 else sb.append("\" + \"");
-                sb.append(field.getName()).append("=\" + ").append(field.getName());
+                sb.append(field.getName()).append("=\" + ").append(renderForToString(field));
             }
             
             sb.append(" + \"]\";\n");
@@ -159,13 +164,19 @@ public class MitchCodeGenerator {
             case "uint32": return "BitUtils.byteArrayToUInt32(pData, false)";
             // Read as a signed long, same convention already used by int64 and price8. The
             // 64 bits are preserved; see the <types> block for unsigned handling.
-            case "uint64": return "pData.getLong()";
+            case "uint64": return "BitUtils.byteArrayToInt64(pData, false)";
             case "uint8": return "BitUtils.byteToUInt8(pData)";
             case "uint16": return "BitUtils.byteArrayToUInt16(pData, false)";
-            case "int32": return "pData.getInt()";
-            case "int64": return "pData.getLong()";
-            case "price4": return "pData.getInt()";
-            case "price8": return "pData.getLong()";
+            case "int32": return "BitUtils.byteArrayToInt32(pData, false)";
+            case "int64": return "BitUtils.byteArrayToInt64(pData, false)";
+            // MITCH sends negative prices in sign-magnitude, not two's complement; the
+            // field still holds an ordinary signed value.
+            case "price4": return field.isSignMagnitude()
+                    ? "BitUtils.byteArrayToSignMagnitude32(pData, false)"
+                    : "BitUtils.byteArrayToInt32(pData, false)";
+            case "price8": return field.isSignMagnitude()
+                    ? "BitUtils.byteArrayToSignMagnitude64(pData, false)"
+                    : "BitUtils.byteArrayToInt64(pData, false)";
             case "char": return "(char) pData.get()";
             case "byte": return "pData.get()";
             case "bitfield": return "pData.get()";
@@ -184,7 +195,7 @@ public class MitchCodeGenerator {
                 sb.append("\t\tBitUtils.uint32ToByteArray(").append(fieldAccess).append(", pData, false);\n");
                 break;
             case "uint64":
-                sb.append("\t\tpData.putLong(").append(fieldAccess).append(");\n");
+                sb.append("\t\tBitUtils.int64ToByteArray(").append(fieldAccess).append(", pData, false);\n");
                 break;
             case "uint8":
                 sb.append("\t\tBitUtils.uint8ToByte(").append(fieldAccess).append(", pData);\n");
@@ -193,16 +204,18 @@ public class MitchCodeGenerator {
                 sb.append("\t\tBitUtils.uint16ToByteArray(").append(fieldAccess).append(", pData, false);\n");
                 break;
             case "int32":
-                sb.append("\t\tpData.putInt(").append(fieldAccess).append(");\n");
+                sb.append("\t\tBitUtils.int32ToByteArray(").append(fieldAccess).append(", pData, false);\n");
                 break;
             case "int64":
-                sb.append("\t\tpData.putLong(").append(fieldAccess).append(");\n");
+                sb.append("\t\tBitUtils.int64ToByteArray(").append(fieldAccess).append(", pData, false);\n");
                 break;
             case "price4":
-                sb.append("\t\tpData.putInt(").append(fieldAccess).append(");\n");
+                sb.append("\t\tBitUtils.").append(field.isSignMagnitude() ? "signMagnitude32ToByteArray(" : "int32ToByteArray(")
+                  .append(fieldAccess).append(", pData, false);\n");
                 break;
             case "price8":
-                sb.append("\t\tpData.putLong(").append(fieldAccess).append(");\n");
+                sb.append("\t\tBitUtils.").append(field.isSignMagnitude() ? "signMagnitude64ToByteArray(" : "int64ToByteArray(")
+                  .append(fieldAccess).append(", pData, false);\n");
                 break;
             case "char":
                 sb.append("\t\tpData.put((byte) ").append(fieldAccess).append(");\n");
@@ -234,5 +247,25 @@ public class MitchCodeGenerator {
         }
         
         return sb.toString();
+    }
+
+    /**
+     * How a field should be rendered inside toString().
+     *
+     * <p>A {@code byte} holds an ASCII character, so printing the numeric value gives
+     * "side=66" where the specification says "B = Buy". A {@code bytearray} is a Java
+     * array, whose default toString is an identity hash such as "[B@76329302".
+     */
+    private String renderForToString(FieldDefinition field) {
+        String name = field.getName();
+        String type = field.getType();
+
+        if ("byte".equals(type)) {
+            return "(char) " + name;
+        }
+        if ("bytearray".equals(type)) {
+            return "(" + name + " == null ? \"\" : java.util.HexFormat.of().formatHex(" + name + "))";
+        }
+        return name;
     }
 }

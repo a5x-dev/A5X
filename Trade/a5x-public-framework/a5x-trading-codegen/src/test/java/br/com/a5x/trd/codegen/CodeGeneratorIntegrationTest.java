@@ -101,7 +101,7 @@ class CodeGeneratorIntegrationTest {
     
     @Test
     void testCompleteXmlGeneration() throws Exception {
-        InputStream xmlStream = getClass().getResourceAsStream("/mitch-messages-complete.xml");
+        InputStream xmlStream = getClass().getResourceAsStream("/mitch-messages.xml");
         if (xmlStream == null) {
             System.out.println("Skipping complete XML test - file not found");
             return;

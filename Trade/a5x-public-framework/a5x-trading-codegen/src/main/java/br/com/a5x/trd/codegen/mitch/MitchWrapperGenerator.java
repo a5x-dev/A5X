@@ -97,8 +97,10 @@ public class MitchWrapperGenerator {
         StringBuilder sb = new StringBuilder();
         
         sb.append("using System;\n");
-        sb.append("using System.IO;\n\n");
-        
+        sb.append("using System.IO;\n");
+        // the message classes live in the .Model namespace (MitchCSharpGenerator)
+        sb.append("using A5X.Trading.Mitch.Model;\n\n");
+
         sb.append("namespace A5X.Trading.Mitch\n");
         sb.append("{\n");
         sb.append("    /// <summary>\n");

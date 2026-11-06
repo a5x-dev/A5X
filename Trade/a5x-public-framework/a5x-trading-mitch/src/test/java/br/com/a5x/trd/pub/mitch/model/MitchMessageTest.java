@@ -2,7 +2,6 @@ package br.com.a5x.trd.pub.mitch.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
@@ -56,7 +55,7 @@ class MitchMessageTest {
 		MitchAddOrder.parse(addOrder, buffer);
 		
 		assertEquals(500000, addOrder.nanosecond);
-		assertEquals(new BigInteger("123456789"), addOrder.orderId);
+		assertEquals(123456789L, addOrder.orderId);
 		assertEquals('B', addOrder.side);
 		assertEquals(1000, addOrder.quantity);
 		assertEquals(100, addOrder.instrumentId);
@@ -77,7 +76,7 @@ class MitchMessageTest {
 		MitchOrderDeleted.parse(orderDeleted, buffer);
 		
 		assertEquals(600000, orderDeleted.nanosecond);
-		assertEquals(new BigInteger("987654321"), orderDeleted.orderId);
+		assertEquals(987654321L, orderDeleted.orderId);
 		assertEquals(500, orderDeleted.oldQuantity);
 		assertEquals(4500L, orderDeleted.oldPrice);
 	}
@@ -98,7 +97,7 @@ class MitchMessageTest {
 		MitchOrderModified.parse(orderModified, buffer);
 		
 		assertEquals(700000, orderModified.nanosecond);
-		assertEquals(new BigInteger("111222333"), orderModified.orderId);
+		assertEquals(111222333L, orderModified.orderId);
 		assertEquals(800, orderModified.newQuantity);
 		assertEquals(5500L, orderModified.newPrice);
 		assertEquals(1000, orderModified.oldQuantity);
@@ -186,7 +185,7 @@ class MitchMessageTest {
 
 	@Test
 	void testMitchTopOfBookParser() {
-		ByteBuffer buffer = ByteBuffer.allocate(38).order(ByteOrder.LITTLE_ENDIAN);
+		ByteBuffer buffer = ByteBuffer.allocate(46).order(ByteOrder.LITTLE_ENDIAN);
 		buffer.putInt(1100000); // nanosecond
 		buffer.putInt(500); // instrumentId
 		buffer.put((byte) 1); // subBook
@@ -195,8 +194,9 @@ class MitchMessageTest {
 		buffer.putLong(20000L); // price
 		buffer.putInt(10000); // quantity
 		buffer.putInt(500); // marketOrderQuantity
-		buffer.put(new byte[2]); // reservedField
+		buffer.put(new byte[2]); // reserved1
 		buffer.putInt(5); // splits
+		buffer.putLong(7788L); // orderId
 		buffer.flip();
 		
 		MitchTopOfBook topOfBook = new MitchTopOfBook();
@@ -209,6 +209,7 @@ class MitchMessageTest {
 		assertEquals('B', topOfBook.side);
 		assertEquals(10000, topOfBook.quantity);
 		assertEquals(5, topOfBook.splits);
+		assertEquals(7788L, topOfBook.orderId);
 	}
 
 	@Test
@@ -253,7 +254,7 @@ class MitchMessageTest {
 		MitchReplayRequest.parse(replayRequest, buffer);
 		
 		assertEquals(1, replayRequest.marketDataGroup);
-		assertEquals(new BigInteger("1000"), replayRequest.firstMessage);
+		assertEquals(1000L, replayRequest.firstMessage);
 		assertEquals(50, replayRequest.count);
 	}
 
@@ -270,7 +271,7 @@ class MitchMessageTest {
 		MitchReplayResponse.parse(replayResponse, buffer);
 		
 		assertEquals(1, replayResponse.marketDataGroup);
-		assertEquals(new BigInteger("1000"), replayResponse.firstMessage);
+		assertEquals(1000L, replayResponse.firstMessage);
 		assertEquals(50, replayResponse.count);
 		assertEquals('A', replayResponse.status);
 	}
@@ -301,12 +302,12 @@ class MitchMessageTest {
 		MitchSnapshotRequest snapshotRequest = new MitchSnapshotRequest();
 		MitchSnapshotRequest.parse(snapshotRequest, buffer);
 		
-		assertEquals(new BigInteger("5000"), snapshotRequest.sequenceNumber);
+		assertEquals(5000L, snapshotRequest.sequenceNumber);
 		assertEquals("SEGMENT001", snapshotRequest.segment);
 		assertEquals(100, snapshotRequest.instrumentId);
 		assertEquals(1, snapshotRequest.subBook);
 		assertEquals(0, snapshotRequest.snapshotType);
-		assertEquals(new BigInteger("1704067200"), snapshotRequest.recoverFromTime);
+		assertEquals(1704067200L, snapshotRequest.recoverFromTime);
 		assertEquals(12345, snapshotRequest.requestId);
 	}
 
@@ -323,7 +324,7 @@ class MitchMessageTest {
 		MitchSnapshotResponse snapshotResponse = new MitchSnapshotResponse();
 		MitchSnapshotResponse.parse(snapshotResponse, buffer);
 		
-		assertEquals(new BigInteger("5000"), snapshotResponse.sequenceNumber);
+		assertEquals(5000L, snapshotResponse.sequenceNumber);
 		assertEquals(250, snapshotResponse.orderCount);
 		assertEquals('A', snapshotResponse.status);
 		assertEquals(0, snapshotResponse.snapshotType);
@@ -345,12 +346,37 @@ class MitchMessageTest {
 		MitchSnapshotComplete snapshotComplete = new MitchSnapshotComplete();
 		MitchSnapshotComplete.parse(snapshotComplete, buffer);
 		
-		assertEquals(new BigInteger("5000"), snapshotComplete.sequenceNumber);
+		assertEquals(5000L, snapshotComplete.sequenceNumber);
 		assertEquals("SEGMENT001", snapshotComplete.segment);
 		assertEquals(100, snapshotComplete.instrumentId);
 		assertEquals(1, snapshotComplete.subBook);
 		assertEquals('T', snapshotComplete.tradingStatus);
 		assertEquals(0, snapshotComplete.snapshotType);
 		assertEquals(12345, snapshotComplete.requestId);
+	}
+
+	/** -1.00 as the exchange sends it: absolute value, sign in the top bit of the last byte. */
+	private static final byte[] MINUS_ONE = {0x00, (byte) 0xE1, (byte) 0xF5, 0x05, 0, 0, 0, (byte) 0x80};
+
+	@Test
+	void testNegativeLongPriceIsSignMagnitude() {
+		ByteBuffer buffer = ByteBuffer.allocate(30).order(ByteOrder.LITTLE_ENDIAN);
+		buffer.putInt(1000);
+		buffer.putLong(42L);
+		buffer.put((byte) 'B');
+		buffer.putInt(10);
+		buffer.putInt(7);
+		buffer.put(MINUS_ONE);
+		buffer.put((byte) 0);
+		buffer.flip();
+
+		MitchAddOrder order = new MitchAddOrder();
+		MitchAddOrder.parse(order, buffer);
+		assertEquals(-100_000_000L, order.price);
+		assertEquals(0, new java.math.BigDecimal("-1").compareTo(order.priceAsDecimal()));
+
+		ByteBuffer encoded = ByteBuffer.allocate(30).order(ByteOrder.LITTLE_ENDIAN);
+		MitchAddOrder.encode(order, encoded);
+		assertArrayEquals(MINUS_ONE, java.util.Arrays.copyOfRange(encoded.array(), 21, 29));
 	}
 }

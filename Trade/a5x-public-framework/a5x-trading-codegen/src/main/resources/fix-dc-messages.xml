@@ -29,6 +29,7 @@
     * NoPartyIDs (453) is optional on Execution Report, Mass Quote Acknowledgement and
       Quote Status Report, where OrderEntry marks it required.
     * Adds RFQID (30006) on Quote Status Report.
+    * Removes RFQID (30006) again: the spec pages of October 2026 no longer publish it.
 
     Notes on fidelity
     =================
@@ -38,7 +39,7 @@
        NewPassword 925, ApplID 1180, DisplayQty 1138, DisplayMethod 1084,
        PreTradeAnonymity 1091, AggressorIndicator 1057, QuoteMsgID 1166,
        QuoteEntryStatus 1167, Volatility 1188, MarketSegmentID 1300). They are declared below.
-    3. Exchange defined custom tags: OrderBook 30001, RFQID 30006, BidID 30007, OfferID 30008,
+    3. Exchange defined custom tags: OrderBook 30001, BidID 30007, OfferID 30008,
        RLTIndicator 31000, TradingPhase 31001, IPAddress 31002, CertifiedSolution 31003,
        ParPx 32021, LastOptPx 32022, RoutingInstruction 35487, Memo 5149, NoTradeKey 7714.
 -->
@@ -239,10 +240,10 @@
             </group>
             <field name="Memo" required="N"/>
             <!--
-                The specification table prints tag "310001" for Trading Phase on this message.
-                Tag 31001 is used for the same TradingPhase semantic on Execution Report, and
-                310001 exceeds the practical custom tag range, so it is treated as a typo for
-                31001. Confirm with A5X before relying on this in production.
+                The specification table prints tag "310001" for Trading Phase on this
+                message. A5X confirmed on 2026-09-25 that 31001 is the correct tag and that
+                the portal table carries a typo; 31001 is also what Execution Report uses
+                for the same TradingPhase semantic. The portal correction is pending.
             -->
             <field name="TradingPhase" required="N"/>
         </message>
@@ -251,7 +252,6 @@
             <field name="ApplID" required="N"/>
             <field name="QuoteMsgID" required="N"/>
             <field name="QuoteReqID" required="N"/>
-            <field name="RFQID" required="N"/>
             <component name="Parties" required="N"/>
             <field name="SecurityID" required="N"/>
             <field name="SecurityIDSource" required="N"/>
@@ -309,9 +309,9 @@
         -->
         <component name="Parties">
             <group name="NoPartyIDs" required="N">
-                <field name="PartyID" required="N"/>
-                <field name="PartyIDSource" required="N"/>
-                <field name="PartyRole" required="N"/>
+                <field name="PartyID" required="Y"/>
+                <field name="PartyIDSource" required="Y"/>
+                <field name="PartyRole" required="Y"/>
             </group>
         </component>
 
@@ -659,7 +659,6 @@
             <value enum="11" description="NEGOTIATED_TRADES"/>
         </field>
 
-        <field number="30006" name="RFQID" type="STRING"/>
         <field number="30007" name="BidID" type="STRING"/>
         <field number="30008" name="OfferID" type="STRING"/>
 

@@ -3,7 +3,7 @@
 
 	<groupId>br.com.a5x.trd</groupId>
 	<artifactId>a5x-public-framework</artifactId>
-	<version>1.0.0</version>
+	<version>2.0.0</version>
 	<packaging>pom</packaging>
 	<name>a5x-public-framework</name>
 
@@ -23,6 +23,7 @@
 	<modules>
 		<module>a5x-trading-codegen</module>
 		<module>a5x-trading-mitch</module>
+		<module>a5x-trading-native</module>
 	</modules>
 
 	<scm>
@@ -42,4 +43,60 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<!--
+		The protocol modules (a5x-trading-mitch, a5x-trading-native) do not keep a copy of the
+		message models: they declare these two plugins and the property a5x.schema, and every
+		build generates the models from the schema of the current version
+		(a5x-trading-codegen/src/main/resources) into target/generated-sources/a5x/java.
+	-->
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>3.5.0</version>
+					<executions>
+						<execution>
+							<id>generate-models</id>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>java</goal>
+							</goals>
+							<configuration>
+								<mainClass>br.com.a5x.trd.codegen.A5XCodeGenApp</mainClass>
+								<arguments>
+									<argument>/${a5x.schema}</argument>
+									<argument>${project.build.directory}/generated-sources/a5x</argument>
+									<argument>java</argument>
+								</arguments>
+								<classpathScope>compile</classpathScope>
+								<blockSystemExit>true</blockSystemExit>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>3.6.0</version>
+					<executions>
+						<execution>
+							<id>add-generated-models</id>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>add-source</goal>
+							</goals>
+							<configuration>
+								<sources>
+									<source>${project.build.directory}/generated-sources/a5x/java</source>
+								</sources>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>

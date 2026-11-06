@@ -344,4 +344,155 @@ public class BitUtils {
 		
 		return result;
 	}
+/**
+	 * Reads a signed 32-bit integer, choosing the byte order explicitly.
+	 *
+	 * <p>Use this rather than {@code ByteBuffer.getInt()} for wire data. A ByteBuffer
+	 * defaults to big-endian, so a plain getInt() silently decodes a little-endian
+	 * protocol field byte-swapped unless the caller remembered to set the order.
+	 *
+	 * @param bytes the buffer positioned at the field
+	 * @param pIsBigEndian true to read big-endian, false for little-endian
+	 * @return the decoded value
+	 */
+	public static int byteArrayToInt32(ByteBuffer bytes, boolean pIsBigEndian) {
+		if ((bytes.capacity() - bytes.position()) < 4) {
+			throw new IllegalArgumentException("Byte array must be exactly 4 bytes long");
+		}
+
+		int b0 = bytes.get() & 0xFF;
+		int b1 = bytes.get() & 0xFF;
+		int b2 = bytes.get() & 0xFF;
+		int b3 = bytes.get() & 0xFF;
+
+		if (pIsBigEndian) {
+			return (b0 << 24) | (b1 << 16) | (b2 << 8) | b3;
+		}
+		return (b3 << 24) | (b2 << 16) | (b1 << 8) | b0;
+	}
+
+	/**
+	 * Reads a signed 64-bit integer, choosing the byte order explicitly.
+	 *
+	 * @param bytes the buffer positioned at the field
+	 * @param pIsBigEndian true to read big-endian, false for little-endian
+	 * @return the decoded value
+	 */
+	public static long byteArrayToInt64(ByteBuffer bytes, boolean pIsBigEndian) {
+		if ((bytes.capacity() - bytes.position()) < 8) {
+			throw new IllegalArgumentException("Byte array must be exactly 8 bytes long");
+		}
+
+		long result = 0;
+		if (pIsBigEndian) {
+			for (int i = 0; i < 8; i++) {
+				result = (result << 8) | (bytes.get() & 0xFFL);
+			}
+		} else {
+			for (int i = 0; i < 8; i++) {
+				result |= (bytes.get() & 0xFFL) << (8 * i);
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * Writes a signed 32-bit integer in the given byte order.
+	 *
+	 * @param value the value to write
+	 * @param pData the buffer to write into
+	 * @param pIsBigEndian true to write big-endian, false for little-endian
+	 */
+	public static void int32ToByteArray(int value, ByteBuffer pData, boolean pIsBigEndian) {
+		if (pIsBigEndian) {
+			pData.put((byte) (value >>> 24));
+			pData.put((byte) (value >>> 16));
+			pData.put((byte) (value >>> 8));
+			pData.put((byte) value);
+		} else {
+			pData.put((byte) value);
+			pData.put((byte) (value >>> 8));
+			pData.put((byte) (value >>> 16));
+			pData.put((byte) (value >>> 24));
+		}
+	}
+
+	/**
+	 * Writes a signed 64-bit integer in the given byte order.
+	 *
+	 * @param value the value to write
+	 * @param pData the buffer to write into
+	 * @param pIsBigEndian true to write big-endian, false for little-endian
+	 */
+	public static void int64ToByteArray(long value, ByteBuffer pData, boolean pIsBigEndian) {
+		if (pIsBigEndian) {
+			for (int i = 7; i >= 0; i--) {
+				pData.put((byte) (value >>> (8 * i)));
+			}
+		} else {
+			for (int i = 0; i < 8; i++) {
+				pData.put((byte) (value >>> (8 * i)));
+			}
+		}
+	}
+
+	/**
+	 * Reads a signed 32-bit integer encoded as sign and magnitude: the highest bit is the
+	 * sign, set for a negative value, and the other 31 bits are the absolute value.
+	 *
+	 * <p>MITCH prices are sent this way, where Native sends two's complement. Reading
+	 * them with {@link #byteArrayToInt32} turns -1.0000 (10 27 00 80) into -2147473648.
+	 *
+	 * @param bytes the buffer positioned at the field
+	 * @param pIsBigEndian true to read big-endian, false for little-endian
+	 * @return the decoded value
+	 */
+	public static int byteArrayToSignMagnitude32(ByteBuffer bytes, boolean pIsBigEndian) {
+		int raw = byteArrayToInt32(bytes, pIsBigEndian);
+		return raw < 0 ? -(raw & Integer.MAX_VALUE) : raw;
+	}
+
+	/**
+	 * Reads a signed 64-bit integer encoded as sign and magnitude: the highest bit is the
+	 * sign, set for a negative value, and the other 63 bits are the absolute value.
+	 *
+	 * <p>MITCH Long Price is sent this way: -1.00000000 is 00 E1 F5 05 00 00 00 80, which
+	 * {@link #byteArrayToInt64} would read as -9223372036754775808.
+	 *
+	 * @param bytes the buffer positioned at the field
+	 * @param pIsBigEndian true to read big-endian, false for little-endian
+	 * @return the decoded value
+	 */
+	public static long byteArrayToSignMagnitude64(ByteBuffer bytes, boolean pIsBigEndian) {
+		long raw = byteArrayToInt64(bytes, pIsBigEndian);
+		return raw < 0 ? -(raw & Long.MAX_VALUE) : raw;
+	}
+
+	/**
+	 * Writes a signed 32-bit integer as sign and magnitude.
+	 *
+	 * @param value the value to write; Integer.MIN_VALUE has no sign-magnitude form
+	 * @param pData the buffer to write into
+	 * @param pIsBigEndian true to write big-endian, false for little-endian
+	 */
+	public static void signMagnitude32ToByteArray(int value, ByteBuffer pData, boolean pIsBigEndian) {
+		if (value == Integer.MIN_VALUE) {
+			throw new IllegalArgumentException("Integer.MIN_VALUE has no 32-bit sign-magnitude form");
+		}
+		int32ToByteArray(value < 0 ? -value | Integer.MIN_VALUE : value, pData, pIsBigEndian);
+	}
+
+	/**
+	 * Writes a signed 64-bit integer as sign and magnitude.
+	 *
+	 * @param value the value to write; Long.MIN_VALUE has no sign-magnitude form
+	 * @param pData the buffer to write into
+	 * @param pIsBigEndian true to write big-endian, false for little-endian
+	 */
+	public static void signMagnitude64ToByteArray(long value, ByteBuffer pData, boolean pIsBigEndian) {
+		if (value == Long.MIN_VALUE) {
+			throw new IllegalArgumentException("Long.MIN_VALUE has no 64-bit sign-magnitude form");
+		}
+		int64ToByteArray(value < 0 ? -value | Long.MIN_VALUE : value, pData, pIsBigEndian);
+	}
 }

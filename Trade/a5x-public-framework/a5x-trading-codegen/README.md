@@ -8,6 +8,48 @@ Generates code for MITCH and Native protocol messages from XML definitions in mu
 - **C++** - Structs with parse/encode methods
 - **Wireshark** - Lua dissector for protocol analysis
 
+## Specification Versions
+
+The exchange runs one version of the specification in each environment, and the technical
+portal documents each of them. Every version has its own schemas and its own generated SDK:
+
+| Version | Environment | Schemas | Generated SDK |
+|---------|-------------|---------|---------------|
+| `1.1.4.0.i4` | Certification | [`spec/1.1.4.0.i4/`](spec/1.1.4.0.i4) | [`generated/1.1.4.0.i4/`](generated/1.1.4.0.i4) |
+| `1.1.4.0.i6` | New Release | [`spec/1.1.4.0.i6/`](spec/1.1.4.0.i6) | [`generated/1.1.4.0.i6/`](generated/1.1.4.0.i6) |
+
+Each `spec/<version>/` holds `mitch-messages.xml`, `native-messages.xml`, the two XSDs, and the
+QuickFIX dictionaries `fix-oe-messages.xml` (Order Entry) and `fix-dc-messages.xml` (Drop Copy),
+and `reject-codes.xml` with its XSD (the reject codes of the gateways).
+Each `generated/<version>/` holds `mitch/` and `native/`, each with `java/`, `csharp/`, `cpp/`
+and `wireshark/`.
+
+`src/main/resources` is the version clients run today (Certification) and is what the
+`a5x-trading-mitch` module and the examples below use; `SpecVersionsTest` checks that it is
+identical to one of the `spec/` directories. Use the New Release SDK to prepare for the next
+version: the classes have the same names and methods, and the fields of that version (new
+fields, renamed ones and changed types are listed in [`spec/README.md`](spec/README.md)).
+
+> **Running the commands on Windows.** The examples are written for bash (Linux, macOS, Git
+> Bash). In PowerShell use `..\mvnw.cmd`, write the command on one line (or end lines with a
+> backtick instead of `\`) and quote every `-D` argument as a whole, otherwise PowerShell splits
+> it at the dot: `..\mvnw.cmd compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" "-Dexec.args=spec ./generated all"`.
+> In cmd, use `..\mvnw.cmd` and `^` to continue a line.
+
+To regenerate every version at once, pass the `spec` directory instead of a schema:
+
+```bash
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=spec ./generated all"
+```
+
+A schema file also works, for one version and one protocol:
+
+```bash
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=spec/1.1.4.0.i6/mitch-messages.xml ./out/mitch all"
+```
+
 ## Supported Protocols
 
 ### MITCH Protocol
@@ -22,55 +64,55 @@ Trading protocol with 24+ message types for order entry, execution reports, and 
 
 ```bash
 # Generate Java
-mvn exec:java -Dexec.mainClass="br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  -Dexec.args="/mitch-messages-complete.xml ./generated java"
+../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=/mitch-messages.xml ./generated java"
 
 # Generate C#
-mvn exec:java -Dexec.mainClass="br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  -Dexec.args="/mitch-messages-complete.xml ./generated csharp"
+../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=/mitch-messages.xml ./generated csharp"
 
 # Generate C++
-mvn exec:java -Dexec.mainClass="br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  -Dexec.args="/mitch-messages-complete.xml ./generated cpp"
+../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=/mitch-messages.xml ./generated cpp"
 
 # Generate Wireshark dissector
-mvn exec:java -Dexec.mainClass="br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  -Dexec.args="/mitch-messages-complete.xml ./generated wireshark"
+../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=/mitch-messages.xml ./generated wireshark"
 
 # Generate all languages
-mvn exec:java -Dexec.mainClass="br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  -Dexec.args="/mitch-messages-complete.xml ./generated all"
+../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=/mitch-messages.xml ./generated all"
 ```
 
 ### Native Protocol
 
 ```bash
 # Generate Java
-mvn exec:java -Dexec.mainClass="br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  -Dexec.args="/native-messages.xml ./generated java"
+../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=/native-messages.xml ./generated java"
 
 # Generate C#
-mvn exec:java -Dexec.mainClass="br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  -Dexec.args="/native-messages.xml ./generated csharp"
+../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=/native-messages.xml ./generated csharp"
 
 # Generate C++
-mvn exec:java -Dexec.mainClass="br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  -Dexec.args="/native-messages.xml ./generated cpp"
+../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=/native-messages.xml ./generated cpp"
 
 # Generate Wireshark dissector
-mvn exec:java -Dexec.mainClass="br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  -Dexec.args="/native-messages.xml ./generated wireshark"
+../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=/native-messages.xml ./generated wireshark"
 
 # Generate all languages
-mvn exec:java -Dexec.mainClass="br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  -Dexec.args="/native-messages.xml ./generated all"
+../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=/native-messages.xml ./generated all"
 ```
 
 ## Data Types
 
 Both protocols share one type vocabulary. A given type name means the same thing on the wire
 and surfaces as the same language type in both SDKs. The authoritative declaration lives in the
-`<types>` block at the top of `native-messages.xml` and `mitch-messages-complete.xml`, including
+`<types>` block at the top of `native-messages.xml` and `mitch-messages.xml`, including
 `javaType`, `csharpType` and `cppType` for every type.
 
 ### Shared core (both protocols)
@@ -85,8 +127,8 @@ and surfaces as the same language type in both SDKs. The authoritative declarati
 | uint16   | 2  | int  | ushort | uint16_t | Unsigned 16-bit little-endian integer |
 | uint32   | 4  | long | uint   | uint32_t | Unsigned 32-bit little-endian integer |
 | uint64   | 8  | long | ulong  | uint64_t | Unsigned 64-bit little-endian integer |
-| price4   | 4  | int  | int    | int32_t  | Signed 32-bit integer, 4 implied decimals ("Price") |
-| price8   | 8  | long | long   | int64_t  | Signed 64-bit integer, 4 implied decimals ("Long Price") |
+| price4   | 4  | int  | int    | int32_t  | Signed 32-bit integer, 4 implied decimals ("Price"). Sign-magnitude in MITCH, see below |
+| price8   | 8  | long | long   | int64_t  | Signed 64-bit integer, 8 implied decimals ("Long Price"). Sign-magnitude in MITCH, see below |
 
 ### MITCH only
 
@@ -109,10 +151,14 @@ null-terminated, MITCH is right-padded with spaces. Each specification states th
 name is stable and the `padding` attribute in the `<types>` block carries the distinction; the
 generated `parse`/`encode` code handles it, so callers work with a plain string either way.
 
-**`price8` carries 4 implied decimals, not the 8 stated in the portal's data type table.** The
-`<types>` blocks document the evidence. Every price field in the current Native layouts is 8
-bytes wide, so they all use `price8`; `price4` is declared for completeness because the
-specification defines it.
+**MITCH prices are sign-magnitude, Native prices are two's complement.** In MITCH the highest
+bit of a price is the sign and the other bits are the absolute value, so -1.00 in a Long Price
+is `00 E1 F5 05 00 00 00 80`; read as two's complement those bytes give
+-9223372036754775808. The MITCH schema declares this with `negativeEncoding="sign-magnitude"`
+on `price4` and `price8`. The generated code converts at the wire boundary (Java
+`BitUtils.byteArrayToSignMagnitude64`, C++ `a5x_read_sm64`, C# inline, Lua `sign_magnitude`),
+so the field always holds an ordinary signed value. The Native types declare nothing and stay
+two's complement.
 
 **`uint64` in Java.** Java has no unsigned 64-bit primitive. All 64 bits are preserved in a
 `long`, but a value above 2^63-1 reads as negative. Use `Long.toUnsignedString` and
@@ -243,3 +289,15 @@ Each message generates:
 2. Restart Wireshark
 
 3. Configure port in dissector (default: 9999)
+
+### Sample captures
+
+Packet captures are not kept in this repository. Download them from the
+[A5X Technical Portal](https://portal-tecnico.a5x.com.br/en/trading/market-data-mitch), in the
+PCAP column of the Message Specification table, and open them with the dissector of the same
+version (`generated/<version>/mitch/wireshark/mitch_dissector.lua`).
+
+MITCH Price and Long Price fields carry negative values in **sign-magnitude**, not two's
+complement: the most significant bit of the last byte is the sign. -1.00 as a Long Price is
+`00 E1 F5 05 00 00 00 80`; a decoder that reads two's complement shows
+`-9223372036754775808` instead.

@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://a5x.com.br/native">
+
+    <!--
+        A5X Native (OrderEntry Binary) Gateway wire data types.
+
+        Source: https://portal-tecnico.a5x.com.br/pt-br/trading/order-entry-binary (spec v1.4).
+
+        ==========================================================================
+        SHARED TYPE VOCABULARY
+        ==========================================================================
+        The ten types below are the A5X shared core and are declared identically,
+        in the same order, in mitch-messages.xml. A given type name means
+        exactly the same thing on the wire in both protocols. Diffing the two
+        <types> blocks should show only the differences listed here.
+
+        Intentional difference 1 - alpha padding:
+            Native  : padding="null-terminated"
+            MITCH   : padding="space-padded"
+        This is a genuine wire level difference between the two gateways, stated in
+        each specification. The name stays stable and the padding attribute carries
+        the distinction, so callers key off one concept rather than two names.
+
+        Intentional difference 2 - temporal types:
+            MITCH additionally defines date, time, extendedtime and datetime
+            (ASCII encoded), plus bytearray for reserved fields.
+            Native carries every timestamp as a uint64 epoch value and has no
+            reserved fields, so it declares none of them. Do not add bytearray or
+            the temporal types here until the Native generators support them; today
+            they would fall through to the default branch and be sized as 1 byte.
+    -->
+    <types byteOrder="little-endian">
+        <!-- Shared core: keep in sync with mitch-messages.xml. -->
+        <type name="alpha"    wireSize="variable" encoding="ASCII"               padding="null-terminated" javaType="String" csharpType="string" cppType="std::string" description="ASCII string, null-terminated when the fixed length is not fully used. The first byte contains a null if the field is unused. Length specified per field. The SDK strips the terminator on decode and pads with NUL on encode."/>
+        <type name="byte"     wireSize="1"        encoding="unsigned-integer"                              javaType="byte"   csharpType="byte"   cppType="uint8_t"     description="Single byte used to hold one ASCII character."/>
+        <type name="bitfield" wireSize="1"        encoding="unsigned-integer"                              javaType="byte"   csharpType="byte"   cppType="uint8_t"     description="Single byte where individual bits carry meaning. Bit 0 is the least significant bit, bit 7 the most significant."/>
+        <type name="int32"    wireSize="4"        encoding="int32-le"                                      javaType="int"    csharpType="int"    cppType="int32_t"     description="Signed 32-bit little-endian integer."/>
+        <type name="uint8"    wireSize="1"        encoding="unsigned-integer"                              javaType="int"    csharpType="byte"   cppType="uint8_t"     description="Unsigned 8-bit integer."/>
+        <type name="uint16"   wireSize="2"        encoding="unsigned-integer-le"                           javaType="int"    csharpType="ushort" cppType="uint16_t"    description="Unsigned 16-bit little-endian integer."/>
+        <type name="uint32"   wireSize="4"        encoding="unsigned-integer-le"                           javaType="long"   csharpType="uint"   cppType="uint32_t"    description="Unsigned 32-bit little-endian integer."/>
+        <type name="uint64"   wireSize="8"        encoding="unsigned-integer-le"                           javaType="long"   csharpType="ulong"  cppType="uint64_t"    description="Unsigned 64-bit little-endian integer. Java has no unsigned 64-bit primitive: all 64 bits are preserved in a long, but a value above 2^63-1 reads as negative. Use Long.toUnsignedString and Long.compareUnsigned when that is possible. C# and C++ expose it as a true unsigned type."/>
+        <type name="price4"   wireSize="4"        encoding="int32-le"            impliedDecimals="4"       javaType="int"    csharpType="int"    cppType="int32_t"     description="Signed 32-bit little-endian integer with 4 implied decimal places (divide by 10000)."/>
+        <type name="price8"   wireSize="8"        encoding="int64-le"            impliedDecimals="8"       javaType="long"   csharpType="long"   cppType="int64_t"     description="Signed 64-bit little-endian integer with 8 implied decimal places (divide by 100000000)." portalName="Price"/>
+    </types>
+
+    <message name="NativeLogon"                     messageType="A" description="Logon request">
+        <field name="compId"            type="alpha" length="11" description="CompID assigned to the client" portalLabel="CompID"/>
+        <field name="password"          type="alpha" length="25" description="Password assigned to the CompID"/>
+        <field name="newPassword"       type="alpha" length="25" description="New password for CompID"/>
+        <field name="protocolVersion"   type="int32"             description="Specifies the version of protocol. The system will only accept values from 1-9. If left empty, the system will consider the default value defined in system"/>
+        <field name="ipAddress"         type="alpha" length="15" description="Original IP Address the user" portalLabel="IP Address"/>
+        <field name="certifiedSolution" type="alpha" length="44" description="Name of the certified solution"/>
+    </message>
+    
+    <message name="NativeLogonResponse"             messageType="B" description="Logon response">
+        <field name="rejectCode"     type="int32" description="0 or 3 = Accepted, 6 = Firm suspended, 9 = Account expired, 50 = Staggered Start, 55 = Node suspended, 100 = Not logged into real-time, 626 = User suspended, 628 = User inactive, 630 = End of Day, 9903 = Concurrent limit, 9904 = Invalid gateway, 9905 = System unavailable, 9906 = Logons not allowed"/>
+        <field name="passwordExpiry" type="int32" description="Number of days for password expiry, ignore if negative"/>
+    </message>
+    
+    <message name="NativeHeartbeat"                 messageType="0" description="Heartbeat message">
+    </message>
+    
+    <message name="NativeReject"                    messageType="3" description="Reject message">
+        <field name="rejectCode"     type="int32"             description="Code specifying the reason for the reject"/>
+        <field name="rejectReason"   type="alpha" length="30" description="Reason for the reject"/>
+        <field name="refMessageType" type="byte"              description="Type of message rejected"/>
+        <field name="clientOrderId"  type="alpha" length="10" description="Client specified identifier of the rejected message if available"/>
+    </message>
+    
+    <message name="NativeLogout"                    messageType="5" description="Logout message">
+        <field name="reason" type="alpha" length="20" description="Reason for the logout"/>
+    </message>
+    
+    <message name="NativeExecutionReport"           messageType="8" description="Execution report">
+        <field name="partitionId"        type="uint8"                description="Identity of the matching partition"/>
+        <field name="sequenceNumber"     type="uint64"               description="Message sequence number of the matching partition"/>
+        <field name="executionId"        type="alpha"    length="21" description="Identifier of the Execution Report. Identifier of the trade being cancelled or corrected if Execution Type is Trade Cancel (H)"/>
+        <field name="clientOrderId"      type="alpha"    length="10" description="Client specified identifier of the order, cancel request or modification requests"/>
+        <field name="orderId"            type="alpha"    length="12" description="Server specified identifier of the order"/>
+        <field name="publicOrderId"      type="alpha"    length="12" description="Server specified public order identifier of the order"/>
+        <field name="executedPrice"      type="price8"               description="Executed price. This field should be ignored if Execution Type is not Trade (F)"/>
+        <field name="transactTime"       type="uint64"               description="Time the transaction occurred in epoch format"/>
+        <field name="account"            type="uint64"               description="Identifier of the Trader Account"/>
+        <field name="senderLocation"     type="alpha"    length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="instrumentId"       type="uint32"               description="Numeric Identifier of the instrument"/>
+        <field name="crossId"            type="alpha"    length="10" description="Identifier of the cross order. Only alphanumeric values allowed"/>
+        <field name="executedQuantity"   type="uint32"               description="Executed quantity. Ignore if Execution Type is not Trade (F)"/>
+        <field name="leavesQuantity"     type="uint32"               description="Quantity available for further execution"/>
+        <field name="executionType"      type="alpha"    length="1"  description="0 = New, 4 = Cancelled, 5 = Modified, 8 = Rejected, 9 = Suspended, A = Pending New, C = Expired, D = Restated, E = Pending Replace, F = Trade, H = Trade Cancel, L = Triggered">
+            <value code="0" meaning="New - Indicates that a new order or quote side has been accepted."/>
+            <value code="4" meaning="Cancelled - Indicates that a cancel request has been accepted and successfully processed."/>
+            <value code="5" meaning="Modified - Indicates that an order modification request has been accepted and successfully processed."/>
+            <value code="8" meaning="Rejected - Indicates that an order or quote side has been rejected. The reason for the rejection is specified in the field Reject Code ."/>
+            <value code="9" meaning="Suspended - Indicates that an order that was in the main container has been parked and is no longer available for execution."/>
+            <value code="A" meaning="Pending New - Indicates that a new order or quote side has been forwarded to the risk management system for validation."/>
+            <value code="C" meaning="Expired - An order or quote side has expired in terms of its time qualifier, execution limit and expired based on the cancel on disconnect feature."/>
+            <value code="D" meaning="Restated - Indicates an order or quote side has been modified by the service desk or automatically re-priced by the system."/>
+            <value code="E" meaning="Pending Replace - Indicates that a new order or quote side has been forwarded to the risk management system for validation."/>
+            <value code="F" meaning="Trade - Indicates that an order or quote side has been partially or fully filled. The execution details (e.g. side, price and quantity) are specified."/>
+            <value code="H" meaning="Trade Cancel - Indicates that an execution has been cancelled. The Execution ID of the execution being cancelled will be included."/>
+            <value code="L" meaning="Triggered - Indicates that a parked ATC, GFA, OPG or contingent order (i.e. stop, stop limit) has been activated and moved to the main container."/>
+        </field>
+        <field name="orderStatus"        type="uint8"                description="0 = New, 1 = Partially Filled, 2 = Filled, 4 = Cancelled, 6 = Expired, 8 = Rejected, 9 = Suspended, 12 = Pending New, 14 = Pending Replace">
+            <value code="0" meaning="New"/>
+            <value code="1" meaning="Partially Filled"/>
+            <value code="2" meaning="Filled"/>
+            <value code="4" meaning="Cancelled"/>
+            <value code="6" meaning="Expired"/>
+            <value code="8" meaning="Rejected"/>
+            <value code="9" meaning="Suspended"/>
+            <value code="12" meaning="Pending New"/>
+            <value code="14" meaning="Pending Replace"/>
+        </field>
+        <field name="rejectCode"         type="uint32"               description="Code specifying the reason for the reject. Ignore if Execution Type is not Rejected (8)"/>
+        <field name="workingIndicator"   type="uint8"                description="0 = Unset, 1 = Order is being worked, 2 = Order is not currently in a working state. Only applicable when Order Status is New (0)">
+            <value code="0" meaning="Unset"/>
+            <value code="1" meaning="Order is being worked"/>
+            <value code="2" meaning="Order is not currently in a working state"/>
+        </field>
+        <field name="side"               type="uint8"                description="1 = Buy, 2 = Sell. When a quote is rejected, field will be set to Buy (1)"/>
+        <field name="restatementReason"  type="uint8"                description="0 = GT Corporate Action, 1 = GT Renewal/Restatement, 3 = Order Re-Priced, 8 = Market Option, 100 = Order Replenishment. Only applicable if Exec Type is Restated (D) or unsolicited cancellation">
+            <value code="0" meaning="GT Corporate Action."/>
+            <value code="1" meaning="GT Renewal/Restatement."/>
+            <value code="3" meaning="Order Re-Priced."/>
+            <value code="8" meaning="Market Option."/>
+            <value code="100" meaning="Order Replenishment."/>
+        </field>
+        <field name="orderBook"          type="uint8"                description="1 = Regular"/>
+        <field name="indicatorFlags"     type="bitfield"             description="Bit 0: Aggressor Indicator (0 = Passive, 1 = Aggressor), Bit 5: RLP (0 = No, 1 = Yes). Applicable only when Exec Type is Trade">
+            <value code="0" meaning="Aggressor Indicator 0 = Order initiator is Passive, 1 = Order initiator is Aggresor"/>
+            <value code="5" meaning="RLP - Denotes whether the given order traded with an RLP. Note that this will be populated on an aggressive order that executes with an RLP. Will be populated only on Filled or Partially Filled execution reports. 0 = No, 1 = Yes"/>
+        </field>
+        <field name="crossType"          type="uint8"                description="5 = Internal Cross. Any other value rejected"/>
+        <field name="routingInstruction" type="uint8"                description="1 = Retail Liquidity Taker, 2 = Waived Priority, 3 = Broker Only">
+            <value code="1" meaning="Retail Liquidity Taker."/>
+            <value code="2" meaning="Waived Priority (RLP Analysis)."/>
+            <value code="3" meaning="Broker Only."/>
+        </field>
+        <field name="tradingPhase"       type="uint8"                description="1 = Regular, 2 = Non-Regular">
+            <value code="1" meaning="Regular"/>
+            <value code="2" meaning="Non-Regular"/>
+        </field>
+        <field name="executionVenue"     type="alpha"    length="4"  description="MIC Code of the instrument as set up under Execution Venue in Reference Data"/>
+        <field name="enteringTrader"     type="alpha"    length="15" description="Entering Trader ID"/>
+        <field name="memo"               type="alpha"    length="15" description="Free format text field. Echoed in reports"/>
+        <field name="deskId"             type="alpha"    length="15" description="Desk ID through which the order is placed from"/>
+        <field name="noTradeKey"         type="alpha"    length="10" description="Client specified identifier of order relevant to self-execution" portalLabel="NoTradeKey"/>
+        <field name="multiLegReportingType" type="uint8" description="Type of trade the execution report relates to" portalLabel="MultiLeg Reporting Type">
+            <value code="1" meaning="Trade of Single Instrument."/>
+            <value code="2" meaning="Leg Trade of a Multi-Leg Instrument Trade."/>
+            <value code="3" meaning="Trade of Multi-Leg Instrument."/>
+        </field>
+        <field name="tradeDate" type="alpha" length="8" description="Date of the trading day (YYYYMMDD)"/>
+    </message>
+
+    <message name="NativeOrderCancelReject"         messageType="9" description="Order Cancel Reject">
+        <field name="partitionId"    type="uint8"              description="Identity of the matching partition"/>
+        <field name="sequenceNumber" type="uint64"             description="Message sequence number of the matching partition"/>
+        <field name="clientOrderId"  type="alpha"  length="10" description="Client specified identifier of the rejected cancel or modification request"/>
+        <field name="rejectCode"     type="int32"              description="Code specifying the reason for the reject"/>
+        <field name="orderBook"      type="uint8"              description="1 = Regular">
+            <value code="1" meaning="Regular."/>
+        </field>
+        <field name="transactTime"   type="uint64"             description="Time the message was generated in epoch format"/>
+        <field name="senderLocation" type="alpha"  length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="account" type="uint64" description="Identifier of the executing account"/>
+        <field name="memo" type="alpha" length="15" description="Free format text field"/>
+    </message>
+    
+    <message name="NativeNewOrderSingle"            messageType="D" description="New order single">
+        <field name="limitPrice"           type="price8"               description="Limit price. This field will be ignored if the Order Type is not Limit (2) or Stop Limit (4)"/>
+        <field name="orderQuantity"        type="uint32"               description="Total order quantity"/>
+        <field name="instrumentId"         type="uint32"               description="Numeric Identifier of the instrument"/>
+        <field name="side"                 type="uint8"                description="1 = Buy, 2 = Sell">
+            <value code="1" meaning="Buy"/>
+            <value code="2" meaning="Sell"/>
+        </field>
+        <field name="enteringTrader"       type="alpha"    length="15" description="Entering Trader ID"/>
+        <field name="clientOrderId"        type="alpha"    length="10" description="Client specified identifier of the order"/>
+        <field name="account"              type="uint64"               description="Identifier of the Trader Account. This is a required field"/>
+        <field name="senderLocation"       type="alpha"    length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="noTradeKey"           type="alpha"    length="10" description="Client specified identifier of order relevant to self-execution" portalLabel="NoTradeKey"/>
+        <field name="stopPrice"            type="price8"               description="Stop price/Trigger price. This field will be ignored if the Order Type is not Stop (3) or Stop Limit (4)"/>
+        <field name="displayQuantity"      type="uint32"               description="Max Floor. Maximum quantity to be displayed. A negative value should be used if this field is to be ignored" portalLabel="Max Floor"/>
+        <field name="cancelOnDisconnect"   type="uint8"                description="0 = Do Not Cancel, 1 = Cancel" portalLabel="Cancel on Disconnect">
+            <value code="0" meaning="Do Not Cancel."/>
+            <value code="1" meaning="Cancel."/>
+        </field>
+        <field name="anonymity"            type="uint8"                description="0 = Anonymous, 1 = Named">
+            <value code="0" meaning="Anonymous"/>
+            <value code="1" meaning="Named"/>
+        </field>
+        <field name="orderBook"            type="uint8"                description="1 = Regular">
+            <value code="1" meaning="Regular"/>
+        </field>
+        <field name="executionInstruction" type="bitfield"             description="Bit 0: Passive Only (0 = No, 1 = Yes)">
+            <value code="0" meaning="Passive Only (0 = No, 1 = Yes)."/>
+        </field>
+        <field name="routingInstruction"   type="uint8"                description="1 = Retail Liquidity Taker, 2 = Waived Priority, 3 = Broker Only">
+            <value code="1" meaning="Retail Liquidity Taker."/>
+            <value code="2" meaning="Waived Priority (RLP Analysis)."/>
+            <value code="3" meaning="Broker Only."/>
+        </field>
+        <field name="orderType"            type="uint8"                description="1 = Market, 2 = Limit, 3 = Stop, 4 = Stop Limit, 5 = Market to Limit, 51 = RLP">
+            <value code="1" meaning="Market Order."/>
+            <value code="2" meaning="Limit Order."/>
+            <value code="3" meaning="Stop Order."/>
+            <value code="4" meaning="Stop Limit Order."/>
+            <value code="5" meaning="Market to Limit Order."/>
+            <value code="51" meaning="RLP (Retail Liquidity Provider)."/>
+        </field>
+        <field name="timeInForce"          type="uint8"                description="0 = Day, 3 = IOC, 4 = FOK, 5 = OPG, 8 = GTT, 9 = GFA, 10 = ATC">
+            <value code="0" meaning="Day."/>
+            <value code="3" meaning="Immediate or Cancel (IOC)."/>
+            <value code="4" meaning="Fill or Kill (FOK)."/>
+            <value code="5" meaning="At the Open (OPG)."/>
+            <value code="8" meaning="Good Till Time (GTT)."/>
+            <value code="9" meaning="Good For Auction (GFA)."/>
+            <value code="10" meaning="At the Close (ATC)."/>
+        </field>
+        <field name="expireTime"           type="uint64"               description="Expire time in epoch (seconds precision)"/>
+        <field name="memo"                 type="alpha"    length="15" description="Free format text field"/>
+        <field name="deskId"               type="alpha"    length="15" description="Desk ID through which the order is placed from"/>
+    </message>
+    
+    <message name="NativeOrderCancelRequest"        messageType="F" description="Order cancel request">
+        <field name="clientOrderId"     type="alpha"  length="10" description="Client specified identifier of the request"/>
+        <field name="origClientOrderId" type="alpha"  length="10" description="Client specified identifier of the order or quote being cancelled" portalLabel="Orig. Client Order ID"/>
+        <field name="orderId"           type="alpha"  length="12" description="Server specified identifier of the order being cancelled"/>
+        <field name="instrumentId"      type="uint32"             description="Numeric Identifier of the instrument"/>
+        <field name="side"              type="uint8"              description="1 = Buy, 2 = Sell">
+            <value code="1" meaning="Buy"/>
+            <value code="2" meaning="Sell"/>
+        </field>
+        <field name="orderBook"         type="uint8"              description="1 = Regular">
+            <value code="1" meaning="Regular"/>
+        </field>
+        <field name="senderLocation"    type="alpha"  length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+    </message>
+    
+    <message name="NativeOrderReplaceRequest"       messageType="G" description="Order Replace Request">
+        <field name="limitPrice"        type="price8"             description="Limit price. This field will be ignored if the Order Type is not Limit (2) or Stop Limit (4)"/>
+        <field name="orderQuantity"     type="uint32"             description="Total order quantity"/>
+        <field name="instrumentId"      type="uint32"             description="Numeric Identifier of the instrument"/>
+        <field name="side"              type="uint8"              description="1 = Buy, 2 = Sell">
+            <value code="1" meaning="Buy"/>
+            <value code="2" meaning="Sell"/>
+        </field>
+        <field name="clientOrderId"     type="alpha"  length="10" description="Client specified identifier of the order"/>
+        <field name="origClientOrderId" type="alpha"  length="10" description="Client specified identifier of the order being modified" portalLabel="Orig. Client Order ID"/>
+        <field name="account"           type="uint64"             description="Identifier of the Trader Account. This is a required field"/>
+        <field name="senderLocation"    type="alpha"  length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="stopPrice"         type="price8"             description="Stop price/Trigger price. This field will be ignored if the Order Type is not Stop (3) or Stop Limit (4)"/>
+        <field name="displayQuantity"   type="uint32"             description="Maximum quantity to be displayed. A negative value should be used if this field is to be ignored"/>
+        <field name="orderBook"         type="uint8"              description="1 = Regular">
+            <value code="1" meaning="Regular"/>
+        </field>
+        <field name="orderType"         type="uint8"              description="1 = Market, 2 = Limit, 3 = Stop, 4 = Stop Limit, 5 = Market to Limit, 51 = RLP">
+            <value code="1" meaning="Market Order"/>
+            <value code="2" meaning="Limit Order"/>
+            <value code="3" meaning="Stop Order"/>
+            <value code="4" meaning="Stop Limit Order"/>
+            <value code="5" meaning="Market to Limit Order"/>
+            <value code="51" meaning="RLP (Retail Liquidity Provider)"/>
+        </field>
+        <field name="timeInForce"       type="uint8"              description="0 = Day, 3 = IOC, 4 = FOK, 5 = OPG, 8 = GTT, 9 = GFA, 10 = ATC">
+            <value code="0" meaning="Day"/>
+            <value code="3" meaning="Immediate or Cancel (IOC)"/>
+            <value code="4" meaning="Fill or Kill (FOK)"/>
+            <value code="5" meaning="At the Open (OPG)"/>
+            <value code="8" meaning="Good Till Time (GTT)"/>
+            <value code="9" meaning="Good For Auction (GFA)"/>
+            <value code="10" meaning="At the Close (ATC)"/>
+        </field>
+        <field name="expireTime"        type="uint64"             description="Expire time in epoch (seconds precision). Ignored if Time in Force is not GTT (8)"/>
+    </message>
+    
+    <message name="NativeMissedMessageRequest"      messageType="M" description="Missed message request">
+        <field name="partitionId"    type="uint8"  description="Identity of the matching partition the request relates to"/>
+        <field name="sequenceNumber" type="uint64" description="Sequence number immediately after that of the last message received from the partition"/>
+    </message>
+    
+    <message name="NativeMissedMessageRequestAck"   messageType="N" description="Missed message request acknowledgement">
+        <field name="status" type="uint8" description="0 = Request Accepted, 1 = Request Limit Reached, 2 = Invalid Partition ID, 3 = Service Unavailable">
+            <value code="0" meaning="Request Accepted"/>
+            <value code="1" meaning="Request Limit Reached"/>
+            <value code="2" meaning="Invalid Partition ID"/>
+            <value code="3" meaning="Service Unavailable"/>
+        </field>
+    </message>
+    
+    <message name="NativeTransmissionComplete"      messageType="P" description="Transmission complete">
+        <field name="status" type="uint8" description="0 = All Messages Transmitted, 1 = Message Limit Reached, 3 = Service Unavailable">
+            <value code="0" meaning="All Messages Transmitted"/>
+            <value code="1" meaning="Message Limit Reached"/>
+            <value code="3" meaning="Service Unavailable"/>
+        </field>
+    </message>
+
+    <message name="NativeSystemStatus"              messageType="n" description="System status">
+        <field name="partitionId" type="uint8" description="Identity of the matching partition the message relates to"/>
+        <field name="status"      type="uint8" description="1 = Recovery Service Resumed, 2 = Recovery Service Unavailable, 3 = Partition Suspended">
+            <value code="1" meaning="Recovery Service Resumed"/>
+            <value code="2" meaning="Recovery Service Unavailable"/>
+            <value code="3" meaning="Partition Suspended"/>
+        </field>
+    </message>
+
+    <message name="NativeNewOrderCross"             messageType="C" description="New Order Cross">
+        <field name="crossId"               type="alpha"  length="10" description="Identifier of the cross order. Only alphanumeric values allowed"/>
+        <field name="limitPrice"            type="price8"             description="Price of the cross order"/>
+        <field name="orderQuantity"         type="uint32"             description="Total order quantity of the cross order"/>
+        <field name="enteringTrader"        type="alpha"  length="15" description="Entering Trader ID"/>
+        <field name="instrumentId"          type="uint32"             description="Numeric Identifier of the instrument"/>
+        <field name="senderLocation"        type="alpha"  length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="crossType"             type="uint8"              description="5 = Internal Cross. Any other value rejected"/>
+        <field name="buySideClientOrderId"  type="alpha"  length="10" description="Client specified identifier of the buy side. Required"/>
+        <field name="buySideAccountId"      type="uint64"             description="Identifier of the buyer's trading account. Required"/>
+        <field name="sellSideClientOrderId" type="alpha"  length="10" description="Client specified identifier of the sell side. Required"/>
+        <field name="sellSideAccountId"     type="uint64"             description="Identifier of the seller's trading account. Required"/>
+        <field name="orderType"             type="uint8"              description="2 = Limit. Any other value rejected"/>
+        <field name="timeInForce"           type="uint8"              description="0 = Day. Only DAY TIF allowed for cross orders"/>
+        <field name="deskId"                type="alpha"  length="15" description="Desk ID through which the order is placed from"/>
+        <field name="buySideMemo"                  type="alpha"  length="15" description="Free format text field. Echoed in reports"/>
+        <field name="sellSideMemo" type="alpha" length="15" description="Free format text field for the sell side"/>
+    </message>
+
+    <message name="NativeBusinessReject"            messageType="j" description="Business Reject">
+        <field name="partitionId"    type="uint8"              description="Identity of the matching partition"/>
+        <field name="sequenceNumber" type="uint64"             description="Message sequence number of the matching partition"/>
+        <field name="rejectCode"     type="uint32"             description="Code specifying the reason for the reject. 9000 = Unknown instrument, 9998 = Matching partition suspended, 9999 = System suspended"/>
+        <field name="clientOrderId"  type="alpha"  length="10" description="Client specified identifier of the rejected message if available"/>
+    </message>
+
+    <message name="NativeMassCancelRequest"         messageType="q" description="Mass Cancel Request">
+        <field name="clientOrderId"  type="alpha"  length="10" description="Client specified identifier of the rejected message if available"/>
+        <field name="massCancelType" type="uint8"              description="3 = Firm Interest for Instrument, 4 = Firm Interest for Segment, 7 = All Interest for Client, 8 = All Interest for Firm, 9 = Client Interest for Instrument, 14 = Client Interest for Underlying, 15 = Client Interest for Segment, 22 = Firm Interest for Underlying">
+            <value code="3" meaning="Firm Interest for Instrument."/>
+            <value code="4" meaning="Firm Interest for Segment."/>
+            <value code="5" meaning="Node Interest for Instrument."/>
+            <value code="6" meaning="Node Interest for Segment."/>
+            <value code="7" meaning="All Interest for Client."/>
+            <value code="8" meaning="All Interest for Firm."/>
+            <value code="9" meaning="Client Interest for Instrument."/>
+            <value code="10" meaning="All Interest for Node."/>
+            <value code="14" meaning="Client Interest for Underlying."/>
+            <value code="15" meaning="Client Interest for Segment."/>
+            <value code="22" meaning="Firm Interest for Underlying."/>
+            <value code="23" meaning="Node Interest for Underlying."/>
+        </field>
+        <field name="instrumentId"   type="uint32"             description="Numeric Identifier of the instrument"/>
+        <field name="segment"        type="alpha"  length="10" description="Identifier of the segment"/>
+        <field name="interestType"   type="uint8"              description="0 = Order, 3 = Quote">
+            <value code="0" meaning="Order."/>
+            <value code="3" meaning="Quote."/>
+        </field>
+        <field name="orderBook"      type="uint8"              description="1 = Regular">
+            <value code="1" meaning="Regular."/>
+        </field>
+        <field name="senderLocation" type="alpha"  length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="enteringTrader" type="alpha"  length="15" description="Entering Trader ID"/>
+        <field name="deskId"         type="alpha"  length="15" description="Desk ID through which the request is placed from"/>
+    </message>
+
+    <message name="NativeMassCancelReport"          messageType="r" description="Mass Cancel Report">
+        <field name="partitionId"    type="uint8"              description="Identity of the matching partition"/>
+        <field name="sequenceNumber" type="uint64"             description="Message sequence number of the matching partition"/>
+        <field name="clientOrderId"  type="alpha"  length="10" description="Client specified identifier of the rejected message if available"/>
+        <field name="status"         type="uint8"              description="0 = Rejected, 7 = Accepted">
+            <value code="0" meaning="Rejected."/>
+            <value code="7" meaning="Accepted."/>
+        </field>
+        <field name="rejectCode"     type="uint32"             description="Code specifying the reason for the reject. Ignore if Status is not Rejected (0)"/>
+        <field name="orderBook"      type="uint8"              description="1 = Regular">
+            <value code="1" meaning="Regular."/>
+        </field>
+    </message>
+
+    <message name="NativeNews"                      messageType="Z" description="News">
+        <field name="partitionId"    type="uint8"               description="Identity of the matching partition"/>
+        <field name="sequenceNumber" type="uint64"              description="Message sequence number of the matching partition"/>
+        <field name="origTime"       type="uint64"              description="Time the announcement was published in EPOCH time" portalLabel="OrigTime"/>
+        <field name="urgency"        type="uint8"               description="0 = Rejected, 1 = High Priority, 2 = Low Priority">
+            <value code="0" meaning="Rejected."/>
+            <value code="1" meaning="High Priority."/>
+            <value code="2" meaning="Low Priority."/>
+        </field>
+        <field name="headline"       type="alpha"  length="100" description="Headline or subject of the announcement"/>
+        <field name="text"           type="alpha"  length="750" description="Text of the announcement"/>
+        <field name="instruments"    type="alpha"  length="100" description="Pipe separated list of symbols of instruments the announcements relates to"/>
+        <field name="underlyings"    type="alpha"  length="100" description="Pipe separated list of symbols of underlyings the instruments relates to"/>
+        <field name="firmList"       type="alpha"  length="54"  description="Pipe separated list of firms that the announcement should be sent to"/>
+        <field name="userList"       type="alpha"  length="54"  description="Pipe separated list of users that the announcement should be sent to"/>
+    </message>
+
+    <message name="NativeMassQuote"                 messageType="i" description="Mass Quote">
+        <field name="massQuoteId"        type="alpha"  length="10" description="Client specified identifier of the message"/>
+        <field name="partitionId"        type="uint8"              description="Identity of the matching partition"/>
+        <field name="cancelOnDisconnect" type="uint8"              description="0 = Do Not Cancel, 1 = Cancel" portalLabel="Cancel on Disconnect">
+            <value code="0" meaning="Do Not Cancel"/>
+            <value code="1" meaning="Cancel"/>
+        </field>
+        <field name="anonymity"          type="uint8"              description="0 = Anonymous, 1 = Named. Absence interpreted as Anonymous (0)">
+            <value code="0" meaning="Anonymous"/>
+            <value code="1" meaning="Named"/>
+        </field>
+        <field name="account"            type="uint64"             description="Identifier of the trading account. Required field"/>
+        <field name="senderLocation"     type="alpha"  length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="enteringTrader"     type="alpha"  length="15" description="Entering Trader ID"/>
+        <field name="noTradeKey"         type="alpha"  length="10" description="Client specified identifier of order relevant to self-execution" portalLabel="NoTradeKey"/>
+        <field name="memo"               type="alpha"  length="15" description="Free format text field. Echoed in reports"/>
+        <field name="deskId"             type="alpha"  length="15" description="Desk ID through which the order is placed from"/>
+        <field name="totalQuoteEntries"  type="uint16"             description="Number of quote entries in the mass quote"/>
+        <!--
+            The specification defines a repeating group of Total Quote Entries occurrences after this
+            field: Quote Entry ID (alpha 10), Instrument ID (uint32), Bid Price (price8), Bid Size
+            (uint32), Offer Price (price8), Offer Size (uint32). The current schema has no construct
+            for repeating groups, so the group is not generated. Callers must encode/decode the
+            trailing entries manually.
+        -->
+    </message>
+
+    <message name="NativeMassQuoteAcknowledgement"  messageType="J" description="Mass Quote Acknowledgement">
+        <field name="massQuoteId"       type="alpha"  length="10" description="Mass Quote ID of the Mass Quote message"/>
+        <field name="partitionId"       type="uint8"              description="Identity of the matching partition"/>
+        <field name="status"            type="uint8"              description="0 = Accepted, 5 = Rejected">
+            <value code="0" meaning="Accepted."/>
+            <value code="5" meaning="Rejected."/>
+        </field>
+        <field name="rejectCode"        type="int32"              description="Code specifying the reason for the reject. Ignore if Status is not Rejected (0)"/>
+        <field name="transactTime"      type="uint64"             description="Time of quote creation in epoch format"/>
+        <field name="anonymity"         type="uint8"              description="0 = Anonymous, 1 = Named. Absence interpreted as Anonymous (0)">
+            <value code="0" meaning="Anonymous."/>
+            <value code="1" meaning="Named."/>
+        </field>
+        <field name="account"           type="uint64"             description="Identifier of the Account"/>
+        <field name="senderLocation"    type="alpha"  length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="orderBook"         type="uint8"              description="1 = Regular">
+            <value code="1" meaning="Regular."/>
+        </field>
+        <field name="enteringTrader"    type="alpha"  length="15" description="Entering Trader ID"/>
+        <field name="noTradeKey"        type="alpha"  length="10" description="Client specified identifier of order relevant to self-execution" portalLabel="NoTradeKey"/>
+        <field name="memo"              type="alpha"  length="15" description="Free format text field. Echoed in reports"/>
+        <field name="deskId"            type="alpha"  length="15" description="Desk ID through which the order is placed from"/>
+        <field name="tradingPhase"      type="uint8"              description="1 = Regular (Day Session), 2 = Non-Regular (Night Session)">
+            <value code="1" meaning="Regular - Day Session Phases."/>
+            <value code="2" meaning="Non-Regular - Night Session Phases."/>
+        </field>
+        <field name="routingSeq"        type="uint64"             description="Unique sequence assigned for all market data message"/>
+        <field name="totalQuoteEntries" type="uint16"             description="Number of quote entries">
+            <value code="0" meaning="Accepted."/>
+            <value code="5" meaning="Rejected."/>
+            <value code="17" meaning="Cancelled."/>
+        </field>
+        <!--
+            The specification defines a repeating group of Total Quote Entries occurrences after this
+            field: Quote Entry ID (alpha 10), Instrument ID (uint32), Quote Entry Status (uint8),
+            Quote Entry Reject Code (int32), BidID (alpha 10), OfferID (alpha 10), BidPx (price8),
+            OfferPx (price8), BidSize (uint32), OfferSize (uint32). The current schema has no
+            construct for repeating groups, so the group is not generated. Callers must
+            encode/decode the trailing entries manually.
+        -->
+    </message>
+
+    <message name="NativeQuoteStatusReport"         messageType="c" description="Quote Status Report">
+        <field name="partitionId"    type="uint8"              description="Identity of the matching partition"/>
+        <field name="sequenceNumber" type="uint64"             description="Message sequence number of the Matching Partition"/>
+        <field name="quoteMsgId"     type="alpha"  length="10" description="Client specified identifier of the quote if available. Null filled otherwise"/>
+        <field name="quoteStatus"    type="uint8"              description="6 = Removed from Market, 7 = Expired, 17 = Cancelled">
+            <value code="6" meaning="Removed from Market."/>
+            <value code="7" meaning="Expired."/>
+            <value code="17" meaning="Cancelled."/>
+        </field>
+        <field name="rejectCode"     type="int32"              description="Code specifying the reason for the reject. Applicable only if Quote Status is Rejected, null filled otherwise"/>
+        <field name="orderBook"      type="uint8"              description="1 = Regular">
+            <value code="1" meaning="Regular."/>
+        </field>
+        <field name="transactTime"   type="uint64"             description="Time the message was generated in epoch format"/>
+        <field name="anonymity"      type="uint8"              description="0 = Anonymous, 1 = Named. Absence interpreted as Anonymous (0)">
+            <value code="0" meaning="Anonymous."/>
+            <value code="1" meaning="Named."/>
+        </field>
+        <field name="instrumentId"   type="uint32"             description="Numeric Identifier of the instrument"/>
+        <field name="bidId"          type="alpha"  length="10" description="The system generated unique ID for the Bid Side" portalLabel="BidID"/>
+        <field name="offerId"        type="alpha"  length="10" description="The system generated unique ID for the Offer Side" portalLabel="OfferID"/>
+        <field name="account"        type="uint64"             description="Identifier of the Account"/>
+        <field name="senderLocation" type="alpha"  length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="enteringTrader" type="alpha"  length="15" description="Entering Trader ID"/>
+        <field name="memo"           type="alpha"  length="15" description="Free format text field. Echoed in reports"/>
+        <field name="deskId"         type="alpha"  length="15" description="Desk ID through which the order is placed from"/>
+    </message>
+
+    <message name="NativeMMPResetRequest"           messageType="}" description="MMP Reset Request. Sent by the client to reset Market Maker Protection">
+        <field name="requestId"      type="uint32"             description="Client specified identifier of the request"/>
+        <field name="segment"        type="alpha"  length="10" description="Identifier of the segment"/>
+        <field name="partitionId"    type="uint8"              description="Identity of the matching partition"/>
+        <field name="enteringTrader" type="alpha"  length="15" description="Entering Trader ID"/>
+        <field name="deskId"         type="alpha"  length="15" description="Desk ID through which the request is placed from"/>
+        <field name="senderLocation" type="alpha"  length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="memo"           type="alpha"  length="15" description="Free format text field. Echoed in reports"/>
+    </message>
+
+    <message name="NativeMMPResetAcknowledgement"   messageType="~" description="MMP Reset Acknowledgement. Response to an MMP Reset Request">
+        <field name="requestId"      type="uint32"             description="Client specified identifier of the originating request"/>
+        <field name="segment"        type="alpha"  length="10" description="Identifier of the segment"/>
+        <field name="partitionId"    type="uint8"              description="Identity of the matching partition"/>
+        <field name="enteringTrader" type="alpha"  length="15" description="Entering Trader ID"/>
+        <field name="deskId"         type="alpha"  length="15" description="Desk ID through which the request is placed from"/>
+        <field name="senderLocation" type="alpha"  length="10" description="Sender Location assigned to the Trader ID/Firm"/>
+        <field name="memo"           type="alpha"  length="15" description="Free format text field. Echoed in reports"/>
+        <field name="status"         type="uint8"              description="Outcome of the reset request">
+            <value code="0" meaning="Accepted"/>
+            <value code="5" meaning="Rejected"/>
+        </field>
+        <field name="rejectCode"     type="uint32"             description="Code specifying the reason for the reject. Applicable only if the request is rejected, null filled otherwise"/>
+    </message>
+
+    <message name="NativeMassQuoteFlat" messageType="m" description="Mass Quote Flat. Mass Quote with the quote entries flattened into numbered fields.">
+        <field name="massQuoteId"        type="alpha"  length="10" description="Client specified identifier of the message."/>
+        <field name="partitionId"        type="uint8"              description="Identity of the matching partition."/>
+        <field name="cancelOnDisconnect" type="uint8"              description="0 = Do Not Cancel, 1 = Cancel"/>
+        <field name="anonymity"          type="uint8"              description="Whether the quote is anonymous or named. Absence of this field is interpreted as Anonymous (0)."/>
+        <field name="account"            type="uint64"             description="Identifier of the trading account. (Mandatory for Native Gateway Messages)."/>
+        <field name="senderLocation"     type="alpha"  length="10" description="Sender Location assigned to the Trader ID/Firm."/>
+        <field name="enteringTrader"     type="alpha"  length="15" description="Entering Trader ID."/>
+        <field name="noTradeKey"         type="alpha"  length="10" description="Client specified identifier of order relevant to self-execution."/>
+        <field name="memo"               type="alpha"  length="15" description="Free format text field. This field may be used to convey client's relevant info. It's always echoed in the reports."/>
+        <field name="deskId"             type="alpha"  length="15" description="Desk ID through which the order is placed from."/>
+        <field name="totalQuoteEntries"  type="uint8"              description="Number of quote entries in the mass quote (up to 15)."/>
+        <field name="quoteEntryId1"      type="alpha"  length="10" description="Client specified identifier of the quote 1."/>
+        <field name="instrumentId1"      type="uint32"             description="Identifier of the instrument of quote 1."/>
+        <field name="bidPrice1"          type="price8"             description="Bid price of quote 1."/>
+        <field name="bidSize1"           type="uint32"             description="Bid quantity of quote 1. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice1"        type="price8"             description="Offer price of quote 1."/>
+        <field name="offerSize1"         type="uint32"             description="Offer quantity of quote 1. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId2"      type="alpha"  length="10" description="Client specified identifier of the quote 2."/>
+        <field name="instrumentId2"      type="uint32"             description="Identifier of the instrument of quote 2."/>
+        <field name="bidPrice2"          type="price8"             description="Bid price of quote 2."/>
+        <field name="bidSize2"           type="uint32"             description="Bid quantity of quote 2. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice2"        type="price8"             description="Offer price of quote 2."/>
+        <field name="offerSize2"         type="uint32"             description="Offer quantity of quote 2. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId3"      type="alpha"  length="10" description="Client specified identifier of the quote 3."/>
+        <field name="instrumentId3"      type="uint32"             description="Identifier of the instrument of quote 3."/>
+        <field name="bidPrice3"          type="price8"             description="Bid price of quote 3."/>
+        <field name="bidSize3"           type="uint32"             description="Bid quantity of quote 3. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice3"        type="price8"             description="Offer price of quote 3."/>
+        <field name="offerSize3"         type="uint32"             description="Offer quantity of quote 3. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId4"      type="alpha"  length="10" description="Client specified identifier of the quote 4."/>
+        <field name="instrumentId4"      type="uint32"             description="Identifier of the instrument of quote 4."/>
+        <field name="bidPrice4"          type="price8"             description="Bid price of quote 4."/>
+        <field name="bidSize4"           type="uint32"             description="Bid quantity of quote 4. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice4"        type="price8"             description="Offer price of quote 4."/>
+        <field name="offerSize4"         type="uint32"             description="Offer quantity of quote 4. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId5"      type="alpha"  length="10" description="Client specified identifier of the quote 5."/>
+        <field name="instrumentId5"      type="uint32"             description="Identifier of the instrument of quote 5."/>
+        <field name="bidPrice5"          type="price8"             description="Bid price of quote 5."/>
+        <field name="bidSize5"           type="uint32"             description="Bid quantity of quote 5. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice5"        type="price8"             description="Offer price of quote 5."/>
+        <field name="offerSize5"         type="uint32"             description="Offer quantity of quote 5. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId6"      type="alpha"  length="10" description="Client specified identifier of the quote 6."/>
+        <field name="instrumentId6"      type="uint32"             description="Identifier of the instrument of quote 6."/>
+        <field name="bidPrice6"          type="price8"             description="Bid price of quote 6."/>
+        <field name="bidSize6"           type="uint32"             description="Bid quantity of quote 6. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice6"        type="price8"             description="Offer price of quote 6."/>
+        <field name="offerSize6"         type="uint32"             description="Offer quantity of quote 6. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId7"      type="alpha"  length="10" description="Client specified identifier of the quote 7."/>
+        <field name="instrumentId7"      type="uint32"             description="Identifier of the instrument of quote 7."/>
+        <field name="bidPrice7"          type="price8"             description="Bid price of quote 7."/>
+        <field name="bidSize7"           type="uint32"             description="Bid quantity of quote 7. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice7"        type="price8"             description="Offer price of quote 7."/>
+        <field name="offerSize7"         type="uint32"             description="Offer quantity of quote 7. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId8"      type="alpha"  length="10" description="Client specified identifier of the quote 8."/>
+        <field name="instrumentId8"      type="uint32"             description="Identifier of the instrument of quote 8."/>
+        <field name="bidPrice8"          type="price8"             description="Bid price of quote 8."/>
+        <field name="bidSize8"           type="uint32"             description="Bid quantity of quote 8. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice8"        type="price8"             description="Offer price of quote 8."/>
+        <field name="offerSize8"         type="uint32"             description="Offer quantity of quote 8. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId9"      type="alpha"  length="10" description="Client specified identifier of the quote 9."/>
+        <field name="instrumentId9"      type="uint32"             description="Identifier of the instrument of quote 9."/>
+        <field name="bidPrice9"          type="price8"             description="Bid price of quote 9."/>
+        <field name="bidSize9"           type="uint32"             description="Bid quantity of quote 9. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice9"        type="price8"             description="Offer price of quote 9."/>
+        <field name="offerSize9"         type="uint32"             description="Offer quantity of quote 9. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId10"     type="alpha"  length="10" description="Client specified identifier of the quote 10."/>
+        <field name="instrumentId10"     type="uint32"             description="Identifier of the instrument of quote 10."/>
+        <field name="bidPrice10"         type="price8"             description="Bid price of quote 10."/>
+        <field name="bidSize10"          type="uint32"             description="Bid quantity of quote 10. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice10"       type="price8"             description="Offer price of quote 10."/>
+        <field name="offerSize10"        type="uint32"             description="Offer quantity of quote10. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId11"     type="alpha"  length="10" description="Client specified identifier of the quote 11."/>
+        <field name="instrumentId11"     type="uint32"             description="Identifier of the instrument of quote 11."/>
+        <field name="bidPrice11"         type="price8"             description="Bid price of quote 11."/>
+        <field name="bidSize11"          type="uint32"             description="Bid quantity of quote 11. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice11"       type="price8"             description="Offer price of quote 11."/>
+        <field name="offerSize11"        type="uint32"             description="Offer quantity of quote11. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId12"     type="alpha"  length="10" description="Client specified identifier of the quote 12."/>
+        <field name="instrumentId12"     type="uint32"             description="Identifier of the instrument of quote 12."/>
+        <field name="bidPrice12"         type="price8"             description="Bid price of quote 12."/>
+        <field name="bidSize12"          type="uint32"             description="Bid quantity of quote 12. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice12"       type="price8"             description="Offer price of quote 12."/>
+        <field name="offerSize12"        type="uint32"             description="Offer quantity of quote12. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId13"     type="alpha"  length="10" description="Client specified identifier of the quote 13."/>
+        <field name="instrumentId13"     type="uint32"             description="Identifier of the instrument of quote 13."/>
+        <field name="bidPrice13"         type="price8"             description="Bid price of quote 13."/>
+        <field name="bidSize13"          type="uint32"             description="Bid quantity of quote 13. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice13"       type="price8"             description="Offer price of quote 13."/>
+        <field name="offerSize13"        type="uint32"             description="Offer quantity of quote13. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId14"     type="alpha"  length="10" description="Client specified identifier of the quote 14."/>
+        <field name="instrumentId14"     type="uint32"             description="Identifier of the instrument of quote 14."/>
+        <field name="bidPrice14"         type="price8"             description="Bid price of quote 14."/>
+        <field name="bidSize14"          type="uint32"             description="Bid quantity of quote 14. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice14"       type="price8"             description="Offer price of quote 14."/>
+        <field name="offerSize14"        type="uint32"             description="Offer quantity of quote14. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="quoteEntryId15"     type="alpha"  length="10" description="Client specified identifier of the quote 15."/>
+        <field name="instrumentId15"     type="uint32"             description="Identifier of the instrument of quote 15."/>
+        <field name="bidPrice15"         type="price8"             description="Bid price of quote 15."/>
+        <field name="bidSize15"          type="uint32"             description="Bid quantity of quote 15. A value of '0' cancels this side of the quote for the given instrument."/>
+        <field name="offerPrice15"       type="price8"             description="Offer price of quote 15."/>
+        <field name="offerSize15"        type="uint32"             description="Offer quantity of quote15. A value of '0' cancels this side of the quote for the given instrument."/>
+    </message>
+
+</messages>

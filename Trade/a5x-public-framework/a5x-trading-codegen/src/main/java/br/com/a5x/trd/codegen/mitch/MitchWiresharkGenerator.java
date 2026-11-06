@@ -73,6 +73,25 @@ public class MitchWiresharkGenerator {
         }
         sb.append("}\n\n");
         
+        // MITCH sends a negative price in sign-magnitude: the top bit of the last byte is
+        // the sign and the other bits the absolute value. le_int64() would read it as two's
+        // complement and show -1.00 as -9223372036754775808.
+        sb.append("local function sign_magnitude(range)\n");
+        sb.append("    local raw = range:le_uint64()\n");
+        sb.append("    local lo, hi = raw:lower(), raw:higher()\n");
+        sb.append("    local negative\n");
+        sb.append("    if range:len() == 8 then\n");
+        sb.append("        negative = hi >= 0x80000000\n");
+        sb.append("        hi = hi % 0x80000000\n");
+        sb.append("    else\n");
+        sb.append("        negative = lo >= 0x80000000\n");
+        sb.append("        lo = lo % 0x80000000\n");
+        sb.append("    end\n");
+        sb.append("    local v = hi * 4294967296 + lo\n");
+        sb.append("    if negative then v = -v end\n");
+        sb.append("    return v\n");
+        sb.append("end\n\n");
+
         // Dissector function
         sb.append("function mitch_proto.dissector(buffer, pinfo, tree)\n");
         sb.append("    local length = buffer:len()\n");
@@ -127,9 +146,12 @@ public class MitchWiresharkGenerator {
                 String addMethod = isStringType(field) ? "msg_tree:add(" : "msg_tree:add_le(";
                 if (isPriceType(field)) {
                     long divisor = getPriceDivisor(field);
-                    sb.append("            do local v = buffer(offset, ").append(size).append("):le_int64()")
+                    String read = field.isSignMagnitude()
+                            ? "sign_magnitude(buffer(offset, " + size + "))"
+                            : "tonumber(tostring(buffer(offset, " + size + "):le_int64()))";
+                    sb.append("            do local v = ").append(read)
                       .append(" msg_tree:add_le(").append(fieldName).append(", buffer(offset, ").append(size).append("))")
-                      .append(":set_text(\"").append(field.getName()).append(": \" .. string.format(\"%.4f\", tonumber(tostring(v)) / ").append(divisor).append(")) end\n");
+                      .append(":set_text(\"").append(field.getName()).append(": \" .. string.format(\"%.4f\", v / ").append(divisor).append(")) end\n");
                 } else {
                     sb.append("            ").append(addMethod).append(fieldName).append(", buffer(offset, ").append(size).append("))\n");
                 }
@@ -153,6 +175,23 @@ public class MitchWiresharkGenerator {
         sb.append("    return false\n");
         sb.append("end\n\n");
         sb.append("mitch_proto:register_heuristic(\"udp\", heuristic_checker)\n");
+        // Snapshot and Replay run over TCP. The port differs per environment, so it is a
+        // preference the user sets rather than a value baked into a generated artefact.
+        sb.append("\n-- Snapshot and Replay channels are TCP. The port is deployment specific,\n");
+        sb.append("-- so set it in Wireshark: Preferences > Protocols > MITCH. 0 disables.\n");
+        sb.append("mitch_proto.prefs.tcp_port = Pref.uint(\"MITCH TCP port\", 0,\n");
+        sb.append("    \"TCP port of the Snapshot/Replay channel (0 disables TCP dissection)\")\n\n");
+        sb.append("local tcp_port = DissectorTable.get(\"tcp.port\")\n");
+        sb.append("local registered_tcp_port = 0\n\n");
+        sb.append("function mitch_proto.prefs_changed()\n");
+        sb.append("    if registered_tcp_port ~= 0 then\n");
+        sb.append("        tcp_port:remove(registered_tcp_port, mitch_proto)\n");
+        sb.append("    end\n");
+        sb.append("    registered_tcp_port = mitch_proto.prefs.tcp_port\n");
+        sb.append("    if registered_tcp_port ~= 0 then\n");
+        sb.append("        tcp_port:add(registered_tcp_port, mitch_proto)\n");
+        sb.append("    end\n");
+        sb.append("end\n");
         
         File outputFile = new File(outputDir, "mitch_dissector.lua");
         try (FileWriter writer = new FileWriter(outputFile)) {

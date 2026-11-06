@@ -97,7 +97,9 @@ public class NativeWrapperGenerator {
 
         StringBuilder sb = new StringBuilder();
         
-        sb.append("using System;\n\n");
+        sb.append("using System;\n");
+        // the message classes live in the .Model namespace (NativeCSharpGenerator)
+        sb.append("using A5X.Trading.Native.Model;\n\n");
         sb.append("namespace A5X.Trading.Native\n{\n");
         sb.append("    public interface INativePackageHandler\n    {\n");
         for (MessageDefinition msg : messages) {

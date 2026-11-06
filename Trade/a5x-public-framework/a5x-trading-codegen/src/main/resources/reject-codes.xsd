@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Schema of reject-codes.xml: the reject codes of the A5X trading gateways. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.a5x.com.br/trading/reject-codes"
+           xmlns="http://www.a5x.com.br/trading/reject-codes"
+           elementFormDefault="qualified">
+  <xs:element name="rejectCodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="code" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="value" type="xs:nonNegativeInteger" use="required"/>
+            <xs:attribute name="description" type="xs:string" use="required"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -3,13 +3,38 @@
 	<parent>
 		<groupId>br.com.a5x.trd</groupId>
 		<artifactId>a5x-public-framework</artifactId>
-		<version>1.0.0</version>
+		<version>2.0.0</version>
 	</parent>
 
 	<artifactId>a5x-trading-mitch</artifactId>
 	<name>a5x-trading-mitch</name>
 
+	<properties>
+		<!-- the models (br.com.a5x.trd.pub.mitch.model) are generated from this schema at build time -->
+		<a5x.schema>mitch-messages.xml</a5x.schema>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
 	<dependencies>
+		<!-- the generator, needed only to build -->
+		<dependency>
+			<groupId>br.com.a5x.trd</groupId>
+			<artifactId>a5x-trading-codegen</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.pcap4j</groupId>
 			<artifactId>pcap4j-core</artifactId>
