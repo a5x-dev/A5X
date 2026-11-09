@@ -51,6 +51,15 @@
         "maxItems": 60
       }
     },
+    "investmentFund": {
+      "type": "array",
+      "description": "Provides details on the investment fund collateral proposal",
+      "items": {
+        "$ref": "../../objects/business/InvestmentFundCollateralProposalResponse.json"
+      },
+      "minItems": 1,
+      "maxItems": 60
+    },
     "collateralDepositStatus": {
       "$ref": "../../objects/business/CollateralStatus.json",
       "description": "This block contains information on the collateral deposit status."
@@ -75,6 +84,11 @@
     {
       "required": [
         "externalSecuritiesResponse"
+      ]
+    },
+    {
+      "required": [
+        "investmentFund"
       ]
     },
     {
@@ -175,6 +189,22 @@
                 "referenceIdentification": "REF12345"
               }
             ]
+          }
+        }
+      ],
+      "investmentFund": [
+        {
+          "collateralIdentification": "FUND-001",
+          "assetNumber": "2015000000350",
+          "executedMovementType": 1,
+          "quantity": 1000,
+          "collateralValue": {
+            "amount": 95000.00,
+            "currency": "BRL"
+          },
+          "statusInformation": {
+            "statusCode": 9,
+            "errorIdentification": []
           }
         }
       ],

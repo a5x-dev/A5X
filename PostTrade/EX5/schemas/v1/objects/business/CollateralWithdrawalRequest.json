@@ -71,6 +71,19 @@
       },
       "minItems" : 1,
       "maxItems" : 60
+    },
+    "investmentFund" : {
+      "type" : "array",
+      "description" : "Investment fund collateral items for withdrawal request",
+      "items" : {
+        "allOf" : [ {
+          "$ref" : "../../objects/business/InvestmentFundCollateral.json"
+        }, {
+          "required" : [ "collateralIdentification", "assetNumber", "executedMovementType", "quantity" ]
+        } ]
+      },
+      "minItems" : 1,
+      "maxItems" : 60
     }
   },
   "required" : [ "collateralIdentification" ],
@@ -82,6 +95,8 @@
     "required" : [ "federalBonds" ]
   }, {
     "required" : [ "externalSecurities" ]
+  }, {
+    "required" : [ "investmentFund" ]
   } ],
   "additionalProperties" : true,
   "examples" : []

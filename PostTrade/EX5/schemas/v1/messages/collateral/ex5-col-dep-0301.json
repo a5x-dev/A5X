@@ -119,6 +119,11 @@
         "FEDAccount" : "021000021",
         "accountNameSpecialInstructions" : "SPECIAL-INST-001",
         "subAccountIdentification" : "SUB-ACC-001"
+      } ],
+      "investmentFund" : [ {
+        "collateralIdentification" : "FUND-001",
+        "executedMovementType" : 1,
+        "quantity" : 1000
       } ]
     } ]
   } ]

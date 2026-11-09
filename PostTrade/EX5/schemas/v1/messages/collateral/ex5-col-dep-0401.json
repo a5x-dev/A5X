@@ -158,6 +158,22 @@
               }
             }
           ],
+          "investmentFund": [
+            {
+              "collateralIdentification": "FUND-001",
+              "assetNumber": "2015000000350",
+              "executedMovementType": 1,
+              "quantity": 1000,
+              "collateralValue": {
+                "amount": 95000.00,
+                "currency": "BRL"
+              },
+              "statusInformation": {
+                "statusCode": 9,
+                "errorIdentification": []
+              }
+            }
+          ],
           "collateralDepositStatus": {
             "statusCode": 1,
             "errorIdentification": [

@@ -44,6 +44,15 @@
       },
       "minItems" : 1,
       "maxItems" : 60
+    },
+    "investmentFund" : {
+      "type" : "array",
+      "description" : "Investment fund collateral items for deposit proposal",
+      "items" : {
+        "$ref" : "../../objects/business/InvestmentFundCollateral.json"
+      },
+      "minItems" : 1,
+      "maxItems" : 60
     }
   },
   "anyOf" : [ {
@@ -66,6 +75,11 @@
       "externalSecurities" : true
     },
     "required" : [ "externalSecurities" ]
+  }, {
+    "properties" : {
+      "investmentFund" : true
+    },
+    "required" : [ "investmentFund" ]
   } ],
   "additionalProperties" : false,
   "examples" : []
