@@ -265,7 +265,6 @@
             <field name="PreTradeAnonymity" required="N"/>
             <field name="TransactTime" required="Y"/>
             <field name="OrderBook" required="Y"/>
-            <field name="ExpireTime" required="N"/>
             <field name="Memo" required="N"/>
         </message>
 
@@ -317,23 +316,25 @@
 
     </components>
 
+    <!-- length: the maximum size the Technical Portal publishes for the field. It is not part of
+         the QuickFIX format; QuickFIX/J, QuickFIX and QuickFIX/n ignore it. -->
     <fields>
 
         <!-- ===================== Session / header ====================== -->
-        <field number="8" name="BeginString" type="STRING"/>
+        <field number="8" name="BeginString" type="STRING" length="7"/>
         <field number="9" name="BodyLength" type="LENGTH"/>
-        <field number="10" name="CheckSum" type="STRING"/>
+        <field number="10" name="CheckSum" type="STRING" length="3"/>
         <field number="34" name="MsgSeqNum" type="SEQNUM"/>
         <field number="43" name="PossDupFlag" type="BOOLEAN"/>
-        <field number="49" name="SenderCompID" type="STRING"/>
-        <field number="52" name="SendingTime" type="UTCTIMESTAMP"/>
-        <field number="56" name="TargetCompID" type="STRING"/>
+        <field number="49" name="SenderCompID" type="STRING" length="15"/>
+        <field number="52" name="SendingTime" type="UTCTIMESTAMP" length="21"/>
+        <field number="56" name="TargetCompID" type="STRING" length="5"/>
         <field number="97" name="PossResend" type="BOOLEAN"/>
-        <field number="115" name="OnBehalfOfCompID" type="STRING"/>
-        <field number="122" name="OrigSendingTime" type="UTCTIMESTAMP"/>
-        <field number="1128" name="ApplVerID" type="STRING"/>
+        <field number="115" name="OnBehalfOfCompID" type="STRING" length="15"/>
+        <field number="122" name="OrigSendingTime" type="UTCTIMESTAMP" length="21"/>
+        <field number="1128" name="ApplVerID" type="STRING" length="1"/>
 
-        <field number="35" name="MsgType" type="STRING">
+        <field number="35" name="MsgType" type="STRING" length="5">
             <value enum="0" description="HEARTBEAT"/>
             <value enum="1" description="TEST_REQUEST"/>
             <value enum="2" description="RESEND_REQUEST"/>
@@ -356,17 +357,17 @@
         <field number="16" name="EndSeqNo" type="SEQNUM"/>
         <field number="36" name="NewSeqNo" type="SEQNUM"/>
         <field number="45" name="RefSeqNum" type="SEQNUM"/>
-        <field number="58" name="Text" type="STRING"/>
+        <field number="58" name="Text" type="STRING" length="250"/>
         <field number="108" name="HeartBtInt" type="INT"/>
-        <field number="112" name="TestReqID" type="STRING"/>
+        <field number="112" name="TestReqID" type="STRING" length="20"/>
         <field number="123" name="GapFillFlag" type="BOOLEAN"/>
-        <field number="141" name="ResetSeqNumFlag" type="BOOLEAN"/>
+        <field number="141" name="ResetSeqNumFlag" type="BOOLEAN" length="5"/>
         <field number="371" name="RefTagID" type="INT"/>
-        <field number="372" name="RefMsgType" type="STRING"/>
-        <field number="554" name="Password" type="STRING"/>
-        <field number="925" name="NewPassword" type="STRING"/>
+        <field number="372" name="RefMsgType" type="STRING" length="1"/>
+        <field number="554" name="Password" type="STRING" length="15"/>
+        <field number="925" name="NewPassword" type="STRING" length="5"/>
 
-        <field number="98" name="EncryptMethod" type="INT">
+        <field number="98" name="EncryptMethod" type="INT" length="7">
             <value enum="0" description="NONE"/>
         </field>
 
@@ -403,20 +404,20 @@
         </field>
 
         <!-- =================== Order identification ==================== -->
-        <field number="1" name="Account" type="STRING"/>
-        <field number="11" name="ClOrdID" type="STRING"/>
-        <field number="17" name="ExecID" type="STRING"/>
-        <field number="19" name="ExecRefID" type="STRING"/>
-        <field number="37" name="OrderID" type="STRING"/>
-        <field number="41" name="OrigClOrdID" type="STRING"/>
+        <field number="1" name="Account" type="STRING" length="15"/>
+        <field number="11" name="ClOrdID" type="STRING" length="20"/>
+        <field number="17" name="ExecID" type="STRING" length="12"/>
+        <field number="19" name="ExecRefID" type="STRING" length="12"/>
+        <field number="37" name="OrderID" type="STRING" length="12"/>
+        <field number="41" name="OrigClOrdID" type="STRING" length="20"/>
         <field number="198" name="SecondaryOrderID" type="STRING"/>
-        <field number="278" name="MDEntryID" type="STRING"/>
-        <field number="548" name="CrossID" type="STRING"/>
-        <field number="880" name="TrdMatchID" type="STRING"/>
-        <field number="1180" name="ApplID" type="STRING"/>
+        <field number="278" name="MDEntryID" type="STRING" length="12"/>
+        <field number="548" name="CrossID" type="STRING" length="10"/>
+        <field number="880" name="TrdMatchID" type="STRING" length="12"/>
+        <field number="1180" name="ApplID" type="STRING" length="1"/>
 
         <!-- ==================== Mass status request ==================== -->
-        <field number="584" name="MassStatusReqID" type="STRING"/>
+        <field number="584" name="MassStatusReqID" type="STRING" length="20"/>
 
         <field number="585" name="MassStatusReqType" type="INT">
             <value enum="1" description="OPEN_ORDERS_FOR_INSTRUMENT_AND_PARTY"/>
@@ -425,41 +426,41 @@
         </field>
 
         <!-- ======================== Instrument ========================= -->
-        <field number="48" name="SecurityID" type="STRING"/>
-        <field number="55" name="Symbol" type="STRING"/>
-        <field number="305" name="UnderlyingSecurityIDSource" type="STRING"/>
-        <field number="309" name="UnderlyingSecurityID" type="STRING"/>
-        <field number="311" name="UnderlyingSymbol" type="STRING"/>
-        <field number="1300" name="MarketSegmentID" type="STRING"/>
+        <field number="48" name="SecurityID" type="STRING" length="10"/>
+        <field number="55" name="Symbol" type="STRING" length="25"/>
+        <field number="305" name="UnderlyingSecurityIDSource" type="STRING" length="1"/>
+        <field number="309" name="UnderlyingSecurityID" type="STRING" length="10"/>
+        <field number="311" name="UnderlyingSymbol" type="STRING" length="6"/>
+        <field number="1300" name="MarketSegmentID" type="STRING" length="10"/>
 
-        <field number="22" name="SecurityIDSource" type="STRING">
+        <field number="22" name="SecurityIDSource" type="STRING" length="1">
             <value enum="8" description="EXCHANGE_SYMBOL"/>
         </field>
 
         <!-- ===================== Order attributes ====================== -->
         <field number="6" name="AvgPx" type="PRICE"/>
         <field number="14" name="CumQty" type="QTY"/>
-        <field number="30" name="LastMkt" type="EXCHANGE"/>
+        <field number="30" name="LastMkt" type="EXCHANGE" length="4"/>
         <field number="31" name="LastPx" type="PRICE"/>
         <field number="32" name="LastQty" type="QTY"/>
         <field number="38" name="OrderQty" type="QTY"/>
         <field number="44" name="Price" type="PRICE"/>
-        <field number="60" name="TransactTime" type="UTCTIMESTAMP"/>
+        <field number="60" name="TransactTime" type="UTCTIMESTAMP" length="25"/>
         <field number="99" name="StopPx" type="PRICE"/>
         <field number="111" name="MaxFloor" type="QTY"/>
-        <field number="126" name="ExpireTime" type="UTCTIMESTAMP"/>
+        <field number="126" name="ExpireTime" type="UTCTIMESTAMP" length="21"/>
         <field number="151" name="LeavesQty" type="QTY"/>
-        <field number="636" name="WorkingIndicator" type="BOOLEAN"/>
+        <field number="636" name="WorkingIndicator" type="BOOLEAN" length="1"/>
         <field number="669" name="LastParPx" type="PRICE"/>
-        <field number="1091" name="PreTradeAnonymity" type="BOOLEAN"/>
+        <field number="1091" name="PreTradeAnonymity" type="BOOLEAN" length="1"/>
         <field number="1138" name="DisplayQty" type="QTY"/>
         <field number="1188" name="Volatility" type="FLOAT"/>
 
-        <field number="18" name="ExecInst" type="MULTIPLEVALUESTRING">
+        <field number="18" name="ExecInst" type="MULTIPLEVALUESTRING" length="1">
             <value enum="n" description="DO_NOT_CANCEL_ON_DISCONNECT_OR_LOGOUT"/>
         </field>
 
-        <field number="40" name="OrdType" type="CHAR">
+        <field number="40" name="OrdType" type="CHAR" length="1">
             <value enum="1" description="MARKET"/>
             <value enum="2" description="LIMIT"/>
             <value enum="3" description="STOP_MARKET"/>
@@ -518,7 +519,7 @@
             <value enum="L" description="TRIGGERED"/>
         </field>
 
-        <field number="39" name="OrdStatus" type="CHAR">
+        <field number="39" name="OrdStatus" type="CHAR" length="1">
             <value enum="0" description="NEW"/>
             <value enum="1" description="PARTIALLY_FILLED"/>
             <value enum="2" description="FILLED"/>
@@ -530,7 +531,7 @@
             <value enum="E" description="PENDING_REPLACE"/>
         </field>
 
-        <field number="378" name="ExecRestatementReason" type="INT">
+        <field number="378" name="ExecRestatementReason" type="INT" length="1">
             <value enum="0" description="GT_CORPORATE_ACTION"/>
             <value enum="1" description="GT_RENEWAL_RESTATEMENT"/>
             <value enum="3" description="ORDER_REPRICED"/>
@@ -538,7 +539,7 @@
             <value enum="100" description="ORDER_REPLENISHMENT"/>
         </field>
 
-        <field number="434" name="CxlRejResponseTo" type="CHAR">
+        <field number="434" name="CxlRejResponseTo" type="CHAR" length="1">
             <value enum="1" description="ORDER_CANCEL_REQUEST"/>
             <value enum="2" description="ORDER_CANCEL_REPLACE_REQUEST"/>
         </field>
@@ -549,7 +550,7 @@
             <value enum="3" description="TRADE_OF_MULTI_LEG_INSTRUMENT"/>
         </field>
 
-        <field number="1057" name="AggressorIndicator" type="BOOLEAN">
+        <field number="1057" name="AggressorIndicator" type="BOOLEAN" length="1">
             <value enum="Y" description="ORDER_INITIATOR_IS_AGGRESSOR"/>
             <value enum="N" description="ORDER_INITIATOR_IS_PASSIVE"/>
         </field>
@@ -563,13 +564,13 @@
             <value enum="8" description="MESSAGE_RATE_EXCEEDED"/>
             <value enum="30" description="SESSION_NOT_ESTABLISHED"/>
         </field>
-        <field number="379" name="BusinessRejectRefID" type="STRING"/>
+        <field number="379" name="BusinessRejectRefID" type="STRING" length="12"/>
 
         <!-- ========================== Parties ========================== -->
-        <field number="448" name="PartyID" type="STRING"/>
+        <field number="448" name="PartyID" type="STRING" length="30"/>
         <field number="453" name="NoPartyIDs" type="NUMINGROUP"/>
 
-        <field number="447" name="PartyIDSource" type="CHAR">
+        <field number="447" name="PartyIDSource" type="CHAR" length="1">
             <value enum="D" description="PROPRIETARY_CUSTOM_CODE"/>
         </field>
 
@@ -584,19 +585,19 @@
         </field>
 
         <!-- ========================== Quoting ========================== -->
-        <field number="117" name="QuoteID" type="STRING"/>
-        <field number="131" name="QuoteReqID" type="STRING"/>
+        <field number="117" name="QuoteID" type="STRING" length="20"/>
+        <field number="131" name="QuoteReqID" type="STRING" length="20"/>
         <field number="132" name="BidPx" type="PRICE"/>
         <field number="133" name="OfferPx" type="PRICE"/>
         <field number="134" name="BidSize" type="QTY"/>
         <field number="135" name="OfferSize" type="QTY"/>
         <field number="295" name="NoQuoteEntries" type="NUMINGROUP"/>
         <field number="296" name="NoQuoteSets" type="NUMINGROUP"/>
-        <field number="299" name="QuoteEntryID" type="STRING"/>
+        <field number="299" name="QuoteEntryID" type="STRING" length="20"/>
         <field number="300" name="QuoteRejectReason" type="INT"/>
-        <field number="302" name="QuoteSetID" type="STRING"/>
+        <field number="302" name="QuoteSetID" type="STRING" length="3"/>
         <field number="368" name="QuoteEntryRejectReason" type="INT"/>
-        <field number="1166" name="QuoteMsgID" type="STRING"/>
+        <field number="1166" name="QuoteMsgID" type="STRING" length="20"/>
 
         <field number="298" name="QuoteCancelType" type="INT">
             <value enum="1" description="CANCEL_FOR_INSTRUMENTS"/>
@@ -612,7 +613,7 @@
             17 (Cancelled). Those three are NOT declared here because the FIX specification
             does not list them. If A5X emits them, add them below.
         -->
-        <field number="297" name="QuoteStatus" type="INT">
+        <field number="297" name="QuoteStatus" type="INT" length="1">
             <value enum="0" description="ACCEPTED"/>
             <value enum="5" description="REJECTED"/>
         </field>
@@ -625,12 +626,12 @@
 
         <!-- =========================== News ============================ -->
         <field number="33" name="NoLinesOfText" type="NUMINGROUP"/>
-        <field number="42" name="OrigTime" type="UTCTIMESTAMP"/>
-        <field number="61" name="Urgency" type="CHAR"/>
+        <field number="42" name="OrigTime" type="UTCTIMESTAMP" length="20"/>
+        <field number="61" name="Urgency" type="CHAR" length="1"/>
         <field number="146" name="NoRelatedSym" type="NUMINGROUP"/>
-        <field number="148" name="Headline" type="STRING"/>
+        <field number="148" name="Headline" type="STRING" length="20"/>
         <field number="215" name="NoRoutingIDs" type="NUMINGROUP"/>
-        <field number="217" name="RoutingID" type="STRING"/>
+        <field number="217" name="RoutingID" type="STRING" length="10"/>
         <field number="711" name="NoUnderlyings" type="NUMINGROUP"/>
 
         <field number="216" name="RoutingType" type="INT">
@@ -639,7 +640,7 @@
         </field>
 
         <!-- ====================== Trading session ====================== -->
-        <field number="336" name="TradingSessionID" type="STRING">
+        <field number="336" name="TradingSessionID" type="STRING" length="2">
             <value enum="20" description="TRADING_SYSTEM"/>
         </field>
 
@@ -648,32 +649,32 @@
         </field>
 
         <!-- ================= A5X exchange defined tags ================= -->
-        <field number="5149" name="Memo" type="STRING"/>
+        <field number="5149" name="Memo" type="STRING" length="25"/>
 
         <!-- NoTradeKey is a plain identifier, not a repeating group counter. -->
-        <field number="7714" name="NoTradeKey" type="STRING"/>
+        <field number="7714" name="NoTradeKey" type="STRING" length="25"/>
 
-        <field number="30001" name="OrderBook" type="INT">
+        <field number="30001" name="OrderBook" type="INT" length="1">
             <value enum="1" description="REGULAR"/>
             <value enum="9" description="BULLETIN_BOARD"/>
             <value enum="11" description="NEGOTIATED_TRADES"/>
         </field>
 
-        <field number="30007" name="BidID" type="STRING"/>
-        <field number="30008" name="OfferID" type="STRING"/>
+        <field number="30007" name="BidID" type="STRING" length="12"/>
+        <field number="30008" name="OfferID" type="STRING" length="12"/>
 
         <field number="31000" name="RLTIndicator" type="INT">
             <value enum="0" description="NON_RLP_EXECUTION"/>
             <value enum="1" description="RLP_EXECUTION"/>
         </field>
 
-        <field number="31001" name="TradingPhase" type="INT">
+        <field number="31001" name="TradingPhase" type="INT" length="1">
             <value enum="1" description="REGULAR_DAY_SESSION"/>
             <value enum="2" description="NON_REGULAR_NIGHT_SESSION"/>
         </field>
 
-        <field number="31002" name="IPAddress" type="STRING"/>
-        <field number="31003" name="CertifiedSolution" type="STRING"/>
+        <field number="31002" name="IPAddress" type="STRING" length="21"/>
+        <field number="31003" name="CertifiedSolution" type="STRING" length="1"/>
         <field number="32021" name="ParPx" type="PRICE"/>
         <field number="32022" name="LastOptPx" type="PRICE"/>
 
