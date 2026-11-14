@@ -25,7 +25,7 @@
       "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Contingent Variation Margin calculated for the Margin Account."
     },
-    "netLiquidatingValue" : {
+    "netLiquidityValue" : {
       "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Net Liquidating value for the Margin Account."
     },
@@ -75,7 +75,7 @@
     "totalMargin",
     "initialMargin",
     "contingentVariationMargin",
-    "netLiquidatingValue",
+    "netLiquidityValue",
     "liquidityConcentrationRiskMargin",
     "wrongWayRiskMargin",
     "stressTestLoss",
@@ -92,7 +92,7 @@
       "totalMargin" : 50000.00,
       "initialMargin" : 50000.00,
       "contingentVariationMargin" : 50000.00,
-      "netLiquidatingValue" : 50000.00,
+      "netLiquidityValue" : 50000.00,
       "liquidityConcentrationRiskMargin" : 50000.00,
       "wrongWayRiskMargin" : 50000.00,
       "stressTestLoss" : 50000.00,

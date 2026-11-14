@@ -12,6 +12,7 @@
     "collateralIdentification" : {
       "type" : "string",
       "maxLength" : 35,
+      "minLength" : 1,
       "description" : "Collateral ID given by the requestor participant",
       "examples" : [ "EXT-SEC-REF-001", "EXTERNAL-789012" ]
     },
@@ -46,16 +47,18 @@
       "description" : "Origin depositary code",
       "$comment" : "Consult External Code List table ExternalDepositoryCode"
     },
-    "BICCode" : {
+    "bicCode" : {
       "type" : "string",
       "maxLength" : 35,
       "description" : "BIC Code of the participant"
     },
     "accountCentralDepository" : {
       "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 35,
       "description" : "DTC/Euroclear origin account"
     },
-    "FEDAccount" : {
+    "fedAccount" : {
       "type" : "string",
       "maxLength" : 35,
       "description" : "FED (ABA) origin account"
@@ -71,7 +74,7 @@
       "description" : "Unique and unambiguous identification for the account between the account owner and the account servicer"
     }
   },
-  "required" : [ "collateralIdentification", "quantity", "tradeDate", "settlementDate", "collateralCode", "maturityDate", "destinationDepository", "originDepository", "BICCode", "accountCentralDepository" ],
+  "required" : [ "collateralIdentification", "quantity", "tradeDate", "settlementDate", "collateralCode", "maturityDate", "destinationDepository", "originDepository", "bicCode", "accountCentralDepository" ],
   "additionalProperties" : false,
   "examples" : [ {
     "collateralIdentification" : "EXT-SEC-REF-001",
@@ -82,9 +85,9 @@
     "maturityDate" : "2026-01-15",
     "destinationDepository" : 2,
     "originDepository" : 1,
-    "BICCode" : "BANKUS33XXX",
+    "bicCode" : "BANKUS33XXX",
     "accountCentralDepository" : "123456",
-    "FEDAccount" : "021000021",
+    "fedAccount" : "021000021",
     "accountNameSpecialInstructions" : "SPECIAL-INST-001",
     "subAccountIdentification" : "SUB-ACC-001"
   } ]

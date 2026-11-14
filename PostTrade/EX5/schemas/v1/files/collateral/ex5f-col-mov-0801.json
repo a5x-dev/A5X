@@ -14,8 +14,8 @@
       "description" : "Provides the parameters of the report"
     },
     "tradeDate" : {
-      "$ref" : "../../types/ISODateTime.json",
-      "description" : "Provides date and time the movement collateral."
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Provides the trade date (YYYY-MM-DD)"
     },
     "clearingMemberIdentification" : {
       "$ref" : "../../objects/business/PartyId.json",
@@ -43,7 +43,7 @@
       "reportNumber" : 132,
       "reportDateAndTime" : "2015-09-18T12:00:00Z"
     },
-    "tradeDate" : "2015-09-22T16:40:36.51Z",
+    "tradeDate" : "2015-09-22",
     "clearingMemberIdentification" : {
       "id" : 123456,
       "category" : 2

@@ -33,7 +33,8 @@
       "description" : "Provides details about the collateral transfer status",
       "items" : {
         "$ref" : "../../objects/business/CollateralStatusItem.json"
-      }
+      },
+      "maxItems" : 60
     },
     "collateralTransferInstructionStatus" : {
       "$ref" : "../../objects/business/CollateralStatus.json",

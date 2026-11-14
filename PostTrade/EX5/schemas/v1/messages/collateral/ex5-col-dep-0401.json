@@ -38,13 +38,14 @@
       "description": "Details the response to collateral deposit",
       "items": {
         "$ref": "../../objects/business/CollateralDepositResponse.json"
-      }
+      },
+      "minItems": 1,
+      "maxItems": 60
     }
   },
   "required": [
     "transactionIdentification",
     "clearingMemberIdentification",
-    "participantIdentification",
     "depositResponse",
     "valuationDate"
   ],
@@ -161,7 +162,6 @@
           "investmentFund": [
             {
               "collateralIdentification": "FUND-001",
-              "assetNumber": "2015000000350",
               "executedMovementType": 1,
               "quantity": 1000,
               "collateralValue": {
@@ -185,6 +185,37 @@
               }
             ]
           }
+        }
+      ]
+    },
+    {
+      "transactionIdentification": "COLL-CMD-11683",
+      "clearingMemberIdentification": {
+        "id": 123456,
+        "category": 2
+      },
+      "valuationDate": "2024-01-15",
+      "depositResponse": [
+        {
+          "collateralProposalIdentification": "TRF-REF-002",
+          "cashCollateral": [
+            {
+              "collateralIdentification": "1",
+              "assetNumber": "BRL",
+              "operationValue": {
+                "amount": 25000.00,
+                "currency": "BRL"
+              },
+              "collateralValue": {
+                "amount": 25000.00,
+                "currency": "BRL"
+              },
+              "statusInformation": {
+                "statusCode": 9,
+                "errorIdentification": []
+              }
+            }
+          ]
         }
       ]
     }

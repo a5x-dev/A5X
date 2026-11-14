@@ -17,12 +17,12 @@
       "$ref" : "../../objects/business/PartyId.json",
       "description" : "Provides details about the clearing member identification"
     },
-    "UmbrellaCollateralDetails" : {
+    "umbrellaCollateralDetails" : {
       "$ref" : "../../objects/business/UmbrellaDistributionDetails.json",
       "description" : "Provides details about the umbrella type distribution."
     }
   },
-  "required" : [ "transactionIdentification", "clearingMemberIdentification", "UmbrellaCollateralDetails" ],
+  "required" : [ "transactionIdentification", "clearingMemberIdentification", "umbrellaCollateralDetails" ],
   "additionalProperties" : false,
   "examples" : [ {
     "transactionIdentification" : "UMB-DIST-164-001",
@@ -30,7 +30,7 @@
       "id" : 123456,
       "category" : 2
     },
-    "UmbrellaCollateralDetails" : {
+    "umbrellaCollateralDetails" : {
       "assetNumber" : "ASSET-001",
       "securitiesCollateral" : [ {
         "participantIdentification" : {
@@ -50,7 +50,7 @@
       "id" : 123456,
       "category" : 2
     },
-    "UmbrellaCollateralDetails" : {
+    "umbrellaCollateralDetails" : {
       "assetNumber" : "ASSET-001",
       "cashCollateral" : [ {
         "participantIdentification" : {
@@ -73,7 +73,7 @@
       "id" : 123456,
       "category" : 2
     },
-    "UmbrellaCollateralDetails" : {
+    "umbrellaCollateralDetails" : {
       "assetNumber" : "ASSET-001",
       "federalBonds" : [ {
         "participantIdentification" : {

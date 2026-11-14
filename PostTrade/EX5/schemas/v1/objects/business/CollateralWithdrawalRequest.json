@@ -43,7 +43,7 @@
             }
           }
         }, {
-          "required" : [ "collateralIdentification", "assetNumber", "operationValue", "executedMovementType" ]
+          "required" : [ "collateralIdentification", "assetNumber", "operationValue" ]
         } ]
       },
       "minItems" : 1,

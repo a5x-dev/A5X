@@ -57,7 +57,7 @@
         "totalLiability": 500000.00,
         "initialMargin": 100000.25,
         "contingentVariationMargin": 75000.50,
-        "netLiquidatingValue": 200000.75,
+        "netLiquidityValue": 200000.75,
         "netCollateral": 180000.00,
         "liquidityConcentrationRiskMargin": 50000.00,
         "wrongWayRiskMargin": 25000.25,

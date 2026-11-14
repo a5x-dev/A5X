@@ -27,9 +27,9 @@
     },
     "centralDepositoryOperationNumber" : {
       "type" : "string",
-      "maxLength" : 5,
+      "pattern" : "^[0-9]{1,9}$",
       "description" : "Provides the movement number of custody system",
-      "examples" : [ "12345", "MOV01", "OP123" ]
+      "examples" : [ "12345", "1", "123456789" ]
     }
   },
   "required" : [ "collateralReference", "custodianInformation", "subAccountDestination", "centralDepositoryOperationNumber" ],
@@ -47,6 +47,6 @@
       "subAccount" : "001"
     },
     "subAccountDestination" : "SUB01",
-    "centralDepositoryOperationNumber" : "MOV01"
+    "centralDepositoryOperationNumber" : "12345"
   } ]
 }

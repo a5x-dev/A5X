@@ -67,7 +67,7 @@
     "currency" : "BRL",
     "triggerResult" : {
       "marginRunId" : "MR-20251003-001",
-      "timeStamp" : "2025-10-03T12:00:00Z",
+      "timestamp" : "2025-10-03T12:00:00Z",
       "calculationType" : "HF"
     },
     "participantIdentification" : {

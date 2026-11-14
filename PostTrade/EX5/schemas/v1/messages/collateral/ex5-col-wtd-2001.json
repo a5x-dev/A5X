@@ -30,7 +30,7 @@
       "description" : "Unique identifier for a collateral proposal assigned by the A5X"
     }
   },
-  "required" : [ "transactionIdentification", "clearingMemberIdentification", "participantIdentification"],
+  "required" : [ "transactionIdentification", "clearingMemberIdentification" ],
   "additionalProperties" : false,
   "examples" : [ {
     "transactionIdentification" : "COLL-STA-11682",
@@ -55,7 +55,7 @@
             "currency": "BRL",
             "amount": 100000.00
           },
-          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
+          "statusInformation": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
         }
       ],
       "cashCollateral": [
@@ -69,7 +69,7 @@
             "currency": "BRL",
             "amount": 100000.00
           },
-          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
+          "statusInformation": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
         }
       ],
       "federalBondsResponse": [
@@ -83,7 +83,7 @@
           "selicOperationCode": "65499",
           "assignerAccount": "ASSIGNER-ACC-001",
           "assigneeAccount": "ASSIGNEE-ACC-001",
-          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
+          "statusInformation": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
         }
       ],
       "collateralSubstitutionStatus": {
@@ -107,7 +107,7 @@
             "currency": "BRL",
             "amount": 23750.00
           },
-          "collateralStatus": { "statusCode": 9, "errorIdentification": [] }
+          "statusInformation": { "statusCode": 9, "errorIdentification": [] }
         }
       ],
       "externalSecuritiesResponse": [
@@ -118,7 +118,30 @@
             "currency": "BRL",
             "amount": 100000.00
           },
-          "collateralStatus": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
+          "statusInformation": { "statusCode": 1, "errorIdentification": [{ "code": "TEC00000", "message": "Error X", "errorDescription": "COD12452", "referenceIdentification": "REF12345" }] }
+        }
+      ]
+    }
+  }, {
+    "transactionIdentification" : "COLL-STA-11683",
+    "clearingMemberIdentification" : {
+      "id" : 123456,
+      "category" : 2
+    },
+    "withdrawalResponse" : {
+      "collateralWithdrawalIdentification": "TRF-REF-002",
+      "cashCollateral": [
+        {
+          "collateralIdentification": "1",
+          "operationValue": {
+            "currency": "BRL",
+            "amount": 25000.00
+          },
+          "collateralValue": {
+            "currency": "BRL",
+            "amount": 25000.00
+          },
+          "statusInformation": { "statusCode": 9, "errorIdentification": [] }
         }
       ]
     }

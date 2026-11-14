@@ -6,7 +6,7 @@
     "schemaId" : "urn:a5x:ex5:schema:v1:business:UmbrellaFederalCollateral"
   },
   "title" : "Umbrella Other Collateral",
-  "description" : "Other collateral item for umbrella type distribution with optional quantity, value and account",
+  "description" : "Other collateral item for umbrella type distribution with required quantity and optional account",
   "type" : "object",
   "properties" : {
     "participantIdentification" : {
@@ -28,7 +28,7 @@
       "description" : "Provides details about the account identification"
     }
   },
-  "required" : [ "participantIdentification", "collateralIdentification" ],
+  "required" : [ "participantIdentification", "collateralIdentification", "quantity" ],
   "additionalProperties" : true,
   "examples" : [ {
     "participantIdentification" : {

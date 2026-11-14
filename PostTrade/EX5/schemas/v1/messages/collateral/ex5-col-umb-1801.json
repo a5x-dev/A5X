@@ -26,7 +26,8 @@
       "description": "Provides details about the umbrella type distribution.",
       "items": {
         "$ref": "../../objects/business/CollateralStatusItem.json"
-      }
+      },
+      "maxItems": 60
     },
     "collateralUmbrellaStatus": {
       "$ref": "../../objects/business/CollateralStatus.json",

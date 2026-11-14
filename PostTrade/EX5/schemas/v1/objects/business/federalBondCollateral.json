@@ -26,32 +26,36 @@
     "selicCode" : {
       "type" : "string",
       "maxLength" : 50,
+      "minLength" : 1,
       "description" : "Collateral code identification"
     },
-    "SELICOperationCode" : {
+    "selicOperationCode" : {
       "type" : "string",
       "maxLength" : 6,
+      "minLength" : 1,
       "description" : "Identification assigned to a SELIC Security"
     },
     "assignerAccount" : {
       "type" : "string",
       "maxLength" : 35,
+      "minLength" : 1,
       "description" : "Provides assigner account identification"
     },
     "assigneeAccount" : {
       "type" : "string",
       "maxLength" : 35,
+      "minLength" : 1,
       "description" : "Provides the assignee account identification"
     }
   },
-  "required" : [ "collateralIdentification", "quantity", "maturityDate", "selicCode", "SELICOperationCode", "assignerAccount", "assigneeAccount" ],
+  "required" : [ "collateralIdentification", "quantity", "maturityDate", "selicCode", "selicOperationCode", "assignerAccount", "assigneeAccount" ],
   "additionalProperties" : false,
   "examples" : [ {
     "collateralIdentification" : "OTHER-001",
     "quantity" : 250,
     "maturityDate" : "2025-12-31",
     "selicCode" : "COMMODITY-001",
-    "SELICOperationCode" : "65499",
+    "selicOperationCode" : "65499",
     "assignerAccount" : "ASSIGNOR-001",
     "assigneeAccount" : "ASSIGNEE-001"
   } ]

@@ -74,7 +74,6 @@
       "maxItems" : 60
     }
   },
-  "required" : [ "positionTransferReference" ],
   "anyOf" : [ {
     "required" : [ "securitiesCollateral" ]
   }, {

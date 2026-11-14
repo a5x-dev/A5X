@@ -52,7 +52,7 @@
       "currency" : "BRL",
       "triggerResult" : {
         "marginRunId" : "MR-20251003-001",
-        "timeStamp" : "2025-10-03T12:00:00Z",
+        "timestamp" : "2025-10-03T12:00:00Z",
         "calculationType" : "HF"
       },
       "clearingMemberIdentification" : {
@@ -71,7 +71,7 @@
         "totalMargin" : 50000.00,
         "initialMargin" : 50000.00,
         "contingentVariationMargin" : 50000.00,
-        "netLiquidatingValue" : 50000.00,
+        "netLiquidityValue" : 50000.00,
         "liquidityConcentrationRiskMargin" : 50000.00,
         "wrongWayRiskMargin" : 50000.00,
         "stressTestLoss" : 50000.00,

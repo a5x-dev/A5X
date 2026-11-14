@@ -23,12 +23,12 @@
       "$ref" : "../../objects/business/MonetaryValue.json",
       "description" : "Collateral value in active currency"
     },
-    "collateralStatus" : {
+    "statusInformation" : {
       "$ref" : "../../objects/business/CollateralStatus.json",
       "description" : "This block contains information on the status of each collateral processing"
     }
   },
-  "required" : [ "collateralIdentification", "quantity", "collateralValue", "collateralStatus" ],
+  "required" : [ "collateralIdentification", "quantity", "collateralValue", "statusInformation" ],
   "additionalProperties" : false,
   "examples" : [ {
     "collateralIdentification" : "CASH-REF-001",
@@ -37,7 +37,7 @@
       "currency" : "BRL",
       "amount" : 100000.00
     },
-    "collateralStatus" : {
+    "statusInformation" : {
       "statusCode" : 1,
       "errorIdentification" : [ {
         "code" : "TEC00000",

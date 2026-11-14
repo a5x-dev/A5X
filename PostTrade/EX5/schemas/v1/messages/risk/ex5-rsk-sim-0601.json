@@ -27,6 +27,8 @@
     },
     "riskSimulationId" : {
       "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 30,
       "description" : "ID sent by A5X regarding the Simulation Request"
     }
   },

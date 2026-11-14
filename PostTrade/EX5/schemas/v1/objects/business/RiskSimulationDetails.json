@@ -11,12 +11,15 @@
   "properties" : {
     "riskSimulationId" : {
       "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 30,
       "description" : "ID sent by A5X regarding the Simulation Request"
     },
     "timestamp" : {
       "type" : "string",
       "format" : "date-time",
-      "description" : "Timestamp of the risk simulation result"
+      "description" : "Date and time of the risk simulation result, as defined by RFC 3339, section 5.6, in UTC (for example, 2025-10-02T12:34:56Z).",
+      "examples" : [ "2025-10-02T12:34:56Z" ]
     },
     "totalLiability" : {
       "$ref" : "../../types/SignedDecimalNumber.json",
@@ -30,7 +33,7 @@
       "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Contingent variation margin value at account level"
     },
-    "netLiquidatingValue" : {
+    "netLiquidityValue" : {
       "$ref" : "../../types/SignedDecimalNumber.json",
       "description" : "Net liquidity value at account level"
     },
@@ -48,10 +51,12 @@
     },
     "systemStatusMessage" : {
       "type" : "string",
+      "maxLength" : 200,
       "description" : "System status message regarding the simulation result"
     },
     "userComment" : {
       "type" : "string",
+      "maxLength" : 100,
       "description" : "Free text wrote by the requestor"
     }
   },
@@ -60,7 +65,7 @@
     "timestamp",
     "initialMargin",
     "contingentVariationMargin",
-    "netLiquidatingValue",
+    "netLiquidityValue",
     "netCollateral",
     "liquidityConcentrationRiskMargin",
     "wrongWayRiskMargin"
@@ -73,7 +78,7 @@
       "totalLiability" : 500000.00,
       "initialMargin" : 100000.25,
       "contingentVariationMargin" : 75000.50,
-      "netLiquidatingValue" : 200000.75,
+      "netLiquidityValue" : 200000.75,
       "netCollateral" : 180000.00,
       "liquidityConcentrationRiskMargin" : 50000.00,
       "wrongWayRiskMargin" : 25000.25,

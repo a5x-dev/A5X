@@ -33,21 +33,23 @@
     "assignerAccount" : {
       "type" : "string",
       "maxLength" : 35,
+      "minLength" : 1,
       "description" : "Provides assigner account identification",
       "examples" : [ "ASSIGNER-ACC-001", "ACC123456789" ]
     },
     "assigneeAccount" : {
       "type" : "string",
       "maxLength" : 35,
+      "minLength" : 1,
       "description" : "Provides identification about assignee account",
       "examples" : [ "ASSIGNEE-ACC-001", "ACC987654321" ]
     },
-    "collateralStatus" : {
+    "statusInformation" : {
       "$ref" : "../../objects/business/CollateralStatus.json",
       "description" : "This block contains information on the status of each collateral processing"
     }
   },
-  "required" : [ "collateralIdentification", "quantity", "collateralValue", "collateralStatus" ],
+  "required" : [ "collateralIdentification", "quantity", "collateralValue", "statusInformation" ],
   "additionalProperties" : false,
   "examples" : [ {
     "collateralIdentification" : "CASH-REF-001",
@@ -59,7 +61,7 @@
     "selicOperationCode" : "65499",
     "assignerAccount" : "ASSIGNER-ACC-001",
     "assigneeAccount" : "ASSIGNEE-ACC-001",
-    "collateralStatus" : {
+    "statusInformation" : {
       "statusCode" : 1,
       "errorIdentification" : [ {
         "code" : "TEC00000",

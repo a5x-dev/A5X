@@ -15,9 +15,11 @@
       "maxLength" : 35,
       "description" : "Run ID of the margin calculation instance."
     },
-    "timeStamp" : {
-      "$ref" : "../../types/ISODateTime.json",
-      "description" : "Time and Date when the calculation occurred, in YYYY-MM-DD HH:MM:SS format."
+    "timestamp" : {
+      "type" : "string",
+      "format" : "date-time",
+      "description" : "Date and time when the calculation occurred, as defined by RFC 3339, section 5.6, in UTC (for example, 2026-11-11T13:00:00Z).",
+      "examples" : [ "2026-11-11T13:00:00Z" ]
     },
     "calculationType" : {
       "$ref" : "../../objects/business/ExternalCodeTextList.json",
@@ -25,11 +27,11 @@
       "$comment" : "Consult External Code List table ExternalCalculationTypeCode"
     }
   },
-  "required" : [ "marginRunId", "timeStamp", "calculationType" ],
+  "required" : [ "marginRunId", "timestamp", "calculationType" ],
   "additionalProperties" : false,
   "examples" : [ {
     "marginRunId" : "MR-20251003-001",
-    "timeStamp" : "2017-07-21T17:32:28Z",
+    "timestamp" : "2017-07-21T17:32:28Z",
     "calculationType" : "HF"
   } ]
 }

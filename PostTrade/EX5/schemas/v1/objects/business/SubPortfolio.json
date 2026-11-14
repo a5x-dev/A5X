@@ -21,7 +21,9 @@
     },
     "holdingPeriod" : {
       "type" : "integer",
-      "description" : "Holding Period of the sub-portfolio"
+      "minimum" : 1,
+      "maximum" : 99,
+      "description" : "Holding Period of the sub-portfolio, from 1 to 99"
     },
     "finalInitialMargin" : {
       "$ref" : "../../types/SignedDecimalNumber.json",

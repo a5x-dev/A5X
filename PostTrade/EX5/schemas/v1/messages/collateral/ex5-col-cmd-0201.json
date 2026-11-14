@@ -26,7 +26,8 @@
       "items" : {
         "$ref" : "../../objects/business/CollateralDistributionStatusItem.json"
       },
-      "minItems" : 0
+      "minItems" : 0,
+      "maxItems" : 60
     },
     "collateralCommandDistributionInstructionStatus" : {
       "$ref" : "../../objects/business/CollateralStatus.json",

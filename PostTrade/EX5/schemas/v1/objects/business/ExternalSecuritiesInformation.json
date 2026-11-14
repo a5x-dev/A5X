@@ -32,9 +32,11 @@
       "examples" : [ 1, 2, 3 ]
     },
     "accountCentralDepository" : {
-      "type" : "integer",
-      "description" : "Account in DTC / Euroclear",
-      "examples" : [ 123456, 987654, 555000 ]
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 35,
+      "description" : "Account in DTC / Euroclear. Text to preserve leading zeros",
+      "examples" : [ "123456", "00987654", "555000" ]
     },
     "fedAccount" : {
       "type" : "string",
@@ -56,7 +58,7 @@
     "issueDate" : "2024-01-15",
     "maturityDate" : "2026-01-15",
     "depository" : 2,
-    "accountCentralDepository" : 987654,
+    "accountCentralDepository" : "00987654",
     "fedAccount" : "026009593",
     "accountNameSpecialInstructions" : "SI-ACCOUNT"
   } ]

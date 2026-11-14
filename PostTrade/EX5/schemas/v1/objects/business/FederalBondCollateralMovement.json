@@ -23,12 +23,14 @@
     "assignerAccount" : {
       "type" : "string",
       "maxLength" : 35,
+      "minLength" : 1,
       "description" : "Provides assigner account identification",
       "examples" : [ "ASSIGNER-ACC-001", "ACC123456789" ]
     },
     "assigneeAccount" : {
       "type" : "string",
       "maxLength" : 35,
+      "minLength" : 1,
       "description" : "Provides identification about assignee account",
       "examples" : [ "ASSIGNEE-ACC-001", "ACC987654321" ]
     }

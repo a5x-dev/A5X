@@ -14,8 +14,8 @@
       "description" : "Provides the parameters of the report."
     },
     "tradeDate" : {
-      "$ref" : "../../types/ISODateTime.json",
-      "description" : "Provides date and time the movement of collateral"
+      "$ref" : "../../types/ISODate.json",
+      "description" : "Provides the trade date (YYYY-MM-DD)"
     },
     "informationType" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
@@ -47,7 +47,7 @@
       "reportNumber" : 132,
       "reportDateAndTime" : "2024-06-15T16:40:36.51Z"
     },
-    "tradeDate" : "2024-06-15T16:40:36.51Z",
+    "tradeDate" : "2024-06-15",
     "informationType" : 2,
     "clearingMemberIdentification" : {
       "id" : 123456,

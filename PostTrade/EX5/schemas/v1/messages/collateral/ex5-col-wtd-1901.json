@@ -30,7 +30,7 @@
       "description" : "Indicates the deposit date. Indica a data de depósito de garantias",
       "examples" : [ "2024-01-15", "2024-12-31" ]
     },
-    "WithdrawalRequest" : {
+    "withdrawalRequest" : {
       "type" : "array",
       "description" : "Provides response details for each of the proposed collateral pieces",
       "items" : {
@@ -38,7 +38,7 @@
       }
     }
   },
-  "required" : [ "transactionIdentification", "clearingMemberIdentification", "WithdrawalRequest", "valuationDate" ],
+  "required" : [ "transactionIdentification", "clearingMemberIdentification", "withdrawalRequest", "valuationDate" ],
   "additionalProperties" : false,
   "examples" : [ {
     "transactionIdentification" : "COLL-UMB-11682",
@@ -54,7 +54,7 @@
       "id" : 123456789
     },
     "valuationDate" : "2024-01-15",
-    "WithdrawalRequest" : [ {
+    "withdrawalRequest" : [ {
       "collateralIdentification" : "TRF-REF-004",
       "securitiesCollateral" : [ {
         "collateralIdentification" : "1",
@@ -95,9 +95,9 @@
         "maturityDate" : "2026-01-15",
         "destinationDepository" : 2,
         "originDepository" : 1,
-        "BICCode" : "BANKUS33XXX",
+        "bicCode" : "BANKUS33XXX",
         "accountCentralDepository" : "123456",
-        "FEDAccount" : "021000021",
+        "fedAccount" : "021000021",
         "accountNameSpecialInstructions" : "SPECIAL-INST-001",
         "subAccountIdentification" : "SUB-ACC-001"
       } ],

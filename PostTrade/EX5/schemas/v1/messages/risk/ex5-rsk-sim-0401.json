@@ -35,8 +35,9 @@
       "type" : "boolean",
       "description" : "Indicates if the full collateral positions should be considered for the simulation"
     },
-    "userComentary" : {
+    "userComment" : {
       "type" : "string",
+      "maxLength" : 100,
       "description" : "Free text field for user comments related to the simulation request"
     },
     "simulationPosition" : {
@@ -74,7 +75,7 @@
     "marginRunId" : "MRUN-20260422-001",
     "portfolioPositions" : false,
     "collateralPositions" : false,
-    "userComentary" : "Result under base scenario; revise foreign exchange exposure",
+    "userComment" : "Result under base scenario; revise foreign exchange exposure",
     "simulationPosition" : [ {
       "tickerSymbol" : "ABCDEFG",
       "strategyStatus" : 1,

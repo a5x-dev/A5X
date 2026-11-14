@@ -45,11 +45,11 @@
     "externalSecuritiesResponse": {
       "type": "array",
       "items": {
-        "$ref": "../../objects/business/FederalBondsResponse.json",
-        "description": "Provides details on External securities collateral proposal",
-        "minItems": 1,
-        "maxItems": 60
-      }
+        "$ref": "../../objects/business/FederalBondsResponse.json"
+      },
+      "description": "Provides details on External securities collateral proposal",
+      "minItems": 1,
+      "maxItems": 60
     },
     "investmentFund": {
       "type": "array",
@@ -195,7 +195,6 @@
       "investmentFund": [
         {
           "collateralIdentification": "FUND-001",
-          "assetNumber": "2015000000350",
           "executedMovementType": 1,
           "quantity": 1000,
           "collateralValue": {
