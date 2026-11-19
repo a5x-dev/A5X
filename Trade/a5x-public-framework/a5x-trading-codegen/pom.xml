@@ -6,4 +6,25 @@
     <version>2.0.0</version>
   </parent>
   <artifactId>a5x-trading-codegen</artifactId>
+
+  <build>
+    <plugins>
+      <!--
+        The generator uses only the JDK, so the jar runs on its own with java -jar
+        (see "Running the generator as a jar" in the README).
+      -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.4.1</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>br.com.a5x.trd.codegen.A5XCodeGenApp</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

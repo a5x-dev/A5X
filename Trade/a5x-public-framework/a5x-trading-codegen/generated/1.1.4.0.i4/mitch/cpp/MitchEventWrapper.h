@@ -79,7 +79,7 @@ public:
         eventType = static_cast<char>(data[offset]);
         offset += 1;
 
-        switch (eventType) {
+        switch (static_cast<uint8_t>(eventType)) {
             case 0x54:
                 MitchTime::parse(&time, data + offset);
                 break;
@@ -165,7 +165,7 @@ public:
                 MitchSnapshotComplete::parse(&snapshotComplete, data + offset);
                 break;
             default:
-                std::cout << "Unknown message type: " << eventType << " (0x" << std::hex << (int)eventType << "), length: " << msgLength << std::endl;
+                std::cout << "Unknown message type: " << eventType << " (0x" << std::hex << (int)static_cast<uint8_t>(eventType) << "), length: " << msgLength << std::endl;
                 break;
         }
     }

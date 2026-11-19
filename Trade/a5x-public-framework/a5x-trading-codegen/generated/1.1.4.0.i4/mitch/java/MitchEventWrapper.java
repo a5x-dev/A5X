@@ -52,7 +52,7 @@ public class MitchEventWrapper {
 			return;
 		}
 		
-		eventType = (char)pData.get();
+		eventType = (char) Byte.toUnsignedInt(pData.get());
 		
 		switch (eventType) {
 		case (char)0x54: {

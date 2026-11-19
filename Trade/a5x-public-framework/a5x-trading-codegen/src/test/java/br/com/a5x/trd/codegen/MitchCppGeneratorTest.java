@@ -117,4 +117,20 @@ class MitchCppGeneratorTest {
         assertTrue(content.contains("#include <cstdint>"));
         assertTrue(content.contains("#include <cstring>"));
     }
+
+    /** Message types 0x81-0x83 (Snapshot) are above the signed char range. */
+    @Test
+    void testWrapperDispatchesOnUnsignedMessageType() throws Exception {
+        br.com.a5x.trd.codegen.mitch.MitchWrapperGenerator wrapper = new br.com.a5x.trd.codegen.mitch.MitchWrapperGenerator();
+        wrapper.generateCpp(messages, tempDir.getAbsolutePath());
+        wrapper.generate(messages, tempDir.getAbsolutePath());
+
+        String cpp = Files.readString(new File(tempDir, "MitchEventWrapper.h").toPath());
+        assertTrue(cpp.contains("switch (static_cast<uint8_t>(eventType))"));
+        assertTrue(cpp.contains("case 0x81:"));
+
+        String java = Files.readString(new File(tempDir, "MitchEventWrapper.java").toPath());
+        assertTrue(java.contains("eventType = (char) Byte.toUnsignedInt(pData.get());"));
+        assertFalse(java.contains("eventType = (char)pData.get();"));
+    }
 }

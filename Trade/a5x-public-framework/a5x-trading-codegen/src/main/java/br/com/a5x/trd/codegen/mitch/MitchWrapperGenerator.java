@@ -58,7 +58,9 @@ public class MitchWrapperGenerator {
         sb.append("\t\t\treturn;\n");
         sb.append("\t\t}\n");
         sb.append("\t\t\n");
-        sb.append("\t\teventType = (char)pData.get();\n");
+        // The message type is an unsigned byte: (char) of a negative byte gives 0xFF81
+        // for 0x81, and the Snapshot messages (0x81-0x83) would never match their case.
+        sb.append("\t\teventType = (char) Byte.toUnsignedInt(pData.get());\n");
         sb.append("\t\t\n");
         sb.append("\t\tswitch (eventType) {\n");
         
@@ -185,7 +187,8 @@ public class MitchWrapperGenerator {
         sb.append("        if (msgLength == 0) return;\n\n");
         sb.append("        eventType = static_cast<char>(data[offset]);\n");
         sb.append("        offset += 1;\n\n");
-        sb.append("        switch (eventType) {\n");
+        // char is signed on most platforms: switch on the unsigned value so 0x81-0x83 match.
+        sb.append("        switch (static_cast<uint8_t>(eventType)) {\n");
         
         for (MessageDefinition msg : messages) {
             String varName = toVariableName(msg.getName());
@@ -195,7 +198,7 @@ public class MitchWrapperGenerator {
         }
         
         sb.append("            default:\n");
-        sb.append("                std::cout << \"Unknown message type: \" << eventType << \" (0x\" << std::hex << (int)eventType << \"), length: \" << msgLength << std::endl;\n");
+        sb.append("                std::cout << \"Unknown message type: \" << eventType << \" (0x\" << std::hex << (int)static_cast<uint8_t>(eventType) << \"), length: \" << msgLength << std::endl;\n");
         sb.append("                break;\n");
         sb.append("        }\n");
         sb.append("    }\n");

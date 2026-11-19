@@ -78,4 +78,35 @@ class MitchEventWrapperTest {
 		assertEquals(5000, wrapper.addOrder.nanosecond);
 		assertEquals(123456L, wrapper.addOrder.orderId);
 	}
+
+	/**
+	 * The Snapshot messages have types 0x81-0x83, above the signed byte range: the wrapper
+	 * must read the type as unsigned, or they fall to the default case.
+	 */
+	@Test
+	void testParseSnapshotMessagesAbove0x80() {
+		assertSnapshot((byte) 0x81, 1001L);
+		assertSnapshot((byte) 0x82, 1002L);
+		assertSnapshot((byte) 0x83, 1003L);
+	}
+
+	private static void assertSnapshot(byte type, long sequenceNumber) {
+		ByteBuffer buffer = ByteBuffer.allocate(64).order(ByteOrder.LITTLE_ENDIAN);
+		buffer.putShort((short) 64);
+		buffer.put(type);
+		buffer.putLong(sequenceNumber);
+		buffer.rewind();
+
+		MitchEventWrapper wrapper = new MitchEventWrapper();
+		wrapper.parse(buffer);
+
+		assertEquals((char) Byte.toUnsignedInt(type), wrapper.eventType);
+		long parsed = switch (Byte.toUnsignedInt(type)) {
+			case 0x81 -> wrapper.snapshotRequest.sequenceNumber;
+			case 0x82 -> wrapper.snapshotResponse.sequenceNumber;
+			default -> wrapper.snapshotComplete.sequenceNumber;
+		};
+		assertEquals(sequenceNumber, parsed, String.format("type 0x%02X was not dispatched", type));
+		assertEquals(64, buffer.position(), "the wrapper moves to the end of the message");
+	}
 }

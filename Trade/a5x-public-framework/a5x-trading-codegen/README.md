@@ -30,26 +30,6 @@ identical to one of the `spec/` directories. Use the New Release SDK to prepare 
 version: the classes have the same names and methods, and the fields of that version (new
 fields, renamed ones and changed types are listed in [`spec/README.md`](spec/README.md)).
 
-> **Running the commands on Windows.** The examples are written for bash (Linux, macOS, Git
-> Bash). In PowerShell use `..\mvnw.cmd`, write the command on one line (or end lines with a
-> backtick instead of `\`) and quote every `-D` argument as a whole, otherwise PowerShell splits
-> it at the dot: `..\mvnw.cmd compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" "-Dexec.args=spec ./generated all"`.
-> In cmd, use `..\mvnw.cmd` and `^` to continue a line.
-
-To regenerate every version at once, pass the `spec` directory instead of a schema:
-
-```bash
-../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  "-Dexec.args=spec ./generated all"
-```
-
-A schema file also works, for one version and one protocol:
-
-```bash
-../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  "-Dexec.args=spec/1.1.4.0.i6/mitch-messages.xml ./out/mitch all"
-```
-
 ## Supported Protocols
 
 ### MITCH Protocol
@@ -58,54 +38,121 @@ Market data protocol with 30 message types for order book, trades, and market da
 ### Native Protocol
 Trading protocol with 24+ message types for order entry, execution reports, and quotes.
 
+The protocol of a schema comes from the namespace of its root element
+(`http://a5x.com.br/mitch` or `http://a5x.com.br/native`), so a schema file can have any name.
+The QuickFIX dictionaries (`fix-oe-messages.xml`, `fix-dc-messages.xml`) are not generated:
+the FIX engines load them as they are.
+
 ## Usage
+
+```text
+A5XCodeGenApp [--schema <schema>] [--lang <language>] [--out <outputDir>]
+
+  --schema, -s  a schema file, a classpath resource (/mitch-messages.xml, /native-messages.xml:
+                the current version) or the spec directory (every version)
+                default: /mitch-messages.xml
+  --lang, -l    java, csharp, cpp, wireshark or all          default: java
+  --out, -o     output directory                             default: ./generated
+```
+
+The options go in any order, `--lang=cpp` also works, and any of them can be left out. The
+positional form of the previous versions, `<schema> <outputDir> <language>`, is still accepted.
+
+### Running the generator as a jar
+
+The generator uses only the JDK (21 or later), so its jar runs on its own. Build it once, from
+`a5x-public-framework`:
+
+```bash
+./mvnw -pl a5x-trading-codegen package -DskipTests
+```
+
+and run it from anywhere, with a schema file of the version you need:
+
+```bash
+java -jar a5x-trading-codegen/target/a5x-trading-codegen-2.0.0.jar \
+  --schema a5x-trading-codegen/spec/1.1.4.0.i6/mitch-messages.xml --lang cpp --out ./sdk/mitch
+```
+
+The schemas of the current version are also inside the jar, as classpath resources:
+
+```bash
+java -jar a5x-trading-codegen-2.0.0.jar --schema /native-messages.xml --lang csharp
+```
+
+In Git Bash on Windows, run `export MSYS_NO_PATHCONV=1` first: otherwise the shell turns
+`/native-messages.xml` into a path under the Git installation directory.
+
+### Running the generator with Maven
+
+From `a5x-trading-codegen`. To regenerate every version at once, pass the `spec` directory
+instead of a schema:
+
+```bash
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=--schema spec --lang all --out ./generated"
+```
+
+A schema file also works, for one version and one protocol:
+
+```bash
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=--schema spec/1.1.4.0.i6/mitch-messages.xml --lang all --out ./out/mitch"
+```
+
+> **Running the commands on Windows.** The examples are written for bash (Linux, macOS, Git
+> Bash). In PowerShell use `..\mvnw.cmd`, write the command on one line (or end lines with a
+> backtick instead of `\`) and quote every `-D` argument as a whole, otherwise PowerShell splits
+> it at the dot: `..\mvnw.cmd compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" "-Dexec.args=--schema spec --lang all"`.
+> In cmd, use `..\mvnw.cmd` and `^` to continue a line. The `java -jar` commands work the same
+> way in every shell.
 
 ### MITCH Protocol
 
 ```bash
 # Generate Java
-../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  "-Dexec.args=/mitch-messages.xml ./generated java"
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=--schema /mitch-messages.xml --lang java"
 
 # Generate C#
-../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  "-Dexec.args=/mitch-messages.xml ./generated csharp"
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=--schema /mitch-messages.xml --lang csharp"
 
 # Generate C++
-../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  "-Dexec.args=/mitch-messages.xml ./generated cpp"
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=--schema /mitch-messages.xml --lang cpp"
 
 # Generate Wireshark dissector
-../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  "-Dexec.args=/mitch-messages.xml ./generated wireshark"
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=--schema /mitch-messages.xml --lang wireshark"
 
 # Generate all languages
-../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  "-Dexec.args=/mitch-messages.xml ./generated all"
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=--schema /mitch-messages.xml --lang all"
 ```
 
 ### Native Protocol
 
 ```bash
 # Generate Java
-../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  "-Dexec.args=/native-messages.xml ./generated java"
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=--schema /native-messages.xml --lang java"
 
 # Generate C#
-../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  "-Dexec.args=/native-messages.xml ./generated csharp"
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=--schema /native-messages.xml --lang csharp"
 
 # Generate C++
-../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  "-Dexec.args=/native-messages.xml ./generated cpp"
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=--schema /native-messages.xml --lang cpp"
 
 # Generate Wireshark dissector
-../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  "-Dexec.args=/native-messages.xml ./generated wireshark"
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=--schema /native-messages.xml --lang wireshark"
 
 # Generate all languages
-../mvnw exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
-  "-Dexec.args=/native-messages.xml ./generated all"
+../mvnw compile exec:java "-Dexec.mainClass=br.com.a5x.trd.codegen.A5XCodeGenApp" \
+  "-Dexec.args=--schema /native-messages.xml --lang all"
 ```
 
 ## Data Types

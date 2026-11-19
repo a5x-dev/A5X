@@ -177,7 +177,7 @@ public class MitchCodeGenerator {
             case "price8": return field.isSignMagnitude()
                     ? "BitUtils.byteArrayToSignMagnitude64(pData, false)"
                     : "BitUtils.byteArrayToInt64(pData, false)";
-            case "char": return "(char) pData.get()";
+            case "char": return "(char) Byte.toUnsignedInt(pData.get())";
             case "byte": return "pData.get()";
             case "bitfield": return "pData.get()";
             case "bytearray": 
