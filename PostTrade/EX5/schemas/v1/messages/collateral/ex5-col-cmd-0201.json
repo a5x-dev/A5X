@@ -1,9 +1,9 @@
 ﻿{
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-cmd-02",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-cmd-0201",
   "$metadata" : {
     "domain" : "collateral",
-    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-cmd-02"
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-cmd-0201"
   },
   "title" : "Collateral Command Distribution Status",
   "description" : "Status message for collateral command distribution operations",

@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-02",
+  "$id": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-0201",
   "$metadata": {
     "domain": "professional_management",
-    "schemaId": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-02"
+    "schemaId": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-0201"
   },
   "title": "Professional Mapping Search Message",
   "description": "Message for searching professional mappings. The return will be sent in the file response ex5f-reg-rpt-0401.jsonl.",

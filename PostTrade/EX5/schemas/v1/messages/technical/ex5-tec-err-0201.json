@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:technical:ex5-tec-err-02",
+  "$id": "urn:a5x:ex5:schema:v1:technical:ex5-tec-err-0201",
   "$metadata": {
     "domain": "technical",
-    "schemaId": "urn:a5x:ex5:schema:v1:technical:ex5-tec-err-02"
+    "schemaId": "urn:a5x:ex5:schema:v1:technical:ex5-tec-err-0201"
   },
   "title": "Technical Error Response",
   "description": "Response message for technical and business error",

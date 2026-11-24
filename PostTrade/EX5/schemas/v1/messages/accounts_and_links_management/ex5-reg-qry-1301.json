@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-qry-13",
+  "$id": "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-qry-1301",
   "$metadata": {
     "domain": "accounts_and_links_management",
-    "schemaId": "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-qry-13"
+    "schemaId": "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-qry-1301"
   },
   "title": "Account search Message",
   "description": "Search for multiple accounts with optional filtering criteria",

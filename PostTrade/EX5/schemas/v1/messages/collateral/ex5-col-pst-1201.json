@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-pst-12",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-pst-1201",
   "$metadata" : {
     "domain" : "collateral",
-    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-pst-12"
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-pst-1201"
   },
   "title" : "Posted Collateral Response",
   "description" : "Message for Posted Collateral Response information",

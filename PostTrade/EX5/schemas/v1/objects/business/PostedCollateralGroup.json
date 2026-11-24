@@ -13,7 +13,8 @@
       "$ref": "../../objects/business/PartyId.json"
     },
     "accountIdentificationRequester": {
-      "$ref": "../../objects/business/AccountIdentification.json"
+      "$ref": "../../objects/business/AccountIdentification.json",
+      "description": "Optional requester account identification (present only when the request carries a requester account)"
     },
     "participantIdentificationRequested": {
       "$ref": "../../objects/business/PartyId.json"
@@ -46,7 +47,6 @@
   },
   "required": [
     "participantIdentificationRequester",
-    "accountIdentificationRequester",
     "participantIdentificationRequested",
     "accountIdentificationRequested",
     "referenceDate",

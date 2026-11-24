@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:technical:ex5-tec-ntf-09",
+  "$id": "urn:a5x:ex5:schema:v1:technical:ex5-tec-ntf-0901",
   "$metadata": {
     "domain": "technical",
-    "schemaId": "urn:a5x:ex5:schema:v1:technical:ex5-tec-ntf-09"
+    "schemaId": "urn:a5x:ex5:schema:v1:technical:ex5-tec-ntf-0901"
   },
   "title": "Throttle Change Notification",
   "description": "Notification message sent to the participant when the Throttle parameters of one or more sessions are changed (immediately or scheduled), informing the previous and new inbound and outbound Throttle values per session.",

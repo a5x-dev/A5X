@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-dtl-01",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-dtl-0101",
   "$metadata" : {
     "domain" : "position",
-    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-dtl-01"
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-dtl-0101"
   },
   "title" : "Position Report Request",
   "description" : "Message for position Report Request",

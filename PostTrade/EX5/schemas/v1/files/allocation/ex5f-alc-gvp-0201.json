@@ -1,9 +1,9 @@
 ﻿{
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-gvp-02",
+  "$id": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-gvp-0201",
   "$metadata": {
     "domain": "allocation",
-    "schemaId": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-gvp-02"
+    "schemaId": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-gvp-0201"
   },
   "title": "GiveUpDetails",
   "description": "Give Up Details",

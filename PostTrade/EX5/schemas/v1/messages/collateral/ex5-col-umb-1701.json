@@ -1,9 +1,9 @@
 ﻿{
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-umb-17",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-umb-1701",
   "$metadata" : {
     "domain" : "collateral",
-    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-umb-17"
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-umb-1701"
   },
   "title" : "Collateral Umbrella Distribution Instruction",
   "description" : "Message for collateral umbrella distribution instruction",

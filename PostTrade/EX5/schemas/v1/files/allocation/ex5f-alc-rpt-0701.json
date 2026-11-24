@@ -1,9 +1,9 @@
 ﻿{
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-rpt-07",
+  "$id": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-rpt-0701",
   "$metadata": {
     "domain": "allocation",
-    "schemaId": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-rpt-07"
+    "schemaId": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-rpt-0701"
   },
   "title": "AveragePriceReport",
   "description": "Average Price Report",

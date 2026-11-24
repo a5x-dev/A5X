@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:register:ex5f-reg-rpt-01",
+  "$id": "urn:a5x:ex5:schema:v1:register:ex5f-reg-rpt-0101",
   "$metadata": {
     "domain": "register",
-    "schemaId": "urn:a5x:ex5:schema:v1:register:ex5f-reg-rpt-01"
+    "schemaId": "urn:a5x:ex5:schema:v1:register:ex5f-reg-rpt-0101"
   },
   "title": "Account Registration file return",
   "description": "File response for account query (ex5-reg-qry)",

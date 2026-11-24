@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-01",
+  "$id": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-0101",
   "$metadata": {
     "domain": "professional_management",
-    "schemaId": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-01"
+    "schemaId": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-qry-0101"
   },
   "title": "Professional Search Message",
   "description": "Message for searching financial market professionals. The return will be sent in the file response ex5f-reg-rpt-0301.jsonl.",

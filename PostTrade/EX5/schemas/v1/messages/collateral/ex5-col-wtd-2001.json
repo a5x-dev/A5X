@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-wtd-20",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-wtd-2001",
   "$metadata" : {
     "domain" : "collateral",
-    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-wtd-20"
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-wtd-2001"
   },
   "title" : "Collateral Withdrawal Status",
   "description" : "Collateral Withdrawal Status",

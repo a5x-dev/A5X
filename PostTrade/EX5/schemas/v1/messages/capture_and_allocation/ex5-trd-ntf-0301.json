@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-ntf-03",
+  "$id": "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-ntf-0301",
   "$metadata": {
     "domain": "capture_and_allocation",
-    "schemaId": "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-ntf-03"
+    "schemaId": "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-ntf-0301"
   },
   "title": "Trade Capture",
   "description": "Trade Capture",

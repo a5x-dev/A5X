@@ -1,9 +1,9 @@
 ﻿{
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:files:ex5f-fee-uni-04",
+  "$id": "urn:a5x:ex5:schema:v1:files:ex5f-fee-uni-0401",
   "$metadata": {
     "domain": "files",
-    "schemaId": "urn:a5x:ex5:schema:v1:files:ex5f-fee-uni-04"
+    "schemaId": "urn:a5x:ex5:schema:v1:files:ex5f-fee-uni-0401"
   },
   "title": "Fee Unit Cost File Schema",
   "description": "Schema for fee unit cost file containing unit cost details per investor",

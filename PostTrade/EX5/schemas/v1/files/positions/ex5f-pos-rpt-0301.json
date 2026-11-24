@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#", 
-  "$id" : "urn:a5x:ex5:schema:v1:positions:ex5f-pos-rpt-03",
+  "$id" : "urn:a5x:ex5:schema:v1:positions:ex5f-pos-rpt-0301",
   "$metadata" : {
     "domain" : "positions",
-    "schemaId" : "urn:a5x:ex5:schema:v1:positions:ex5f-pos-rpt-03"
+    "schemaId" : "urn:a5x:ex5:schema:v1:positions:ex5f-pos-rpt-0301"
   }, 
   "title" : "PositionDetails", 
   "description" : "Position Details", 

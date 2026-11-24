@@ -1,9 +1,9 @@
 ﻿{
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:collateral:ex5-col-dep-04",
+  "$id": "urn:a5x:ex5:schema:v1:collateral:ex5-col-dep-0401",
   "$metadata": {
     "domain": "collateral",
-    "schemaId": "urn:a5x:ex5:schema:v1:collateral:ex5-col-dep-04"
+    "schemaId": "urn:a5x:ex5:schema:v1:collateral:ex5-col-dep-0401"
   },
   "title": "Collateral Deposit Status",
   "description": "Collateral Deposit Status",

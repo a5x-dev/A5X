@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-rsk-07",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-rsk-0701",
   "$metadata" : {
     "domain" : "position",
-    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-rsk-07"
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-rsk-0701"
   },
   "title" : "Position Transfer Risk Assessment Status Request Message",
   "description" : "Request message for querying risk assessment status of position transfer operations",

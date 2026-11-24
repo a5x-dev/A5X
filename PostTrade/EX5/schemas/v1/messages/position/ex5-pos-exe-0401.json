@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-exe-04",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-exe-0401",
   "$metadata" : {
     "domain" : "position",
-    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-exe-04"
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-exe-0401"
   },
   "title" : "Position Closed",
   "description" : "Closed positions resulting from the exercise of options or the expiration of futures contracts",

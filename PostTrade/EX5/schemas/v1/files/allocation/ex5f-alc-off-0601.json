@@ -1,9 +1,9 @@
 ﻿{
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-off-06",
+  "$id": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-off-0601",
   "$metadata": {
     "domain": "allocation",
-    "schemaId": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-off-06"
+    "schemaId": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-off-0601"
   },
   "title": "BreakingRulesReport",
   "description": "Breaking Rules Report",

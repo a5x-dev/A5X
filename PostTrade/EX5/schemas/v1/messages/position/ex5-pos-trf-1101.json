@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-11",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-1101",
   "$metadata" : {
     "domain" : "position",
-    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-11"
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-1101"
   },
   "title" : "Position Transfer Status",
   "description" : "Message providing status for position transfer requests following ISO 20022 structure",

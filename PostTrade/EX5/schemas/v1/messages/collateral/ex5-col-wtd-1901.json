@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-wtd-19",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-wtd-1901",
   "$metadata" : {
     "domain" : "collateral",
-    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-wtd-19"
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-wtd-1901"
   },
   "title" : "Collateral Withdrawal Instruction",
   "description" : "Collateral Withdrawal Instruction",

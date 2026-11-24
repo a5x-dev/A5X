@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-09",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-0901",
   "$metadata" : {
     "domain" : "position",
-    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-09"
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-0901"
   },
   "title" : "Position Transfer Request",
   "description" : "Message for Position Transfer Request.",

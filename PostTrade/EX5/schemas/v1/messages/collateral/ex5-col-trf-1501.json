@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-trf-15",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-trf-1501",
   "$metadata" : {
     "domain" : "collateral",
-    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-trf-15"
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-trf-1501"
   },
   "title" : "Collateral Approval Transfer Request",
   "description" : "Message for collateral transfer approval request",

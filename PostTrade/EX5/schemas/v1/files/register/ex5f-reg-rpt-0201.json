@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:register:ex5f-reg-rpt-02",
+  "$id" : "urn:a5x:ex5:schema:v1:register:ex5f-reg-rpt-0201",
   "$metadata" : {
     "domain" : "register",
-    "schemaId" : "urn:a5x:ex5:schema:v1:register:ex5f-reg-rpt-02"
+    "schemaId" : "urn:a5x:ex5:schema:v1:register:ex5f-reg-rpt-0201"
   },
   "title" : "Link Registration file return",
   "description" : "File response for link query (ex5-reg-qry)",

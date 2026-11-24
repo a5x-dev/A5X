@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-mnt-04",
+  "$id": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-mnt-0401",
   "$metadata": {
     "domain": "professional_management",
-    "schemaId": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-mnt-04"
+    "schemaId": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-mnt-0401"
   },
   "title": "Professional Registration and Maintenance Message",
   "description": "Message for registering and maintaining financial market professionals (operators)",

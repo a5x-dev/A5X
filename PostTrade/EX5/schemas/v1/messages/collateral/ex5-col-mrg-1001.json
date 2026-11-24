@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-mrg-10",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-mrg-1001",
   "$metadata" : {
     "domain" : "collateral",
-    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-mrg-10"
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-mrg-1001"
   },
   "title" : "Collateral Margin Response",
   "description" : "Response message for collateral margin information",

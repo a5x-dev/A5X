@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-rsp-06",
+  "$id": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-rsp-0601",
   "$metadata": {
     "domain": "professional_management",
-    "schemaId": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-rsp-06"
+    "schemaId": "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-rsp-0601"
   },
   "title": "Professional Mapping Change Notification and maintenance response",
   "description": "Notification message for changes made to professional mappings by screen interface, by message and maintenance response",

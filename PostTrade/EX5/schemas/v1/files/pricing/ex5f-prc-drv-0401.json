@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#", 
-  "$id" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-drv-04",
+  "$id" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-drv-0401",
   "$metadata" : {
     "domain" : "pricing",
-    "schemaId" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-drv-04"
+    "schemaId" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-drv-0401"
   }, 
   "title" : "DerivativesSimplifiedPriceReport", 
   "description" : "JSON Schema for the 'DerivativesSimplifiedPriceReport'", 

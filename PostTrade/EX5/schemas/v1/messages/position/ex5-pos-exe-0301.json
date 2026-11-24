@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-exe-03",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-exe-0301",
   "$metadata" : {
     "domain" : "position",
-    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-exe-03"
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-exe-0301"
   },
   "title" : "Block Exercise Status",
   "description" : "Message for Block Exercise Status",

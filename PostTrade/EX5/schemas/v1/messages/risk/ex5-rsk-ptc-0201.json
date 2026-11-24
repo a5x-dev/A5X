@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-ptc-02",
+  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-ptc-0201",
   "$metadata" : {
     "domain" : "risk",
-    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-ptc-02"
+    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-ptc-0201"
   },
   "title" : "Participant Risk Calculation Response",
   "description" : "Operational limit calculation details for a participant, including participant identification, trade date, trigger information, individual components, and the total consolidated value.",

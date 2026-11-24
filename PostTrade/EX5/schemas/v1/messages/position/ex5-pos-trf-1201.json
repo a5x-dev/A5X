@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-12",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-1201",
   "$metadata" : {
     "domain" : "position",
-    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-12"
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-trf-1201"
   },
   "title" : "Position Transfer Destination Receiver",
   "description" : "Message for position transfer destination receiver",

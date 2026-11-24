@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-ntf-04",
+  "$id" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-ntf-0401",
   "$metadata" : {
     "domain" : "technical",
-    "schemaId" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-ntf-04"
+    "schemaId" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-ntf-0401"
   },
   "title" : "Incident Notification",
   "description" : "Schema for notifying incidents related to system operations, referencing external schemas for incident identification, severity, category, and status",

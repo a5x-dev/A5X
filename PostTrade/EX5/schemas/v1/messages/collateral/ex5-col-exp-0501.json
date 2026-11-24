@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-exp-05",
+  "$id" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-exp-0501",
   "$metadata" : {
     "domain" : "collateral",
-    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-exp-05"
+    "schemaId" : "urn:a5x:ex5:schema:v1:collateral:ex5-col-exp-0501"
   },
   "title" : "Collateral And Exposure Request",
   "description" : "Message for requesting collateral and exposure information",

@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#", 
-  "$id" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-eqt-03",
+  "$id" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-eqt-0301",
   "$metadata" : {
     "domain" : "pricing",
-    "schemaId" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-eqt-03"
+    "schemaId" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-eqt-0301"
   }, 
   "title" : "EquitiesSimplifiedPriceReport", 
   "description" : "JSON Schema for the 'EquitiesSimplifiedPriceReport'", 

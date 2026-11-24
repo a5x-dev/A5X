@@ -1,9 +1,9 @@
 ﻿{
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-hsh-05",
+  "$id": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-hsh-0501",
   "$metadata": {
     "domain": "allocation",
-    "schemaId": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-hsh-05"
+    "schemaId": "urn:a5x:ex5:schema:v1:allocation:ex5f-alc-hsh-0501"
   },
   "title": "AveragePriceHash",
   "description": "Average Price Hash",

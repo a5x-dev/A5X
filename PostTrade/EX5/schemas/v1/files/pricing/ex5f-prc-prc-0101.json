@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#", 
-  "$id" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-prc-01",
+  "$id" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-prc-0101",
   "$metadata" : {
     "domain" : "pricing",
-    "schemaId" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-prc-01"
+    "schemaId" : "urn:a5x:ex5:schema:v1:pricing:ex5f-prc-prc-0101"
   }, 
   "title" : "PriceReport", 
   "description" : "JSON Schema for the 'PriceReport'", 

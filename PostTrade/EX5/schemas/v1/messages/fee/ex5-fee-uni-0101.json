@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:fee:ex5-fee-uni-01",
+  "$id" : "urn:a5x:ex5:schema:v1:fee:ex5-fee-uni-0101",
   "$metadata" : {
     "domain" : "fee",
-    "schemaId" : "urn:a5x:ex5:schema:v1:fee:ex5-fee-uni-01"
+    "schemaId" : "urn:a5x:ex5:schema:v1:fee:ex5-fee-uni-0101"
   },
   "title" : "Fee Unit Cost Intraday",
   "description" : "Intraday message with the unit cost of the document for a new account identified during the daily registry query",

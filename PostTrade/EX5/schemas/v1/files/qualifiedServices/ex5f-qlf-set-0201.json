@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-set-02",
+  "$id" : "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-set-0201",
   "$metadata" : {
     "domain" : "qualifiedServices",
-    "schemaId" : "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-set-02"
+    "schemaId" : "urn:a5x:ex5:schema:v1:qualifiedServices:ex5f-qlf-set-0201"
   },
   "title" : "Settlement Qualified Services File Schema",
   "description" : "Settlement Qualified Services File Schema",

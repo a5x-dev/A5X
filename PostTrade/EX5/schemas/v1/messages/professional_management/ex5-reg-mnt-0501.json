@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-mnt-05",
+  "$id" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-mnt-0501",
   "$metadata" : {
     "domain" : "professional_management",
-    "schemaId" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-mnt-05"
+    "schemaId" : "urn:a5x:ex5:schema:v1:professional_management:ex5-reg-mnt-0501"
   },
   "title" : "Professional Mapping Registration and Maintenance Message",
   "description" : "Message for registering and maintaining professional mapping (associating professionals with companies)",

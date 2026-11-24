@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-irp-01",
+  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-irp-0101",
   "$metadata" : {
     "domain" : "risk",
-    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-irp-01"
+    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5f-rsk-irp-0101"
   },
   "title" : "Margin Positions Details",
   "description" : "Message providing details about margin and collateral positions",

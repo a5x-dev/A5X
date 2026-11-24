@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-rsp-07",
+  "$id" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-rsp-0701",
   "$metadata" : {
     "domain" : "technical",
-    "schemaId" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-rsp-07"
+    "schemaId" : "urn:a5x:ex5:schema:v1:technical:ex5-tec-rsp-0701"
   },
   "title" : "Session Details Response",
   "description" : "Response message for ex5-tec-req-0501 with details about the response to the session details request, including the configured messages and throttling in the sessions",

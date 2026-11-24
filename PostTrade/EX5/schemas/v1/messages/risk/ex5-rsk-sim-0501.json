@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-05",
+  "$id" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-0501",
   "$metadata" : {
     "domain" : "risk",
-    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-05"
+    "schemaId" : "urn:a5x:ex5:schema:v1:risk:ex5-rsk-sim-0501"
   },
   "title": "Risk Simulation Result",
   "description": "Message for a single Risk Simulation Result",

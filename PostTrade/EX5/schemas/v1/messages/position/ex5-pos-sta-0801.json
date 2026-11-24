@@ -1,9 +1,9 @@
 {
   "$schema" : "http://json-schema.org/draft-07/schema#",
-  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-sta-08",
+  "$id" : "urn:a5x:ex5:schema:v1:position:ex5-pos-sta-0801",
   "$metadata" : {
     "domain" : "position",
-    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-sta-08"
+    "schemaId" : "urn:a5x:ex5:schema:v1:position:ex5-pos-sta-0801"
   },
   "title" : "Position Status Request",
   "description" : "Message for position status request",

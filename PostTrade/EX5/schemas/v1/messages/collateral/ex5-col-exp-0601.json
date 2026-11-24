@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:collateral:ex5-col-exp-06",
+  "$id": "urn:a5x:ex5:schema:v1:collateral:ex5-col-exp-0601",
   "$metadata": {
     "domain": "collateral",
-    "schemaId": "urn:a5x:ex5:schema:v1:collateral:ex5-col-exp-06"
+    "schemaId": "urn:a5x:ex5:schema:v1:collateral:ex5-col-exp-0601"
   },
   "title": "Collateral And Exposure Report",
   "description": "Collateral and exposure report to provide detailed information on collateral valuation and margin calculations",

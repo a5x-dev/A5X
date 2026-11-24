@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:technical:ex5-tec-inf-03",
+  "$id": "urn:a5x:ex5:schema:v1:technical:ex5-tec-inf-0301",
   "$metadata": {
     "domain": "technical",
-    "schemaId": "urn:a5x:ex5:schema:v1:technical:ex5-tec-inf-03"
+    "schemaId": "urn:a5x:ex5:schema:v1:technical:ex5-tec-inf-0301"
   },
   "title": "System Status Information Message",
   "description": "Message for informing system and status including opening and closing information",

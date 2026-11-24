@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-mnt-11",
+  "$id": "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-mnt-1101",
   "$metadata": {
     "domain": "accounts_and_links_management",
-    "schemaId": "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-mnt-11"
+    "schemaId": "urn:a5x:ex5:schema:v1:accounts_and_links_management:ex5-reg-mnt-1101"
   },
   "title": "Link Maintenance Message",
   "description": "Unified message for account link creation, maintenance, and deletion operations supporting multiple links per operation",

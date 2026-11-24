@@ -15,7 +15,7 @@
     },
     "accountIdentificationRequester": {
       "$ref": "../../objects/business/AccountIdentification.json",
-      "description": "Identification of the account that requested the required margin information"
+      "description": "Optional identification of the account that requested the required margin information (present only when the request carries a requester account)"
     },
     "participantIdentificationRequested": {
       "$ref": "../../objects/business/PartyId.json",
@@ -82,7 +82,6 @@
   },
   "required": [
     "participantIdentificationRequester",
-    "accountIdentificationRequester",
     "participantIdentificationRequested",
     "accountIdentificationRequested",
     "tradeDate",

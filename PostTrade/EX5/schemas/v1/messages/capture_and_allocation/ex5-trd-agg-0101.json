@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-agg-01",
+  "$id": "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-agg-0101",
   "$metadata": {
     "domain": "capture_and_allocation",
-    "schemaId": "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-agg-01"
+    "schemaId": "urn:a5x:ex5:schema:v1:capture_and_allocation:ex5-trd-agg-0101"
   },
   "title": "CompressionTrade",
   "$comment": "The example uses the CERT block BL1SBR4S8Y51cboW8A (10 constituents) and lists only its first two.",

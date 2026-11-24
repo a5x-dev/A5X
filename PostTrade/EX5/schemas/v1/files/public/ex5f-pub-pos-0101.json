@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "urn:a5x:ex5:schema:v1:public:ex5f-pub-pos-01",
+  "$id": "urn:a5x:ex5:schema:v1:public:ex5f-pub-pos-0101",
   "$metadata": {
     "domain": "public",
-    "schemaId": "urn:a5x:ex5:schema:v1:public:ex5f-pub-pos-01"
+    "schemaId": "urn:a5x:ex5:schema:v1:public:ex5f-pub-pos-0101"
   },
   "title": "Public Position Limits File Schema",
   "description": "Schema for public position limits file containing position limits information for listed markets",
