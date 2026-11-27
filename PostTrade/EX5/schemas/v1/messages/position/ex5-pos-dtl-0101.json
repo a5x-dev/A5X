@@ -18,8 +18,14 @@
       "description" : "Provides details about the origin participant identification"
     },
     "accountIdentification" : {
-      "$ref" : "../../objects/business/AccountIdentification.json",
-      "description" : "Identification of the account associated with the trade"
+      "type" : "array",
+      "items" : {
+        "$ref" : "../../objects/business/AccountIdentification.json",
+        "description" : "Accounts"
+      },
+      "minItems" : 1,
+      "maxItems" : 60,
+      "description" : "Accounts whose positions are requested (1 to 60 accounts per request)"
     },
     "financialInstruments" : {
       "type" : "array",
@@ -27,7 +33,7 @@
         "$ref" : "../../objects/business/InstrumentIdentification.json"
       },
       "minItems" : 1,
-      "description" : "Array of financial instruments"
+      "description" : "Array of financial instruments. When omitted, the report includes all instruments of the requested accounts"
     },
     "reportType" : {
       "$ref" : "../../objects/business/ExternalCodeList.json",
@@ -36,7 +42,7 @@
       "examples" : [ 1, 2 ]
     }
   },
-  "required" : [ "participantIdentification", "financialInstruments", "reportType" ],
+  "required" : [ "participantIdentification", "accountIdentification", "reportType" ],
   "additionalProperties" : false,
   "examples" : [ {
     "clearingMemberIdentification" : {
@@ -47,9 +53,20 @@
       "id" : 789012,
       "category" : 3
     },
-    "accountIdentification" : {
+    "accountIdentification" : [ {
       "id" : 529876543
+    }, {
+      "id" : 529876544
+    } ],
+    "reportType" : 1
+  }, {
+    "participantIdentification" : {
+      "id" : 789012,
+      "category" : 3
     },
+    "accountIdentification" : [ {
+      "id" : 529876543
+    } ],
     "financialInstruments" : [ {
       "id" : "100000000000001",
       "source" : "8",

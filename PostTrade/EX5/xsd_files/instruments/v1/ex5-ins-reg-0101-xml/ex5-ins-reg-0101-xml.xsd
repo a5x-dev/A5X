@@ -977,11 +977,17 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <!-- Option type (call/put) -->
+    <!-- Option type (call/put) — values per A5X instrument catalog -->
     <xs:simpleType name="OptionType">
+        <xs:annotation>
+            <xs:documentation>
+                1 = Call (right to buy the underlying asset)
+                2 = Put (right to sell the underlying asset)
+            </xs:documentation>
+        </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="CALL"/>
-            <xs:enumeration value="PUTT"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
         </xs:restriction>
     </xs:simpleType>
 

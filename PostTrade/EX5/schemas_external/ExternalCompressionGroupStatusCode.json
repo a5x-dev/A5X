@@ -11,14 +11,6 @@
     "type" : "number",
     "description" : "New",
     "const" : 1
-  }, {
-    "type" : "number",
-    "description" : "Updated",
-    "const" : 2
-  }, {
-    "type" : "number",
-    "description" : "Cancelled",
-    "const" : 3
   } ],
-  "examples" : [ 1, 2, 3 ]
+  "examples" : [ 1 ]
 }

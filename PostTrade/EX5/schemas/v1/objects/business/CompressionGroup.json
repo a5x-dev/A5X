@@ -46,7 +46,7 @@
   "examples": [
     {
       "compressionGroupIdentification": "CG123456789",
-      "compressionGroupStatus": 2,
+      "compressionGroupStatus": 1,
       "compressionGroupReason": 1,
       "previousCompressionTradeIdentification": "TRD20250815001",
       "compressionGroupDatetime": "2025-08-28T13:45:00Z"
